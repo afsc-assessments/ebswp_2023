@@ -1,0 +1,18 @@
+library(PBSadmb)
+library(plotrix)
+library(ggplot2)
+library(RColorBrewer)
+library(doBy)
+library(tidyr)
+library(data.table)
+library(dplyr)
+library(gridExtra)
+source("R/plot-ssb.R")
+source("R/plot-bts.R")
+source("R/plot-eit.R")
+
+.THEME <- theme(panel.grid.major.x = element_blank(), panel.grid.minor.y = element_blank(), panel.grid.major.y = element_blank() )
+.THEME <- .THEME + theme(text=element_text(size=18)) + theme(axis.title.x=element_text(size=24) ,axis.title.y=element_text(size=24))
+.THEME <- .THEME + theme(panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(),panel.grid.minor.y = element_line(colour="grey60", linetype="dashed"), panel.grid.major.y = element_blank() )
+.THEME <- .THEME + theme( panel.background = element_rect(fill="white"), panel.border = element_rect(colour="black", fill=NA, size=1))
+.OVERLAY <- TRUE
