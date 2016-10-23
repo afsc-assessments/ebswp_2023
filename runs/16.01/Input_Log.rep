@@ -17,7 +17,7 @@ RawSurveyCPUE_file
 endyrn_file
 ../dat/endyrn_est.dat
 DoCovBTS
-1
+0
 SrType
 1
 Do_Combined

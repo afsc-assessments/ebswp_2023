@@ -4,7 +4,7 @@ rm(list=ls())
 #-------------------------------------------------------------------------------
 #source("R/compareRuns.r")
 source("../R/prelims.R")
-
+ls()
 # Read in the output of the assessment
 # Read in model results
 i=7
@@ -15,19 +15,27 @@ for (i in 0:4) {
   print(rn)
 }
 mod4$yr_bts
+mod16.01 <- readList("16.01/For_R.rep")
+mod16.02 <- readList("16.02/For_R.rep")
+mod16.03 <- readList("16.03/For_R.rep")
 mod15.1 <- readList("15.1/For_R.rep")
-mod15.1 <- readList("15.1/For_R.rep")
-mod15.1 <- readList("../prg/test/For_R.rep")
-mod0    <- readList("../prg/arc/mod2.1_for_R.rep")
-mod1 <- readList("m1/For_R.rep")
-mod0 <- readList("m0/For_R.rep")
-mod5 <- readList("m5/For_R.rep")
-mod6 <- readList("m6/For_R.rep")
-mod7 <- readList("m7/For_R.rep")
-source("R/plot-srr.R")
+mod14.1 <- readList("14.1/For_R.rep")
+mod0.0 <- readList("0.0/For_R.rep")
+mod0    <- readList("../../prg/arc/mod2.1_for_R.rep")
 modset0 <- list( Base = mod0)
-modset1 <- list( Base = mod15.1,Last_yr = mod0)
+modset1 <- list( Base = mod14.1,Last_yr = mod0)
+modset1 <- list( Base = mod0.0,Last_yr = mod0)
+modset1 <- list( "15.1" = mod15.1,Last_yr = mod0.0)
+modset2 <- list( "15.1" = mod15.1, "16.01" = mod16.01, "16.02" = mod16.02, "16.03" = mod16.03)
+modset2 <- list( "16.02" = mod16.01, "16.03" = mod16.03)
+modset2 <- list( "16.01" = mod16.01, "16.02" = mod16.02)
+, 
+  "16.01" = mod16.01, 
+  )
 plot_ssb(modset1,xlim=c(1980,2016),alpha=.3)
+plot_ssb(modset2,xlim=c(1980,2016),alpha=.13)
+plot_ssb(modset1,xlim=c(1980,2016),alpha=.13)
+,xlim=c(2000,2016))
 plot_bts(modset1)
 
 modset1 <- list( Base = mod0 )
