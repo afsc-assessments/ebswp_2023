@@ -3,7 +3,7 @@ rm(list=ls())
 # Visual compare runs
 #-------------------------------------------------------------------------------
 #source("R/compareRuns.r")
-source("R/prelims.R")
+source("../R/prelims.R")
 
 # Read in the output of the assessment
 # Read in model results
