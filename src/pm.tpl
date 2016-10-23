@@ -2563,7 +2563,12 @@ FUNCTION Surv_Likelihood
 
     //dvar_vector srv_tmp = log(ot_bts + 1e-8)-log(et_bts + 1e-8);
     // Note not logged...
-    dvar_vector srv_tmp = (ot_bts + 1e-8)-(et_bts + 1e-8);
+
+    dvar_vector srv_tmp(1,n_bts_r);
+    if (do_bts_bio)
+      srv_tmp = (ob_bts + 1e-8)-(eb_bts + 1e-8);
+		else
+      srv_tmp = (ot_bts + 1e-8)-(et_bts + 1e-8);
 
     // Covariance on observed population (numbers) switch
     if (DoCovBTS)
