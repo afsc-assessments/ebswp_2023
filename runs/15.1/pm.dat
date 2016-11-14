@@ -1,9 +1,9 @@
 Model_15.1
-../dat/pm2016_2.0.dat
+../dat/pm2016_ddc_3.0m.dat
 ../dat/Selchng.dat
-pm.ctl
+../dat/15.1.ctl
 ../dat/pm_fmsy_alt.dat
 ../dat/covN2016.dat
-../dat/wt.dat
+../dat/wt2016.dat
 ../dat/surveycpue.dat
 ../dat/endyrn_est.dat

@@ -3,69 +3,218 @@ rm(list=ls())
 # Visual compare runs
 #-------------------------------------------------------------------------------
 #source("R/compareRuns.r")
+R
 source("../R/prelims.R")
 ls()
 # Read in the output of the assessment
 # Read in model results
 i=7
 for (i in 0:4) {
-  rn=paste0("m",i,"/For_R.rep")
-  mn=paste0("mod",i)
+for (i in c(".1",1,5,50,100,200,420,500)) {
+#--- get M profile------
+for (i in 10:30) {
+  rn=paste0("16.1m/arc/r_R",i,".rep")
+  mn=paste0("m",i)
   assign(mn,readList(rn))
   print(rn)
 }
+pset <- list( p.1=p.1,p1 = p1, p5 = p5, p50 = p50, p100 = p100, p200 = p200,p420=p420,p500=p500)
+AgeFits("t5/arc/p_R420.rep")
+AgeFits(p420)
+AgeFits("t5/arc/p_R1.rep")
+AgeFits(labrep.file="16.1/For_R.rep",case_label="2016 Assessment")
+AgeFits(labrep.file="16.1/For_R.rep",case_label="2016 Assessment")
+AgeFits(labrep.file="b0.5/For_R.rep",case_label="2016 Assessment")
+AgeFits(labrep.file="b0.1/For_R.rep",case_label="2016 Assessment")
+AgeFits(labrep.file="b1.0/For_R.rep",case_label="2016 Assessment")
+AgeFits(labrep.file="b0.0/For_R.rep",case_label="2016 Assessment")
+AgeFitsSrv(labrep.file="b0.0/For_R.rep",case_label="2016 Assessment")
+AgeFits(labrep.file=paste("t5/arc/p_R1.rep",sep=""),case_label="2016 Assessment")
+AgeFits
+ls()
+modsc$FW_fsh
+mod16.02$FW_fsh
+df <- data.frame(wt=c(.1,1,5,50,100,200,420,500),FW=1:8 )
+df <- data.frame(wt=c(0,.1,.5,1,50),FW_fsh=1:5,FW_bts=1:5 )
+for (i in 1:5) 
+  {
+    df$FW_fsh[i] <- scset[[i]]$FW_fsh
+    df$FW_bts[i] <- scset[[i]]$FW_bts
+  }
+df
+ggplot(df,aes(x=wt,y=FW)) + geom_line()
+length(pset)
+getwd()
 mod4$yr_bts
+modc <- readList("c/For_R.rep")
+modca <- readList("ca/For_R.rep")
+modcab <- readList("cab/For_R.rep")
+modcabe <- readList("cabe/For_R.rep")
+cabeset <- list( c = modc, ca = modca, cab = modcab, cabe= modcabe)
+mod16.01 <- readList("16.01/For_R.rep")
+mod16.01 <- readList("16.01/For_R.rep")
+mod16.01 <- readList("16.01/For_R.rep")
 mod16.01 <- readList("16.01/For_R.rep")
 mod16.02 <- readList("16.02/For_R.rep")
-mod16.03 <- readList("16.03/For_R.rep")
+modsc <- readList("sc/For_R.rep")
+
+mod0.0 <- readList("0.0/For_R.rep")
 mod15.1 <- readList("15.1/For_R.rep")
+mod16.1 <- readList("16.1/For_R.rep")
+modlst <- list("16.1"=mod16.1,  "15.1 2016"=mod15.1,"15.1 2015"=mod0.0) 
+modlst <- list("15.1 2015"=mod0.0, "15.1 2016"=mod15.1,"16.1"=mod16.1  )
+modlst <- list("16.1"=mod16.1,  "15.1 2016"=mod15.1,"15.1 2015"=mod0.0) 
+plot_srr(modlst,alpha=.4,xlim=c(0,5000),ylim=c(0,90000))
+plot_ssb(modlst,xlim=c(2005,2016),alpha=.3)
+plot_recruitment(modlst,xlim=c(2004.5,2016.5))
+plot_ssb(modlst,xlim=c(2004.5,2016.5),alpha=.3)
+plot_recruitment(modlst,xlim=c(1963.5,2016.5))
+
+srrset4 <- list("base condition"=mod16.1,  "Mod condition"=mod16.1a, "Low condition"=mod16.1b  )
+mod16.1a <- readList("16.1a/For_R.rep")
+mod16.1b <- readList("16.1b/For_R.rep")
+srrset1<- list("base condition"=mod16.1) 
+srrset2 <- list("base condition"=mod16.1,  "Mod condition"=mod16.1a )
+srrset3 <- list("base condition"=mod16.1,  "Low condition"=mod16.1b) 
+srrset4 <- list("base condition"=mod16.1,  "Mod condition"=mod16.1a, "Low condition"=mod16.1b  )
+plot_srr(srrset1,alpha=.4,xlim=c(0,5000),ylim=c(0,90000))
+plot_srr(srrset2,alpha=.4,xlim=c(0,5000),ylim=c(0,90000))
+plot_srr(srrset3,alpha=.4,xlim=c(0,5000),ylim=c(0,90000))
+plot_srr(srrset4,alpha=.4,xlim=c(0,5000),ylim=c(0,90000))
+plot_srr(srrset3,alpha=.4,xlim=c(0,5000))
+,ylim=c(0,190000))
+plot_srr(srrset4,alpha=.3,xlim=c(0,5000),ylim=c(0,90000))
+mod16.1 <- readList("16.1/For_R.rep")
+mod16.1g <- readList("16.1g/For_R.rep")
+modb0.0 <- readList("b0.0/For_R.rep")
+modb0.1 <- readList("b0.1/For_R.rep")
+modb0.5 <- readList("b0.5/For_R.rep")
+modb1.0 <- readList("b1.0/For_R.rep")
+modb100 <- readList("16.02/For_R.rep")
+base <- list("Base"=mod16.1)
+, "Geostatistical"=mod16.1g)
+geo <- list("Base"=mod16.1, "Geostatistical"=mod16.1g)
+ , "Mod. constraint"=modb0.5 , "Little constraint"=modb1.0 , "Diffuse"=modb100) 
+scset <- list("Fixed Sel"=modb0.0, "Constrained"=modb0.1 , "Mod. constraint"=modb0.5 , "Little constraint"=modb1.0 , "Diffuse"=modb100) 
+scset <- list("base"=modb100,  "Mod. constraint"=modb0.5 )
+, "Little constraint"=modb1.0 , "Diffuse"=modb100) 
+names(scset)/
+plot_ssb(geo,xlim=c(1990,2017))
+plot_ssb(geo,xlim=c(1990,2017))
+plot_ssb(shit,xlim=c(2005,2016),alpha=.25)
+plot_ssb(cabeset,xlim=c(2008,2016),alpha=.25)
+plot_ssb(cabeset,xlim=c(1990,2016),alpha=.25)
+plot_ssb(scset)
+plot_bts(cabeset)
+plot_eit(cabeset,ylim=c(0,16000))
+plot_bts(cabeset,ylim=c(0,18000))
+plot_recruitment(scset)
+plot_ssb(scset)
+plot_recruitment(base,xlim=c(1963.5,2016.5))
+plot_recruitment(base,xlim=c(1963.5,2016.5))
+plot_mnage(scset)
+plot_mnage(base)
+dt <- data.table(yr=mod16.1$SSB[1:52,1],ssb= mod16.1$SSB[1:52,2], r=mod16.1$R[2:53,2] )
+dt$rs <- log(dt$r/dt$ssb)
+ggplot(dt,aes(x=yr,y=rs)) + geom_point(size=4,col="red") + geom_line() +geom_smooth() + .THEME + ylab("ln(Recruits/spawning biomass)") + xlab("Year")
+ggplot(dt,aes(x=ssb,y=rs)) + geom_point(size=4,col="red") + geom_path() +geom_smooth(method="lm") + .THEME + ylab("ln(Recruits/spawning biomass)") + xlab("Spawning biomass (kt)")
+ggplot(dt,aes(x=ssb,y=rs)) + geom_text(size=5,col="red",label=dt$yr) + geom_path(size=.5) +geom_smooth(method="lm") + .THEME + ylab("ln(Recruits/spawning biomass)") + xlab("Spawning biomass (kt)")
+AgeFits(modb100,rec_age=1,case_label="Base 16.01")
+# Wt age fig for survey scaling
+wdf <- read.table("wtage.dat",header=TRUE)
+ggplot(wdf,aes(x=fsh,y=srv,col=as.factor(age))) + .THEME + geom_abline(intercept=0,slope=1) +
+geom_point(size=3) + xlab("Scaled survey weights at age and year (kg)") + ylab("Fishery weights at age (kg)") +
+ scale_colour_discrete(guide=FALSE) #+ theme(legend.position="none")
+getwd()
+
+ts <- data.table(read.table("16.1/F40_t.rep",header=TRUE))
+names(ts)
+ggplot(ts,aes(x=Year,y=Implied_SPR)) + .THEME + geom_line(size=2.7,color="salmon")  + ylab("Realized SPR") + geom_hline(yintercept=mean(ts$Implied_SPR)) 
+ggplot(ts,aes(x=Year,y=B.Bmsy)) + .THEME + geom_line(size=2.7,color="salmon")  + xlim(c(1990,2016)) + ylim(c(0,1.8)) + geom_hline(yintercept=1) + ylab("B/Bmsy")
 mod14.1 <- readList("14.1/For_R.rep")
 mod0.0 <- readList("0.0/For_R.rep")
+modt1 <- readList("t1/For_R.rep")
+modt2 <- readList("t2/For_R.rep")
+modt3 <- readList("t3/For_R.rep")
+modt4 <- readList("16.02/For_R.rep")
+modset1 <- list( s10 = modt1, s5 = modt2, s2 = modt3, s1= modt4)
+modset1 <- list( s10 = modt1, s5 = modt2, s2 = modt3, s1= modt4)
+modset1 <- list( s10 = modt1, s5 = modt2, s2 = modt3, s1= modt4)
+FWpset[[1]]$FW_fsh
+plot_sel(modt4)
+plot_ssb(pset)
+plot_bts(pset)
+modt4
+
+plot_ssb(modset1)
+modset1 <- list( Base = modt1)
+plot_mnage(modset1)
+plot_mnage(modset1)
+plot_mnage(list(modt4))
+plot_sel(modt3)
+plot_sel(modt2)
+plot_sel(mod15.1)
+#Selectivity
+#mod0.0 <- readList("0.0/For_R.rep")
+#mod16.03 <- readList("16.03/For_R.rep")
 mod0    <- readList("../../prg/arc/mod2.1_for_R.rep")
-modset0 <- list( Base = mod0)
-modset1 <- list( Base = mod14.1,Last_yr = mod0)
+
+modset0 <- list( "2015 Assessment" = mod0.0, Current = modcabe)
+ms0 <- list( "2015 Assessment" = mod0.0)
+modset1 <- list( "14.1" = mod14.1, "15.1" = mod15.1)
 modset1 <- list( Base = mod0.0,Last_yr = mod0)
 modset1 <- list( "15.1" = mod15.1,Last_yr = mod0.0)
-modset2 <- list( "15.1" = mod15.1, "16.01" = mod16.01, "16.02" = mod16.02, "16.03" = mod16.03)
-modset2 <- list( "16.02" = mod16.01, "16.03" = mod16.03)
+modset2 <- list( "14.1" = mod14.1,"15.1" = mod15.1, "16.01" = mod16.01, "16.02" = mod16.02)
 modset2 <- list( "16.01" = mod16.01, "16.02" = mod16.02)
-, 
-  "16.01" = mod16.01, 
-  )
+
+modset2 <- list( "16.02" = mod16.02, "sc" = modsc)
+cbind(mod15.1$ot_bts, mod16.01$ot_bts, mod16.02$ot_bts, mod16.03$ot_bts)
+cbind(mod15.1$ob_bts, mod16.01$ob_bts, mod16.02$ob_bts, mod16.03$ob_bts)
+cbind(mod15.1$eb_bts, mod16.01$eb_bts, mod16.02$eb_bts, mod16.03$eb_bts)
+plot_ssb(modset0,xlim=c(1980,2016),alpha=.3)
 plot_ssb(modset1,xlim=c(1980,2016),alpha=.3)
-plot_ssb(modset2,xlim=c(1980,2016),alpha=.13)
+plot_ssb(modset2,xlim=c(2000,2016),alpha=.13)
 plot_ssb(modset1,xlim=c(1980,2016),alpha=.13)
-,xlim=c(2000,2016))
-plot_bts(modset1)
-
-modset1 <- list( Base = mod0 )
-modset1 <- list( Base = mod0, Prior_only = mod5)
-modset1 <- list( Base = mod1, New = mod15.1)
-modset2 <- list( Bholt=mod6, Bholt_Prior_only=mod7)
-
-modset2 <- list( Base = mod0, Diff_Prior= mod5, Bholt=mod6, Bholt_Diff_prior=mod7)
-
-plot_srr(modset1,alpha=.2,xlim=c(0,3000),leglabs=c("Base","Less wt \n on \"data\"")   ,ylim=c(0,30000))
-plot_srr(modset2,alpha=.2,xlim=c(0,5000),leglabs=c("BevHolt","Less wt \n on \"data\""),ylim=c(0,90000))
+plot_bts(modset0)
+plot_bts(modset1,biomass=FALSE,ylab="Bottom trawl survey numbers")
+plot_bts(modset2,biomass=FALSE,ylab="Bottom trawl survey numbers")
+plot_bts(modset2)
+,biomass=FALSE,ylab="Bottom trawl survey numbers")
+plot_eit(modset2)
+names(mod0.0)
+mod0.0$steepness
+modcabe$steepness
+plot_srr(ms0,alpha=.2,xlim=c(0,5000),ylim=c(0,80000))
+plot_srr(list(modcabe),alpha=.2,xlim=c(0,5000),ylim=c(0,80000))
+plot_srr(modset0,alpha=.2,xlim=c(0,5000),ylim=c(0,80000))
 plot_srr(modset1,alpha=.2,xlim=c(0,5000),ylim=c(0,80000))
 plot_srr(modset2,alpha=.2,xlim=c(0,5000),ylim=c(0,80000))
 ,Model_1= mod1, Model_2= mod2, Model_3= mod3, Model_4= mod4)
 
+# AVO Figure (also one in excel...)
+avo <- data.table(pred=mod16.1$pred_avo,obs=mod16.1$obs_avo,yr=2006:2015)
+ggplot(avo,aes(x=yr,y=obs)) + geom_errorbar(ymin=avo$obs-avo$obs*.25,ymax=avo$obs+avo$obs*.25) + geom_line(aes(x=avo$yr,y=avo$pred)) + .THEME + geom_point(size=4,col="red") + xlab("Year") + 
+             scale_x_continuous(breaks=seq(2006,2016,1)) + ylab("AVO index") + ylim(c(0,1.5))
+
 at <-read.table("at_srv.dat",header=T)
-ggplot(at,aes(x=yr,y=at)) + geom_smooth() + .THEME + geom_point(size=4) + xlab("Year") + 
+ggplot(at,aes(x=yr,y=at)) + geom_smooth() + .THEME + geom_point(size=4,color="red") + xlab("Year") + 
              scale_x_continuous(breaks=seq(1982,2016,2)) + ylab("Survey biomass (millions of t)") + ylim(c(0,6.5))
              
 
+
+cbind(mod16.03$ot_bts, mod15.1$ot_bts)
+cbind(mod16.01$ob_bts, mod15.1$ob_bts)
+cbind(mod14.1$ob_bts, mod15.1$ob_bts)
 h_prior
 q_prior        
-surv_like     
-cpue_like      
-avo_like      
-sel_like       
-sel_like_dev  
-age_like       
-len_like       
-rec_like       
+m11$surv_like     
+m11$cpue_like      
+m11$avo_like      
+m11$sel_like       
+m11$sel_like_dev  
+m11$age_like       
+m11$len_like       
+m11$rec_like       
  repl_yld       
  repl_SSB       
  Yr             
@@ -95,8 +244,18 @@ names(mod4)
 .OVERlAY=TRUE
 .OVERlAY=FALSE
 lstOuts <- list( Model_0= mod0,Model_1= mod1, Model_2= mod2, Model_3= mod3, Model_4= mod4)
+retouts <- list( r0= r_16.1_0, r1= r_16.1_1, r2= r_16.1_2, r3= r_16.1_3, r4= r_16.1_4, r5= r_16.1_5, r6= r_16.1_6, r7= r_16.1_7, r8= r_16.1_8, r9= r_16.1_9, r10= r_16.1_10)
+mouts <- list( m10= m10,   m11= m11,   m12= m12,   m13= m13,   m14= m14,   m15= m15,   m16= m16,   m17= m17,   m18= m18,   m19= m19,   m20= m20,   m21= m21,   m22= m22,   m23= m23,   m24= m24,   m25= m25,   m26= m26,   m27= m27,   m28= m28,   m29= m29,   m30= m30 )
+plot_ssb(mouts,xlim=c(2000,2016),alpha=.2)
+names(mouts)
+= r_16.1_1, r2= r_16.1_2, r3= r_16.1_3, r4= r_16.1_4, r5= r_16.1_5, r6= r_16.1_6, r7= r_16.1_7, r8= r_16.1_8, r9= r_16.1_9, r10= r_16.1_10)
+ls()
 plot_ssb(modset1,xlim=c(1980,2015),alpha=.3)
-plot_ssb(lstOuts,xlim=c(1980,2015))
+plot_ssb(lstOuts,xlim=c(1995,2016),alpha=.3)
+plot_recruitment(lstOuts,xlim=c(2000,2017))
+p <- plot_recruitment(modset0,xlim=c(2004.5,2015.5)) 
+p
+print(p  + scale_fill_brewer(palette = "Accent") + scale_color_brewer(palette = "Accent") + geom_hline(yintercept=mean(modcabe$R[,2])) )
 plot_bts(modset1)
 plot_bts(lstOuts,biomass=FALSE,ylab="Bottom trawl survey numbers")
 plot_eit(lstOuts)
@@ -107,6 +266,10 @@ lstOuts <- list( Model_2= mod2,Model_3= mod3)
 lstOuts <- list( Model_3= mod3, Model_4= mod4)
 lstOuts <- list( Model_0= mod0,Model_1= mod1, Model_2= mod2, Model_3= mod3, Model_4= mod4)
 lstOuts <- list( Model_1= mod1, Model_2= mod2, Model_3= mod3, Model_4= mod4, Model_5= mod5, Model_6= mod6, Model_7= mod7 )
+# -- Get likelihoods--------------
+dt <- .get_like_df(mouts)
+plot_lik
+ggplot(dt,aes(x=Model,y=NLL)) + geom_line() + .THEME
 tab     <- cbind(lstOuts[[1]]$Like_Comp_names,do.call(cbind,lapply(lstOuts,function(x){round(x[["Like_Comp"]],2)})))
 tab
 write.csv(tab,file=file.path(inputPath,"LikelihoodTable2015.csv"),row.names=F)
@@ -132,31 +295,23 @@ p1 <- ggplot() + scale_y_continuous(limits=c(0,6000)) + ylab("Spawning biomass")
 p1
 #Recruits==========================================================
 mytheme = mytheme + theme(axis.text.x = element_text(angle=90, hjust=1, vjust=.5))
-rdf <- data.frame(mod1$R)
-rdf <- cbind(rdf,"2015")
+rdf <- data.frame(modcabe$R)
+rdf <- cbind(rdf,"16.02")
 names(rdf) <- c("yr","R","se","lb","ub","case")
 rdf  <- filter(rdf , yr>1990,yr<2016)
 mnR <- mean(rdf$R)
 mnR
-rdf0 <- data.frame(mod2$R)
-rdf0 <- cbind(rdf0,"mod2")
+rdf0 <- data.frame(mod0.0$R)
+rdf0 <- cbind(rdf0,"15.1")
 names(rdf0) <- c("yr","R","se","lb","ub","case")
 rdf0 <- filter(rdf0, yr>1990,yr<2016)
 rdf <- rbind(rdf0,rdf)
 tbl_df(rdf)
 dodge <- position_dodge(width=0.8)
+mytheme <- .THEME
 ggplot(rdf,aes(x=yr,y=R,fill=case)) + xlab("Year class") + ylab("Age 1 recruits (10e6)") + 
-       geom_bar(width=0.75,position="dodge") + #,stat="identity",aes(fill=case)) + 
+       geom_bar(width=0.75,position="dodge" ,stat="identity",aes(fill=case)) + 
        geom_errorbar(aes(ymin=lb,ymax=ub),width=.3,colour="blue",position=dodge) + mytheme + geom_hline(aes(yintercept=mnR),linetype="dashed")
-
-ggplot(rdf, aes(x=yr,y=R)) + 
-  geom_point(position=dodge,na.rm=TRUE) + 
-  geom_errorbar(data=rdf,position=dodge,aes(ymax=ub,ymin=lb), width=0.25)  + mytheme
-ggplot(cabbage_exp, aes(x=Date, y=Weight, fill=Cultivar)) +
-        geom_bar(position="dodge") +
-        geom_errorbar(aes(ymin=Weight-se, ymax=Weight+se),
-                      position=position_dodge(0.9), width=.2)
-
 
   #scale_y_continuous(limits=c(0,1800))+
      ggtitle("2014") + mytheme
@@ -192,11 +347,11 @@ p1
 
 mod7$M
 mod2$M_equil
-IndexFit(mod15.1,yf=1980,yl=2015,f=1,main="Model 1",ylab="Survey biomass (t)")
+IndexFit(mod16.02,yf=1980,yl=2015,f=1,main="Model 1",ylab="Survey biomass (t)")
 IndexFit(mod5,yf=1980,yl=2015,f=1,main="Model 5",ylab="Survey biomass (t)")
 IndexFit(mod7,yf=1980,yl=2015,f=1,main="Model 4",ylab="Survey biomass (t)")
 
-AgeFits(mod1,rec_age=1,case_label="Model 1 assessment")
+AgeFits(mod0.0,rec_age=1,case_label="Model 1 assessment")
 AgeFits(mod7,rec_age=1,case_label="Model 6 assessment")
 AgeFits(mod4,rec_age=1,case_label="Model 4 assessment")
 IndexFit(mod2,yf=1980,yl=2015,f=1,main="Model 2",ylab="Survey biomass (t)")
@@ -246,39 +401,44 @@ ggplot(srv_sel) + geom_line(aes(x=Age,y=Selectivity),size=2) +mytheme
 # Retro
 # get all retrospectives
 #=====================
+#r_R11.rep
 setwd(outdir)
 outdir
 # Read in retro results
-for (i in 0:15) {
-  rn=paste0("retro/r_",i,".rep")
-  mn=paste0("retro",i)
-  assign(mn,readList(rn))
-  print(rn)
-}
+j=16.1
+i=0
 retouts <- list()
-retouts <- list( R0=retro0, R1= retro1, R2= retro2, 
-  R3= retro3, 
-  R4= retro4 ,
-  R5= retro5 ,
-  R6= retro6 ,
-  R7= retro7 ,
-  R8= retro8 ,
-  R9= retro9 ,
-  R10= retro10 
-  )  
-tab = list(R0=mod1$SSB)
-getwd()
-for (i in 1:10) { tab=cbind(tab,retouts[[i]]$SSB)}
+  for (i in 0:10) {
+    rn=paste0(j,"/arc/r_R",i,".rep")
+    mn=paste0("r_",j,"_",i)
+    assign(mn,readList(rn))
+    print(rn)
+    #retouts[[mn]] <- list(get(mn))
+  }
+  names(retouts[[1]])
+  names(retouts)
+plot_retro(retouts)
+plot_ssb_rel(retouts,xlim=c(1995,2016),ylim=c(0.5,1.5),legend=FALSE,alpha=.2)
+plot_ssb(retouts,xlim=c(1995,2016),legend=FALSE,alpha=.2)
 
-#pdf(paste(Figdir,"Retro_Mods.pdf",sep=""),width=9, height=6)
-names(mod1$SSB)
-rn = "mod1"
-dim(tdf)
+rc = retouts[[1]]$SSB[,2]
+rc
+ntmp=0
+rho=0
+for (i in 1:10) {
+  dtmp <- retouts[[i]]$SSB[,2]
+  lr   <- length(dtmp)
+  ntmp <- ntmp+(dtmp[lr] - rc[lr])/rc[lr]
+  rho  <- rho + (-(dtmp[i]-rc[i]))/rc[lr]
+  print(paste(i,ntmp/i,rho))
+}    
+getwd()
+tab
 library(grid)
 p1 <- ggplot() + scale_y_continuous(limits=c(0,590000)) + ylab("Spawning biomass") + xlab("Year") +  mytheme + geom_line(data=bdf,aes(x=yr,y=SSB),size=4) +
            geom_ribbon(data=bdf ,aes(x=yr,y=SSB,ymin=lb,ymax=ub),fill="tan",col="grey",alpha=.6)  + guides(fill=FALSE,alpha=FALSE,col=FALSE) 
-for (i in 1:15) {
-  rn=paste("retro",i,sep="");
+for (i in 0:10) {
+  rn=paste("r_1_",i,sep="");
   tdf <- data.frame(get(rn)$SSB); names(tdf) <- c("yr","SSB","SE","lb","ub"); tdf <- filter(tdf,yr>1977)
   p1 <- p1 + geom_line(data=tdf,aes(x=yr,y=SSB),col=i,linetype=i,size=1.25)
   #p1 <- p1 + geom_segment(data=tdf,aes(x=yr,xend=yr,yend=SSB,y=SSB),arrow=arrow(angle=90,length=unit(.2,"cm")),size=2,col=i)
@@ -292,41 +452,12 @@ p1
 # Color blind palette
 # cb_palette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 # p1 <-    p1 + scale_fill_manual(values=cb_palette)
-df <- data.frame(mod1$SSB )
-names(df) <- c("yr","SSB","SE","lb","ub")
-bdf <- filter(df,yr>1977,yr<=2016)
-bdf2<- filter(df,yr>1977)
-bdf
-bdft <- bdf
-for (i in 1:10) bdft <- cbind(bdft,rep(NA,39))
-names(bdft)[6:15] <- paste0("SSB_",2014:2005)
-for (i in 1:10) bdft[1:(39-i),i+5] <- get(paste0("retro",i))$SSB[14:(52-i),2]
-bdft
-for (i in 1:10) bdft[,i+5] <- bdft[,i+5]/bdf$SSB
-p2 <- ggplot(bdft,aes(x=yr,y=SSB)) + scale_y_continuous(limits=c(.25,1.75)) + ylab("Relative spawning biomass") + xlab("Year") +  mytheme  
-for (i in 1:10) {
-  tdf <- data.frame(cbind(bdft[1],SSB=bdft[5+i]))[1:(38-i),]
-  names(tdf) <- c("yr", "SSB")
-  p2 <- p2 + geom_line(data=tdf, aes(x=yr,y=SSB),col=i,size=1.5)
-  tdf <- tdf[dim(tdf)[1],]
-  p2 <- p2 + geom_point(data=tdf,aes(x=yr,y=SSB),size=4,col=i)
-}    
-p2 <-p2 +geom_hline(aes(yintercept=1),size=3,linetype="dotted")
-p2 <-p2 +geom_hline(aes(yintercept=1),size=1,col="grey")
-p2
-grid.arrange(p1,p2,nrow=2)
-# Mohn's rho
-rc = retro0$SSB[,2]
-ntmp=0
-rho=0
-for (i in 1:15) {
-  dtmp=get(paste0("retro",i))$SSB
-  lr=length(dtmp[,1])
-  ntmp= ntmp+(dtmp[lr,2] -rc[lr])/rc[lr]
-  #rho = rho + (-(ALL[i,2]-ALL[*tsyrs-i,2+i]))/ALL[(j)*tsyrs-i,2]
-  rho = rho + (-(dtmp[i,2]-rc[i]))/rc[lr]
-  print(paste(i,ntmp/i,rho))
-}    
+df <- data.frame(r_1_0$SSB )
+plot_retro(rn="r_1",main="1-yr blocks")
+plot_retro(rn="r_420",main="1-yr blocks, Francis-weights ~ 1.0")
+plot_retro("r_420")
+#grid.arrange(p1,p2,nrow=2)
+
 
 #============================================================kkkkkkkkkk
 # Model selected for 2013
@@ -525,7 +656,7 @@ for (i in 1:9) {
 }
 pdf(paste(Figdir,"Retro_Mod2.pdf",sep=""),width=7, height=9)
 par(mfrow=c(2,1))
-p.biom.pol(retro0,typ="SSB",main="Model 2",new=F,fy=1977,ly=2012)
+p.biom.pol(retro0,typ="SSB",main="Model 2",new=F,fy=1977,ly=2017)
 #plot(retro0$SSB[,1],retro0$SSB[,2],ylim=c(0,550),      ylab="Spawning biomass (kt)",type="l",lwd=2,xlab="",lty=2)
 ssb=1966:2013
 retro0$R
@@ -537,13 +668,6 @@ for (i in 0:10) {
   ssb=rbind(ssb,c(t(get(rn)$SSB[,2]),rep(NA,i)))
   rrr=rbind(rrr,c(t(get(rn)$R[,2]),rep(NA,i)))
   }
-write.csv(ssb,"Atka_SSB.csv")
-write.csv(rrr,"Atka_rec.csv")
-
-system("atka_ssb.csv")
-?write.csv
-rrr
-rep(NA,2)
 plot(retro0$SSB[,1],rep(0,length(retro0$SSB[,1])),
      ylim=c(-.7,.7),
      ylab="Relative difference from terminal year",

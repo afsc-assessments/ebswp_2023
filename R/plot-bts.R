@@ -67,7 +67,7 @@ plot_bts <- function(M, xlab = "Year", ylab = "Bottom trawl survey biomass", yli
     if (length(M) == 1)
     {
         p <- p + geom_line(aes(x = year, y = pre)) +geom_point(aes(x=year, y=obs)) + 
-            geom_ribbon(aes(x = year, ymax = ub, ymin = lb), alpha = alpha)
+            geom_errorbar(aes(x = year, ymax = ub, ymin = lb))
     } else {
         p <- p + geom_line(aes(x = year, y = pre, col = Model),size=1.2) + geom_point(aes(x=year, y=obs)) + 
             geom_errorbar(aes(x = year, ymax = ub, ymin = lb))

@@ -39,7 +39,7 @@
 #' @return Plot of model estimates of spawning stock biomass 
 #' @export
 #' 
-plot_ssb <- function(M, xlab = "Year", ylab = "Female spawning biomass (kt)", ylim = NULL, xlim=NULL, alpha = 0.1)
+plot_ssb <- function(M, xlab = "Year", ylab = "Female spawning biomass (kt)", ylim = NULL, xlim=NULL, alpha = 0.1,legend=TRUE)
 {
     xlab <- paste0("\n", xlab)
     ylab <- paste0(ylab, "\n")
@@ -67,6 +67,9 @@ plot_ssb <- function(M, xlab = "Year", ylab = "Female spawning biomass (kt)", yl
             geom_ribbon(aes(x = year, ymax = ub, ymin = lb, fill = Model), alpha = alpha)
     }
     
+    if (!legend)
+        p <- p + theme(legend.position="none")
+
     if(!.OVERLAY) p <- p + facet_wrap(~Model)
     print(p + .THEME)
 }

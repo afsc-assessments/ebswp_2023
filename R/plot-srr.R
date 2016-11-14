@@ -62,7 +62,7 @@
 #' @export
 #' 
 plot_srr <- function(M, ylab = "Recruits (age 1, millions)", xlab = "Female spawning biomass (kt)", 
-                     ylim = NULL, xlim=NULL, alpha = 0.05,ebar="FALSE",leglabs=NULL)
+                     ylim = NULL, xlim=NULL, alpha = 0.05,ebar="FALSE",leglabs=NULL,coverlap=FALSE)
 {
     xlab <- paste0("\n", xlab)
     ylab <- paste0(ylab, "\n")
@@ -72,7 +72,7 @@ plot_srr <- function(M, ylab = "Recruits (age 1, millions)", xlab = "Female spaw
     p <- ggplot(mdf) + labs(x = xlab, y = ylab)
     
     if (!is.null(xlim))
-        p <- p + xlim(xlim[1], xlim[2])        
+        p <- p + xlim(xlim)        
 
     if (is.null(ylim))
     {
@@ -89,13 +89,16 @@ plot_srr <- function(M, ylab = "Recruits (age 1, millions)", xlab = "Female spaw
         p <- p + geom_line(aes(x = ssb, y = rhat, col = Model),size=1.2) +
             geom_ribbon(aes(x = ssb, ymax = ub, ymin = lb, fill = Model), alpha = alpha)
     }
+    #if (!is.null(xlim)) #p <- scale_x_continuous(expand=c(0,0)) + p <- coord_cartesian(xlim=xlim) 
+    #if (!is.null(ylim)) p <-  coord_cartesian(ylim=ylim) #p <- scale_y_continuous(expand=c(0,0), limits=c(-50,ylim[2]*1.1)) + coord_cartesian(ylim=ylim) 
+
     mdf2<- .get_sr_est_df(M)
     if (length(M) == 1)
     {
-        p <- p + geom_text(data=mdf2, aes(x = ssb, y = rhat, label=Year),size=4) 
+        p <- p + geom_text(data=mdf2, aes(x = ssb, y = rhat, label=Year),size=4,check_overlap=coverlap) 
         if (ebar) p <- p + geom_errorbar(data=mdf2, aes(x = ssb, ymax = ub, ymin = lb))
     } else {
-        p <- p + geom_text(data=mdf2, aes(x = ssb, y = rhat, label=Year , col = Model),size=4) 
+        p <- p + geom_text(data=mdf2, aes(x = ssb, y = rhat, label=Year , col = Model),size=4,check_overlap=coverlap) 
         if (ebar) p <- p +  geom_errorbar(data=mdf2, aes(x = ssb, ymax = ub, ymin = lb ,colour=Model))
     }
     

@@ -23,7 +23,8 @@ $(DIST)$(EXEC).tpl:
 
 mpd: $(EXEC)
 	./$(EXEC) $(ARGS)
-	cleanad
+	@$(RM) $(EXEC).*[0123456789] *.rpt *.log variance gradient.* *tmp admodel.* *.eva
+	#cleanad
 
 debug: $(EXEC)
 	./$(EXEC) $(ARGS)
@@ -39,10 +40,11 @@ clean:
 	@$(RM) mcout.rep
 	@$(RM) plot.Rout
 	@$(RM) Rplots.pdf
-	@$(RM) For_R.rep
+	@$(RM) *.rep
 	@$(RM) Fprof.yld
-	@$(RM) amak.prj
-	@$(RM) amak.par
+	@$(RM) *.prj
+	@$(RM) pm.par
 	@$(RM) SIS_out.rep
 	@$(RM) mceval.dat
+
 

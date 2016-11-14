@@ -40,10 +40,10 @@ clean:
 	@$(RM) mcout.rep
 	@$(RM) plot.Rout
 	@$(RM) Rplots.pdf
-	@$(RM) For_R.rep
+	@$(RM) *.rep
 	@$(RM) Fprof.yld
-	@$(RM) amak.prj
-	@$(RM) amak.par
+	@$(RM) *.prj
+	@$(RM) pm.par
 	@$(RM) SIS_out.rep
 	@$(RM) mceval.dat
 

@@ -186,13 +186,17 @@ class model_data : public ad_comm{
   data_vector Fmoney;
   int ii;
   data_matrix sel_data;
+  dvector fsh_ch_in;
   dvector eit_ch_in;
+  int nch_fsh;
   int nch_eit;
   data_matrix cov_in;
   dmatrix cov;
   dmatrix inv_bts_cov;
   ivector yrs_ch_eit;
   dvector sel_ch_sig_eit;
+  ivector yrs_ch_fsh;
+  dvector sel_ch_sig_fsh;
   dmatrix oac_fsh;
   dmatrix oac_bts;
   int n_eit_ac_r;
@@ -206,6 +210,8 @@ class model_data : public ad_comm{
   dvector ob_eit;
   dvector std_ob_eit;
   int ignore_last_eit_age1;
+  dvector lseb_eit;
+  dvector lvarb_eit;
   int iseed;
   int do_fmort;
   dvector adj_1;
@@ -218,13 +224,20 @@ class model_data : public ad_comm{
   random_number_generator *   pad_rng;
   data_number log_sd_coh;
   data_number log_sd_yr;
+  data_number cur_yr;
   data_int styr_wt;
   data_int endyr_wt;
+  data_int ndat_wt;
+  data_ivector nyrs_data;
+  data_imatrix yrs_data;
   data_int age_st;
   data_int age_end;
   int nages_wt;
-  data_matrix wt_obs;
-  data_matrix sd_obs;
+  int nscale_parm;
+  data_3array wt_obs;
+  data_3array sd_obs;
+  int phase_d_scale;
+  int max_nyrs_data;
   data_int nstrata;
   data_vector sqkm;
   data_int ndata;
@@ -236,6 +249,9 @@ class model_data : public ad_comm{
   d3_array CPUE_in;
   d3_array temp;
   d3_array CPUE;
+  dvector FW_fsh;
+  double FW_bts;
+  double FW_eit;
   ~model_data();
   model_data(int argc,char * argv[]);
   friend class model_parameters;
@@ -342,7 +358,7 @@ private:
   param_stddev_number Percent_B100;
   param_stddev_number Percent_B100_1;
   param_stddev_number Percent_B100_2;
-  param_stddev_vector q_temp;
+  param_vector q_temp;
   param_stddev_number SPR_OFL;
   param_stddev_number F40;
   param_stddev_number F35;
@@ -430,8 +446,17 @@ private:
   param_vector log_initage;
   param_vector pred_biom;
   param_vector SRR_SSB;
+  param_init_bounded_number L1;
+  param_init_bounded_number L2;
+  param_init_number log_alpha;
+  param_init_number log_K;
+  param_vector wt_inc;
+  param_init_matrix d_scale;
+  param_number K;
+  param_3array wt_hat;
+  param_number alphawt;
   param_matrix wt_pre;
-  param_init_vector mnwt;
+  param_vector mnwt;
   param_init_bounded_vector coh_eff;
   param_init_bounded_vector yr_eff;
   param_stddev_vector wt_last;
@@ -563,8 +588,9 @@ public:
   void Write_R(void);
  dvariable Implied_SPR( const dvar_vector& F_age);
   void Get_Replacement_Yield(void);
-  void Est_Fixed_Effects_wts(void);
+  void Est_Fixed_Effects_wts_2016(void);
  double sdnr(const dvar_vector& pred,const dvector& obs,double m);
+ double calc_Francis_weights(const dmatrix oac, const dvar_matrix eac, const ivector sam );
 
 };
 #endif
