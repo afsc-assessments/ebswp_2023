@@ -1,0 +1,197 @@
+
+# Appendix A: Table
+
+
+\begin{table}[ht]
+\centering
+\caption{Time series of 1964-1976 catch (left) and ABC, TAC, and catch for EBS pollock, 1977-2017 in t. Source: compiled from NMFS Regional office web site and various NPFMC reports. Note that the 2017 value is based on catch reported to October 25th 2016 plus an added component due to bycatch of pollock in other fisheries.}
+\label{tab:samples}
+\begin{tabular}{crrrrr}
+\hline
+Year    &   Catch   &   Year    &   ABC &   TAC &   Catch \\
+\hline
+1964    &   174,792 &   1977    &   950,000 &   950,000 &   978,370 \\
+1965    &   230,551 &   1978    &   950,000 &   950,000 &   979,431 \\
+1966    &   261,678 &   1979    &   1,100,000   &   950,000 &   935,714 \\
+1967    &   550,362 &   1980    &   1,300,000   &   1,000,000   &   958,280 \\
+1968    &   702,181 &   1981    &   1,300,000   &   1,000,000   &   973,502 \\
+1969    &   862,789 &   1982    &   1,300,000   &   1,000,000   &   955,964 \\
+1970    &   1,256,565   &   1983    &   1,300,000   &   1,000,000   &   981,450 \\
+1971    &   1,743,763   &   1984    &   1,300,000   &   1,200,000   &   1,092,055 \\
+1972    &   1,874,534   &   1985    &   1,300,000   &   1,200,000   &   1,139,676 \\
+1973    &   1,758,919   &   1986    &   1,300,000   &   1,200,000   &   1,141,993 \\
+1974    &   1,588,390   &   1987    &   1,300,000   &   1,200,000   &   859,416 \\
+1975    &   1,356,736   &   1988    &   1,500,000   &   1,300,000   &   1,228,721 \\
+1976    &   1,177,822   &   1989    &   1,340,000   &   1,340,000   &   1,229,600 \\
+    &       &   1990    &   1,450,000   &   1,280,000   &   1,455,193 \\
+    &       &   1991    &   1,676,000   &   1,300,000   &   1,195,664 \\
+    &       &   1992    &   1,490,000   &   1,300,000   &   1,390,299 \\
+    &       &   1993    &   1,340,000   &   1,300,000   &   1,326,602 \\
+    &       &   1994    &   1,330,000   &   1,330,000   &   1,329,352 \\
+    &       &   1995    &   1,250,000   &   1,250,000   &   1,264,247 \\
+    &       &   1996    &   1,190,000   &   1,190,000   &   1,192,781 \\
+    &       &   1997    &   1,130,000   &   1,130,000   &   1,124,433 \\
+    &       &   1998    &   1,110,000   &   1,110,000   &   1,019,082 \\
+    &       &   1999    &   992,000 &   992,000 &   989,680 \\
+    &       &   2000    &   1,139,000   &   1,139,000   &   1,132,710 \\
+    &       &   2001    &   1,842,000   &   1,400,000   &   1,387,197 \\
+    &       &   2002    &   2,110,000   &   1,485,000   &   1,480,776 \\
+    &       &   2003    &   2,330,000   &   1,491,760   &   1,490,779 \\
+    &       &   2004    &   2,560,000   &   1,492,000   &   1,480,552 \\
+    &       &   2005    &   1,960,000   &   1,478,500   &   1,483,022 \\
+    &       &   2006    &   1,930,000   &   1,485,000   &   1,488,031 \\
+    &       &   2007    &   1,394,000   &   1,394,000   &   1,354,502 \\
+    &       &   2008    &   1,000,000   &   1,000,000   &   990,629 \\
+    &       &   2009    &   815,000 &   815,000 &   810,784 \\
+    &       &   2010    &   813,000 &   813,000 &   810,215 \\
+    &       &   2011    &   1,270,000   &   1,252,000   &   1,199,214 \\
+    &       &   2012    &   1,220,000   &   1,200,000   &   1,205,283 \\
+    &       &   2013    &   1,375,000   &   1,247,000   &   1,270,824 \\
+    &       &   2014    &   1,369,000   &   1,267,000   &   1,297,846 \\
+    &       &   2015    &   1,637,000   &   1,310,000   &   1,322,312 \\
+    &       &   2016    &   2,090,000   &   1,340,000   &   1,348,979 \\
+    &       &   2016    &   2,090,000   &   1,340,000   &   1,348,979 \\
+           \multicolumn{3}{r}   1977-2016 average   &   1,401,300   &   1,202,032   &   1,182,379 \\
+    \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{ Highlights of some management measures affecting the pollock fishery.       }
+\label{tab:mgt}
+\begin{tabular}{p{0.5in}p{5.5in}}
+\hline
+Year    &   Management  \\
+\hline
+1977    &   Preliminary BSAI FMP implemented with several closure areas \\
+1982    &   FMP implement for the BSAI  \\
+1982    &   Chinook salmon bycatch limits established for foreign trawlers  \\
+1984    &   2 million t groundfish OY limit established \\
+1984    &   Limits on Chinook salmon bycatch reduced    \\
+1990    &   New observer program established along with data reporting  \\
+1992    &   Pollock CDQ program commences   \\
+1994    &   NMFS adopts minimum mesh size requirements for trawl codends    \\
+1994    &   Voluntary retention of salmon for foodbank donations    \\
+1994    &   NMFS publishes individual vessel bycatch rates on internet  \\
+1995    &   Trawl closures areas and trigger limits established for chum and Chinook salmon \\
+1998    &   Improved utilization and retention in effect (reduced discarded pollock)    \\
+1998    &   American Fisheries Act (AFA) passed \\
+1999    &   The AFA was implemented for catcher/processors  \\
+1999    &   Additional critical habitat areas around sea lion haulouts in the GOA and Eastern Bering Sea are closed.    \\
+2000    &   AFA implemented for remaining sectors (catcher vessel and motherships)  \\
+2001    &   Pollock industry adopts voluntary rolling hotspot program for chum salmon   \\
+2002    &   Pollock industry adopts voluntary rolling hotspot program for Chinook salmon    \\
+2005    &   Rolling hotspot program adopted in regulations to exempt fleet from triggered time/area closures for Chinook and chum salmon    \\
+2011    &   Amendment 91 enacted, Chinook salmon management under hard limits   \\
+2015    &   Amendment 110 (BSAI) Salmon prohibited species catch management in the Bering Sea pollock fishery (additional measures that change limits depending on Chinook salmon run-strength indices) and includes additional provisions for reporting requirements (see https://alaskafisheries.noaa.gov/fisheries/chinook-salmon-bycatch-management for update and general information) \\
+2016    &   Measures of amendment 110 go into effect for 2017 fishing season; Chinook salmon runs above the 3-run index value so bycatch limits stay the same   \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{The lower bound (LB), upper bound (UB), initial value, prior, and estimation phase for each estimated model parameter.} 
+\label{tab:samples}
+\begin{tabular}{crrrrrrr}
+\hline
+\multicolumn{8}{c}{ Length Frequency samples } \\
+\hline
+        & \multicolumn{2}{c}{ A Season } &\multicolumn{2}{c}{B Season SE } &\multicolumn{2}{c}{B Season NW} &   \\
+Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females &   Total   \\
+\hline
+1977    &   26,411  &   25,923  &   4,301   &   4,511   &   29,075  &   31,219  &   121,440 \\
+1978    &   25,110  &   31,653  &   9,829   &   9,524   &   46,349  &   46,072  &   168,537 \\
+1979    &   59,782  &   62,512  &   3,461   &   3,113   &   62,298  &   61,402  &   252,568 \\
+1980    &   42,726  &   42,577  &   3,380   &   3,464   &   47,030  &   49,037  &   188,214 \\
+1981    &   64,718  &   57,936  &   2,401   &   2,147   &   53,161  &   53,570  &   233,933 \\
+1982    &   74,172  &   70,073  &   16,265  &   14,885  &   181,606 &   163,272 &   520,273 \\
+1983    &   94,118  &   90,778  &   16,604  &   16,826  &   193,031 &   174,589 &   585,946 \\
+1984    &   158,329 &   161,876 &   106,654 &   105,234 &   243,877 &   217,362 &   993,332 \\
+1985    &   119,384 &   109,230 &   96,684  &   97,841  &   284,850 &   256,091 &   964,080 \\
+1986    &   186,505 &   189,497 &   135,444 &   123,413 &   164,546 &   131,322 &   930,727 \\
+1987    &   373,163 &   399,072 &   14,170  &   21,162  &   24,038  &   22,117  &   853,722 \\
+1991    &   160,491 &   148,236 &   166,117 &   150,261 &   141,085 &   139,852 &   906,042 \\
+1992    &   158,405 &   153,866 &   163,045 &   164,227 &   101,036 &   102,667 &   843,244 \\
+1993    &   143,296 &   133,711 &   148,299 &   140,402 &   27,262  &   28,522  &   621,490 \\
+1994    &   139,332 &   147,204 &   159,341 &   153,526 &   28,015  &   27,953  &   655,370 \\
+1995    &   131,287 &   128,389 &   179,312 &   154,520 &   16,170  &   16,356  &   626,032 \\
+1996    &   149,111 &   140,981 &   200,482 &   156,804 &   18,165  &   18,348  &   683,890 \\
+1997    &   124,953 &   104,115 &   116,448 &   107,630 &   60,192  &   53,191  &   566,527 \\
+1998    &   136,605 &   110,620 &   208,659 &   178,012 &   32,819  &   40,307  &   707,019 \\
+1999    &   36,258  &   32,630  &   38,840  &   35,695  &   16,282  &   18,339  &   178,044 \\
+2000    &   64,575  &   58,162  &   63,832  &   41,120  &   40,868  &   39,134  &   307,689 \\
+2001    &   79,333  &   75,633  &   54,119  &   51,268  &   44,295  &   45,836  &   350,483 \\
+2002    &   71,776  &   69,743  &   65,432  &   64,373  &   37,701  &   39,322  &   348,347 \\
+2003    &   74,995  &   77,612  &   49,469  &   53,053  &   51,799  &   53,463  &   360,390 \\
+2004    &   75,426  &   76,018  &   63,204  &   62,005  &   47,289  &   44,246  &   368,188 \\
+2005    &   76,627  &   69,543  &   43,205  &   33,886  &   68,878  &   63,088  &   355,225 \\
+2006    &   72,353  &   63,108  &   28,799  &   22,363  &   75,180  &   65,209  &   327,010 \\
+2007    &   62,827  &   60,522  &   32,945  &   25,518  &   75,128  &   69,116  &   326,054 \\
+2008    &   46,125  &   51,027  &   20,493  &   23,503  &   61,149  &   64,598  &   266,894 \\
+2009    &   46,051  &   44,080  &   19,877  &   18,579  &   50,451  &   53,344  &   232,379 \\
+2010    &   39,495  &   41,054  &   19,194  &   20,591  &   40,449  &   41,323  &   202,106 \\
+2011    &   58,822  &   62,617  &   60,254  &   65,057  &   51,137  &   48,084  &   345,971 \\
+2012    &   53,641  &   57,966  &   45,044  &   46,940  &   50,167  &   53,224  &   306,982 \\
+2013    &   52,303  &   62,336  &   37,434  &   44,709  &   49,484  &   49,903  &   296,168 \\
+2014    &   55,954  &   58,097  &   46,568  &   51,950  &   46,643  &   46,202  &   305,414 \\
+2015    &   55,646  &   56,507  &   45,074  &   41,218  &   46,237  &   43,084  &   287,766 \\
+\end{tabular}
+\end{table}
+
+\clearpage
+\begin{table}[ht]
+\centering
+\caption{ Biomass (age 1+) of Eastern Bering Sea pollock as estimated by surveys 1979‑2016 (millions of metric tons). Note that the bottom-trawl survey data only represent biomass from the survey strata (1-6) areas in 1982-1984, and 1986. For all other years the estimates include strata 8-9. Also, the 1979 - 1981 bottom trawl survey data were omitted from the model since the survey gear differed. }
+\label{tab:surveybiom}
+\begin{tabular}{crrrrr}
+\hline
+    &   Bottom trawl    &   AT  &   AT \%     &       &   Near bottom \\
+Year    &   Survey  &   Survey  &   age 3+  &   Total[1]    &   biomass \\
+\hline
+1979    &       &   7.458   &   22\% &       &       \\
+1980    &       &       &       &       &       \\
+1981    &       &       &       &       &       \\
+1982    &   2.856   &   4.901   &   95\% &   7.757   &   37\% \\
+1983    &   6.258   &       &       &       &       \\
+1984    &   4.894   &       &       &       &       \\
+1985    &   5.955   &   4.799   &   97\% &   10.754  &   55\% \\
+1986    &   4.897   &       &       &       &       \\
+1987    &   5.498   &       &       &       &       \\
+1988    &   7.289   &   4.675   &   97\% &   11.964  &   61\% \\
+1989    &   6.55    &       &       &       &       \\
+1990    &   7.316   &       &       &       &       \\
+1991    &   5.13    &   1.454   &   46\% &   6.584   &   78\% \\
+1992    &   4.583   &       &       &       &       \\
+1993    &   5.631   &       &       &       &       \\
+1994    &   5.027   &   2.886   &   85\% &   7.913   &   64\% \\
+1995    &   5.478   &       &       &       &       \\
+1996    &   3.415   &   2.311   &   97\% &   5.726   &   60\% \\
+1997    &   3.8 &   2.591   &   70\% &   6.391   &   59\% \\
+1998    &   2.781   &       &       &       &       \\
+1999    &   3.798   &   3.285   &   95\% &   7.083   &   54\% \\
+2000    &   5.281   &   3.049   &   95\% &   8.330   &   63\% \\
+2001    &   4.197   &       &       &       &       \\
+2002    &   5.033   &   3.622   &   82\% &   8.655   &   58\% \\
+2003    &   8.392   &       &       &       &       \\
+2004    &   3.863   &   3.307   &   99\% &   7.170   &   54\% \\
+2005    &   5.321   &       &       &       &       \\
+2006    &   3.045   &   1.560   &   98\% &   4.605   &   66\% \\
+2007    &   4.338   &   1.769   &   89\% &   6.107   &   71\% \\
+2008    &   3.023   &   0.997   &   76\% &   4.020   &   75\% \\
+2009    &   2.282   &   0.924   &   78\% &   3.206   &   71\% \\
+2010    &   3.738   &   2.323   &   65\% &   6.061   &   62\% \\
+2011    &   3.112   &       &       &       &       \\
+2012    &   3.487   &   1.843   &   71\% &   5.330   &   65\% \\
+2013    &   4.575   &       &       &       &       \\
+2014    &   7.43    &   3.439   &   65\% &   10.869  &   68\% \\
+2015    &   6.39    &       &       &       &       \\
+2016    &   4.91    &   4.063   &   97\% &   8.973   &   55\% \\
+\hline
+Average &   4.843   &   2.763   &   85\% &   7.140   &   62\% \\
+\hline
+\end{tabular}
+\end{table}
+The end
+

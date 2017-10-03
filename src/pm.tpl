@@ -124,8 +124,8 @@ DATA_SECTION
   init_int use_last_eit_ac  // Flag to use most recent EIT age data (typically derived from BTS ages and EIT lengths)
   init_int nyrs_sel_avg     // Added 10/22/98 to adjust the avg fsh selectivity used in future harvests
   number Steepness_UB
-  init_number do_bts_bio    // Defunct
-  init_number do_eit_bio    // Defunct
+  init_number do_bts_bio    // 
+  init_number do_eit_bio    // 
   init_number srprior_a     // Beta prior alpha parameter
   init_number srprior_b     // Beta prior beta parameter
   init_int    nyrs_future;
@@ -1027,8 +1027,8 @@ PARAMETER_SECTION
   number alphawt;
   matrix wt_pre(styr_wt,endyr_wt,age_st,age_end)
   vector mnwt(age_st,age_end);
-  init_bounded_vector coh_eff(styr_wt-nages_wt-age_st+1,endyr_wt-age_st+3,-5,5,1);
-  init_bounded_vector  yr_eff(styr_wt,endyr_wt+3,-5,5,1);
+  init_bounded_vector coh_eff(styr_wt-nages_wt-age_st+1,endyr_wt-age_st+3,-15,15,5);
+  init_bounded_vector  yr_eff(styr_wt,endyr_wt+3,-15,15,4);
 
   sdreport_vector wt_last(age_st,age_end);
   sdreport_vector wt_cur(age_st,age_end);
@@ -2997,9 +2997,6 @@ FUNCTION Robust_Likelihood
   age_like(1) = robust_p(oac_fsh,eac_fsh,rf,sam_fsh);
   age_like(2) = robust_p(oac_bts,eac_bts,rf,sam_bts);
 
-  // Ojo this was in here fro some reason..
-  // for (i=1;i<=n_eit_r;i++)
-  // surv_like(2) += square(log(ot_eit(i)+.01)-log(et_eit(i)+.01))/ (2.*lvar_eit(i)) ;
 
   if (current_phase() >= eit_robust_phase ) // eit robustness phase big number means do multinomial, not robust
     age_like(3) = robust_p(oac_eit,eac_eit,rf,sam_eit,mina_eit,nages);
@@ -3007,6 +3004,7 @@ FUNCTION Robust_Likelihood
     for (i=1; i <= nagecomp(3); i++) 
       age_like(3) -= sam_eit(i)*oac_eit(i)(mina_eit,nages)*log(eac_eit(i)(mina_eit,nages) + MN_const);
   len_like    = robust_p(olc_fsh,elc_fsh,rf,50);
+
 FUNCTION Multinomial_Likelihood
   age_like.initialize();
   len_like.initialize();
