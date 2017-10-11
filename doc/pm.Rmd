@@ -44,7 +44,7 @@ mod_names <- c("2015 Model",
 .THEME    = theme_bw(base_size = 11, base_family = "")
 .OVERLAY  = TRUE
 
-# Read report file and create gmacs report object (a list):
+# Read report file and create report object (a list):
 fn       <- paste0(.MODELDIR, "For_R.rep")
 M        <- lapply(fn, readList)
 names(M) <- mod_names

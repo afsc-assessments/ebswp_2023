@@ -1,5 +1,42 @@
+---
+ output:
+  pdf_document:
+    fig_caption: TRUE
+    fig_crop: no
+    fig_height: 2
+    fig_width: 1
+    highlight: haddock
+    keep_tex: yes
+    number_sections: yes
+    toc: yes
+    toc_depth: 2
+  html_document:
+    fig_caption: yes
+    theme: journal
+    toc: yes
+    toc_depth: 2
+    graphics: yes
+---
+
+```{r echo=FALSE,warning=FALSE}
+ library(knitr)
+  opts_chunk$set(fig.path='figure/graphics-', 
+                 cache.path='cache/graphics-', 
+                 fig.align='center',
+                 external=TRUE,
+                 echo=TRUE,
+                 warning=FALSE,
+                 fig.pos='H'
+                )
+```
 
 #Figures
+##Figures
+
+```{r test, fig.width=1,echo=FALSE,fig.caption=paste("shite to shite")}
+include_graphics("figs/catch.png")
+```
+\
 
 \clearpage
 
