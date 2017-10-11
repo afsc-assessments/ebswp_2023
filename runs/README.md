@@ -1,3 +1,21 @@
+# EBS pollock 2017
+## Tasks and todo list
+    [x] Make new branch, call it 2017
+    [ ] Get updated AT age and index data (down to 0.5 m)
+    [ ] Add in survey biomass     
+    [ ] Rescale survey biomass covariance matrix
+    [ ] Update catches     
+    [ ] Add in 2016 fishery age compositions      
+    [ ] Add in 2017 survey age compositions     
+    [ ] Modify code to accommodate time-varying M
+    [ ] Figure out which models to use going forward     
+
+## Data sensitivities
+	Followed C, CA, CAB, CABE method      
+    16.1 final model, 16.1a and 16.1b have different SRR assumptions (moderate and diffuse conditioning of data)
+    16.1m has M profiles (done w/ arcit.sh changed to mprof.sh)
+
+
 # EBS pollock 2016
 ## Tasks and todo list
     [x] Add in survey biomass     
