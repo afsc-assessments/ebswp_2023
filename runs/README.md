@@ -2,11 +2,11 @@
 ## Tasks and todo list
     [x] Make new branch, call it 2017
     [ ] Get updated AT age and index data (down to 0.5 m)
-    [ ] Add in survey biomass     
-    [ ] Rescale survey biomass covariance matrix
+    [x] Add in survey biomass     
+    [x] Rescale survey biomass covariance matrix
     [ ] Update catches     
-    [ ] Add in 2016 fishery age compositions      
-    [ ] Add in 2017 survey age compositions     
+    [x] Add in 2016 fishery age compositions      
+    [x] Add in 2017 survey age compositions     
     [ ] Modify code to accommodate time-varying M
     [ ] Figure out which models to use going forward     
 

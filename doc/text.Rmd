@@ -1,6 +1,12 @@
+```{r global_options, include=FALSE}
+library(knitr)
+opts_chunk$set(fig.width = 12, fig.height = 7, echo = FALSE, warning = FALSE, message = FALSE)
 
+thisyr    = 2017
+lastyr    = thisyr-1
+```
 
-```{r smbkc_groundfish_bycatch, eval=FALSE, results = "asis"}
+```{r summary, eval=FALSE, results = "asis"}
 df <- dplyr::filter(data.frame(M[[2]]$dCatchData_out), V2 == 2, V3 %in% c(2,3)) %>% dplyr::select(V1, V3, V5) %>% tidyr::spread(key = V3, value = V5) #%>%
   #dplyr::mutate(V1 = paste0(V1, "/", as.numeric(sub('.*(?=.{2}$)', '', V1, perl = TRUE)) + 1))
 names(df) <- c("Year","Trawl bycatch","Fixed gear bycatch")
@@ -12,31 +18,29 @@ print(tab, caption.placement = "top", include.rownames = FALSE)
 \centering
 \caption{ } 
 \label{tab:summary}
-\begin{tabular}{lcccc}
+\begin{tabular}{lrrrr}
   \hline
        & \multicolumn{2}{c}{As estimated or $\mathit{specified}$ } & \multicolumn{2}{c}{As estimated or $\mathit{recommended}$ }  \\
        & \multicolumn{2}{c}{specified $\mathit{last}$ year for:}  & \multicolumn{2}{c}{$\mathit{this}$ year for: }               \\
         Quantity & `r thisyr`      &`r thisyr+1`   & `r thisyr+1`      &`r thisyr+2` \\ 
   \hline
-  M (natural mortality rate, ages 3+) & 0.3 & 0.3 & 0.3 & 0.3 \\
-  Tier & 1a & 1a & 1a & 1a \\
-  Projected total (age 3+) biomass (t) & 13,000,000 t&12,100,000 t & xxx & xxx \\
-  Projected female spawning biomass (t) & 4,600,000 t& 4,500,000 t & xxx & xxx \\
-  $B_0$ & 5,700,000 t & 5,700,000 t & 1a & 1a \\
-  $B_{msy}$ & 1a & 1a & 1a & 1a \\
-  $F_{OFL}$ & 1a & 1a & 1a & 1a \\
-  $maxF_{ABC}$ & 1a & 1a & 1a & 1a \\
-  $F_{ABC}$ & 1a & 1a & 1a & 1a \\
-  OFL (t) & 1a & 1a & 1a & 1a \\
-  maxABC (t) & 1a & 1a & 1a & 1a \\
-  ABC (t) & 1a & 1a & 1a & 1a \\
-  \hline
-  Status & 1a & 1a & 1a & 1a \\
-  Overfishing & 1a & 1a & 1a & 1a \\
-  Overfished & n/a & 1a & 1a & 1a \\
-  Approaching overfished & 1a & 1a & 1a & 1a \\
-  Status & 1a & 1a & 1a & 1a \\
-  \hline
+	M (natural mortality rate, ages 3+)	&	0.3	&	0.3	&	0.3	&	0.3 \\
+Tier	&	1a	&	1a	&	1a	&	1a \\
+Projected total (age 3+) biomass (t)	&	13,000,000 t	&	12,100,000 t	&		&	 \\
+Projected female spawning biomass (t) &	4,600,000 t	&	4,500,000 t	&		&	 \\
+$B_0$                                 &	5,700,000 t	&	5,700,000 t	&		&	 \\
+$B_{msy}$                             &	2,165,000 t	&	2,165,000 t	&		&	 \\
+$F_{OFL}$                             &	0.465	&	0.465	&		&	 \\
+$maxF_{ABC}$                        &	0.398	&	0.398	&		&	 \\
+$F_{ABC}$ &	0.36	&	0.37	&		&	 \\
+$OFL$ (t)	&	3,640,000 t	&	4,360,000 t	&		&	 \\
+$maxABC$ (t)	&	3,120,000 t	&	3,740,000 t	&		&	 \\
+$ABC$ (t)	&	2,800,000 t	&	2,979,000 t	&		&	 \\
+Status	&	2015	&	2016	&		&	 \\
+Overfishing	&	No	&	n/a	&	No	&	n/a \\
+Overfished	&	n/a	&	No	&	n/a	&	No \\
+Approaching overfished	&	n/a	&	No	&	n/a	&	No \\
+\hline
 \end{tabular}
 \end{table}
 

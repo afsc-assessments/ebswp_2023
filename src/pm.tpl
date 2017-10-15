@@ -1355,13 +1355,13 @@ REPORT_SECTION
   {
     dvar_matrix eac_fsh_2(1,14,1,nages);
     dvar_matrix eac_fsh_3(15,35,1,nages);
-    dvar_matrix eac_fsh_4(36,52,1,nages);
+    dvar_matrix eac_fsh_4(36,n_fsh_r,1,nages);
     dmatrix     oac_fsh_2(1,14,1,nages);
     dmatrix     oac_fsh_3(15,35,1,nages);
-    dmatrix     oac_fsh_4(36,52,1,nages);
+    dmatrix     oac_fsh_4(36,n_fsh_r,1,nages);
     dvector     sam_fsh_2(1,14);
     dvector     sam_fsh_3(15,35);
-    dvector     sam_fsh_4(36,52);
+    dvector     sam_fsh_4(36,n_fsh_r);
     for (int i=1;i<=n_fsh_r;i++)
     {
       if (i<=14)
@@ -4282,6 +4282,8 @@ FUNCTION Write_R
   }
   R_report << "$N"<<endl;
   R_report << natage<<endl;
+  R_report << "$C"<<endl;
+  R_report << catage<<endl;
   R_report(yrs_avo); 
   R_report(obs_avo); 
   R_report(obs_avo_std); 
