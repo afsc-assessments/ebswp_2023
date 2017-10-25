@@ -1,12 +1,13 @@
 # EBS pollock 2017
 ## Tasks and todo list
     [x] Make new branch, call it 2017
-    [ ] Get updated AT age and index data (down to 0.5 m)
+    [x] Get updated AT age and index data (down to 0.5 m)
     [x] Add in survey biomass     
     [x] Rescale survey biomass covariance matrix
     [ ] Update catches     
     [x] Add in 2016 fishery age compositions      
     [x] Add in 2017 survey age compositions     
+    [x] re-run wt.tpl with updated survey and fishery data to get new variance params for REs
     [ ] Modify code to accommodate time-varying M
     [ ] Figure out which models to use going forward     
 

@@ -1,4 +1,6 @@
-# Appendix A: Model Description
+/pagebreak 
+
+# EBS Pollock Model Description
 
 ## Dynamics
 
@@ -16,9 +18,9 @@ were
     C_{t,.}     &= \sum_{a=1}^A{C_{t,a}}                                                                        \\
     p_{t,a}     &= \frac{C_{t,a} } {C_{t,.} }                                                                   \\
     Y_{t}       &= \sum_{a=1}^A{w_{t,a}C_{t,a}}                                                                 \\
-  \sigma_{t,y}^\text{I} &= \frac{1}{\lambda} \sqrt{\log \left( 1 + \left( \mathit{CV}_{t,y}^\text{I} \right)^2 \right)} \\
-    F_{t,y} &= F_{t,y}^\text{df} + F_{t,y}^\text{tb} + F_{t,y}^\text{fb} 
 \end{align}
+  <!-- \sigma_{t,y}^\text{I} &= \frac{1}{\lambda} \sqrt{\log \left( 1 + \left( \mathit{CV}_{t,y}^\text{I} \right)^2 \right)} \\ -->
+  <!-- F_{t,y} &= F_{t,y}^\text{df} + F_{t,y}^\text{tb} + F_{t,y}^\text{fb}  -->
 
 
 where
@@ -433,7 +435,6 @@ solved for if in the current year when $B_t$ < $B_{MSY}$). For longer term proje
 a form of operating model (as has been presented for the evaluation of $B_{20\%}$)
 with feedback (via future catch specifications) using the control rule and
 assessment model would be required.
-
 
 
 

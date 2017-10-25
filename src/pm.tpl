@@ -3950,10 +3950,14 @@ FUNCTION write_sd
 
   dvariable ABC  = gm_b(1)*hm_f*adj_1(1); 
   dvariable OFL  = gm_b(1)*am_f*adj_1(1); 
-  for_sd << endyr_r+1<<", " ; for_sd(ABC);
-  for_sd << endyr_r+1<<", " ; for_sd(OFL);
+	R_report <<"$T1"<<endl;
+  R_report << endyr_r+1<<" " << ABC <<" " << OFL <<" "<< future_SSB(1,styr_fut) <<" "<< age_3_plus_biom(endyr_r+1) <<endl;
   ABC  = gm_b2(1)*hm_f*adj_2(1); 
   OFL  = gm_b2(1)*am_f*adj_2(1); 
+  R_report << endyr_r+1<<" " << ABC <<" " << OFL <<" "<< future_SSB(2,styr_fut) <<" "<< age_3_plus_biom(endyr_r+2) <<endl;
+
+  for_sd << endyr_r+1<<", " ; for_sd(ABC);
+  for_sd << endyr_r+1<<", " ; for_sd(OFL);
   for_sd << endyr_r+2<<", " ; for_sd(ABC);
   for_sd << endyr_r+2<<", " ; for_sd(OFL);
   for_sd << styr_fut <<", SSB1," << future_SSB(1,styr_fut) ; 
@@ -4684,9 +4688,13 @@ GLOBALS_SECTION
   #undef write_retro
   #define write_retro(object) retro_out << #object " " <<model_name<<" "<<datfile_name<<" "<< object << endl;
 
-  ofstream R_report("For_R.rep");
+  ofstream legacy_rep("old_rep.rep");
+  #undef legacy_rep
+  #define legacy_rep(object) legacy_rep << #object "\n" << object << endl;
+
   #undef R_report
-  #define R_report(object) R_report << "$"<<#object "\n" << object << endl;
+  #define R_report(object) report << #object "\n" << object << endl;
+
   adstring simname;
   adstring model_name;
   adstring datafile_name;
