@@ -579,13 +579,12 @@ public:
  dvar_matrix compute_selectivity(const int nsel,const int stsel, dvariable& avgsel,const dvar_vector& coffs);
  dvariable SolveF2(const dvar_vector& N_tmp, double  TACin);
   void Profile_F(void);
-  void write_sd(void);
  double mn_age(const dvar_vector& pobs);
  double Sd_age(const dvar_vector& pobs, const dvar_vector& phat);
  double Eff_N_adj(const double, const dvar_vector& pobs, const dvar_vector& phat);
  double Eff_N2(const dvar_vector& pobs, const dvar_vector& phat);
  double Eff_N(const dvar_vector& pobs, const dvar_vector& phat);
-  void Write_R(void);
+  void write_R(void);
  dvariable Implied_SPR( const dvar_vector& F_age);
   void Get_Replacement_Yield(void);
   void Est_Fixed_Effects_wts_2016(void);

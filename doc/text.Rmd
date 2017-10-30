@@ -1,28 +1,3 @@
-```{r summary}
-#df <- dplyr::filter(data.frame(M[[2]]$dCatchData_out), V2 == 2, V3 %in% c(2,3)) %>% dplyr::select(V1, V3, V5) %>% tidyr::spread(key = V3, value =G V5) #%>%
- #dplyr::mutate(V1 = paste0(V1, "/", as.numeric(sub('.*(?=.{2}$)', '', V1, perl = TRUE)) + 1))
-#names(df) <- c("Year","Trawl bycatch","Fixed gear bycatch")
-#tab <- xtable(df, caption = "Groundfish SMBKC male bycatch biomass (tonnes) estimates. Trawl includes pelagic trawl and non-pelagic trawl types. Source: J. Zheng, ADF\\&G, and author estimates based on data from R. Foy, NMFS. AKRO estimates used after 2008/09.", label = "tab:pscbycatch", digits = c(0,0,3,3))
-#print(tab, caption.placement = "top", include.rownames = FALSE)
-npar <- 999
-bmsy <- 2000 
-b0   <- 5700 
-b100 <- 6608 
-b40  <- 2643 
-b35  <- 2643 
-# String versions of these values
-bmsys  <- format(bmsy,big.mark=",",scientific=F)
-b0s  <- format(b0,big.mark=",",scientific=F)
-b100s  <- format(b100,big.mark=",",scientific=F)
-b40s  <- format(b40,big.mark=",",scientific=F)
-b35s  <- format(b35,big.mark=",",scientific=F)
-thisyr <- 2017
-nextyr <- thisyr+1
-```
-```{r junk}
-print(M$T1)
-```
-
 
 # Executive summary
 
@@ -67,3 +42,821 @@ applied. The latter increased the risk-averse buffer between ABC and OFL
 (computed as 1-ABC/OFL) slightly (13\% to 14\%) with most of the change in value
 arising from the lower estimate of stock-recruit relationship steepness
 parameter.
+
+
+## Summary of EBS pollock results
+
+\begin{table}[ht]
+\centering
+\label{tab:pscbycatch}
+\begin{tabular}{lrrrr}
+  \hline
+       & \multicolumn{2}{c}{As estimated or $\mathit{specified}$ } & \multicolumn{2}{c}{As estimated or $\mathit{recommended}$ }  \\
+       & \multicolumn{2}{c}{specified $\mathit{last}$ year for:}  & \multicolumn{2}{c}{$\mathit{this}$ year for: }               \\
+        Quantity & `r thisyr`      &`r thisyr+1`   & `r thisyr+1`      &`r thisyr+2` \\ 
+  \hline
+	M (natural mortality rate, ages 3+)	&	0.3	&	0.3	&	0.3	&	0.3 \\
+Tier	&	1a	&	1a	&	1a	&	1a \\
+Projected total (age 3+) biomass (t)	&	13,000,000 t	&	12,100,000 t	&		&	 \\
+Projected female spawning biomass (t) &	4,600,000 t	&	4,500,000 t	&		&	 \\
+$B_0$                                 &	5,700,000 t	&	5,700,000 t	&		&	 \\
+$B_{msy}$                             &	2,165,000 t	&	2,165,000 t	&		&	 \\
+$F_{OFL}$                             &	0.465	&	0.465	&		&	 \\
+$maxF_{ABC}$                        &	0.398	&	0.398	&		&	 \\
+$F_{ABC}$ &	0.36	&	0.37	&		&	 \\
+$OFL$ (t)	&	3,640,000 t	&	4,360,000 t	&		&	 \\
+$maxABC$ (t)	&	3,120,000 t	&	3,740,000 t	&		&	 \\
+$ABC$ (t)	&	2,800,000 t	&	2,979,000 t	&		&	 \\
+Status	&	2015	&	2016	&		&	 \\
+Overfishing	&	No	&	n/a	&	No	&	n/a \\
+Overfished	&	n/a	&	No	&	n/a	&	No \\
+Approaching overfished	&	n/a	&	No	&	n/a	&	No \\
+\hline
+\end{tabular}
+\end{table}
+
+## Response to SSC and Plan Team comments
+
+### General comments
+The Plan Teams noted that a compilation of responses to CIE reviews be
+included in order to maximise their benefit and to promote transparency.
+
+_A table summarizing key aspects from the three reviews conducted in 2016 and 
+responses is provided in an attachment._
+
+###Comments specific to this assessment
+
+In the September 2016 minutes, the BSAI Plan Team recommended: \" .../ that the
+authors develop a better prior for steepness, or at least a better rationale,
+and perhaps consider a meta-analytic approach.  
+...In the long term, the Team recommends evaluating the sample sizes used 
+for the data weighting and pursuing other CIE suggestions.
+
+_Sample size estimates were re-evaluated and used in the recommended model below. An
+alternative degree of uncertainty, which notes differences from the CEATTLE
+stock-recruit relationship was provided as an alternative._
+
+ 
+#Introduction
+
+##General
+
+Walleye pollock (_Gadus chalcogrammus_; hereafter referred to as pollock) are
+broadly distributed throughout the North Pacific with the largest
+concentrations found in the Eastern Bering Sea. Also  known as
+Alaska pollock, this species continues to play important roles ecologically
+and economically.
+
+##Review of Life History
+In the EBS pollock spawn generally in the period March-May with different subareas
+spawning earlier or later ().
+
+Eggs and larvae of EBS pollock are planktonic for a period of about XX XX and
+appear to be sensitive to environmental condations. These conditions likely affect
+their dispersal into favorable areas (for subsequent separation from predators) and
+also affect general food requirements and survival (Hintze, 20XX, Hunt et al. )
+
+Throughout their range juvenile pollock feed on a variety of planktonic crustaceans, 
+including calanoid copepods and euphausiids.
+
+In the EBS shelf region, one-year-old pollock are found throughout the water column but
+also commonly occur in the NMFS bottom trawl survey. Ages 2 and 3 year old pollock are
+rarely caught in summer bottom trawl survey gear and are commonly occurring in the 
+midwater zone as detected by mid-water acoustic trawl surveys. Younger pollock are 
+generally found in the more northern parts of the survey area and a pattern of 
+movement to the southeast occurs as the age (Buckley ). Their diets with age 
+become more piscivorous and cannibalism has been commonly observed for this 
+region. 
+
+
+##Stock structure
+
+New information available from ecosystem survey work in the Northern Bering
+Sea (NBS) region (north of Nunivak Island to the Russian convention line and
+into Norton Sound)  suggests considerably more pollock present there compared
+to the 2010 survey (1.3 million t in 2017 compared to 11 thousand t in 2010).
+Although the 2017 bottom temperatures were colder than recent years, the warm
+conditions in 2016 may have caused a portion of the pollock stock to move into
+this region. A loose relationship was determined (R^2 of 0.43) between mean
+bottom temperature in the US zone on the EBS shelf and subsequent biomass
+estimates in the  Navarin basin (the Russian area adjacent to the Convention
+Line; Ianelli et al. 2011). However,  the extent that this may occur between
+years is unknown and more detailed evaluation of the NBS data will be
+forthcoming. Fortunately, genetics samples were taken from pollock and pending
+funding availability, should help to ascertain the extent that these fish are
+related to those observed in the normal EBS shelf survey area.   Genetics
+samples taken from 2017 RACE summer survey from the Northern Bering Sea can be
+compared with samples from the standard Bering Sea Unimak, Pribilof, and
+Zhemchug, to ascertain the extent that these fish are related.
+
+
+#Fishery 
+##Description of the directed fishery
+
+EBS pollock catches were low until directed foreign fisheries began in 1964.
+Catches increased rapidly during the late 1960s and reached a peak in 1970-75
+when they ranged from 1.3 to 1.9 million t annually (Fig. \ref{fig:catch}).
+Following the peak catch in 1972, bilateral agreements with Japan and the USSR
+resulted in reductions. Since 1977 (when the U.S. EEZ was declared) the annual
+average EBS pollock catch has been about 1.2 million t, ranging from 0.815
+million t in 2009 to nearly 1.5 million t during 2003-2006 (Fig.
+\ref{fig:catch}). United States vessels began fishing for pollock in 1980 and
+by 1987 they were able to take 99% of the quota. Since 1988, only U.S. vessels
+have been operating in this fishery. Observers collected data aboard the
+foreign vessels since the late 1970s. The current observer program for the
+domestic fishery formally began in 1991 and has since then regularly re-
+evaluated the sampling protocol and making adjustments where needed to improve
+efficiency. Since 2011, regulations require that all vessels participating in
+the pollock fishery carry at least one observer. Prior to this time about
+70-80% of the catch was observed at sea or during dockside offloading. During
+a 10-year period, catches by foreign vessels operating in the “Donut Hole”
+region of the Aleutian Basin were substantial totaling nearly 7 million t
+(Table \ref{tab:catch}).  A fishing moratorium was enacted in 1993 and only
+trace amounts of pollock have been harvested from the Aleutian Basin region
+since then.
+<!-- XXXX and more text referencing Table \ref{`r paste0("tab:",tablab[1])`}   -->
+
+###Catch patterns
+
+The \“A-season\” for directed EBS pollock fishing opens on January 20th and
+extends into early-mid April. During this season, the fishery produces highly
+valued roe that, under optimal conditions, can comprise over 4% of the catch
+in weight. The second, or “B-season” presently opens on June 10th and extends
+through noon on November 1st. The A-season fishery concentrates primarily
+north and west of Unimak Island depending on ice conditions and fish
+distribution. There has also been effort along the 100 m contour (and deeper)
+between Unimak Island and the Pribilof Islands. Since 2011, regulations and
+industry-based measures to reduce salmon bycatch have affected the spatial
+distribution of the fishery and to some degree, the way individual vessel
+operators fish (Stram and Ianelli, 2014). The catch estimates by sex for the
+A-season compared to estimates for the entire season indicate that over time,
+the number of males and females has been fairly equal (Fig. \ref{fig:xxx}).
+The 2016 and 2014 A-season fishery spatial pattern had relatively high
+concentrations of fishing on the shelf north of Unimak Island, especially
+compared to the pattern observed in 2015 when most fishing activity occurred
+further north (Fig. \ref{fig:xxx}).
+
+The 2017 summer and fall (B-season) fishing was had similar pattern to 2016
+based on fleet-wide catch per hour fished (Fig. \ref{fig:`r figlab[4]`}
+XXXCompared to 2011 B-season, the combined fleet took about one third of the
+actual fishing time to reach 600 kt. Spatially, the 2016 B-season was much
+more concentrated around the “horseshoe,” near the shelf break west of the
+Pribilof Islands and extending north and west from Amak Island (Fig.
+\ref{fig:xxx}). Since 1979 the catch of EBS pollock has averaged 1.19 million
+t with the lowest catches occurring in 2009 and 2010 when the limits were set
+to 0.81 million t due to stock declines (Table \ref{tab:catch_disc}) Pollock
+retained and discarded catch (based on NMFS observer estimates) in the Eastern
+Bering Sea and Aleutian Islands for 1991-2016 are shown in (Table
+\ref{tab:catch_disc}). Since 1991, estimates of discarded pollock have ranged
+from a high of 9.1% of total pollock catch in 1992 to recent lows of around
+0.6%. These low values reflect the implementation of the Council’s Improved
+Retention /Improved Utilization program. Prior to the implementation of the
+AFA in 1999, higher discards may have occurred under the “race for fish” and
+incidental catch of pollock that were below marketable sizes. Since
+implementation of the AFA, the vessel operators have more time to pursue
+optimal sizes of pollock for market since the quota is allocated to vessels
+(via cooperative arrangements). In addition, several vessels have made gear
+modifications to avoid retention of smaller pollock. In all cases, the
+magnitude of discards counts as part of the total catch for management (to
+ensure the TAC is not exceeded) and within the assessment. Bycatch of other
+non-target, target, and prohibited species is presented in the section titled
+Ecosystem Considerations below. In that section it is noted that the bycatch
+of pollock in other target fisheries is more than double the bycatch of other
+target species (e.g., Pacific cod) in the pollock fishery.
+
+
+##Management measures
+
+The EBS pollock stock is managed by NMFS regulations that provide limits on
+seasonal catch. The NMFS observer program data provide near real-time
+statistics during the season and vessels operate within well-defined limits.
+TACs have commonly been set well below the ABC value and catches have usually
+stayed within these constraints (Table \ref{tab:abc_tac}). Allocations of the TAC split
+first with 10% to western Alaska communities as part of the Community
+Development Quota (CDQ) program and the remainder between at-sea processors
+and shore-based sectors. For characterization of CDQ program see Haynie (2014). 
+Seung and Ianelli (2016) combined a fish population dynamics
+model with an economic model to evaluate regional impacts.
+
+Due to concerns over that groundfish fisheries may impact the population  
+rebuilding of Steller sea lions, a number of management measures
+have been implemented over the years. Some measures were designed to reduce the possibility
+of competitive interactions between fisheries and Steller sea lions. For the
+pollock fisheries, seasonal fishery catch and pollock biomass distributions
+(from surveys) indicated that the apparent disproportionately high seasonal
+harvest rates within Steller sea lion critical habitat could lead to reduced
+sea lion prey densities. Consequently, management measures redistributed the
+fishery both temporally and spatially according to pollock biomass
+distributions. This was intended to disperse fishing so that localized harvest
+rates were more consistent with annual exploitation rates. The measures
+include establishing: 1) pollock fishery exclusion zones around sea lion
+rookery or haulout sites; 2) phased-in reductions in the seasonal proportions
+of TAC that can be taken from critical habitat; and 3) additional seasonal TAC
+releases to disperse the fishery in time.
+
+Prior to adoption of the above management measures, the pollock fishery
+occurred in each of the three major NMFS management regions of the North
+Pacific Ocean: the Aleutian Islands (1,001,780 km$^2$  inside the EEZ), the
+Eastern Bering Sea (968,600 km$^2$), and the Gulf of Alaska (1,156,100 km$^2$). The
+marine portion of Steller sea lion critical habitat in Alaska west of 150 $^{\circ}$ W
+encompasses 386,770 km$^2$ of ocean surface, or 12\% of the fishery management
+regions.
+
+Prior to 1999, 84,100 km$^2$, or 22\% of critical habitat was closed to the
+pollock fishery. Most of this closure consisted of the 10 and 20 nm radius
+all-trawl fishery exclusion zones around sea lion rookeries (48,920 km$^2$, or
+13% of critical habitat). The remainder was largely management area 518
+(35,180 km$^2$, or 9% of critical habitat) that was closed pursuant to an
+international agreement to protect spawning stocks of central Bering Sea
+pollock.
+
+In 1999, an additional 83,080 km$^2$ (21%) of critical habitat in the Aleutian
+Islands was closed to pollock fishing along with 43,170 km$^2$  (11%) around sea
+lion haulouts in the GOA and Eastern Bering Sea. In 1998, over 22,000 t of
+pollock were caught in the Aleutian Island region, with over 17,000 t taken
+within critical habitat region. Between 1999 and 2004 a directed fishery for
+pollock was prohibited in this region. Subsequently, 210,350 km$^2$  (54%) of
+critical habitat was closed to the pollock fishery. In 2000 the remaining
+phased-in reductions in the proportions of seasonal TAC that could be caught
+within the BSAI Steller sea lion Conservation Area (SCA) were implemented.
+
+On the EBS shelf, an estimate (based on observer at-sea data) of the
+proportion of pollock caught in the SCA has averaged about 38% annually.
+During the A-season, the average is about 42% (in part because pre-spawning
+pollock are more concentrated in this area during this period). The proportion
+of pollock caught within the SCA varies considerably, presumably due to
+temperature regimes and population age structure. The annual proportion of
+catch within the SCA varies and has ranged from an annual low of 11% in 2010
+to high of 51% in 2016 (Table \ref{tab:sca_catch}). This high value was due to B-season
+conditions which had 62% of the catch taken in this region.
+
+The 1998 American Fisheries Act (AFA) reduced the capacity of the
+catcher/processor fleet and permitted the formation of cooperatives in each
+industry sector by the year 2000. Because of some of its provisions, the AFA
+gave the industry the ability to respond efficiently to changes mandated for
+sea lion conservation and salmon bycatch measures. Without such a catch-share
+program, these additional measures would likely have been less effective and
+less economical (Strong and Criddle 2014).
+
+An additional strategy to minimize potential adverse effects on sea lion
+populations is to disperse the fishery throughout more of the pollock range on
+the Eastern Bering Sea shelf. While the distribution of fishing during the
+A-season is limited due to ice and weather conditions, there appears to be
+some dispersion to the northwest area (Fig. \ref{fig:catch_dist}).
+
+Based on analysis, the majority (~56%) of Chinook salmon caught as bycatch in
+the pollock fishery originate from western Alaskan rivers. An Environmental
+Impact Statement (EIS) was completed in 2009 in conjunction with the Council’s
+recommended management approach. This EIS evaluated the relative impacts of
+different bycatch management approaches as well as estimated the impact of
+bycatch levels on adult equivalent salmon (AEQ) returning to river systems
+(NMFS/NPFMC 2009). As a result, revised salmon bycatch management measures
+went into effect in 2011 which imposed new prohibited species catch (PSC)
+limits. These limits, when reached,  close the fishery by sector and season
+(Amendment 91 to the Groundfish FMP resulting from the NPFMC’s 2009 action).
+Previously, all measures for salmon bycatch imposed seasonal _area_ closures
+when PSC levels reached the limit (fishing could continue outside of the
+closed areas). The current program imposes a dual cap system by fishing sector
+and season. A  goal of this system was to maintain incentives to avoid bycatch
+at a broad range of relative salmon abundance. Participants are also required
+to take part in an incentive  program agreement (IPA). These IPAs are approved
+and reviewed annually by NMFS  to ensure individual vessel accountability. The
+fishery has been operating under  rules to implement this program since
+January 2011.
+
+Further measures to reduce salmon bycatch in the pollock fishery were
+developed and the Council took action on Amendment 110 to the BSAI Groundfish
+FMP in April 2015. These additional measures were designed to add protection
+for Chinook salmon by imposing more restrictive PSC limits in times of low
+western Alaskan Chinook salmon abundance. This included provisions within the
+IPAs that reduce fishing in months of higher bycatch encounters and mandate
+the use of salmon excluders in trawl nets. These provisions were also included
+to manage chum salmon bycatch within the IPAs rather than through Amendment 84
+to the FMP. The new measure also included additional seasonal flexibility in
+pollock fishing so that more pollock (proportionally) could be caught during
+seasons when salmon bycatch rates were low. Specifically, an additional 5% of
+the pollock can be caught in the Aseason (effectively changing the seasonal
+allocation from 40% to 45%, and this has occurred in 2017 (Fig.
+\ref{fig:prop_a_season})). These measures are all part of Amendment 110 and a
+summary of this and other key management measures is provided in Table
+\ref{tab:mgt}.
+
+
+
+##Economic conditions as of 2016
+
+Alaska pollock is the dominant species in terms of catch in the Bering Sea \&
+Aleutian Island (BSAI) region. It accounted for 69\% of the BSAI's FMP
+groundfish harvest and 88\% of the total pollock harvest in Alaska. Retained
+catch of pollock increased 2.4\% to 1.35 million t in 2016. BSAI pollock
+first-wholesale value was \$1.35 billion 2016, which was up from \$1.27 billion
+in 2015 and above the 2005-2007 average of \$1.25 billion. The higher revenue in
+recent years is largely the result of increased catch and production levels as
+the average first-wholesale price of pollock products have declined since
+peaking in 2008-2010 and since 2013 have been close the 2005-2007 average,
+though this varies across products types.
+
+Pollock is targeted exclusively with pelagic trawl gear. The catch of pollock
+in the BSAI was rationalized with the passage of the American Fisheries Act
+(AFA) in 1998,\footnote{The AFA was implemented in 1999 for
+catcher/processors, and in   2000 for catcher vessel and motherships.} which,
+among other things, established a proportional allocation of the total
+allowable catch (TAC) among vessels in sectors which were allowed to form into
+cooperatives.\footnote{The   BSAI pollock TAC is divided between Community
+Development Program (10\% off   the top), catcher vessels (50\%),
+catcher/processors (40\%) and motherships   (10\%).}  Alaska caught pollock in
+the BSAI became certified by the Marine Stewardship Council (MSC) in 2005, a
+NGO based third-party sustainability certification, which some buyers seek. In
+2015 the official U.S. market name changed from ``Alaska pollock'' to
+``pollock'' enabling U.S. retailers to differentiate between pollock caught in
+Alaska and Russia.
+
+Prior to 2008 pollock catches were high at approximately 1.4 million t in the
+BSAI for an extended period (Table \ref{tab:bsaiplck_exv}). The U.S. accounted
+for over 50\% of the global pollock catch (Table~\ref{tab:bsaiplck_wsl}).
+Between 2008-2010 conservation reductions in the pollock total allowable catch
+(TAC) trimmed catches to an average 867 thousand t. The supply reduction
+resulted in price increases for most pollock products, which mitigated the
+short-term revenue loss (Table~\ref{tab:bsaiplck_glbl}). Over this same
+period, the pollock catch in Russia increased from an average of 1 million t
+in 2005-2007 to 1.4 million t in 2008-2010 and Russia's share of global catch
+increased to over 50\% and the U.S. share decreased to 35\%. Russia lacks the
+primary processing capacity of the U.S. and much of their catch is exported to
+China and is re-processed as twice-frozen fillets. Around the mid- to late-
+2000s, buyers in Europe, an important segment of the fillet market, started to
+source fish products with the MSC sustainability certification, and some major
+retailer in the U.S. later began to follow suit. Asian markets, an important
+export destination for a number of pollock products, have shown less interest
+in requiring MSC certification. The U.S. was the only producer of MSC
+certified pollock until 2013 when roughly 50\% of the Russian catch became MSC
+certified. Since 2010 the U.S. pollock stock rebounded with catches in the
+BSAI ranging from 1.2-1.3 million t and Russia's catch has stabilized at 1.5
+to 1.6 million t. The majority of pollock is exported; consequently exchange
+rates can have a significant impact on market dynamics, particularly the
+Dollar-Yen and Dollar-Euro.\footnote{Aggregate exports in
+Table~\ref{tab:bsaiplck_glbl} may not fully account for   all pollock exports
+as products such as meal, minced fish and other ancillary   product may be
+coded as generic fish type for export purposes.} Additionally, pollock more
+broadly competes with other whitefish that, to varying degrees, can serve as
+substitutes depending on the product.
+
+This market environment accounts for some of the major trends in prices and
+production across product types. Fillet prices peaked in 2008-2010 but
+declined afterwards because of the greater supply from U.S. and Russia. The
+2013 MSC certification of Russian-caught pollock enabled access to segments of
+European and U.S. fillet markets, which has put continued downward pressure on
+prices. Pollock roe prices and production have declined steadily over the last
+decade as international demand has waned with changing consumer preferences in
+Asia. Additionally, the supply of pollock roe from Russia has increased with
+catch. The net effect has been not only a reduction in the supply of roe from
+the U.S. industry, but also a significant reduction in roe prices which are
+roughly half pre-2008 levels. Prior to 2008, roe comprised 23\% of the U.S.
+wholesale value share, and since 2011 it has been roughly 10\%. With the U.S.
+supply reduction in 2008-2010, surimi production from pollock came under
+increased pressure as U.S. pollock prices rose and markets sought cheaper
+sources of raw materials (see Guenneugues and Ianelli 2013 for a global review
+of surimi resources and market). This contributed to a growth in surimi from
+warm- water fish of southeast Asia. Surimi prices spiked in 2008-2010 and have
+since tapered off as production from warm-water species increased (as has
+pollock). A relatively small fraction of pollock caught in Russian waters is
+processed as surimi. Surimi is consumed globally, but Asian markets dominate
+the demand for surimi and demand has remained strong.
+
+The catch of pollock can be broadly divided between the shore-based sector
+where catcher vessels make deliveries to inshore processors, and the at-sea
+sector where catch is processed at-sea by catcher/processors and motherships
+before going directly to the wholesale markets. The retained catch of the
+shore-based sector increased 2.5\% increase to 704 thousand t. The value of
+these deliveries (shore-based ex-vessel value) totaled \$209.4 million in
+2016, which was down 7.9\% from the ex-vessel value in 2015, as the increased
+catch was offset by a 9.7\% decrease in the ex-vessel price
+(\ref{tab:bsaiplck_exv}). The first-wholesale value of pollock products was
+\$808 million for the at-sea sector and \$543 million for the shore-based
+sector (Table~\ref{tab:bsaiplck_wsl}). The higher revenue in recent years is
+largely the result of increased catch levels as the average price of pollock
+products have declined since peaking in 2008-2010 and since 2013 have been
+close to the 2005-2007 average, though this varies across products types. The
+average price of pollock products in 2016 increased for the at-sea sector and
+shore-based sectors, which was largely attributable to an increase in the
+price of roe products, though prices increased for fillets and surimi products
+as well.
+
+The portfolios of products shore-based and at-sea processors produce are
+similar. In both sectors the primary products processed from pollock are
+fillets, surimi and roe, with each accounting for approximately 40\%, 35\%,
+and 10\% of first-wholesale value (Table~\ref{tab:bsaiplck_wsl}). The price of
+products produced at-sea tend to be higher than comparable products produced
+shore-based because of the shorter time span between catch, processing and
+freezing. The price of fillets produced at-sea tend to be about 6\% higher,
+surimi prices tend to be about 20\% higher and the price of roe about 45\%
+higher. Average prices for fillets produced at-sea also tend to be higher
+because they produce proportionally more higher-priced fillet types (like
+deep-skin fillets). The at-sea price first wholesale premium averaged roughly
+\$0.30 per pound between 2005-2010 but has decreased to an average of \$0.20
+per pound since 2011, in part, because the shore-based sector increased their
+relative share of surimi production.\footnote{The at-sea price premium is the
+difference between the   average price of first-wholesale products at-sea and
+the average price of   first-wholesale products shore-based.}
+
+###Pollock fillets
+
+A variety of different fillets are produced from pollock, with pin-bone-out
+(PBO) and deep-skin fillets accounting for approximately 70\% and 30\% of
+production in the BSAI, respectively. Total fillet production decreased 3.4\%
+to 161 kt in 2016, but since 2010 has increased with aggregate
+production and catch and has been higher than the 2005-2007 average
+(Table~\ref{tab:bsaiplck_wsl}). The average price of fillet products in the
+BSAI increased 4\% to \$1.41 per pound and is below the inflation adjusted
+average price of fillets in 2005-2007 of \$1.46 per pound. Media reports
+indicate that H\&G and fillet prices tended to be low throughout the year. The
+small size of fish in the catch, significant inventories, and insolvency of a
+major international pollock trader were cited as contributing factors. Low
+H\&G prices incentivize Russia producers upgrade their fillet production
+capacity in the near future, though fillets still a small portion of their
+primary production,. Much of the Russian catch already goes to China for
+secondary processing into fillets so this would do little to increase the
+overall volume, however, increased primary fillet processing in Russia could
+increase competition with U.S. produced single-frozen fillet products.
+Approximately 30\% of the fillets produced in Alaska are estimated to remain
+in the domestic market, which accounts for roughly 45\% of domestic pollock
+fillet consumption.\footnote{Additionally, roughly 10\% of the at-sea   BSAI
+production is processed as H\&G which is mostly exported, primarily to
+China, where is reprocessed as fillets and some share of which returns to the
+U.S.. China also processes H\&G from Russia into fillets which are also
+imported into the domestic market. Current data collection does not allow us
+to estimate the share of U.S. returning imports.} As recent fillet markets
+have become increasingly tight, the industry has tried to maintain value by
+increasing domestic marketing for fillet based product and creating product
+types that are better suited to the American palette, in addition to increased
+utilization of by-products.
+
+###Surimi seafood
+
+Surimi production continued an increasing trend through 2016, but at a more
+moderate rate of 1.6\% to 190.8 thousand t which is above the 2005-2007
+average. Prices have increased since 2013 to \$1.19 per pound in the BSAI in
+2016 (Table~\ref{tab:bsaiplck_wsl}). Because surimi and fillets are both made
+from pollock meat, activity in the fillet market can influence the decision of
+processors to produce surimi. Industry news indicated the average size of fish
+caught is down, which incentivizes surimi production because it yields a
+higher value than fillets. Additionally, the supply of raw surimi material
+continues to be constrained in Japan. The high volume of surimi production has
+raised concerns that prices may begin to plateau or fall, but the more
+favorable exchange rate with Japan in 2016 may have helped to shore up prices.
+
+###Pollock roe
+
+Roe is a high priced product that is the focus of the A season catch destined
+primarily for Asian markets. Roe production in the BSAI tapered off in the
+late-2000s and since has generally fluctuated at under 20 thousand t annually,
+production averaged 27 thousand t in 2005-2007 and was 14.3 thousand t in 2016,
+which is 24\% below production in 2015 (Fig. 1.6). Prices peaked in the
+mid-2000s prices have followed a decreasing trend over the last decade which
+continued until 2015. In 2016 roe production from the U.S. and Russia were low
+as a result of the average size of fish caught being down, which also reduced
+average grade of roe sold. Lower production and tight inventories put upward
+pressure on roe prices. Additionally, the Yen to U.S. Dollar exchange rate was
+more favorable in the 2016 than 2015. The net result in the BSAI was a 24\%
+price increase in 2016 \$2.84 per pound, and value was down only 6\% to \$89
+million (Table~\ref{tab:bsaiplck_wsl}).
+
+###Fish oil
+
+Using oil production per 100 tons as a basic index (tons of oil per ton
+retained catch) shows increases for the at-sea sector. In 2005-2007 it was
+0.3\% and starting in 2008 it increased and leveled off after 2010 with  over
+1.5\% of the catch being converted to fish oil (Table~\ref{tab:bsaiplck_oil}).
+This represents about a 5-fold increase in recorded oil production during this
+period. Oil production from the shore-based fleet was somewhat higher than the
+at-sea processors prior to 2008 but has been relatively stable according to
+available records. Oil production estimates from the shore-based fleet may be
+biased low because some production occurs at secondary processors (fishmeal
+plants) in Alaska. The increased production of oil beginning in 2008 can be
+attributed to the steady trend to add more value per ton of fish landed.
+
+#Data
+
+The following lists the data used in this assessment: 
+
+| Source | Type | Years |
+|----------------------------|-----------------------|----------------------------------------------|
+| Fishery | Catch biomass | 1964-2017 |
+| Fishery | Catch age composition | 1964-2016 |
+| Fishery | Japanese trawl CPUE | 1965-1976 |
+| EBS bottom trawl | Area-swept biomass and age-specific proportions | 1982-2017 |
+| Acoustic trawl survey | Biomass index and age-specific proportions | 1994, 1996, 1997, 1999, 2000, 2002, 2004, 2006-2010, 2012, 2014, 2016 |
+| Acoustic vessels of opportunity (AVO) | Biomass index | 2006-2017 |
+
+##Fishery 
+###Catch
+The catch-at-age composition was estimated using the methods described by
+Kimura (1989) and modified by Dorn (1992). Length-stratified age data are used
+to construct age-length keys for each stratum and sex. These keys are then
+applied to randomly sampled catch length frequency data. The stratum-specific
+age composition estimates are then weighted by the catch within each stratum
+to arrive at an overall age composition for each year. Data were collected
+through shore-side sampling and at-sea observers. The three strata for the EBS
+were:  i) January–June (all areas, but mainly east of 170°W); ii) INPFC area
+51 (east of 170°W) from July–December; and iii) INPFC area 52 (west of 170°W)
+from July–December. This method was used to derive the age compositions from
+1991-2015 (the period for which all the necessary information is readily
+available). Prior to 1991, we used the same catch-at-age composition estimates
+as presented in Wespestad et al. (1996).
+
+The catch-at-age estimation method uses a two-stage bootstrap re-sampling of
+the data. Observed tows were first selected with replacement, followed by re-
+sampling actual lengths and age specimens given that set of tows. This method
+allows an objective way to specify the effective sample size for fitting
+fishery age composition data within the assessment model. In addition,
+estimates of stratum-specific fishery mean weights-at-age (and variances) are
+provided which are useful for evaluating general patterns in growth and growth
+variability. For example, Ianelli et al. (2007) showed that seasonal aspects
+of pollock condition factor could affect estimates of mean weight-at-age. They
+showed that within a year, the condition factor for pollock varies by more
+than 15%, with the heaviest pollock caught late in the year from October-
+December (although most fishing occurs during other times of the year) and the
+thinnest fish at length tending to occur in late winter. They also showed that
+spatial patterns in the fishery affect mean weights, particularly when the
+fishery is shifted more towards the northwest where pollock tend to be smaller
+at age. In 2011 the winter fishery catch consisted primarily of age 5 pollock
+(the 2006 year class) and later in that year age 3 pollock (the 2008 year
+class) were present. In 2012 - 2015 the 2008 year class been prominent in the
+catches with 2015 showing the first signs of the 2012 year-class as three
+year-olds in the catch (Fig. \ref{fig:xxx}; Table \ref{tab:fsh_age}). The sampling
+effort for age determinations and lengths is shown in Tables 1.11 and 1.12.
+Sampling for pollock lengths and ages by area has been shown to be relatively
+proportional to catches (e.g., Fig. 1.8 in Ianelli et al. 2004). As part of
+the re-evaluation of sample sizes assumed within the assessment, the number of
+ages and lengths (and number of hauls from which samples were collected) show
+significant changes over time (Fig. \ref{fig:xxx}). This information was used to inform
+periods from which input sample size re-weighting was appropriate for
+modeling. Regarding the precision of total pollock catch biomass, Miller
+(2005) estimated the CV to be on the order of 1%.
+
+Scientific research catches are reported to fulfill requirements of the
+Magnuson-Stevens Fisheries Conservation and Management Act. The annual
+estimated research catches (1963 - 2015) from NMFS surveys in the Bering Sea
+and Aleutian Islands Region are given in (Table \ref{tab:res_catch}). Since
+these values represent extremely small fractions of the total removals
+(~0.02%) they are ignored as a contributor to the catches as modeled for
+assessment purposes.
+
+```{r child = 'survtext.Rmd'}
+```
+
+```{r child = 'restext.Rmd'}
+```
+
+##ABC Recommendation
+
+ABC levels are affected by estimates of $F_{MSY}$ which depends principally on 
+   1.  the estimated stock-recruitmentXXX, 
+   2.  demographic schedules such as selectivity-at-age, maturity, growth), 
+   3.  the BMSY level, and current stock size (both
+spawning and fishable). Updated data and analysis result in an estimate of
+2016 spawning biomass (4,070 kt) that is about 212% of BMSY (2,165 kt). The
+replacement yield—defined as the catch next year that is expected to achieve a
+2018 spawning biomass estimate equal to that from 2016—is estimated to be
+about 2,500,000 t.
+
+The EBS pollock stock appears to have rebounded from the 2008 low point and
+shows significant increases due to two strong year classes (2008 and 2012).
+However, there remain several concerns about the medium-term stock conditions.
+Namely,
+
+1.  The conditions in summer 2017 followed a warm period, precaution may be
+warranted since warm conditions are thought to negatively affect the survival
+of larval and juvenile pollock.
+
+2.  The near-term prognosis for  survey found very few one-year-old pollock in
+summer 2016 and 2017 (the BTS data show below average 1-year olds).
+
+3.  The current BTS data show low abundances of pollock aged 10 and older.
+Historically there had been good representation of older fish in data from
+this survey. This is somewhat expected given the poor year-classes observed
+during the period 2000-2005.
+
+4.  The BTS showed patchier concentrations of pollock compared to recent
+years. This can result in increased uncertainty in the estimates. This
+patchier distribution may also reflect somewhat better nominal fishery catch
+rates.
+
+5.  The multispecies model suggests that the BMSY level is around 3.6 million
+t instead of the ~2 million t estimated in the current assessment (noting that
+the total natural mortality is higher in the multispecies model).
+
+6.  Roe production has dropped in 2015 in the B-season. Recent data show that
+~15% of annual roe production has occurred from June-October whereas in 2015
+and 2016 the production is ~5%.
+
+7.  The selection of a single model, though attempting to account for
+uncertainties due to process errors, ignores structural uncertainty in model
+specification. Including such structural uncertainties may reflect the type of
+variability in stock-recruit relationship depicted in the scenario where
+conditioning the curve on the assessment results is lowered.
+
+8.  The euphausiid index (see Ecosystem considerations, this volume) decreased
+from the 2014 estimates and has declined since the 2009 peak. This may
+negatively affect survival rates of juvenile pollock prior to recruiting to
+the fishery.
+
+9.  Pollock are an important prey species for the ecosystem; there’s been a
+12% decline in St. Paul Island pup production from 2014-2016 which, when
+combined information on the other fur seal population components (Bogoslof and
+St. George Islands), indicates an estimated 2.5% decline in the overall
+Eastern Stock fur seal population.  Maintaining prey availability may provide
+better foraging opportunities for the fur seal stock to minimize further
+declines.
+
+10. Whilst outside of ABC considerations, it seems that maintaining the stock
+at relatively high levels and achieving fishery catch rates observed in 2016
+B-season may help to minimize Chinook salmon bycatch (noting that the total
+effort required to catch 600 kt in the 5 most recent B-seasons was
+substantially smaller this year)
+
+Given these factors, a `r nextyr` ABC of 2,800,000 t is recommended based on the
+Tier 3 estimates as conservatively selected by the SSC in 2014 and 2015. We
+recognize that the actual catch will be constrained by other factors (the 2
+million t OY BSAI groundfish catch limit; bycatch avoidance measures). The
+alternative maximum permissible Tier 1a ABC seems clearly risky. Such high
+catches would result in unprecedented variability and removals from the stock
+(and considerably more capacity and effort). Adopting a more stable catch
+system would also result in less spawning stock variability.
+
+#Ecosystem considerations
+In general, a number of key issues for ecosystem conservation and management can be highlighted. These include: 
+
+*	Preventing overfishing;    
+
+*	Avoiding habitat degradation;    
+
+*	Minimizing incidental bycatch;    
+
+*	Monitoring bycatch and the level of discards; and    
+
+*	Considering multi-species trophic interactions relative to harvest policies.    
+
+For the case of pollock in the Eastern Bering Sea, the NPFMC and NMFS continue
+to manage the fishery on the basis of these issues in addition to the single-
+species harvest approach (Hollowed et al. 2011). The prevention of overfishing
+is clearly set out as the main guideline for management. Habitat degradation
+has been minimized in the pollock fishery by converting the industry to
+pelagic-gear only. Bycatch in the pollock fleet is closely monitored by the
+NMFS observer program and managed on that basis. Discard rates of many species
+have been reduced in this fishery and efforts to minimize bycatch continue.
+
+In comparisons of the Western Bering Sea (WBS) with the Eastern Bering Sea
+using mass-balance food-web models based on 1980-85 summer diet data, Aydin et
+al. (2002) found that the production in these two systems is quite different.
+On a per-unit-area measure, the western Bering Sea has higher productivity
+than the EBS. Also, the pathways of this productivity are different with much
+of the energy flowing through epifaunal species (e.g., sea urchins and
+brittlestars) in the WBS whereas for the EBS, crab and flatfish species play a
+similar role. In both regions, the keystone species in 1980-85 were pollock
+and Pacific cod. This study showed that the food web estimated for the EBS
+ecosystem appears to be relatively mature due to the large number of
+interconnections among species. In a more recent study based on 1990-93 diet
+data (see Appendix 1 of the Ecosystem Considerations chapter for methods),
+pollock remain in a central role in the ecosystem. The diet of pollock is
+similar between adults and juveniles with the exception that adults become
+more piscivorous (with consumption of pollock by adult pollock representing
+their third largest prey item).
+
+Regarding specific small-scale ecosystems of the EBS, Ciannelli et al. (2004a,
+2004b) presented an application of an ecosystem model scaled to data available
+around the Pribilof Islands region. They applied bioenergetics and foraging
+theory to characterize the spatial extent of this ecosystem. They compared
+energy balance, from a food web model relevant to the foraging range of
+northern fur seals and found that a range of 100 nautical mile radius encloses
+the area of highest energy balance representing about 50% of the observed
+foraging range for lactating fur seals. This has led to a hypothesis that fur
+seals depend on areas outside the energetic balance region. This study
+develops a method for evaluating the shape and extent of a key ecosystem in
+the EBS (i.e., the Pribilof Islands). Furthermore, the overlap of the pollock
+fishery and northern fur seal foraging habitat (see Sterling and Ream 2004,
+Zeppelin and Ream 2006) will require careful monitoring and evaluation.
+
+A brief summary of these two perspectives (ecosystem effects on pollock stock
+and pollock fishery effects on ecosystem) is given in (Table \ref{tab:pscbycatch}). Unlike the
+food-web models discussed above, examining predators and prey in isolation may
+overly simplify relationships. This table serves to highlight the main
+connections and the status of our understanding or lack thereof.
+
+
+## Ecosystem effects on the EBS pollock stock 
+
+The pollock stock condition appears to have benefitted substantially from the
+recent conditions in the EBS. The conditions on the shelf during 2008
+apparently affected conditions for age-0 northern rock sole due to cold
+conditions and apparently unfavorable currents that retain them into the over-
+summer nursery areas (Cooper et al. 2014). It may be that such conditions
+favor pollock recruitment. Hollowed et al. (2012) provided an extensive review
+of habitat and density for age-0 and age-1 pollock based on extensive survey
+data. They noted that during cold years, age-0 pollock were distributed
+primarily in the outer domain in waters greater than 1ºC and during warm
+years, age-0 pollock were distributed mostly in the middle domain. This
+temperature relationship, along with interactions with available food in
+early-life stages, appears to have important implications for pollock
+recruitment success (Coyle et al. 2011). The fact that the 2012 year-class,
+while uncertain, appears to be also high creating a favorable stock trend in
+the near term.
+
+A separate section presented this year updates multispecies model with more
+recent data and is presented as a supplement to the BSAI SAFE report. In this
+approach, a number of simplifications for the individual species data and
+fisheries processes (e.g., no time varying selectivity in the fishery and only
+design-based survey indices). However, that model mimics the pattern and
+abundances with the single species reasonably well. It also allows specific
+questions to be addressed regarding pollock TACs. For example, since predation
+(and cannibalism) is explicitly modeled, the impact of relative stock sizes on
+subsequent recruitment to the fishery can be now be directly estimated and
+evaluated (in the model presented here, cannibalism is explicitly accounted
+for in the assumed Ricker stock-recruit relationship).
+
+Euphausiids, principally Thysanoessa inermis and T. raschii, are among the
+most important prey items for pollock in the Bering Sea (Livingston, 1991;
+Lang et al., 2000; Brodeur et al., 2002; Cianelli et al., 2004; Lang et al.,
+2005). Buckley et al. (2016) showed spatial patterns of pollock foraging by
+size of predators. For example, the northern part of the outer domain (closest
+to the shelf break) tends to be more piscivorous than counterparts in other
+areas (Fig. \ref{fig:xxx}). This figure also shows that euphausiids make up a larger
+component of the diet in the southern areas. The euphausiid abundance on the
+Bering Sea shelf is presented as a section of the 2016 Ecosystem
+Considerations Chapter of the SAFE report and shows a continued decline in
+abudance since the peak in 2009 (for details see De Robertis et al. (2010) and
+Ressler et al. (2012). The role that the apparent recent 2009 peak abundance
+had in the survival of the 2008 year class of EBS pollock is interesting.
+Contrasting this with how the feeding ecology of the 2012 year class (also
+apparently well above average) may differ is something to evaluate in the
+future.
+
+##EBS pollock fishery effects on the ecosystem. 
+
+Since the pollock fishery is primarily pelagic in nature, the bycatch of non-
+target species is small relative to the magnitude of the fishery (Table \ref{tab:pscbycatch}).
+Jellyfish represent the largest component of the bycatch of non-target species
+and had averaged around 5-6 thousand tons per year but more than doubled in
+2014 but has dropped in 2015. The data on non-target species shows a high
+degree of inter-annual variability, which reflects the spatial variability of
+the fishery and high observation error. This variability may reduce the
+ability to detect significant trends for bycatch species.
+
+The catch of other target species in the pollock fishery represent less than
+1% of the total pollock catch. Incidental catch of Pacific cod has increased
+since 1999 but remains below the 1997 levels (Table \ref{tab:pscbycatch}). The incidental
+catch of flatfish was variable over time and has increased, particularly for
+yellowfin sole. Proportionately, the incidental catch has decreased since the
+overall levels of pollock catch have increased. In fact, the bycatch of
+pollock in other target fisheries is more than double the bycatch of target
+species in the pollock fishery (Table \ref{tab:pscbycatch}).
+
+The number of non-Chinook salmon (nearly all made up of chum salmon) taken incidentally
+has steadily increased since 2014 with 2017 number in excess of 465 thousand fish (more than
+double the 2003-2017 average of 227 thousand fish; Table \ref{tab:pscbycatch}).
+Chinook salmon bycatch has also increased steadily since 2012 with the 2017
+counts at just over 30,000 (which is 18% below the 2003-2017 mean value). 
+However, this is the highest value since
+the implementation of Amendment 91 in 2011 (Table \ref{tab:pscbycatch}). 
+Ianelli and Stram (2014) provided estimates of the bycatch impact on Chinook salmon runs to the coastal west
+Alaska region and found that the peak bycatch levels exceeded 7% of the total
+run return. Since 2011, the impact has been estimated to be below 2%. Updated estimates 
+given new genetic information and these levels of PSC will be provided in the future. 
+
+
+#Data gaps and research priorities
+
+The available data for EBS pollock are extensive yet many processes behind the
+observed patterns are poorly understood. For example, the recent bottom trawl
+surveys found abundance levels for the 2008  and now 2012 year class appear to
+be estimated at high levels. Research on developing and testing plausible
+hypotheses about the underlying processes that cause such observations is
+needed. This should include examining potential effects of temporal changes in
+survey stations and using spatial processes for estimation purposes (e.g.,
+combining acoustic and bottom trawl survey data). The application of the
+geostatistical methods (presented for comparative purposes above) seem like a
+reasonable approach to statistically model disparate data sources for
+generating better abundance indices.
+
+More studies on spatial dynamics, including the relationship between climate
+and recruitment and trophic interactions of pollock within the ecosystem would
+be useful for improving ways to evaluate the current and alternative fishery
+management system. In particular, studies investigating the processes
+affecting recruitment of pollock in the different regions of the EBS
+(including potential for influx from the GOA) should be pursued.
+
+Many studies have found inconclusive evidence for genetic population structure
+in walleye pollock. Knowledge of stock structure is particularly important for
+this species, given its commercial importance. Therefore, a large scale study
+using the highest resolution genetic tools available is recommended. Such a
+study would incorporate samples throughout the range of walleye pollock,
+including North America, Japan, and Russia, if possible. Data from thousands
+of SNP loci should be screened, using next generation sequencing.
+
+#Acknowledgements
+
+We thank the staff of the AFSC age-and-growth department for their continued
+excellence in promptly processing the samples used in this assessment. The
+work of many individuals involved in collecting and processing survey and
+observer data is greatly appreciated. Finally, thanks to the many colleagues who provided
+edits and suggestions to improve this document.
+

@@ -20,14 +20,18 @@
         {
           df$obs  <- A$ob_bts
           df$pre  <- A$eb_bts
-          df$lb   <- A$ob_bts-1.96*A$sd_ob_bts
-          df$ub   <- A$ob_bts+1.96*A$sd_ob_bts
+          df$lb   <- A$ob_bts/exp(2.*sqrt(log(1+(A$sd_ob_bts)^2/(A$ob_bts)^2)))
+          df$ub   <- A$ob_bts*exp(2.*sqrt(log(1+(A$sd_ob_bts)^2/(A$ob_bts)^2)))
+          #df$lb   <- A$ob_bts-1.96*A$sd_ob_bts
+          #df$ub   <- A$ob_bts+1.96*A$sd_ob_bts
         }
         else{
           df$obs  <- A$ot_bts
           df$pre  <- A$et_bts
-          df$lb   <- A$ot_bts-1.96*A$sd_ot_bts
-          df$ub   <- A$ot_bts+1.96*A$sd_ot_bts
+          df$lb   <- A$ot_bts/exp(2.*sqrt(log(1+(A$sd_ot_bts)^2/(A$ot_bts)^2)))
+          df$ub   <- A$ot_bts*exp(2.*sqrt(log(1+(A$sd_ot_bts)^2/(A$ot_bts)^2)))
+          #df$lb   <- A$ot_bts-1.96*A$sd_ot_bts
+          #df$ub   <- A$ot_bts+1.96*A$sd_ot_bts
         }
         mdf     <- rbind(mdf, df)
     }
@@ -44,11 +48,10 @@
 #' @param xlab the x-label of the figure
 #' @param ylab the y-label of the figure
 #' @param ylim is the upper limit of the figure
-#' @param alpha the opacity of the ribbon
 #' @return Plot of model estimates of spawning stock biomass 
 #' @export
 #' 
-plot_bts <- function(M, xlab = "Year", ylab = "Bottom trawl survey biomass", ylim = NULL, alpha = 0.1,biomass=TRUE)
+plot_bts <- function(M, xlab = "Year", ylab = "Bottom trawl survey biomass", ylim = NULL, color="purple",biomass=TRUE)
 {
     xlab <- paste0("\n", xlab)
     ylab <- paste0(ylab, "\n")
@@ -66,14 +69,14 @@ plot_bts <- function(M, xlab = "Year", ylab = "Bottom trawl survey biomass", yli
     
     if (length(M) == 1)
     {
-        p <- p + geom_line(aes(x = year, y = pre)) +geom_point(aes(x=year, y=obs)) + 
-            geom_errorbar(aes(x = year, ymax = ub, ymin = lb))
+        p <- p + geom_line(aes(x = year, y = pre)) +geom_point(aes(x=year, y=obs),size=2,color="purple") + 
+            geom_errorbar(aes(x = year, ymax = ub, ymin = lb),width=0.5)
     } else {
-        p <- p + geom_line(aes(x = year, y = pre, col = Model),size=1.2) + geom_point(aes(x=year, y=obs)) + 
-            geom_errorbar(aes(x = year, ymax = ub, ymin = lb))
+        p <- p + geom_line(aes(x = year, y = pre, col = Model),size=1.2) + geom_point(aes(x=year, y=obs),size=2,color=color) + 
+            geom_errorbar(aes(x = year, ymax = ub, ymin = lb),width=0.5)
     }
     
     #if(!.OVERLAY) 
-        p <- p + facet_wrap(~Model) + guides(colour=FALSE)
-    print(p + .THEME)
+    p <- p + guides(colour=FALSE)
+    return(p + .THEME)
 }

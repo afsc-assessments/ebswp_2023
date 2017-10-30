@@ -2,20 +2,21 @@
 
 \clearpage
 
-```{r fig1}
+```{r fshfigs}
  printfig("catch.png",1)
- printfig("catchN.png",2)
- printfig("catchdist.png",3)
+ printfig("catch_sex.png",2)
+ printfig("catch_distn_a.png",3)
  printfig("prop_a_season.png",4)
- printfig("catchage.png",5)
- printfig("bts_3d.png",5)
- printfig("avo_bts.png",6)
+ printfig("catch_distn_a.png",3)
+ printfig("fsh_age.png",5)
  printfig("cpue.png",8)
  printfig("cpue_Aseason.png",7)
- printfig("catchage.png",9)
- printfig("mace_age.png",10)
- printfig("bts_temp_cpue.pdf",11)
- printfig("at_age.png",15)
- printfig("fsh_sel.png",23)
- printfig("fsh_age.pdf",24)
 ``` 
+\clearpage
+
+```{r child = 'survfigs.Rmd'}
+```
+
+\clearpage
+```{r child = 'resfig.Rmd'}
+```

@@ -2,12 +2,13 @@
 ## Tasks and todo list
     [x] Make new branch, call it 2017
     [x] Get updated AT age and index data (down to 0.5 m)
+    [x] Get haul-based sample sizes
     [x] Add in survey biomass     
     [x] Rescale survey biomass covariance matrix
-    [ ] Update catches     
+    [x] Update catches     
     [x] Add in 2016 fishery age compositions      
     [x] Add in 2017 survey age compositions     
-    [x] re-run wt.tpl with updated survey and fishery data to get new variance params for REs
+    [x] re-run wt.tpl with updated survey and fishery data to get new variance params for REs, in 2017 this was done in fishBodyMassAtAge repo
     [ ] Modify code to accommodate time-varying M
     [ ] Figure out which models to use going forward     
 

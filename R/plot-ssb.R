@@ -46,7 +46,7 @@ plot_ssb <- function(M, xlab = "Year", ylab = "Female spawning biomass (kt)", yl
     
     mdf <- .get_ssb_df(M)
     
-    p <- ggplot(mdf) + labs(x = xlab, y = ylab)
+    p <- ggplot(mdf) + labs(x = xlab, y = ylab)+ .THEME
     
     if (!is.null(xlim))
         p <- p + xlim(xlim[1], xlim[2])        
@@ -70,6 +70,6 @@ plot_ssb <- function(M, xlab = "Year", ylab = "Female spawning biomass (kt)", yl
     if (!legend)
         p <- p + theme(legend.position="none")
 
-    if(!.OVERLAY) p <- p + facet_wrap(~Model)
-    print(p + .THEME)
+    if(!.OVERLAY) p <- p + facet_wrap(~Model) 
+    return(p)
 }

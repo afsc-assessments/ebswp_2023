@@ -151,6 +151,8 @@ DATA_SECTION
    write_log(nyrs_sel_avg);
    write_log(phase_F40);
    write_log(robust_phase);
+   write_log(eit_robust_phase); 
+   write_log(eit_like_type)   ;
    write_log(phase_logist_fsh);
    write_log(phase_logist_bts);
  END_CALCS
@@ -702,7 +704,7 @@ DATA_SECTION
         if (i == yrs_data(h,itmp) )
           itmp++;
       }
-      nyrs_data(h)= itmp;
+      nyrs_data(h)= itmp-1;
     }
  END_CALCS
   init_int age_st
@@ -792,10 +794,10 @@ DATA_SECTION
  number FW_bts;
  number FW_eit;
 INITIALIZATION_SECTION
-  L1 32.8373996318
-  L2 53.3070669511
-  log_alpha -11.5040644174
-  log_K -0.315962350542
+  L1 27.928
+  L2 44.3676944103
+  log_alpha -11.0000000000
+  log_K -0.136352276302
   d_scale .85
   sigr  sigrprior ;
   steepness steepnessprior;
@@ -1028,7 +1030,7 @@ PARAMETER_SECTION
   matrix wt_pre(styr_wt,endyr_wt,age_st,age_end)
   vector mnwt(age_st,age_end);
   init_bounded_vector coh_eff(styr_wt-nages_wt-age_st+1,endyr_wt-age_st+3,-15,15,5);
-  init_bounded_vector  yr_eff(styr_wt,endyr_wt+3,-15,15,4);
+  init_bounded_vector  yr_eff(styr_wt,endyr_wt+3,-15,15,7);
 
   sdreport_vector wt_last(age_st,age_end);
   sdreport_vector wt_cur(age_st,age_end);
@@ -1151,7 +1153,7 @@ PRELIMINARY_CALCS_SECTION
 
 
 RUNTIME_SECTION
-   maximum_function_evaluations 50,50,100,500,500,15000
+   maximum_function_evaluations 50,200,500,800,900,15000
    convergence_criteria .001,.001,.001,1e-7
 PROCEDURE_SECTION
   if (active(yr_eff))
@@ -1169,187 +1171,207 @@ PROCEDURE_SECTION
 
 REPORT_SECTION
   save_gradients(gradients);
-  report <<calc_Francis_weights(oac_fsh, eac_fsh,sam_fsh )<<endl;
-  report <<calc_Francis_weights(oac_bts, eac_bts,sam_bts )<<endl;
-  report <<calc_Francis_weights(oac_eit, eac_eit,sam_eit )<<endl;
+	if (ctrl_flag(28)==0 && last_phase())
+	{
+    legacy_rep << "Francis weights: fishery "<<endl;
+    legacy_rep <<calc_Francis_weights(oac_fsh, eac_fsh,sam_fsh )<<endl;
+    legacy_rep << "Francis weights: bTS "<<endl;
+    legacy_rep <<calc_Francis_weights(oac_bts, eac_bts,sam_bts )<<endl;
+    legacy_rep << "Francis weights: ATS "<<endl;
+    dvar_matrix eac_ats(1,n_eit_r,mina_eit,nages);
+    dmatrix oac_ats(1,n_eit_r,mina_eit,nages);
+    for (int i=1;i<=n_eit_r;i++)
+    {
+      oac_ats(i) = oac_eit(i)(mina_eit,nages);
+      eac_ats(i) = eac_eit(i)(mina_eit,nages);
+    }
+    legacy_rep <<calc_Francis_weights(oac_ats, eac_ats,sam_eit )<<endl;
+	}
   cout<<repl_yld<<endl; cout<<repl_SSB<<endl; cout<<SSB(endyr_r)<<endl; 
   dvariable qtmp = mfexp(mean(log(oa1_eit)-log(ea1_eit)));
-  cout << endl<<"Changing phases: "<<current_phase()<<" ==============================================="<<endl<<endl;
-  report << model_name<<" "<< datafile_name<<" "<<q_bts<<" "<<q_eit<<" "<<q_bts*exp(log_q_std_area)<< " "<<q_all<<" "<<qtmp<<" "<<sigr<<" q's and sigmaR"<<endl;
-  report << "Estimated Catch and Observed" <<endl;
-  report << pred_catch <<endl;
-  report << obs_catch <<endl;
-  report << "Estimated Survival at age" <<endl;
-  for (i=styr;i<=endyr_r;i++) report << i<<" "<<S(i) <<endl;
-  report << "Estimated N at age" <<endl;
-  for (i=styr;i<=endyr_r;i++) report << i<<" "<<natage(i) <<endl;
-  report << "selectivity Fishery, trawl survey, and hydro survey" <<endl;
-  for (i=styr;i<=endyr_r;i++) report << i<<" "<<sel_fsh(i) <<endl;
-                              report << "Future "<<sel_fut <<endl;
-  for (i=styr;i<=endyr_r;i++) report << i<<" "<<mfexp(log_sel_bts(i)) <<endl;
+  if (last_phase())
+		cout << endl<<"Finished last phase: "<<current_phase()<<" ============================================="<<endl<<endl;
+  else
+		cout << endl<<"Changing phases from: "<<current_phase()<<" ============================================="<<endl<<endl;
+  legacy_rep << model_name<<" "<< datafile_name<<" "<<q_bts<<" "<<q_eit<<" "<<q_bts*exp(log_q_std_area)<< " "<<q_all<<" "<<qtmp<<" "<<sigr<<" q's and sigmaR"<<endl;
+  legacy_rep << "Estimated Catch and Observed" <<endl;
+  legacy_rep << pred_catch <<endl;
+  legacy_rep << obs_catch <<endl;
+  legacy_rep << "Estimated Survival at age" <<endl;
+  for (i=styr;i<=endyr_r;i++) legacy_rep << i<<" "<<S(i) <<endl;
+  legacy_rep << "Estimated N at age" <<endl;
+  for (i=styr;i<=endyr_r;i++) legacy_rep << i<<" "<<natage(i) <<endl;
+  legacy_rep << "selectivity Fishery, trawl survey, and hydro survey" <<endl;
+  for (i=styr;i<=endyr_r;i++) legacy_rep << i<<" "<<sel_fsh(i) <<endl;
+                              legacy_rep << "Future "<<sel_fut <<endl;
+  for (i=styr;i<=endyr_r;i++) legacy_rep << i<<" "<<mfexp(log_sel_bts(i)) <<endl;
   if (use_age1_eit)
-    for (i=styr;i<=endyr_r;i++) report << i<<" 0 "<<mfexp(log_sel_eit(i)(mina_eit,nages)) <<endl;
+    for (i=styr;i<=endyr_r;i++) legacy_rep << i<<" 0 "<<mfexp(log_sel_eit(i)(mina_eit,nages)) <<endl;
   else
-    for (i=styr;i<=endyr_r;i++) report << i<<" "<<mfexp(log_sel_eit(i)) <<endl;
+    for (i=styr;i<=endyr_r;i++) legacy_rep << i<<" "<<mfexp(log_sel_eit(i)) <<endl;
 
-  report << "Fishery observed P at age" <<endl;
-  for (i=1;i<=n_fsh_r;i++) report << yrs_fsh_data(i)<<" "<<oac_fsh(i) <<endl;
-  report << "Fishery observed P at size" <<endl;
-  report << endyr          <<" "<<olc_fsh    <<endl;
+  legacy_rep << "Fishery observed P at age" <<endl;
+  for (i=1;i<=n_fsh_r;i++) legacy_rep << yrs_fsh_data(i)<<" "<<oac_fsh(i) <<endl;
+  legacy_rep << "Fishery observed P at size" <<endl;
+  legacy_rep << endyr          <<" "<<olc_fsh    <<endl;
 
-  report << "Fishery Predicted P at age" <<endl;
-  for (i=1;i<=n_fsh_r;i++) report << yrs_fsh_data(i)<<" "<<eac_fsh(i) <<endl;
-  report << "Fishery Predicted P at size" <<endl;
-                           report << endyr_r        <<" "<<elc_fsh    <<endl;
+  legacy_rep << "Fishery Predicted P at age" <<endl;
+  for (i=1;i<=n_fsh_r;i++) legacy_rep << yrs_fsh_data(i)<<" "<<eac_fsh(i) <<endl;
+  legacy_rep << "Fishery Predicted P at size" <<endl;
+                           legacy_rep << endyr_r        <<" "<<elc_fsh    <<endl;
 
-  report << "Survey Observed P at age"<<endl;
-  for (i=1;i<=n_bts_r;i++) report << yrs_bts_data(i)<<" "<<oac_bts(i) <<endl;
-  report << "Survey Predicted P at age"<<endl;
-  for (i=1;i<=n_bts_r;i++) report << yrs_bts_data(i)<<" "<<eac_bts(i) <<endl;
+  legacy_rep << "Survey Observed P at age"<<endl;
+  for (i=1;i<=n_bts_r;i++) legacy_rep << yrs_bts_data(i)<<" "<<oac_bts(i) <<endl;
+  legacy_rep << "Survey Predicted P at age"<<endl;
+  for (i=1;i<=n_bts_r;i++) legacy_rep << yrs_bts_data(i)<<" "<<eac_bts(i) <<endl;
 
-  report << "Hydro Survey Observed P at age"<<endl;
+  legacy_rep << "Hydro Survey Observed P at age"<<endl;
   if (use_age1_eit) 
-    for (i=1;i<=n_eit_r;i++) report << yrs_eit_data(i)<<" 0 "<<oac_eit(i)(mina_eit,nages) <<endl;
+    for (i=1;i<=n_eit_r;i++) legacy_rep << yrs_eit_data(i)<<" 0 "<<oac_eit(i)(mina_eit,nages) <<endl;
   else
-    for (i=1;i<=n_eit_r;i++) report << yrs_eit_data(i)<<" "<<oac_eit(i) <<endl;
+    for (i=1;i<=n_eit_r;i++) legacy_rep << yrs_eit_data(i)<<" "<<oac_eit(i) <<endl;
 
   if (use_last_eit_ac<=0) 
   {
     n_eit_ac_r = n_eit_r-1; 
     iyr          = yrs_eit_data(n_eit_r);
-    report<<  (elem_prod(natage(iyr),mfexp(log_sel_eit(iyr))) * q_eit)/et_eit(n_eit_r)<<endl; 
+    legacy_rep<<  (elem_prod(natage(iyr),mfexp(log_sel_eit(iyr))) * q_eit)/et_eit(n_eit_r)<<endl; 
   }
 
-  report << "Hydro Survey Predicted P at age"<<endl;
+  legacy_rep << "Hydro Survey Predicted P at age"<<endl;
   if (use_age1_eit) 
-    for (i=1;i<=n_eit_r;i++) report << yrs_eit_data(i)<<" 0 "<<eac_eit(i)(mina_eit,nages) <<endl;
+    for (i=1;i<=n_eit_r;i++) legacy_rep << yrs_eit_data(i)<<" 0 "<<eac_eit(i)(mina_eit,nages) <<endl;
   else
-    for (i=1;i<=n_eit_r;i++) report << yrs_eit_data(i)<<" "<<eac_eit(i) <<endl;
+    for (i=1;i<=n_eit_r;i++) legacy_rep << yrs_eit_data(i)<<" "<<eac_eit(i) <<endl;
 
   if (use_last_eit_ac<=0) 
   {
-    report<<  oac_eit_data(n_eit_r)/sum(oac_eit_data(n_eit_r))  <<endl;
+    legacy_rep<<  oac_eit_data(n_eit_r)/sum(oac_eit_data(n_eit_r))  <<endl;
   }
-  report << "Pred. Survey numbers " <<endl;                 
-  report << et_bts(1,n_bts_r)  <<" "<<endl;
-  report << "Obs. Survey numbers " <<endl;
-  report << ot_bts(1,n_bts_r)  <<" "<<endl;
-  report << "Pred. hydro Survey numbers " <<endl;
-  report << et_eit(1,n_eit_r) <<endl;
-  report << "Obs. hydro Survey numbers " <<endl;   
-  report << ot_eit(1,n_eit_r) <<endl;
-  report << "Yrs. AVO biomass " <<endl;
-  report << yrs_avo(1,n_avo) <<endl;
-  report << "Pred. AVO biomass " <<endl;
-  report << pred_avo(1,n_avo) <<endl;
-  report << "Obs. AVO biomass biomass " <<endl;   
-  report << obs_avo(1,n_avo) <<endl<<endl;
+  legacy_rep << "Pred. Survey numbers " <<endl;                 
+  legacy_rep << et_bts(1,n_bts_r)  <<" "<<endl;
+  legacy_rep << "Obs. Survey numbers " <<endl;
+  legacy_rep << ot_bts(1,n_bts_r)  <<" "<<endl;
+  legacy_rep << "Pred. hydro Survey numbers " <<endl;
+  legacy_rep << et_eit(1,n_eit_r) <<endl;
+  legacy_rep << "Obs. hydro Survey numbers " <<endl;   
+  legacy_rep << ot_eit(1,n_eit_r) <<endl;
+  legacy_rep << "Yrs. AVO biomass " <<endl;
+  legacy_rep << yrs_avo(1,n_avo) <<endl;
+  legacy_rep << "Pred. AVO biomass " <<endl;
+  legacy_rep << pred_avo(1,n_avo) <<endl;
+  legacy_rep << "Obs. AVO biomass biomass " <<endl;   
+  legacy_rep << obs_avo(1,n_avo) <<endl<<endl;
 
-  report << "Obs. Japanese CPUE " <<endl;   
-  report << obs_cpue(1,n_cpue) <<endl;
-  report << "Pred Japanese CPUE " <<endl;   
-  report << pred_cpue(1,n_cpue) <<endl<<endl;
+  legacy_rep << "Obs. Japanese CPUE " <<endl;   
+  legacy_rep << obs_cpue(1,n_cpue) <<endl;
+  legacy_rep << "Pred Japanese CPUE " <<endl;   
+  legacy_rep << pred_cpue(1,n_cpue) <<endl<<endl;
 
-  report << "Fmort " <<endl;
-  report << Fmort  <<endl;
-  report << "Natural Mortality" << endl;
-  report << natmort  <<endl;
-  report << "Catch at age year" << endl;
-  for (i=styr;i<=endyr_r;i++) report << i<<" "<<catage(i)<<endl;
-  report << "available biomass by year" << endl;
+  legacy_rep << "Fmort " <<endl;
+  legacy_rep << Fmort  <<endl;
+  legacy_rep << "Natural Mortality" << endl;
+  legacy_rep << natmort  <<endl;
+  legacy_rep << "Catch at age year" << endl;
+  for (i=styr;i<=endyr_r;i++) legacy_rep << i<<" "<<catage(i)<<endl;
+  legacy_rep << "available biomass by year" << endl;
   for (i=styr;i<=endyr_r;i++)
   {
     dvar_vector real_sel=sel_fsh(i)/max(sel_fsh(i));
     dvar_vector avbio= elem_prod(elem_prod(natage(i),real_sel),wt_fsh(i));
-    report << i<<" "<<sum(avbio) << "  " <<  avbio  << endl;
+    legacy_rep << i<<" "<<sum(avbio) << "  " <<  avbio  << endl;
   }
-  report << endl;
-  report << "Catch_and_indices-----------------------------"<<endl;
-  report << "Fishery_Catch  "
+  legacy_rep << endl;
+  legacy_rep << "Overall--Phase: "<< current_phase()<<"-----------------------"<<endl;
+  legacy_rep << fff << endl;
+  legacy_rep << "Catch_and_indices-----------------------------"<<endl;
+  legacy_rep << "Fishery_Catch  "
          << ctrl_flag(1) * ssqcatch      << endl;
-  report << "CPUE_like "
+  legacy_rep << "wt_like  "
+         <<   wt_like                    << endl;
+  legacy_rep << "CPUE_like "
          << ctrl_flag(12) * cpue_like    << endl;
-  report << "Bottom_Trawl_Like "
+  legacy_rep << "Bottom_Trawl_Like "
          << ctrl_flag(2) * surv_like(1)  << endl;
-  report << "EIT_N2+_Like "
+  legacy_rep << "EIT_N2+_Like "
          << ctrl_flag(5) * surv_like(2)  << endl;
-  report << "EIT_N1_Like "
+  legacy_rep << "EIT_N1_Like "
          << ctrl_flag(2) * surv_like(3)  << endl<<endl;
-  report << "AVO_Biom_Like "
+  legacy_rep << "AVO_Biom_Like "
          << ctrl_flag(6) * avo_like      << endl<<endl;
 
-  report << "AgeComps--------------------------------------"<<endl;
-  report << "Fishery_age_Like "
+  legacy_rep << "AgeComps--------------------------------------"<<endl;
+  legacy_rep << "Fishery_age_Like "
          << ctrl_flag(7) * age_like(1) << endl;
-  report << "Fishery_Length_Like "
+  legacy_rep << "Fishery_Length_Like "
          << ctrl_flag(7) * len_like    << endl;
-  report << "Bottom_Trawl_age_Like "
+  legacy_rep << "Bottom_Trawl_age_Like "
          << ctrl_flag(8) * age_like(2) << endl;
-  report << "EIT_Age_Like "
+  legacy_rep << "EIT_Age_Like "
          << ctrl_flag(9) * age_like(3) << endl<<endl;
 
-  report << "Priors ---------------------------------------"<<endl;
-  report << "F_penalty " 
+  legacy_rep << "Priors ---------------------------------------"<<endl;
+  legacy_rep << "F_penalty " 
          << ctrl_flag(4) * F_pen       << endl;
-  report << "Rec_Like_1 "   
+  legacy_rep << "Rec_Like_1 "   
          << ctrl_flag(3) * rec_like(1) << endl;
-  report << "Rec_Like_2 "
+  legacy_rep << "Rec_Like_2 "
          << ctrl_flag(3) * rec_like(2) << endl;
-  report << "Rec_Like_3 "
+  legacy_rep << "Rec_Like_3 "
          << ctrl_flag(3) * rec_like(3) << endl;
-  report << "Rec_Like_4 "
+  legacy_rep << "Rec_Like_4 "
          << ctrl_flag(3) * rec_like(4) << endl;
-  report << "Rec_Like_5 "
+  legacy_rep << "Rec_Like_5 "
          << ctrl_flag(3) * rec_like(5) << endl;
-  report << "Rec_Like_6 "
+  legacy_rep << "Rec_Like_6 "
          << ctrl_flag(3) * rec_like(6) << endl;
 
-  report << "sel_Like_1 "
+  legacy_rep << "sel_Like_1 "
          << sel_like(1) << endl;
-  report << "sel_Like_2 "
+  legacy_rep << "sel_Like_2 "
          << sel_like(2) << endl;
-  report << "sel_Like_3 "
+  legacy_rep << "sel_Like_3 "
          << sel_like(3) << endl;
 
-  report << "sel_Like_devs_1 "
+  legacy_rep << "sel_Like_devs_1 "
          << sel_like_dev(1) << endl;
-  report << "sel_Like_devs_2 "
+  legacy_rep << "sel_Like_devs_2 "
          << sel_like_dev(2) << endl;
-  report << "sel_Like_devs_3 "
+  legacy_rep << "sel_Like_devs_3 "
          << sel_like_dev(3) << endl;
 
-  report << "sel_avg_fishery "
+  legacy_rep << "sel_avg_fishery "
       << 10.*square(avgsel_fsh)<<endl;
-  report << "sel_avg_BTS     "
+  legacy_rep << "sel_avg_BTS     "
       << 10.*square(avgsel_bts)<<endl;
-  report << "sel_avg_EIT "
+  legacy_rep << "sel_avg_EIT "
       << 10.*square(avgsel_eit)<<endl;
 
-  report << "Prior_h "
+  legacy_rep << "Prior_h "
          << Priors(1) <<" "<<srprior_a<<" "<<srprior_b<<" Alpha_Beta_of_Prior "<<endl;
-  report << "Prior_q "
+  legacy_rep << "Prior_q "
          << Priors(2) <<endl<<endl;
 
-  report << "Totals----------------------------------------"<<endl;
-  report << "Without_prior " << fff - (sum(rec_like)+sum(sel_like)+sum(sel_like_dev)+ sum(Priors)) <<endl;
-  report << "With_Priors "<< fff<<endl<<endl;
+  legacy_rep << "Totals----------------------------------------"<<endl;
+  legacy_rep << "Without_prior " << fff - (sum(rec_like)+sum(sel_like)+sum(sel_like_dev)+ sum(Priors)) <<endl;
+  legacy_rep << "With_Priors "<< fff<<endl<<endl;
 
-  report << "Spawning_Biomass  "<<endl;
-  report << SSB  <<endl;
-  report << "larv_rec_devs"<<endl;
-  report << larv_rec_devs<<endl;
-  report << " Spawners and Rhat for plotting" <<endl;
-  report << SRR_SSB<<endl;
-  report << rechat<<endl;
+  legacy_rep << "Spawning_Biomass  "<<endl;
+  legacy_rep << SSB  <<endl;
+  legacy_rep << "larv_rec_devs"<<endl;
+  legacy_rep << larv_rec_devs<<endl;
+  legacy_rep << " Spawners and Rhat for plotting" <<endl;
+  legacy_rep << SRR_SSB<<endl;
+  legacy_rep << rechat<<endl;
   for (i=1;i<=11;i++)
     for (j=1;j<=11;j++)
-      report << 1.66679*(double(j)-6.) / 2. -164.4876 <<" "<< 0.62164*(double(i)-6.) / 2. + 56.1942 <<" "<< exp(larv_rec_devs(i,j)) <<endl;
-  report << rec_epsilons-log_rec_devs<<endl;
+      legacy_rep << 1.66679*(double(j)-6.) / 2. -164.4876 <<" "<< 0.62164*(double(i)-6.) / 2. + 56.1942 <<" "<< exp(larv_rec_devs(i,j)) <<endl;
+  legacy_rep << rec_epsilons-log_rec_devs<<endl;
   // Report on bottom temperature affect on survey q
-  report << endl<<"Year"<<" Temperature q mean"<< endl;
+  legacy_rep << endl<<"Year"<<" Temperature q mean"<< endl;
   for (i=1;i<=n_bts_r;i++)
-    report << yrs_bts_data(i)<<" "<< bottom_temp(i)<<" "<< bt_slope * bottom_temp(i) + q_bts<<" "<<q_bts <<endl;
-  report<<endl;
+    legacy_rep << yrs_bts_data(i)<<" "<< bottom_temp(i)<<" "<< bt_slope * bottom_temp(i) + q_bts<<" "<<q_bts <<endl;
+  legacy_rep<<endl;
 
   if(last_phase() )
   {
@@ -1385,6 +1407,8 @@ REPORT_SECTION
       }
     }
 
+  if (ctrl_flag(28)==0 && last_phase())
+	{
     FW_fsh(1) = calc_Francis_weights(oac_fsh, eac_fsh,sam_fsh );
     FW_fsh(2) = calc_Francis_weights(oac_fsh_2, eac_fsh_2,sam_fsh_2 );
     FW_fsh(3) = calc_Francis_weights(oac_fsh_3, eac_fsh_3,sam_fsh_3 );
@@ -1399,32 +1423,33 @@ REPORT_SECTION
       eac_ats(i) = eac_eit(i)(mina_eit,nages);
     }
     FW_eit = calc_Francis_weights(oac_ats, eac_ats,sam_eit );
+	}
     // cout<<"Report"<<endl;
     get_msy();
     // cout<<"Report"<<endl;
     get_SER();
-    cout<<"Last phase in report section"<<endl;
-  report << "F40  F35"  <<endl;
-  report << F40<<" "<<F35 <<endl;
-  report << "Future_Selectivity"<<endl;
-  report << sel_fut<<endl;
+    cout<<"Last phase in legacy_rep section"<<endl;
+  legacy_rep << "F40  F35"  <<endl;
+  legacy_rep << F40<<" "<<F35 <<endl;
+  legacy_rep << "Future_Selectivity"<<endl;
+  legacy_rep << sel_fut<<endl;
 
   Future_projections_fixed_F();
-  report << "Future Fmsy " <<endl;
+  legacy_rep << "Future Fmsy " <<endl;
     for (i=styr_fut;i<=endyr_fut;i++) 
-      report << mean(F_future(3,i))<<" ";
-      report << endl;
-  report << "Numbers at age in Future (for Fmsy)"<<endl;
-  report << natage_future(3) <<endl;
-  report <<"Fmsy, MSY, Steepness, Rzero, Bzero, PhiZero, Alpha, Beta, SPB0, SPRBF40, Fmsy2, Bmsy2"<<endl;
-  report << Fmsy<<" "<<MSY<<" "<<steepness<<" "<<Rzero<<" "<<Bzero<<" "<<phizero<<" "<<alpha<<" "<<beta<<" "<<phizero*meanrec
+      legacy_rep << mean(F_future(3,i))<<" ";
+      legacy_rep << endl;
+  legacy_rep << "Numbers at age in Future (for Fmsy)"<<endl;
+  legacy_rep << natage_future(3) <<endl;
+  legacy_rep <<"Fmsy, MSY, Steepness, Rzero, Bzero, PhiZero, Alpha, Beta, SPB0, SPRBF40, Fmsy2, Bmsy2"<<endl;
+  legacy_rep << Fmsy<<" "<<MSY<<" "<<steepness<<" "<<Rzero<<" "<<Bzero<<" "<<phizero<<" "<<alpha<<" "<<beta<<" "<<phizero*meanrec
   <<" "<<phizero*meanrec*.4
   <<" "<<Fmsy2
   <<" "<<Bmsy2
   <<endl;
   }
-  report<<"Num_parameters_Estimated "<<initial_params::nvarcalc()<<endl;
-  report<<  SSB(styr_est-1,endyr_est-1)<<endl
+  legacy_rep<<"Num_parameters_Estimated "<<initial_params::nvarcalc()<<endl;
+  legacy_rep<<  SSB(styr_est-1,endyr_est-1)<<endl
         <<  pred_rec(styr_est,endyr_est) <<endl
         <<  (SRecruit(SSB(styr_est-1,endyr_est-1))) <<endl
         <<  log(pred_rec(styr_est,endyr_est))- ++log(SRecruit(SSB(styr_est-1,endyr_est-1)))<<endl;
@@ -1447,42 +1472,42 @@ REPORT_SECTION
       temp_q<< double(i-3)*.15 <<" "<< q_temp(i)         <<  endl;
     }
   }
-  report << "Age_1_EIT index"<<endl;
-  report << yrs_eit_data     <<endl;
-  report << oa1_eit          <<endl;
-  report << ea1_eit*qtmp     <<endl;
-  report << ea1_eit          <<endl;
+  legacy_rep << "Age_1_EIT index"<<endl;
+  legacy_rep << yrs_eit_data     <<endl;
+  legacy_rep << oa1_eit          <<endl;
+  legacy_rep << ea1_eit*qtmp     <<endl;
+  legacy_rep << ea1_eit          <<endl;
 
-  report << "Obs_Pred_BTS_Biomass"<<endl;
-  report << yrs_bts_data     <<endl;
-  report << ob_bts           <<endl;
-  report << eb_bts           <<endl;
+  legacy_rep << "Obs_Pred_BTS_Biomass"<<endl;
+  legacy_rep << yrs_bts_data     <<endl;
+  legacy_rep << ob_bts           <<endl;
+  legacy_rep << eb_bts           <<endl;
 
-  report << "Obs_Pred_EIT_Biomass"<<endl;
-  report << yrs_eit_data     <<endl;
-  report << ob_eit     <<endl;
-  report << eb_eit     <<endl;
-  report << "Pred_EIT_N_age"<<endl;
+  legacy_rep << "Obs_Pred_EIT_Biomass"<<endl;
+  legacy_rep << yrs_eit_data     <<endl;
+  legacy_rep << ob_eit     <<endl;
+  legacy_rep << eb_eit     <<endl;
+  legacy_rep << "Pred_EIT_N_age"<<endl;
   for (i=1;i<=n_eit_r;i++)
-    report << yrs_eit_data(i)<<" "<<et_eit(i)*eac_eit(i)(2,15)     <<endl;
-  report << "Stock-Rec_Residuals"<<endl;
+    legacy_rep << yrs_eit_data(i)<<" "<<et_eit(i)*eac_eit(i)(2,15)     <<endl;
+  legacy_rep << "Stock-Rec_Residuals"<<endl;
   for (i=styr_est;i<=endyr_est;i++)
-    report << i<<" "<<SR_resids(i)     <<endl;
-  report << "Years Combined_Indices_CV Observed Predicted Avail_BTS Avail_EIT Likelihood"<<endl;
+    legacy_rep << i<<" "<<SR_resids(i)     <<endl;
+  legacy_rep << "Years Combined_Indices_CV Observed Predicted Avail_BTS Avail_EIT Likelihood"<<endl;
   /* 
   if (last_phase())
   {
     get_combined_index();
     for (i=1;i<=n_bts_r;i++)
-      report << yrs_bts_data(i)<<" "<<pow(var_cmb(i),.5)/ot_cmb(i)<< " "<< ot_cmb(i)<<" "<<et_cmb(i) <<" " 
+      legacy_rep << yrs_bts_data(i)<<" "<<pow(var_cmb(i),.5)/ot_cmb(i)<< " "<< ot_cmb(i)<<" "<<et_cmb(i) <<" " 
              << avail_bts(i) <<" "
              << avail_eit(i) <<" "
              << square(ot_cmb(i)-et_cmb(i))/(2.*var_cmb(i))
              << endl;
   } 
   */ 
-  report << F<<endl;
-  report << wt_pre<<endl;
+  legacy_rep << F<<endl;
+  legacy_rep << wt_pre<<endl;
 FUNCTION Get_Selectivity
   avgsel_fsh.initialize();
   avgsel_bts.initialize();
@@ -1910,22 +1935,22 @@ FUNCTION Future_projections_fixed_F
   R_report(MatAgeDiv2);
   R_report(RelEffort);
   R_report(LTA1_5.sd);*/
-  Fcur_Fmsy(k)  = F_future(k,styr_fut,6)/Fmsy;
-  Bcur_Bmsy(k) = future_SSB(k,styr_fut+1)/Bmsy;
-  Bcur_Bmean(k) = future_SSB(k,styr_fut+1)/MeanSSB;
-  Bcur2_Bmsy(k) = future_SSB(k,styr_fut+2)/Bmsy;
-  Bcur2_B20(k) = future_SSB(k,styr_fut+2)/(.2*Bzero);
-  Bcur3_Bcur(k) = future_SSB(k,styr_fut+4)/future_SSB(k,styr_fut);
+  Fcur_Fmsy(k)   = F_future(k,styr_fut,6)/Fmsy;
+  Bcur_Bmsy(k)   = future_SSB(k,styr_fut+1)/Bmsy;
+  Bcur_Bmean(k)  = future_SSB(k,styr_fut+1)/MeanSSB;
+  Bcur2_Bmsy(k)  = future_SSB(k,styr_fut+2)/Bmsy;
+  Bcur2_B20(k)   = future_SSB(k,styr_fut+2)/(.2*Bzero);
+  Bcur3_Bcur(k)  = future_SSB(k,styr_fut+4)/future_SSB(k,styr_fut);
   Bcur3_Bmean(k) = future_SSB(k,styr_fut+4)/MeanSSB;
-  ptmp          = elem_prod(elem_prod(natage_future(k,styr_fut+1),wt_ssb(endyr_r)),p_mature)+0.0001;
-  ptmp         /= sum(ptmp);
+  ptmp           = elem_prod(elem_prod(natage_future(k,styr_fut+1),wt_ssb(endyr_r)),p_mature)+0.0001;
+  ptmp          /= sum(ptmp);
   MatAgeDiv1(k)  = mfexp(-ptmp*log(ptmp))/(H(1994));
-  ptmp          = elem_prod(elem_prod(natage_future(k,endyr_fut),wt_ssb(endyr_r)),p_mature)+0.0001;
-  ptmp         /= sum(ptmp);
+  ptmp           = elem_prod(elem_prod(natage_future(k,endyr_fut),wt_ssb(endyr_r)),p_mature)+0.0001;
+  ptmp          /= sum(ptmp);
   MatAgeDiv2(k)  = mfexp(-ptmp*log(ptmp))/(H(1994));
-  RelEffort(k)  = F_future(k,styr_fut,6)/F(endyr_r,6) ; // Effort relative to 2012 (endyr)   
-  LTA1_5(k)     = sum(natage_future(k,endyr_fut)(1,5))/sum(natage_future(k,endyr_fut)(6,nages));                                                   // long term average age 1_5
-  LTA1_5R(k)    = LTA1_5(k)/(sumtmp1/sumtmp2);
+  RelEffort(k)   = F_future(k,styr_fut,6)/F(endyr_r,6) ; // Effort relative to 2012 (endyr)   
+  LTA1_5(k)      = sum(natage_future(k,endyr_fut)(1,5))/sum(natage_future(k,endyr_fut)(6,nages));                                                   // long term average age 1_5
+  LTA1_5R(k)     = LTA1_5(k)/(sumtmp1/sumtmp2);
   // MatAgeDiv1(k)  = mfexp(-ptmp*log(ptmp))/mean(H);
   // R_report(k);
   // R_report(mfexp(-ptmp*log(ptmp)));
@@ -2029,7 +2054,7 @@ FUNCTION compute_Fut_selectivity
     sel_fut/=nyrs_sel_avg;
 	}
 	else
-		sel_fut = sel_fsh(endyr_r+nyrs_sel_avg);
+		sel_fut = sel_fsh(endyr_r+nyrs_sel_avg); // negative nyrs_sel_avg can be used to pick years for evaluation
 
   sel_fut/=sel_fut(6); // NORMALIZE TO AGE 6
 FUNCTION compute_spr_rates
@@ -2658,7 +2683,10 @@ FUNCTION Recruitment_Likelihood
           rec_like(1) += 0.5 * square(SR_resids(i) + sigmaRsq/2.)/sigmaRsq + log(sigr);
         }
       }
-      rec_like(1) *= ctrl_flag(30);
+      if (last_phase()) 
+				rec_like(1) *= ctrl_flag(30);
+			else 
+				rec_like(1) *= .8;
   }
 
  // This sets variability of future recruitment to same as in past....
@@ -2722,6 +2750,10 @@ FUNCTION Evaluate_Objective_Function
 
   fff+= sum(sel_like);
   fff+= sum(sel_like_dev);
+	// COUT(sel_like);
+	// COUT(age_like);
+	// COUT(avo_like);
+	// COUT(surv_like);
 
   // Condition model in early phases to stay reasonable
   if (current_phase()<3)
@@ -3237,6 +3269,7 @@ FUNCTION write_projout2
  projout2 <<"# Nrec"<<endl<< endyr_r-1978+1<< endl;
  projout2 <<"# rec"<<endl<< pred_rec(1978,endyr_r) << endl;
  projout2 <<"# SpawningBiomass"<<endl<< SSB(1978-1,endyr_r-1) << endl;
+
 FUNCTION write_newproj
  ofstream newproj("newproj.prj");
  newproj <<"#Ebspollock:"<<endl<<model_name<<endl;
@@ -3927,7 +3960,254 @@ FUNCTION Profile_F
     cout <<ii<<" " <<F1<<" "<< Stmp <<" "<<yld1<<" "<<Rtmp<<" "<<" "<< endl; 
   } 
  exit(1);
-FUNCTION write_sd
+FUNCTION double mn_age(const dvar_vector& pobs)
+  int lb1 = pobs.indexmin();
+  int ub1 = pobs.indexmax();
+  dvector av = age_vector(lb1,ub1)  ;
+  double mobs = value(pobs*av);
+  return mobs;
+FUNCTION double Sd_age(const dvar_vector& pobs, const dvar_vector& phat)
+  int lb1 = pobs.indexmin();
+  int ub1 = pobs.indexmax();
+  dvector av = age_vector(lb1,ub1)  ;
+  double mobs = value(pobs*av);
+  double stmp = value(sqrt(elem_prod(av,av)*pobs - mobs*mobs));
+  return stmp;
+FUNCTION double Eff_N_adj(const double, const dvar_vector& pobs, const dvar_vector& phat)
+  // Eq. 6
+  int lb1 = pobs.indexmin();
+  int ub1 = pobs.indexmax();
+  dvector av = age_vector(lb1,ub1)  ;
+  double mobs = value(pobs*av);
+  double mhat = value(phat*av );
+  double rtmp = mobs-mhat;
+  double stmp = value(sqrt(elem_prod(av,av)*pobs - mobs*mobs));
+  return square(stmp)/square(rtmp);
+FUNCTION double Eff_N2(const dvar_vector& pobs, const dvar_vector& phat)
+  // Eq. 6
+  int lb1 = pobs.indexmin();
+  int ub1 = pobs.indexmax();
+  dvector av = age_vector(lb1,ub1)  ;
+  double mobs = value(pobs*av);
+  double mhat = value(phat*av );
+  double rtmp = mobs-mhat;
+  double stmp = value(sqrt(elem_prod(av,av)*pobs - mobs*mobs));
+  return square(stmp)/square(rtmp);
+FUNCTION double Eff_N(const dvar_vector& pobs, const dvar_vector& phat)
+  // Eq. 6
+  dvar_vector rtmp = elem_div((pobs-phat),sqrt(elem_prod(phat,(1-phat))));
+  double vtmp;
+  vtmp = value(norm2(rtmp)/size_count(rtmp));
+  return 1/vtmp;
+
+FUNCTION write_R
+  adstring ad_tmp=initial_params::get_reportfile_name();
+  ofstream report((char*)(adprogram_name + ad_tmp));
+
+  // Development--just start to get some output into R
+  report << "h_prior" << endl << Priors(1) << endl;
+  report << "q_prior" << endl << Priors(2) << endl;
+  if (ctrl_flag(28)==0)
+	{
+  report << "FW_fsh" << endl << FW_fsh(1) << endl;
+  report << "FW_fsh1" << endl << FW_fsh(2) << endl;
+  report << "FW_fsh2" << endl << FW_fsh(3) << endl;
+  report << "FW_fsh3" << endl << FW_fsh(4) << endl;
+  R_report(FW_bts);
+  R_report(FW_eit);
+	}
+  R_report(sam_fsh);
+  R_report(sam_bts);
+  R_report(sam_eit);
+  R_report(sel_fsh);
+  dvar_matrix sel_bts = mfexp(log_sel_bts);
+  dvar_matrix sel_eit = mfexp(log_sel_eit);
+  R_report(sel_bts);
+  R_report(sel_eit);
+  R_report(steepness);
+  R_report(SR_resids);
+  R_report(sigr);
+  R_report(SRR_SSB);
+  R_report(rechat);
+  R_report(rechat.sd);
+  R_report(repl_F);
+  R_report(repl_yld);
+  R_report(repl_SSB);
+	report<<"cat_like"<<endl<< ctrl_flag(1) * ssqcatch      << endl;
+	report<<"Fpen_like"<<endl<< ctrl_flag(4) * F_pen         << endl;
+  R_report(wt_like);
+  R_report(surv_like);
+  R_report(cpue_like);
+  R_report(avo_like);
+  R_report(sel_like);
+  R_report(sel_like_dev);
+  R_report(age_like);
+  R_report(len_like);
+  R_report(rec_like);
+	report<<"tot_like"<<endl<<fff<<endl;
+  report<<"Yr"<<endl; for (i=styr;i<=endyr_r;i++) report<<i<<" "; report<<endl;
+  report<<"yr_bts"<<endl; report<<yrs_bts_data<<endl;
+  R_report(ob_bts);
+  R_report(eb_bts);
+  R_report(ot_bts);
+  R_report(et_bts);
+  report<<"sd_ob_bts"<<endl<<std_ob_bts<<endl;
+  report<<"sd_ot_bts"<<endl<<std_ot_bts<<endl;
+  report<<"yr_eit"<<endl; report<<yrs_eit_data<<endl;
+  R_report(ob_eit);
+  R_report(eb_eit);
+  R_report(ot_eit);
+  R_report(et_eit);
+  report<<"sd_ob_eit"<<endl<<std_ob_eit<<endl;
+  report<<"sd_ot_eit"<<endl<<std_ot_eit<<endl;
+  report<<"sd_eit"<<endl<<std_ob_eit<<endl;
+  R_report(future_SSB);
+  R_report(future_SSB.sd);
+  R_report(catch_future);
+  R_report(Fcur_Fmsy);
+  R_report(Fcur_Fmsy.sd);
+  R_report(Bcur_Bmsy);
+  R_report(Bcur_Bmsy.sd);
+  R_report(Bcur_Bmean);
+  R_report(Bcur_Bmean.sd);
+  R_report(Bcur2_Bmsy);
+  R_report(Bcur2_Bmsy.sd);
+  R_report(Bcur2_B20);
+  R_report(Bcur2_B20.sd);
+  R_report(Bcur3_Bcur);
+  R_report(Bcur3_Bcur.sd);
+  R_report(Bcur3_Bmean);
+  R_report(Bcur3_Bmean.sd);
+  R_report(LTA1_5R);
+  R_report(LTA1_5R.sd);
+  R_report(MatAgeDiv1);
+  R_report(MatAgeDiv1.sd);
+  R_report(MatAgeDiv2);
+  R_report(MatAgeDiv2.sd);
+  R_report(RelEffort);
+  R_report(RelEffort.sd);
+  R_report(LTA1_5);
+  R_report(LTA1_5.sd);
+  report<<"SER"<<endl; 
+  for (i=styr;i<=endyr_r;i++) 
+  {
+    double lb=value(SER(i)/exp(2.*sqrt(log(1+square(SER.sd(i))/square(SER(i))))));
+    double ub=value(SER(i)*exp(2.*sqrt(log(1+square(SER.sd(i))/square(SER(i))))));
+    report<<i<<" "<<SER(i)<<" "<<SER.sd(i)<<" "<<lb<<" "<<ub<<endl;
+  }
+  report<<"SSB"<<endl; 
+  for (i=styr;i<=endyr_r;i++) 
+  {
+    double lb=value(SSB(i)/exp(2.*sqrt(log(1+square(SSB.sd(i))/square(SSB(i))))));
+    double ub=value(SSB(i)*exp(2.*sqrt(log(1+square(SSB.sd(i))/square(SSB(i))))));
+    report<<i<<" "<<SSB(i)<<" "<<SSB.sd(i)<<" "<<lb<<" "<<ub<<endl;
+  }
+  report<<"R"<<endl; for (i=styr;i<=endyr_r;i++) 
+  {
+    double lb=value(pred_rec(i)/exp(2.*sqrt(log(1+square(pred_rec.sd(i))/square(pred_rec(i))))));
+    double ub=value(pred_rec(i)*exp(2.*sqrt(log(1+square(pred_rec.sd(i))/square(pred_rec(i))))));
+    report<<i<<" "<<pred_rec(i)<<" "<<pred_rec.sd(i)<<" "<<lb<<" "<<ub<<endl;
+  }
+  report << "N"<<endl;
+  report << natage<<endl;
+  report << "C"<<endl;
+  report << catage<<endl;
+  R_report(yrs_avo); 
+  R_report(obs_avo); 
+  R_report(obs_avo_std); 
+  R_report(pred_avo); 
+  report << "pobs_fsh"<<  endl;
+  for (i=1;i<=n_fsh_r;i++) 
+    report << yrs_fsh_data(i)<< " "<< oac_fsh(i) << endl;
+  report << "phat_fsh"<< endl;
+  for (i=1;i<=n_fsh_r;i++) 
+    report << yrs_fsh_data(i)<< " "<< eac_fsh(i) << endl;
+
+  report << "phat_bts"<<endl;
+  for (i=1;i<=n_bts_r;i++) 
+    report << yrs_bts_data(i)<< " "<< eac_bts(i) << endl;
+
+  report << "phat_eit"<<endl;
+  for (i=1;i<=n_eit_r;i++) 
+    report << yrs_eit_data(i)<< " "<< eac_eit(i) << endl;
+      
+  report << "pobs_bts"<<endl;
+  for (i=1;i<=n_bts_r;i++) 
+    report << yrs_bts_data(i)<< " "<< oac_bts(i) << endl;
+
+  report << "pobs_eit"<<endl;
+  for (i=1;i<=n_eit_r;i++) 
+    report << yrs_eit_data(i)<< " "<< oac_eit(i) << endl;
+      
+  report <<"EffN_bts"<<endl;
+  for (i=1;i<=n_bts_r;i++) 
+  {
+      double sda_tmp = Sd_age(oac_bts(i),eac_bts(i));
+      report << yrs_bts_data(i)
+               << " "<<Eff_N(oac_bts(i),eac_bts(i)) 
+               << " "<<Eff_N2(oac_bts(i),eac_bts(i))
+               << " "<<mn_age(oac_bts(i))
+               << " "<<mn_age(eac_bts(i))
+               << " "<<sda_tmp
+               << " "<<mn_age(oac_bts(i)) - sda_tmp *2. / sqrt(sam_bts(i))
+               << " "<<mn_age(oac_bts(i)) + sda_tmp *2. / sqrt(sam_bts(i))
+               <<endl;
+  }
+  dvar_matrix eac_ats(1,n_eit_r,mina_eit,nages);
+  dmatrix oac_ats(1,n_eit_r,mina_eit,nages);
+  for (int i=1;i<=n_eit_r;i++)
+  {
+      oac_ats(i) = oac_eit(i)(mina_eit,nages);
+      eac_ats(i) = eac_eit(i)(mina_eit,nages);
+  }
+  report <<"EffN_ats"<<endl;
+  for (i=1;i<=n_eit_r;i++) 
+  {
+    double sda_tmp = Sd_age(oac_ats(i),eac_ats(i));
+    report << yrs_eit_data(i)
+             << " "<<Eff_N(oac_ats(i),eac_ats(i)) 
+             << " "<<Eff_N2(oac_ats(i),eac_ats(i))
+             << " "<<mn_age(oac_ats(i))
+             << " "<<mn_age(eac_ats(i))
+             << " "<<sda_tmp
+             << " "<<mn_age(oac_ats(i)) - sda_tmp *2. / sqrt(sam_eit(i))
+             << " "<<mn_age(oac_ats(i)) + sda_tmp *2. / sqrt(sam_eit(i))
+             <<endl;
+  }
+
+  report <<"EffN_fsh"<<endl;
+  for (i=1;i<=n_fsh_r;i++) 
+  {
+    double sda_tmp = Sd_age(oac_fsh(i),eac_fsh(i));
+    report << yrs_fsh_data(i)
+           << " "<<Eff_N(oac_fsh(i),eac_fsh(i)) 
+               << " "<<Eff_N2(oac_fsh(i),eac_fsh(i))
+               << " "<<mn_age(oac_fsh(i))
+               << " "<<mn_age(eac_fsh(i))
+               << " "<<sda_tmp
+               << " "<<mn_age(oac_fsh(i)) - sda_tmp *2. / sqrt(sam_fsh(i))
+               << " "<<mn_age(oac_fsh(i)) + sda_tmp *2. / sqrt(sam_fsh(i))
+               <<endl;
+    }
+
+  R_report(F);
+  // Print out the proportion of each age's contribution to SSB...
+  report <<"P_SSB"<<endl;
+  for (i=styr;i<=endyr_r;i++) 
+    report <<i<<" "<< 
+    elem_prod( elem_prod(
+        elem_prod(natage(i),pow(S(i),yrfrac)), p_mature), wt_ssb(i)) /SSB(i) <<endl;
+  R_report(wt_ssb);
+  R_report(wt_cur);
+  R_report(wt_cur.sd);
+  R_report(wt_next);
+  R_report(wt_next.sd);
+  R_report(wt_yraf);
+  R_report(wt_yraf.sd);
+  R_report(wt_fsh);
+  R_report(wt_fut);
+
+  {
  //   ofstream sd_output("extra_sd.rep");
   // sd_output << "GM_Biom GM_Biom2 HM_Fmsyr AM_Fmsyr Avg_3yr_Catch C_F40 C_F35 SSB_F40 SSB_F35 ABC_HM OFL_AM ABC_HM2 OFL_AM2 Adjust_1 Adjust_2 SPR_ABC SPR_OFL 1989YC 1989YC.sd "
            // << "1992YC 1992YC.sd 1996YC 1996YC.sd 2000YC 2000YC.sd Fut_2yr_Catch"<<endl;
@@ -3950,39 +4230,31 @@ FUNCTION write_sd
 
   dvariable ABC  = gm_b(1)*hm_f*adj_1(1); 
   dvariable OFL  = gm_b(1)*am_f*adj_1(1); 
-	R_report <<"$T1"<<endl;
-  R_report << endyr_r+1<<" " << ABC <<" " << OFL <<" "<< future_SSB(1,styr_fut) <<" "<< age_3_plus_biom(endyr_r+1) <<endl;
+	report <<"T1"<<endl;
+	//  yr ABC OFL SSB 3+Biom CatchFut harmeanF arithmeanF geomB SPRABC SPROFL
+  report << endyr_r+1<<" " << ABC <<" " << OFL <<" "<< future_SSB(10,styr_fut) <<" "<< age_3_plus_biom(endyr_r+1) <<" "<<
+  catch_future(11,styr_fut) <<" " << hm_f  <<" "<< am_f <<" "<< gm_b(11) <<" "<< SPR_ABC <<" "<< SPR_OFL <<endl;
+
   ABC  = gm_b2(1)*hm_f*adj_2(1); 
   OFL  = gm_b2(1)*am_f*adj_2(1); 
-  R_report << endyr_r+1<<" " << ABC <<" " << OFL <<" "<< future_SSB(2,styr_fut) <<" "<< age_3_plus_biom(endyr_r+2) <<endl;
+  report << endyr_r+2<<" " << ABC <<" " << OFL <<" "<< future_SSB(11,styr_fut+1) <<" "<< age_3_plus_biom(endyr_r+2)  <<" "<<
+  catch_future(11,styr_fut+1) <<" " << hm_f  <<" "<< am_f <<" "<< gm_b2(11)<<" "<< SPR_ABC <<" "<< SPR_OFL <<endl;
 
-  for_sd << endyr_r+1<<", " ; for_sd(ABC);
-  for_sd << endyr_r+1<<", " ; for_sd(OFL);
-  for_sd << endyr_r+2<<", " ; for_sd(ABC);
-  for_sd << endyr_r+2<<", " ; for_sd(OFL);
-  for_sd << styr_fut <<", SSB1," << future_SSB(1,styr_fut) ; 
-  for_sd << styr_fut <<", SSB2," << future_SSB(2,styr_fut) ; 
-  for_sd << styr_fut <<", catch1," << catch_future(1,styr_fut) ; 
-  for_sd << styr_fut <<", catch2," << catch_future(2,styr_fut) ; 
-  for_sd << styr_fut <<", harmeanF," << (hm_f); 
-  for_sd << styr_fut <<", arimeanF," << (am_f); 
-  for_sd << styr_fut <<", geomeanB1," << (gm_b); 
-  for_sd << styr_fut <<", geomeanB2," << (gm_b2); 
-  for_sd << styr_fut <<", adj_1," << adj_1(1); 
-  for_sd << styr_fut <<", adj_2," << adj_2(1); 
-  for_sd << styr_fut <<", spr_ABC," << SPR_ABC; 
-  for_sd << styr_fut <<", spr_OFL," << SPR_OFL; 
-  for_sd(mean(obs_catch(endyr_r-3,endyr_r))); 
-  for_sd(pred_rec(1990)); 
-  // for_sd(pred_rec.sd(1990)); 
-  for_sd(pred_rec(1993)); 
-  // for_sd(pred_rec.sd(1993)); 
-  for_sd(pred_rec(1997)); 
-  // for_sd(pred_rec.sd(1997)); 
-  for_sd(pred_rec(2001)); 
-  for_sd(pred_rec(2009)); 
-  for_sd(pred_rec(2013)); 
-  // for_sd(pred_rec.sd(2001)); 
+  R_report(Cat_Fut);
+	report <<"YC"<<endl;
+	int age1tmp=1990;
+	report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
+  age1tmp = 1993; 
+	if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
+  age1tmp = 1997; 
+	if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
+  age1tmp = 2001; 
+	if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
+  age1tmp = 2009; 
+	if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
+  age1tmp = 2013; 
+	if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
+
   for_sd(Cat_Fut);
   for_sd<<"Catch	SSBNext	AdjNext	ABC1	OFL1	SSB2yrs	Adj2yrs	ABC2	OFL2"<<endl;
    for (i=1;i<=10;i++)
@@ -4150,245 +4422,7 @@ FUNCTION write_sd
          <<" "<< value(Fmsy2)
          <<endl; 
     SelGrid.close();
-FUNCTION double mn_age(const dvar_vector& pobs)
-  int lb1 = pobs.indexmin();
-  int ub1 = pobs.indexmax();
-  dvector av = age_vector(lb1,ub1)  ;
-  double mobs = value(pobs*av);
-  return mobs;
-FUNCTION double Sd_age(const dvar_vector& pobs, const dvar_vector& phat)
-  int lb1 = pobs.indexmin();
-  int ub1 = pobs.indexmax();
-  dvector av = age_vector(lb1,ub1)  ;
-  double mobs = value(pobs*av);
-  double stmp = value(sqrt(elem_prod(av,av)*pobs - mobs*mobs));
-  return stmp;
-FUNCTION double Eff_N_adj(const double, const dvar_vector& pobs, const dvar_vector& phat)
-  // Eq. 6
-  int lb1 = pobs.indexmin();
-  int ub1 = pobs.indexmax();
-  dvector av = age_vector(lb1,ub1)  ;
-  double mobs = value(pobs*av);
-  double mhat = value(phat*av );
-  double rtmp = mobs-mhat;
-  double stmp = value(sqrt(elem_prod(av,av)*pobs - mobs*mobs));
-  return square(stmp)/square(rtmp);
-FUNCTION double Eff_N2(const dvar_vector& pobs, const dvar_vector& phat)
-  // Eq. 6
-  int lb1 = pobs.indexmin();
-  int ub1 = pobs.indexmax();
-  dvector av = age_vector(lb1,ub1)  ;
-  double mobs = value(pobs*av);
-  double mhat = value(phat*av );
-  double rtmp = mobs-mhat;
-  double stmp = value(sqrt(elem_prod(av,av)*pobs - mobs*mobs));
-  return square(stmp)/square(rtmp);
-FUNCTION double Eff_N(const dvar_vector& pobs, const dvar_vector& phat)
-  // Eq. 6
-  dvar_vector rtmp = elem_div((pobs-phat),sqrt(elem_prod(phat,(1-phat))));
-  double vtmp;
-  vtmp = value(norm2(rtmp)/size_count(rtmp));
-  return 1/vtmp;
-FUNCTION Write_R
-  // Development--just start to get some output into R
-  R_report << "$h_prior" << endl << Priors(1) << endl;
-  R_report << "$q_prior" << endl << Priors(2) << endl;
-  R_report << "$FW_fsh" << endl << FW_fsh(1) << endl;
-  R_report << "$FW_fsh1" << endl << FW_fsh(2) << endl;
-  R_report << "$FW_fsh2" << endl << FW_fsh(3) << endl;
-  R_report << "$FW_fsh3" << endl << FW_fsh(4) << endl;
-  R_report(FW_bts);
-  R_report(FW_eit);
-  R_report(sel_fsh);
-  dvar_matrix sel_bts = mfexp(log_sel_bts);
-  dvar_matrix sel_eit = mfexp(log_sel_eit);
-  R_report(sel_bts);
-  R_report(sel_eit);
-  R_report(steepness);
-  R_report(SR_resids);
-  R_report(sigr);
-  R_report(SRR_SSB);
-  R_report(rechat);
-  R_report(rechat.sd);
-  R_report(repl_F);
-  R_report(repl_yld);
-  R_report(repl_SSB);
-  R_report(surv_like);
-  R_report(cpue_like);
-  R_report(avo_like);
-  R_report(sel_like);
-  R_report(sel_like_dev);
-  R_report(age_like);
-  R_report(len_like);
-  R_report(rec_like);
-  R_report<<"$Yr"<<endl; for (i=styr;i<=endyr_r;i++) R_report<<i<<" "; R_report<<endl;
-  R_report<<"$yr_bts"<<endl; R_report<<yrs_bts_data<<endl;
-  R_report(ob_bts);
-  R_report(eb_bts);
-  R_report(ot_bts);
-  R_report(et_bts);
-  R_report<<"$sd_ob_bts"<<endl<<std_ob_bts<<endl;
-  R_report<<"$sd_ot_bts"<<endl<<std_ot_bts<<endl;
-  R_report<<"$yr_eit"<<endl; R_report<<yrs_eit_data<<endl;
-  R_report(ob_eit);
-  R_report(eb_eit);
-  R_report(ot_eit);
-  R_report(et_eit);
-  R_report<<"$sd_ob_eit"<<endl<<std_ob_eit<<endl;
-  R_report<<"$sd_ot_eit"<<endl<<std_ot_eit<<endl;
-  R_report<<"$sd_eit"<<endl<<std_ob_eit<<endl;
-  R_report(future_SSB);
-  R_report(future_SSB.sd);
-  R_report(catch_future);
-  R_report(Fcur_Fmsy);
-  R_report(Fcur_Fmsy.sd);
-  R_report(Bcur_Bmsy);
-  R_report(Bcur_Bmsy.sd);
-  R_report(Bcur_Bmean);
-  R_report(Bcur_Bmean.sd);
-  R_report(Bcur2_Bmsy);
-  R_report(Bcur2_Bmsy.sd);
-  R_report(Bcur2_B20);
-  R_report(Bcur2_B20.sd);
-  R_report(Bcur3_Bcur);
-  R_report(Bcur3_Bcur.sd);
-  R_report(Bcur3_Bmean);
-  R_report(Bcur3_Bmean.sd);
-  R_report(LTA1_5R);
-  R_report(LTA1_5R.sd);
-  R_report(MatAgeDiv1);
-  R_report(MatAgeDiv1.sd);
-  R_report(MatAgeDiv2);
-  R_report(MatAgeDiv2.sd);
-  R_report(RelEffort);
-  R_report(RelEffort.sd);
-  R_report(LTA1_5);
-  R_report(LTA1_5.sd);
-  R_report<<"$SER"<<endl; 
-  for (i=styr;i<=endyr_r;i++) 
-  {
-    double lb=value(SER(i)/exp(2.*sqrt(log(1+square(SER.sd(i))/square(SER(i))))));
-    double ub=value(SER(i)*exp(2.*sqrt(log(1+square(SER.sd(i))/square(SER(i))))));
-    R_report<<i<<" "<<SER(i)<<" "<<SER.sd(i)<<" "<<lb<<" "<<ub<<endl;
   }
-  R_report<<"$SSB"<<endl; 
-  for (i=styr;i<=endyr_r;i++) 
-  {
-    double lb=value(SSB(i)/exp(2.*sqrt(log(1+square(SSB.sd(i))/square(SSB(i))))));
-    double ub=value(SSB(i)*exp(2.*sqrt(log(1+square(SSB.sd(i))/square(SSB(i))))));
-    R_report<<i<<" "<<SSB(i)<<" "<<SSB.sd(i)<<" "<<lb<<" "<<ub<<endl;
-  }
-  R_report<<"$R"<<endl; for (i=styr;i<=endyr_r;i++) 
-  {
-    double lb=value(pred_rec(i)/exp(2.*sqrt(log(1+square(pred_rec.sd(i))/square(pred_rec(i))))));
-    double ub=value(pred_rec(i)*exp(2.*sqrt(log(1+square(pred_rec.sd(i))/square(pred_rec(i))))));
-    R_report<<i<<" "<<pred_rec(i)<<" "<<pred_rec.sd(i)<<" "<<lb<<" "<<ub<<endl;
-  }
-  R_report << "$N"<<endl;
-  R_report << natage<<endl;
-  R_report << "$C"<<endl;
-  R_report << catage<<endl;
-  R_report(yrs_avo); 
-  R_report(obs_avo); 
-  R_report(obs_avo_std); 
-  R_report(pred_avo); 
-  R_report << "$pobs_fsh"<<  endl;
-  for (i=1;i<=n_fsh_r;i++) 
-    R_report << yrs_fsh_data(i)<< " "<< oac_fsh(i) << endl;
-    R_report   << endl;
-    R_report << "$phat_fsh"<< endl;
-    for (i=1;i<=n_fsh_r;i++) 
-      R_report << yrs_fsh_data(i)<< " "<< eac_fsh(i) << endl;
-    R_report   << endl;
-
-    R_report << "$phat_bts"<<endl;
-    for (i=1;i<=n_bts_r;i++) 
-      R_report << yrs_bts_data(i)<< " "<< eac_bts(i) << endl;
-    R_report   << endl;
-    R_report << "$phat_eit"<<endl;
-    for (i=1;i<=n_eit_r;i++) 
-      R_report << yrs_eit_data(i)<< " "<< eac_eit(i) << endl;
-      R_report   << endl;
-      
-      R_report << "$pobs_bts"<<endl;
-      for (i=1;i<=n_bts_r;i++) 
-        R_report << yrs_bts_data(i)<< " "<< oac_bts(i) << endl;
-        R_report   << endl;
-
-      R_report << "$pobs_eit"<<endl;
-      for (i=1;i<=n_eit_r;i++) 
-        R_report << yrs_eit_data(i)<< " "<< oac_eit(i) << endl;
-        R_report   << endl;
-      
-    R_report <<"$EffN_bts"<<endl;
-    for (i=1;i<=n_bts_r;i++) 
-    {
-      double sda_tmp = Sd_age(oac_bts(i),eac_bts(i));
-      R_report << yrs_bts_data(i)
-               << " "<<Eff_N(oac_bts(i),eac_bts(i)) 
-               << " "<<Eff_N2(oac_bts(i),eac_bts(i))
-               << " "<<mn_age(oac_bts(i))
-               << " "<<mn_age(eac_bts(i))
-               << " "<<sda_tmp
-               << " "<<mn_age(oac_bts(i)) - sda_tmp *2. / sqrt(sam_bts(i))
-               << " "<<mn_age(oac_bts(i)) + sda_tmp *2. / sqrt(sam_bts(i))
-               <<endl;
-    }
-    dvar_matrix eac_ats(1,n_eit_r,mina_eit,nages);
-    dmatrix oac_ats(1,n_eit_r,mina_eit,nages);
-    for (int i=1;i<=n_eit_r;i++)
-    {
-      oac_ats(i) = oac_eit(i)(mina_eit,nages);
-      eac_ats(i) = eac_eit(i)(mina_eit,nages);
-    }
-    R_report <<"$EffN_ats"<<endl;
-    for (i=1;i<=n_eit_r;i++) 
-    {
-      double sda_tmp = Sd_age(oac_ats(i),eac_ats(i));
-      R_report << yrs_eit_data(i)
-               << " "<<Eff_N(oac_ats(i),eac_ats(i)) 
-               << " "<<Eff_N2(oac_ats(i),eac_ats(i))
-               << " "<<mn_age(oac_ats(i))
-               << " "<<mn_age(eac_ats(i))
-               << " "<<sda_tmp
-               << " "<<mn_age(oac_ats(i)) - sda_tmp *2. / sqrt(sam_eit(i))
-               << " "<<mn_age(oac_ats(i)) + sda_tmp *2. / sqrt(sam_eit(i))
-               <<endl;
-    }
-
-    R_report <<"$EffN_fsh"<<endl;
-    for (i=1;i<=n_fsh_r;i++) 
-    {
-      double sda_tmp = Sd_age(oac_fsh(i),eac_fsh(i));
-      R_report << yrs_fsh_data(i)
-               << " "<<Eff_N(oac_fsh(i),eac_fsh(i)) 
-               << " "<<Eff_N2(oac_fsh(i),eac_fsh(i))
-               << " "<<mn_age(oac_fsh(i))
-               << " "<<mn_age(eac_fsh(i))
-               << " "<<sda_tmp
-               << " "<<mn_age(oac_fsh(i)) - sda_tmp *2. / sqrt(sam_fsh(i))
-               << " "<<mn_age(oac_fsh(i)) + sda_tmp *2. / sqrt(sam_fsh(i))
-               <<endl;
-    }
-
-  R_report(F);
-  // Print out the proportion of each age's contribution to SSB...
-  R_report <<"$P_SSB"<<endl;
-  for (i=styr;i<=endyr_r;i++) 
-    R_report <<i<<" "<< 
-    elem_prod( elem_prod(
-        elem_prod(natage(i),pow(S(i),yrfrac)), p_mature), wt_ssb(i)) /SSB(i) <<endl;
-  R_report(wt_ssb);
-  R_report(wt_cur);
-  R_report(wt_cur.sd);
-  R_report(wt_next);
-  R_report(wt_next.sd);
-  R_report(wt_yraf);
-  R_report(wt_yraf.sd);
-  R_report(wt_fsh);
-  R_report(wt_fut);
-
-  R_report.close();
 FUNCTION dvariable Implied_SPR( const dvar_vector& F_age) 
   RETURN_ARRAYS_INCREMENT();
   // Function that returns SPR percentage given a realized value of F...
@@ -4471,6 +4505,7 @@ FUNCTION Est_Fixed_Effects_wts_2016
     for (int i=1;i<=nyrs_data(h);i++)
     {
       iyr = yrs_data(h,i);
+			// COUT(i);COUT(iyr);
       if (h>int(1) )
         wt_hat(h,i) = elem_prod(d_scale(h-1) , wt_pre(iyr) );
       else
@@ -4660,8 +4695,7 @@ FUNCTION double calc_Francis_weights(const dmatrix oac, const dvar_matrix eac, c
   }
 
 FINAL_SECTION
-  Write_R();
-  write_sd();
+  write_R();
 TOP_OF_MAIN_SECTION
   gradient_structure::set_MAX_NVAR_OFFSET(2600);
   gradient_structure::set_GRADSTACK_BUFFER_SIZE(200000);
@@ -4671,6 +4705,9 @@ TOP_OF_MAIN_SECTION
 GLOBALS_SECTION
   #include <float.h>
   #include <admodel.h>
+
+  #undef COUT
+  #define COUT(object) cout << #object "," << object << endl;
 
   ofstream for_sd("extra_sd.rep");
   #undef for_sd
