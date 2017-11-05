@@ -1,14 +1,12 @@
-/pagebreak 
-
 # EBS Pollock Model Description
 
 ## Dynamics
 
-An explicit age-structured model with the catch equation and population
+This assessment is based on a statistical age-structured model with the catch equation and population
 dynamics model as described in Fournier and Archibald (1982) and elsewhere
-(Hilborn and Walters 1992, Schnute and Richards 1995, McAllister and Ianelli
-1997). Catch in numbers at age in year $t (C_{t,a})$ and total catch biomass $(Y_t)$
-were
+(e.g., Hilborn and Walters 1992, Schnute and Richards 1995, McAllister and Ianelli
+1997). The catch in numbers at age in year $t (C_{t,a})$ and total catch biomass $(Y_t)$
+can be described as:
 
 \begin{align}
     C_{t,a}     &= \frac{F_{t,a}}{Z_{t,a}} \left(1 - e^{-Z_{t,a}}\right) N_{t,a}, &1 \le t \le T, 1 \le a \le A \\
@@ -19,9 +17,6 @@ were
     p_{t,a}     &= \frac{C_{t,a} } {C_{t,.} }                                                                   \\
     Y_{t}       &= \sum_{a=1}^A{w_{t,a}C_{t,a}}                                                                 \\
 \end{align}
-  <!-- \sigma_{t,y}^\text{I} &= \frac{1}{\lambda} \sqrt{\log \left( 1 + \left( \mathit{CV}_{t,y}^\text{I} \right)^2 \right)} \\ -->
-  <!-- F_{t,y} &= F_{t,y}^\text{df} + F_{t,y}^\text{tb} + F_{t,y}^\text{fb}  -->
-
 
 where
 \begin{tabular}{ll}
@@ -38,44 +33,27 @@ $M_{t,a}$ & is the instantaneous natural mortality in year $t$ for age class $a$
 $Z_{t,a}$ & is the instantaneous total mortality for age class $a$, in year $t$. 
 \end{tabular}
 
-We reduced the freedom of the parameters listed above by restricting the variation in the fishing mortality rates (Ft,a) following Butterworth et al. (2003) by assuming that
+Fishing mortality ($F_{t,a}$) is specified as being semi-separable and non-parametric in form
+with restrictions on the variability following Butterworth et al. (2003):
 
 \begin{align}
     F_{t,a}     &= s_{t,a} \, \mu^f e^{\epsilon_t}, &\epsilon_t   \sim \mathcal{N}(0,\,\sigma_E^{2}) \\
     s_{t+1,a}   &= s_{t,a} \, \mu^f e^{\gamma_t},   &\gamma_t     \sim \mathcal{N}(0,\,\sigma_s^{2}) 
 \end{align}
 
-where $s_{t,a}$ is the selectivity for age class $a$ in year $t$, and $mu^f$
+where $s_{t,a}$ is the selectivity for age class $a$ in year $t$, and $\mu^f$
 is the median fishing mortality rate over time.
 
 If the selectivities ($s_{t,a}$) are constant over time then fishing mortality
-rate decomposes into an age component and a year component. This assumption
-creates what is known as a separable model. If selectivity in fact changes
-over time, then the separable model can mask important changes in fish
-abundance. In our analyses, we constrain the variance term  to allow
-selectivity to change slowly over timethus improving our ability to estimate .
-Also, to provide regularity in the age component, we placed a curvature
-penalty on the selectivity coefficients using the squared second-differences.
-We selected a simple random walk as our time-series effect on these
-quantities. Prior assumptions about the relative variance quantities were
-made. For example, we assume that the variance of transient effects (e.g., )
-is large to fit the catch biomass precisely. Perhaps the largest difference
-between the model presented here and those used for other groundfish stocks is
-in how we model selectivity of both the fishery and survey gear types. The
-approach taken here assumes that large differences between a selectivity
-coefficient in a given year for a given age should not vary too much from
-adjacent years and ages (unless the data suggest otherwise, e.g., Lauth et al.
-2004). The magnitude of these changes is determined by the prior variances as
-presented above. For the application here selectivity is allowed to change in
-each year. The basis for this model specification was to better account for
-the high levels of sampling and to avoid over-simplifying real changes in age-
-specific fishing mortality. The mean selectivity going forward for projections
-and ABC deliberations is the simple mean of the estimates from 2010-2014.
+rate decomposes into an age component and a year component.  A curvature
+penalty on the selectivity coefficients using the squared second-differences
+to provide smoothness between ages.
 
 Bottom-trawl survey selectivity was set to be asymptotic yet retain the
 properties desired for the characteristics of this gear. Namely, that the
 function should allow flexibility in selecting age 1 pollock over time. The
-functional form of this selectivity is:
+functional form of this selectivity was:
+
 \begin{align}
     s_{t,a}     &= \left[ 1+e^{-\alpha_ta-\beta_t} \right]^{-1} , & a>1 \\
     s_{t,a}     &= \mu_se^{-\delta^\mu_t},                        & a=1 \\
@@ -143,8 +121,8 @@ with mature spawning biomass during year $t$ was defined as:
 \end{align}
 
 and, $\phi_a$ is the proportion of mature females at age is as shown in the sub-section
-titled Natural mortality and maturity at age under ``Parameters estimated
-independently'' above.
+titled Natural mortality and maturity at age under "Parameters estimated
+independently" above.
 
 A reparameterized form for the stock-recruitment relationship following
 Francis (1992) was used. For the optional Beverton-Holt form (the Ricker form
@@ -180,13 +158,13 @@ variability) expressed as a fraction of $R_0$.
 Some interpretation and further explanation follows. For steepness equal 0.2,
 then recruits are a linear function of spawning biomass (implying no surplus
 production). For steepness equal to 1.0, then recruitment is constant for all
-levels of spawning stock size. A value of h = 0.9 implies that at 20% of the
+levels of spawning stock size. A value of $h = 0.9$ implies that at 20% of the
 unfished spawning stock size will result in an expected value of 90% unfished
 recruitment level. Steepness of 0.7 is a commonly assumed default value for
 the Beverton-Holt form (e.g., Kimura 1988). The prior distribution for
 steepness used a beta distribution as in Ianelli et al. (2016). 
 The prior on steepness was specified to be a symmetric form of the
-Beta distribution with alpha=beta=14.93 implying a prior mean of 0.5 and CV of
+Beta distribution with $\alpha = \beta = 14.93$ implying a prior mean of 0.5 and CV of
 12% (implying that there is about a 14% chance that the steepness is greater
 than 0.6). This conservative prior is consistent with previous years’
 application and serves to constrain the stock-recruitment curve from favoring

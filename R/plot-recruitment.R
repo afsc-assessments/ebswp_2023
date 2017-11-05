@@ -36,7 +36,7 @@
 #' @author SJD Martell, DN Webber
 #' @export
 #' 
-plot_recruitment <- function(M, xlab = "Year", ylab = "Recruitment (millions of individuals)",xlim=c(1990,2016))
+plot_recruitment <- function(M, xlab = "Year", ylab = "Recruitment (millions of individuals)",xlim=c(1990,2016),fill="yellow",alpha=.8)
 {
     xlab <- paste0("\n", xlab)
     ylab <- paste0(ylab, "\n")
@@ -44,12 +44,12 @@ plot_recruitment <- function(M, xlab = "Year", ylab = "Recruitment (millions of 
     if (length(M) == 1)
     {
         p <- ggplot(mdf, aes(x = year, y = rec)) +
-            geom_bar(stat = "identity", alpha = 0.4, position = "dodge", col="grey60", fill="salmon") + xlim(xlim) +
-            geom_pointrange(aes(ymax = ub, ymin = lb) ) #, position = position_dodge(width = 1.9))
+            geom_bar(stat = "identity", alpha = 0.4, position = "dodge", col="grey60", fill=fill) + xlim(xlim) +
+            geom_pointrange(aes(ymax = ub, ymin = lb),size=.3 ) #, position = position_dodge(width = 1.9))
     } else {
         p <- ggplot(mdf, aes(x = year, y = rec, col = Model, group = Model)) +
             #geom_hline(aes(yintercept = mean(rec), col = Model)) +
-            geom_bar(stat = "identity", alpha = 0.4, aes(fill = Model), position = "dodge") + xlim(xlim) +
+            geom_bar(stat = "identity", alpha = alpha, aes(fill = Model), position = "dodge") + xlim(xlim) +
             geom_pointrange(aes(year, rec, col = Model, ymax = ub, ymin = lb), position = position_dodge(width = 0.9))
     }
     p <- p + labs(x = xlab, y = ylab) + .THEME

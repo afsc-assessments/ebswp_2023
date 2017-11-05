@@ -130,7 +130,7 @@ DATA_SECTION
   init_number srprior_b     // Beta prior beta parameter
   init_int    nyrs_future;
   int nscen;
-  !! nscen=20;
+  !! nscen=21; // 10 scenarios above and 10 below, number 11 target, (stranger things ref)
   init_number next_yrs_catch; // Used to grid / interpolate...when below target.
   init_number fixed_catch_fut1;
   init_number fixed_catch_fut2;
@@ -887,7 +887,7 @@ PARAMETER_SECTION
   vector wt_fut(1,nages) //
 
   init_bounded_number sel_slp_bts(0.001,5.,phase_logist_bts)
-  init_bounded_number sel_a50_bts(0.1,6,phase_logist_bts)
+  init_bounded_number sel_a50_bts(0.1,8,phase_logist_bts)
   init_number             sel_age_one(phase_logist_bts)                              // Special since age-1 are selected more than others...
   init_bounded_dev_vector sel_slp_bts_dev(styr_bts,endyr_r,-5,5,phase_logist_bts_dev)// allow for variability in survey selectivity inflection 
   init_bounded_dev_vector sel_a50_bts_dev(styr_bts,endyr_r,-5,5,phase_logist_bts_dev)// allow for variability in survey selectivity inflection 
@@ -1082,8 +1082,8 @@ PARAMETER_SECTION
   sdreport_vector ABC_biom2(1,10);
   sdreport_vector rechat(1,20);
   sdreport_vector SER(styr,endyr_r);
-  matrix SER_future(1,nscen,styr_fut,endyr_fut);
-  matrix catch_future(1,nscen,styr_fut,endyr_fut);
+  matrix future_SER(1,nscen,styr_fut,endyr_fut);
+  matrix future_catch(1,nscen,styr_fut,endyr_fut);
   sdreport_matrix future_SSB(1,nscen,endyr_r,endyr_fut)
   vector age_1_7_biomass(styr,endyr_r);
   objective_function_value fff;
@@ -1139,8 +1139,6 @@ PRELIMINARY_CALCS_SECTION
   // Simple decrement of future cathes to capture relationship between adjustments (below Bmsy) w/in same year
   for (i=2;i<=10;i++) 
     Cat_Fut(i) = Cat_Fut(i-1)*.95;
-  Cat_Fut(1) = 1637.;
-  Cat_Fut(2) = 1554.;
 
   // cout << "Next year's catch and decrements"<<endl<<Cat_Fut<<endl;
   lse_eit = elem_div(std_ot_eit(1,n_eit_r),ot_eit);
@@ -1775,7 +1773,7 @@ FUNCTION GetDependentVar
     Percent_B100_2 = future_SSB(5,styr_fut) / SB100;
   }  // End of sd_phase
 FUNCTION Future_projections_fixed_F
-  catch_future.initialize();
+  future_catch.initialize();
   future_SSB.initialize();
   dvariable sumtmp1;
   dvariable sumtmp2;
@@ -1811,7 +1809,8 @@ FUNCTION Future_projections_fixed_F
     // natage_future(k,styr_fut,2)         = mean(column(natage,2));
     // natage_future(k,styr_fut,5)         = mean(column(natage,5));
 
-    ftmp = SolveF2(natage_future(k,styr_fut),(k-1)*100+500.);
+    //ftmp = SolveF2(natage_future(k,styr_fut),(k-1)*100+500.);
+    ftmp= F(endyr_r,6) * ((double(k)-1.)*.05 + 0.5);
     /* 
     switch (k)
     {
@@ -1920,8 +1919,8 @@ FUNCTION Future_projections_fixed_F
     for (i=styr_fut; i<=endyr_fut; i++)
     {
       catage_future(i)  = elem_prod( elem_prod(natage_future(k,i) , F_future(k,i) ) , elem_div( (1. - S_future(i)) , Z_future(i) ));
-      catch_future(k,i) = catage_future(i)*wt_fsh(endyr_r);
-      SER_future(k,i)   = get_SER(natage_future(k,i),mean(F_future(k,i)));
+      future_catch(k,i) = catage_future(i)*wt_fsh(endyr_r);
+      future_SER(k,i)   = get_SER(natage_future(k,i),mean(F_future(k,i)));
     }
     /*
   R_report(Bcur_Bmsy);
@@ -3151,7 +3150,7 @@ FUNCTION write_eval
       for (int k=1;k<=nscen;k++)
       {
         write_mceval(future_SSB(k));
-        write_mceval(catch_future(k));
+        write_mceval(future_catch(k));
       }
       write_mceval(Fcur_Fmsy);
       write_mceval(Bcur_Bmsy);
@@ -3171,7 +3170,7 @@ FUNCTION write_eval
       // pflag=1;
       // for (j=4;j<=5;j++) eval<< future_SSB(j) << " "; eval<<endl;
       // eval << Bmsy<<" "<< future_SSB(4)<<" "<<future_SSB(5)<<" "<<future_SSB(6) <<endl;
-      // eval<<"SPR: "<<SPR_OFL<<" Fmsy "<<Fmsy   <<" "<< catch_future(3,endyr+1)    <<endl;
+      // eval<<"SPR: "<<SPR_OFL<<" Fmsy "<<Fmsy   <<" "<< future_catch(3,endyr+1)    <<endl;
     }
   }
 FUNCTION write_nofish
@@ -3345,7 +3344,7 @@ FUNCTION write_projout
  projout <<nages<< " # Number of ages" <<endl;
  projout << " 1  # Fratio                  " <<endl;
  projout <<natmort<< " # Natural Mortality       " <<endl;
- projout <<"# Maturity"<<endl<< p_mature<< endl;
+ projout <<"# Maturity"<<endl<< p_mature/max(p_mature)<< endl;
  projout <<"# Wt spawn"<<endl<< wt_ssb(endyr_r)     << endl;
  projout <<"# Wt fsh"<<endl<< wt_fut     << endl;
  projout <<"# selectivity"<<endl<< sel_fut << endl;
@@ -4063,7 +4062,7 @@ FUNCTION write_R
   report<<"sd_eit"<<endl<<std_ob_eit<<endl;
   R_report(future_SSB);
   R_report(future_SSB.sd);
-  R_report(catch_future);
+  R_report(future_catch);
   R_report(Fcur_Fmsy);
   R_report(Fcur_Fmsy.sd);
   R_report(Bcur_Bmsy);
@@ -4112,6 +4111,10 @@ FUNCTION write_R
   report << natage<<endl;
   report << "C"<<endl;
   report << catage<<endl;
+  R_report(yrs_cpue); 
+  R_report(obs_cpue); 
+  R_report(obs_cpue_std); 
+  R_report(pred_cpue); 
   R_report(yrs_avo); 
   R_report(obs_avo); 
   R_report(obs_avo_std); 
@@ -4233,12 +4236,12 @@ FUNCTION write_R
 	report <<"T1"<<endl;
 	//  yr ABC OFL SSB 3+Biom CatchFut harmeanF arithmeanF geomB SPRABC SPROFL
   report << endyr_r+1<<" " << ABC <<" " << OFL <<" "<< future_SSB(10,styr_fut) <<" "<< age_3_plus_biom(endyr_r+1) <<" "<<
-  catch_future(11,styr_fut) <<" " << hm_f  <<" "<< am_f <<" "<< gm_b(11) <<" "<< SPR_ABC <<" "<< SPR_OFL <<endl;
+  future_catch(11,styr_fut) <<" " << hm_f  <<" "<< am_f <<" "<< gm_b(1) <<" "<< SPR_ABC <<" "<< SPR_OFL <<endl;
 
   ABC  = gm_b2(1)*hm_f*adj_2(1); 
   OFL  = gm_b2(1)*am_f*adj_2(1); 
   report << endyr_r+2<<" " << ABC <<" " << OFL <<" "<< future_SSB(11,styr_fut+1) <<" "<< age_3_plus_biom(endyr_r+2)  <<" "<<
-  catch_future(11,styr_fut+1) <<" " << hm_f  <<" "<< am_f <<" "<< gm_b2(11)<<" "<< SPR_ABC <<" "<< SPR_OFL <<endl;
+  future_catch(11,styr_fut+1) <<" " << hm_f  <<" "<< am_f <<" "<< gm_b2(1)<<" "<< SPR_ABC <<" "<< SPR_OFL <<endl;
 
   R_report(Cat_Fut);
 	report <<"YC"<<endl;

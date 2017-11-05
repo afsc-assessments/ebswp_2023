@@ -504,8 +504,8 @@ private:
   param_stddev_vector ABC_biom2;
   param_stddev_vector rechat;
   param_stddev_vector SER;
-  param_matrix SER_future;
-  param_matrix catch_future;
+  param_matrix future_SER;
+  param_matrix future_catch;
   param_stddev_matrix future_SSB;
   param_vector age_1_7_biomass;
   param_number prior_function_value;
