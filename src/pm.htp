@@ -87,6 +87,8 @@ class model_data : public ad_comm{
   data_int last_age_sel_group_eit;
   data_vector ctrl_flag;
   data_int sel_dev_shift;
+  data_int phase_coheff;
+  data_int phase_yreff;
   data_int styr;
   data_int styr_bts;
   data_int styr_eit;

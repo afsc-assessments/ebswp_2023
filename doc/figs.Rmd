@@ -31,6 +31,8 @@
  printfig("mod_bts_age.pdf",31)
  # printfig("mod_atsones.pdf",32)
  printfig("mod_ats_age.pdf",33)
+ printfig("mcmc_pairs.pdf",45)
+ printfig("mcmc_marg.pdf",46)
  printfig("mod_ser.pdf",34)
  printfig("mod_F.pdf",35)
  printfig("mod_hist.pdf",36)
@@ -40,6 +42,7 @@
  printfig("mod_rs.pdf",40)
  printfig("mod_retro.pdf",42)
  printfig("tier3_proj.pdf",43)
+ printfig("future_F.pdf",44)
 ```
 
 \clearpage
