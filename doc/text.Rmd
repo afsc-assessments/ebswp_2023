@@ -1067,9 +1067,7 @@ the mean of the posterior marginal distribution, overplotting the former on the 
 for the 2017 spawning biomass estimate were nearly identical (Fig. \ref{fig:mcmc_marg}). 
 
 
-
 ##Time series results
-
 The time series of begin-year biomass estimates (ages 3 and older) suggests
 that the abundance of Eastern Bering Sea pollock remained at a high level from
 1981-88, with estimates ranging from 8 to 12 million t (Table \ref{tab:biom_3plus}). 
@@ -1104,7 +1102,6 @@ that time, the levels of fishing mortality have averaged about 35% of the $F_{MS
 level (Fig. \ref{fig:mod_phase}).
 
 ##Recruitment
-
 Model estimates indicate that both the 2008 and 2012 year classes are well
 above average (Fig. \ref{fig:mod_rec}). The stock-recruitment curve as
 fit within the integrated model shows a fair amount of variability both in the
@@ -1141,7 +1138,6 @@ higher chances of ABCs below the historical average catches.
 
 
 ##Retrospective analysis
-
 Running the assessment model over a grid with progressively fewer years
 included (going back to 20 years, i.e., assuming the data extent ended in
 1997) results in a fair amount of variability in both spawning biomass and
@@ -1348,17 +1344,15 @@ Is the stock approaching an overfished condition?  This is determined by referri
   overfished condition. Otherwise, the stock is not approaching an overfished
   condition.
 
-For scenarios 6 and 7, we conclude that pollock is above MSST for the year `r
-thisyr`, and it is not expected to be approaching an overfished condition
+For scenarios 6 and 7, we conclude that pollock is above MSST for the year `r thisyr`, 
+and it is not expected to be approaching an overfished condition
 based on Scenario 7 (the mean spawning biomass in `r thisyr` is above the
 $B_{35\%}$ level; (Table \ref{tab:tier3_SSB}). Based on this, the EBS pollock
 stock is being fish below the overfishing level and the stock size is above
 the overfished level and projected to stay above based on the national status
 determination criteria.
 
-
 ##ABC Recommendation
-
 ABC levels are affected by estimates of $F_{MSY}$ which depends principally on
 the estimated stock-recruitment steepness parameter, demographic schedules
 such as selectivity-at-age, maturity, and growth. The current stock size (both
@@ -1391,25 +1385,18 @@ during the period 2000-2005.
     northern part of the shelf beyond the traditional survey area (on the order
     of 1.3 million t). The extent that these fish are related to those that might
     move  back to the normal fishing areas is unknown (in 2010 the ecosystem survey 
-    of the NBS showed very few pollock).
+    of the NBS showed very few pollock). 
 
 5.  The multispecies model suggests that the $B_{MSY}$ level is around 3.6 million
 t instead of the ~`r round(bmsy/1000,1)` million t estimated in the current assessment (noting that
 the total natural mortality is higher in the multispecies model).
 
 9.  Pollock are an important prey species for the ecosystem and apparent changes in the 
-    distribution may shift their availability as prey. In particular, fur seal populations around the 
-    Pribilof Islands have had declines in pup production from 2014-2016. The extent that 
-    fishing intensity can allow for continued prey availability could be considered as a means to 
-    minimize further declines in the fur seal populations.
+    distribution may shift their availability as prey. 
 
 10. Whilst outside of ABC considerations, it seems that maintaining the stock
 at relatively high levels and achieving fishery catch rates observed since
-2016 should help reduce Chinook salmon bycatch. Despite the high catch rates
-observed in 2017 (particularly in the A-season), the Chinook salmon bycatch is the 
-highest on recent record (Table \ref{tab:pscbycatch}). Also, the catch of (mainly)
-chum salmon in the non-Chinook bycatch estimates was also very high (second highest on record) during the 2017
-B-season fishery.
+2016 may help with keeping Chinook and other salmon bycatch impacts at their esimated low levels. 
 
 11. Finally, given the same estimated aggregate fishing effort in 2017, the estimated stock trend is
     downwards except at low catch levels (a replacement yield of `r repl_ylds` kt is the amount that would
@@ -1486,7 +1473,7 @@ overly simplify relationships. This table serves to highlight the main
 connections and the status of our understanding or lack thereof.
 
 
-## Ecosystem effects on the EBS pollock stock 
+##Ecosystem effects on the EBS pollock stock 
 
 The pollock stock condition appears to have benefitted substantially from the
 recent conditions in the EBS. The conditions on the shelf during 2008
@@ -1601,3 +1588,5 @@ excellence in promptly processing the samples used in this assessment. The
 work of many individuals involved in collecting and processing survey and
 observer data is greatly appreciated. Finally, thanks to the many colleagues who provided
 edits and suggestions to improve this document.
+
+

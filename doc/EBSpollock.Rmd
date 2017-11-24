@@ -3,6 +3,8 @@ title: "Chapter 1: Assessment of the Walleye Pollock Stock \\ in the Eastern Ber
 date: "`r format(Sys.time(), '%H:%M %B %d, %Y')`"
 output:
   pdf_document:
+    toc: true
+    highlight: zenburn
     citation_package: natbib
     fig_caption: yes
     includes:
@@ -32,7 +34,6 @@ opts_chunk$set(fig.width = 6, fig.height = 8, echo = FALSE, warning = FALSE, mes
 ```
 ----
 
-<!-- \pagenumbering{gobble} -->
 
 \begin{centering}
   James Ianelli, Stan Kotwicki, Taina Honkalehto, Kirstin Holsman, and Ben Fissel \\
@@ -46,10 +47,7 @@ opts_chunk$set(fig.width = 6, fig.height = 8, echo = FALSE, warning = FALSE, mes
   7600 Sand Point Way NE., Seattle, WA 98115-6349 \\
 `r format(Sys.time(), '%B %d, %Y')` \\
 \end{centering}
-
 ----
-
-
 
 ```{r giddy}
 # settings for speed/updating 
@@ -61,26 +59,15 @@ source("../runs/pm_17.R")
 
 ```{r child = 'text.Rmd'}
 ```
+
 ```{r child = 'ref.Rmd'}
-```
-
-\clearpage
-
 ```{r child = 'tab.Rmd'}
 ```
-
-\clearpage
-
 ```{r child = 'figs.Rmd'}
 ```
-
-\clearpage
-
 ```{r child = 'model.Rmd'}
 ```
-
-# Contents and cross-reference table and figure captions
-
+#Contents
 \tableofcontents
 \listoftables
 \listoffigures
