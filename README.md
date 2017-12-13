@@ -1,3 +1,12 @@
+# EBS pollock 2017
+## Tasks and todo list
+    [x] Add in survey biomass     
+    [x] Update catches     
+    [x] Add in 2016 fishery age compositions      
+    [x] Add in 2017 survey age compositions     
+    [x] Modify code to accommodate time-varying M
+    [ ] Modify code to accommodate biomass in density-dependent covariance
+    
 # EBS pollock 2016
 ## Tasks and todo list
     [x] Add in survey biomass     

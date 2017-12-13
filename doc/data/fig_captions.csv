@@ -1,0 +1,47 @@
+no,label,cap
+1,catch,Pollock catch estimates (t) from the Eastern Bering Sea by season and region (top) and in proportion (bottom). The A-season is defined as from Jan-May and B-season from June-October.
+2,catch_sex,Estimate of EBS pollock catch numbers by sex for the A season (January-May) and B seasons (June-October) and total.
+3,catch_distn_a,"EBS pollock catch distribution during A-season, 2015-2017. Column height is proportional to total catch."
+4,aseas_cpue,A-season EBS fleet-wide nominal pollock catch (kg) per hour of fishing recorded by NMFS scientific observers.
+5,prop_a_season,"Proportion of the annual EBS pollock catch by month during the A-season, 2012-2017. The higher value observed in 2017 is due to Amendment 110 of the FMP to allow greater flexibility to avoid Chinook salmon."
+6,catch_distn_b,"EBS pollock catch distribution during B-season, 2015-2017. Column height is proportional to total catch."
+7,bseas_cpue,B-season EBS fleet-wide nominal pollock catch (kg) per hour of fishing recorded by NMFS scientific observers.
+8,roe,EBS pollock roe production in A and B seasons compared to overall landed catch.
+9,catage,EBS pollock fishery estimated catch-at-age data (in number) for 1991-2016. Age 10 represents pollock age 10 and older. The 2008 year-class is shaded in green.
+10,obs_n,EBS pollock observer sampling summarized for number of ages 1991-2016.
+11,bts_biom,Bottom-trawl survey biomass estimates with error bars representing 1 standard deviation (density-dependent correction method; DDC) for EBS pollock. Horizontal line represents the long-term mean. Note these values differ from the design-based versions in Table \ref{tab:bts_abund}.
+12,bts_temp,Bottom and surface temperatures for the Bering Sea from the NMFS summer bottom-trawl surveys (1982-2017). Dashed lines represent mean values.  
+13,bts_temp_cpue,EBS pollock CPUE (shades = relative kg/hectare) and bottom temperature isotherms in degrees C;  2010-2017.  
+14,bts_3d,Bottom trawl survey pollock catch in kg per hectare for 2015 - 2017. Height of vertical lines are proportional to station-specific pollock densities by weight (kg per hectare) with constant scales for all years.  
+15,bts_age,Pollock abundance levels by age and year as estimated directly from the NMFS bottom-trawl surveys (1990-2017). The 2006 and 2008 year-classes are shaded differently.  
+16,at_age,"Pollock abundance at age estimates from the AT survey, 1979-2016."
+17,at_age_new,Pollock abundance at age estimates from the AT survey showing revisions including the bottom layer (0.5-3m) on log scale (left) and arithmetic scale (right) 1994-2016.
+18,avo_bts,EBS pollock AVO transects (superimposed) over bottom-trawl survey stations and density estimates (in both settings contoured in the yellow-red heat map) comparing 2017 (top) and 2016 (bottom).  
+19,m_prof,EBS pollock profile likelihood over fixed values of age 3+ natural mortality under Model 16.1 showing negative log-likelihood selected components differences relative to the minimum value for the grid of M=0.1 to 0.3. Note that the range was selected based on initial attempts to estimate M within the assessment and that this is for expository purposes only (the fact that the survey age composition favors lower natural mortality is likely due to dynamics affecting availability of pollock in recent yearsÅ__ÑÓ_Ñùi.e.
+20,fsh_wtage,"Recent fishery average weight-at-age anomaly (relative to mean) for ages 3-10, 2010-2016. Vertical shape reflects uncertainty in the data (wider shapes being more precise), colors are consistent with cohorts."
+21,mod_eval0a,EBS pollock model evaluation results of female spawning biomass comparing last year's model and results with the same model using updated data and then with the updated acoustic-trawl survey data extended to 0.5 m from bottom.
+22,mod_eval0b,EBS pollock model evaluation results of recruitment comparing last year's model and results with the same model using updated data and then with the updated acoustic-trawl survey data extended to 0.5 m from bottom.
+23,mod_bts_biom,"EBS pollock model fit to the BTS biomass data, 1982-2017."
+24,mod_ats_biom,"EBS pollock model fit to the ATS biomass data, 1994-2016."
+25,mod_mean_age,EBS pollock model fits to observed mean age for the fishery (bottom) bottom trawl survey (middle) and the Acoustic trawl survey (top) for EBS pollock.  
+26,mod_fsh_sel,Selectivity at age estimates for the EBS pollock fishery.
+27,mod_fsh_age,Model fit (dots) to the EBS pollock fishery proportion-at-age data (columns; 1964-2016). The 2016 data are new to this year's assessment. Colors coincide with cohorts progressing through time.  
+28,mod_cpue_fit,EBS pollock model fits to the Japanese fishery CPUE.
+29,mod_avo_fit,Model results of predicted EBS pollock biomass following the AVO index (under model 1.0). Error bars represent assumed 95\% confidence bounds.  
+30,mod_bts_sel,"Model estimates of bottom-trawl survey selectivity, 1982-2017."
+31,mod_bts_age,Model fit (dots) to the bottom trawl survey proportion-at-age composition data (columns) for EBS pollock. Colors correspond to cohorts over time. Data new to this assessment are from 2017.
+32,mod_ats_ones,Estimates of AT survey numbers (lower panel) and selectivity-at-age (with mean value equal to 1.0) over time (upper panel) for EBS pollock age 2 and older.
+33,mod_ats_age,Model fit (dots) to the acoustic-trawl survey proportion-at-age composition data (columns) for EBS pollock. Colors correspond to cohorts over time (for years with consecutive surveys).
+34,mod_ser,Estimated spawning exploitation rate (defined as the percent removal of egg production in a given spawning year).
+35,mod_F,Estimated instantaneous age-specific fishing mortality rates for EBS pollock.
+36,mod_hist,Comparison of the current assessment results with past assessments of begin-year EBS age-3+ pollock biomass.
+37,mod_phase,Estimated spawning biomass relative to annually estimated $F_{MSY}$ values and fishing mortality rates for EBS pollock.
+38,mod_rec,Recruitment estimates (age-1 recruits) for EBS pollock for all years since 1964 (1963-2016 year classes) for Model 16.0. Error bars reflect 90\% credible intervals based on model estimates of uncertainty.  
+39,mod_srr,Stock-recruitment estimates (shaded represnts structural uncertainty) and age-1 EBS pollock estimates labeled by year-classes
+40,mod_rs,"EBS pollock productivity as measured by logged recruits per spawning biomass, log(R\/S), as a function of spawning biomass with a linear fit (bottom) and over time, 1964-2017 (top)."
+41,bts_biom,
+42,mod_retro,Retrospective patterns for EBS pollock spawning biomass showing the point estimates relative to the terminal year (top panel) and approximate confidence bounds on absolute scale (+2 standard deviations).
+43,tier3_proj,Projected EBS Tier 3 pollock yield (top) and female spawning biomass (bottom) relative to the long-term expected values under $F_{35\%}$ and $F_{40\%}$ (horizontal lines).  $B_{40\%}$  is computed from average recruitment from 1978-2014. Future harvest rates follow the guidelines specified under Tier 3 Scenario 1. 
+44,proj_const_catch,"Projected fishing mortality and spawning biomass relative to 2017 values under constant catch of 1.35 million t, 2017-2022."
+45,mcmc_pairs,"Pairwise plot of selected EBS pollock parameters and output from 3 million MCMC iterations thinned such that 5 thousand draws were saved as an approximation to the multivariate posterior distribution. Note that the figures on the diagonal represent the marginal posterior distributions. Key: lnR0 is the parameter that scales the stock-recruit relationship, B_Bmsy is estimated $B_{2017}/B_{MSY}$, DynB0 is the ratio of spawning biomass estimated for in 2017 over the value estimated that would occur if there had been no fishing, B17 is the spawning biomass in 2017, and B_Bmean is $B_{2017}/\bar{B}$."
+46,mcmc_marg,"Integrated marginal posterior density (based on MCMC results) for the 2017 EBS pollock female spawning biomass compared to the point estimate (dashed red line). The mean of the posterior is shown in green (under the dashed line)."
