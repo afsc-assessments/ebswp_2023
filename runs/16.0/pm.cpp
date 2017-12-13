@@ -1342,8 +1342,16 @@ void model_parameters::report(const dvector& gradients)
     return;
   }
   save_gradients(gradients);
+  if (last_phase())
+		cout << endl<<"Finished last phase: "<<current_phase()<<" ============================================="<<endl<<endl;
+  else
+		cout << endl<<"Changing phases from: "<<current_phase()<<" ============================================="<<endl<<endl;
 	if (ctrl_flag(28)==0 && last_phase())
 	{
+  report << "N"<<endl;
+  report << natage<<endl;
+  report << "C"<<endl;
+  report << catage<<endl;
     legacy_rep << "Francis weights: fishery "<<endl;
     legacy_rep <<calc_Francis_weights(oac_fsh, eac_fsh,sam_fsh )<<endl;
     legacy_rep << "Francis weights: bTS "<<endl;
@@ -1357,13 +1365,8 @@ void model_parameters::report(const dvector& gradients)
       eac_ats(i) = eac_eit(i)(mina_eit,nages);
     }
     legacy_rep <<calc_Francis_weights(oac_ats, eac_ats,sam_eit )<<endl;
-	}
   cout<<repl_yld<<endl; cout<<repl_SSB<<endl; cout<<SSB(endyr_r)<<endl; 
   dvariable qtmp = mfexp(mean(log(oa1_eit)-log(ea1_eit)));
-  if (last_phase())
-		cout << endl<<"Finished last phase: "<<current_phase()<<" ============================================="<<endl<<endl;
-  else
-		cout << endl<<"Changing phases from: "<<current_phase()<<" ============================================="<<endl<<endl;
   legacy_rep << model_name<<" "<< datafile_name<<" "<<q_bts<<" "<<q_eit<<" "<<q_bts*exp(log_q_std_area)<< " "<<q_all<<" "<<qtmp<<" "<<sigr<<" q's and sigmaR"<<endl;
   legacy_rep << "Estimated Catch and Observed" <<endl;
   legacy_rep << pred_catch <<endl;
@@ -1654,6 +1657,7 @@ void model_parameters::report(const dvector& gradients)
   */ 
   legacy_rep << F<<endl;
   legacy_rep << wt_pre<<endl;
+	}
 }
 
 void model_parameters::Get_Selectivity(void)
@@ -1940,6 +1944,7 @@ void model_parameters::Future_projections_fixed_F(void)
   ofstream& projout2= *pad_projout2;
   ofstream& eval= *pad_eval;
   random_number_generator& rng= *pad_rng;
+  wt_fut = wt_fsh(endyr_r);
   future_catch.initialize();
   future_SSB.initialize();
   dvariable sumtmp1;
@@ -2026,9 +2031,7 @@ void model_parameters::Future_projections_fixed_F(void)
       F_future(k,i) = sel_fut*ftmp;
       Z_future(i) = F_future(k,i) + natmort;
       S_future(i) = mfexp(-Z_future(i));
-        cout<<i<<" "<<obs_catch(endyr_r)<<" "<<
-      elem_prod( elem_prod(natage_future(k,i) , F_future(k,i) ) , elem_div( (1. - S_future(i)) , Z_future(i) )) *wt_fut
-          << endl;
+        // cout<<i<<" "<<obs_catch(endyr_r)<<" "<< elem_prod( elem_prod(natage_future(k,i) , F_future(k,i) ) , elem_div( (1. - S_future(i)) , Z_future(i) )) *wt_fut << endl;
       }
       F_future(k,i) = sel_fut*ftmp;
       Z_future(i) = F_future(k,i) + natmort;
@@ -2110,7 +2113,7 @@ void model_parameters::Future_projections_fixed_F(void)
     // for (i=styr_fut; i<=endyr_fut; i++)
     {
       catage_future(i)  = elem_prod( elem_prod(natage_future(k,i) , F_future(k,i) ) , elem_div( (1. - S_future(i)) , Z_future(i) ));
-      future_catch(k,i) = catage_future(i)*wt_fsh(endyr_r);
+      future_catch(k,i) = catage_future(i)*wt_fut;
       future_SER(k,i)   = get_SER(natage_future(k,i),mean(F_future(k,i)));
     }
   }       
@@ -4667,7 +4670,7 @@ void model_parameters::write_R(void)
   ofstream& eval= *pad_eval;
   random_number_generator& rng= *pad_rng;
   adstring ad_tmp=initial_params::get_reportfile_name();
-  ofstream report((char*)(adprogram_name + ad_tmp));
+  ofstream report((char*)(adprogram_name + ad_tmp),ios::app);
   // Development--just start to get some output into R
   report << "h_prior" << endl << Priors(1) << endl;
   report << "q_prior" << endl << Priors(2) << endl;
@@ -4725,9 +4728,16 @@ void model_parameters::write_R(void)
   report<<"sd_ob_eit"<<endl<<std_ob_eit<<endl;
   report<<"sd_ot_eit"<<endl<<std_ot_eit<<endl;
   report<<"sd_eit"<<endl<<std_ob_eit<<endl;
-  R_report(F_future);
+  report<<"Future_F"<<endl;
+  for (int k=1;k<=nscen;k++) 
+  {
+    report<< mean(F(endyr_r)(4,10))<<" "; // reference year as current
+    for (int i=styr_fut;i<=endyr_fut;i++) 
+       report<< mean(F_future(k,i)(4,10))<<" ";
+    report<<endl;
+  }
+  // 3darray F_future(1,nscen,styr_fut,endyr_fut,1,nages);
   R_report(future_SER);
-  R_report(future_SER.sd);
   R_report(future_SSB);
   R_report(future_SSB.sd);
   R_report(future_catch);
@@ -4775,10 +4785,6 @@ void model_parameters::write_R(void)
     double ub=value(pred_rec(i)*exp(2.*sqrt(log(1+square(pred_rec.sd(i))/square(pred_rec(i))))));
     report<<i<<" "<<pred_rec(i)<<" "<<pred_rec.sd(i)<<" "<<lb<<" "<<ub<<endl;
   }
-  report << "N"<<endl;
-  report << natage<<endl;
-  report << "C"<<endl;
-  report << catage<<endl;
   R_report(yrs_cpue); 
   R_report(obs_cpue); 
   R_report(obs_cpue_std); 

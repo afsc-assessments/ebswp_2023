@@ -1171,8 +1171,16 @@ PROCEDURE_SECTION
 
 REPORT_SECTION
   save_gradients(gradients);
+  if (last_phase())
+		cout << endl<<"Finished last phase: "<<current_phase()<<" ============================================="<<endl<<endl;
+  else
+		cout << endl<<"Changing phases from: "<<current_phase()<<" ============================================="<<endl<<endl;
 	if (ctrl_flag(28)==0 && last_phase())
 	{
+  report << "N"<<endl;
+  report << natage<<endl;
+  report << "C"<<endl;
+  report << catage<<endl;
     legacy_rep << "Francis weights: fishery "<<endl;
     legacy_rep <<calc_Francis_weights(oac_fsh, eac_fsh,sam_fsh )<<endl;
     legacy_rep << "Francis weights: bTS "<<endl;
@@ -1186,13 +1194,8 @@ REPORT_SECTION
       eac_ats(i) = eac_eit(i)(mina_eit,nages);
     }
     legacy_rep <<calc_Francis_weights(oac_ats, eac_ats,sam_eit )<<endl;
-	}
   cout<<repl_yld<<endl; cout<<repl_SSB<<endl; cout<<SSB(endyr_r)<<endl; 
   dvariable qtmp = mfexp(mean(log(oa1_eit)-log(ea1_eit)));
-  if (last_phase())
-		cout << endl<<"Finished last phase: "<<current_phase()<<" ============================================="<<endl<<endl;
-  else
-		cout << endl<<"Changing phases from: "<<current_phase()<<" ============================================="<<endl<<endl;
   legacy_rep << model_name<<" "<< datafile_name<<" "<<q_bts<<" "<<q_eit<<" "<<q_bts*exp(log_q_std_area)<< " "<<q_all<<" "<<qtmp<<" "<<sigr<<" q's and sigmaR"<<endl;
   legacy_rep << "Estimated Catch and Observed" <<endl;
   legacy_rep << pred_catch <<endl;
@@ -1508,6 +1511,7 @@ REPORT_SECTION
   */ 
   legacy_rep << F<<endl;
   legacy_rep << wt_pre<<endl;
+	}
 FUNCTION Get_Selectivity
   avgsel_fsh.initialize();
   avgsel_bts.initialize();
@@ -4073,7 +4077,7 @@ FUNCTION double Eff_N(const dvar_vector& pobs, const dvar_vector& phat)
 
 FUNCTION write_R
   adstring ad_tmp=initial_params::get_reportfile_name();
-  ofstream report((char*)(adprogram_name + ad_tmp));
+  ofstream report((char*)(adprogram_name + ad_tmp),ios::app);
 
   // Development--just start to get some output into R
   report << "h_prior" << endl << Priors(1) << endl;
@@ -4189,10 +4193,6 @@ FUNCTION write_R
     double ub=value(pred_rec(i)*exp(2.*sqrt(log(1+square(pred_rec.sd(i))/square(pred_rec(i))))));
     report<<i<<" "<<pred_rec(i)<<" "<<pred_rec.sd(i)<<" "<<lb<<" "<<ub<<endl;
   }
-  report << "N"<<endl;
-  report << natage<<endl;
-  report << "C"<<endl;
-  report << catage<<endl;
   R_report(yrs_cpue); 
   R_report(obs_cpue); 
   R_report(obs_cpue_std); 
