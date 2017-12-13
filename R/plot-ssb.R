@@ -39,17 +39,19 @@
 #' @return Plot of model estimates of spawning stock biomass 
 #' @export
 #' 
-plot_ssb <- function(M, xlab = "Year", ylab = "Female spawning biomass (kt)", ylim = NULL, xlim=NULL, alpha = 0.1,legend=TRUE)
+plot_ssb <- function(M, xlab = "Year", ylab = "Female spawning biomass (kt)", ylim = NULL, xlim=NULL,breaks=seq(1990,2017,2), alpha = 0.1,legend=TRUE)
 {
     xlab <- paste0("\n", xlab)
     ylab <- paste0(ylab, "\n")
     
     mdf <- .get_ssb_df(M)
     
-    p <- ggplot(mdf) + labs(x = xlab, y = ylab)
+    p <- ggplot(mdf) + labs(x = xlab, y = ylab) + .THEME
     
     if (!is.null(xlim))
-        p <- p + xlim(xlim[1], xlim[2])        
+      p <- p + scale_x_continuous(limits=xlim,breaks=breaks)  
+    else
+      p <- p + scale_x_continuous(breaks=breaks)  
 
     if (is.null(ylim))
     {
@@ -70,6 +72,6 @@ plot_ssb <- function(M, xlab = "Year", ylab = "Female spawning biomass (kt)", yl
     if (!legend)
         p <- p + theme(legend.position="none")
 
-    if(!.OVERLAY) p <- p + facet_wrap(~Model)
-    print(p + .THEME)
+    if(!.OVERLAY) p <- p + facet_wrap(~Model) 
+    return(p)
 }

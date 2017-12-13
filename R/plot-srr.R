@@ -105,5 +105,5 @@ plot_srr <- function(M, ylab = "Recruits (age 1, millions)", xlab = "Female spaw
     if (!is.null(leglabs)) p = p + scale_color_discrete(labels=leglabs)
 
     if(!.OVERLAY) p <- p + facet_wrap(~Model)
-    print(p + .THEME + guides(fill=FALSE))
+    return(p + .THEME + guides(fill=FALSE))
 }

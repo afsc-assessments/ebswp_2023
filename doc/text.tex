@@ -1,0 +1,815 @@
+\documentclass[]{article}
+\usepackage[left=1in,top=1in,right=1in,bottom=1in]{geometry}
+\newcommand*{\authorfont}{\fontfamily{phv}\selectfont}
+\usepackage{lmodern}
+
+\usepackage{rotating}
+\usepackage{enumerate}
+\usepackage{threeparttable}
+
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+
+
+
+\usepackage{abstract}
+\renewcommand{\abstractname}{}    % clear the title
+\renewcommand{\absnamepos}{empty} % originally center
+
+\renewenvironment{abstract}
+ {{%
+    \setlength{\leftmargin}{0mm}
+    \setlength{\rightmargin}{\leftmargin}%
+  }%
+  \relax}
+ {\endlist}
+
+\makeatletter
+\def\@maketitle{%
+  \newpage
+%  \null
+%  \vskip 2em%
+%  \begin{center}%
+  \let \footnote \thanks
+    {\fontsize{18}{20}\selectfont\raggedright  \setlength{\parindent}{0pt} \@title \par}%
+}
+%\fi
+\makeatother
+
+
+
+
+\setcounter{secnumdepth}{0}
+
+
+
+
+
+
+\author{}
+
+
+\date{}
+
+\usepackage{titlesec}
+
+\titleformat*{\section}{\normalsize\bfseries}
+\titleformat*{\subsection}{\normalsize\itshape}
+\titleformat*{\subsubsection}{\normalsize\itshape}
+\titleformat*{\paragraph}{\normalsize\itshape}
+\titleformat*{\subparagraph}{\normalsize\itshape}
+
+
+
+
+
+\newtheorem{hypothesis}{Hypothesis}
+\usepackage{setspace}
+
+\makeatletter
+\@ifpackageloaded{hyperref}{}{%
+\ifxetex
+  \PassOptionsToPackage{hyphens}{url}\usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \PassOptionsToPackage{hyphens}{url}\usepackage[unicode=true]{hyperref}
+\fi
+}
+
+\@ifpackageloaded{color}{
+    \PassOptionsToPackage{usenames,dvipsnames}{color}
+}{%
+    \usepackage[usenames,dvipsnames]{color}
+}
+\makeatother
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+             pdfkeywords = {},  
+            pdftitle={},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+% add tightlist ----------
+\providecommand{\tightlist}{%
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+	
+% \pagenumbering{arabic}% resets `page` counter to 1 
+%
+
+
+
+
+\vskip 6.5pt
+
+
+\noindent  this is some text
+
+\begin{table}[ht]
+\centering
+\caption{Time series of 1964-1976 catch (left) and ABC, TAC, and catch for EBS pollock, 1977-2017 in t. Source: compiled from NMFS Regional office web site and various NPFMC reports. Note that the 2017 value is based on catch reported to October 25th 2017 plus an added component due to bycatch of pollock in other fisheries.}
+\label{tab:samples}
+\begin{tabular}{crrrrr}
+\hline
+Year    &   Catch   &   Year    &   ABC &   TAC &   Catch \\
+\hline
+1964    &   174,792 &   1977    &   950,000 &   950,000 &   978,370 \\
+1965    &   230,551 &   1978    &   950,000 &   950,000 &   979,431 \\
+1966    &   261,678 &   1979    &   1,100,000   &   950,000 &   935,714 \\
+1967    &   550,362 &   1980    &   1,300,000   &   1,000,000   &   958,280 \\
+1968    &   702,181 &   1981    &   1,300,000   &   1,000,000   &   973,502 \\
+1969    &   862,789 &   1982    &   1,300,000   &   1,000,000   &   955,964 \\
+1970    &   1,256,565   &   1983    &   1,300,000   &   1,000,000   &   981,450 \\
+1971    &   1,743,763   &   1984    &   1,300,000   &   1,200,000   &   1,092,055 \\
+1972    &   1,874,534   &   1985    &   1,300,000   &   1,200,000   &   1,139,676 \\
+1973    &   1,758,919   &   1986    &   1,300,000   &   1,200,000   &   1,141,993 \\
+1974    &   1,588,390   &   1987    &   1,300,000   &   1,200,000   &   859,416 \\
+1975    &   1,356,736   &   1988    &   1,500,000   &   1,300,000   &   1,228,721 \\
+1976    &   1,177,822   &   1989    &   1,340,000   &   1,340,000   &   1,229,600 \\
+    &       &   1990    &   1,450,000   &   1,280,000   &   1,455,193 \\
+    &       &   1991    &   1,676,000   &   1,300,000   &   1,195,664 \\
+    &       &   1992    &   1,490,000   &   1,300,000   &   1,390,299 \\
+    &       &   1993    &   1,340,000   &   1,300,000   &   1,326,602 \\
+    &       &   1994    &   1,330,000   &   1,330,000   &   1,329,352 \\
+    &       &   1995    &   1,250,000   &   1,250,000   &   1,264,247 \\
+    &       &   1996    &   1,190,000   &   1,190,000   &   1,192,781 \\
+    &       &   1997    &   1,130,000   &   1,130,000   &   1,124,433 \\
+    &       &   1998    &   1,110,000   &   1,110,000   &   1,019,082 \\
+    &       &   1999    &   992,000 &   992,000 &   989,680 \\
+    &       &   2000    &   1,139,000   &   1,139,000   &   1,132,710 \\
+    &       &   2001    &   1,842,000   &   1,400,000   &   1,387,197 \\
+    &       &   2002    &   2,110,000   &   1,485,000   &   1,480,776 \\
+    &       &   2003    &   2,330,000   &   1,491,760   &   1,490,779 \\
+    &       &   2004    &   2,560,000   &   1,492,000   &   1,480,552 \\
+    &       &   2005    &   1,960,000   &   1,478,500   &   1,483,022 \\
+    &       &   2006    &   1,930,000   &   1,485,000   &   1,488,031 \\
+    &       &   2007    &   1,394,000   &   1,394,000   &   1,354,502 \\
+    &       &   2008    &   1,000,000   &   1,000,000   &   990,629 \\
+    &       &   2009    &   815,000 &   815,000 &   810,784 \\
+    &       &   2010    &   813,000 &   813,000 &   810,215 \\
+    &       &   2011    &   1,270,000   &   1,252,000   &   1,199,214 \\
+    &       &   2012    &   1,220,000   &   1,200,000   &   1,205,283 \\
+    &       &   2013    &   1,375,000   &   1,247,000   &   1,270,824 \\
+    &       &   2014    &   1,369,000   &   1,267,000   &   1,297,846 \\
+    &       &   2015    &   1,637,000   &   1,310,000   &   1,322,312 \\
+    &       &   2016    &   2,090,000   &   1,340,000   &   1,353,712 \\
+    &       &   2017    &   3,640,000   &   2,800,000   &   1,350,485 \\
+\hline
+\multicolumn{3}{c} 
+  1977-2017 average  
+                        &   1,455,902   &   1,241,006   &     1,186,595 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{ 
+An abundance index derived from acoustic data collected opportunistically
+aboard bottom-trawl survey vessels (AVO index; Honkalehto et al. 2014). Note
+values in parentheses are the coefficients of variation from using 1-D
+geostatistical estimates of sampling variability (Petitgas, 1993). See
+Honkalehto et al. (2011) for the derivation of these estimates. The column ``$CV_{AVO}$'' was
+assumed to have a mean value of 0.30 for model fitting purposes (scaling
+relative to the AT and BTS indices).
+}
+\label{tab:avo}
+\begin{tabular}{crrr}
+\hline
+Year    & AT scaled biomass index & AVO index &   $CV_{AVO}$  \\
+\hline 
+2006    &   1.560  (4\%) &   0.555  (6\%)     &   25\% \\
+2007    &   1.769  (4\%) &   0.638  (11\%)    &   43\% \\
+2008    &   0.997  (8\%) &   0.316  (4\%)     &   32\% \\
+2009    &   0.924  (9\%) &   0.285  (7\%)     &   60\% \\
+2010    &   2.323  (6\%) &   0.679  (11\%)    &   43\% \\
+2011    &   $-no\, survey-$   &   0.543  (6\%)      &   29\% \\
+2012    &   1.843  (4\%) &   0.661  (8\%)     &   31\% \\
+2013    &   $-no\, survey-$   &   0.694  (5\%)      &   19\% \\
+2014    &   3.439  (5\%) &   0.897  (8\%)     &   21\% \\
+2015    &   $-no\, survey-$   &   0.953  (9\%)      &   23\% \\
+2016    &   4.063  (2\%) &   0.750  (5\%)     &   16\% \\
+2017    &   $-no\, survey-$   &   0.730  (5\%)      &   17\% \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{ Highlights of some management measures affecting the pollock fishery.       }
+\label{tab:mgt}
+\begin{tabular}{p{0.5in}p{5.5in}}
+\hline
+Year    &   Management  \\
+\hline
+1977    &   Preliminary BSAI FMP implemented with several closure areas \\
+1982    &   FMP implement for the BSAI  \\
+1982    &   Chinook salmon bycatch limits established for foreign trawlers  \\
+1984    &   2 million t groundfish OY limit established \\
+1984    &   Limits on Chinook salmon bycatch reduced    \\
+1990    &   New observer program established along with data reporting  \\
+1992    &   Pollock CDQ program commences   \\
+1994    &   NMFS adopts minimum mesh size requirements for trawl codends    \\
+1994    &   Voluntary retention of salmon for foodbank donations    \\
+1994    &   NMFS publishes individual vessel bycatch rates on internet  \\
+1995    &   Trawl closures areas and trigger limits established for chum and Chinook salmon \\
+1998    &   Improved utilization and retention in effect (reduced discarded pollock)    \\
+1998    &   American Fisheries Act (AFA) passed \\
+1999    &   The AFA was implemented for catcher/processors  \\
+1999    &   Additional critical habitat areas around sea lion haulouts in the GOA and Eastern Bering Sea are closed.    \\
+2000    &   AFA implemented for remaining sectors (catcher vessel and motherships)  \\
+2001    &   Pollock industry adopts voluntary rolling hotspot program for chum salmon   \\
+2002    &   Pollock industry adopts voluntary rolling hotspot program for Chinook salmon    \\
+2005    &   Rolling hotspot program adopted in regulations to exempt fleet from triggered time/area closures for Chinook and chum salmon    \\
+2011    &   Amendment 91 enacted, Chinook salmon management under hard limits   \\
+2015    &   Amendment 110 (BSAI) Salmon prohibited species catch management in the Bering Sea pollock fishery (additional measures that change limits depending on Chinook salmon run-strength indices) and includes additional provisions for reporting requirements (see https://alaskafisheries.noaa.gov/fisheries/chinook-salmon-bycatch-management for update and general information) \\
+2016    &   Measures of amendment 110 go into effect for 2017 fishing season; Chinook salmon runs above the 3-run index value so bycatch limits stay the same   \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{Fishery sample sizes by sex, season, and area for lengths for EBS pollock, 1977-2016.}
+\label{tab:samples}
+\begin{tabular}{crrrrrrr}
+\hline
+\multicolumn{8}{c}{ Length Frequency samples } \\
+\hline
+        & \multicolumn{2}{c}{ A Season } &\multicolumn{2}{c}{B Season SE } &\multicolumn{2}{c}{B Season NW} &   \\
+Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females &   Total   \\
+\hline
+1977    &   26,411  &   25,923  &   4,301   &   4,511   &   29,075  &   31,219  &   121,440 \\
+1978    &   25,110  &   31,653  &   9,829   &   9,524   &   46,349  &   46,072  &   168,537 \\
+1979    &   59,782  &   62,512  &   3,461   &   3,113   &   62,298  &   61,402  &   252,568 \\
+1980    &   42,726  &   42,577  &   3,380   &   3,464   &   47,030  &   49,037  &   188,214 \\
+1981    &   64,718  &   57,936  &   2,401   &   2,147   &   53,161  &   53,570  &   233,933 \\
+1982    &   74,172  &   70,073  &   16,265  &   14,885  &   181,606 &   163,272 &   520,273 \\
+1983    &   94,118  &   90,778  &   16,604  &   16,826  &   193,031 &   174,589 &   585,946 \\
+1984    &   158,329 &   161,876 &   106,654 &   105,234 &   243,877 &   217,362 &   993,332 \\
+1985    &   119,384 &   109,230 &   96,684  &   97,841  &   284,850 &   256,091 &   964,080 \\
+1986    &   186,505 &   189,497 &   135,444 &   123,413 &   164,546 &   131,322 &   930,727 \\
+1987    &   373,163 &   399,072 &   14,170  &   21,162  &   24,038  &   22,117  &   853,722 \\
+1991    &   160,491 &   148,236 &   166,117 &   150,261 &   141,085 &   139,852 &   906,042 \\
+1992    &   158,405 &   153,866 &   163,045 &   164,227 &   101,036 &   102,667 &   843,244 \\
+1993    &   143,296 &   133,711 &   148,299 &   140,402 &   27,262  &   28,522  &   621,490 \\
+1994    &   139,332 &   147,204 &   159,341 &   153,526 &   28,015  &   27,953  &   655,370 \\
+1995    &   131,287 &   128,389 &   179,312 &   154,520 &   16,170  &   16,356  &   626,032 \\
+1996    &   149,111 &   140,981 &   200,482 &   156,804 &   18,165  &   18,348  &   683,890 \\
+1997    &   124,953 &   104,115 &   116,448 &   107,630 &   60,192  &   53,191  &   566,527 \\
+1998    &   136,605 &   110,620 &   208,659 &   178,012 &   32,819  &   40,307  &   707,019 \\
+1999    &   36,258  &   32,630  &   38,840  &   35,695  &   16,282  &   18,339  &   178,044 \\
+2000    &   64,575  &   58,162  &   63,832  &   41,120  &   40,868  &   39,134  &   307,689 \\
+2001    &   79,333  &   75,633  &   54,119  &   51,268  &   44,295  &   45,836  &   350,483 \\
+2002    &   71,776  &   69,743  &   65,432  &   64,373  &   37,701  &   39,322  &   348,347 \\
+2003    &   74,995  &   77,612  &   49,469  &   53,053  &   51,799  &   53,463  &   360,390 \\
+2004    &   75,426  &   76,018  &   63,204  &   62,005  &   47,289  &   44,246  &   368,188 \\
+2005    &   76,627  &   69,543  &   43,205  &   33,886  &   68,878  &   63,088  &   355,225 \\
+2006    &   72,353  &   63,108  &   28,799  &   22,363  &   75,180  &   65,209  &   327,010 \\
+2007    &   62,827  &   60,522  &   32,945  &   25,518  &   75,128  &   69,116  &   326,054 \\
+2008    &   46,125  &   51,027  &   20,493  &   23,503  &   61,149  &   64,598  &   266,894 \\
+2009    &   46,051  &   44,080  &   19,877  &   18,579  &   50,451  &   53,344  &   232,379 \\
+2010    &   39,495  &   41,054  &   19,194  &   20,591  &   40,449  &   41,323  &   202,106 \\
+2011    &   58,822  &   62,617  &   60,254  &   65,057  &   51,137  &   48,084  &   345,971 \\
+2012    &   53,641  &   57,966  &   45,044  &   46,940  &   50,167  &   53,224  &   306,982 \\
+2013    &   52,303  &   62,336  &   37,434  &   44,709  &   49,484  &   49,903  &   296,168 \\
+2014    &   55,954  &   58,097  &   46,568  &   51,950  &   46,643  &   46,202  &   305,414 \\
+2015    &   55,646  &   56,507  &   45,074  &   41,218  &   46,237  &   43,084  &   287,766 \\
+  \hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\begin{table}[ht]
+\centering
+\caption{Mean body mass at age (g) as estimated from fishery observer data for age 1-10 year old EBS pollock, 1991-2016.} 
+\begin{tabular}{lrrrrrrrrrr}
+  \hline
+     & \multicolumn{10}{c}{Agel} \\
+Year & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ 
+  \hline
+1991 & 0.065 & 0.144 & 0.286 & 0.476 & 0.604 & 0.728 & 0.839 & 0.873 & 1.014 & 1.127 \\ 
+  1992 & 0.082 & 0.181 & 0.394 & 0.462 & 0.647 & 0.701 & 0.812 & 0.982 & 1.031 & 1.210 \\ 
+  1993 & 0.080 & 0.311 & 0.497 & 0.610 & 0.650 & 0.754 & 0.904 & 1.039 & 1.211 & 1.232 \\ 
+  1994 & 0.034 & 0.251 & 0.405 & 0.651 & 0.728 & 0.747 & 0.707 & 1.057 & 1.395 & 1.347 \\ 
+  1995 & 0.000 & 0.140 & 0.377 & 0.498 & 0.735 & 0.840 & 0.856 & 0.986 & 1.220 & 1.315 \\ 
+  1996 & 0.000 & 0.272 & 0.323 & 0.427 & 0.679 & 0.794 & 0.949 & 0.953 & 1.020 & 1.096 \\ 
+  1997 & 0.036 & 0.192 & 0.315 & 0.471 & 0.559 & 0.747 & 0.893 & 1.072 & 1.091 & 1.243 \\ 
+  1998 & 0.020 & 0.186 & 0.368 & 0.589 & 0.627 & 0.621 & 0.775 & 1.029 & 1.169 & 1.253 \\ 
+  1999 & 0.043 & 0.195 & 0.405 & 0.507 & 0.643 & 0.701 & 0.728 & 0.891 & 1.037 & 1.250 \\ 
+  2000 & 0.000 & 0.220 & 0.353 & 0.526 & 0.629 & 0.731 & 0.782 & 0.806 & 0.966 & 1.007 \\ 
+  2001 & 0.000 & 0.275 & 0.327 & 0.503 & 0.669 & 0.788 & 0.958 & 0.987 & 1.063 & 1.115 \\ 
+  2002 & 0.086 & 0.237 & 0.386 & 0.509 & 0.666 & 0.795 & 0.910 & 1.029 & 1.104 & 1.095 \\ 
+  2003 & 0.000 & 0.301 & 0.489 & 0.547 & 0.649 & 0.767 & 0.862 & 0.953 & 1.081 & 1.200 \\ 
+  2004 & 0.000 & 0.086 & 0.409 & 0.583 & 0.640 & 0.758 & 0.889 & 0.924 & 1.035 & 1.162 \\ 
+  2005 & 0.000 & 0.269 & 0.346 & 0.508 & 0.642 & 0.741 & 0.882 & 0.954 & 1.062 & 1.096 \\ 
+  2006 & 0.000 & 0.184 & 0.305 & 0.447 & 0.606 & 0.755 & 0.853 & 0.952 & 1.065 & 1.114 \\ 
+  2007 & 0.053 & 0.169 & 0.346 & 0.506 & 0.641 & 0.781 & 0.962 & 1.098 & 1.182 & 1.275 \\ 
+  2008 & 0.000 & 0.173 & 0.330 & 0.520 & 0.652 & 0.774 & 0.903 & 1.049 & 1.119 & 1.282 \\ 
+  2009 & 0.000 & 0.122 & 0.340 & 0.526 & 0.704 & 0.879 & 1.002 & 1.125 & 1.399 & 1.490 \\ 
+  2010 & 0.050 & 0.175 & 0.383 & 0.489 & 0.664 & 0.915 & 1.119 & 1.261 & 1.371 & 1.587 \\ 
+  2011 & 0.028 & 0.203 & 0.290 & 0.509 & 0.665 & 0.808 & 0.976 & 1.225 & 1.346 & 1.518 \\ 
+  2012 & 0.000 & 0.141 & 0.270 & 0.410 & 0.643 & 0.824 & 0.974 & 1.172 & 1.306 & 1.519 \\ 
+  2013 & 0.111 & 0.130 & 0.289 & 0.442 & 0.564 & 0.782 & 1.131 & 1.284 & 1.426 & 1.692 \\ 
+  2014 & 0.000 & 0.213 & 0.316 & 0.455 & 0.617 & 0.751 & 0.894 & 1.154 & 1.310 & 1.370 \\ 
+  2015 & 0.000 & 0.176 & 0.403 & 0.463 & 0.571 & 0.690 & 0.786 & 0.887 & 1.145 & 1.201 \\ 
+  2016 & 0.000 & 0.168 & 0.407 & 0.531 & 0.557 & 0.648 & 0.732 & 0.801 & 0.943 & 1.047 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\begin{table}[ht]  
+\centering  
+\label{tab:survbiom}
+\caption{Biomass (age 1+) of Eastern Bering Sea pollock as estimated by surveys 1979-2017 (millions of t).  Note that the bottom-trawl survey data only represent biomass from the survey strata (1-6) areas in 1982-1984, and 1986. For all other years the estimates include strata 8-9.  Also, the 1979 - 1981 bottom trawl survey data were omitted from the model since the survey gear differed.}
+\begin{tabular}{crrrrr}
+\hline
+        &   Bottom trawl &   AT     &   AT \%     &       &   Near bottom \\
+Year    &   Survey       &   Survey &   age 3+    & Total &   biomass      \\
+\hline
+1979    &       &   7.458   &   22\% &       &       \\
+1980    &       &       &       &       &       \\
+1981    &       &       &       &       &       \\
+1982    &   2.856   &   4.901   &   95\% &   7.757   &   37\% \\
+1983    &   6.258   &       &       &       &       \\
+1984    &   4.894   &       &       &       &       \\
+1985    &   5.955   &   4.799   &   97\% &   10.754  &   55\% \\
+1986    &   4.897   &       &       &       &       \\
+1987    &   5.498   &       &       &       &       \\
+1988    &   7.289   &   4.675   &   97\% &   11.964  &   61\% \\
+1989    &   6.55    &       &       &       &       \\
+1990    &   7.316   &       &       &       &       \\
+1991    &   5.13    &   1.454   &   46\% &   6.584   &   78\% \\
+1992    &   4.583   &       &       &       &       \\
+1993    &   5.631   &       &       &       &       \\
+1994    &   5.027   &   2.886   &   85\% &   7.913   &   64\% \\
+1995    &   5.478   &       &       &       &       \\
+1996    &   3.415   &   2.311   &   97\% &   5.726   &   60\% \\
+1997    &   3.8 &   2.591   &   70\% &   6.391   &   59\% \\
+1998    &   2.781   &       &       &       &       \\
+1999    &   3.798   &   3.285   &   95\% &   7.083   &   54\% \\
+2000    &   5.281   &   3.049   &   95\% &   8.330   &   63\% \\
+2001    &   4.197   &       &       &       &       \\
+2002    &   5.033   &   3.622   &   82\% &   8.655   &   58\% \\
+2003    &   8.392   &       &       &       &       \\
+2004    &   3.863   &   3.307   &   99\% &   7.170   &   54\% \\
+2005    &   5.321   &       &       &       &       \\
+2006    &   3.045   &   1.560   &   98\% &   4.605   &   66\% \\
+2007    &   4.338   &   1.769   &   89\% &   6.107   &   71\% \\
+2008    &   3.023   &   0.997   &   76\% &   4.020   &   75\% \\
+2009    &   2.282   &   0.924   &   78\% &   3.206   &   71\% \\
+2010    &   3.738   &   2.323   &   65\% &   6.061   &   62\% \\
+2011    &   3.112   &       &       &       &       \\
+2012    &   3.487   &   1.843   &   71\% &   5.330   &   65\% \\
+2013    &   4.575   &       &       &       &       \\
+2014    &   7.43    &   3.439   &   65\% &   10.869  &   68\% \\
+2015    &   6.39    &       &       &       &       \\
+2016    &   4.91    &   4.063   &   97\% &   8.973   &   55\% \\
+\hline
+Average &   4.843   &   2.763   &   85\% &   7.140   &   62\%  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{This is shit}
+\label{tab:shit}
+\begin{tabular}{crrrrrrrr}
+\hline
+Year & Number of & Lengths & Aged &  & Year & Number of & Lengths & Aged \\
+     & Hauls &  &  &  &  & Hauls &  &  \\
+\hline
+1982 & 329 & 40,001 & 1,611 &  & 1999 & 373 & 32,532 & 1,385 \\
+1983 & 354 & 78,033 & 1,931 &  & 2000 & 372 & 41,762 & 1,545 \\
+1984 & 355 & 40,530 & 1,806 &  & 2001 & 375 & 47,335 & 1,641 \\
+1985 & 434 & 48,642 & 1,913 &  & 2002 & 375 & 43,361 & 1,695 \\
+1986 & 354 & 41,101 & 1,344 &  & 2003 & 376 & 46,480 & 1,638 \\
+1987 & 356 & 40,144 & 1,607 &  & 2004 & 375 & 44,102 & 1,660 \\
+1988 & 373 & 40,408 & 1,173 &  & 2005 & 373 & 35,976 & 1,676 \\
+1989 & 373 & 38,926 & 1,227 &  & 2006 & 376 & 39,211 & 1,573 \\
+1990 & 371 & 34,814 & 1,257 &  & 2007 & 376 & 29,679 & 1,484 \\
+1991 & 371 & 43,406 & 1,083 &  & 2008 & 375 & 24,635 & 1,251 \\
+1992 & 356 & 34,024 & 1,263 &  & 2009 & 375 & 24,819 & 1,342 \\
+1993 & 375 & 43,278 & 1,385 &  & 2010 & 376 & 23,142 & 1,385 \\
+1994 & 375 & 38,901 & 1,141 &  & 2011 & 376 & 36,227 & 1,734 \\
+1995 & 376 & 25,673 & 1,156 &  & 2012 & 376 & 35,782 & 1,785 \\
+1996 & 375 & 40,789 & 1,387 &  & 2013 & 376 & 35,908 & 1,847 \\
+1997 & 376 & 35,536 & 1,193 &  & 2014 & 376 & 43,042 & 2,099 \\
+1998 & 375 & 37,673 & 1,261 &  & 2015 & 376 & 54,241 & 2,320 \\
+     &     &        &       &  & 2016 & 376 & 50,857 & 1,766 \\
+     &     &        &       &  & 2017 & 376 & 47,873 & 1,623 \\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\begin{table}[ht]
+\centering
+\caption{ Mean EBS pollock body mass (sexes combined) as observed in the bottom trawl survey, 1982-2017.}
+\footnotesize
+\label{tab:BTS_wtage}
+\begin{tabular}{crrrrrrrrrrrrrrr}
+\hline
+\normalsize  Year & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15+  \\
+\hline
+1982 & 0.031 & 0.072 & 0.164 & 0.343 & 0.420 & 0.652 & 1.019 & 1.123 & 1.192 & 1.334 & 1.571 & 1.582 & 1.766 & 1.588 & 2.458 \\
+1983 & 0.017 & 0.140 & 0.239 & 0.360 & 0.493 & 0.585 & 0.720 & 1.073 & 1.177 & 1.055 & 1.121 & 1.174 & 1.487 & 1.018 & 1.699 \\
+1984 & 0.015 & 0.063 & 0.249 & 0.358 & 0.476 & 0.615 & 0.754 & 1.003 & 1.213 & 1.390 & 1.507 & 1.664 & 1.346 & 1.422 & 2.117 \\
+1985 & 0.018 & 0.084 & 0.192 & 0.385 & 0.468 & 0.626 & 0.763 & 0.864 & 1.361 & 1.155 & 1.286 & 1.659 & 1.579 & 1.600 & 2.565 \\
+1986 & 0.012 & 0.091 & 0.184 & 0.348 & 0.465 & 0.636 & 0.714 & 0.857 & 1.005 & 1.258 & 1.281 & 1.084 & 2.164 & 2.090 & 2.408 \\
+1987 & 0.017 & 0.109 & 0.217 & 0.335 & 0.424 & 0.531 & 0.699 & 0.798 & 0.874 & 0.993 & 1.131 & 1.393 & 1.697 & 1.965 & 2.251 \\
+1988 & 0.017 & 0.098 & 0.276 & 0.344 & 0.437 & 0.512 & 0.588 & 0.735 & 0.829 & 0.995 & 1.135 & 1.227 & 1.643 & 0.860 & 1.573 \\
+1989 & 0.016 & 0.089 & 0.173 & 0.368 & 0.431 & 0.522 & 0.619 & 0.684 & 0.932 & 0.922 & 1.052 & 1.044 & 1.102 & 1.155 & 1.229 \\
+1990 & 0.014 & 0.099 & 0.153 & 0.382 & 0.493 & 0.569 & 0.592 & 0.713 & 0.737 & 1.039 & 1.046 & 1.108 & 1.175 & 1.241 & 1.399 \\
+1991 & 0.019 & 0.121 & 0.164 & 0.323 & 0.492 & 0.577 & 0.690 & 0.732 & 0.874 & 0.911 & 1.084 & 1.184 & 1.211 & 1.302 & 1.694 \\
+1992 & 0.014 & 0.114 & 0.283 & 0.365 & 0.509 & 0.616 & 0.764 & 0.850 & 0.899 & 0.975 & 1.082 & 1.231 & 1.302 & 1.331 & 1.292 \\
+1993 & 0.014 & 0.058 & 0.319 & 0.462 & 0.517 & 0.580 & 0.679 & 0.802 & 0.985 & 1.024 & 1.145 & 1.259 & 1.347 & 1.523 & 1.594 \\
+1994 & 0.013 & 0.069 & 0.227 & 0.473 & 0.566 & 0.638 & 0.720 & 0.915 & 1.155 & 1.122 & 1.189 & 1.293 & 1.373 & 1.534 & 1.522 \\
+1995 & 0.013 & 0.068 & 0.138 & 0.379 & 0.492 & 0.639 & 0.639 & 0.769 & 0.913 & 1.148 & 1.174 & 1.282 & 1.340 & 1.391 & 1.528 \\
+1996 & 0.017 & 0.070 & 0.140 & 0.298 & 0.498 & 0.600 & 0.742 & 0.806 & 0.970 & 1.021 & 1.335 & 1.387 & 1.427 & 1.540 & 1.539 \\
+1997 & 0.016 & 0.069 & 0.230 & 0.337 & 0.403 & 0.543 & 0.699 & 0.792 & 0.993 & 1.016 & 1.137 & 1.287 & 1.249 & 1.501 & 1.580 \\
+1998 & 0.016 & 0.069 & 0.184 & 0.337 & 0.473 & 0.515 & 0.671 & 0.797 & 0.882 & 0.918 & 1.091 & 1.311 & 1.290 & 1.721 & 1.759 \\
+1999 & 0.015 & 0.074 & 0.182 & 0.335 & 0.392 & 0.554 & 0.621 & 0.769 & 0.937 & 0.956 & 1.099 & 1.184 & 1.554 & 1.724 & 1.853 \\
+2000 & 0.011 & 0.062 & 0.208 & 0.357 & 0.444 & 0.518 & 0.637 & 0.703 & 0.776 & 0.919 & 1.135 & 1.177 & 1.347 & 1.396 & 1.818 \\
+2001 & 0.015 & 0.074 & 0.165 & 0.368 & 0.493 & 0.595 & 0.682 & 0.748 & 0.839 & 0.885 & 1.096 & 1.201 & 1.395 & 1.345 & 1.645 \\
+2002 & 0.012 & 0.075 & 0.231 & 0.365 & 0.512 & 0.626 & 0.653 & 0.798 & 0.879 & 0.905 & 0.934 & 1.076 & 1.145 & 1.409 & 1.809 \\
+2003 & 0.022 & 0.095 & 0.303 & 0.429 & 0.571 & 0.660 & 0.748 & 0.846 & 0.873 & 0.969 & 0.974 & 1.002 & 1.010 & 1.170 & 1.218 \\
+2004 & 0.020 & 0.092 & 0.270 & 0.470 & 0.547 & 0.676 & 0.757 & 0.785 & 0.937 & 0.938 & 1.043 & 1.044 & 1.103 & 1.351 & 1.402 \\
+2005 & 0.019 & 0.078 & 0.192 & 0.398 & 0.522 & 0.600 & 0.701 & 0.807 & 0.885 & 0.913 & 1.011 & 1.065 & 1.089 & 1.189 & 1.294 \\
+2006 & 0.009 & 0.078 & 0.135 & 0.368 & 0.517 & 0.605 & 0.726 & 0.804 & 0.912 & 1.039 & 1.097 & 1.174 & 1.265 & 1.242 & 1.343 \\
+2007 & 0.012 & 0.091 & 0.301 & 0.446 & 0.549 & 0.671 & 0.773 & 0.848 & 0.928 & 1.054 & 1.124 & 1.093 & 1.297 & 1.282 & 1.391 \\
+2008 & 0.014 & 0.050 & 0.225 & 0.421 & 0.527 & 0.638 & 0.759 & 0.859 & 0.929 & 1.060 & 1.214 & 1.190 & 1.336 & 1.506 & 1.563 \\
+2009 & 0.011 & 0.070 & 0.215 & 0.410 & 0.584 & 0.689 & 0.846 & 0.908 & 0.954 & 1.156 & 1.186 & 1.439 & 1.412 & 1.548 & 1.776 \\
+2010 & 0.019 & 0.072 & 0.244 & 0.402 & 0.541 & 0.675 & 0.908 & 0.975 & 1.012 & 1.110 & 1.141 & 1.267 & 1.423 & 1.529 & 1.927 \\
+2011 & 0.015 & 0.106 & 0.238 & 0.445 & 0.553 & 0.647 & 0.804 & 0.989 & 1.108 & 1.160 & 1.247 & 1.303 & 1.429 & 1.448 & 1.643 \\
+2012 & 0.014 & 0.075 & 0.214 & 0.357 & 0.530 & 0.669 & 0.812 & 0.885 & 1.212 & 1.246 & 1.302 & 1.333 & 1.424 & 1.636 & 1.860 \\
+2013 & 0.017 & 0.061 & 0.239 & 0.418 & 0.492 & 0.617 & 0.829 & 0.966 & 1.087 & 1.239 & 1.295 & 1.352 & 1.447 & 1.584 & 1.607 \\
+2014 & 0.016 & 0.097 & 0.264 & 0.352 & 0.476 & 0.603 & 0.660 & 0.891 & 0.981 & 1.121 & 1.280 & 1.308 & 1.397 & 1.459 & 1.656 \\
+2015 & 0.019 & 0.087 & 0.288 & 0.379 & 0.510 & 0.592 & 0.717 & 0.804 & 1.056 & 1.071 & 1.306 & 1.630 & 1.304 & 1.469 & 1.624 \\
+2016 & 0.022 & 0.080 & 0.225 & 0.437 & 0.513 & 0.606 & 0.694 & 0.774 & 0.842 & 0.915 & 1.039 & 0.911 & 1.328 & 1.564 & 1.540 \\
+2017 & 0.022 & 0.093 & 0.204 & 0.402 & 0.534 & 0.607 & 0.695 & 0.758 & 0.827 & 0.836 & 0.958 & 0.804 & 1.198 & 1.319 & 1.593 \\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\section{The CIE review comments and responses,
+2017}\label{the-cie-review-comments-and-responses-2017}
+
+\begin{table}[ht]
+\centering
+\caption{ Summary of 2016 CIE reviewer comments and responses to date }
+\footnotesize
+\label{tab:CIE_review}
+\begin{tabular}{p{4.0in}p{2.5in}}
+\hline
+$\normalsize \textbf{Issue}$   &  $\normalsize \textbf{Response}$ \\
+\hline
+Natural mortality is assumed known exactly despite being quite uncertain.   &   Prior has been applied, examined in retrospective runs. \\
+The stock recruitment relationship is very uncertain and although it is estimated it is done so with an artificial and very constraining prior. &   2016 greater evaluation of unconstrained prior used \\
+Uncertain future fishery selectivity is not properly modelled. A well-estimated average is used, whereas a random choice of previous estimated selectivities could be modelled. &   Untrue, miscommunication. Evaluations of historical selectivities for projections has been done \\
+The pdf of FMSY is not well determined as FMSY depends strongly on the stock recruitment relationship, fishery selectivity, and natural mortality   &   PDF is well determined, within alternative structural models uncertainty \\
+Technically correct Bayesian model be developed with a view to replacing the existing model.    &   Posterior distributions added across several models created \\
+Ultimately, a multi-species trophic interaction model may be used for stock assessment, but this should wait until an improved single-species stock assessment model is fully implemented. At that stage, the trophic interaction model and the single-species model could be tested (using an operating model) to see which is likely to provide better stock assessment estimates.    &    \\
+Ageing: perhaps 1 in 10 of surface-read otoliths should be broken and burnt to confirm that the same reading is obtained.   &   TBD \\
+Investigate the trawl survey time series to see if vessel effects can be estimated (using a multiple regression with other explanatory variables, e.g., year, stratum, time-of-day, “weather conditions”).  &   TBD \\
+The 3 m cutoff for the acoustic survey should be dispensed with and pollock biomass should be estimated over most of the water column.  &   Done \\
+An analysis of mark types should be undertaken to better understand the length/age composition of pollock marks (which could perhaps lead to a better survey design).   &   Research at MACE on multi-frequency approach to help w/ species classification \\
+More in situ target strength data should be collected for pollock to better define the length-target strength relationship. &   Research at MACE ongoing \\
+It may not be appropriate to include the AVO index in the base model but it should certainly be included in a sensitivity.  &   Done \\
+It is probably better to fit to total biomass rather than total numbers for the trawl survey.   &   Done \\
+For ages 2 years and older, it is better to fit to total biomass rather than total numbers for the acoustic survey. &   Done \\
+Annual mean weight-at-age: the shrinkage of fish should not be allowed to occur, and this may be best achieved by modelling increments in mean fish weight rather than the mean weights.    &   Done \\
+Tighten the random walk and the parameterization on the fishery selectivities and then apply the data weighting methods of Francis (2011).  &   2017 \\
+Incorporate the uncertainty associated with unknown future selectivities into the pdfs of quantities of interest (e.g., FMSY).  &   Done, revisited 2017 \\
+There is clearly some uncertainty associated with M and this needs to be propagated through into the pdf of FMSY and other quantities of interest (i.e., estimate M).   &   2017 \\
+The uncertainty associated with the stock-recruitment relationship needs to be propagated through into the pdf of FMSY and other quantities of interest (i.e., estimate h with a justifiable prior).    &   2016 \\
+Perform a detailed historical analysis of the length/age composition of the catch in relationship to possible explanatory variables to enable the fishery to be split fisheries into multiple components for the purposes of stock assessment. The minimum split will be into A and B seasons with a processor and catcher fleet to mimic the reality of the fishery.   &   Future \\
+The information that is known about the survey qs should be included in the stock assessment model through informed priors. &   Implemented via Kotwicki et al. \\
+The objective function, for a Bayesian stock assessment, can and should be derived purely from likelihood components (generated by statistical assumptions with regard to data), prior distributions, and an occasional penalty function (if absolutely necessary). &    \\
+Incorporation of cannibalism explicitly in the modelling and in the forecasting. Disentangling cannibalism from environmental and climate effects on recruitment hold the most potential for improving knowledge of the stock and the ecosystem functioning &   CEATTLE 2016 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{Estimated billions of EBS pollock at age (columns 2-11) from the 2017 model.} 
+\label{tab:natage}
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+Year & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10+ \\ 
+  \hline
+1964 & 6.55 & 3.54 & 2.24 & 0.48 & 0.21 & 0.41 & 0.18 & 0.06 & 0.04 & 0.22 \\ 
+  1965 & 21.48 & 2.66 & 2.23 & 1.59 & 0.30 & 0.13 & 0.26 & 0.12 & 0.04 & 0.17 \\ 
+  1966 & 15.34 & 8.71 & 1.67 & 1.57 & 0.99 & 0.19 & 0.08 & 0.16 & 0.07 & 0.13 \\ 
+  1967 & 25.84 & 6.23 & 5.48 & 1.17 & 1.00 & 0.63 & 0.12 & 0.05 & 0.11 & 0.14 \\ 
+  1968 & 22.36 & 10.47 & 3.86 & 3.58 & 0.69 & 0.58 & 0.37 & 0.07 & 0.03 & 0.14 \\ 
+  1969 & 26.39 & 9.05 & 6.47 & 2.52 & 2.09 & 0.40 & 0.34 & 0.22 & 0.04 & 0.10 \\ 
+  1970 & 23.78 & 10.67 & 5.57 & 4.10 & 1.49 & 1.24 & 0.24 & 0.21 & 0.13 & 0.09 \\ 
+  1971 & 14.70 & 9.58 & 6.42 & 3.33 & 2.35 & 0.83 & 0.70 & 0.13 & 0.11 & 0.11 \\ 
+  1972 & 11.92 & 5.90 & 5.62 & 3.61 & 1.76 & 1.18 & 0.42 & 0.35 & 0.06 & 0.10 \\ 
+  1973 & 26.38 & 4.79 & 3.35 & 2.95 & 1.77 & 0.85 & 0.57 & 0.20 & 0.16 & 0.07 \\ 
+  1974 & 20.22 & 10.62 & 2.64 & 1.64 & 1.34 & 0.79 & 0.38 & 0.25 & 0.08 & 0.09 \\ 
+  1975 & 17.54 & 8.15 & 5.65 & 1.15 & 0.71 & 0.58 & 0.34 & 0.16 & 0.10 & 0.07 \\ 
+  1976 & 13.28 & 7.09 & 4.60 & 2.56 & 0.53 & 0.33 & 0.27 & 0.16 & 0.08 & 0.08 \\ 
+  1977 & 14.16 & 5.38 & 4.10 & 2.30 & 1.21 & 0.26 & 0.16 & 0.13 & 0.08 & 0.07 \\ 
+  1978 & 27.26 & 5.74 & 3.14 & 2.25 & 1.19 & 0.61 & 0.13 & 0.08 & 0.07 & 0.07 \\ 
+  1979 & 66.02 & 11.09 & 3.66 & 2.33 & 1.67 & 0.88 & 0.46 & 0.10 & 0.06 & 0.10 \\ 
+  1980 & 33.88 & 26.84 & 7.07 & 2.71 & 1.72 & 1.24 & 0.65 & 0.34 & 0.07 & 0.12 \\ 
+  1981 & 41.45 & 13.78 & 17.11 & 5.24 & 2.01 & 1.28 & 0.92 & 0.48 & 0.25 & 0.14 \\ 
+  1982 & 18.68 & 16.85 & 8.78 & 12.68 & 3.88 & 1.49 & 0.95 & 0.68 & 0.36 & 0.29 \\ 
+  1983 & 44.06 & 7.59 & 10.75 & 6.51 & 9.39 & 2.87 & 1.10 & 0.70 & 0.50 & 0.48 \\ 
+  1984 & 10.19 & 17.91 & 4.84 & 7.96 & 4.82 & 6.96 & 2.13 & 0.82 & 0.52 & 0.73 \\ 
+  1985 & 21.52 & 4.14 & 11.42 & 3.59 & 5.90 & 3.57 & 5.15 & 1.58 & 0.60 & 0.92 \\ 
+  1986 & 8.13 & 8.75 & 2.64 & 8.46 & 2.66 & 4.37 & 2.65 & 3.82 & 1.17 & 1.13 \\ 
+  1987 & 4.39 & 3.30 & 5.58 & 1.96 & 6.27 & 1.97 & 3.24 & 1.96 & 2.83 & 1.70 \\ 
+  1988 & 3.42 & 1.78 & 2.11 & 4.13 & 1.45 & 4.64 & 1.46 & 2.40 & 1.45 & 3.36 \\ 
+  1989 & 7.35 & 1.39 & 1.14 & 1.56 & 3.06 & 1.07 & 3.44 & 1.08 & 1.78 & 3.56 \\ 
+  1990 & 34.92 & 2.99 & 0.89 & 0.84 & 1.16 & 2.27 & 0.80 & 2.55 & 0.80 & 3.96 \\ 
+  1991 & 19.98 & 14.20 & 1.91 & 0.66 & 0.62 & 0.86 & 1.68 & 0.59 & 1.89 & 3.52 \\ 
+  1992 & 19.74 & 8.12 & 9.05 & 1.41 & 0.49 & 0.46 & 0.63 & 1.24 & 0.44 & 4.01 \\ 
+  1993 & 41.24 & 8.03 & 5.18 & 6.71 & 1.05 & 0.36 & 0.34 & 0.47 & 0.92 & 3.29 \\ 
+  1994 & 11.72 & 16.77 & 5.12 & 3.84 & 4.97 & 0.77 & 0.27 & 0.25 & 0.35 & 3.12 \\ 
+  1995 & 8.38 & 4.76 & 10.69 & 3.79 & 2.84 & 3.68 & 0.57 & 0.20 & 0.19 & 2.57 \\ 
+  1996 & 18.04 & 3.41 & 3.04 & 7.92 & 2.81 & 2.11 & 2.73 & 0.43 & 0.15 & 2.04 \\ 
+  1997 & 24.01 & 7.34 & 2.17 & 2.25 & 5.87 & 2.08 & 1.56 & 2.02 & 0.31 & 1.62 \\ 
+  1998 & 11.98 & 9.76 & 4.68 & 1.61 & 1.67 & 4.35 & 1.54 & 1.16 & 1.50 & 1.44 \\ 
+  1999 & 13.21 & 4.87 & 6.23 & 3.47 & 1.19 & 1.24 & 3.22 & 1.14 & 0.86 & 2.17 \\ 
+  2000 & 21.73 & 5.37 & 3.10 & 4.61 & 2.57 & 0.88 & 0.92 & 2.39 & 0.85 & 2.24 \\ 
+  2001 & 29.64 & 8.84 & 3.42 & 2.30 & 3.42 & 1.90 & 0.65 & 0.68 & 1.77 & 2.29 \\ 
+  2002 & 18.87 & 12.05 & 5.63 & 2.54 & 1.70 & 2.53 & 1.41 & 0.48 & 0.50 & 3.00 \\ 
+  2003 & 11.57 & 7.67 & 7.68 & 4.17 & 1.88 & 1.26 & 1.88 & 1.04 & 0.36 & 2.60 \\ 
+  2004 & 5.16 & 4.70 & 4.89 & 5.69 & 3.09 & 1.39 & 0.94 & 1.39 & 0.77 & 2.19 \\ 
+  2005 & 3.58 & 2.10 & 3.00 & 3.62 & 4.22 & 2.29 & 1.03 & 0.69 & 1.03 & 2.20 \\ 
+  2006 & 9.21 & 1.46 & 1.34 & 2.22 & 2.68 & 3.12 & 1.70 & 0.76 & 0.51 & 2.39 \\ 
+  2007 & 22.32 & 3.75 & 0.93 & 0.99 & 1.65 & 1.99 & 2.31 & 1.26 & 0.57 & 2.15 \\ 
+  2008 & 11.61 & 9.07 & 2.39 & 0.69 & 0.73 & 1.22 & 1.47 & 1.71 & 0.93 & 2.01 \\ 
+  2009 & 55.88 & 4.72 & 5.79 & 1.77 & 0.51 & 0.54 & 0.90 & 1.09 & 1.27 & 2.18 \\ 
+  2010 & 20.15 & 22.72 & 3.01 & 4.29 & 1.31 & 0.38 & 0.40 & 0.67 & 0.81 & 2.56 \\ 
+  2011 & 11.57 & 8.19 & 14.49 & 2.23 & 3.18 & 0.97 & 0.28 & 0.30 & 0.50 & 2.49 \\ 
+  2012 & 9.01 & 4.70 & 5.22 & 10.73 & 1.65 & 2.35 & 0.72 & 0.21 & 0.22 & 2.21 \\ 
+  2013 & 45.63 & 3.66 & 3.00 & 3.87 & 7.95 & 1.22 & 1.74 & 0.53 & 0.15 & 1.80 \\ 
+  2014 & 24.95 & 18.55 & 2.33 & 2.22 & 2.87 & 5.89 & 0.91 & 1.29 & 0.39 & 1.45 \\ 
+  2015 & 13.96 & 10.14 & 11.83 & 1.73 & 1.65 & 2.12 & 4.36 & 0.67 & 0.96 & 1.37 \\ 
+  2016 & 12.87 & 5.68 & 6.47 & 8.76 & 1.28 & 1.22 & 1.57 & 3.23 & 0.50 & 1.72 \\ 
+  2017 & 18.81 & 5.23 & 3.62 & 4.79 & 6.49 & 0.95 & 0.90 & 1.17 & 2.39 & 1.64 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{Estimated millions of EBS pollock caught at age (columns 2-11) from the 2017 model.} 
+\label{tab:catage}
+\scalebox{0.9}{
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+Year & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10+ \\ 
+  \hline
+1964 & 8.96 & 38.00 & 85.62 & 62.28 & 27.21 & 52.56 & 22.94 & 7.07 & 4.31 & 25.16 \\ 
+  1965 & 28.96 & 29.41 & 98.75 & 213.59 & 39.65 & 16.38 & 30.67 & 13.46 & 4.23 & 18.50 \\ 
+  1966 & 20.75 & 101.34 & 79.65 & 192.48 & 119.21 & 21.94 & 9.22 & 17.54 & 7.82 & 13.76 \\ 
+  1967 & 64.75 & 139.50 & 555.38 & 213.45 & 182.46 & 113.72 & 21.81 & 9.41 & 18.33 & 23.34 \\ 
+  1968 & 64.12 & 262.25 & 396.03 & 656.50 & 122.49 & 101.30 & 64.20 & 12.45 & 5.45 & 24.63 \\ 
+  1969 & 91.11 & 255.92 & 807.09 & 443.57 & 361.04 & 68.33 & 58.36 & 38.95 & 7.71 & 19.06 \\ 
+  1970 & 141.24 & 489.06 & 934.68 & 801.97 & 316.91 & 264.22 & 53.43 & 49.74 & 32.90 & 23.02 \\ 
+  1971 & 122.50 & 619.82 & 1340.82 & 832.66 & 664.78 & 232.24 & 196.59 & 42.32 & 37.03 & 40.97 \\ 
+  1972 & 88.95 & 516.36 & 1430.07 & 1064.73 & 537.27 & 360.12 & 129.29 & 119.67 & 22.81 & 38.40 \\ 
+  1973 & 174.01 & 524.10 & 998.60 & 994.92 & 616.33 & 295.73 & 198.31 & 76.33 & 62.89 & 28.17 \\ 
+  1974 & 115.67 & 1421.94 & 956.04 & 596.23 & 491.24 & 289.56 & 137.81 & 98.82 & 35.16 & 37.82 \\ 
+  1975 & 67.00 & 756.51 & 1921.28 & 377.78 & 228.00 & 183.62 & 108.28 & 53.54 & 37.00 & 24.64 \\ 
+  1976 & 36.31 & 539.31 & 1302.46 & 804.26 & 160.91 & 98.45 & 79.92 & 47.77 & 24.07 & 24.79 \\ 
+  1977 & 27.51 & 363.87 & 916.50 & 611.12 & 335.48 & 69.47 & 43.44 & 35.65 & 22.72 & 20.97 \\ 
+  1978 & 41.19 & 358.76 & 709.17 & 602.76 & 346.00 & 176.53 & 37.52 & 23.83 & 21.25 & 23.57 \\ 
+  1979 & 80.63 & 435.69 & 640.70 & 431.30 & 352.07 & 181.06 & 93.14 & 19.85 & 13.60 & 22.37 \\ 
+  1980 & 23.86 & 535.24 & 813.87 & 456.40 & 265.10 & 169.76 & 83.56 & 43.58 & 9.73 & 15.63 \\ 
+  1981 & 16.17 & 120.50 & 1066.48 & 665.40 & 248.31 & 105.39 & 63.04 & 31.76 & 17.58 & 9.49 \\ 
+  1982 & 4.99 & 80.62 & 218.72 & 1112.80 & 383.23 & 95.14 & 39.85 & 24.40 & 13.05 & 10.46 \\ 
+  1983 & 10.79 & 42.46 & 196.47 & 365.74 & 857.25 & 211.19 & 50.01 & 21.35 & 13.88 & 12.77 \\ 
+  1984 & 2.55 & 98.33 & 106.95 & 389.24 & 427.59 & 622.61 & 128.98 & 30.77 & 14.08 & 16.43 \\ 
+  1985 & 5.33 & 29.00 & 354.14 & 189.09 & 407.18 & 319.01 & 416.06 & 82.57 & 20.94 & 19.42 \\ 
+  1986 & 1.75 & 62.30 & 97.42 & 610.76 & 204.10 & 355.50 & 180.50 & 225.91 & 51.64 & 23.40 \\ 
+  1987 & 0.60 & 17.08 & 189.26 & 111.08 & 436.76 & 137.73 & 156.09 & 88.51 & 130.05 & 35.18 \\ 
+  1988 & 0.52 & 11.74 & 190.32 & 388.71 & 196.69 & 528.44 & 144.94 & 150.21 & 76.05 & 127.19 \\ 
+  1989 & 0.87 & 8.14 & 70.85 & 184.37 & 467.16 & 157.22 & 468.35 & 91.69 & 95.94 & 121.63 \\ 
+  1990 & 4.60 & 21.85 & 54.88 & 156.26 & 300.15 & 541.81 & 163.93 & 368.11 & 75.19 & 183.61 \\ 
+  1991 & 2.23 & 96.22 & 79.39 & 86.52 & 134.13 & 188.46 & 418.76 & 95.58 & 238.61 & 178.79 \\ 
+  1992 & 2.29 & 64.89 & 676.00 & 185.31 & 104.46 & 130.93 & 182.16 & 283.20 & 77.49 & 286.32 \\ 
+  1993 & 2.84 & 23.97 & 218.08 & 1073.72 & 145.93 & 73.85 & 70.56 & 64.95 & 92.99 & 113.62 \\ 
+  1994 & 0.75 & 43.44 & 85.88 & 325.01 & 991.25 & 151.57 & 52.98 & 33.73 & 30.95 & 99.64 \\ 
+  1995 & 0.45 & 14.32 & 116.04 & 139.31 & 390.31 & 756.02 & 109.68 & 29.34 & 18.37 & 71.76 \\ 
+  1996 & 1.02 & 15.49 & 51.22 & 160.96 & 202.93 & 390.92 & 518.40 & 85.55 & 20.45 & 60.80 \\ 
+  1997 & 1.33 & 49.43 & 43.05 & 95.25 & 460.50 & 291.63 & 269.04 & 227.91 & 41.03 & 47.83 \\ 
+  1998 & 0.50 & 41.36 & 106.35 & 77.04 & 153.10 & 677.31 & 206.96 & 137.16 & 108.40 & 38.54 \\ 
+  1999 & 0.40 & 11.74 & 266.24 & 220.27 & 104.33 & 157.81 & 458.32 & 126.75 & 59.45 & 57.45 \\ 
+  2000 & 0.62 & 11.96 & 82.40 & 423.16 & 349.75 & 115.47 & 165.31 & 339.44 & 82.15 & 71.30 \\ 
+  2001 & 0.89 & 17.03 & 65.31 & 170.44 & 615.08 & 417.20 & 129.11 & 109.17 & 173.22 & 95.64 \\ 
+  2002 & 0.65 & 32.64 & 127.25 & 214.69 & 297.22 & 631.03 & 279.26 & 86.10 & 68.28 & 166.65 \\ 
+  2003 & 0.40 & 17.30 & 367.16 & 350.77 & 365.36 & 305.03 & 346.47 & 150.96 & 42.87 & 130.29 \\ 
+  2004 & 0.15 & 8.08 & 115.00 & 821.04 & 512.89 & 256.19 & 158.52 & 149.69 & 60.77 & 84.44 \\ 
+  2005 & 0.09 & 3.69 & 66.32 & 402.42 & 888.02 & 475.53 & 158.84 & 69.53 & 64.69 & 71.84 \\ 
+  2006 & 0.28 & 3.53 & 61.65 & 283.44 & 600.06 & 638.80 & 288.79 & 100.28 & 44.18 & 93.60 \\ 
+  2007 & 0.65 & 10.08 & 45.49 & 134.84 & 373.27 & 486.62 & 319.76 & 143.67 & 50.38 & 79.27 \\ 
+  2008 & 0.32 & 21.38 & 72.36 & 85.91 & 156.81 & 306.76 & 239.67 & 162.39 & 78.95 & 74.70 \\ 
+  2009 & 1.09 & 7.20 & 166.88 & 205.06 & 87.37 & 114.76 & 121.57 & 99.11 & 70.85 & 76.42 \\ 
+  2010 & 0.37 & 25.68 & 41.68 & 565.12 & 225.44 & 62.19 & 47.86 & 54.60 & 45.48 & 67.71 \\ 
+  2011 & 0.29 & 13.98 & 211.59 & 157.57 & 870.83 & 262.49 & 54.26 & 35.87 & 36.35 & 76.65 \\ 
+  2012 & 0.23 & 9.31 & 111.63 & 941.19 & 202.51 & 478.44 & 121.46 & 26.23 & 17.37 & 57.35 \\ 
+  2013 & 1.08 & 5.98 & 64.98 & 352.78 & 983.82 & 191.17 & 192.15 & 55.08 & 11.88 & 36.08 \\ 
+  2014 & 0.61 & 31.50 & 51.82 & 186.31 & 405.83 & 781.92 & 168.81 & 103.85 & 24.57 & 22.93 \\ 
+  2015 & 0.30 & 15.16 & 530.19 & 186.24 & 219.64 & 344.41 & 489.06 & 77.37 & 50.14 & 24.75 \\ 
+  2016 & 0.21 & 4.86 & 111.50 & 1270.59 & 148.42 & 160.13 & 155.10 & 219.80 & 32.09 & 30.69 \\ 
+  2017 & 0.21 & 4.80 & 55.92 & 557.42 & 780.95 & 116.18 & 101.83 & 96.35 & 161.61 & 45.71 \\ 
+   \hline
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{ Estimated EBS pollock age 3+ biomass, female spawning biomass, and age 1
+    recruitment for 1964-2017. Biomass units are thousands of t, age-1
+    recruitment is in millions of pollock. } 
+\label{tab:SSB}
+\scalebox{0.9}{
+\begin{tabular}{rrr}
+  \hline
+Year & SSB & CV \\ 
+  \hline
+1964 & 546 & 27.4 \\ 
+  1965 & 647 & 23.0 \\ 
+  1966 & 752 & 21.8 \\ 
+  1967 & 945 & 19.5 \\ 
+  1968 & 1169 & 19.2 \\ 
+  1969 & 1428 & 18.5 \\ 
+  1970 & 1663 & 17.7 \\ 
+  1971 & 1756 & 17.2 \\ 
+  1972 & 1669 & 16.9 \\ 
+  1973 & 1409 & 18.0 \\ 
+  1974 & 1055 & 20.6 \\ 
+  1975 & 891 & 18.8 \\ 
+  1976 & 896 & 14.7 \\ 
+  1977 & 934 & 12.0 \\ 
+  1978 & 948 & 10.8 \\ 
+  1979 & 918 & 10.5 \\ 
+  1980 & 1029 & 8.9 \\ 
+  1981 & 1678 & 6.0 \\ 
+  1982 & 2549 & 5.3 \\ 
+  1983 & 3173 & 5.0 \\ 
+  1984 & 3432 & 4.9 \\ 
+  1985 & 3722 & 4.5 \\ 
+  1986 & 3965 & 4.1 \\ 
+  1987 & 4096 & 3.7 \\ 
+  1988 & 4082 & 3.4 \\ 
+  1989 & 3668 & 3.4 \\ 
+  1990 & 2958 & 3.7 \\ 
+  1991 & 2229 & 4.2 \\ 
+  1992 & 2343 & 3.7 \\ 
+  1993 & 3209 & 3.2 \\ 
+  1994 & 3501 & 3.2 \\ 
+  1995 & 3702 & 3.1 \\ 
+  1996 & 3699 & 3.2 \\ 
+  1997 & 3486 & 3.3 \\ 
+  1998 & 3238 & 3.3 \\ 
+  1999 & 3245 & 3.2 \\ 
+  2000 & 3281 & 3.1 \\ 
+  2001 & 3304 & 3.2 \\ 
+  2002 & 3114 & 3.2 \\ 
+  2003 & 3286 & 2.8 \\ 
+  2004 & 3378 & 2.7 \\ 
+  2005 & 3094 & 2.7 \\ 
+  2006 & 2539 & 3.0 \\ 
+  2007 & 2112 & 3.4 \\ 
+  2008 & 1552 & 3.8 \\ 
+  2009 & 1699 & 4.0 \\ 
+  2010 & 1929 & 4.0 \\ 
+  2011 & 2360 & 4.0 \\ 
+  2012 & 2750 & 4.3 \\ 
+  2013 & 3061 & 4.9 \\ 
+  2014 & 2959 & 5.9 \\ 
+  2015 & 3222 & 7.6 \\ 
+  2016 & 3882 & 10.1 \\ 
+  2017 & 4284 & 12.0 \\ 
+   \hline
+\end{tabular}
+}
+\end{table}
+
+\begin{verbatim}
+## Parsed with column specification:
+## cols(
+##   Year = col_integer(),
+##   `Pacific Cod` = col_integer(),
+##   `Flathead Sole` = col_integer(),
+##   `Rock Sole` = col_integer(),
+##   `Yellowfin Sole` = col_integer(),
+##   `Arrowtooth Flounder` = col_integer(),
+##   `Pacific Ocean Perch` = col_integer(),
+##   `Atka Mackerel` = col_integer(),
+##   Sablefish = col_integer(),
+##   `Greenland Turbot` = col_integer(),
+##   `Alaska Plaice` = col_integer(),
+##   Skates = col_integer(),
+##   Squid = col_integer(),
+##   Sharks = col_integer(),
+##   Sculpin = col_integer(),
+##   `All other` = col_integer(),
+##   Total = col_integer()
+## )
+\end{verbatim}
+
+\begin{table}[ht]
+\centering
+\caption{Bycatch estimates (t) of FMP species caught in the BSAI directed pollock fishery, 1997-2017 based on then NMFS Alaska Regional Office reports from observers (2015 data are preliminary). } 
+\label{tab:byc_targ}
+\scalebox{0.9}{
+\begin{tabular}{rrrrrrrrrrrrrrrrr}
+  \hline
+\begin{sideways} Year \end{sideways} & \begin{sideways} Pacific Cod \end{sideways} & \begin{sideways} Flathead Sole \end{sideways} & \begin{sideways} Rock Sole \end{sideways} & \begin{sideways} Yellowfin Sole \end{sideways} & \begin{sideways} Arrowtooth Flounder \end{sideways} & \begin{sideways} Pacific Ocean Perch \end{sideways} & \begin{sideways} Atka Mackerel \end{sideways} & \begin{sideways} Sablefish \end{sideways} & \begin{sideways} Greenland Turbot \end{sideways} & \begin{sideways} Alaska Plaice \end{sideways} & \begin{sideways} Skates \end{sideways} & \begin{sideways} Squid \end{sideways} & \begin{sideways} Sharks \end{sideways} & \begin{sideways} Sculpin \end{sideways} & \begin{sideways} All other \end{sideways} & \begin{sideways} Total \end{sideways} \\ 
+  \hline
+1997 & 8262 & 2350 & 1522 & 606 & 985 & 428 & 83 & 2 & 123 & 1 &  &  &  &  & 879 & 15241 \\ 
+  1998 & 6559 & 2118 & 779 & 1762 & 1762 & 682 & 91 & 2 & 178 & 14 &  &  &  &  & 805 & 14751 \\ 
+  1999 & 3220 & 1885 & 1058 & 350 & 273 & 121 & 161 & 7 & 30 & 3 &  &  &  &  & 249 & 7357 \\ 
+  2000 & 3432 & 2510 & 2688 & 1466 & 979 & 22 & 2 & 12 & 52 & 147 &  &  &  &  & 306 & 11615 \\ 
+  2001 & 3878 & 2199 & 1673 & 594 & 529 & 574 & 41 & 21 & 68 & 14 &  &  &  &  & 505 & 10098 \\ 
+  2002 & 5925 & 1843 & 1885 & 768 & 606 & 544 & 221 & 34 & 70 & 50 &  &  &  &  & 267 & 12214 \\ 
+  2003 & 5968 & 1706 & 1419 & 210 & 618 & 935 & 762 & 48 & 40 & 7 & 571 & 1226 & 294 & 81 & 327 & 14213 \\ 
+  2004 & 6437 & 2009 & 2554 & 841 & 557 & 394 & 1053 & 17 & 18 & 8 & 841 & 977 & 187 & 150 & 436 & 16477 \\ 
+  2005 & 7413 & 2319 & 1125 & 63 & 651 & 653 & 678 & 11 & 31 & 45 & 732 & 1150 & 169 & 131 & 490 & 15661 \\ 
+  2006 & 7291 & 2837 & 1361 & 256 & 1089 & 736 & 789 & 9 & 65 & 11 & 1308 & 1399 & 512 & 169 & 620 & 18450 \\ 
+  2007 & 5630 & 4203 & 510 & 86 & 2795 & 625 & 315 & 12 & 107 & 3 & 1287 & 1169 & 245 & 190 & 726 & 17902 \\ 
+  2008 & 6965 & 4288 & 2123 & 516 & 1711 & 336 & 15 & 5 & 85 & 49 & 2756 & 1452 & 144 & 281 & 438 & 21164 \\ 
+  2009 & 7878 & 4602 & 7602 & 271 & 2203 & 114 & 25 & 3 & 44 & 176 & 3856 & 209 & 100 & 292 & 305 & 27682 \\ 
+  2010 & 6987 & 4309 & 2330 & 1057 & 1502 & 231 & 57 & 2 & 26 & 126 & 1886 & 277 & 26 & 258 & 375 & 19448 \\ 
+  2011 & 10041 & 4886 & 8481 & 1083 & 1600 & 660 & 894 & 1 & 29 & 74 & 2353 & 178 & 66 & 315 & 560 & 31219 \\ 
+  2012 & 10062 & 3968 & 6701 & 1496 & 749 & 713 & 263 & 1 & 53 & 137 & 2018 & 495 & 55 & 286 & 509 & 27507 \\ 
+  2013 & 8958 & 3147 & 6320 & 2088 & 965 & 611 & 70 & 0 & 21 & 148 & 1751 & 117 & 43 & 219 & 241 & 24698 \\ 
+  2014 & 5213 & 2554 & 4359 & 1954 & 758 & 1300 & 117 & 1 & 41 & 318 & 813 & 1478 & 75 & 191 & 497 & 19669 \\ 
+  2015 & 8303 & 2260 & 1709 & 863 & 403 & 2519 & 195 & 0 & 41 & 99 & 824 & 2206 & 52 & 187 & 342 & 20002 \\ 
+  2016 & 4982 & 1641 & 1150 & 885 & 295 & 3280 & 69 & 19 & 29 & 40 & 467 & 1160 & 57 & 126 & 545 & 14743 \\ 
+   \hline
+\end{tabular}
+}
+\end{table}
+
+\begin{verbatim}
+## Parsed with column specification:
+## cols(
+##   `Year  Scypho.jellies  Misc.fish   Eulachon.Osmerid    Sea.star    Eelpouts    Grenadier   Sea.pen Lanternfish Snails  All.other` = col_character()
+## )
+\end{verbatim}
+
+\begin{table}[ht]
+\centering
+\caption{Bycatch estimates (t) of species in the "non-target species" category caught in the BSAI directed pollock fishery, 1997-2017 based on then NMFS Alaska Regional Office reports from observers (2015 data are preliminary). } 
+\label{tab:byc_nontarg}
+\begin{tabular}{l}
+  \hline
+\begin{sideways} Year   Scypho.jellies  Misc.fish   Eulachon.Osmerid    Sea.star    Eelpouts    Grenadier   Sea.pen Lanternfish Snails  All.other \end{sideways} \\ 
+  \hline
+2003    5591.154518 98.35734288 9.196740651 88.68391649 1.167297256 20.07153679 0.578528828 0.191298302 0.968911371 1.477496249 \\ 
+  2004  6490.31893  87.42506    20.62235    7.15189 0.68803 14.17945    0.96097 0.07069 0.94295 1.1112 \\ 
+  2005  5084.02928  146.70932   12.56119    9.53057 1.21366 14.01029    1.66389 0.29737 6.91105 2.06939 \\ 
+  2006  2657.25345  147.06577   92.04422    8.49847 20.57636    15.75326    1.94913 9.58945 0.15999 6.00454 \\ 
+  2007  2150.99912  198.87123   136.34563   4.84208 118.37059   27.55955    3.80505 5.76655 0.4337  6.78511 \\ 
+  2008  3711.44787  103.34257   4.28729 6.73492 7.3087  27.45628    1.09617 0.88855 0.75736 6.20537 \\ 
+  2009  3703.24647  58.58778    4.03316 4.9752  2.32259 3.5168  1.5822  0.18202 0.25742 1.48348 \\ 
+  2010  2153.358588 116.9592075 0.629474591 4.238326692 0.285536045 1.930490677 1.782595494 0.009038697 0.208712049 1.493176755 \\ 
+  2011  6571.755855 216.6861047 2.546921205 18.92732422 0.206174131 1.902959705 2.22042282  0.00112473  0.377115598 1.846766752 \\ 
+  2012  2454.175863 124.0280706 1.395564146 3.738352559 0.346064131 0.075336034 2.572426799 0.013112186 0.804506865 1.384136452 \\ 
+  2013  4734.552768 101.1944121 0.76756231  2.680321217 0.298662038 0.252364287 1.913107618 0.006060115 0.300863298 2.054417116 \\ 
+  2014  11036.61341 40.1973248  2.176200191 5.085289452 2.685667543 0.008379974 3.370696251 0.012879298 0.631969311 4.181601093 \\ 
+  2015  4748.122349 87.82247236 21.85568907 28.36631388 9.912516074 1.504746808 2.125207076 0.210489461 0.323235538 2.228281695 \\ 
+  2016  2185.177626 70.64768244 5.679869538 48.91383299 22.43779848 3.735470663 1.11571525  0.619787362 0.121234847 2.14688755 \\ 
+  2017  5776.763187 46.23564047 3.613469207 4.843525235 18.15840139 2.061894024 0.833880179 0.226307301 0.265749775 0.567561653 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+
+
+
+\newpage
+\singlespacing 
+\end{document}
