@@ -1,10 +1,10 @@
-#Figures
+# Figures
 ```{r fshfigs}
  printfig("catch.png",1)
  printfig("catch_sex.pdf",2)
  printfig("catch_distn_a.png",3)
  printfig("cpue_aseason.png",4)
- printfig("prop_a_season.png",5)
+ printfig("catchp.png",5)
  printfig("catch_distn_b.png",6)
  printfig("cpue_bseason.png",7)
  printfig("roe.pdf",8)
@@ -18,15 +18,20 @@
 ```
 ```{r finfigs}
  printfig("fsh_wtage.pdf",20)
+ printfig("fsh_wtage_comb.pdf",53)
+ printfig("fsh_wtage_strata.pdf",54)
+ printfig("fsh_lw_anomaly.png",47)
+ printfig("mod_eval0c.pdf",50)
  printfig("mod_eval0a.pdf",21)
  printfig("mod_eval0b.pdf",22)
+ printfig("bholt_ricker.pdf",51)
+ printfig("mod_cpue_fit.pdf",28)
+ printfig("mod_avo_fit.pdf",29)
  printfig("mod_bts_biom.pdf",23)
  printfig("mod_ats_biom.pdf",24)
  printfig("mod_mean_age.pdf",25)
  printfig("mod_fsh_sel.pdf",26)
  printfig("mod_fsh_age.pdf",27)
- printfig("mod_cpue_fit.pdf",28)
- printfig("mod_avo_fit.pdf",29)
  printfig("mod_bts_sel.pdf",30)
  printfig("mod_bts_age.pdf",31)
  # printfig("mod_atsones.pdf",32)

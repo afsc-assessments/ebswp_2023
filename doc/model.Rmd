@@ -179,12 +179,19 @@ unrealistic estimate of productivity at low stock sizes. This prior was
 elicited from the rationale that residuals should be reasonably balanced
 throughout the range of spawning stock sizes. Whereas this is somewhat
 circular (i.e., using data for prior elicitation), the point here is that
-residual patterns (typically ignored in these types of models) are being
-qualitatively considered. As in past years the value of was set at 0.9 to
+residual patterns (typically ignored in these types of models) were 
+qualitatively considered. 
+
+In model 16.1, "Bholt", a Beverton Holt stock recruitment form was implemented
+using the prior value of 0.67 for steepness and a CV of 0.17. This resulted in 
+beta distribution parameters (for the prior) at $\alpha = 6.339$ and  
+$\beta = 4.293$.
+
+The value of $\sigma_R$ was set at 1.0 to
 accommodate additional uncertainty in factors affecting recruitment
 variability.
 
-To have the critical value for the stock-recruitment function (steepness, h)
+To have the critical value for the stock-recruitment function (steepness, _h_)
 on the same scale for the Ricker model, we begin with the parameterization of
 Kimura (1990):
 \begin{align}
@@ -193,11 +200,11 @@ R_t &= \frac{B_{t-1}e^{\alpha \left(1-B_{t-1} \frac{R_0}{\psi_0} \right)}}{\psi_
 
 It can be shown that the Ricker parameter a maps to steepness as:
 \begin{align}
-h &= \frac{e^a}{e^a+4}
+h &= \frac{e^\alpha}{e^\alpha+4}
 \end{align}
 
-so that the prior used on h can be implemented in both the Ricker and
-Beverton-Holt stock-recruitment forms. Here the termrepresents the equilibrium
+so that the prior used on _h_ can be implemented in both the Ricker and
+Beverton-Holt stock-recruitment forms. Here the term $\psi_0$ represents the equilibrium
 unfished spawning biomass per-recruit.
 
 ## Diagnostics
@@ -209,7 +216,7 @@ original estimates by the ratio of the expected recruitment given spawning
 biomass (with and without fishing) and the estimated stock-recruitment curve.
 I.e., the recruitment under no fishing is modified as:
 $$R_t' = \hat{R}_t\frac{f(B_{t-1}')}{f(B_{t-1})}$$
-where $R_t$is the original recruitment estimate in year $t$ with $B_{t-1}'$ and $B_{t-1}$ representing
+where $R_t$ is the original recruitment estimate in year $t$ with $B_{t-1}'$ and $B_{t-1}$ representing
 the stock-recruitment function given spawning biomass under no fishing and
 under the estimated fishing intensity, respectively.
 
@@ -220,7 +227,7 @@ retrospective approach simply uses the current model to evaluate how it may
 change over time with the addition of new data based on the evolution of data
 collected over the past several years.
 
-##Parameter estimation
+## Parameter estimation
 
 The objective function was simply the sum of the negative log-likelihood
 function and logs of the prior distributions. To fit large numbers of
@@ -323,10 +330,12 @@ nll(i) &= \sum_t{\frac{\ln(u_t^s/\hat N_t^s)^2}{2\sigma_{s,t}^2}}
 \end{align}
 where $u_t^s$ is the total (numerical abundance or optionally biomass) estimate with variance $\sigma_{s,t}$ from survey $s$ in year $t$ or optionally, the normal distribution can be selected:
 \begin{align}
-nll(i) &= \sum_t{\frac{(u_t^s - \hat N_t^s)^2}{2\sigma_{s,t}^2}} \\
+nll(i) &= \sum_t{\frac{(u_t^s - \hat N_t^s)^2}{2\sigma_{s,t}^2}}. \\
 \end{align}
-.
-The AT survey and AVO index is modeled using a lognormal distribution whereas for the BTS survey, a normal distribution was applied.
+
+
+The AT survey and AVO index is modeled using a lognormal distribution whereas
+for the BTS survey, a normal distribution was applied.     
 
 For model configurations in which the BTS data are corrected for estimated
 efficiency, a multivariate lognormal distribution was used. For the negative-
@@ -363,7 +372,7 @@ simple and rapid access to these routines and provided the ability estimate
 the variance-covariance matrix for all dependent and independent parameters of
 interest.
 
-##Uncertainty in mean body mass
+## Uncertainty in mean body mass
 The approach we use to solve for $F_{MSY}$ and related quantities (e.g., $B_{MSY}$ $MSY$)
 within a general integrated model context was shown in Ianelli et al. (2001).
 In 2007 this was modified to include uncertainty in weight-at-age as an
@@ -385,13 +394,13 @@ cohort and year effects.  The model for this is:
 \begin{align}
 \hat{w}_{ta} &= \bar w_a e^\upsilon_t & a=1, \, t \ge 1964 \\
 \hat{w}_{ta} &= \hat{w}_{t-1,a-1} + \Delta_a e^\psi_t & a > 1, \, t > 1964 \\
-\Delta_a     &= \bar{w}_{a+1}-\bar w_a & a<A  \\
+\Delta_a     &= \bar w_{a+1} - \bar w_a & a<A  \\
 \bar w_a     &= \alpha \left\{L_1+ \left(L_2-L_1\right)\left(\frac{1-K^{a-1}}{1-K^{A-1}}\right)\right\}^3  \\
 \end{align}
 where the fixed effects parameters are $L_1, L_2, K,$ and $\alpha$ while the random effects parameters 
 are $\upsilon_t$ and $\psi_t$. 
 
-##Tier 1 projections
+## Tier 1 projections
 
 Tier 1 projections were calculated two ways. First, for 2017 and 2018 ABC and
 $OFL$ levels, the harmonic mean $F_{MSY}$ value was computed and the analogous

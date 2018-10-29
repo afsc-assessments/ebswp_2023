@@ -51,7 +51,7 @@
 #' @return Plot of model estimates of spawning stock biomass 
 #' @export
 #' 
-plot_bts <- function(M, xlab = "Year", ylab = "Bottom trawl survey biomass", ylim = NULL, color="purple",biomass=TRUE)
+plot_bts <- function(M, xlab = "Year", ylab = "Bottom trawl survey biomass", xlim= NULL, ylim = NULL, color="purple",biomass=TRUE)
 {
     xlab <- paste0("\n", xlab)
     ylab <- paste0(ylab, "\n")
@@ -60,23 +60,27 @@ plot_bts <- function(M, xlab = "Year", ylab = "Bottom trawl survey biomass", yli
     
     p <- ggplot(mdf) + labs(x = xlab, y = ylab)
     
+    if (!is.null(xlim))
+        p <- p + xlim(xlim[1], xlim[2])        
     if (is.null(ylim))
     {
         p <- p + expand_limits(y = 0)
     } else {
         p <- p + ylim(ylim[1], ylim[2])        
     }
-    
     if (length(M) == 1)
     {
         p <- p + geom_line(aes(x = year, y = pre)) +geom_point(aes(x=year, y=obs),size=2,color="purple") + 
-            geom_errorbar(aes(x = year, ymax = ub, ymin = lb),width=0.5)
+             geom_errorbar(aes(x = year, ymax = ub, ymin = lb),width=0.5)
     } else {
-        p <- p + geom_line(aes(x = year, y = pre, col = Model),size=1.2) + geom_point(aes(x=year, y=obs),size=2,color=color) + 
-            geom_errorbar(aes(x = year, ymax = ub, ymin = lb),width=0.5)
+        dw <- 0.5 
+        p <- p + geom_line(aes(x = year, y = pre, col = Model),size=0.8,position=position_dodge(width=dw)) + geom_point(aes(x=year, y=obs,col=Model,fill=Model),position = position_dodge(width=dw)) + 
+           geom_pointrange(aes(year, obs, ymax = ub, ymin = lb, color = Model,fill=Model), shape = 1, linetype = "solid", position = position_dodge(width = dw))
+            #geom_errorbar(aes(x = year, ymax = ub, ymin = lb),width=0.5,position=position_dodge(width=0.9))
     }
     
-    #if(!.OVERLAY) 
-    p <- p + guides(colour=FALSE)
+    if(!.OVERLAY) 
+      p <- p + guides(colour=FALSE)
     return(p + .THEME)
 }
+  #plot_bts(modlst)

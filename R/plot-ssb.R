@@ -39,7 +39,7 @@
 #' @return Plot of model estimates of spawning stock biomass 
 #' @export
 #' 
-plot_ssb <- function(M, xlab = "Year", ylab = "Female spawning biomass (kt)", ylim = NULL, xlim=NULL,breaks=seq(1990,2017,2), alpha = 0.1,legend=TRUE)
+plot_ssb <- function(M, xlab = "Year", ylab = "Female spawning biomass (kt)", ylim = NULL, xlim=NULL,breaks=seq(1990,2018,2), alpha = 0.1,legend=TRUE)
 {
     xlab <- paste0("\n", xlab)
     ylab <- paste0(ylab, "\n")

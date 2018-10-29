@@ -14,6 +14,9 @@ output:
   html_document:
     df_print: paged
 fontsize: 11pt
+header-includes:
+  - \usepackage{fontspec}
+  - \setmainfont{Museo}
 geometry: margin=1in
 fontfamily: mathpazo
 bibliography: ~/OneDrive/myref.bib
@@ -35,13 +38,13 @@ opts_chunk$set(fig.width = 6, fig.height = 8, echo = FALSE, warning = FALSE, mes
 
 
 \begin{centering}
-  James Ianelli, Stan Kotwicki, Taina Honkalehto, Kirstin Holsman, and Ben Fissel \\
+  James Ianelli, Stan Kotwicki, Taina Honkalehto, \\
+  Abigail McCarthy, Sarah Stienessen, Kirstin Holsman,\\
+   and Ben Fissel \\
 \fontfamily{cmr}
 \fontsize{10}{12}
 \selectfont
-  Resource Ecology and Fisheries Management Division \\
-  Alaska Fisheries Science Center \\
-  National Marine Fisheries Service \\
+  Alaska Fisheries Science Center, National Marine Fisheries Service \\
   National Oceanic and Atmospheric Administration \\ 
   7600 Sand Point Way NE., Seattle, WA 98115-6349 \\
 `r format(Sys.time(), '%B %d, %Y')` \\
@@ -53,21 +56,30 @@ opts_chunk$set(fig.width = 6, fig.height = 8, echo = FALSE, warning = FALSE, mes
 doplots <- F
 domcmc  <- F
 doproj  <- F
-source("../runs/pm_17.R")
+source("../runs/pm_18.R")
 ```
 
 ```{r child = 'text.Rmd'}
 ```
-
 ```{r child = 'ref.Rmd'}
+```
+\newpage
 ```{r child = 'tab.Rmd'}
 ```
+\newpage
 ```{r child = 'figs.Rmd'}
 ```
+\newpage
 ```{r child = 'model.Rmd'}
 ```
-#Contents
+\newpage
+```{r child = 'App.Rmd'}
+```
+\newpage
+# Contents
 \tableofcontents
+# List of tables
 \listoftables
+# List of Figures
 \listoffigures
 
