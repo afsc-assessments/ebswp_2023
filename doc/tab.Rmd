@@ -112,7 +112,7 @@ Year    &   Catch   &   Year    &   ABC &   TAC &   Catch \\
     &       &   2017    &   2,800,000   &   1,345,000   &   1,343,217   \\
     &       &   2018    &   2,592,000   &   1,364,341   &   1,346,615   \\
 \hline                                          
-    \multicolumn{3}{c}{1977-2017    mean}           &   1,455,902   &   1,241,006   &   1,188,382   \\
+    \multicolumn{3}{c}{1977--2017    mean}           &   1,455,902   &   1,241,006   &   1,188,382   \\
 \hline
 \end{tabular}
 \end{table}
@@ -194,13 +194,14 @@ Year     &    A season      & B-season          & Total             \\
 2015     & 490,400 t (15\%) & 765,900 t (45\%)  & 1,256,300 t (33\%) \\
 2016     & 510,700 t (35\%) & 784,000 t (62\%)  & 1,294,700 t (51\%) \\
 2017     & 555,300 t (51\%) & 750,800 t (54\%)  & 1,306,100 t (53\%)  \\
-2018     & xxx,300 t (51\%) & xxx,800 t (54\%)  & 1,306,100 t (53\%)  \\
+2018     & 573,000 t (63\%) & 746,500 t (46\%)  & 1,319,500 t (54\%)  \\
 \hline
 \end{tabular}
 \end{table}
 
 \clearpage
 
+<!-- Management -->
 \begin{table}[ht]
 \centering
 \caption{`r tabcap[4]`} 
@@ -245,13 +246,13 @@ Year    &   Management  \\
 number of vessels for all sectors and for trawl catcher vessels including
 ex-vessel value (million US\$), price (US\$ per pound), and catcher vessel shares. 
 Years covered include the
-2005-2007 average, the 2008-2010 average, the 2011-2013 average, and annual from 2014-2017.}
+2005--2007 average, the 2008--2010 average, the 2011--2013 average, and annual from 2014--2017.}
 \label{tab:bsaiplck_exv}
 \scalebox{0.93}{
 
 \begin{tabular}{lrrrrrrr}
   \hline
- & Avg 05-07 & Avg 08-10 & Avg 08-10 & 2014 & 2015 & 2016 & 2017 \\ 
+ & Avg 05--07 & Avg 08--10 & Avg 11--13 & 2014 & 2015 & 2016 & 2017 \\ 
   \hline
 All sectors &  &  &  &  &  &  &  \\ 
   Catch kt & 1,444 & 872 & 1,227 & 1,300 & 1,323 & 1,355 & 1,361 \\ 
@@ -277,26 +278,33 @@ the Alaska Fisheries Information Network (AKFIN).
 value (million US\$), price (US\$ per pound) for all products and then
 separately for other categories (head and gut, fillet, surimi, and roe
 production). Years covered include the 
-2005-2007 average, the 2008-2010 average, the 2011-2013 average, and annual from 2014-2017.}
+2005--2007 average, the 2008--2010 average, the 2011--2013 average, and annual from 2014--2017.}
 \label{tab:bsaiplck_wsl}
 \scalebox{0.84}{
 \begin{tabular}{lrrrrrrr}
   \hline
- & Avg 05-07 & Avg 08-10 & Avg 08-10 & 2014 & 2015 & 2016 & 2017 \\ 
+ & Avg 05--07 & Avg 08--10 & Avg 11--13 & 2014 & 2015 & 2016 & 2017 \\ 
   \hline
- & BSAI &  &  &  &  &  &  \\ 
-  All Products Volume kt & 498.25 & 355.99 & 487.56 & 525.54 & 520.94 & 534.89 & 523.94 \\ 
-  All Products Value M\$ &  \$1,246.4  &  \$1,133.4  &  \$1,324.7  &  \$1,301.2  &  \$1,272.5  &  \$1,351.5  &  \$1,355.0  \\ 
-  All Products Price lb \$ &  \$1.13  &  \$1.44  &  \$1.23  &  \$1.12  &  \$1.11  &  \$1.15  &  \$1.17  \\ 
-  Fillets Volume kt & 162.70 & 113.90 & 159.55 & 175.78 & 167.01 & 161.29 & 156.95 \\ 
-  Fillets Price lb \$ &  \$1.24  &  \$1.73  &  \$1.51  &  \$1.37  &  \$1.35  &  \$1.41  &  \$1.30  \\ 
-  Fillets Value share & 36\% & 38\% & 40\% & 41\% & 39\% & 37\% & 33\% \\ 
-  Surimi Volume kt & 173.05 & 100.99 & 153.27 & 171.33 & 187.74 & 190.82 & 196.73 \\ 
-  Surimi Price lb \$ &  \$0.96  &  \$1.63  &  \$1.23  &  \$1.10  &  \$1.14  &  \$1.19  &  \$1.35  \\ 
-  Surimi Value share & 29\% & 32\% & 32\% & 32\% & 37\% & 37\% & 43\% \\ 
-  Roe Volume kt & 27.03 & 17.63 & 16.14 & 20.60 & 18.75 & 14.26 & 18.43 \\ 
-  Roe Price lb \$ &  \$4.84  &  \$4.14  &  \$3.78  &  \$2.92  &  \$2.29  &  \$2.84  &  \$2.91  \\ 
-  Roe Value share & 23\% & 14\% & 10\% & 10\% & 7\% & 7\% & 9\% \\ 
+  $\bf{All\ Products}$ \\
+  Volume kt & 498.25 & 355.99 & 487.56 & 525.54 & 520.94 & 534.89 & 523.94 \\ 
+   Value M\$ &  \$1,246.4  &  \$1,133.4  &  \$1,324.7  &  \$1,301.2  &  \$1,272.5  &  \$1,351.5  &  \$1,355.0  \\ 
+  At-sea sector value share & 59\%   &   58\% &   59\% &   58\% &   60\% &   60\% &   62\% \\
+ Price per lb \$ &  \$1.13  &  \$1.44  &  \$1.23  &  \$1.12  &  \$1.11  &  \$1.15  &  \$1.17  \\ 
+  \hline
+  $\bf{Fillets}$ \\
+  Volume kt & 162.70 & 113.90 & 159.55 & 175.78 & 167.01 & 161.29 & 156.95 \\ 
+  Price lb \$ &  \$1.24  &  \$1.73  &  \$1.51  &  \$1.37  &  \$1.35  &  \$1.41  &  \$1.30  \\ 
+  Value share & 36\% & 38\% & 40\% & 41\% & 39\% & 37\% & 33\% \\ 
+  \hline
+  $\bf{Surimi}$ \\
+  Volume kt & 173.05 & 100.99 & 153.27 & 171.33 & 187.74 & 190.82 & 196.73 \\ 
+  Price lb \$ &  \$0.96  &  \$1.63  &  \$1.23  &  \$1.10  &  \$1.14  &  \$1.19  &  \$1.35  \\ 
+  Value share & 29\% & 32\% & 32\% & 32\% & 37\% & 37\% & 43\% \\ 
+  \hline
+  $\bf{Roe}$ \\
+  Volume kt & 27.03 & 17.63 & 16.14 & 20.60 & 18.75 & 14.26 & 18.43 \\ 
+  Price lb \$ &  \$4.84  &  \$4.14  &  \$3.78  &  \$2.92  &  \$2.29  &  \$2.84  &  \$2.91  \\ 
+  Value share & 23\% & 14\% & 10\% & 10\% & 7\% & 7\% & 9\% \\ 
   At-sea price premium (\$/lb)  & \$0.30 & \$0.32 & \$0.19 & \$0.15 & \$0.25 & \$0.25 & \$0.37 \\ 
    \hline
 \end{tabular}
@@ -319,12 +327,12 @@ Subsequent rows show the breakout of import shares (of U.S. pollock) by
 country (Japan, China and Germany) and the share of U.S. export volume and
 value of fish  (i.e., H\&G and fillets), and other product categories (surimi
 and roe).  Years covered include the 
-2005-2007 average, the 2008-2010 average, the 2011-2013 average, and annual from 2014-2018.}
+2005--2007 average, the 2008--2010 average, the 2011--2013 average, and annual from 2014--2018.}
 \label{tab:bsaiplck_glbl}
 \scalebox{0.78}{
 \begin{tabular}{lrrrrrrrr}
   \hline
- & Avg 05-07 & Avg 08-10 & Avg 08-10 & 2014 & 2015 & 2016 & 2017 & 2018 thru July \\ 
+ & Avg 05--07 & Avg 08--10 & Avg 11--13 & 2014 & 2015 & 2016 & 2017 & 2018 thru July \\ 
   \hline
 Global Pollock Catch kt & 2,854 & 2,662 & 3,241 & 3,245 & 3,373 & 3,476 & - & - \\ 
   U.S. Share of Global Catch & 52\% & 35\% & 40\% & 44\% & 44\% & 44\% & - & - \\ 
@@ -362,11 +370,11 @@ of Agriculture
 
 \begin{table}[hb]
   \centering
-  \caption{BSAI pollock fish oil production index (tons of oil per 100 tons of retained catch); 2005-2007 average, the 2008-2010 average, the 2011-2013 average, and annual from 2014-2017.}
+  \caption{BSAI pollock fish oil production index (tons of oil per 100 tons of retained catch); 2005--2007 average, the 2008--2010 average, the 2011--2013 average, and annual from 2014--2017.}
   \label{tab:bsaiplck_oil}
 \begin{tabular}{lrrrrrrr}
   \hline
-sector & Avg 05-07 & Avg 08-10 & Avg 08-10 & 2014 & 2015 & 2016 & 2017 \\ 
+sector & Avg 05--07 & Avg 08--10 & Avg 11--13 & 2014 & 2015 & 2016 & 2017 \\ 
   \hline
 All Sectors & 1.25 & 2.03 & 1.76 & 2.19 & 1.84 & 2.06 & 1.92 \\ 
   Shoreside & 2.07 & 2.58 & 2.00 & 2.42 & 1.94 & 2.28 & 2.09 \\ 
@@ -380,6 +388,7 @@ Annual  Reports (COAR). Data compiled and provided by the Alaska Fisheries
 Information  Network (AKFIN).
 \end{table}
 
+<!-- catch-age? -->
 \begin{table}[ht]
 \centering
 \caption{`r tabcap[10]`} 
@@ -591,6 +600,7 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 2014 & 609   & 629   & 475 & 553 & 413   & 407   & 3,086  \\
 2015 & 653   & 642   & 502 & 509 & 511   & 491   & 3,308  \\
 2016 & 488   & 599   & 929 & 969 & 157   & 125   & 3,267  \\
+2017 & 604   & 778   & 777 & 753 & 179   & 163   & 3,254 \\
 \hline
 \end{tabular}
 \end{table}
@@ -599,31 +609,41 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 ```
 
 \clearpage
-
+<!-- sample size -->
 ```{r input_n,results="asis",echo=FALSE}
- i_bts=1; i_eit=1
- i=1982
- tab <- data.frame()
- for (i in 1978:thisyr){
-    t <- c(i,0,0,0)
-    if(M$Yr[i-1963]==i) {
+    i_bts=1; i_eit=1
+    i=1982
+    tab <- data.frame()
+    for (i in 1978:thisyr)
+    {
+      t <- c(i,0,0,0)
+      if(M$Yr[i-1963]==i) 
+      {
         t[2] <- M$sam_fsh[i-1963]
-  } else t[2] <- 0
-    if(M$yr_bts[i_bts]==i) {
+      } 
+      else 
+        t[2] <- 0
+      if(M$yr_bts[i_bts]==i) 
+      {
         t[3] <- M$sam_bts[i_bts]
         i_bts <- i_bts+1
-        } else t[3] <- NA
-    if(M$yr_eit[i_eit]==i && i_eit<=length(M$yr_eit)) {
+      } 
+      else 
+        t[3] <- NA
+      if(M$yr_eit[i_eit]==i && i_eit<=length(M$yr_eit)) 
+      {
         t[4] <- M$sam_eit[i_eit]
         i_eit <- i_eit+1
-        } else t[4] <- NA
-    tab <- rbind(tab, t)
- }
- names(tab) <- c("Year", "Fishery", "BTS", "ATS")
- cap <- tabcap[23]
- lab <- paste0("tab:",tablab[23])
- tab <- xtable(tab, caption = cap, label=lab, big.mark="," ,digits=0)
- print(tab, caption.placement = "top",digits=0,big.mark=",",include.rownames = FALSE, sanitize.text.function = function(x){x})
+      } 
+      else 
+        t[4] <- NA
+      tab <- rbind(tab, t)
+    }
+    names(tab) <- c("Year", "Fishery", "BTS", "ATS")
+    cap <- tabcap[23]
+    lab <- paste0("tab:",tablab[23])
+    tab <- xtable(tab, caption = cap, label=lab, big.mark="," ,digits=0)
+    print(tab, caption.placement = "top",digits=0,big.mark=",",include.rownames = FALSE, sanitize.text.function = function(x){x})
 ```
 
 \clearpage 
@@ -634,12 +654,12 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 \centering
 \caption{`r tabcap[24]`}
 \label{tab:`r tablab[24]`}
-\scalebox{0.75}{
+\scalebox{0.70}{
 \begin{tabular}{crrrrrrrrrrrrrrr}
 \hline
 Year & 1     & 2     & 3     & 4     & 5     & 6     & 7     & 8     & 9     & 10    & 11    & 12    & 13    & 14    & 15    \\
 \hline
-1964-90 & 0.007 & 0.170 & 0.303 & 0.447 & 0.589 & 0.722 & 0.84 & 0.942 & 1.029 & 1.102 & 1.163 & 1.212 & 1.253 & 1.286 & 1.312 \\
+1964--90 & 0.007 & 0.170 & 0.303 & 0.447 & 0.589 & 0.722 & 0.84 & 0.942 & 1.029 & 1.102 & 1.163 & 1.212 & 1.253 & 1.286 & 1.312 \\
 1991 & 0.007 & 0.150 & 0.286 & 0.476 & 0.604 & 0.728 & 0.839 & 0.873 & 1.014 & 1.127 & 1.129 & 1.251 & 1.240 & 1.308 & 1.249 \\
 1992 & 0.007 & 0.179 & 0.394 & 0.462 & 0.647 & 0.701 & 0.812 & 0.982 & 1.031 & 1.210 & 1.226 & 1.272 & 1.199 & 1.340 & 1.430 \\
 1993 & 0.007 & 0.331 & 0.497 & 0.610 & 0.650 & 0.754 & 0.904 & 1.039 & 1.211 & 1.232 & 1.391 & 1.538 & 1.610 & 1.646 & 1.584 \\
@@ -670,6 +690,10 @@ Year & 1     & 2     & 3     & 4     & 5     & 6     & 7     & 8     & 9     & 1
 \hline   
 Avg &   0.016   &   0.199   &   0.360   &   0.506   &   0.640   &   0.762   &   0.888   &   1.021   &   1.158   &   1.263   &   1.370   &   1.453   &   1.493   &   1.542   &   1.687   \\
 CV  &   NA  &   25\%    &   16\%    &   11\%    &   7\% &   8\% &   12\%    &   13\%    &   13\%    &   14\%    &   13\%    &   18\%    &   19\%    &   23\%    &   24\%    \\
+\hline   
+2018 & 0.025 & 0.191  & 0.363 & 0.507 & 0.656 & 0.804 & 0.851 & 0.930 & 1.050 & 1.157 & 1.321 & 1.491 & 1.629 & 1.786 & 1.888 \\ 
+2019 & 0.025 & 0.191  & 0.399 & 0.490 & 0.636 & 0.784 & 0.927 & 0.969 & 1.040 & 1.152 & 1.250 & 1.406 & 1.568 & 1.698 & 1.847 \\ 
+2020 & 0.025 & 0.191  & 0.399 & 0.526 & 0.620 & 0.764 & 0.907 & 1.045 & 1.079 & 1.141 & 1.245 & 1.335 & 1.482 & 1.637 & 1.760 \\ 
 \hline
 \multicolumn{14}{c}{Sampling CV (from bootstrap), ages 1 and 2 were excluded}                                                                \\
 \hline
@@ -699,15 +723,19 @@ CV  &   NA  &   25\%    &   16\%    &   11\%    &   7\% &   8\% &   12\%    &   
 2014    &  & & 2\% & 1\% & 1\% & 1\% & 2\% & 3\%  & 6\% & 14\% & 16\% & 19\% & 16\% & 22\% & 17\% \\
 2015    &  & & 2\% & 1\% & 1\% & 0\% & 2\% & 3\%  & 5\% & 13\% & 16\% & 20\% & 15\% & 23\% & 16\% \\
 2016    &  & & 2\% & 1\% & 1\% & 0\% & 2\% & 3\%  & 5\% & 13\% & 16\% & 20\% & 15\% & 23\% & 16\% \\
-2017    &  & & 1\% & 1\% & 1\% & 1\% & 2\% & 2\%  & 5\% &  8\% & 14\% & 1\%  & 22\% & 11\% & \\
+2017    &  & & 1\% & 1\% & 1\% & 1\% & 2\% & 2\%  & 5\% &  8\% & 14\% & 1\%  & 22\% & 11\% & 15\%\\
 \hline
 \end{tabular}
 }
 \end{table}
+<!-- \hline -->
+<!-- 2018 & &  & 8\% & 4\% & 2\% & 1\% & 1\% & 1\% & 1\% & 1\% & 1\% & 1\% & 1\% & 1\% & 1\% \\  -->
+<!-- 2019 & &  & 15\% & 11\% & 8\% & 6\% & 5\% & 4\% & 4\% & 3\% & 3\% & 2\% & 2\% & 2\% & 1\% \\  -->
+<!-- 2020 & &  & 15\% & 14\% & 11\% & 9\% & 7\% & 6\% & 5\% & 5\% & 4\% & 3\% & 3\% & 2\% & 2\% \\  -->
 
 \clearpage
-```{r management_quants, results = "asis"}
-# Fit to data------------------- this belongs earlier???
+```{r modfits, results = "asis"}
+# Fit to data------------------- 
 df <- NULL
 ii=1
 mod_scen <- c(2,3,5)
@@ -728,15 +756,17 @@ df <- data.frame(rownames(df), df, row.names = NULL)
 names(df) <- c("Component",mod_names[mod_scen])
 tab <- xtable(df, caption = "Goodness of fit to primary data used for assessment model parameter estimation for different model configurations, EBS pollock.", label = "tab:mod_fits", digits = 3,align="llrrr")
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
+```
 
+```{r mgt_quants, results = "asis"}
 # Mgt quants by model
 df <- NULL
 mod_scen <- 2:5
 for (ii in mod_scen)
 {
     x      <- modlst[[ii]]
-    ssb    <- x$curssbs;         names(ssb)    <- paste0("${B}_{", nextyr ,"}$")
-    ssbcv  <- round(x$curssb.cv,2);  names(ssbcv)      <- paste0("$CV_{B_{", nextyr ,"}}$")
+    ssb    <- x$nextyrssbs;         names(ssb)    <- paste0("${B}_{", nextyr ,"}$")
+    ssbcv  <- round(x$nextyrssb.cv,2);  names(ssbcv)      <- paste0("$CV_{B_{", nextyr ,"}}$")
     Bmsy   <- x$bmsys;         names(Bmsy)   <- "$B_{MSY}$"
     Bmsycv <- round(x$bmsy.cv,2); names(Bmsycv) <- "$CV_{B_{MSY}}$"
     spr    <- paste0(round(x$sprmsy*100,0),"\\%");       names(spr)    <- "SPR rate at $F_{MSY}$"
@@ -755,10 +785,11 @@ tab <- xtable(df, caption = tabcap[27], label = "tab:mgt_quants", digits = 3,ali
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
 ```
 
+
 ```{r Nage, results="asis",echo=FALSE}
 tmp <- cbind(M$Yr,M$N[,1:9]/1000,rowSums(M$N[,10:15])/1000)
 colnames(tmp) <- c("Year",1:9,"10+")
-tab <- xtable(tmp, digits=2, auto=TRUE,caption = "Estimated billions of EBS pollock at age (columns 2-11) from the 2018 assessment model." , 
+tab <- xtable(tmp, digits=2, auto=TRUE,caption = "Estimated billions of EBS pollock at age (columns 2--11) from the 2018 assessment model." , 
               label = "tab:est_n")
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=0.8)
 ```
@@ -768,7 +799,7 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 ```{r Cage,results="asis",echo=FALSE}
 tmp <- cbind(M$Yr,M$C[,1:9],rowSums(M$C[,10:15]))
 colnames(tmp) <- c("Year",1:9,"10+")
-tab <- xtable(tmp, digits=2, auto=TRUE,caption = "Estimated millions of EBS pollock caught at age (columns 2-11) from the 2018 assessment model." ,
+tab <- xtable(tmp, digits=2, auto=TRUE,caption = "Estimated millions of EBS pollock caught at age (columns 2--11) from the 2018 assessment model." ,
               label = "tab:est_catage")
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=0.8)
 ```
@@ -799,9 +830,65 @@ tab <- xtable(t3, caption = cap, label=paste0("tab:",tablab[32]),digits=0, auto=
 print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.85)
 ```
 
+```{r res_summ, results = "asis"}
+# Mgt quants by final
+df <- NULL
+    x      <- modlst[[thismod]]
+    ssb    <- x$nextyrssbs;         names(ssb)    <- paste0("${B}_{", nextyr ,"}$")
+    ssbcv  <- round(x$nextyrssb.cv,2);  names(ssbcv)      <- paste0("$CV_{B_{", nextyr ,"}}$")
+    Bmsy   <- x$bmsys;         names(Bmsy)   <- "$B_{MSY}$"
+    Bmsycv <- round(x$bmsy.cv,2); names(Bmsycv) <- "$CV_{B_{MSY}}$"
+    spr    <- paste0(round(x$sprmsy*100,0),"\\%");       names(spr)    <- "SPR rate at $F_{MSY}$"
+    b35    <- x$b35s ;                 names(b35)    <- paste0("$B_{35\\%}$")
+    pbmsy  <- paste0(round(100*x$ssb1/x$bmsy,0),"\\%");    names(pbmsy)<- paste0("${B}_{", nextyr ,"}/B_{MSY}$")
+    bzero  <- x$b0s ;                 names(bzero)    <- paste0("$B_0$")
+    dynb0  <- x$dynb0s;      names(dynb0) <- "Est. $B_{2018} / B_{2018,no fishing}$"
+    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- "$B_{2018} / B_{MSY}$"
+    steep  <- round(x$steep,2);                 names(steep) <- "Steepness"
+    v      <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero,b35, spr ,steep, dynb0,b_bmsy)
+    df     <- cbind(df, v)
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Component",mod_names[thismod])
+tab <- xtable(df, caption = "Summary of model 16.1 results and the stock condition for EBS pollock. Biomass units are thousands of t.", label = "tab:res_summ", digits = 3,align="llr")
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
+```
+
+
+```{r tier1proj, results = "asis"}
+# Tier 1 projections
+df <- NULL
+mod_scen <- 2
+for (ii in mod_scen)
+{
+    x       <- modlst[[ii]]
+    abcbiom <- paste0(x$ABC_biom1s,",000");         
+    names(abcbiom)    <- paste0(nextyr," fishable biomass (GM)")
+    msybiom           <- paste0(x$bmsyrs,",000");         
+    names(msybiom)    <- paste0("Equilibrium fishable biomass at MSY")
+    msyr        <- round(x$harmeanF,3);  
+    names(msyr) <- ("MSY R (HM)")
+    tier1abc        <- x$maxabc1s;  
+    names(tier1abc) <- paste(nextyr,"Tier 1 ABC")
+    fofl            <- x$arithmeanF;         
+    names(fofl)     <- paste(nextyr,"Tier 1 $F_{OFL}$")
+    ofl        <- x$ofl1s;         
+    names(ofl) <- paste(nextyr,"Tier 1 OFL")
+    fabc        <- round(0.85*x$harmeanF,3);  
+    names(fabc) <- ("MSY R (HM)")
+    recabc         <- x$abc1s;  
+    names(recabc)  <- "Recommended ABC"
+    v      <- c(abcbiom,msybiom,msyr,tier1abc,fofl,ofl,fabc,recabc)
+    df     <- cbind(df, v)
+}
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Component",mod_names[mod_scen])
+tab <- xtable(df, caption = tabcap[28], label = paste0("tab:",tablab[28]), digits = 3,align=paste0("ll",strrep("r",length(mod_scen))) )
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
+```
+
 \clearpage
 
-```{r projtab}
+```{r projtab, results = "asis"}
 # 40,tier3_C,"Tier 3 projections of EBS pollock catch for the 7 scenarios.
 # 41,tier3_ABC,"Tier 3 projections of EBS pollock ABC (given catches in Table \ref{tab:tier3_C}) for the 7 scenarios.
 # 42,tier3_F,"Tier 3 projections of EBS pollock fishing mortality for the 7 scenarios. 
@@ -842,7 +929,7 @@ print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.fun
 byc <- read.csv("data/byc_in_pollock.csv",header=T,as.is=TRUE)
 for (i in 2:length(byc[1,]) ) 
   byc[,i] <- formatC(byc[,i], format="d", big.mark=",") 
-cap <- "Bycatch estimates (t) of FMP species caught in the BSAI directed pollock fishery, 1997-2017 based on then NMFS Alaska Regional Office reports from observers (2017 data are preliminary). "
+cap <- "Bycatch estimates (t) of FMP species caught in the BSAI directed pollock fishery, 1997--2018 based on then NMFS Alaska Regional Office reports from observers (2018 data are preliminary). "
 tab <- xtable(byc, caption = cap, label="tab:fmpbycatch",digits=0, auto=TRUE, align=rep("r",(length(byc[1,])+1)) )
 print(tab, caption.placement = "top",include.rownames = FALSE, rotate.colnames = TRUE,sanitize.text.function = function(x){x}, 
        scalebox=.85)
@@ -888,7 +975,7 @@ Indicator                                                   & Observation       
 \multicolumn{4}{c}{\textbf{Ecosystem effects on EBS pollock}}                                                                          \\
 \hline
 \multicolumn{4}{l}{\textit{Prey availability or abundance trends}} \\
-Zooplankton                                                 & Stomach contents, AT and ichthyoplankton surveys, changes mean wt-at-age & Data improving, indication of increases from 2004-2009 and subsequent decreasees (for euphausiids in 2012 and 2014) & Variable abundance—indicates important recruitment (for prey)                                         \\
+Zooplankton                                                 & Stomach contents, AT and ichthyoplankton surveys, changes mean wt-at-age & Data improving, indication of increases from 2004--2009 and subsequent decreasees (for euphausiids in 2012 and 2014) & Variable abundance—indicates important recruitment (for prey)                                         \\
 \hline
 \multicolumn{4}{l}{\textit{Predator population trends}} \\
 Marine mammals                                              & Fur seals declining, Steller sea lions increasing slightly               & Possibly lower mortality on pollock                                                                                 & Probably no concern                                                                                   \\
@@ -934,7 +1021,7 @@ $P\left[B_{2020}<B_{MSY}\right]$  & Probability that the spawning biomass in 202
 \midrule
 $P\left[B_{2021}<B_{MSY}\right]$  & Probability that the spawning biomass in 2021 is less than $B_{MSY}$ & $B_{MSY}$ is a reference point target and biomass in 2023 provides an indication of the impact of fishing in 2019 and 2020                                                                       \\
 \midrule
-$P\left[B_{2020}<\bar{B}\right]$  & Probability that the spawning biomass in 2020 is less than the 1978-2018 mean    & To provide some perspective of what the stock condition might be relative to historical estimates after fishing in 2019.                                                                    \\
+$P\left[B_{2020}<\bar{B}\right]$  & Probability that the spawning biomass in 2020 is less than the 1978--2018 mean    & To provide some perspective of what the stock condition might be relative to historical estimates after fishing in 2019.                                                                    \\
 \midrule
 $P\left[B_{2023}<\bar{B}\right]$  & Probability that the spawning biomass in 2023 is less than the long term mean & To provide some perspective of what the stock condition might be relative to historical estimates after fishing in 2019.                                                                    \\
 \midrule
@@ -942,7 +1029,7 @@ $P\left[B_{2023}<B_{2019}\right]$  & Probability that the spawning biomass in 20
 \midrule
 $P\left[B_{2021}<B_{20\%}\right]$  & Probability that the spawning biomass in 2021 is less than $B_{20\%}$            & $B_{20\%}$ had been selected as a Steller Sea Lion lower limit for allowing directed fishing                                                                                                    \\
 \midrule
-$P\left[p_{a_5,2021}>\bar{p}_{a_5}\right]$   & Probability that in 2023 the proportion of age 1-5 pollock in the population exceeds the long-term mean & To provide some relative indication of the age composition of the population relative to the long term mean.                                                                     \\
+$P\left[p_{a_5,2021}>\bar{p}_{a_5}\right]$   & Probability that in 2023 the proportion of age 1--5 pollock in the population exceeds the long-term mean & To provide some relative indication of the age composition of the population relative to the long term mean.                                                                     \\
 \midrule
 $P\left[D_{2020}<D_{1994}\right]$   & Probability that the diversity of ages represented in the spawning biomass (by weight) in 2020 is less than the value estimated for 1994 & To provide a relative index on the abundance of different age classes in the 2020 population relative to 1994 (a year identified as having low age composition diversity)                 \\
 \midrule

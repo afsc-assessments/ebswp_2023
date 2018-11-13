@@ -10,7 +10,8 @@ R_OPTS=--no-save --no-restore --no-init-file --no-site-file
 #PANDOC_OPTS=-V geometry:margin=1in --to latex --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output text.tex --template ms.tex --highlight-style tango --pdf-engine=xelatex
 #PANDOC_OPTS=-V geometry:margin=1in --template ms.tex --highlight-style tango --latex-engine=xelatex
 #PANDOC_OPTS=-V geometry:margin=1in --highlight-style tango --latex-engine=xelatex #--template ms.tex 
-PANDOC_OPTS=-V geometry:margin=1in --highlight-style tango --pdf-engine=xelatex --template my.tex 
+#PANDOC_OPTS=-V geometry:margin=1in --highlight-style tango  --latex-engine=xelatex --template my.tex 
+PANDOC_OPTS=-V geometry:margin=1in --latex-engine=xelatex --template my.tex 
 
 pdf: pm.Rmd 
 #	cp pm.R pm.Rmd

@@ -1,4 +1,4 @@
-plot_agefit <- function( x, case_label="2017 assessment",gear="bts") {
+plot_agefit <- function( x, case_label="2018 assessment",gear="bts",type="survey") {
   subtle.color <- "gray40"
   if (gear=="bts"){
     fage <- 1
@@ -57,6 +57,6 @@ plot_agefit <- function( x, case_label="2017 assessment",gear="bts") {
   }
   mtext(side=1,outer=T,"Age",line=2)
   mtext(side=2,outer=T,"Proportion",line=3.2)
-  mtext(side=3,outer=T,line=1.2,"EBS pollock survey age composition data")
+  mtext(side=3,outer=T,line=1.2,paste0("EBS pollock ",type," age composition data"))
   mtext(side=3,outer=T,line=0.2,paste("(",case_label,")",sep=""),cex=0.6)
 }

@@ -1080,6 +1080,8 @@ PARAMETER_SECTION
   sdreport_vector LTA1_5(1,nscen);    // long term average age 1_5
   sdreport_vector MatAgeDiv1(1,nscen); // Diversity of Age structure in mature population
   sdreport_vector MatAgeDiv2(1,nscen); // Diversity of Age structure in mature population
+  vector H(styr,endyr_r);
+  vector avg_age_mature(styr,endyr_r);
   sdreport_vector RelEffort(1,nscen); // Effort relative to endyr   
 
   sdreport_number F40_spb;
@@ -1811,12 +1813,15 @@ FUNCTION Future_projections_fixed_F
   dvariable sumtmp2;
   dvariable MeanSSB;
   dvar_vector ptmp(1,nages);
-  dvar_vector H(styr,endyr_r);
   sumtmp1=0.;
   sumtmp2=0.;
+  dvector agevec(1,nages);
+	for (int j=1;j<=nages;j++) agevec(j) = double(j);
   for (i=styr; i<=endyr_r; i++)
   {
-    ptmp     = elem_prod(elem_prod(natage(i),wt_ssb(i)),p_mature)+0.0001;
+		dvar_vector wtmatage = elem_prod(elem_prod(natage(i),wt_ssb(i)),p_mature);
+    avg_age_mature(i) = (agevec * wtmatage)/sum(wtmatage);
+    ptmp     = wtmatage +0.0001;
     ptmp    /= sum(ptmp);
     H(i)     = mfexp(-ptmp*log(ptmp));
     sumtmp1 += sum(natage(i)(1,5));
@@ -3982,6 +3987,8 @@ FUNCTION write_R
   ofstream report((char*)(adprogram_name + ad_tmp),ios::app);
 
   // Development--just start to get some output into R
+	R_report(H);
+	R_report(avg_age_mature);
   report << "h_prior" << endl << Priors(1) << endl;
   report << "q_prior" << endl << Priors(2) << endl;
   if (ctrl_flag(28)==0)
