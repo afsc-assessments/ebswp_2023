@@ -1099,6 +1099,7 @@ PARAMETER_SECTION
   matrix future_SER(1,nscen,styr_fut,endyr_fut);
   matrix future_catch(1,nscen,styr_fut,endyr_fut);
   sdreport_matrix future_SSB(1,nscen,endyr_r,endyr_fut)
+  sdreport_vector Age3_Abund(styr,endyr_r)
   vector age_1_7_biomass(styr,endyr_r);
   objective_function_value fff;
 PRELIMINARY_CALCS_SECTION
@@ -1675,6 +1676,7 @@ FUNCTION GetDependentVar
     {
       age_3_plus_biom(i) = natage(i)(3,nages) * wt_ssb(i)(3,nages); 
       age_1_7_biomass(i) = natage(i)(1,7) * wt_ssb(i)(1,7); 
+      Age3_Abund(i) = natage(i,3);
     }
     regime(1) = mean(pred_rec(1964,1977));
     regime(4) = mean(pred_rec(1978,1989));

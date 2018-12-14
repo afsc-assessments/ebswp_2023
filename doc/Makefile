@@ -13,6 +13,17 @@ R_OPTS=--no-save --no-restore --no-init-file --no-site-file
 #PANDOC_OPTS=-V geometry:margin=1in --highlight-style tango  --latex-engine=xelatex --template my.tex 
 PANDOC_OPTS=-V geometry:margin=1in --latex-engine=xelatex --template my.tex 
 
+test: test.Rmd 
+#	cp pm.R pm.Rmd
+	R ${R_OPTS} -e 'library(knitr); knit("test.Rmd");'
+	pandoc test.md -o test.pdf ${PANDOC_OPTS}
+	open test.pdf
+
+params: params.Rmd 
+#	cp pm.R pm.Rmd
+	R ${R_OPTS} -e 'library(knitr); knit("params.Rmd");'
+	pandoc params.md -o EBSpollock_params.pdf ${PANDOC_OPTS}
+
 pdf: pm.Rmd 
 #	cp pm.R pm.Rmd
 	R ${R_OPTS} -e 'library(knitr); knit("pm.Rmd");'
