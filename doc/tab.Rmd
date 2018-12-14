@@ -1,4 +1,4 @@
-#Tables
+# Tables
 
 \clearpage
 
@@ -45,16 +45,17 @@ Year    &   Southeast   &   Northwest   &   Total   &Aleutians  &Donut  Hole&   
 2007    &   728,249 &   626,253 &   1,354,502   &   2,519   &       &   0   \\
 2008    &   482,698 &   507,880 &   990,578 &   1,278   &       &   9   \\
 2009    &   358,252 &   452,532 &   810,784 &   1,662   &       &   73  \\
-2010    &   255,131 &   555,075 &   810,206 &   1,235   &       &   176 \\
+2010    &   255,132 &   555,075 &   810,207 &   1,285   &       &   176 \\
 2011    &   747,890 &   451,151 &   1,199,041   &   1,208   &       &   173 \\
 2012    &   618,869 &   586,343 &   1,205,212   &   975 &       &   71  \\
-2013    &   695,669 &   575,099 &   1,270,768   &   2,964   &       &   57  \\
-2014    &   858,240 &   439,180 &   1,297,420   &   2,375   &       &   427 \\
-2015    &   696,249 &   625,332 &   1,321,581   &   915 &       &   733 \\
-2016    &   1,167,140   &   185,567 &   1,352,707   &   1,257   &       &   1,005   \\
-2017    &   1,164,848   &   178,370 &   1,343,217   &   1,384   &       &   186 \\
+2013    &   695,667 &   575,098 &   1,270,765   &   2,964   &       &   57  \\
+2014    &   858,240 &   439,180 &   1,297,419   &   2,375   &       &   427 \\
+2015    &   696,249 &   625,331 &   1,321,581   &   915 &       &   733 \\
+2016    &   1,167,088   &   185,571 &   1,352,659   &   1,257   &       &   1,005   \\
+2017    &   1,178,112   &   181,162 &   1,359,274   &   1,507   &       &   186 \\
+2018    &   1,020,904   &   325,711 &   1,346,615   &   1,778   &       &   133 \\
 \hline                                                  
-Avg.    &   782,618 &   416,552 &   1,199,169   &   26,084  &   697,696 &   31,484  \\
+Avg.    &   788,905 &   414,351 &   1,203,256   &   25,481  &   697,696 &   30,505  \\
 \end{tabular}
 \end{table}
 
@@ -100,17 +101,18 @@ Year    &   Catch   &   Year    &   ABC &   TAC &   Catch \\
     &       &   2006    &   1,930,000   &   1,485,000   &   1,488,031   \\
     &       &   2007    &   1,394,000   &   1,394,000   &   1,354,502   \\
     &       &   2008    &   1,000,000   &   1,000,000   &   990,578 \\
-    &       &   2009    &   815,000 &   815,000 &   810,784 \\
-    &       &   2010    &   813,000 &   813,000 &   810,206 \\
+    &       &   2009    &   815,000     &   815,000     &   810,784 \\
+    &       &   2010    &   813,000     &   813,000     &   810,206 \\
     &       &   2011    &   1,270,000   &   1,252,000   &   1,199,041   \\
     &       &   2012    &   1,220,000   &   1,200,000   &   1,205,212   \\
     &       &   2013    &   1,375,000   &   1,247,000   &   1,270,768   \\
     &       &   2014    &   1,369,000   &   1,267,000   &   1,297,420   \\
     &       &   2015    &   1,637,000   &   1,310,000   &   1,321,581   \\
     &       &   2016    &   2,090,000   &   1,340,000   &   1,352,707   \\
-    &       &   2017    &   3,640,000   &   2,800,000   &   1,343,217   \\
+    &       &   2017    &   2,800,000   &   1,345,000   &   1,343,217   \\
+    &       &   2018    &   2,592,000   &   1,364,341   &   1,346,615   \\
 \hline                                          
-    \multicolumn{3}{c}{1977-2017    mean}           &   1,455,902   &   1,241,006   &   1,188,382   \\
+    \multicolumn{3}{c}{1977--2017    mean}           &   1,455,902   &   1,241,006   &   1,188,382   \\
 \hline
 \end{tabular}
 \end{table}
@@ -128,33 +130,34 @@ Year    &   Catch   &   Year    &   ABC &   TAC &   Catch \\
                   & \multicolumn{5}{c|}{Discarded pollock }                                     & \multicolumn{5}{c}{Total (retained plus discard) }     \\
                   & Aleut. Is. & Bog.     & NW            & SE            & Total           & Aleut. Is. & Bog. & NW      & SE        & Total     \\
 \hline 
-1991              & 5,231 (5\%)  & 20,327 (6\%) & 48,257 (9\%)  & 66,792 (10\%) & 140,607 (9\%) & 98,604       & 316,038  & 542,109 & 653,555   & 1,610,306 \\
-1992              & 2,986 (6\%)  & 240 (100\%)  & 57,578 (10\%) & 71,194 (9\%)  & 131,998 (9\%) & 52,362       & 241      & 559,741 & 830,559   & 1,442,902 \\
-1993              & 1,740 (3\%)  & 308 (35\%)   & 26,100 (11\%) & 83,986 (8\%)  & 112,135 (8\%) & 57,138       & 886      & 232,173 & 1,094,429 & 1,384,627 \\
-1994              & 1,373 (2\%)  & 11 (2\%)     & 16,084 (9\%)  & 88,098 (8\%)  & 105,566 (8\%) & 58,659       & 556      & 176,777 & 1,152,575 & 1,388,567 \\
-1995              & 1,380 (2\%)  & 267 (80\%)   & 9,715 (11\%)  & 87,492 (7\%)  & 98,855 (7\%)  & 64,925       & 334      & 91,941  & 1,172,306 & 1,329,506 \\
-1996              & 994 (3\%)    & 7 (1\%)      & 4,838 (5\%)   & 71,368 (7\%)  & 77,208 (6\%)  & 29,062       & 499      & 105,939 & 1,086,843 & 1,222,342 \\
-1997              & 618 (2\%)    & 13 (8\%)     & 22,557 (7\%)  & 71,032 (9\%)  & 94,219 (8\%)  & 25,940       & 163      & 304,544 & 819,889   & 1,150,536 \\
-1998              & 162 (1\%)    & 3 (39\%)     & 1,581 (1\%)   & 14,291 (1\%)  & 16,037 (1\%)  & 22,054       & 8        & 132,515 & 971,388   & 1,125,965 \\
-1999              & 480 (48\%)   & 11 (39\%)    & 1,912 (1\%)   & 26,912 (3\%)  & 29,315 (3\%)  & 1,010        & 29       & 206,698 & 782,983   & 990,719   \\
-2000              & 790 (63\%)   & 20 (67\%)    & 1,942 (1\%)   & 19,678 (2\%)  & 22,429 (2\%)  & 1,244        & 29       & 293,532 & 839,177   & 1,133,984 \\
-2001              & 380 (46\%)   & 28 (11\%)    & 2,450 (1\%)   & 14,874 (2\%)  & 17,732 (1\%)  & 825          & 258      & 425,220 & 961,977   & 1,388,280 \\
-2002              & 779 (66\%)   & 12 (1\%)     & 1,441 (\%)    & 19,430 (2\%)  & 21,661 (1\%)  & 1,177        & 1,042    & 320,442 & 1,160,334 & 1,482,995 \\
-2003              & 468 (28\%)   & 19 (79\%)    & 2,959 (1\%)   & 13,795 (1\%)  & 17,242 (1\%)  & 1,649        & 24       & 557,588 & 933,191   & 1,492,452 \\
-2004              & 287 (25\%)   & (100\%)      & 2,781 (1\%)   & 20,380 (2\%)  & 23,448 (2\%)  & 1,158        & 0        & 390,544 & 1,090,008 & 1,481,710 \\
-2005              & 324 (20\%)   & (89\%)       & 2,586 (\%)    & 14,838 (2\%)  & 17,747 (1\%)  & 1,621        & 0        & 680,868 & 802,154   & 1,484,643 \\
-2006              & 311 (18\%)   & (50\%)       & 3,677 (1\%)   & 11,877 (1\%)  & 15,865 (1\%)  & 1,745        & 0        & 660,824 & 827,207   & 1,489,776 \\
-2007              & 425 (17\%)   & (tr)         & 3,769 (1\%)   & 12,334 (2\%)  & 16,529 (1\%)  & 2,519        & 0        & 626,253 & 728,249   & 1,357,021 \\
-2008              & 81 (6\%)     & (tr)         & 1,643 (\%)    & 5,968 (1\%)   & 7,692 (1\%)   & 1,278        & 9        & 507,880 & 482,698   & 991,865   \\
-2009              & 395 (24\%)   & 6 (8\%)      & 1,936 (\%)    & 4,014 (1\%)   & 6,351 (1\%)   & 1,662        & 73       & 452,532 & 358,252   & 812,520   \\
-2010              & 142 (12\%)   & 53 (30\%)    & 1,197 (\%)    & 2,510 (1\%)   & 3,903 (tr)    & 1,235        & 176      & 555,075 & 255,131   & 811,618   \\
-2011              & 75 (6\%)     & 23 (13\%)    & 1,332 (\%)    & 3,444 (tr)    & 4,873 (tr)    & 1,208        & 173      & 451,151 & 747,890   & 1,200,422 \\
-2012              & 95 (10\%)    & (tr)         & 1,186 (\%)    & 4,187 (1\%)   & 5,468 (tr)    & 975          & 71       & 586,343 & 618,869   & 1,206,258 \\
-2013              & 108 (4\%)    & (1\%)        & 1,227 (\%)    & 4,145 (1\%)   & 5,480 (tr)    & 2,964        & 57       & 575,099 & 695,669   & 1,273,788 \\
-2014              & 138 (6\%)    & 54 (13\%)    & 1,787 (\%)    & 12,568 (1\%)  & 14,546 (1\%)  & 2,375        & 427      & 439,180 & 858,240   & 1,300,222 \\
-2015              & 19 (2\%)     & 138 (19\%)   & 2,419 (\%)    & 7,062 (1\%)   & 9,639 (1\%)   & 915          & 733      & 625,332 & 696,249   & 1,323,229 \\
-2016              & 59 (5\%)     & 7 (1\%)      & 993 (1\%)     & 8,197 (1\%)   & 9,256 (1\%)   & 1,257        & 1,005    & 185,567 & 1,167,140 & 1,354,968 \\
-2017              & 17 (1\%)     & 2 (1\%)      & 1,083 (1\%)   & 5,911 (1\%)   & 7,013 (1\%)   & 1,384        & 186      & 178,370 & 1,164,848 & 1,344,787 \\
+1991    &   5,231   (5\%)   &   20,327  (6\%)   &   48,257  (9\%)   &   66,792  (10\%)  &   140,607 (9\%)   &   98,604  &   316,038 &   542,109 &    653,555    &   1,610,306   \\
+1992    &   2,986   (6\%)   &   240 (100\%) &   57,581  (10\%)  &   71,194  (9\%)   &   132,002 (9\%)   &   52,362  &   241 &   559,750 &    830,559    &   1,442,912   \\
+1993    &   1,740   (3\%)   &   308 (35\%)  &   26,107  (11\%)  &   83,986  (8\%)   &   112,141 (8\%)   &   57,138  &   886 &   232,180 &    1,094,429  &   1,384,633   \\
+1994    &   1,373   (2\%)   &   11  (2\%)   &   16,084  (9\%)   &   88,098  (8\%)   &   105,566 (8\%)   &   58,659  &   556 &   176,777 &    1,152,575  &   1,388,567   \\
+1995    &   1,380   (2\%)   &   267 (80\%)  &   9,715   (11\%)  &   87,492  (7\%)   &   98,855  (7\%)   &   64,925  &   334 &   91,941  &    1,172,306  &   1,329,506   \\
+1996    &   994 (3\%)   &   7   (1\%)   &   4,838   (5\%)   &   71,368  (7\%)   &   77,208  (6\%)   &   29,062  &   499 &   105,939 &    1,086,843  &   1,222,342   \\
+1997    &   618 (2\%)   &   13  (8\%)   &   22,557  (7\%)   &   71,032  (9\%)   &   94,220  (8\%)   &   25,940  &   163 &   304,544 &    819,889    &   1,150,536   \\
+1998    &   162 (1\%)   &   3   (39\%)  &   1,581   (1\%)   &   14,291  (1\%)   &   16,037  (1\%)   &   22,054  &   8   &   132,515 &    969,644    &   1,124,221   \\
+1999    &   480 (48\%)  &   11  (39\%)  &   1,912   (1\%)   &   26,912  (3\%)   &   29,315  (3\%)   &   1,010   &   29  &   206,698 &    782,983    &   990,719 \\
+2000    &   790 (64\%)  &   20  (67\%)  &   1,942   (1\%)   &   19,678  (2\%)   &   22,430  (2\%)   &   1,244   &   29  &   293,532 &    839,177    &   1,133,983   \\
+2001    &   380 (46\%)  &   28  (11\%)  &   2,450   (1\%)   &   14,874  (2\%)   &   17,732  (1\%)   &   825 &   258 &   425,220 &    961,977    &   1,388,280   \\
+2002    &   779 (66\%)  &   12  (1\%)   &   1,441   (tr)    &   19,430  (2\%)   &   21,661  (1\%)   &   1,177   &   1,042   &   320,442 &    1,160,334  &   1,482,995   \\
+2003    &   468 (28\%)  &   19  (79\%)  &   2,959   (1\%)   &   13,795  (1\%)   &   17,241  (1\%)   &   1,649   &   24  &   557,588 &    933,191    &   1,492,453   \\
+2004    &   287 (25\%)  &   0   (100\%) &   2,781   (1\%)   &   20,380  (2\%)   &   23,448  (2\%)   &   1,158   &   0   &   390,544 &    1,090,008  &   1,481,710   \\
+2005    &   324 (20\%)  &   0   (89\%)  &   2,586   (tr)    &   14,838  (2\%)   &   17,748  (1\%)   &   1,621   &   0   &   680,868 &    802,154    &   1,484,643   \\
+2006    &   311 (18\%)  &   0   (50\%)  &   3,677   (1\%)   &   11,877  (1\%)   &   15,865  (1\%)   &   1,745   &   0   &   660,824 &    827,207    &   1,489,776   \\
+2007    &   425 (17\%)  &   0   (\%)    &   3,769   (1\%)   &   12,334  (2\%)   &   16,528  (1\%)   &   2,519   &   0   &   626,253 &    728,249    &   1,357,021   \\
+2008    &   81  (6\%)   &   0   (\%)    &   1,643   (tr)    &   5,968   (1\%)   &   7,692   (1\%)   &   1,278   &   9   &   507,880 &    482,698    &   991,865 \\
+2009    &   395 (24\%)  &   6   (8\%)   &   1,936   (tr)    &   4,014   (1\%)   &   6,352   (1\%)   &   1,662   &   73  &   452,532 &    358,252    &   812,519 \\
+2010    &   142 (12\%)  &   53  (30\%)  &   1,271   (tr)    &   2,511   (1\%)   &   3,976   (tr)    &   1,235   &   176 &   555,075 &    255,132    &   811,618 \\
+2011    &   75  (6\%)   &   23  (13\%)  &   1,378   (tr)    &   3,456   (tr)    &   4,932   (tr)    &   1,208   &   173 &   451,151 &    747,890    &   1,200,422   \\
+2012    &   95  (10\%)  &   0   (\%)    &   1,191   (tr)    &   4,187   (1\%)   &   5,473   (tr)    &   975 &   71  &   586,343 &    618,869    &   1,206,258   \\
+2013    &   108 (4\%)   &   0   (1\%)   &   1,226   (tr)    &   4,144   (1\%)   &   5,478   (tr)    &   2,964   &   57  &   575,098 &    695,667    &   1,273,786   \\
+2014    &   138 (6\%)   &   54  (13\%)  &   1,787   (tr)    &   12,568  (1\%)   &   14,547  (1\%)   &   2,375   &   427 &   439,180 &    858,240    &   1,300,221   \\
+2015    &   19  (2\%)   &   138 (19\%)  &   2,419   (tr)    &   7,062   (1\%)   &   9,638   (1\%)   &   915 &   733 &   625,331 &    696,249    &   1,323,228   \\
+2016    &   59  (5\%)   &   7   (1\%)   &    998    (1\%)   &   8,145   (1\%)   &   9,209   (1\%)   &   1,257   &   1,005   &   185,571 &    1,167,088  &   1,354,921   \\
+2017    &   17  (1\%)   &   2   (1\%)   &   1,357   (1\%)   &   6,944   (1\%)   &   8,321   (1\%)   &   1,384   &   186 &   181,162 &    1,178,112  &   1,360,844   \\
+2018    &           &   2   (21\%)  &    1,779  (1\%)   &    8,261  (1\%)   &   10,042  (1\%)   &       &   9   &   328,722 &    1,045,138  &   1,373,868   \\
 \hline
 \end{tabular}
 }
@@ -191,15 +194,14 @@ Year     &    A season      & B-season          & Total             \\
 2015     & 490,400 t (15\%) & 765,900 t (45\%)  & 1,256,300 t (33\%) \\
 2016     & 510,700 t (35\%) & 784,000 t (62\%)  & 1,294,700 t (51\%) \\
 2017     & 555,300 t (51\%) & 750,800 t (54\%)  & 1,306,100 t (53\%)  \\
+2018     & 573,000 t (63\%) & 746,500 t (46\%)  & 1,319,500 t (54\%)  \\
 \hline
 \end{tabular}
 \end{table}
 
-
 \clearpage
 
-
-
+<!-- Management -->
 \begin{table}[ht]
 \centering
 \caption{`r tabcap[4]`} 
@@ -231,86 +233,90 @@ Year    &   Management  \\
 2015    &   Amendment 110 (BSAI) Salmon prohibited species catch management in the Bering Sea pollock fishery (additional measures that change limits depending on Chinook salmon run-strength indices) and includes additional provisions for reporting requirements (see https://alaskafisheries.noaa.gov/fisheries/chinook-salmon-bycatch-management for update and general information) \\
 2016    &   Measures of amendment 110 go into effect for 2017 fishing season; Chinook salmon runs above the 3-run index value so bycatch limits stay the same   \\
 2017    &   Due to amendment 110 about 45\% of the TAC is taken in the A-season (traditionally only 40\% was allowed). \\
+2018    &   In-river estimates of Chinook salmon (three river index) fell below the threshold and therefore a lower PSC limit applies (from a performance standard of 47,491 to 33,318 and a PSC limit from 60,000 to 45,000 Chinook salmon overall). Additionally, squid have been recategorized as an ecosystem component.  \\
 \hline
 \end{tabular}
 \end{table}
 
-
-
 \clearpage
-
-
 
 \begin{table}[ht]
 \centering
 \caption{BSAI pollock catch and ex-vessel data showing the total and retained catch (in kt), the 
 number of vessels for all sectors and for trawl catcher vessels including
 ex-vessel value (million US\$), price (US\$ per pound), and catcher vessel shares. 
-Years covered include the 2005-2007 average, the 2008-2010 average, and annual from 2011-2016. }
+Years covered include the
+2005--2007 average, the 2008--2010 average, the 2011--2013 average, and annual from 2014--2017.}
 \label{tab:bsaiplck_exv}
 \scalebox{0.93}{
-\begin{tabular}{lrrrrrrrrr}
-\hline
-          & Avg 05-07 & Avg 08-10 & 2011 & 2012 & 2013 & 2014 & 2015 & 2016 \\ 
- \hline
-          & \multicolumn{8}{c}{All Sectors} \\ 
- Catch kt & 1,444 & 872 & 1,200 & 1,206 & 1,274 & 1,300 & 1,323 & 1,355 \\ 
- Retained Catch kt & 1,427 & 866 & 1,195 & 1,200 & 1,267 & 1,285 & 1,314 & 1,346 \\ 
- Vessels  & 110 & 121 & 118 & 122 & 121 & 121 & 120 & 121 \\ 
- \hline
- & \multicolumn{8}{c}{Catcher Vessels (Trawl)} \\
- Retained Catch kt & 768.67 & 459 & 630 & 632 & 661 & 668 & 687 & 704 \\ 
- Ex-vessel Value M \$ & \$213.60  & \$183.80  & \$229.40  & \$241.30  & \$218.70  & \$226.50  & \$227.40  & \$209.40  \\ 
- Ex-vessel Price/lb \$ & \$0.13  & \$0.18  & \$0.16  & \$0.17  & \$0.15  & \$0.16  & \$0.15  & \$0.14  \\ 
- CV ret. catch share & 53.90\% & 53.00\% & 52.70\% & 52.70\% & 52.20\% & 52.00\% & 52.30\% & 52.30\% \\ 
- Vessels  & 89 & 89 & 86 & 90 & 87 & 87 & 87 & 88 \\ 
- \hline \\
- \end{tabular}
+
+\begin{tabular}{lrrrrrrr}
+  \hline
+ & Avg 05--07 & Avg 08--10 & Avg 11--13 & 2014 & 2015 & 2016 & 2017 \\ 
+  \hline
+All sectors &  &  &  &  &  &  &  \\ 
+  Catch kt & 1,444 & 872 & 1,227 & 1,300 & 1,323 & 1,355 & 1,361 \\ 
+  Retained Catch kt & 1,427 & 866 & 1,221 & 1,285 & 1,314 & 1,346 & 1,353 \\ 
+  Vessels \# & 110 & 121 & 120 & 121 & 120 & 121 & 119 \\ 
+  Catcher Vessels (Trawl) &  &  &  &  &  &  &  \\ 
+  Retained Catch kt & 768.3 & 458.9 & 640.8 & 668.5 & 687.1 & 703.9 & 710.4 \\ 
+  Ex-vessel Value M \$ & \$214.2  & \$184.9  & \$229.6  & \$226.3  & \$226.7  & \$208.9  & \$205.1  \\ 
+  Ex-vessel Price/lb \$ & \$0.13  & \$0.18  & \$0.16  & \$0.16  & \$0.15  & \$0.14  & \$0.14  \\ 
+  CV share of Retained Catch & 53.84\% & 53.00\% & 52.49\% & 52.03\% & 52.31\% & 52.31\% & 52.52\% \\ 
+  Vessels \# & 89 & 89 & 88 & 87 & 87 & 88 & 88 \\ 
+   \hline
+\end{tabular}
 }
 Source: NMFS Alaska Region Blend and Catch-accounting System estimates; and
 ADF\&G Commercial Operators Annual Reports (COAR). Data compiled and provided by
 the Alaska Fisheries Information Network (AKFIN).
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[hb]
 \centering
 \caption{BSAI pollock first-wholesale market data including production (kt),
 value (million US\$), price (US\$ per pound) for all products and then
 separately for other categories (head and gut, fillet, surimi, and roe
-production). Years covered include the 2005-2007 average, the 2008-2010
-average, and annual from 2011-2016.}
+production). Years covered include the 
+2005--2007 average, the 2008--2010 average, the 2011--2013 average, and annual from 2014--2017.}
 \label{tab:bsaiplck_wsl}
 \scalebox{0.84}{
-\begin{tabular}{lrrrrrrrr}
+\begin{tabular}{lrrrrrrr}
   \hline
-                         & Avg 05-07 & Avg 08-10 & 2011 & 2012 & 2013 & 2014 & 2015 & 2016 \\ 
+ & Avg 05--07 & Avg 08--10 & Avg 11--13 & 2014 & 2015 & 2016 & 2017 \\ 
   \hline
-                         & \multicolumn{8}{c}{BSAI} \\ 
-  All Products Volume kt & 498.25          & 355.99     & 483.11     & 472.72     & 506.84     & 525.54    & 520.94    & 534.89     \\ 
-  All Products Value M\$ &  \$1,246.4      &  \$1,133.4 &  \$1,351.1 &  \$1,381.0 &  \$1,242.1 & \$1,301.2 & \$1,272.5 &  \$1,351.5 \\ 
-  All Products Price lb \$ &  \$1.13       &  \$1.44    &  \$1.27    &  \$1.33    &  \$1.11    & \$1.12    & \$1.11    &  \$1.15    \\ 
+  $\bf{All\ Products}$ \\
+  Volume kt & 498.25 & 355.99 & 487.56 & 525.54 & 520.94 & 534.89 & 523.94 \\ 
+   Value M\$ &  \$1,246.4  &  \$1,133.4  &  \$1,324.7  &  \$1,301.2  &  \$1,272.5  &  \$1,351.5  &  \$1,355.0  \\ 
+  At-sea sector value share & 59\%   &   58\% &   59\% &   58\% &   60\% &   60\% &   62\% \\
+ Price per lb \$ &  \$1.13  &  \$1.44  &  \$1.23  &  \$1.12  &  \$1.11  &  \$1.15  &  \$1.17  \\ 
   \hline
-  Fillets Volume kt   & 162.70   & 113.90 & 161.22 & 146.55 & 170.87 & 175.78  & 167.01 & 161.29 \\ 
-  Fillets Price lb \$ &  \$1.24  & \$1.73 & \$1.55 & \$1.55 & \$1.44 &  \$1.37 & \$1.35 & \$1.41 \\ 
-  Fillets Value share & 36\%     & 38\%   & 41\%   & 36\%   & 44\%   & 41\%    & 39\%   & 37\%   \\ 
+  $\bf{Fillets}$ \\
+  Volume kt & 162.70 & 113.90 & 159.55 & 175.78 & 167.01 & 161.29 & 156.95 \\ 
+  Price lb \$ &  \$1.24  &  \$1.73  &  \$1.51  &  \$1.37  &  \$1.35  &  \$1.41  &  \$1.30  \\ 
+  Value share & 36\% & 38\% & 40\% & 41\% & 39\% & 37\% & 33\% \\ 
   \hline
-  Surimi Volume kt   & 173.05   & 100.99 & 141.00 & 157.15 & 161.66 & 171.33 & 187.74 & 190.82 \\ 
-  Surimi Price lb \$ &  \$0.96  & \$1.63 & \$1.28 & \$1.43 & \$1.00 &  \$1.10  &  \$1.14  &  \$1.19  \\ 
-  Surimi Value share & 29\%     & 32\%   & 29\%   & 36\%   & 29\%   & 32\% & 37\% & 37\% \\ 
+  $\bf{Surimi}$ \\
+  Volume kt & 173.05 & 100.99 & 153.27 & 171.33 & 187.74 & 190.82 & 196.73 \\ 
+  Price lb \$ &  \$0.96  &  \$1.63  &  \$1.23  &  \$1.10  &  \$1.14  &  \$1.19  &  \$1.35  \\ 
+  Value share & 29\% & 32\% & 32\% & 32\% & 37\% & 37\% & 43\% \\ 
   \hline
-  Roe Volume kt & 27.03 & 17.63 & 18.03 & 16.48 & 13.91 & 20.60 & 18.75 & 14.26 \\ 
-  Roe Price lb \$ &  \$4.84  &  \$4.14  &  \$3.63  &  \$4.32  &  \$3.33  &  \$2.92  &  \$2.29  &  \$2.84  \\ 
-  Roe Value share & 23\% & 14\% & 11\% & 11\% & 8\% & 10\% & 7\% & 7\% \\ 
-  At-sea price premium (\$/lb)  &  \$0.30  &  \$0.32  &  \$0.20  &  \$0.25  &  \$0.13  &  \$0.15  &  \$0.25  &  \$0.25  \\ 
-\hline \\
+  $\bf{Roe}$ \\
+  Volume kt & 27.03 & 17.63 & 16.14 & 20.60 & 18.75 & 14.26 & 18.43 \\ 
+  Price lb \$ &  \$4.84  &  \$4.14  &  \$3.78  &  \$2.92  &  \$2.29  &  \$2.84  &  \$2.91  \\ 
+  Value share & 23\% & 14\% & 10\% & 10\% & 7\% & 7\% & 9\% \\ 
+  At-sea price premium (\$/lb)  & \$0.30 & \$0.32 & \$0.19 & \$0.15 & \$0.25 & \$0.25 & \$0.37 \\ 
+   \hline
 \end{tabular}
 }
+
 Source: NMFS Alaska Region Blend and Catch-accounting System estimates; NMFS    
 Alaska Region At-sea Production Reports; and ADF\&G Commercial Operators Annual
 Reports (COAR). Data compiled and provided by the Alaska Fisheries Information
 Network (AKFIN).
 \end{table}
 
+\clearpage
 
 \begin{table}[ht]
 \centering
@@ -320,39 +326,38 @@ volumes (kt), values (million US\$), and export prices (US\$ per pound).
 Subsequent rows show the breakout of import shares (of U.S. pollock) by
 country (Japan, China and Germany) and the share of U.S. export volume and
 value of fish  (i.e., H\&G and fillets), and other product categories (surimi
-and roe).  Years covered include the 2005-2007 average, the 2008-2010 average,
-and annual from 2011-2016.}
+and roe).  Years covered include the 
+2005--2007 average, the 2008--2010 average, the 2011--2013 average, and annual from 2014--2018.}
 \label{tab:bsaiplck_glbl}
-\scalebox{0.83}{
-\begin{tabular}{lrrrrrrrrr}
+\scalebox{0.78}{
+\begin{tabular}{lrrrrrrrr}
   \hline
- & Avg 05-07 & Avg 08-10 & 2011 & 2012 & 2013 & 2014 & 2015 & 2016 & 2017\* \\ 
+ & Avg 05--07 & Avg 08--10 & Avg 11--13 & 2014 & 2015 & 2016 & 2017 & 2018 thru July \\ 
   \hline
-  Global Pollock Catch kt & 2,854 & 2,662 & 3,211 & 3,272 & 3,239 & 3,245 & 3,373 & - & - \\ 
-  US Share               & 52\% & 35\% & 40\% & 40\% & 42\% & 44\% & 44\% & - & - \\ 
-  Russian                & 37\% & 53\% & 49\% & 50\% & 48\% & 47\% & 48\% & - & - \\ 
-  \hline \hline
-  Export Volume kt & 278.9 & 192.2 & 303.5 & 314.7 & 360.4 & 395.0 & 377.8 & 378.6 & 222.5 \\ 
-  Export Value M \$ &  \$867.4  &  \$635.2  &  \$924.3  &  \$938.4  &  \$968.1  &  \$1,081.7  &  \$1,038.2  &  \$988.8  &  \$594.5  \\ 
-  Export Price/lb \$ & 1.41 & 1.50 &  \$1.38  &  \$1.35  &  \$1.22  &  \$1.24  &  \$1.25  &  \$1.18  &  \$1.21  \\ 
-  \hline
-  Japan Volume Share & 34.4\% & 26.6\% & 20.6\% & 24.0\% & 18.2\% & 22.1\% & 25.0\% & 20.1\% & 23.0\% \\ 
-  Japan Value share & 38.1\% & 26.3\% & 18.7\% & 22.1\% & 17.2\% & 21.7\% & 25.5\% & 20.3\% & 25.6\% \\ 
-  China Volume Share & 3.1\% & 9.0\% & 13.1\% & 11.2\% & 14.7\% & 14.7\% & 12.7\% & 11.7\% & 15.0\% \\ 
-  China Value share & 2.2\% & 6.9\% & 10.8\% & 9.0\% & 11.8\% & 12.0\% & 10.5\% & 9.7\% & 12.5\% \\ 
-  Germany Volume Share & 16.7\% & 19.9\% & 20.6\% & 22.2\% & 22.8\% & 23.4\% & 21.4\% & 19.3\% & 11.1\% \\ 
-  Germany Value share & 14.5\% & 21.2\% & 21.1\% & 22.8\% & 24.2\% & 24.3\% & 21.3\% & 19.2\% & 11.0\% \\ 
-  \hline
-  Fish Volume Share & 32.7\% & 52.2\% & 50.5\% & 47.0\% & 51.2\% & 53.8\% & 49.2\% & 49.3\% & 45.3\% \\ 
-  Fish Value share & 27.2\% & 48.5\% & 48.8\% & 45.4\% & 50.8\% & 51.6\% & 46.2\% & 46.3\% & 41.9\% \\ 
-  Surimi Volume Share & 56.9\% & 45.7\% & 43.8\% & 48.0\% & 44.6\% & 40.7\% & 45.4\% & 47.0\% & 46.7\% \\ 
-  Surimi Value share & 37.5\% & 32.7\% & 34.1\% & 42.1\% & 37.4\% & 34.3\% & 39.2\% & 42.4\% & 39.8\% \\ 
-  Roe Volume Share & 10.4\% & 8.2\% & 5.8\% & 5.1\% & 4.2\% & 5.5\% & 5.4\% & 3.7\% & 8.0\% \\ 
-  Roe Value share & 35.3\% & 22.8\% & 17.1\% & 12.6\% & 11.8\% & 14.1\% & 14.6\% & 11.2\% & 18.2\% \\ 
-  \hline
+Global Pollock Catch kt & 2,854 & 2,662 & 3,241 & 3,245 & 3,373 & 3,476 & - & - \\ 
+  U.S. Share of Global Catch & 52\% & 35\% & 40\% & 44\% & 44\% & 44\% & - & - \\ 
+  Russian Share of global catch & 37\% & 53\% & 49\% & 47\% & 48\% & 50\% & - & - \\ 
+  BSAI share of global & 51\% & 33\% & 38\% & 40\% & 39\% & 39\% & - & - \\ 
+  Export Volume kt & 278.9 & 192.2 & 326.2 & 395.0 & 377.8 & 379.6 & 398.0 & 243.8 \\ 
+  Export Value M \$ &  \$867.4  &  \$635.2  &  \$943.6  &  \$1,081.7  &  \$1,038.2  &  \$990.5  &  \$1,007.6  &  \$671.5  \\ 
+  Export Price/lb \$ &  \$1.41  &  \$1.50  &  \$1.31  &  \$1.24  &  \$1.25  &  \$1.18  &  \$1.15  &  \$1.25  \\ 
+  Japan Volume Share & 34.4\% & 26.6\% & 20.8\% & 22.1\% & 25.0\% & 20.1\% & 21.7\% & 23.4\% \\ 
+  Japan Value share & 38.1\% & 26.3\% & 19.3\% & 21.7\% & 25.5\% & 20.2\% & 22.9\% & 29.4\% \\ 
+  China Volume Share & 3.1\% & 9.0\% & 13.1\% & 14.7\% & 12.7\% & 11.9\% & 14.8\% & 13.8\% \\ 
+  China Value share & 2.2\% & 6.9\% & 10.5\% & 12.0\% & 10.5\% & 9.9\% & 12.6\% & 9.9\% \\ 
+  Germany Volume Share & 16.7\% & 19.9\% & 21.9\% & 23.4\% & 21.4\% & 19.3\% & 10.9\% & 8.0\% \\ 
+  Germany Value share & 14.5\% & 21.2\% & 22.7\% & 24.3\% & 21.3\% & 19.2\% & 11.0\% & 7.6\% \\ 
+  Meat Volume Share & 32.7\% & 46.1\% & 49.6\% & 53.8\% & 49.2\% & 49.4\% & 48.8\% & 48.6\% \\ 
+  Meat Value share & 27.2\% & 44.5\% & 48.3\% & 51.6\% & 46.2\% & 46.4\% & 46.6\% & 40.2\% \\ 
+  Surimi Volume Share & 56.9\% & 45.7\% & 45.4\% & 40.7\% & 45.4\% & 46.9\% & 46.6\% & 42.9\% \\ 
+  Surimi Value share & 37.5\% & 32.7\% & 37.9\% & 34.3\% & 39.2\% & 42.4\% & 42.3\% & 39.3\% \\ 
+  Roe Volume Share & 10.4\% & 8.2\% & 4.9\% & 5.5\% & 5.4\% & 3.7\% & 4.6\% & 8.5\% \\ 
+  Roe Value share & 35.3\% & 22.8\% & 13.8\% & 14.1\% & 14.6\% & 11.2\% & 11.1\% & 20.5\% \\ 
+   \hline
 \end{tabular}
 }
-Notes: 2017 data thru July; Exports are from the US and are note specific to the BSAI region.\\
+Notes: 2018 data thru July; Exports are from the US and are note specific to the BSAI region. 'Meat' 
+includes fillets, H\&G, minced and other non-surimi meat based products.\\
 Source: FAO Fisheries \& Aquaculture Dept. Statistics
 \url{http://www.fao.org/fishery/statistics/en}. NOAA Fisheries, Fisheries Statistics
 Division, Foreign Trade Division of the U.S. Census Bureau,
@@ -361,34 +366,34 @@ of Agriculture
 \url{http://www.ers.usda.gov/data-products/agricultural-exchange-rate-data-set.aspx.}
 \end{table}
 
+\clearpage
 
-\begin{table}[ht]
+\begin{table}[hb]
   \centering
-  \caption{BSAI pollock fish oil production index (tons of oil per 100 tons of
-retained catch); 2005-2007 average, 2008-2010 average, and 2011-2016.}
+  \caption{BSAI pollock fish oil production index (tons of oil per 100 tons of retained catch); 2005--2007 average, the 2008--2010 average, the 2011--2013 average, and annual from 2014--2017.}
   \label{tab:bsaiplck_oil}
-\begin{tabular}{lrrrrrrrr}
+\begin{tabular}{lrrrrrrr}
   \hline
- & Avg 05-07 & Avg 08-10 & 2011 & 2012 & 2013 & 2014 & 2015 & 2016 \\ 
+sector & Avg 05--07 & Avg 08--10 & Avg 11--13 & 2014 & 2015 & 2016 & 2017 \\ 
   \hline
-All Sectors & 1.26 & 2.04 & 1.79 & 1.61 & 1.90 & 2.20 & 1.85 & 2.07 \\
-Shoreside   & 2.07 & 2.57 & 2.00 & 1.89 & 2.11 & 2.42 & 1.94 & 2.28 \\
-At-sea      & 0.31 & 1.42 & 1.55 & 1.31 & 1.67 & 1.96 & 1.74 & 1.84 \\
-  \hline \\
+All Sectors & 1.25 & 2.03 & 1.76 & 2.19 & 1.84 & 2.06 & 1.92 \\ 
+  Shoreside & 2.07 & 2.58 & 2.00 & 2.42 & 1.94 & 2.28 & 2.09 \\ 
+  At Sea & 0.30 & 1.41 & 1.50 & 1.94 & 1.72 & 1.82 & 1.74 \\ 
+   \hline
+  & & & & & & & \\ 
 \end{tabular}
-
-Source: NMFS Alaska Region Blend and Catch-accounting System estimates; NMFS  
-Alaska Region At-sea Production Reports; and ADF\&G Commercial Operators Annual  
-Reports (COAR). Data compiled and provided by the Alaska Fisheries Information  
-Network (AKFIN).
-
+Source: NMFS Alaska Region Blend and Catch-accounting System estimates; NMFS
+Alaska Region At-sea Production Reports; and ADF\&G Commercial Operators
+Annual  Reports (COAR). Data compiled and provided by the Alaska Fisheries
+Information  Network (AKFIN).
 \end{table}
 
+<!-- catch-age? -->
 \begin{table}[ht]
 \centering
 \caption{`r tabcap[10]`} 
 \label{tab:`r tablab[10]`} 
-\scalebox{.83}{
+\scalebox{.8}{
 \begin{tabular}{crrrrrrrrrrrrrrr}
 \hline
 Year & 1     & 2     & 3       & 4       & 5       & 6     & 7     & 8     & 9     & 10    & 11    & 12   & 13   & 14+  & Total \\
@@ -431,8 +436,9 @@ Year & 1     & 2     & 3       & 4       & 5       & 6     & 7     & 8     & 9  
 2014 & -     & 39.6  & 31.4    & 168.6   & 397.4   & 752.2 & 210.3 & 86.3  & 29.2  & 9.0   & 4.6   & 4.7  & 4.5  & 9.0  & 1,747 \\
 2015 & -     & 15.7  & 633.2   & 194.8   & 229.1   & 385.2 & 509.4 & 88.2  & 43.0  & 17.2  & 3.2   & 2.2  & 3.3  & 4.0  & 2,128 \\
 2016 & -     & 0.5   & 91.7    & 1,389.7 & 159.3   & 175.3 & 175.5 & 223.1 & 34.7  & 13.2  & 7.9   & 0.5  & 1.3  & -    & 2,273 \\
+2017 &   0.0 &   2.0 & 29.8    & 551.4   & 894.6   & 214.7 & 147.5 & 123.2 & 96.3  & 21.5  & 7.8   & 6.3  & 0.6  &  0.4 & 2,096 \\
 \hline
-Avg. & 3.7   & 55.9  & 210.7   & 375.4   & 376.7   & 323.6 & 207.8 & 114.0 & 64.7  & 33.8  & 23.8  & 12.0 & 8.3  & 11.7 & 1,822 \\
+Avg.    &   6.5 &   54.5    &   206.0   &   379.9   &   390.0   &   320.8   &   206.3   &   114.3   &   65.5    &   33.5    &   23.4    &   11.9    &   8.1 &   11.7    &   1,829   \\
 \hline
 \end{tabular}
 }
@@ -488,6 +494,7 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 2014    &   55,954  &   58,097  &   46,568  &   51,950  &   46,643  &   46,202  &   305,414 \\
 2015    &   55,646  &   56,507  &   45,074  &   41,218  &   46,237  &   43,084  &   287,766 \\
 2016    &   57,478  &   59,000  &   10,264  &   9,016   &   72,973  &   69,669  &   278,400 \\
+2017    &   55,965  &   64,728  &   15,871  &   14,136  &   70,285  &   66,026  &   287,011 \\
 \hline
 \end{tabular}
 \end{table}
@@ -541,7 +548,8 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 2013     & 6,525  & 5,690       & 4,313  & 3,613       & 4,920 & 4,849   & 29,910 \\
 2014     & 5,675  & 5,871       & 4,753  & 5,180       & 4,785 & 4,652   & 30,916 \\
 2015     & 5,310  & 5,323       & 4,645  & 4,188       & 4,337 & 4,011   & 27,766 \\
-2016     & 4,826  & 5,128       & 5,950  & 5,674       & 920   & 784     & 23,282 \\
+2016     & 5,312  & 5,725       & 1,077  & 909         & 6,872 & 6,635   & 26,530 \\
+2017     & 5,238  & 6,047       & 1,586  & 1,343       & 6,575 & 6,254   & 27,043 \\
 \hline
 \end{tabular}
 \end{table}
@@ -592,6 +600,7 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 2014 & 609   & 629   & 475 & 553 & 413   & 407   & 3,086  \\
 2015 & 653   & 642   & 502 & 509 & 511   & 491   & 3,308  \\
 2016 & 488   & 599   & 929 & 969 & 157   & 125   & 3,267  \\
+2017 & 604   & 778   & 777 & 753 & 179   & 163   & 3,254 \\
 \hline
 \end{tabular}
 \end{table}
@@ -600,31 +609,41 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 ```
 
 \clearpage
-
+<!-- sample size -->
 ```{r input_n,results="asis",echo=FALSE}
- i_bts=1; i_eit=1
- i=1982
- tab <- data.frame()
- for (i in 1978:thisyr){
-    t <- c(i,0,0,0)
-    if(M$Yr[i-1963]==i) {
+    i_bts=1; i_eit=1
+    i=1982
+    tab <- data.frame()
+    for (i in 1978:thisyr)
+    {
+      t <- c(i,0,0,0)
+      if(M$Yr[i-1963]==i) 
+      {
         t[2] <- M$sam_fsh[i-1963]
-  } else t[2] <- 0
-    if(M$yr_bts[i_bts]==i) {
+      } 
+      else 
+        t[2] <- 0
+      if(M$yr_bts[i_bts]==i) 
+      {
         t[3] <- M$sam_bts[i_bts]
         i_bts <- i_bts+1
-        } else t[3] <- NA
-    if(M$yr_eit[i_eit]==i && i_eit<=length(M$yr_eit)) {
+      } 
+      else 
+        t[3] <- NA
+      if(M$yr_eit[i_eit]==i && i_eit<=length(M$yr_eit)) 
+      {
         t[4] <- M$sam_eit[i_eit]
         i_eit <- i_eit+1
-        } else t[4] <- NA
-    tab <- rbind(tab, t)
- }
- names(tab) <- c("Year", "Fishery", "BTS", "ATS")
- cap <- tabcap[23]
- lab <- paste0("tab:",tablab[23])
- tab <- xtable(tab, caption = cap, label=lab, big.mark="," ,digits=0)
- print(tab, caption.placement = "top",digits=0,big.mark=",",include.rownames = FALSE, sanitize.text.function = function(x){x})
+      } 
+      else 
+        t[4] <- NA
+      tab <- rbind(tab, t)
+    }
+    names(tab) <- c("Year", "Fishery", "BTS", "ATS")
+    cap <- tabcap[23]
+    lab <- paste0("tab:",tablab[23])
+    tab <- xtable(tab, caption = cap, label=lab, big.mark="," ,digits=0)
+    print(tab, caption.placement = "top",digits=0,big.mark=",",include.rownames = FALSE, sanitize.text.function = function(x){x})
 ```
 
 \clearpage 
@@ -635,12 +654,12 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 \centering
 \caption{`r tabcap[24]`}
 \label{tab:`r tablab[24]`}
-\scalebox{0.75}{
+\scalebox{0.70}{
 \begin{tabular}{crrrrrrrrrrrrrrr}
 \hline
 Year & 1     & 2     & 3     & 4     & 5     & 6     & 7     & 8     & 9     & 10    & 11    & 12    & 13    & 14    & 15    \\
 \hline
-1964-90 & 0.007 & 0.170 & 0.303 & 0.447 & 0.589 & 0.722 & 0.84 & 0.942 & 1.029 & 1.102 & 1.163 & 1.212 & 1.253 & 1.286 & 1.312 \\
+1964--90 & 0.007 & 0.170 & 0.303 & 0.447 & 0.589 & 0.722 & 0.84 & 0.942 & 1.029 & 1.102 & 1.163 & 1.212 & 1.253 & 1.286 & 1.312 \\
 1991 & 0.007 & 0.150 & 0.286 & 0.476 & 0.604 & 0.728 & 0.839 & 0.873 & 1.014 & 1.127 & 1.129 & 1.251 & 1.240 & 1.308 & 1.249 \\
 1992 & 0.007 & 0.179 & 0.394 & 0.462 & 0.647 & 0.701 & 0.812 & 0.982 & 1.031 & 1.210 & 1.226 & 1.272 & 1.199 & 1.340 & 1.430 \\
 1993 & 0.007 & 0.331 & 0.497 & 0.610 & 0.650 & 0.754 & 0.904 & 1.039 & 1.211 & 1.232 & 1.391 & 1.538 & 1.610 & 1.646 & 1.584 \\
@@ -667,9 +686,14 @@ Year & 1     & 2     & 3     & 4     & 5     & 6     & 7     & 8     & 9     & 1
 2014 & 0.014 & 0.193 & 0.316 & 0.455 & 0.617 & 0.751 & 0.894 & 1.154 & 1.310 & 1.370 & 1.692 & 1.815 & 1.733 & 1.658 & 2.236 \\
 2015 & 0.025 & 0.181 & 0.403 & 0.463 & 0.571 & 0.690 & 0.786 & 0.887 & 1.145 & 1.201 & 1.378 & 1.892 & 1.452 & 1.603 & 2.627 \\
 2016 & 0.025 & 0.181 & 0.407 & 0.531 & 0.557 & 0.648 & 0.732 & 0.801 & 0.943 & 1.047 & 1.201 & 0.637 & 1.088 & 1.870 & 1.638 \\
-\hline
-Avg  & 0.015 & 0.199 & 0.360 & 0.506 & 0.640 & 0.762 & 0.888 & 1.021 & 1.158 & 1.263 & 1.370 & 1.453 & 1.493 & 1.542 & 1.687 \\
-CV   & NA    & 26\%  & 16\%  & 11\%  & 7\%   & 8\%   & 12\%  & 13\%  & 13\%  & 14\%  & 13\%  & 18\%  & 19\%  & 23\%  & 24\%  \\
+2017 & 0.025 & 0.191 & 0.404 & 0.498 &  0.651    &  0.694    &  0.751    &  0.827    &  0.894    &  0.912    &  1.019    &  1.097    &  1.278    &  1.460    &  1.657  \\
+\hline   
+Avg &   0.016   &   0.199   &   0.360   &   0.506   &   0.640   &   0.762   &   0.888   &   1.021   &   1.158   &   1.263   &   1.370   &   1.453   &   1.493   &   1.542   &   1.687   \\
+CV  &   NA  &   25\%    &   16\%    &   11\%    &   7\% &   8\% &   12\%    &   13\%    &   13\%    &   14\%    &   13\%    &   18\%    &   19\%    &   23\%    &   24\%    \\
+\hline   
+2018 & 0.025 & 0.191  & 0.363 & 0.507 & 0.656 & 0.804 & 0.851 & 0.930 & 1.050 & 1.157 & 1.321 & 1.491 & 1.629 & 1.786 & 1.888 \\ 
+2019 & 0.025 & 0.191  & 0.399 & 0.490 & 0.636 & 0.784 & 0.927 & 0.969 & 1.040 & 1.152 & 1.250 & 1.406 & 1.568 & 1.698 & 1.847 \\ 
+2020 & 0.025 & 0.191  & 0.399 & 0.526 & 0.620 & 0.764 & 0.907 & 1.045 & 1.079 & 1.141 & 1.245 & 1.335 & 1.482 & 1.637 & 1.760 \\ 
 \hline
 \multicolumn{14}{c}{Sampling CV (from bootstrap), ages 1 and 2 were excluded}                                                                \\
 \hline
@@ -699,77 +723,73 @@ CV   & NA    & 26\%  & 16\%  & 11\%  & 7\%   & 8\%   & 12\%  & 13\%  & 13\%  & 1
 2014    &  & & 2\% & 1\% & 1\% & 1\% & 2\% & 3\%  & 6\% & 14\% & 16\% & 19\% & 16\% & 22\% & 17\% \\
 2015    &  & & 2\% & 1\% & 1\% & 0\% & 2\% & 3\%  & 5\% & 13\% & 16\% & 20\% & 15\% & 23\% & 16\% \\
 2016    &  & & 2\% & 1\% & 1\% & 0\% & 2\% & 3\%  & 5\% & 13\% & 16\% & 20\% & 15\% & 23\% & 16\% \\
+2017    &  & & 1\% & 1\% & 1\% & 1\% & 2\% & 2\%  & 5\% &  8\% & 14\% & 1\%  & 22\% & 11\% & 15\%\\
 \hline
 \end{tabular}
 }
 \end{table}
+<!-- \hline -->
+<!-- 2018 & &  & 8\% & 4\% & 2\% & 1\% & 1\% & 1\% & 1\% & 1\% & 1\% & 1\% & 1\% & 1\% & 1\% \\  -->
+<!-- 2019 & &  & 15\% & 11\% & 8\% & 6\% & 5\% & 4\% & 4\% & 3\% & 3\% & 2\% & 2\% & 2\% & 1\% \\  -->
+<!-- 2020 & &  & 15\% & 14\% & 11\% & 9\% & 7\% & 6\% & 5\% & 5\% & 4\% & 3\% & 3\% & 2\% & 2\% \\  -->
 
 \clearpage
+```{r modfits, results = "asis"}
+# Fit to data------------------- 
+df <- NULL
+ii=1
+mod_scen <- c(2,3,5)
+for (ii in mod_scen)
+{
+    x         <- modlst[[ii]]
+    rmse_bts  <- round(x$rmse_bts,2); names(rmse_bts)   <- paste0("RMSE BTS")
+    rmse_ats  <- round(x$rmse_ats,2); names(rmse_ats)   <- paste0("RMSE ATS")
+    rmse_avo  <- round(x$rmse_avo,2); names(rmse_avo)   <- paste0("RMSE AVO")
+    rmse_cpue <- round(x$rmse_cpue,2); names(rmse_cpue) <- paste0("RMSE CPUE")
+    effn_fsh  <- round(mean(x$EffN_fsh[28:dim(x$EffN_fsh)[1],2]),0); names(effn_fsh) <- paste0("Eff. N Fishery")
+    effn_bts  <- round(mean(x$EffN_bts[,2]),0); names(effn_bts) <- paste0("Eff. N BTS")
+    effn_ats  <- round(mean(x$EffN_ats[,2]),0); names(effn_ats) <- paste0("Eff. N ATS")
+    v      <- c( rmse_bts, rmse_ats, rmse_avo, rmse_cpue, effn_fsh, effn_bts, effn_ats)
+    df     <- cbind(df, v)
+}
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Component",mod_names[mod_scen])
+tab <- xtable(df, caption = "Goodness of fit to primary data used for assessment model parameter estimation for different model configurations, EBS pollock.", label = "tab:mod_fits", digits = 3,align="llrrr")
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
+```
 
-\begin{table}[ht]
-\centering
-\caption{`r tabcap[27]`}
-\label{tab:`r tablab[27]`}
-\begin{tabular}{lrr}
-\hline
-Biomass                      & 2016 Assessment      &2017 Assessment                  \\
-\hline
-Year `r nextyr` spawning biomass           & 4,600,000 t & `r ssb1s` t                \\
-(CV)                                       & (14\%)      & (`r round(100*nextyrssb.cv,0)`\%)  \\
-`r thisyr` spawning biomass                & 4,070,000 t &  `r curssbs`,000 t         \\
-$B_{MSY}$                                  & 2,165,000 t & `r bmsys`,000  t           \\
-(CV)                                       & (20\%) & `r round(100*bmsy.cv,0)`\%      \\
-SPR\%\@$F_{MSY}$                           & 30\%        & `r round(100*sprmsy,0)`\%  \\
-$B_{40\%}$                                      & 2,643,000 t & `r b40s`,000 t        \\
-$B_{35\%}$                                      & 2,313,000 t & `r b35s`,000 t        \\
-$B_{0}$ (stock-recruitment curve)               & 5,700,000 t & `r b0s `,000 t        \\
-\hline
-2017 Percent of $B_{MSY}$ spawning biomass      & 212\%      & `r round(100*curssb/bmsy,0)`\% \\       
-Estimated $B_{2017}$ over $B_{2017}$ without fishing mortality      & 0.66       & `r round(dynb0,2)`          \\
-\hline
-\multicolumn{3}{l}{Recruitment (millions of pollock at age 1) }        \\
-Steepness parameter (h)                    & 0.686      &  `r round(steep,3)`    \\
-Average recruitment (all yrs)              & 24,350     &  `r avgrecs`  \\
-2000 year class                            & 35,844     &  `r yc2000s`   \\
-2006 year class                            & 25,928     &  `r yc2006s`   \\
-2008 year class                            & 56,100     &  `r yc2008s`   \\
-2012 year class                            & 63,900     &  `r yc2012s`   \\
-\hline
-Natural Mortality (age 3 and older)        & 0.3       &    0.3         \\ 
-\hline
-\end{tabular}
-\end{table}
+```{r mgt_quants, results = "asis"}
+# Mgt quants by model
+df <- NULL
+mod_scen <- 2:5
+for (ii in mod_scen)
+{
+    x      <- modlst[[ii]]
+    ssb    <- x$nextyrssbs;         names(ssb)    <- paste0("${B}_{", nextyr ,"}$")
+    ssbcv  <- round(x$nextyrssb.cv,2);  names(ssbcv)      <- paste0("$CV_{B_{", nextyr ,"}}$")
+    Bmsy   <- x$bmsys;         names(Bmsy)   <- "$B_{MSY}$"
+    Bmsycv <- round(x$bmsy.cv,2); names(Bmsycv) <- "$CV_{B_{MSY}}$"
+    spr    <- paste0(round(x$sprmsy*100,0),"\\%");       names(spr)    <- "SPR rate at $F_{MSY}$"
+    b35    <- x$b35s ;                 names(b35)    <- paste0("$B_{35\\%}$")
+    pbmsy  <- paste0(round(100*x$ssb1/x$bmsy,0),"\\%");    names(pbmsy)<- paste0("${B}_{", nextyr ,"}/B_{MSY}$")
+    bzero  <- x$b0s ;                 names(bzero)    <- paste0("$B_0$")
+    dynb0  <- x$dynb0s;      names(dynb0) <- "Est. $B_{2018} / B_{2018,no fishing}$"
+    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- "$B_{2018} / B_{MSY}$"
+    steep  <- round(x$steep,2);                 names(steep) <- "Steepness"
+    v      <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero,b35, spr ,steep, dynb0,b_bmsy)
+    df     <- cbind(df, v)
+}
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Component",mod_names[mod_scen])
+tab <- xtable(df, caption = tabcap[27], label = "tab:mgt_quants", digits = 3,align="llrrrr")
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
+```
 
-\clearpage
-
-\begin{table}[ht]
-\centering
-\caption{`r tabcap[28]`}
-\label{tab:`r tablab[28]`}
-\begin{tabular}{lr}
-\hline
-Description                       & Value       \\
-\hline
-`r nextyr` fishable biomass (GM)  & `r ABC_biom1s`,000 t \\
-Equilibrium fishable biomass at $MSY$        & `r bmsyrs`,000 t      \\
-\hline
-$MSYR$ (HM)                       & `r round(maxFabc,3) ` \\
-`r nextyr` Tier 1 ABC             & `r maxabc1s` t       \\
-\hline
-$OFL$                            &                       \\
-$MSYR$ (AM)                      & `r arithmeanF`        \\
-`r nextyr` Tier 1 OFL            & `r ofl1s` t           \\
-\hline
-Recommended $F_{ABC}$            & `r round(fabc,3)` t   \\
-Recommended $ABC$                & `r abc1s` t           \\
-\hline
-\end{tabular}
-\end{table}
 
 ```{r Nage, results="asis",echo=FALSE}
 tmp <- cbind(M$Yr,M$N[,1:9]/1000,rowSums(M$N[,10:15])/1000)
 colnames(tmp) <- c("Year",1:9,"10+")
-tab <- xtable(tmp, digits=2, auto=TRUE,caption = "Estimated billions of EBS pollock at age (columns 2-11) from the 2017 model." , 
+tab <- xtable(tmp, digits=2, auto=TRUE,caption = "Estimated billions of EBS pollock at age (columns 2--11) from the 2018 assessment model." , 
               label = "tab:est_n")
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=0.8)
 ```
@@ -779,7 +799,7 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 ```{r Cage,results="asis",echo=FALSE}
 tmp <- cbind(M$Yr,M$C[,1:9],rowSums(M$C[,10:15]))
 colnames(tmp) <- c("Year",1:9,"10+")
-tab <- xtable(tmp, digits=2, auto=TRUE,caption = "Estimated millions of EBS pollock caught at age (columns 2-11) from the 2017 model." ,
+tab <- xtable(tmp, digits=2, auto=TRUE,caption = "Estimated millions of EBS pollock caught at age (columns 2--11) from the 2018 assessment model." ,
               label = "tab:est_catage")
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=0.8)
 ```
@@ -787,12 +807,10 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 \clearpage
 
 ```{r ssb,results="asis",echo=FALSE}
-tmp <- cbind(M$SSB[,1:2],round(100*M$SSB[,3]/M$SSB[,2],0))
-t2  <- cbind(M$R[,2],round(100*M$R[,3]/M$R[,2],0))
-t3  <- cbind(M$age3plus,round(100*M$age3plus.cv,0))
-tmp <- cbind(tmp,t3,t2)
-colnames(tmp) <- c("Year","SSB","CV\\%","Biomass 3+","CV\\%","Rec","CV\\%")
-tmp[,c(2,4,6)]   <- formatC(tmp[,c(2,4,6)], format="d", big.mark=",") 
+tmp <- data.frame(Year=M$SSB[,1], SSB=M$SSB[,2], "CV SSB"=round(100*M$SSB[,3]/M$SSB[,2],0), Recruitment=M$R[,2],"CV Rec. %"=round(100*M$R[,3]/M$R[,2],0),
+       "Age 3+ Biomass"=M$age3plus,"CV %"=round(100*M$age3plus.sd/M$age3plus,0))
+for (i in c(2,4,6) )
+  tmp[,i]   <- formatC(tmp[,i], format="d", digits=0, big.mark=",") 
 tab <- xtable(tmp, caption = tabcap[31], label = paste0("tab:",tablab[31]),digits=0,auto=TRUE,align=rep("r",(length(tmp[1,])+1)))
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.80)
 ```
@@ -801,8 +819,9 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 ```{r biom_3plus,results="asis",echo=FALSE}
 cap <- tabcap[32]
 biom <- read.csv("data/Age3plus.csv",header=T,as.is=TRUE)
-t3  <- cbind(biom[,1],M$age3plus,M$age3plus.cv,biom[,2:13])
-names(t3) <- c("Year","Current","CV","2016","CV", "2015","CV","2014","CV","2013","CV","2012","CV","2011","CV")
+#biom <- read.csv("data/Age3history.csv",header=T,as.is=TRUE)
+t3  <- cbind(biom[,1],M$age3plus ,M$age3plus.sd/M$age3plus ,biom[,2:13])
+names(t3) <- c("Year","Current","CV","2017","CV","2016","CV", "2015","CV","2014","CV","2013","CV","2012","CV")
 for (i in seq(2,length(t3[1,]),2 ) ){
       t3[,i]   <- formatC(t3[,i], format="d", big.mark=",",digits=0) 
       t3[,i+1] <- formatC( t3[,i+1]*100, format="d", digits=0,big.mark=",") 
@@ -812,9 +831,65 @@ tab <- xtable(t3, caption = cap, label=paste0("tab:",tablab[32]),digits=0, auto=
 print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.85)
 ```
 
+```{r res_summ, results = "asis"}
+# Mgt quants by final
+df <- NULL
+    x      <- modlst[[thismod]]
+    ssb    <- x$nextyrssbs;         names(ssb)    <- paste0("${B}_{", nextyr ,"}$")
+    ssbcv  <- round(x$nextyrssb.cv,2);  names(ssbcv)      <- paste0("$CV_{B_{", nextyr ,"}}$")
+    Bmsy   <- x$bmsys;         names(Bmsy)   <- "$B_{MSY}$"
+    Bmsycv <- round(x$bmsy.cv,2); names(Bmsycv) <- "$CV_{B_{MSY}}$"
+    spr    <- paste0(round(x$sprmsy*100,0),"\\%");       names(spr)    <- "SPR rate at $F_{MSY}$"
+    b35    <- x$b35s ;                 names(b35)    <- paste0("$B_{35\\%}$")
+    pbmsy  <- paste0(round(100*x$ssb1/x$bmsy,0),"\\%");    names(pbmsy)<- paste0("${B}_{", nextyr ,"}/B_{MSY}$")
+    bzero  <- x$b0s ;                 names(bzero)    <- paste0("$B_0$")
+    dynb0  <- x$dynb0s;      names(dynb0) <- "Est. $B_{2018} / B_{2018,no fishing}$"
+    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- "$B_{2018} / B_{MSY}$"
+    steep  <- round(x$steep,2);                 names(steep) <- "Steepness"
+    v      <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero,b35, spr ,steep, dynb0,b_bmsy)
+    df     <- cbind(df, v)
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Component",mod_names[thismod])
+tab <- xtable(df, caption = "Summary of model 16.1 results and the stock condition for EBS pollock. Biomass units are thousands of t.", label = "tab:res_summ", digits = 3,align="llr")
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
+```
+
+
+```{r tier1proj, results = "asis"}
+# Tier 1 projections
+df <- NULL
+mod_scen <- 2
+for (ii in mod_scen)
+{
+    x       <- modlst[[ii]]
+    abcbiom <- paste0(x$ABC_biom1s,",000");         
+    names(abcbiom)    <- paste0(nextyr," fishable biomass (GM)")
+    msybiom           <- paste0(x$bmsyrs,",000");         
+    names(msybiom)    <- paste0("Equilibrium fishable biomass at MSY")
+    msyr        <- round(x$harmeanF,3);  
+    names(msyr) <- ("MSY R (HM)")
+    tier1abc        <- x$maxabc1s;  
+    names(tier1abc) <- paste(nextyr,"Tier 1 ABC")
+    fofl            <- x$arithmeanF;         
+    names(fofl)     <- paste(nextyr,"Tier 1 $F_{OFL}$")
+    ofl        <- x$ofl1s;         
+    names(ofl) <- paste(nextyr,"Tier 1 OFL")
+    fabc        <- round(0.85*x$harmeanF,3);  
+    names(fabc) <- ("MSY R (HM)")
+    recabc         <- x$abc1s;  
+    names(recabc)  <- "Recommended ABC"
+    v      <- c(abcbiom,msybiom,msyr,tier1abc,fofl,ofl,fabc,recabc)
+    df     <- cbind(df, v)
+}
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Component",mod_names[mod_scen])
+tab <- xtable(df, caption = tabcap[28], label = paste0("tab:",tablab[28]), digits = 3,align=paste0("ll",strrep("r",length(mod_scen))) )
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
+```
+
 \clearpage
 
-```{r projtab}
+```{r projtab, results = "asis"}
 # 40,tier3_C,"Tier 3 projections of EBS pollock catch for the 7 scenarios.
 # 41,tier3_ABC,"Tier 3 projections of EBS pollock ABC (given catches in Table \ref{tab:tier3_C}) for the 7 scenarios.
 # 42,tier3_F,"Tier 3 projections of EBS pollock fishing mortality for the 7 scenarios. 
@@ -855,10 +930,19 @@ print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.fun
 byc <- read.csv("data/byc_in_pollock.csv",header=T,as.is=TRUE)
 for (i in 2:length(byc[1,]) ) 
   byc[,i] <- formatC(byc[,i], format="d", big.mark=",") 
-cap <- "Bycatch estimates (t) of FMP species caught in the BSAI directed pollock fishery, 1997-2017 based on then NMFS Alaska Regional Office reports from observers (2017 data are preliminary). "
+cap <- "Bycatch estimates (t) of FMP species caught in the BSAI directed pollock fishery, 1997--2018 based on then NMFS Alaska Regional Office reports from observers (2018 data are preliminary). "
 tab <- xtable(byc, caption = cap, label="tab:fmpbycatch",digits=0, auto=TRUE, align=rep("r",(length(byc[1,])+1)) )
 print(tab, caption.placement = "top",include.rownames = FALSE, rotate.colnames = TRUE,sanitize.text.function = function(x){x}, 
        scalebox=.85)
+
+byc <- read.csv("data/byc_of_pollock.csv",header=T)
+for (i in 2:length(byc[1,]) ) 
+  byc[,i] <- formatC(byc[,i], format="d", big.mark=",") 
+cap <- tabcap[38]
+lab <- tablab[38]
+tab <- xtable(byc, caption = cap, label=paste0("tab:",tablab[38]),digits=2, auto=TRUE, align=rep("r",(length(byc[1,])+1)) )
+print(tab, caption.placement = "top",include.rownames = FALSE, rotate.colnames = TRUE,sanitize.text.function = function(x){x}, 
+       scalebox=.90, format.args = list( decimal.mark = "."))
 
 byc <- read.table("data/byc_nontarg.csv",header=T)
 for (i in 2:length(byc[1,]) ) 
@@ -866,17 +950,9 @@ for (i in 2:length(byc[1,]) )
 cap <- tabcap[36]
 tab <- xtable(byc, caption = cap, label=paste0("tab:",tablab[36]),digits=2, auto=TRUE, align=rep("r",(length(byc[1,])+1)) )
 print(tab, caption.placement = "top",include.rownames = FALSE, rotate.colnames = TRUE,sanitize.text.function = function(x){x}, 
-       scalebox=.90, format.args = list(big.mark = ",", decimal.mark = "."))
+       scalebox=.90, format.args = list( decimal.mark = "."))
 
-byc <- read.table("data/byc_nontarg.csv",header=T)
-for (i in 2:length(byc[1,]) ) 
-  byc[,i] <- formatC(byc[,i], format="d", big.mark=",") 
-cap <- tabcap[38]
-tab <- xtable(byc, caption = cap, label=paste0("tab:",tablab[38]),digits=2, auto=TRUE, align=rep("r",(length(byc[1,])+1)) )
-print(tab, caption.placement = "top",include.rownames = FALSE, rotate.colnames = TRUE,sanitize.text.function = function(x){x}, 
-       scalebox=.90, format.args = list(big.mark = ",", decimal.mark = "."))
-
-byc <- read.table("data/byc_PSC.csv",header=T,as.is=TRUE)
+byc <- read.csv("data/byc_PSC.csv",header=T,as.is=TRUE)
 for (i in 2:length(byc[1,]) ) 
   byc[,i] <- formatC(byc[,i], format="d", big.mark=",") 
 cap <- tabcap[39]
@@ -890,6 +966,8 @@ print(tab, caption.placement = "top",include.rownames = FALSE, rotate.colnames =
 
 \begin{table}[ht]
 \centering
+\caption{`r tabcap[45]`}
+\label{tab:`r tablab[45]`}
 \scalebox{0.80}{
 \begin{tabular}{p{1.5in}p{1.5in}p{1.5in}p{1.5in}}
 \hline
@@ -898,7 +976,7 @@ Indicator                                                   & Observation       
 \multicolumn{4}{c}{\textbf{Ecosystem effects on EBS pollock}}                                                                          \\
 \hline
 \multicolumn{4}{l}{\textit{Prey availability or abundance trends}} \\
-Zooplankton                                                 & Stomach contents, AT and ichthyoplankton surveys, changes mean wt-at-age & Data improving, indication of increases from 2004-2009 and subsequent decreasees (for euphausiids in 2012 and 2014) & Variable abundance—indicates important recruitment (for prey)                                         \\
+Zooplankton                                                 & Stomach contents, AT and ichthyoplankton surveys, changes mean wt-at-age & Data improving, indication of increases from 2004--2009 and subsequent decreasees (for euphausiids in 2012 and 2014) & Variable abundance-indicates important recruitment (for prey)  \\
 \hline
 \multicolumn{4}{l}{\textit{Predator population trends}} \\
 Marine mammals                                              & Fur seals declining, Steller sea lions increasing slightly               & Possibly lower mortality on pollock                                                                                 & Probably no concern                                                                                   \\
@@ -931,42 +1009,73 @@ Fishery effects on age-at-maturity and fecundity            & Maturity study (go
 
 \begin{table}[ht]
 \centering
-\caption{ Summary of 2016 CIE reviewer comments and responses to date }
-\footnotesize
-\label{tab:CIE_review}
-\scalebox{0.9}{
-\begin{tabular}{p{4.2in}p{2.3in}}
-\hline
-$\normalsize \textbf{Issue}$   &  $\normalsize \textbf{Response}$ \\
-\hline
-Natural mortality is assumed known exactly despite being quite uncertain.   &   Prior has been applied, examined in retrospective runs. \\
-The stock recruitment relationship is very uncertain and although it is estimated it is done so with an artificial and very constraining prior. &   2016 greater evaluation of unconstrained prior used \\
-Uncertain future fishery selectivity is not properly modelled. A well-estimated average is used, whereas a random choice of previous estimated selectivities could be modelled. &   Untrue, miscommunication. Evaluations of historical selectivities for projections has been done \\
-The pdf of FMSY is not well determined as FMSY depends strongly on the stock recruitment relationship, fishery selectivity, and natural mortality   &   PDF is well determined, within alternative structural models uncertainty \\
-Technically correct Bayesian model be developed with a view to replacing the existing model.    &   Posterior distributions added across several models created \\
-Ultimately, a multi-species trophic interaction model may be used for stock assessment, but this should wait until an improved single-species stock assessment model is fully implemented. At that stage, the trophic interaction model and the single-species model could be tested (using an operating model) to see which is likely to provide better stock assessment estimates.    & This work is ongoing   \\
-Ageing: perhaps 1 in 10 of surface-read otoliths should be broken and burnt to confirm that the same reading is obtained.   &   underway \\
-Investigate the trawl survey time series to see if vessel effects can be estimated (using a multiple regression with other explanatory variables, e.g., year, stratum, time-of-day, “weather conditions”).  &   underway \\
-The 3 m cutoff for the acoustic survey should be dispensed with and pollock biomass should be estimated over most of the water column.  &   Done \\
-An analysis of mark types should be undertaken to better understand the length/age composition of pollock marks (which could perhaps lead to a better survey design).   &   Research at MACE on multi-frequency approach to help w/ species classification \\
-More in situ target strength data should be collected for pollock to better define the length-target strength relationship. &   Research at MACE ongoing \\
-It may not be appropriate to include the AVO index in the base model but it should certainly be included in a sensitivity.  &   Done \\
-It is probably better to fit to total biomass rather than total numbers for the trawl survey.   &   Done \\
-For ages 2 years and older, it is better to fit to total biomass rather than total numbers for the acoustic survey. &   Done \\
-Annual mean weight-at-age: the shrinkage of fish should not be allowed to occur, and this may be best achieved by modelling increments in mean fish weight rather than the mean weights.    &   Done \\
-Tighten the random walk and the parameterization on the fishery selectivities and then apply the data weighting methods of Francis (2011).  &   2017 \\
-Incorporate the uncertainty associated with unknown future selectivities into the pdfs of quantities of interest (e.g., FMSY).  &   Done, revisited 2017 \\
-There is clearly some uncertainty associated with M and this needs to be propagated through into the pdf of FMSY and other quantities of interest (i.e., estimate M).   &   2017 \\
-The uncertainty associated with the stock-recruitment relationship needs to be propagated through into the pdf of FMSY and other quantities of interest (i.e., estimate h with a justifiable prior).    &   Done in 2016 \\
-Perform a detailed historical analysis of the length/age composition of the catch in relationship to possible explanatory variables to enable the fishery to be split fisheries into multiple components for the purposes of stock assessment. The minimum split will be into A and B seasons with a processor and catcher fleet to mimic the reality of the fishery.   &   Future project \\
-The information that is known about the survey qs should be included in the stock assessment model through informed priors. &   Implemented via Kotwicki et al. \\
-The objective function, for a Bayesian stock assessment, can and should be derived purely from likelihood components (generated by statistical assumptions with regard to data), prior distributions, and an occasional penalty function (if absolutely necessary). & Agreed   \\
-Incorporation of cannibalism explicitly in the modelling and in the forecasting. Disentangling cannibalism from environmental and climate effects on recruitment hold the most potential for improving knowledge of the stock and the ecosystem functioning &   CEATTLE 2016 \\
-\hline
+\caption{`r tabcap[44]`}
+\label{tab:`r tablab[44]`}
+\scalebox{0.98}{
+\begin{tabular}{L{1.2in}L{2.3in}L{2.8in}}
+\toprule
+Term & Description                                                                                                                              & Rationale                                                                                                                                                                                                                \\
+\midrule
+$P\left[F_{2019}>F_{MSY}\right]$  & Probability that the fishing mortality in 2019 exceeds $F_{MSY}$                 & OFL definition is based on $F_{MSY}$ \\
+\midrule
+$P\left[B_{2020}<B_{MSY}\right]$  & Probability that the spawning biomass in 2020 is less than $B_{MSY}$             & $B_{MSY}$ is a reference point target and biomass in 2020 provides an indication of the impact of 2019 fishing                                                                                   \\
+\midrule
+$P\left[B_{2021}<B_{MSY}\right]$  & Probability that the spawning biomass in 2021 is less than $B_{MSY}$ & $B_{MSY}$ is a reference point target and biomass in 2023 provides an indication of the impact of fishing in 2019 and 2020                                                                       \\
+\midrule
+$P\left[B_{2020}<\bar{B}\right]$  & Probability that the spawning biomass in 2020 is less than the 1978--2018 mean    & To provide some perspective of what the stock condition might be relative to historical estimates after fishing in 2019.                                                                    \\
+\midrule
+$P\left[B_{2023}<\bar{B}\right]$  & Probability that the spawning biomass in 2023 is less than the long term mean & To provide some perspective of what the stock condition might be relative to historical estimates after fishing in 2019.                                                                    \\
+\midrule
+$P\left[B_{2023}<B_{2019}\right]$  & Probability that the spawning biomass in 2023 is less than that estimated for 2019 & To provide a medium term expectation of stock status relative to 2019 levels                                                                                                                \\
+\midrule
+$P\left[B_{2021}<B_{20\%}\right]$  & Probability that the spawning biomass in 2021 is less than $B_{20\%}$            & $B_{20\%}$ had been selected as a Steller Sea Lion lower limit for allowing directed fishing                                                                                                    \\
+\midrule
+$P\left[p_{a_5,2021}>\bar{p}_{a_5}\right]$   & Probability that in 2023 the proportion of age 1--5 pollock in the population exceeds the long-term mean & To provide some relative indication of the age composition of the population relative to the long term mean.                                                                     \\
+\midrule
+$P\left[D_{2020}<D_{1994}\right]$   & Probability that the diversity of ages represented in the spawning biomass (by weight) in 2020 is less than the value estimated for 1994 & To provide a relative index on the abundance of different age classes in the 2020 population relative to 1994 (a year identified as having low age composition diversity)                 \\
+\midrule
+$P\left[D_{2023}<D_{1994}\right]$   & Probability that the diversity of ages represented in the spawning biomass (by weight) in 2023 is less than the value estimated for 1994 & To provide a medium-term relative index on the abundance of different age classes in the population relative to 1994 (a year identified as having low age composition diversity)          \\
+\midrule
+$P\left[E_{2019}>E_{2018}\right]$   & Probability that the theoretical fishing effort in 2019 will be greater than that estimated in 2018.     & To provide the relative effort that is expected (and hence some idea of costs).                                                                                                                     \\
+\bottomrule
 \end{tabular}
 }
 \end{table}
 
 \clearpage
 
+```{r dectable,results="asis",echo=FALSE}
+rn <- c("$P\\left[F_{2019}>F_{MSY}\\right]$",
+"$P\\left[B_{2020}<B_{MSY}\\right]$ ",
+"$P\\left[B_{2021}<B_{MSY}\\right]$ ",
+"$P\\left[B_{2020}<\\bar{B}\\right]$ ",
+"$P\\left[B_{2023}<\\bar{B}\\right]$ ",
+"$P\\left[B_{2023}<B_{2019}\\right]$ ",
+"$P\\left[B_{2021}<B_{20\\%}\\right]$",
+"$P\\left[p_{a_5,2021}>\\bar{p}_{a_5}\\right]$ ",
+"$P\\left[D_{2020}<D_{1994}\\right]$  ",
+"$P\\left[D_{2023}<D_{1994}\\right]$  ",
+"$P\\left[E_{2019}>E_{2018}\\right]$  ")
+  m <- rbind(
+  round(M$pfcur_fmsy*100,1)  ,
+  round(M$pbcur_bmsy*100,1)  ,
+  round(M$pbcur2_bmsy*100,1) ,
+  round(M$pbcur_bmean*100,1) ,
+  round(M$pbcur3_bmean*100,1),
+  round(M$pbcur3_bcur*100,1) ,
+  round(M$pbcur2_b20*100,1)  ,
+  round(M$plta1_5r*100,1)    ,
+  round(M$pmatdiv1*100,1)    ,
+  round(M$pmatdiv2*100,1)    ,
+  round(M$prel_effort*100,1)  )
+  colnames(m) <- round(M$catch_dec_tab,0)
+  rownames(m) <- rn
+  # cap<-"\\label{tab:dec_table} "
+  cap<-"Outcomes of decision (expressed as chances out of 100) given different 2019 catches (first row, in kt). Note that for the 2017 and later year-classes average values were assumed. Constant Fs based on the 2019 catches were used for subsequent years. "
+  ## kable(m,caption=cap,format="pandoc")
+  tab <- xtable(m, caption = cap, label="tab:dec_table",digits=0, auto=TRUE, align=rep("r",(length(m[1,])+1)) )
+  print(tab, caption.placement = "top",include.rownames = TRUE, sanitize.text.function = function(x){x}, scalebox=1)
+```
+
+\clearpage
 
