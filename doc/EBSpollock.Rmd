@@ -62,22 +62,17 @@ source("../runs/pm_18.R")
 ```
 ```{r child = 'ref.Rmd'}
 ```
-\newpage
 ```{r child = 'tab.Rmd'}
 ```
-\newpage
 ```{r child = 'figs.Rmd'}
 ```
-\newpage
 ```{r child = 'model.Rmd'}
 ```
-\newpage
 ```{r child = 'App.Rmd'}
-# \newpage
-# \tableofcontents
-
-# \listoftables
-
-# \listoffigures
 ```
+ \tableofcontents
+
+ \listoftables
+
+ \listoffigures
 

@@ -233,7 +233,7 @@ Year    &   Management  \\
 2015    &   Amendment 110 (BSAI) Salmon prohibited species catch management in the Bering Sea pollock fishery (additional measures that change limits depending on Chinook salmon run-strength indices) and includes additional provisions for reporting requirements (see https://alaskafisheries.noaa.gov/fisheries/chinook-salmon-bycatch-management for update and general information) \\
 2016    &   Measures of amendment 110 go into effect for 2017 fishing season; Chinook salmon runs above the 3-run index value so bycatch limits stay the same   \\
 2017    &   Due to amendment 110 about 45\% of the TAC is taken in the A-season (traditionally only 40\% was allowed). \\
-2018    &   Reduced in-river estimates of Chinook salmon (three river index) below threshold a lower limit for PSC is in force. Also, squid have been recatorigized as an ecosystem component.  \\
+2018    &   In-river estimates of Chinook salmon (three river index) fell below the threshold and therefore a lower PSC limit applies (from a performance standard of 47,491 to 33,318 and a PSC limit from 60,000 to 45,000 Chinook salmon overall). Additionally, squid have been recategorized as an ecosystem component.  \\
 \hline
 \end{tabular}
 \end{table}
@@ -819,6 +819,7 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 ```{r biom_3plus,results="asis",echo=FALSE}
 cap <- tabcap[32]
 biom <- read.csv("data/Age3plus.csv",header=T,as.is=TRUE)
+#biom <- read.csv("data/Age3history.csv",header=T,as.is=TRUE)
 t3  <- cbind(biom[,1],M$age3plus ,M$age3plus.sd/M$age3plus ,biom[,2:13])
 names(t3) <- c("Year","Current","CV","2017","CV","2016","CV", "2015","CV","2014","CV","2013","CV","2012","CV")
 for (i in seq(2,length(t3[1,]),2 ) ){
@@ -975,7 +976,7 @@ Indicator                                                   & Observation       
 \multicolumn{4}{c}{\textbf{Ecosystem effects on EBS pollock}}                                                                          \\
 \hline
 \multicolumn{4}{l}{\textit{Prey availability or abundance trends}} \\
-Zooplankton                                                 & Stomach contents, AT and ichthyoplankton surveys, changes mean wt-at-age & Data improving, indication of increases from 2004--2009 and subsequent decreasees (for euphausiids in 2012 and 2014) & Variable abundance—indicates important recruitment (for prey)                                         \\
+Zooplankton                                                 & Stomach contents, AT and ichthyoplankton surveys, changes mean wt-at-age & Data improving, indication of increases from 2004--2009 and subsequent decreasees (for euphausiids in 2012 and 2014) & Variable abundance-indicates important recruitment (for prey)  \\
 \hline
 \multicolumn{4}{l}{\textit{Predator population trends}} \\
 Marine mammals                                              & Fur seals declining, Steller sea lions increasing slightly               & Possibly lower mortality on pollock                                                                                 & Probably no concern                                                                                   \\
@@ -1069,8 +1070,11 @@ rn <- c("$P\\left[F_{2019}>F_{MSY}\\right]$",
   round(M$prel_effort*100,1)  )
   colnames(m) <- round(M$catch_dec_tab,0)
   rownames(m) <- rn
-  cap<-"\\label{tab:dec_table} Outcomes of decision (expressed as chances out of 100) given different 2019 catches (first row, in kt). Note that for the 2017 and later year-classes average values were assumed. Constant F’s based on the 2019 catches were used for subsequent years. "
-  kable(m,caption=cap,format="pandoc")
+  # cap<-"\\label{tab:dec_table} "
+  cap<-"Outcomes of decision (expressed as chances out of 100) given different 2019 catches (first row, in kt). Note that for the 2017 and later year-classes average values were assumed. Constant Fs based on the 2019 catches were used for subsequent years. "
+  ## kable(m,caption=cap,format="pandoc")
+  tab <- xtable(m, caption = cap, label="tab:dec_table",digits=0, auto=TRUE, align=rep("r",(length(m[1,])+1)) )
+  print(tab, caption.placement = "top",include.rownames = TRUE, sanitize.text.function = function(x){x}, scalebox=1)
 ```
 
 \clearpage

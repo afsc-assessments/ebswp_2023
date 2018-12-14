@@ -52,7 +52,7 @@ $B_0$                                 &	5,394,000 t	&	5,394,000 t	&		`r M$b0s`,0
 $B_{msy}$                             &	2,042,000 t	&	2,042,000 t	&		`r M$bmsys`,000 t	     &	`r M$bmsys`,000 t	  \\
 $F_{OFL}$                             &	0.621	      &	0.621	      &		`r round(M$arithmeanF,3)`	   &	`r round(M$arithmeanF,3)`	\\
 $maxF_{ABC}$                          & 0.466	      &	0.466	      &	  `r round(M$harmeanF,3)`	     &	`r round(M$harmeanF,3)`  	\\
-$F_{ABC}$                             &	0.336       &	0.336       &		`r (M$fabcs)`           &	`r (M$fabcs)`        \\
+$F_{ABC}$                             &	0.336       &	0.336       &		`r (M$fabc1s)`           &	`r (M$fabc2s)`        \\
 $OFL$    	                            &	4,797,000 t	&	4,592,000 t	&	  `r M$ofl1s` t          &	`r M$ofl2s` t       \\
 $maxABC$    	                        &	3,603,000 t	&	3,448,000 t	&		`r M$maxabc1s ` t      &	`r M$maxabc2s ` t   \\
 $ABC$ 	                             &	2,592,000 t	&	2,467,000 t	&		`r M$abc1s ` t         &	`r M$abc2s` t       \\
@@ -106,6 +106,10 @@ SSC and Plan Team 2017 minutes:
 ...request that the authors develop a better prior for steepness, or at least a
 better rationale, and perhaps consider a meta-analytic approach.
 
+_A method outlined in a new meta-analytic paper on steepness using life
+history characteristics was evaluated using a Beverton-Holt stock recruitment
+relationship. This is presented as a model alternative._
+
 The Team requests that the “year class diversity” index that had been reported in previous assessments be included in future assessments.
 
 _This is standard output from the assessment model and a time series of the estimate is provided._
@@ -154,7 +158,7 @@ commonly occur in the NMFS bottom trawl survey. Ages 2 and 3 year old pollock
 are rarely caught in summer bottom trawl survey gear and are more common in
 the  midwater zone as detected by mid-water acoustic trawl surveys. Younger
 pollock are  generally found in the more northern parts of the survey area and
-appear to move to the southeast occurs as they age (Buckley et al. 2009).
+appear to move to the southeast as they age (Buckley et al. 2009).
 Euphausiids, principally _Thysanoessa inermis_ and _T. raschii_, are among the
 most important prey items for pollock in the Bering Sea (Livingston, 1991;
 Lang et al., 2000; Brodeur et al., 2002; Cianelli et al., 2004; Lang et al.,
@@ -169,21 +173,22 @@ other areas.
 ## Stock structure
 
 Data from the survey work in the Northern Bering Sea (NBS) region (north of
-Nunivak Island to the Russian convention line and into Norton Sound) from 2017 and 2018, as shown
-below and evaluated in the appendix, suggests that there are concentrations of
-pollock present which contrasts with the 2010 survey when relatively few
-pollock were present. The pattern of temperatures in the region likely affect
-the pollock distribution in ways that likely vary over time.  However, there is
-evidence of a relationship between mean bottom temperatures in
-the US zone on the EBS shelf and subsequent biomass estimates in the  Navarin
-basin (the Russian area adjacent to the Convention Line; e.g., Stepanenko and Gritsay 2018, 
-Ianelli et al. 2015). Some genetic samples were taken from pollock and collections
-continue. Pending funding availability, analysis of these samples could 
-help ascertain the extent that these fish are related to those observed in the
-normal EBS shelf survey area.   Genetic samples taken from the 2017 summer
-bottom trawl survey from the Northern Bering Sea can be compared with samples from the
-standard Bering Sea Unimak, Pribilof, Bogoslof, and Zhemchug. This planned study should
-help improve stock structure evaluation (last done in Ianelli et al. 2015).
+Nunivak Island to the Russian convention line and into Norton Sound) from 2017
+and 2018, as shown below and evaluated in the appendix, suggests that there
+are concentrations of pollock present which contrasts with the 2010 survey
+when relatively few pollock were present. The pattern of temperatures in the
+region likely affect the pollock distribution in ways that likely vary over
+time.  However, there is evidence of a relationship between mean bottom
+temperatures in the US zone on the EBS shelf and subsequent biomass estimates
+in the  Navarin basin (the Russian area adjacent to the Convention Line; e.g.,
+Stepanenko and Gritsay 2018,  Ianelli et al. 2015). Some genetic samples were
+taken from pollock and collections continue. Pending funding availability,
+analysis of these samples could  help ascertain the extent that these fish are
+related to those observed in the normal EBS shelf survey area.   Genetic
+samples taken from the 2017 summer bottom trawl survey from the Northern
+Bering Sea can be compared with samples from the standard Bering Sea Unimak,
+Pribilof, Bogoslof, and Zhemchug. This planned study should help improve stock
+structure evaluation (last done in Ianelli et al. 2015).
 
 
 # Fishery  
@@ -215,11 +220,11 @@ measures (i.e., ABCs and TACs) are shown in Table \ref{tab:abc_tac}.
 
 ### Catch patterns
 
-The \“A-season\” for directed EBS pollock fishing opens on January 20th and
+The \"A-season\" for directed EBS pollock fishing opens on January 20th and
 fishing typically extends into early-mid April. During this season the fishery
 targets pre-spawning pollock and produces pollock roe that, under optimal
 conditions, can comprise over 4\% of the catch in weight. The second, or
-“B-season” presently opens on June 10th and fishing extends through noon on
+\"B-season\" presently opens on June 10th and fishing extends through noon on
 November 1st. The A-season fishery concentrates primarily north and west of
 Unimak Island depending on ice conditions and fish distribution. There has
 also been effort along the 100m depth contour (and deeper) between Unimak
@@ -255,7 +260,7 @@ averaged 1.19 million t with the lowest catches occurring in 2009 and 2010
 when the limits were set to 0.81 million t due to stock declines (Table
 \ref{tab:abc_tac}). Pollock retained and discarded catch (based on NMFS
 observer estimates) in the Eastern Bering Sea and Aleutian Islands for 
-1991--`r thisyr` are shown in (Table \ref{tab:catch_disc}). Since 1991, estimates of
+1991--`r thisyr` are shown in Table \ref{tab:catch_disc}. Since 1991, estimates of
 discarded pollock have ranged from a high of 9.1\% of total pollock catch in
 1992 to recent lows of around 0.6\%. These low values reflect the
 implementation of the NMFS' Improved Retention /Improved Utilization
@@ -351,25 +356,26 @@ the Eastern Bering Sea shelf. While the distribution of fishing during the
 A-season is limited due to ice and weather conditions, there appears to be
 some dispersion to the northwest area (Fig. \ref{fig:catch_distn_a}).
 
-The majority (about 56\%) of Chinook salmon caught as bycatch in
-the pollock fishery originate from western Alaskan rivers. An Environmental
-Impact Statement (EIS) was completed in 2009 in conjunction with the Council’s
-recommended management approach. This EIS evaluated the relative impacts of
-different bycatch management approaches as well as estimated the impact of
-bycatch levels on adult equivalent salmon (AEQ) returning to river systems
-(NMFS/NPFMC 2009). As a result, revised salmon bycatch management measures
-went into effect in 2011 which imposed new prohibited species catch (PSC)
-limits. These limits, when reached,  close the fishery by sector and season
-(Amendment 91 to the BSAI Groundfish Fishery Management Plan (FMP) resulting from the NPFMC’s 2009 action).
-Previously, all measures for salmon bycatch imposed seasonal area closures
-when PSC levels reached the limit (fishing could continue outside of the
-closed areas). The current program imposes a dual cap system by fishing sector
-and season. A  goal of this system was to maintain incentives to avoid bycatch
-at a broad range of relative salmon abundance. Participants are also required
-to take part in an incentive  program agreement (IPA). These IPAs are approved
-and reviewed annually by NMFS  to ensure individual vessel accountability. The
-fishery has been operating under  rules to implement this program since
-January 2011.
+The majority (about 56\%) of Chinook salmon caught as bycatch in the pollock
+fishery originate from western Alaskan rivers. An Environmental Impact
+Statement (EIS) was completed in 2009 in conjunction with the Council’s
+recommended bycatch management approach. This EIS evaluated the relative
+impacts of different bycatch management approaches as well as estimated the
+impact of bycatch levels on adult equivalent salmon (AEQ) returning to river
+systems (NMFS/NPFMC 2009). As a result, revised Chinook salmon bycatch
+management measures went into effect in 2011 which imposed new prohibited
+species catch (PSC) limits. These limits, when reached,  close the fishery by
+sector and season (Amendment 91 to the BSAI Groundfish Fishery Management Plan
+(FMP) resulting from the NPFMC’s 2009 action). Previously, all measures for
+salmon bycatch imposed seasonal area closures when PSC levels reached the
+limit (fishing could continue outside of the closed areas). The current
+program imposes a dual cap system by fishing sector and season. A  goal of
+this system was to maintain incentives to avoid bycatch at a broad range of
+relative salmon abundance (and encounter rates). Participants are also
+required to take part in an incentive  program agreement (IPA). These IPAs are
+approved and reviewed annually by NMFS  to ensure individual vessel
+accountability. The fishery has been operating under  rules to implement this
+program since January 2011.
 
 Further measures to reduce salmon bycatch in the pollock fishery were
 developed and the Council took action on Amendment 110 to the BSAI Groundfish
@@ -378,7 +384,8 @@ for Chinook salmon by imposing more restrictive PSC limits in times of low
 western Alaskan Chinook salmon abundance. This included provisions within the
 IPAs that reduce fishing in months of higher bycatch encounters and mandate
 the use of salmon excluders in trawl nets. These provisions were also included
-to manage chum salmon bycatch within the IPAs rather than through Amendment 84
+to provide more flexible management measures for chum salmon bycatch within
+the IPAs rather than through regulatory provisions implemented by Amendment 84
 to the FMP. The new measure also included additional seasonal flexibility in
 pollock fishing so that more pollock (proportionally) could be caught during
 seasons when salmon bycatch rates were low.  Specifically, an additional 5% of
@@ -541,7 +548,7 @@ increasing domestic marketing for fillet based product and creating product
 types that are better suited to the American palette, in addition to increased
 utilization of by-products. Reductions in whitefish supplies in 2018 has put
 upward pressure on pollock prices, however, U.S.-China trade policy
-uncertiantly  could negatively affect the market.
+uncertainty could negatively affect the market.
 
 ### Surimi seafood
 
@@ -641,12 +648,13 @@ at age. In 2011 the winter fishery catch consisted primarily of age 5 pollock
 (the 2006 year class) and later in that year age 3 pollock (the 2008 year
 class) were present. In 2012--2016 the 2008 year class was prominent in the
 catches with 2015 showing the first signs of the 2012 year-class as three
-year-olds in the catch (Fig. \ref{fig:catage}; Table \ref{tab:fsh_age}). The sampling
-effort for age determinations, weight-length measurements, and length frequencies is shown in Tables \ref{tab:fsh_meas}, \ref{tab:lw_meas}, and \ref{tab:fsh_n}.
-Sampling for pollock lengths and ages by area has been shown to be relatively
-proportional to catches (e.g., Fig. 1.8 in Ianelli et al. 2004). 
-The precision of total pollock catch biomass is considered high with estimated 
-CVs to be on the order of 1\% (Miller 2005).
+year-olds in the catch (Fig. \ref{fig:catage}; Table \ref{tab:fsh_age}). The
+sampling effort for age determinations, weight-length measurements, and length
+frequencies is shown in Tables \ref{tab:fsh_meas}, \ref{tab:lw_meas}, and
+\ref{tab:fsh_n}. Sampling for pollock lengths and ages by area has been shown
+to be relatively proportional to catches (e.g., Fig. 1.8 in Ianelli et al.
+2004).  The precision of total pollock catch biomass is considered high with
+estimated  CVs to be on the order of 1\% (Miller 2005).
 
 Scientific research catches are reported to fulfill requirements of the
 Magnuson-Stevens Fisheries Conservation and Management Act. The annual
@@ -891,7 +899,7 @@ assessment model. As presented since 2016, it allows for trophic interactions
 among key prey and predator species and for pollock, and it can be used to
 evaluate age and time-varying natural mortality estimates in addition to
 alternative catch scenarios and management targets (see this volume:
-[EBS multi-species model](http://www.afsc.noaa.gov/refm/stocks/plan_team/EBSmultispp.pdf)).
+[EBS multi-species model](https://www.afsc.noaa.gov/refm/stocks/plan_team/2018/EBSmultispp.pdf)).
 
 ## Description of alternative models
 
@@ -1184,7 +1192,8 @@ biomass series is consistent with the specified observation uncertainty (Fig.
 \ref{fig:mod_ats_biom}).
 
 The estimated parameters and standard errors are provided
-[online](https://goo.gl/8whZ8hXXX). The code for the model (with dimensions
+[online](https://www.afsc.noaa.gov/refm/stocks/plan_team/2018/EBSpollock_params.pdf). 
+The code for the model (with dimensions
 and links to parameter names) and input files are available on request.
 
 The input sample size (as tuned in 2016 using "Francis Weights") can be
@@ -1342,7 +1351,7 @@ is <0.1\% for `r thisyr+1` and `r nextyr+1`.
 Amendment 56 to the BSAI Groundfish Fishery Management Plan (FMP) defines
 overfishing level (OFL), the fishing mortality rate used to set OFL (FOFL),
 the maximum permissible ABC, and the fishing mortality rate used to set the
-maximum permissible ABC. The fishing mortality rate used to set ABC (FABC) may
+maximum permissible ABC. The fishing mortality rate used to set ABC ($F_{ABC}$) may
 be less than this maximum permissible level, but not greater. Estimates of
 reference points related to maximum sustainable yield (MSY) are currently
 available. However, their reliability is questionable. We therefore present
@@ -1476,7 +1485,7 @@ defined as $B_{35\%}$).
 ## Projections and status determination 
 
 For the purposes of these projections, we present results based on selecting
-the $F_{40\%}$ harvest rate as the an FABC value and use $F_{35\%}$ as a
+the $F_{40\%}$ harvest rate as the $F_{ABC}$ value and use $F_{35\%}$ as a
 proxy for $F_{MSY}$. Scenarios 1 through 7 were projected 14 years from 
 `r thisyr` (Tables \ref{tab:tier3_C} through \ref{tab:tier3_SSB}). Under the
 catch set to Tier 3 ABC estimates, the expected spawning biomass will
@@ -1540,7 +1549,7 @@ the medium-term are that
 1.  The conditions in summer 2018 were exceptional in the complete absence of a "cold pool" and being a second consecutive 
     year with significant abundances found outside of the standard survey area.
 
-2.  The near-term prognosis that there were relatively few juvenile pollock observed in the surveys during the 
+2.  There were relatively few juvenile pollock observed in the surveys during the 
 summers of 2016--2018.
 
 3.  The recent BTS data continue to show low abundances of pollock aged 10 and older (Table \ref{tab:bts_age}).
@@ -1590,7 +1599,7 @@ Level 4 Extreme concern                  & Severe problems with the stock assess
 The table is applied by evaluating the severity of three types of
 considerations that could be used to support a scientific recommendation to
 reduce the ABC from the maximum permissible. Examples of the types of concerns that
-might be relevant include the following:  
+might be relevant include the following (as identified by the work-group):  
 
   1. Assessment considerations  
     -  _Data-inputs:_ biased ages, skipped surveys, lack of fishery-independent trend data  
@@ -1662,7 +1671,7 @@ resources and reduced energy transfer.
 Fish condition (based on weight/length residuals) show that adult pollock
 condition was negative in both the SEBS and NBS, which continues a declining
 trend since 2012. The biomass of the pelagic forager guild, which includes
-pollock, remains was below the long-term mean with pollock declining 59\%
+pollock, remains below the long-term mean with pollock declining 59\%
 since 2014 and 38\% since 2017. Total CPUE of groundfish estimated from the
 bottom trawl survey showed a sharp decline in 2018, primarily due to a
 decrease in pollock,  Pacific cod, and several flatfish species.
@@ -1686,7 +1695,9 @@ and these may be indicative of (i) a distribution shift in response to warm
 temperatures (although temperatures SEBS shelf were similar to a ‘typical’
 warm year), (ii) looking for adequate prey (although stomachs were not empty
 and contents were ‘typical’), or (iii) potential harmful algal bloom event (samples still
-being processed). In summary, 
+being processed). 
+
+In summary, 
 
   - Unprecedented warm conditions in 2018 resulted in reduced primary and secondary production        
 
@@ -1718,21 +1729,21 @@ that setting an ABC below the maximum permissible is warranted. The SSC
 recommended against using a table that showed example alternatives to select
 buffers based on that risk level. Thompson (unpublished Sept 2018 plan team
 document) tabulated the magnitude of buffers applied by the Plan Teams for the
-period 2003--2017, and found that the mode of the buffers recommended was 10--
-20 percent. Taking this as guideline, we therefore recommend application of a
-buffer of 15% to obtain the recommended ABC 
-(in this case, $0.85 \times \text{ABC}_{max}$ = `r formatC(M$maxabc1*0.850,big.mark=",",digits=0,format="d")` kt).
+period 2003--2017, and found that the mode of the buffers recommended was 10--20\%.
+ Using this as a guideline, a buffer of 15\% would give an ABC as
+$0.85 \times \text{ABC}_{max}$ = `r formatC(M$maxabc1*0.850,big.mark=",",digits=0,format="d")` kt).
+In the past, the SSC has considered factors similar to those presented above 
+and selected an ABC based on Tier 3 estimates. We recommend this added precaution again 
+again this year, (i.e., ABC = `r formatC(M$Tier3_ABC1,big.mark=",",digits=0,format="d")` kt) 
+which implies a buffer of  `r round(100*(1-M$Tier3_ABC1/M$maxabc1),0)`\%.  
 
-In the past, the SSC has considered factors about the stock assessment and had
-selected ABC based on Tier 3 estimates. This year, doing so would imply a
-buffer of  `r round(100*(1-M$Tier3_ABC1/M$maxabc1),0)`\%. Recognizing that the
-actual catch will be constrained by other factors (the 2 million t BSAI
+Recognizing that the actual catch will be constrained by other factors (the 2 million t BSAI
 groundfish catch limit and bycatch avoidance measures),  applying the maximum
 permissible Tier 1a ABC seems clearly risky. Such high catches would result in
 unprecedented variability and removals from the stock (and require
 considerably more capacity and effort). Less variability in catch  would also
 result in less spawning stock variability (and reduce risks to the fishery
-should another period of poor recruitments occur).  To enhance these
+should another period of poor recruitments occur).  To more fully evaluate these
 considerations performance indicators as modified from Ianelli et al. (2012)
 were developed to evaluate some near-term risks given  alternative 2019 catch
 values.  These indicators and rationale for including them are summarized in
@@ -1749,8 +1760,8 @@ examined have relatively small or no impact on  the age diversity indicators.
 However, for catch to equal the 2018 value, more fishing effort will likely be
 required and there is an good chance that the proportion of the stock less
 than age 6 will be greater than the historical average. In terms of catch
-advice, aiming for  a catch between 1.25 and 1.374 million t results in a even
-chance that the stock in  2020 will be equal to the long term mean.
+advice, aiming for  a catch between 1.25 and 1.374 million t results in a
+roughly even chance that the stock in  2020 will be equal to the long term mean.
   
 # Ecosystem considerations
 In general, a number of key issues for ecosystem conservation and management can be highlighted. These include:    
