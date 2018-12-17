@@ -1,0 +1,123 @@
+# Appendix on spatio-temporal analysis of NMFS bottom-trawl survey data
+
+## Overview 
+
+This application of `VAST` was configured to model a subset of
+NMFS/AFSC bottom trawl survey data.  Specifically, the station-specific CPUE
+(kg per hectare) for pollock were compiled from 1982-2018. Further details can
+be found at the [GitHub repo](https://github.com/james- thorson/VAST/#description) 
+mainpage, wiki, and glossary.  The R help files,
+e.g., `?Data_Fn` for explanation of data inputs, or `?Param_Fn` for
+explanation of parameters. VAST has involved many publications for developing
+individual features (see references section below). What follows is intended
+as  a step by step documentation of applying the model to these data.
+
+Settings and configurations are available here (link to come...). The location
+by year for the stations used are shown in Figure \ref{fig:bts_data_by_yr}.
+
+```{r set_options, echo=FALSE, message=FALSE, warning=FALSE}
+# Width should apply to tidy
+# digits hopefully affects number of digits when using print
+options(width=50, width.cutoff=50, digits = 3) 
+tidy.opts=list(blank=FALSE, width.cutoff=60, size='small')
+library(pander)
+library(knitr)
+hook_output = knit_hooks$get('output')
+DateFile="figs"
+knit_hooks$set(output = function(x, options) {
+  # this hook is used only when the linewidth option is not NULL
+  if (!is.null(n <- options$linewidth)) {
+    x = knitr:::split_lines(x)
+    # any lines wider than n should be wrapped
+    if (any(nchar(x) > n)) x = strwrap(x, width = n)
+    x = paste(x, collapse = '\n')
+  }
+  hook_output(x, options)
+})
+library(xtable)
+library(tidyverse)
+options(xtable.comment = FALSE)
+printfig("bts_data_by_yr.png",59)
+```
+
+## Diagnostic plots
+
+```{r plots, eval=FALSE  , tidy=TRUE}
+SpatialDeltaGLMM::Plot_data_and_knots(Extrapolation_List=Extrapolation_List, Spatial_List=Spatial_List, 
+           Data_Geostat=Data_Geostat, PlotDir=DateFile )
+Region="Other"
+MapDetails_List <- SpatialDeltaGLMM::MapDetails_Fn( "Region"=Region, "NN_Extrap"=Spatial_List$PolygonList$NN_Extrap, 
+                   "Extrapolation_List"=Extrapolation_List )
+# Decide which years to plot                                                   
+Year_Set        <- seq(min(Data_Geostat[,'Year']),max(Data_Geostat[,'Year']))
+Years2Include   <- which( Year_Set %in% sort(unique(Data_Geostat[,'Year'])))
+```
+
+### Encounter-probability component
+One can check to ensure that observed encounter frequencies for either low or high
+probability samples are within the 95% predictive interval for predicted
+encounter probability (Figure \ref{fig:encounter}. 
+Diagnostics for positive-catch-rate component was evaluated using a standard Q-Q plot. 
+Qualitatively, the fits to pollock data are reasonable (Figures \ref{fig:eq1} and \ref{fig:qq2}).
+
+### Pearson residuals
+Spatially the residual pattern can be evaluated over time. Results for pollock data shows that consistent positive or negative 
+residuals accross or within years is limited for the encounter probability component of the model and 
+for the positive catch rate component (Figures \ref{fig:pearson1} and \ref{fig:pearson2}, respectively).
+
+
+```{r encplots, eval=FALSE  , tidy=TRUE}
+Enc_prob  <- SpatialDeltaGLMM::Check_encounter_prob( Report=Report, Data_Geostat=Data_Geostat, DirName=DateFile)
+Q         <- SpatialDeltaGLMM::QQ_Fn( TmbData=TmbData, Report=Report, FileName_PP=paste0(DateFile,"Posterior_Predictive.jpg"), FileName_Phist=paste0(DateFile,"Posterior_Predictive-Histogram.jpg"), FileName_QQ=paste0(DateFile,"Q-Q_plot.jpg"), FileName_Qhist=paste0(DateFile,"Q-Q_hist.jpg")) 
+```
+
+![ Observed encounter rates and predicted probabilities for pollock in the combined survey area. \label{fig:encounter}](figs/Diag--Encounter_prob.png)
+
+
+![ Plot indicating distribution of quantiles for "positive catch rate" component. \label{fig:eq1}](figs/Q-Q_hist.jpg)
+
+![ Quantile-quantile plot of residuals for "positive catch rate" component. \label{fig:qq2}](figs/Q-Q_plot.jpg)
+
+
+```{r pearson, eval=FALSE, tidy=TRUE}
+SpatialDeltaGLMM:::plot_residuals(Lat_i=Data_Geostat[,'Lat'], Lon_i=Data_Geostat[,'Lon'], TmbData=TmbData, 
+          Report=Report, Q=Q, savedir=DateFile, MappingDetails=MapDetails_List[["MappingDetails"]], 
+          PlotDF=MapDetails_List[["PlotDF"]], MapSizeRatio=MapDetails_List[["MapSizeRatio"]], 
+          Xlim=MapDetails_List[["Xlim"]], Ylim=MapDetails_List[["Ylim"]], FileName=DateFile, Year_Set=Year_Set, 
+          Years2Include=Years2Include, Rotate=MapDetails_List[["Rotate"]], Cex=MapDetails_List[["Cex"]], 
+          Legend=MapDetails_List[["Legend"]], zone=MapDetails_List[["Zone"]], mar=c(0,0,2,0), oma=c(3.5,3.5,0,0), cex=1.8)
+```
+![Pearson residuals of the encounter probability component for the combined survey area, 1982-2018. \label{fig:pearson1}](figs/maps--encounter_pearson_resid.png)
+
+![Pearson residuals of the positive catch rate component for the combined survey area, 1982-2018. \label{fig:pearson2}](figs/maps--catchrate_pearson_resid.png)
+
+```{r densplots, eval=FALSE , tidy=TRUE }
+SpatialDeltaGLMM::PlotResultsOnMap_Fn(plot_set=c(3), MappingDetails=MapDetails_List[["MappingDetails"]], 
+  Report=Report, Sdreport=Opt$SD, PlotDF=MapDetails_List[["PlotDF"]], MapSizeRatio=MapDetails_List[["MapSizeRatio"]], 
+  Xlim=MapDetails_List[["Xlim"]], Ylim=MapDetails_List[["Ylim"]], FileName=DateFile, Year_Set=Year_Set, 
+  Years2Include=Years2Include, Rotate=MapDetails_List[["Rotate"]], Cex=MapDetails_List[["Cex"]], 
+  Legend=MapDetails_List[["Legend"]], zone=MapDetails_List[["Zone"]], mar=c(0,0,2,0), oma=c(3.5,3.5,0,0), 
+  cex=1.8, plot_legend_fig=FALSE)
+```
+![ Pollock density maps  using the VAST model approach, 1982-2018. \label{fig:density}](figs/Dens.png)
+
+
+### Densities and biomass estimates 
+
+Relative densities over time suggests that the biomass of pollock can reflect
+abundances in the NBS even in years where samples are unavailable (all years
+except 2010, 2017, and 2018; (Figure \ref{fig:density}). Index values and error terms
+(based on diagonal of covariance matrix over time) are shown in Figure \ref{fig:vast_idx}
+
+
+```{r indexplots, echo=FALSE, results="asis"}
+#idxOut <- read.csv("data/Table_for_SS3.csv")
+#df  <- mutate(idxOut[-1,], CV = SD_mt/Estimate_metric_tons, Estimate=5763*Estimate_metric_tons/mean(Estimate_metric_tons) ) %>%
+      #select(Year,Estimate, CV)
+#tab <- xtable(df, caption = "SMBKC male >89mm biomass (t) estimates as derived from the VAST modeling framework.", label = "tab:smbkc_biomass", digits = c(0,0,1,3))
+#print(tab, caption.placement = "top", include.rownames = FALSE)
+printfig("vast_idx.pdf",48)
+```
+
+
+
