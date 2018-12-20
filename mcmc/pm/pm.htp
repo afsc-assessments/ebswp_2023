@@ -317,14 +317,11 @@ private:
   param_init_bounded_vector log_rec_devs;
   param_vector rec_epsilons;
   param_init_bounded_matrix larv_rec_devs;
-  param_init_number repl_F;
   param_matrix larv_rec_trans;
   param_number alpha;
   param_number beta;
   param_number Rzero;
   param_likeprof_number q_all;
-  param_number repl_yld;
-  param_number repl_SSB;
   param_vector regime;
   param_number phizero;
   param_init_bounded_dev_vector log_F_devs;
