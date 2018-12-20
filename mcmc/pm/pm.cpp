@@ -41,6 +41,8 @@
   extern "C"  {
     void ad_boundf(int i);
   }
+#include <gdbprintlib.cpp>
+
 #include <pm.htp>
 
 model_data::model_data(int argc,char * argv[]) : ad_comm(argc,argv)
@@ -733,7 +735,6 @@ model_parameters::model_parameters(int sz,int argc,char * argv[]) :
     rec_epsilons.initialize();
   #endif
   larv_rec_devs.allocate(1,11,1,11,-10.,10.,phase_larv,"larv_rec_devs");
-  repl_F.allocate(5,"repl_F");
   larv_rec_trans.allocate(1,11,1,11,"larv_rec_trans");
   #ifndef NO_AD_INITIALIZE
     larv_rec_trans.initialize();
@@ -751,14 +752,6 @@ model_parameters::model_parameters(int sz,int argc,char * argv[]) :
   Rzero.initialize();
   #endif
   q_all.allocate("q_all");
-  repl_yld.allocate("repl_yld");
-  #ifndef NO_AD_INITIALIZE
-  repl_yld.initialize();
-  #endif
-  repl_SSB.allocate("repl_SSB");
-  #ifndef NO_AD_INITIALIZE
-  repl_SSB.initialize();
-  #endif
   regime.allocate(1,8,"regime");
   #ifndef NO_AD_INITIALIZE
     regime.initialize();
@@ -1402,7 +1395,7 @@ void model_parameters::report(const dvector& gradients)
       eac_ats(i) = eac_eit(i)(mina_eit,nages);
     }
     legacy_rep <<calc_Francis_weights(oac_ats, eac_ats,sam_eit )<<endl;
-  cout<<repl_yld<<endl; cout<<repl_SSB<<endl; cout<<SSB(endyr_r)<<endl; 
+  // cout<<repl_yld<<endl; cout<<repl_SSB<<endl; cout<<SSB(endyr_r)<<endl; 
   dvariable qtmp = mfexp(mean(log(oa1_eit)-log(ea1_eit)));
   legacy_rep << model_name<<" "<< datafile_name<<" "<<q_bts<<" "<<q_eit<<" "<<q_bts*exp(log_q_std_area)<< " "<<q_all<<" "<<qtmp<<" "<<sigr<<" q's and sigmaR"<<endl;
   legacy_rep << "Estimated Catch and Observed" <<endl;
@@ -3033,7 +3026,7 @@ void model_parameters::Evaluate_Objective_Function(void)
   ofstream& eval= *pad_eval;
   random_number_generator& rng= *pad_rng;
   if (last_phase())
-    Get_Replacement_Yield();
+    // Get_Replacement_Yield();
   // For logistic fishery selectivity option (sensitivity)
   if (active(sel_dif2_fsh)) 
   {
@@ -4623,9 +4616,9 @@ void model_parameters::write_R(void)
   R_report(SRR_SSB);
   R_report(rechat);
   R_report(rechat.sd);
-  R_report(repl_F);
-  R_report(repl_yld);
-  R_report(repl_SSB);
+  // R_report(repl_F);
+  // R_report(repl_yld);
+  // R_report(repl_SSB);
 	report<<"cat_like"<<endl<< ctrl_flag(1) * ssqcatch      << endl;
 	report<<"Fpen_like"<<endl<< ctrl_flag(4) * F_pen         << endl;
   R_report(wt_like);
@@ -5071,18 +5064,18 @@ void model_parameters::Get_Replacement_Yield(void)
   dvar_vector Ztmp(1,nages);
   dvar_vector Stmp(1,nages);
   Ctmp.initialize();
-  Ftmp          = repl_F*sel_fut ;
+  // Ftmp          = repl_F*sel_fut ;
   Ztmp          = natmort + Ftmp;
   Stmp          = mfexp(-Ztmp);
   Ctmp          = elem_prod(ntmp, elem_prod( elem_div(Ftmp,Ztmp), (1.-Stmp) ) );
-  repl_yld      = wt_fut*Ctmp ;
+  // repl_yld      = wt_fut*Ctmp ;
   ntmp(2,nages) = ++elem_prod(Stmp(1,nages-1),ntmp(1,nages-1));
   ntmp(nages)   += ntmp(nages)*Stmp(nages);
   ntmp(1)       = mean(pred_rec);
-  repl_SSB      = elem_prod(p_mature,elem_prod(ntmp, pow(Stmp,yrfrac))) * wt_ssb(endyr_r); 
+  // repl_SSB      = elem_prod(p_mature,elem_prod(ntmp, pow(Stmp,yrfrac))) * wt_ssb(endyr_r); 
   // cout<<Ftmp<<endl; cout<<Ztmp<<endl; cout<<Stmp<<endl; cout<<Ctmp<<endl; cout<<repl_yld<<endl; cout<<ntmp<<endl; cout<<repl_SSB<<endl; cout<<SSB(endyr_r)<<endl; cout<< 500.*square(log(SSB(endyr_r))-log(repl_SSB))<<endl; exit(1);
   // SSB(styr)  = elem_prod(elem_prod(natage(styr),pow(S(styr),yrfrac)),p_mature)*wt_ssb(styr); // Eq. 1
-  fff           += 50.*square(log(SSB(endyr_r))-log(repl_SSB));
+  // fff           += 50.*square(log(SSB(endyr_r))-log(repl_SSB));
 }
 
 void model_parameters::Est_Fixed_Effects_wts_2016(void)
