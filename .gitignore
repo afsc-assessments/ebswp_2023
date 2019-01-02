@@ -57,5 +57,9 @@ gradient.*
 *.std
 *_in.ctl
 *_in.dat
+# Added for MCMC runs
+adaptation.csv
+unbounded.csv
+init.pin
 variance
 sims
