@@ -1,18 +1,11 @@
-### This file demonstrates how to run Bayesian inference on ADMB stock
-### assessments using the adnuts R package. We demonstrate a Stock
-### Synthesis (SS) model called 'pm' (see paper).
+### This file demonstrates how to run Bayesian inference on the Alaska
+### pollock assessment (pm). If you want to change the model version just
+### change the folder 'pm'
 
-### The use of SS necessitates slightly different workflow for technical
-### reasons. First, when optimizing before MCMC initiate -mcmc 50 to tell
-### SS to turn off bias adjustment for recdevs. Otherwise the estimated
-### mass matrix will be mismatched when executing the real MCMC chains. Be
-### careful not to use MLE estimates from these runs for inference. To save
-### time we recommend setting SS to read from the .par file to speed up the
-### optimizations below.
-
-### 8/2018 Cole Monnahan
+### 12/2018 Cole Monnahan
 
 library(adnuts)
+packageVersion('adnuts') ## needs to be 1.0.9000 from github dev branch
 library(snowfall)
 library(rstan)
 library(shinystan)
@@ -30,61 +23,60 @@ get.inits <- function(fit, chains){
 
 ## Here we assume the pm.exe model is in a folder called 'pm'
 ## as well. This folder gets copied during parallel runs.
-m <- 'pm'
+m <- d <- 'pm' # the model name, folder is also assumed to be called this
 ## First optimize the model to make sure the Hessian is good.
-setwd(m); system('pm -nox -mcmc 15'); setwd('..')
+setwd(m); system('pm -nox -mcmc 15 -ainp pm.par -phase 50'); setwd('..')
 
-## Then run parallel RWM chains as a first test
-thin <- 100
+## Run parallel RWM chains as a first test
+thin <- 50
 iter <- 2000*thin; warmup <- iter/4
 inits <- NULL ## start chains from MLE
 pilot <- sample_admb(m, iter=iter, thin=thin, seeds=seeds, init=inits,
                      parallel=TRUE, chains=reps, warmup=warmup,
-                     path=m, cores=reps, algorithm='RWM')
-
+                     path=d, cores=reps, algorithm='RWM')
 ## Plot slowest mixing pars compared to MLE estimates to check for issues.
 ess <- monitor(pilot$samples, warmup=pilot$warmup, print=FALSE)[,'n_eff']
 slow <- names(sort(ess))[1:5]
 pairs_admb(fit=pilot, pars=slow)
+pilot$ess <- ess
+saveRDS(pilot, file='pilot.RDS')
 ## Regularize as needed and repeat above code until model is satisfactory
 
-## After regularizing (call it pm2 and put it in pm2 folder) we
-## can run NUTS chains.
-m <- 'pm'
 ## Reoptimize to get the correct mass matrix for NUTS. Note the -hbf 1
 ## argument. This is a technical requirement b/c NUTS uses a different set
 ## of bounding functions and thus the mass matrix will be different.
-setwd(m); system(paste(m, '-hbf 1 -nox -mcmc 15')); setwd('..')
+setwd(m); system(paste(m, '-hbf 1 -nox -iprint 100 -mcmc 15')); setwd('..')
 ## Use default MLE covariance (mass matrix) and short parallel NUTS chains
 ## started from the MLE.
 nuts.mle <-
-  sample_admb(model=m, iter=500, init=NULL, algorithm='NUTS',  seeds=seeds,
-               parallel=TRUE, chains=reps, warmup=100, path=m, cores=reps,
-              control=list(metric="mle", adapt_delta=0.8))
+  sample_admb(model=m, iter=4000, init=NULL, algorithm='NUTS', thin=2,  seeds=seeds,
+              parallel=TRUE, chains=reps, warmup=400, path=d, cores=reps,
+              control=list(metric="mle", adapt_delta=0.9))
 ## Check for issues like slow mixing, divergences, max treedepths with
 ## ShinyStan and pairs_admb as above. Fix and rerun this part as needed.
-launch_shinyadmb(nuts.mle)
 ess <- monitor(nuts.mle$samples, warmup=nuts.mle$warmup, print=FALSE)[,'n_eff']
-slow <- names(sort(ess))[1:8]
+nuts.mle$ess <- ess
+saveRDS(nuts.mle, file='nuts.mle.RDS')
+launch_shinyadmb(nuts.mle)
+slow <- names(sort(ess))[1:6]
 pairs_admb(fit=nuts.mle, pars=slow)
-
 
 ## If good, run again for inference using updated mass matrix. Increase
 ## adapt_delta toward 1 if you have divergences (runs will take longer).
 mass <- nuts.mle$covar.est # note this is in unbounded parameter space
 inits <- get.inits(nuts.mle, reps) ## use inits from pilot run
 nuts.updated <-
-  sample_admb(model=m, iter=500, init=inits, algorithm='NUTS',  seeds=seeds,
-               parallel=TRUE, chains=reps, warmup=100, path=m, cores=reps,
-              mceval=TRUE, control=list(metric=mass, adapt_delta=0.8))
+  sample_admb(model=m, iter=2000, init=inits, algorithm='NUTS',  seeds=seeds,
+               parallel=TRUE, chains=reps, warmup=200, path=d, cores=reps,
+              mceval=TRUE, control=list(metric=mass, adapt_delta=0.95))
 ## Again check for issues of nonconvergence and other standard checks. Then
 ## use for inference.
-launch_shinyadmb(nuts.updated)
 ess <- monitor(nuts.updated$samples, warmup=nuts.updated$warmup, print=FALSE)[,'n_eff']
+nuts.updated$ess <- ess
+saveRDS(nuts.updated, file='nuts.updated.RDS')
+launch_shinyadmb(nuts.updated)
 slow <- names(sort(ess))[1:8]
 pairs_admb(fit=nuts.updated, pars=slow)
-
-
 
 ## NOTE: the mceval=TRUE argument tells ADMB to run -mceval on ALL chains
 ## combined AFTER discarding warmup period and thinning. Thus whatever your
