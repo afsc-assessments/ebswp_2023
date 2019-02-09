@@ -1,11 +1,9 @@
-### This file demonstrates how to run Bayesian inference on the Alaska
-### pollock assessment (pm). If you want to change the model version just
-### change the folder 'pm'
+### This file demonstrates how to run Bayesian inference on the pollock
+### assessment using the adnuts R package.
 
-### 12/2018 Cole Monnahan
+### 2/2019 Cole Monnahan
 
-library(adnuts)
-packageVersion('adnuts') ## needs to be 1.0.9000 from github dev branch
+library(adnuts)                         # needs to be 1.0.9000
 library(snowfall)
 library(rstan)
 library(shinystan)
@@ -33,19 +31,20 @@ iter <- 2000*thin; warmup <- iter/4
 inits <- NULL ## start chains from MLE
 pilot <- sample_admb(m, iter=iter, thin=thin, seeds=seeds, init=inits,
                      parallel=TRUE, chains=reps, warmup=warmup,
-                     path=d, cores=reps, algorithm='RWM')
+                     path=m, cores=reps, algorithm='RWM')
+launch_shinyadmb(pilot)
 ## Plot slowest mixing pars compared to MLE estimates to check for issues.
 ess <- monitor(pilot$samples, warmup=pilot$warmup, print=FALSE)[,'n_eff']
-slow <- names(sort(ess))[1:5]
+slow <- names(sort(ess))[1:8]
+png('pairs_slow_rwm.png', width=7, height=5, units='in', res=500)
 pairs_admb(fit=pilot, pars=slow)
-pilot$ess <- ess
-saveRDS(pilot, file='pilot.RDS')
-## Regularize as needed and repeat above code until model is satisfactory
+dev.off()
 
-## Reoptimize to get the correct mass matrix for NUTS. Note the -hbf 1
-## argument. This is a technical requirement b/c NUTS uses a different set
-## of bounding functions and thus the mass matrix will be different.
-setwd(m); system(paste(m, '-hbf 1 -nox -iprint 100 -mcmc 15')); setwd('..')
+## It doesn't really need any fixes so rerun with NUTS. Reoptimize to get
+## the correct mass matrix for NUTS. Note the -hbf 1 argument. This is a
+## technical requirement b/c NUTS uses a different set of bounding
+## functions and thus the mass matrix will be different.
+setwd(m); system(paste(m, '-hbf 1 -nox -mcmc 15')); setwd('..')
 ## Use default MLE covariance (mass matrix) and short parallel NUTS chains
 ## started from the MLE.
 nuts.mle <-
@@ -55,11 +54,10 @@ nuts.mle <-
 ## Check for issues like slow mixing, divergences, max treedepths with
 ## ShinyStan and pairs_admb as above. Fix and rerun this part as needed.
 ess <- monitor(nuts.mle$samples, warmup=nuts.mle$warmup, print=FALSE)[,'n_eff']
-nuts.mle$ess <- ess
-saveRDS(nuts.mle, file='nuts.mle.RDS')
-launch_shinyadmb(nuts.mle)
-slow <- names(sort(ess))[1:6]
+slow <- names(sort(ess))[1:8]
+png('pairs_slow_nuts.png', width=7, height=5, units='in', res=500)
 pairs_admb(fit=nuts.mle, pars=slow)
+dev.off()
 
 ## If good, run again for inference using updated mass matrix. Increase
 ## adapt_delta toward 1 if you have divergences (runs will take longer).
@@ -76,7 +74,11 @@ nuts.updated$ess <- ess
 saveRDS(nuts.updated, file='nuts.updated.RDS')
 launch_shinyadmb(nuts.updated)
 slow <- names(sort(ess))[1:8]
+png('pairs_slow_nuts2.png', width=7, height=5, units='in', res=500)
 pairs_admb(fit=nuts.updated, pars=slow)
+dev.off()
+
+save.image() # save to file for later
 
 ## NOTE: the mceval=TRUE argument tells ADMB to run -mceval on ALL chains
 ## combined AFTER discarding warmup period and thinning. Thus whatever your
