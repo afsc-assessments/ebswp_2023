@@ -1223,7 +1223,7 @@ REPORT_SECTION
       eac_ats(i) = eac_eit(i)(mina_eit,nages);
     }
     legacy_rep <<calc_Francis_weights(oac_ats, eac_ats,sam_eit )<<endl;
-  cout<<repl_yld<<endl; cout<<repl_SSB<<endl; cout<<SSB(endyr_r)<<endl; 
+  // cout<<repl_yld<<endl; cout<<repl_SSB<<endl; cout<<SSB(endyr_r)<<endl; 
   dvariable qtmp = mfexp(mean(log(oa1_eit)-log(ea1_eit)));
   legacy_rep << model_name<<" "<< datafile_name<<" "<<q_bts<<" "<<q_eit<<" "<<q_bts*exp(log_q_std_area)<< " "<<q_all<<" "<<qtmp<<" "<<sigr<<" q's and sigmaR"<<endl;
   legacy_rep << "Estimated Catch and Observed" <<endl;
@@ -2679,7 +2679,7 @@ FUNCTION Recruitment_Likelihood
  // +===+====+==+==+==+==+==+==+==+====+====+==+==+===+====+==+==+==+==+==+==+==+====+====+====+
 FUNCTION Evaluate_Objective_Function 
   if (last_phase())
-    Get_Replacement_Yield();
+    // Get_Replacement_Yield();
   // For logistic fishery selectivity option (sensitivity)
   if (active(sel_dif2_fsh)) 
   {
@@ -4492,6 +4492,7 @@ FUNCTION Get_Replacement_Yield
   // cout<<Ftmp<<endl; cout<<Ztmp<<endl; cout<<Stmp<<endl; cout<<Ctmp<<endl; cout<<repl_yld<<endl; cout<<ntmp<<endl; cout<<repl_SSB<<endl; cout<<SSB(endyr_r)<<endl; cout<< 500.*square(log(SSB(endyr_r))-log(repl_SSB))<<endl; exit(1);
   // SSB(styr)  = elem_prod(elem_prod(natage(styr),pow(S(styr),yrfrac)),p_mature)*wt_ssb(styr); // Eq. 1
   fff           += 50.*square(log(SSB(endyr_r))-log(repl_SSB));
+
 FUNCTION Est_Fixed_Effects_wts_2016
   double sigma_coh = (mfexp(log_sd_coh));
   double sigma_yr = (mfexp(log_sd_yr ));

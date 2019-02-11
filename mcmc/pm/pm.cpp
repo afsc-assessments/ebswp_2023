@@ -41,8 +41,6 @@
   extern "C"  {
     void ad_boundf(int i);
   }
-#include <gdbprintlib.cpp>
-
 #include <pm.htp>
 
 model_data::model_data(int argc,char * argv[]) : ad_comm(argc,argv)
@@ -1951,7 +1949,7 @@ void model_parameters::GetDependentVar(void)
     DepletionSpawners=SSB(endyr_r)/SSB(styr);
     Future_projections_fixed_F();
     // F40_catch = catch_future(1,styr_fut);
-    if (!mceval_phase())
+    if (sd_phase())
     {
       // Re-run w/o F mort (for output)
       write_nofish();
