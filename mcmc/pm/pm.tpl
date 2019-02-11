@@ -1794,7 +1794,7 @@ FUNCTION GetDependentVar
     DepletionSpawners=SSB(endyr_r)/SSB(styr);
     Future_projections_fixed_F();
     // F40_catch = catch_future(1,styr_fut);
-    if (!mceval_phase())
+    if (sd_phase())
     {
       // Re-run w/o F mort (for output)
       write_nofish();

@@ -1,5 +1,5 @@
-#if !defined(_PM_)
-#  define _PM_
+#if !defined(_pm_)
+#  define _pm_
 
 class model_data : public ad_comm{
   int count_Ffail;
