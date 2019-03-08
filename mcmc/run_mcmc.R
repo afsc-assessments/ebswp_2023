@@ -21,12 +21,12 @@ get.inits <- function(fit, chains){
 
 ## Here we assume the pm.exe model is in a folder called 'pm'
 ## as well. This folder gets copied during parallel runs.
-m <- 'pm'
+m <- d <- 'pm' # the model name, folder is also assumed to be called this
 ## First optimize the model to make sure the Hessian is good.
-setwd(m); system('pm -nox -mcmc 15'); setwd('..')
+setwd(m); system('pm -nox -mcmc 15 -ainp pm.par -phase 50'); setwd('..')
 
-## Then run parallel RWM chains as a first test
-thin <- 100
+## Run parallel RWM chains as a first test
+thin <- 50
 iter <- 2000*thin; warmup <- iter/4
 inits <- NULL ## start chains from MLE
 pilot <- sample_admb(m, iter=iter, thin=thin, seeds=seeds, init=inits,
@@ -48,12 +48,11 @@ setwd(m); system(paste(m, '-hbf 1 -nox -mcmc 15')); setwd('..')
 ## Use default MLE covariance (mass matrix) and short parallel NUTS chains
 ## started from the MLE.
 nuts.mle <-
-  sample_admb(model=m, iter=500, init=NULL, algorithm='NUTS',  seeds=seeds,
-               parallel=TRUE, chains=reps, warmup=100, path=m, cores=reps,
-              control=list(metric="mle", adapt_delta=0.8))
+  sample_admb(model=m, iter=4000, init=NULL, algorithm='NUTS', thin=2,  seeds=seeds,
+              parallel=TRUE, chains=reps, warmup=400, path=d, cores=reps,
+              control=list(metric="mle", adapt_delta=0.9))
 ## Check for issues like slow mixing, divergences, max treedepths with
 ## ShinyStan and pairs_admb as above. Fix and rerun this part as needed.
-launch_shinyadmb(nuts.mle)
 ess <- monitor(nuts.mle$samples, warmup=nuts.mle$warmup, print=FALSE)[,'n_eff']
 slow <- names(sort(ess))[1:8]
 png('pairs_slow_nuts.png', width=7, height=5, units='in', res=500)
@@ -65,13 +64,15 @@ dev.off()
 mass <- nuts.mle$covar.est # note this is in unbounded parameter space
 inits <- get.inits(nuts.mle, reps) ## use inits from pilot run
 nuts.updated <-
-  sample_admb(model=m, iter=500, init=inits, algorithm='NUTS',  seeds=seeds,
-               parallel=TRUE, chains=reps, warmup=100, path=m, cores=reps,
-              mceval=TRUE, control=list(metric=mass, adapt_delta=0.8))
+  sample_admb(model=m, iter=2000, init=inits, algorithm='NUTS',  seeds=seeds,
+               parallel=TRUE, chains=reps, warmup=200, path=d, cores=reps,
+              mceval=TRUE, control=list(metric=mass, adapt_delta=0.95))
 ## Again check for issues of nonconvergence and other standard checks. Then
 ## use for inference.
-launch_shinyadmb(nuts.updated)
 ess <- monitor(nuts.updated$samples, warmup=nuts.updated$warmup, print=FALSE)[,'n_eff']
+nuts.updated$ess <- ess
+saveRDS(nuts.updated, file='nuts.updated.RDS')
+launch_shinyadmb(nuts.updated)
 slow <- names(sort(ess))[1:8]
 png('pairs_slow_nuts2.png', width=7, height=5, units='in', res=500)
 pairs_admb(fit=nuts.updated, pars=slow)
