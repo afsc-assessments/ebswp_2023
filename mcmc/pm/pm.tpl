@@ -862,14 +862,14 @@ PARAMETER_SECTION
   // 11x11 matrix of advection "cells" to use for testing explanatory power of post-spawning wind conditions on survival (rec)
   // Eq. 8
   init_bounded_matrix larv_rec_devs(1,11,1,11,-10.,10.,phase_larv)
-  init_number repl_F(5)
+  // init_number repl_F(5)
   matrix larv_rec_trans(1,11,1,11)
   number alpha;
   number beta;
   number Rzero;
   likeprof_number q_all;
-  number repl_yld
-  number repl_SSB
+  // number repl_yld
+  // number repl_SSB
   // Added to test for presence of alternative recruitment "regimes" :
   //  e.g., regime(1) = mean(pred_rec(1964,1977));
   // sdreport_vector regime(1,8);
@@ -1223,7 +1223,7 @@ REPORT_SECTION
       eac_ats(i) = eac_eit(i)(mina_eit,nages);
     }
     legacy_rep <<calc_Francis_weights(oac_ats, eac_ats,sam_eit )<<endl;
-  cout<<repl_yld<<endl; cout<<repl_SSB<<endl; cout<<SSB(endyr_r)<<endl; 
+  // cout<<repl_yld<<endl; cout<<repl_SSB<<endl; cout<<SSB(endyr_r)<<endl; 
   dvariable qtmp = mfexp(mean(log(oa1_eit)-log(ea1_eit)));
   legacy_rep << model_name<<" "<< datafile_name<<" "<<q_bts<<" "<<q_eit<<" "<<q_bts*exp(log_q_std_area)<< " "<<q_all<<" "<<qtmp<<" "<<sigr<<" q's and sigmaR"<<endl;
   legacy_rep << "Estimated Catch and Observed" <<endl;
@@ -1794,7 +1794,7 @@ FUNCTION GetDependentVar
     DepletionSpawners=SSB(endyr_r)/SSB(styr);
     Future_projections_fixed_F();
     // F40_catch = catch_future(1,styr_fut);
-    if (!mceval_phase())
+    if (sd_phase())
     {
       // Re-run w/o F mort (for output)
       write_nofish();
@@ -2679,7 +2679,7 @@ FUNCTION Recruitment_Likelihood
  // +===+====+==+==+==+==+==+==+==+====+====+==+==+===+====+==+==+==+==+==+==+==+====+====+====+
 FUNCTION Evaluate_Objective_Function 
   if (last_phase())
-    Get_Replacement_Yield();
+    // Get_Replacement_Yield();
   // For logistic fishery selectivity option (sensitivity)
   if (active(sel_dif2_fsh)) 
   {
@@ -4019,9 +4019,9 @@ FUNCTION write_R
   R_report(SRR_SSB);
   R_report(rechat);
   R_report(rechat.sd);
-  R_report(repl_F);
-  R_report(repl_yld);
-  R_report(repl_SSB);
+  // R_report(repl_F);
+  // R_report(repl_yld);
+  // R_report(repl_SSB);
 	report<<"cat_like"<<endl<< ctrl_flag(1) * ssqcatch      << endl;
 	report<<"Fpen_like"<<endl<< ctrl_flag(4) * F_pen         << endl;
   R_report(wt_like);
@@ -4480,18 +4480,18 @@ FUNCTION Get_Replacement_Yield
   dvar_vector Ztmp(1,nages);
   dvar_vector Stmp(1,nages);
   Ctmp.initialize();
-  Ftmp          = repl_F*sel_fut ;
+  // Ftmp          = repl_F*sel_fut ;
   Ztmp          = natmort + Ftmp;
   Stmp          = mfexp(-Ztmp);
   Ctmp          = elem_prod(ntmp, elem_prod( elem_div(Ftmp,Ztmp), (1.-Stmp) ) );
-  repl_yld      = wt_fut*Ctmp ;
+  // repl_yld      = wt_fut*Ctmp ;
   ntmp(2,nages) = ++elem_prod(Stmp(1,nages-1),ntmp(1,nages-1));
   ntmp(nages)   += ntmp(nages)*Stmp(nages);
   ntmp(1)       = mean(pred_rec);
-  repl_SSB      = elem_prod(p_mature,elem_prod(ntmp, pow(Stmp,yrfrac))) * wt_ssb(endyr_r); 
+  // repl_SSB      = elem_prod(p_mature,elem_prod(ntmp, pow(Stmp,yrfrac))) * wt_ssb(endyr_r); 
   // cout<<Ftmp<<endl; cout<<Ztmp<<endl; cout<<Stmp<<endl; cout<<Ctmp<<endl; cout<<repl_yld<<endl; cout<<ntmp<<endl; cout<<repl_SSB<<endl; cout<<SSB(endyr_r)<<endl; cout<< 500.*square(log(SSB(endyr_r))-log(repl_SSB))<<endl; exit(1);
   // SSB(styr)  = elem_prod(elem_prod(natage(styr),pow(S(styr),yrfrac)),p_mature)*wt_ssb(styr); // Eq. 1
-  fff           += 50.*square(log(SSB(endyr_r))-log(repl_SSB));
+  // fff           += 50.*square(log(SSB(endyr_r))-log(repl_SSB));
 FUNCTION Est_Fixed_Effects_wts_2016
   double sigma_coh = (mfexp(log_sd_coh));
   double sigma_yr = (mfexp(log_sd_yr ));
