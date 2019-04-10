@@ -10,10 +10,10 @@ no,label,cap
 9,catage,EBS pollock fishery estimated catch-at-age data (in number) for 1992--2017. Age 10 represents pollock age 10 and older. The 2008 year-class is shaded in green.
 10,obs_n,EBS pollock observer sampling summarized for number of ages 1991--2017.
 11,bts_biom,Bottom-trawl survey biomass estimates with error bars representing 1 standard deviation (density-dependent correction method; DDC) for EBS pollock. Horizontal line represents the long-term mean. Note these values differ from the design-based versions in Table \ref{tab:bts_abund}.
-12,bts_temp,Bottom and surface temperatures for the Bering Sea from the NMFS summer bottom-trawl surveys (1982--2018). Dashed lines represent mean values.  
-13,bts_temp_cpue,EBS pollock CPUE (shades = relative kg/hectare) and bottom temperature isotherms in degrees C; from the bottom trawl survey data 2011--2018.  
-14,bts_3d,Bottom trawl survey pollock catch in kg per hectare for 2016 - 2018. Height of vertical lines are proportional to station-specific pollock densities by weight (kg per hectare) with constant scales for all years.  
-15,bts_age,Pollock abundance levels by age and year as estimated directly from the NMFS bottom-trawl surveys (1990--2018). The 2006, 2008, and 2012 year-classes are shaded differently.  
+12,bts_temp,"Bottom and surface temperatures for the Bering Sea from the NMFS summer bottom-trawl surveys (1982--2018). Dashed lines represent mean values."
+13,bts_temp_cpue,"EBS pollock CPUE (shades = relative kg/hectare) and bottom temperature isotherms in degrees C; from the bottom trawl survey data 2011--2018."
+14,bts_3d, "Bottom trawl survey pollock catch in kg per hectare for 2016 - 2018. Height of vertical lines are proportional to station-specific pollock densities by weight (kg per hectare) with constant scales for all years."
+15,bts_age,"Pollock abundance levels by age and year as estimated directly from the NMFS bottom-trawl surveys (1990--2018). The 2006, 2008, and 2012 year-classes are shaded differently."
 16,at_age,"Pollock abundance at age estimates from the AT survey, 1979--2018; 2018 age estimates are preliminary using primarily BTS age data"
 17,at_unsampled,"Map of survey area showing completed transects (black lines), unsurveyed transects (red lines), surveyed polygon (green shading), and the tracks of the bottom trawl vessels inside the unsampled area that were used to estimate acoustic backscatter in this area."
 18,ats_bts,EBS pollock ATS transects (superimposed) over bottom-trawl survey stations and density estimates (in both settings contoured in the yellow-red heat map) for 2018.
@@ -23,7 +23,7 @@ no,label,cap
 22,mod_eval0b,EBS pollock model evaluation results of recruitment comparing last year's model with this year.
 23,mod_bts_biom,"EBS pollock model fit to the BTS biomass data (density dependence corrected estimates), 1982--2018."
 24,mod_ats_biom,"EBS pollock model fit to the ATS biomass data, 1994--2018."
-25,mod_mean_age,EBS pollock model fits to observed mean age for the Acoustic trawl survey (top), the bottom trawl survey (middle), and the fishery (bottom) for EBS pollock.  
+25,mod_mean_age,"EBS pollock model fits to observed mean age for the Acoustic trawl survey (top), the bottom trawl survey (middle), and the fishery (bottom) for EBS pollock.  "
 26,mod_fsh_sel,Selectivity at age estimates for the EBS pollock fishery.
 27,mod_fsh_age,Model fit (dots) to the EBS pollock fishery proportion-at-age data (columns; 1964--2017). The 2017 data are new to this year's assessment. Colors coincide with cohorts progressing through time.  
 28,mod_cpue_fit,EBS pollock model fits to the Japanese fishery CPUE.

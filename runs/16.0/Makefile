@@ -4,7 +4,7 @@ ifeq ($(SAFE),TRUE)
 else
 	DIST = ../../src/
 endif
-ARGS = -nox -iprint 50 
+ARGS = -nox -iprint 150 
 
 ifdef ComSpec
     RM=del /F /Q
@@ -24,6 +24,11 @@ $(DIST)$(EXEC).tpl:
 mpd: $(EXEC)
 	./$(EXEC) $(ARGS)
 	@$(RM) $(EXEC).*[0123456789] *.rpt *.log variance gradient.* *tmp admodel.* *.eva
+
+mcmc: $(EXEC)
+	./$(EXEC) $(ARGS) -mcmc 3000000 -mcsave 600
+	./$(EXEC) -mceval 
+	
 
 debug: $(EXEC)
 	./$(EXEC) $(ARGS)
