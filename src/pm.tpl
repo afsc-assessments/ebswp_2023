@@ -1794,7 +1794,7 @@ FUNCTION GetDependentVar
     DepletionSpawners=SSB(endyr_r)/SSB(styr);
     Future_projections_fixed_F();
     // F40_catch = catch_future(1,styr_fut);
-    if (!mceval_phase())
+    if (sd_phase())
     {
       // Re-run w/o F mort (for output)
       write_nofish();
@@ -2679,7 +2679,7 @@ FUNCTION Recruitment_Likelihood
  // +===+====+==+==+==+==+==+==+==+====+====+==+==+===+====+==+==+==+==+==+==+==+====+====+====+
 FUNCTION Evaluate_Objective_Function 
   if (last_phase())
-    // Get_Replacement_Yield();
+    Get_Replacement_Yield();
   // For logistic fishery selectivity option (sensitivity)
   if (active(sel_dif2_fsh)) 
   {
