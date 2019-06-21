@@ -1,0 +1,59 @@
+# Figures
+```{r fshfigs}
+ printfig("catch.png",1)
+ printfig("catch_sex.pdf",2)
+ printfig("catch_distn_a.png",3)
+ printfig("cpue_aseason.png",4)
+ printfig("catchp.png",5)
+ printfig("catch_distn_b.png",6)
+ printfig("cpue_bseason.png",7)
+ printfig("roe.pdf",8)
+ printfig("catage.png",9)
+ # printfig("samplesize.png",10)
+``` 
+
+\clearpage
+
+```{r child = 'survfigs.Rmd'}
+```
+```{r finfigs}
+ printfig("fsh_wtage_comb.pdf",53)
+ printfig("fsh_wtage.pdf",20)
+ printfig("fsh_wtage_strata.pdf",54)
+ printfig("fsh_lw_month.png",47)
+ printfig("fsh_lw_str_yr_box.pdf",56)
+ printfig("fsh_lw_str_box.pdf",57)
+ printfig("fsh_lw_str_yr_mean.pdf",58)
+ printfig("mod_data.pdf",60)
+ printfig("mod_eval0c.pdf",50)
+ printfig("mod_eval0a.pdf",21)
+ printfig("mod_eval0b.pdf",22)
+ printfig("bholt_ricker.pdf",51)
+ printfig("mod_cpue_fit.pdf",28)
+ printfig("mod_avo_fit.pdf",29)
+ printfig("mod_bts_biom.pdf",23)
+ printfig("mod_ats_biom.pdf",24)
+ printfig("mod_mean_age.pdf",25)
+ printfig("mod_fsh_sel.pdf",26)
+ printfig("mod_fsh_age.pdf",27)
+ printfig("mod_bts_sel.pdf",30)
+ printfig("mod_bts_age.pdf",31)
+ # printfig("mod_atsones.pdf",32)
+ printfig("mod_ats_age.pdf",33)
+ printfig("mcmc_pairs.pdf",45)
+ printfig("mcmc_marg.pdf",46)
+ printfig("mod_ser.pdf",34)
+ printfig("mod_F.pdf",35)
+ printfig("mod_hist.pdf",36)
+ printfig("mod_phase.pdf",37)
+ printfig("mod_rec.pdf",38)
+ printfig("mod_srr.pdf",39)
+ printfig("mod_rs.pdf",40)
+ printfig("mod_retro.pdf",42)
+ printfig("tier3_proj.pdf",43)
+ printfig("future_F.pdf",44)
+ printfig("diversity.pdf",55)
+```
+
+\clearpage
+
