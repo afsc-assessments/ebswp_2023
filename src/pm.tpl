@@ -26,7 +26,7 @@ DATA_SECTION
  !!  *(ad_comm::global_datafile) >> Cov_Filename;
  !!  *(ad_comm::global_datafile) >> Wtage_file;
  !!  *(ad_comm::global_datafile) >> RawSurveyCPUE_file;
- !!  *(ad_comm::global_datafile) >> endyrn_file;
+ // !!  *(ad_comm::global_datafile) >> endyrn_file;
  !! write_log(model_name);
  !! write_log(datafile_name);
  !! write_log(selchng_filename);
@@ -35,7 +35,7 @@ DATA_SECTION
  !! write_log(Cov_Filename);
  !! write_log(Wtage_file);
  !! write_log(RawSurveyCPUE_file);
- !! write_log(endyrn_file);
+ // !! write_log(endyrn_file);
   int count_Ffail;
   int count_mcmc;
   int count_mcsave;
@@ -386,15 +386,15 @@ DATA_SECTION
   // Bit to simulate from covariance matrix on numbers at age in terminal year
   // 
  //  !! global_datafile= new cifstream("endyrn_est.dat");
- !! ad_comm::change_datafile_name(endyrn_file);
-  init_vector N_endyr_est(1,nages)
-  init_vector s_endyr_est(1,nages)
-  init_matrix c_endyr_est(1,nages,1,nages)
-  matrix v_endyr_est(1,nages,1,nages)
-  matrix chol(1,nages,1,nages)
+ // !! ad_comm::change_datafile_name(endyrn_file);
+  // init_vector N_endyr_est(1,nages)
+  // init_vector s_endyr_est(1,nages)
+  // init_matrix c_endyr_est(1,nages,1,nages)
+  // matrix v_endyr_est(1,nages,1,nages)
+  // matrix chol(1,nages,1,nages)
   int j
-  !! for (i=1;i<=nages;i++) for (j=1;j<=nages;j++) v_endyr_est(i,j)=c_endyr_est(i,j)*s_endyr_est(i)*s_endyr_est(j); 
-  !! chol = (choleski_decomp(v_endyr_est));  
+  // !! for (i=1;i<=nages;i++) for (j=1;j<=nages;j++) v_endyr_est(i,j)=c_endyr_est(i,j)*s_endyr_est(i)*s_endyr_est(j); 
+  // !! chol = (choleski_decomp(v_endyr_est));  
 
   int dim_sel_fsh
   int dim_sel_bts

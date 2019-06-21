@@ -1,22 +1,16 @@
 ---
-title: "Chapter 1: Assessment of the Walleye Pollock Stock \\ in the Eastern Bering Sea"
+title: 'Chapter 1: Assessment of the Walleye Pollock Stock \ in the Eastern Bering
+  Sea'
 date: "`r format(Sys.time(), '%H:%M %B %d, %Y')`"
+fontfamily: mathpazo
 output:
-  pdf_document:
-    toc: true
-    highlight: zenburn
-    fig_caption: yes
-    includes:
-      in_header: mystyles.sty
-    keep_tex: yes
-    template: ms.tex
   html_document:
     df_print: paged
-fontsize: 11pt
-header-includes:
-  - \usepackage{fontspec}
+  pagedown::jss_paged:
+    self_contained: no
 geometry: margin=1in
-fontfamily: mathpazo
+header-includes: \usepackage{fontspec}
+fontsize: 11pt
 bibliography: ~/OneDrive/myref.bib
 ---
 \pagenumbering{gobble}
