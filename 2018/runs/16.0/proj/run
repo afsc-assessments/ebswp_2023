@@ -1,0 +1,18 @@
+#!/bin/bash
+# if NOT exist data\%1_spcat.dat   ( echo ---------------
+# echo. 
+# echo   Oops...Error!!!!   
+# echo. 
+echo   File data\%1_spcat.dat appears to be missing...  
+# echo. 
+# echo   Exiting....
+# echo ---------------
+# exit /B
+# )
+cp data/$1_spcat.dat   spp_catch.dat
+main -nox -nohess
+mkdir $1_out
+cp *.out $1_out/
+cp main.rep $1_out/report.out
+cp alt2_proj.rep $1_out/alt2_proj.out
+cleanad
