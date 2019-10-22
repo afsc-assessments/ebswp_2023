@@ -1,0 +1,12 @@
+```{r child = 'survtext.Rmd'}
+```
+\clearpage
+
+#Tables
+
+```{r child = 'survtab.Rmd'}
+```
+\clearpage
+
+```{r child = 'survfigs.Rmd'}
+```
