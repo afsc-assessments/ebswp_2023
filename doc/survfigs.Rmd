@@ -1,0 +1,23 @@
+```{r survfigs}
+i<-11
+ printfig("bts_biom.png",i)
+ i <- i + 1
+ printfig("bts_temp.pdf",i)
+ i <- i + 1
+ printfig("bts_temp_cpue.pdf",i)
+ i <- i + 1
+ printfig("bts_3d.png",i)
+ i <- i + 1
+ printfig("bts_age.png",i)
+ i <- i + 1
+ printfig("at_age.png",i)
+ i <- i + 1
+ printfig("at_unsampled.png",i)
+ i <- i + 1
+ printfig("ats_bts.png",i)
+ i <- i + 1
+ printfig("avo_bts.png",i)
+ i <- i + 1
+ # printfig("mortprofile.png",19)
+```
+ 
