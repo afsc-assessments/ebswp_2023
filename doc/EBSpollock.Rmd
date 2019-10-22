@@ -58,16 +58,16 @@ doproj  <- F
 source("../pm_19.R")
 ```
 
-```{r child = 'text.Rmd'}
-```
-```{r child = 'ref.Rmd'}
-```
-```{r child = 'tab.Rmd'}
-```
-#```{r child = 'figs.Rmd'}
+#```{r child = 'text.Rmd'}
 #```
-```{r child = 'model.Rmd'}
+#```{r child = 'ref.Rmd'}
+#```
+#```{r child = 'tab.Rmd'}
+#```
+```{r child = 'figs.Rmd'}
 ```
+#```{r child = 'model.Rmd'}
+#```
 #```{r child = 'App.Rmd'}
 ```
  #\tableofcontents
@@ -76,3 +76,5 @@ source("../pm_19.R")
 
  #\listoffigures
 
+
+-->
