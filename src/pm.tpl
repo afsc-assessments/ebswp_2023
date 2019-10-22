@@ -226,7 +226,6 @@ DATA_SECTION
   init_int phase_q_bts    // phase for estimating survey q for bottom trawl survey
   init_int phase_q_std_area
   init_int phase_q_eit    // phase for estimating survey q for echo-integration trawl survey
-  !! if (DoCovBTS) phase_q_bts = -1;
   init_int phase_bt       // Phase for bottom temperature parameter
   init_int phase_rec_devs // Phase for estimating recruits (not from SR curve, but as N age 1)
   init_int phase_larv     // Phase to use advective larval dispersal (as a predictive aid) Eq. 8
@@ -241,11 +240,32 @@ DATA_SECTION
   init_int sel_dev_shift // Sets the year for selectivity changes, 0 = first change in 1966, -1 = first change in 65...
   init_int phase_coheff // 
   init_int phase_yreff // 
-  !! write_log(last_age_sel_group_fsh);
-  !! write_log(last_age_sel_group_bts);
-  !! write_log(last_age_sel_group_eit);
-  !! write_log(ctrl_flag);
-  !! write_log(sel_dev_shift);
+ LOCAL_CALCS
+  // if (DoCovBTS) phase_q_bts = -1;
+  phase_q_bts = -1; // OjO
+  write_log( phase_natmort);
+  write_log( phase_q_bts);
+  write_log( phase_q_std_area);
+  write_log( phase_q_eit);
+  write_log( phase_bt);
+  write_log( phase_rec_devs);
+  write_log( phase_larv);
+  write_log( phase_sr);
+  write_log( wt_fut_phase);
+  write_log( last_age_sel_group_fsh);
+  write_log( last_age_sel_group_bts);
+  write_log( last_age_sel_group_eit);
+  write_log( ctrl_flag(1,30));
+  // Following was used for getting selectivity blocks to end with the correct pattern (i.e., last block ends in last yr of data)
+  write_log( sel_dev_shift);
+  write_log( phase_coheff );
+  write_log( phase_yreff );
+  write_log(last_age_sel_group_fsh);
+  write_log(last_age_sel_group_bts);
+  write_log(last_age_sel_group_eit);
+  write_log(ctrl_flag);
+  write_log(sel_dev_shift);
+ END_CALCS
 
   // init_int Sim_status   //Simulation flag 0=none, 1=1-yr ahead, 2=full simulation (all data)
   // init_int iseed_junk   //rng seed in
@@ -279,7 +299,8 @@ DATA_SECTION
        vector wt_mn(1,nages)
        vector wt_sigma(1,nages)
   init_vector obs_catch(styr,endyr)
-  !! write_log(p_mature);write_log(obs_catch);write_log(wt_fsh);
+  !! write_log(p_mature);write_log(ewindex);write_log(nsindex);
+  !! write_log(wt_fsh);write_log(wt_ssb); write_log(obs_catch);write_log(wt_fsh);
   // Effort vector input (but never used...placeholder)
   init_vector obs_effort(styr,endyr)
   // Historical CPUE (foreign) for early trend information 
@@ -358,6 +379,7 @@ DATA_SECTION
   !! write_log(age_err); 
   init_int nlbins;
   init_vector olc_fsh(1,nlbins)
+  !! write_log(olc_fsh); 
   vector lens(1,nlbins);
  LOC_CALCS
    write_log(nlbins); 
@@ -380,7 +402,9 @@ DATA_SECTION
       lens(24,nlbins) += 1.0;
  END_CALCS
   init_matrix age_len(1,nages,1,nlbins)
-  init_number test
+  !! write_log(age_len); 
+  init_int test
+  !! write_log(test); 
   !! if(test!=1234567){ cout<<"Failed on data read "<<test<<endl;exit(1);}
   // ____________________________________________________________________________________
   // Bit to simulate from covariance matrix on numbers at age in terminal year
@@ -1170,7 +1194,7 @@ RUNTIME_SECTION
    convergence_criteria .001,.001,1e-7
 PROCEDURE_SECTION
   if (active(yr_eff)||active(coh_eff))
-		Est_Fixed_Effects_wts_2016();
+		Est_Fixed_Effects_wts();
   Get_Selectivity();
   Get_Mortality_Rates();
   GetNumbersAtAge();
@@ -1206,10 +1230,14 @@ REPORT_SECTION
 	  sel_like_dev.shift(1);
 	  rec_like.shift(1);
 	  Priors.shift(1);
-  report << "N"<<endl;
-  report << natage<<endl;
-  report << "C"<<endl;
-  report << catage<<endl;
+  report << "N"    <<endl;
+  report << natage <<endl;
+  report << "C"    <<endl;
+  report << catage <<endl;
+  report << "M"    <<endl;
+  report << M      <<endl;
+  report << "Z"    <<endl;
+  report << Z      <<endl;
     legacy_rep << "Francis weights: fishery "<<endl;
     legacy_rep <<calc_Francis_weights(oac_fsh, eac_fsh,sam_fsh )<<endl;
     legacy_rep << "Francis weights: bTS "<<endl;
@@ -4493,7 +4521,7 @@ FUNCTION Get_Replacement_Yield
   // SSB(styr)  = elem_prod(elem_prod(natage(styr),pow(S(styr),yrfrac)),p_mature)*wt_ssb(styr); // Eq. 1
   fff           += 50.*square(log(SSB(endyr_r))-log(repl_SSB));
 
-FUNCTION Est_Fixed_Effects_wts_2016
+FUNCTION Est_Fixed_Effects_wts
   double sigma_coh = (mfexp(log_sd_coh));
   double sigma_yr = (mfexp(log_sd_yr ));
   K            = mfexp(log_K);

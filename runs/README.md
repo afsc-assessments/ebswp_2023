@@ -1,4 +1,13 @@
 # Summary
+2019 runs are in base, lastyr (2018 version of base) then the C-CABA runs, vastage, constsel, vast_cp, vastall.
+
+initial runs indicated that the small avg wts in 2018 need to be filled in...
+
+also, ssb_wts run using A-season fishery smoothers...if possible. Go to sampler/cases/ebspollock and find strata wt bootstraps 
+but it turns out the A-season means are very similar to overall mean, and since spawning occurs to some extent year-round, stick
+with status quo
+
+
 make.bat runs model within subdirectories
    - 2018 contains sub-directories for different model configurations     
    - sub-directories are for different model configurations (base is 2018)     

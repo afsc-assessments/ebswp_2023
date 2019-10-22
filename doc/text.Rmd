@@ -50,18 +50,18 @@ the bottom-trawl survey.
   \hline
 	M (natural mortality rate, ages 3+)	&	0.3	&	0.3	&	0.3	&	0.3 \\
 Tier	&	1a	&	1a	&	1a	&	1a \\
-Projected total (age 3+) biomass (t)	&10,965,000 t & 10,117,000 t &	`r M$age3plus1s` t	   &	`r M$age3plus2s` t  \\
-Projected female spawning biomass (t) &	3,678,000 t	&	3,365,000 t	&		`r M$ssb1s` t	         &	`r M$ssb2s` t	      \\
-$B_0$                                 &	5,394,000 t	&	5,394,000 t	&		`r M$b0s`,000 t	       &	`r M$b0s`,000 t	    \\
-$B_{msy}$                             &	2,042,000 t	&	2,042,000 t	&		`r M$bmsys`,000 t	     &	`r M$bmsys`,000 t	  \\
-$F_{OFL}$                             &	0.621	      &	0.621	      &		`r round(M$arithmeanF,3)`	   &	`r round(M$arithmeanF,3)`	\\
-$maxF_{ABC}$                          & 0.466	      &	0.466	      &	  `r round(M$harmeanF,3)`	     &	`r round(M$harmeanF,3)`  	\\
-$F_{ABC}$                             &	0.336       &	0.336       &		`r (M$fabc1s)`           &	`r (M$fabc2s)`        \\
-$OFL$    	                            &	4,797,000 t	&	4,592,000 t	&	  `r M$ofl1s` t          &	`r M$ofl2s` t       \\
-$maxABC$    	                        &	3,603,000 t	&	3,448,000 t	&		`r M$maxabc1s ` t      &	`r M$maxabc2s ` t   \\
-$ABC$ 	                             &	2,592,000 t	&	2,467,000 t	&		`r M$abc1s ` t         &	`r M$abc2s` t       \\
+Projected total (age  3+) biomass (t) & 9,110,000 t & 8,156,000 t & `r  M$age3plus1s` t & `r  M$age3plus2s` t \\
+Projected female  spawning  biomass (t) & 3,107,000 t & 2,725,000 t & `r  M$ssb1s`  t & `r  M$ssb2s`  t \\  
+$B_0$ & 5,866,000 t & 5,866,000 t & `r  M$b0s`,000  t & `r  M$b0s`,000  t \\          
+$B_{msy}$ & 2,280,000 t & 2,280,000 t & `r  M$bmsys`,000  t & `r  M$bmsys`,000  t \\          
+$F_{OFL}$ & 0.645 & 0.645 & `r  round(M$arithmeanF,3)`  & `r  round(M$arithmeanF,3)`  \\                  
+$maxF_{ABC}$  & 0.510 & 0.51  & `r  round(M$harmeanF,3)`  & `r  round(M$harmeanF,3)`  \\                  
+$F_{ABC}$ & 0.356 & 0.375 & `r  (M$fabc1s)` & `r  (M$fabc2s)` \\                  
+$OFL$ & 3,913,000 t & 3,082,000 t & `r  M$ofl1s`  t & `r  M$ofl2s`  t \\          
+$maxABC$  & 3,096,000 t & 2,437,000 t & `r  M$maxabc1s  ` t & `r  M$maxabc2s  ` t \\      
+$ABC$ & 2,163,000 t & 1,792,000 t & `r  M$abc1s ` t & `r  M$abc2s`  t \\        
 \hline
-Status	                              &	2016	      &	2017	      &		`r lastyr`             &	`r thisyr`          \\
+Status	                              &	2017	      &	2018	      &		`r lastyr`             &	`r thisyr`          \\
 \hline
 Overfishing	                          &	No	        &	n/a	      &	No	                       &	n/a                 \\
 Overfished	                          &	n/a	        &	No	      &	n/a	                       &	No                  \\
@@ -399,35 +399,29 @@ These measures are all part of Amendment 110 and a summary of this and other
 key management measures is provided in Table \ref{tab:mgt}.
 
 
-## Economic conditions as of 2017
+## Economic conditions as of 2018
 
 Alaska pollock is the dominant species in terms of catch in the Bering Sea \&
-Aleutian Island (BSAI) region. In 2017 pollock accounted for 70\% of the
-BSAI's FMP groundfish harvest and 88\% of the total pollock harvest in Alaska.
-Retained catch of pollock increased 0.5\% to 1.36 million t in 2017. BSAI
-pollock first-wholesale value was \$1.355 billion 2017, which was roughly
-equal to the value in 2016 and above the 2005--2007 average of \$1.25
-billion. The higher revenue in recent years is largely the result of increased
-catch and production levels as the average first-wholesale price of pollock
-products have declined since peaking in 2008--2010 and since 2013 have been
-close to the 2005--2007 average, though this varies across products types. The
-marginal increases in the average  first-wholesale price of pollock products
-in 2016 and 2017 are largely due to increases the price of surimi products.
+Aleutian Island (BSAI) region. In 2018 pollock accounted for 70\% of the
+BSAI's FMP groundfish harvest and 90\% of the total pollock harvest in Alaska.
+Retained catch of pollock increased 1.5\% to 1.38 million t in 2018 (Table \ref{tab:bsaiplck_exv}). BSAI
+pollock first-wholesale value was \$1.38 billion 2018, which was 3\% increase 
+from 2017 and above the 2005--2007 average of \$1.25 billion (Table \ref{tab:bsaiplck_wsl}). The higher revenues
+in recent years is the combined effect of strong catch and production levels and 
+a steady increase in the average first-wholesale price between 2016 and 2017. The 
+increases in the average  first-wholesale price of pollock products in 2016 and 2017 
+were largely due to increases the price of surimi products while the price increase 
+in 2018 was largely due to an increase in the price of fillets.
 
 Pollock is targeted exclusively with pelagic trawl gear. The catch of pollock
-in the BSAI was rationalized with the passage of the 
+in the BSAI was rationalized with the passage of the
 AFA in 1998,\footnote{The AFA was implemented in 1999 for
 catcher/processors, and in 2000 for catcher vessel and motherships.} which,
 among other things, established a proportional allocation of the total
 allowable catch (TAC) among vessels in sectors which were allowed to form into
 cooperatives.\footnote{The BSAI pollock TAC is divided between Community
-Development Program (10\% off the top), with the remaining amount split among shore-based 
-catcher vessels (50\%), at-sea catcher/processors (40\%) and motherships (10\%).}  Alaska caught pollock in
-the BSAI became certified by the Marine Stewardship Council (MSC) in 2005, an
-NGO based third-party sustainability certification, which some buyers seek. In
-2015 the official U.S. market name changed from "Alaska pollock" to
-"pollock" enabling U.S. retailers to differentiate between pollock caught in
-Alaska and Russia.
+Development Program (10\% off the top), with the remaining amount split among shore-based
+catcher vessels (50\%), at-sea catcher/processors (40\%) and motherships (10\%).} 
 
 Prior to 2008 pollock catches were high at approximately 1.4 million t in the
 BSAI for an extended period (Table \ref{tab:bsaiplck_exv}). The U.S. accounted
@@ -442,20 +436,28 @@ increased to over 50\% and the U.S. share decreased to 35\%. Russia lacks the
 primary processing capacity of the U.S. and much of their catch is exported to
 China and is re-processed as twice-frozen fillets. Around the mid- to late-
 2000s, buyers in Europe, an important segment of the fillet market, started to
-source fish products with the MSC sustainability certification, and 
+source fish products with the MSC sustainability certification, and
 retailers in the U.S. later began to follow suit. Asian markets, an important
 export destination for a number of pollock products, have shown less interest
 in requiring MSC certification. The U.S. was the only producer of MSC
 certified pollock until 2013 when roughly 50\% of the Russian catch became MSC
-certified. Since 2010 the U.S. pollock stock rebounded with catches in the
+certified.\footnote{Alaska caught pollock in
+the BSAI became certified by the Marine Stewardship Council (MSC) in 2005, an
+NGO based third-party sustainability certification, which some buyers seek.} 
+Since 2010 the U.S. pollock stock rebounded with catches in the
 BSAI ranging from 1.2--1.3 million t and Russia's catch has stabilized at 1.5
 to 1.6 million t. The majority of pollock is exported; consequently exchange
 rates can have a significant impact on market dynamics, particularly the
-Dollar-Yen and Dollar-Euro.\footnote{Aggregate exports in Table \ref{tab:bsaiplck_glbl} 
-may not fully account for   all pollock exports as products such as meal, 
-minced fish and other ancillary product may be coded as generic fish type for export purposes.} 
-Additionally, pollock more broadly competes with other whitefish that, to varying degrees, can serve as
-substitutes depending on the product.
+Dollar-Yen and Dollar-Euro.\footnote{Aggregate exports in Table \ref{tab:bsaiplck_glbl}
+may not fully account for all pollock exports as products such as meal,
+minced fish and other ancillary product may be coded as generic fish type for export purposes.}
+In 2015 the official U.S. market name changed from "Alaska pollock" to
+"pollock" enabling U.S. retailers to differentiate between pollock caught in
+Alaska and Russia. Additionally, pollock more broadly competes with other whitefish that, 
+to varying degrees, can serve as substitutes depending on the product. The pollock industry 
+has avoided U.S. tariffs that would have a significant negative impact on them in the 
+U.S.-China trade war. However, chinese tariffs on U.S. products could 
+inhibit growth in that market.
 
 This market environment accounts for some of the major trends in prices and
 production across product types. Fillet prices peaked in 2008--2010 but
@@ -468,7 +470,7 @@ Asia. Additionally, the supply of pollock roe from Russia has increased with
 catch. The net effect has been not only a reduction in the supply of roe from
 the U.S. industry, but also a significant reduction in roe prices which are
 roughly half pre-2008 levels. Prior to 2008, roe comprised 23\% of the U.S.
-wholesale value share, and since 2011 it has been roughly 10\%. With the U.S.
+wholesale value share, and since 2011 it has been roughly 10\% (Table \ref{tab:bsaiplck_wsl}). With the U.S.
 supply reduction in 2008--2010, surimi production from pollock came under
 increased pressure as U.S. pollock prices rose and markets sought cheaper
 sources of raw materials (see Guenneugues and Ianelli 2013 for a global review
@@ -483,59 +485,57 @@ The catch of pollock can be broadly divided between the shore-based sector
 where catcher vessels make deliveries to inshore processors, and the at-sea
 sector where catch is processed at-sea by catcher/processors and motherships
 before going directly to the wholesale markets. The retained catch of the
-shore-based sector increased 1\% increase to 710 kt. The value of these
-deliveries (shore-based ex-vessel value) totaled \$205.1 million in 2017,
-which was down 1.8\% from the ex-vessel value in 2016, as the increased catch
-was offset by a decrease in the ex-vessel price (Table
-\ref{tab:bsaiplck_exv}). The first-wholesale value of pollock products was
-\$841 million for the at-sea sector and \$513 million for the shore-based
+shore-based sector increased 1\% increase to 718 kt. The value of these
+deliveries (shore-based ex-vessel value) totaled \$236.7 million in 2018,
+which was up 15\% from the ex-vessel value in 2017 driven mostly by a 14\%
+increase in the ex-vessel price (Table \ref{tab:bsaiplck_exv}). 
+The first-wholesale value of pollock products was
+\$811 million for the at-sea sector and \$568 million for the shore-based
 sector (Table \ref{tab:bsaiplck_wsl}). The higher revenue in recent years is
 largely the result of increased catch levels as the average price of pollock
 products has declined since peaking in 2008--2010 and since 2013 has been close
 to the 2005--2007 average, though this varies across products types. The
-average price of pollock products in 2017 increased for the at-sea sector and
-decreased for the shore-based sectors. The increase in the at-sea sector
-revenues was largely due to an increase in surimi prices, an increase which
-was not observed for the shore-based processors. Fillet product prices
-declined in 2017 while roe prices increased, however both remain low relative
-to levels roughly a decade ago.
+average price of pollock products in 2018 decreased for the at-sea sector and
+increased for the shore-based sectors. The increase in the at-sea sector
+revenues was largely due to a decrease in surimi prices. Fillet product prices
+increased 6.5\% in 2018. Roe prices also increased slightly however they 
+remain low relative to levels roughly a decade ago.
 
 The portfolios of products shore-based and at-sea processors produce are
 similar. In both sectors the primary products processed from pollock are
-fillets, surimi and roe, with each accounting for approximately 40\%, 35\%,
+fillets, surimi and roe, with each accounting for approximately 40\%, 40\%,
 and 10\% of first-wholesale value (Table \ref{tab:bsaiplck_wsl}). The price of
 products produced at-sea tend to be higher than comparable products produced
-shore-based because of the shorter time span between catch, processing and
+by the shore-based because of the shorter time span between catch, processing and
 freezing. Since 2014 the price of fillets produced at-sea tend to be about
-10\% higher, surimi prices tend to be about 35\% higher and the price of roe
+10\% higher, surimi prices tend to be about 30\% higher and the price of roe
 about 50\% higher. Average prices for fillets produced at-sea also tend to be
 higher because they produce proportionally more higher-priced fillet types
 (like deep-skin fillets). The at-sea price first wholesale premium averaged
 roughly \$0.30 per pound between 2005--2010 but has decreased to an average of
-\$0.20 per pound between 2011--2016, in part, because the shore-based sector
+\$0.25 per pound between 2014--2018, in part, because the shore-based sector
 increased their relative share of surimi production.\footnote{The at-sea price
 premium is the difference between the average price of first-wholesale
 products at-sea and the average price of first-wholesale products shore-
-based.} The at-sea price  first wholesale premium increased to $0.37 in 2017
-because of the difference in surimi prices between sectors.
+based.}
 
 ### Pollock fillets
 
 A variety of different fillets are produced from pollock, with pin-bone-out
 (PBO) and deep-skin fillets typically accounting for approximately 70\% and
 30\% of production in the BSAI, respectively. Deep-skin fillet's share of
-production  increased to 37% in 2017. Total fillet production decreased 2.7\%
-to 157 kt in 2016, but since 2010 has increased with aggregate production and
+production  decreased to 34% in 2018. Total fillet production increased 7\%
+to 168 kt in 2018, but since 2010 has increased with aggregate production and
 catch and has been higher than the 2005--2007 average (Table
 \ref{tab:bsaiplck_wsl}). The average price of fillet products in the BSAI
-decreased 8\% to \$1.30 per pound and is below the inflation adjusted average
+increased 7\% to \$1.37 per pound and is below the inflation adjusted average
 price of fillets in 2005--2007 of \$1.49 per pound (2017 dollars).  Media
-reports indicate that headed-and-gutted (H\&G) and fillet prices tended  to be
-low throughout much of the year. High inventories, particularly early  in the
-year, were cited as contributing factors. Low H\&G prices incentivize Russia
-producers to upgrade their fillet production capacity in the near future,
-though fillets are a small portion of their primary production. Much of the
-Russian catch already goes to China for secondary processing into fillets so
+reports indicate that headed-and-gutted (H\&G) and fillet prices tended to be
+strong throughout much of 2018 realtive to 2017. Pollock fillets sourced from Russia
+are the direct competitor to Alaska sourced pollock fillets.
+Fillets were a relatively small portion of Russian primary production
+however, they plan to upgrade their fillet production capacity. Much of the
+Russian catch goes to China for secondary processing into fillets so
 this would do little to increase the overall volume, however, increased
 primary fillet processing in Russia could increase competition with U.S.
 produced single-frozen fillet products. Approximately 30\% of the fillets
@@ -546,58 +546,52 @@ processed as H\&G which is mostly exported, primarily to China, where is
 reprocessed as fillets and some share of which returns to the U.S.. China also
 processes H\&G from Russia into fillets which are also imported into the
 domestic market. Current data collection does not allow us to estimate the
-share of U.S. returning imports.} As fillet markets in recent years have
+share of U.S. returning imports.} As pollock markets in recent years have
 become increasingly tight, the industry has tried to maintain value by
 increasing domestic marketing for fillet based product and creating product
 types that are better suited to the American palette, in addition to increased
-utilization of by-products. Reductions in whitefish supplies in 2018 has put
-upward pressure on pollock prices, however, U.S.-China trade policy
-uncertainty could negatively affect the market.
+utilization of by-products. Reductions in whitefish supplies in 2018 may have put
+upward pressure on pollock fillet prices. 
 
 ### Surimi seafood
 
-Surimi production continued an increasing trend through 2017, but at a rate of
-3.1\% to 196.7 kt which is above the 2005--2007 average. Prices have increased
-since 2013 to \$1.35 per pound in the BSAI in 2017 (Table
+Surimi production in 2018 was 196.5 kt, which was approximately the same as 2017 
+was above the 2005--2007 average. Prices have, which have been rising since 2013, 
+decrased 3\% to \$1.26 per pound in the BSAI in 2018 (Table
 \ref{tab:bsaiplck_wsl}). Because surimi and fillets are both made from pollock
 meat, activity in the fillet market can influence the decision of processors
 to produce surimi as smaller average size of fish can incentivize surimi
 production, particularly it yields a higher value than fillets. Additionally,
-the supply of raw surimi material in Japan has been limited (and is expected
-to be the case through 2018). Increasing Atka mackerel prices (another source
-of raw material  for surimi) could also increase demand for pollock based
-surimi.
-
+the supply of raw surimi material in Japan has been limited. 
 
 ### Pollock roe
 
 Roe is a high priced product that is the focus of the A season catch destined
 primarily for Asian markets. Roe production in the BSAI tapered off in the
-late--2000s and since has generally fluctuated at under 20 kt annually,
-production averaged 27 kt in 2005--2007 and was 18.4 kt in 2017, which is up
-29\% from 2016 (Fig. \ref{fig:roe}). Prices peaked in the mid-2000s and have
+late--2000s and since has generally fluctuated at under or near 20 kt annually,
+production averaged 27 kt in 2005--2007 and was 20.6 kt in 2018, which was up
+12\% from 2017 (Fig. \ref{fig:roe}). Prices peaked in the mid-2000s and have
 followed a decreasing trend over the last decade which continued until 2015.
-The Yen to U.S. Dollar exchange rate can influence prices and has
-varied. The average roe price in the BSAI was up 2.2\%  in
-2017 to \$2.91 per pound, with a 32\% increase in value to  \$118 million
-(Table \ref{tab:bsaiplck_wsl}).
+The Yen to U.S. Dollar exchange rate can influence prices and relatively stable 
+through 2018 relative to 2017. The average roe price in the BSAI was up 0.5\%  in
+2018 to \$2.89 per pound, and value rose 12\% value with in the increase in 
+production to \$132 million (Table \ref{tab:bsaiplck_wsl}).
 
 ### Fish oil
-
 Using oil production per 100 tons as a basic index (tons of oil per ton
 retained catch) shows increases for the at-sea sector. In 2005--2007 it was
 0.3\% and starting in 2008 it increased and leveled off after 2010 with over
 1.5\% of the catch being converted to fish oil (Table \ref{tab:bsaiplck_oil}).
 This represents about a 5-fold increase in recorded oil production during this
 period. Oil production from the shore-based fleet was somewhat higher than the
-at-sea processors prior to 2008 but has been relatively stable. Oil production estimates from the shore-based fleet may be
+at-sea processors prior to 2008 but has been relatively stable. Oil production 
+estimates from the shore-based fleet may be
 biased low because some production occurs at secondary processors (fishmeal
 plants) in Alaska. The increased production of oil beginning in 2008 can be
-attributed to the steady trend to add more value per ton of fish landed.
-
+attributed to the steady trend to add more value per ton of fish landed. 
+The oil production index remained stable in 2018.
 
 # Data
-
 The following lists the data used in this assessment: 
 
 \begin{table}[ht]
@@ -697,7 +691,6 @@ slightly above average) but was highly unusual due to the complete lack of
 "cold pool" (i.e., a defined area where water near bottom was less than zero degrees
 C; Fig. \ref{fig:bts_temp}).  
 
-
 Beginning in 1987 NMFS expanded the standard survey area farther to the
 northwest. The pollock biomass levels found in the two northern strata were
 highly variable, ranging from 1% to 22% of the total biomass; whereas the 2014
@@ -715,7 +708,6 @@ was the complete  lack of cold water on the bottom throughout the survey area
 (Fig. \ref{fig:bts_temp_cpue}). Pollock appeared to be distributed more northerly in 2018 again (as was the
 case in 2017 (Fig. \ref{fig:bts_3d}).  These figures also show that the
 highest densities of pollock were at stations near Zhemchug Canyon.
-
 
 The BTS abundance-at-age estimates show variability in year-class strengths
 with substantial consistency over time (Fig. \ref{fig:bts_age}). Pollock above
@@ -767,7 +759,6 @@ to implement and required no changes to the assessment model code.
 
 
 ### Acoustic trawl (AT) surveys
-
 The AT surveys are conducted biennially and are designed to estimate the off-
 bottom component of the pollock stock (compared to the BTS which are conducted
 annually and provide an abundance index of the near-bottom pollock). The
@@ -785,49 +776,21 @@ the growth of the strong 2012 year class, AT biomass estimates increased to
 over 4 million t, exceeding levels observed in 1994-2004 (Tables
 \ref{tab:bts_abund} and \ref{tab:ats_biom}).
 
-The 2018 AT survey began on 6 June. Unfortunately, permission to extend 
-the AT survey into the Russian Cape Navarin area was denied. 
-Instead, the survey plan was to extend several tracklines north
-of the normal (‘core’) survey area between approximately 170$^\circ$W and west
-of St. Matthew Island, based on 2016 and 2017 observations of more pollock
-than usual in that area.  Due to an unforeseen ship failure mid-way through
-the survey the planned northern extension was reduced (trackline spacing
-increased). Due to another failure at the end of the survey, the final 3
-transects of the AT survey core area were missed.
-(red transects in Fig. \ref{fig:at_unsampled}). 
-The survey ended about 2 weeks later
-than planned on 26 August. About 6.1\% (~6,016 nmi$^2$) of the normal core survey area was
-unsampled.
-
-Estimates of pollock by length and age for the surveyed area in 2018 were made
+In 2018 we estimated pollock by length and age for the surveyed area for that year
 using routine AT survey methods (e.g., Honkalehto and McCarthy, 2015).
 Estimates for pollock from the midwater layer between the surface and 3m were
 combined with those from the bottom layer between 0.5 and 3m depth, as adopted
 in 2016.  The pollock biomass estimate to within 0.5 m of the seafloor was
 2.321 million t for the sampled ‘core’ area, which encompassed  92,283 nmi$^2$
-in 2018 was 2.321 million t.  The pollock biomass estimate was 237,722 t for
+in 2018 was 2.321 million t.  
+
+xxxThe pollock biomass estimate was 237,722 t for
 the northern extension area, which encompassed  6,900 nmi$^2$ outside of the
 traditional AT survey area, pollock biomass was estimated to be 237,722 t. A
 spatial comparison of these AT survey biomass estimates with the BTS biomass
-is shown in Fig. \ref{fig:ats_bts}.
-
-The amount of pollock in the vicinity of the three unsampled transects at the
-survey end was estimated using acoustic data collected in that area by the
-RACE BTS vessels (see Honkalehto et al., 2011 for details, and McCarthy et al.
-in prep.) and AT survey trawl data. That is, BTS backscatter data in the
-unsampled area and the AT survey trawl data from the two adjacent transects
-surveyed by the RV Oscar Dyson were used to estimate pollock abundance and
-biomass by length and age in that area. The deeper shelf break portion (> 200
-m) of the unsampled area normally covered by the AT survey was omitted as this
-relatively small area was not occupied by the BTS vessels. The estimates for
-the unsampled area (16m from sea surface to 0.5 m above sea floor) were 616
-million pollock with a biomass of 178,194 t. These estimates represent 7.1% of
-the total biomass and 11.1% of total abundance for the entire core AT survey
-area (i.e. the traditional survey area excluding the northern extension).
-
-The combined biomass estimates (sampled plus unsampled areas to within 0.5 m
-of seafloor, excluding northern extension area) for the 2018 AT survey is 2.50
-million t. This is below average for the time series since 1994  (Table
+is shown in Fig. \ref{fig:ats_bts}. 
+The combined biomass estimate for the 2018 AT survey was 2.50
+million t, below average for the time series since 1994  (Table
 \ref{tab:ats_biom}).
 
 Relative estimation errors for the total biomass were derived from a one-
@@ -838,13 +801,10 @@ error (e.g., target strength, trawl selectivity) were accounted for by
 inflating the annual error estimates to have an overall average CV of 25\% for
 application within the assessment model.
 
-The 2018 EBS acoustic-trawl survey estimates of population numbers at age were
-developed based primarily on the BT survey age samples,  and supplemented with
-a small set of juvenile samples from the AT survey. These samples were used to
-develop age-length keys, which were applied to the population size composition
-estimates from the AT survey (Fig. \ref{fig:at_age}). Interestingly, the
-2018 data support the observation in 2016 that the 2013 year class was
-relatively abundant (along with the 2012 year class; Table \ref{tab:ats_age}).
+Last year we estimated the 2018 EBS acoustic-trawl survey population numbers-at-age 
+based primarily on the BT survey age samples with supplemental
+samples from the AT survey. This year those data were updated using only the AT age samples
+(Fig. \ref{fig:at_age}; Table \ref{tab:ats_age}).
 
 ## Other time series used in the assessment
 
@@ -891,7 +851,7 @@ analyses include:
     as a biomass index was added
 
   - The `r thisyr` EBS acoustic-trawl survey estimates of population numbers-at-
-    age and biomass were added
+    age were updated
 
   - The `r thisyr-1` fishery age composition data were added 
 
