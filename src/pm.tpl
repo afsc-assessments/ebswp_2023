@@ -4020,9 +4020,9 @@ FUNCTION write_R
   // std_ob_bts_data(1,n_bts)
   // obs_avo_std(1,n_avo)
 
-		report << "SDNR_BTS"<< endl << sdnr_bts << endl;
-		report << "SDNR_ATS"<< endl << sdnr_ats << endl;
-		report << "SDNR_AVO"<< endl << sdnr_avo << endl;
+		report << "sdnr_bts"<< endl << sdnr_bts << endl;
+		report << "sdnr_ats"<< endl << sdnr_ats << endl;
+		report << "sdnr_avo"<< endl << sdnr_avo << endl;
 
     report << "FW_fsh"  << endl << FW_fsh(1) << endl;
     report << "FW_fsh1" << endl << FW_fsh(2) << endl;
