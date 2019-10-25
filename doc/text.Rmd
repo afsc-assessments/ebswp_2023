@@ -30,13 +30,19 @@ assessment.
 
 There were some changes to the assessment model. We added the facility to incorporate a full time and age varying
 matrix of natural mortality rates to be specified (previously we used a time-constant vector of natural-mortality-at-age).
-
+This was done to provide an alternative evaluation of the output from the multi-species trophic model (CEATTLE; this volume).
+Also, new information is becoming available on the relative availability of pollock to our bottom trawl 
+survey gear. To make comparisons, control over the way selectivity in that survey impacts the relative
+"catchability" for key age groups was modified and evaluated against the results from the availability study.
+The control allows an approach to approximate the relative amount of process error to allow for selectivity
+changes (previously, the process error variance was specified through the ascending logistic parameters).
 
 We contineud to refine treatment of survey data via
 spatial-temporal models for  creating an alternative index including the
 broader region of the northern Bering Sea. Additionally, we applied the VAST model to age-specific data
 to derive alternative estimates of age composition data for  
-the bottom-trawl survey.
+the bottom-trawl survey. Preliminary results from applying spatial smoothers to the acoustic index was
+also provided as a sensitivity.
 
 ## Summary of EBS pollock results
 

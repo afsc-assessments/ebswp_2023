@@ -33,6 +33,9 @@ get_vars <- function(M){
 	B$rmse_ats <- mean((log(M$ob_eit)-log(M$eb_eit))^2)^.5
 	B$rmse_avo <- mean((log(M$obs_avo)-log(M$pred_avo))^2)^.5
 	B$rmse_cpue<- mean((log(M$obs_cpue)-log(M$pred_cpue))^2)^.5
+	B$sdnr_bts <- M$sdnr_bts
+	B$sdnr_ats <- M$sdnr_eit
+	B$sdnr_avo <- M$sdnr_avo
 
 	B$msyr <- M$fit$est[M$fit$names=="Fmsy2"]
 	B$b40  <- .40*B$b100; B$b40s  <- format(B$b40,big.mark=",",scientific=F,digits=0)
@@ -61,7 +64,7 @@ get_vars <- function(M){
 	B$ofl2       <-  pdf$OFL[2]
 	B$ofl1s      <-  format(round(1e3*pdf$OFL[1],-3),big.mark=",",scientific=F,digits=0)
 	B$ofl2s      <-  format(round(1e3*pdf$OFL[2],-3),big.mark=",",scientific=F,digits=0)
-	B$bfs        <- read.csv("data/proj.csv",header=T)
+	B$bfs        <- read.csv("../doc/data/proj.csv",header=T)
 	B$Tier3_ABC1 <- B$bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(ABC),0))
 	B$Tier3_OFL1 <- B$bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(OFL),0))
 	B$Tier3_OFL1s<- format(round(1e3*B$Tier3_OFL1,-3),big.mark=",",scientific=F,digits=0)

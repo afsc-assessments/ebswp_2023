@@ -442,9 +442,9 @@ Year & 1     & 2     & 3       & 4       & 5       & 6     & 7     & 8     & 9  
 2015    &    -   &   15.7    &   633.2   &   194.8   &   229.1   &   385.2   &   509.4   &   88.2    &   43.0    &   17.2    &   3.2     &   2.2     &   3.3     &   4.0     &   2,128.0    \\
 2016    &    -   &   0.5     &   91.7    &   1,389.7     &   159.3   &   175.3   &   175.5   &   223.1   &   34.7    &   13.2    &   7.9     &   0.5     &   1.3     &   -   &   2,273.0    \\
 2017    &    -       &   2.0     &   29.8    &   551.4   &   894.6   &   214.7   &   147.5   &   123.2   &   96.3    &   21.5    &   7.8     &   6.3     &   0.6     &   0.4     &   2,096.0    \\
-2018    &    -       &   1,391.5     &   13,793.8    &   114,102.1   &   1,216,661.6     &   504,015.0   &   105,508.3   &   82,175.2    &   60,892.0    &   26,593.5    &   4,188.2     &   1,215.6     &   331.6   &   662.6   &   461.3  \\
+2018     &   -   &   1.4     &   13.8    &   114.1   &   1,216.7     &   504.0   &   105.5   &   82.2    &   60.9    &   26.6    &   4.2     &   1.2     &   0.3     &   1.1     &  2,131.99    \\
 \hline                                                                                                                          
-Avg.    &    6.2     &   88.0    &   545.7   &   3,223.0     &   30,796.8    &   12,913.2    &   2,838.8     &   2,165.8     &   1,586.1     &   697.5   &   127.5   &   42.0    &   16.2    &   28.4    &   1,795.1    \\
+Avg.    &   6.8 &   53.2    &   201.2   &   373.3   &   410.6   &   325.4   &   203.8   &   113.4   &   65.3    &   33.3    &   22.9    &   11.6    &   7.9 &   11.4    &   1,836.87    \\
 \hline
 \end{tabular}
 }
@@ -741,27 +741,28 @@ CV  &   NA  &   25\%    &   16\%    &   11\%    &   7\% &   8\% &   12\%    &   
 
 \clearpage
 ```{r modfits, results = "asis"}
+
 # Fit to data------------------- 
-df <- NULL
-ii=1
-mod_scen <- c(2,3)
-for (ii in mod_scen)
-{
-    x         <- modlst[[ii]]
-    rmse_bts  <- round(x$rmse_bts,2); names(rmse_bts)   <- paste0("RMSE BTS")
-    rmse_ats  <- round(x$rmse_ats,2); names(rmse_ats)   <- paste0("RMSE ATS")
-    rmse_avo  <- round(x$rmse_avo,2); names(rmse_avo)   <- paste0("RMSE AVO")
-    rmse_cpue <- round(x$rmse_cpue,2); names(rmse_cpue) <- paste0("RMSE CPUE")
-    effn_fsh  <- round(mean(x$EffN_fsh[28:dim(x$EffN_fsh)[1],2]),0); names(effn_fsh) <- paste0("Eff. N Fishery")
-    effn_bts  <- round(mean(x$EffN_bts[,2]),0); names(effn_bts) <- paste0("Eff. N BTS")
-    effn_ats  <- round(mean(x$EffN_ats[,2]),0); names(effn_ats) <- paste0("Eff. N ATS")
-    v      <- c( rmse_bts, rmse_ats, rmse_avo, rmse_cpue, effn_fsh, effn_bts, effn_ats)
-    df     <- cbind(df, v)
+# Comparison among variance constraints for RW in survey selectivity/q
+.MODELFN  = c("r_1","r_2","r_3","r_4","r_5")
+prof_names  = c("CV70%","CV50%","CV20%","CV10%","CV05%")
+fn       <- paste0("../runs/redqvar/prof/",.MODELFN)
+proflst   <- lapply(fn, read_admb)
+names(proflst) <- prof_names
+nmods <- length(prof_names)
+for (i in 1:nmods) {
+  proflst[[i]] <- c(proflst[[i]],get_vars(proflst[[i]]))
 }
-df <- data.frame(rownames(df), df, row.names = NULL)
-names(df) <- c("Component",mod_names[mod_scen])
-tab <- xtable(df, caption = "Goodness of fit to primary data used for assessment model parameter estimation for different model configurations, EBS pollock.", label = "tab:mod_fits", digits = 3,align="llrrr")
+df <- tab_fit(proflst)
+tab <- xtable(df, caption = "Goodness of fit to primary data used for assessment model parameter estimation profiling over different constraints on the extent bottom-trawl survey selectivity/availability is allowed to change;  EBS pollock.", label = "tab:mod_prof_fits")#, digits = 3,align="llrrrrr")
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
+
+# Fit to data------------------- 
+if (is.null(mod_scen)) mod_scen <- c(2,3)
+df <- tab_fit(modlst,mod_scen)
+tab <- xtable(df, caption = "Goodness of fit to primary data used for assessment model parameter estimation for different model configurations, EBS pollock.", label = "tab:mod_fits", digits = 3,align="llrrrrr")
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
+
 ```
 
 ```{r mgt_quants, results = "asis"}

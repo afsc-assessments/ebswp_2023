@@ -226,6 +226,7 @@ DATA_SECTION
   init_int phase_q_bts    // phase for estimating survey q for bottom trawl survey
   init_int phase_q_std_area
   init_int phase_q_eit    // phase for estimating survey q for echo-integration trawl survey
+  !! if (DoCovBTS) phase_q_bts = -1;
   init_int phase_bt       // Phase for bottom temperature parameter
   init_int phase_rec_devs // Phase for estimating recruits (not from SR curve, but as N age 1)
   init_int phase_larv     // Phase to use advective larval dispersal (as a predictive aid) Eq. 8
@@ -240,32 +241,11 @@ DATA_SECTION
   init_int sel_dev_shift // Sets the year for selectivity changes, 0 = first change in 1966, -1 = first change in 65...
   init_int phase_coheff // 
   init_int phase_yreff // 
- LOCAL_CALCS
-  // if (DoCovBTS) phase_q_bts = -1;
-  phase_q_bts = -1; // OjO
-  write_log( phase_natmort);
-  write_log( phase_q_bts);
-  write_log( phase_q_std_area);
-  write_log( phase_q_eit);
-  write_log( phase_bt);
-  write_log( phase_rec_devs);
-  write_log( phase_larv);
-  write_log( phase_sr);
-  write_log( wt_fut_phase);
-  write_log( last_age_sel_group_fsh);
-  write_log( last_age_sel_group_bts);
-  write_log( last_age_sel_group_eit);
-  write_log( ctrl_flag(1,30));
-  // Following was used for getting selectivity blocks to end with the correct pattern (i.e., last block ends in last yr of data)
-  write_log( sel_dev_shift);
-  write_log( phase_coheff );
-  write_log( phase_yreff );
-  write_log(last_age_sel_group_fsh);
-  write_log(last_age_sel_group_bts);
-  write_log(last_age_sel_group_eit);
-  write_log(ctrl_flag);
-  write_log(sel_dev_shift);
- END_CALCS
+  !! write_log(last_age_sel_group_fsh);
+  !! write_log(last_age_sel_group_bts);
+  !! write_log(last_age_sel_group_eit);
+  !! write_log(ctrl_flag);
+  !! write_log(sel_dev_shift);
 
   // init_int Sim_status   //Simulation flag 0=none, 1=1-yr ahead, 2=full simulation (all data)
   // init_int iseed_junk   //rng seed in
@@ -299,8 +279,7 @@ DATA_SECTION
        vector wt_mn(1,nages)
        vector wt_sigma(1,nages)
   init_vector obs_catch(styr,endyr)
-  !! write_log(p_mature);write_log(ewindex);write_log(nsindex);
-  !! write_log(wt_fsh);write_log(wt_ssb); write_log(obs_catch);write_log(wt_fsh);
+  !! write_log(p_mature);write_log(obs_catch);write_log(wt_fsh);
   // Effort vector input (but never used...placeholder)
   init_vector obs_effort(styr,endyr)
   // Historical CPUE (foreign) for early trend information 
@@ -340,6 +319,7 @@ DATA_SECTION
   !! cout<< " Index min and max for age comp data: "<<endl <<oac_fsh_data.indexmin()<<" Max "<<oac_fsh_data.indexmax()<<endl;
   init_vector     obs_bts_data(1,n_bts)
   init_vector std_ob_bts_data(1,n_bts)
+  // init_vector obs_avo_std(1,n_avo)
   init_matrix  wt_bts(1,n_bts,1,nages)
   init_vector std_ot_bts(1,n_bts)
   !! write_log(sam_fsh);write_log(sam_bts);write_log(sam_eit);
@@ -367,6 +347,8 @@ DATA_SECTION
   !! write_log(oac_eit_data); write_log(std_ot_eit);
   init_vector obs_eit_data(1,n_eit)
   init_vector std_ob_eit_data(1,n_eit)
+  //init_vector std_ob_bts_data(1,n_bts)
+  // init_vector obs_avo_std(1,n_avo)
   !! write_log(obs_eit_data); write_log(std_ob_eit_data);
   vector var_ob_eit(1,n_eit)
 
@@ -379,7 +361,6 @@ DATA_SECTION
   !! write_log(age_err); 
   init_int nlbins;
   init_vector olc_fsh(1,nlbins)
-  !! write_log(olc_fsh); 
   vector lens(1,nlbins);
  LOC_CALCS
    write_log(nlbins); 
@@ -402,9 +383,7 @@ DATA_SECTION
       lens(24,nlbins) += 1.0;
  END_CALCS
   init_matrix age_len(1,nages,1,nlbins)
-  !! write_log(age_len); 
-  init_int test
-  !! write_log(test); 
+  init_number test
   !! if(test!=1234567){ cout<<"Failed on data read "<<test<<endl;exit(1);}
   // ____________________________________________________________________________________
   // Bit to simulate from covariance matrix on numbers at age in terminal year
@@ -1194,7 +1173,7 @@ RUNTIME_SECTION
    convergence_criteria .001,.001,1e-7
 PROCEDURE_SECTION
   if (active(yr_eff)||active(coh_eff))
-		Est_Fixed_Effects_wts();
+		Est_Fixed_Effects_wts_2016();
   Get_Selectivity();
   Get_Mortality_Rates();
   GetNumbersAtAge();
@@ -1230,14 +1209,10 @@ REPORT_SECTION
 	  sel_like_dev.shift(1);
 	  rec_like.shift(1);
 	  Priors.shift(1);
-  report << "N"    <<endl;
-  report << natage <<endl;
-  report << "C"    <<endl;
-  report << catage <<endl;
-  report << "M"    <<endl;
-  report << M      <<endl;
-  report << "Z"    <<endl;
-  report << Z      <<endl;
+  report << "N"<<endl;
+  report << natage<<endl;
+  report << "C"<<endl;
+  report << catage<<endl;
     legacy_rep << "Francis weights: fishery "<<endl;
     legacy_rep <<calc_Francis_weights(oac_fsh, eac_fsh,sam_fsh )<<endl;
     legacy_rep << "Francis weights: bTS "<<endl;
@@ -2897,8 +2872,15 @@ FUNCTION Selectivity_Likelihood
   {
     // sel_like_dev(2) += 12.5*norm2(first_difference(sel_a50_bts_dev)); 
     // sel_like_dev(2) += 12.5*norm2(first_difference(sel_slp_bts_dev)); 
-    sel_like_dev(2) += 50*norm2(first_difference(sel_a50_bts_dev)); 
-    sel_like_dev(2) += 50*norm2(first_difference(sel_slp_bts_dev)); 
+		if(ctrl_flag(19)>0.){
+		  dvar_matrix lnseltmp = trans(log_sel_bts);
+      for (j=q_amin;j<q_amax;j++)
+			  sel_like_dev(2) += ctrl_flag(26)*norm2(first_difference(lnseltmp(j))); 
+		} else {
+      sel_like_dev(2) += 50.*norm2(first_difference(sel_a50_bts_dev)); 
+      sel_like_dev(2) += 50.*norm2(first_difference(sel_slp_bts_dev)); 
+		}
+
     if (active(sel_one_bts_dev))
       sel_like_dev(2) += 8.*norm2(first_difference(sel_one_bts_dev)); // 25% CV on this
       // sel_like_dev(2) += 3.125*norm2(first_difference(sel_one_bts_dev)); // 40% CV on this
@@ -4016,14 +3998,33 @@ FUNCTION write_R
   adstring ad_tmp=initial_params::get_reportfile_name();
   ofstream report((char*)(adprogram_name + ad_tmp),ios::app);
 
+
+
   // Development--just start to get some output into R
 	R_report(H);
 	R_report(avg_age_mature);
   report << "h_prior" << endl << Priors(1) << endl;
   report << "q_prior" << endl << Priors(2) << endl;
-  if (ctrl_flag(28)==0)
+  if (ctrl_flag(28)==0)// Only do these if not retrospective..
 	{
-    report << "FW_fsh" << endl << FW_fsh(1) << endl;
+		dvector sigtmp(1,n_bts);
+		if (DoCovBTS) for (i=1;i<=n_bts;i++) sigtmp(i) = sqrt(cov(i,i)); 
+		double sdnr_bts;
+		double sdnr_ats;
+		double sdnr_avo;
+		sdnr_bts = sdnr(ob_bts,eb_bts,std_ob_bts_data);
+		sdnr_ats = sdnr(ob_eit,eb_eit,std_ob_eit_data);
+  // dvar_vector avo_dev = obs_avo-pred_avo;
+		sdnr_avo = sdnr(obs_avo,pred_avo,obs_avo_std);
+  // std_ob_eit_data(1,n_eit)
+  // std_ob_bts_data(1,n_bts)
+  // obs_avo_std(1,n_avo)
+
+		report << "SDNR_BTS"<< endl << sdnr_bts << endl;
+		report << "SDNR_ATS"<< endl << sdnr_ats << endl;
+		report << "SDNR_AVO"<< endl << sdnr_avo << endl;
+
+    report << "FW_fsh"  << endl << FW_fsh(1) << endl;
     report << "FW_fsh1" << endl << FW_fsh(2) << endl;
     report << "FW_fsh2" << endl << FW_fsh(3) << endl;
     report << "FW_fsh3" << endl << FW_fsh(4) << endl;
@@ -4521,7 +4522,7 @@ FUNCTION Get_Replacement_Yield
   // SSB(styr)  = elem_prod(elem_prod(natage(styr),pow(S(styr),yrfrac)),p_mature)*wt_ssb(styr); // Eq. 1
   fff           += 50.*square(log(SSB(endyr_r))-log(repl_SSB));
 
-FUNCTION Est_Fixed_Effects_wts
+FUNCTION Est_Fixed_Effects_wts_2016
   double sigma_coh = (mfexp(log_sd_coh));
   double sigma_yr = (mfexp(log_sd_yr ));
   K            = mfexp(log_K);
@@ -4625,14 +4626,12 @@ FUNCTION Est_Fixed_Effects_wts
   // R_report <<" SDNR1 "<< wt_srv1*std_dev(elem_div((pred_srv1(yrs_srv1)-obs_srv1_biom),obs_srv1_se))<<endl;
   //         R_report << yrs_fsh_age(k,i)<< " "<< sdnr( eac_fsh(k,i),oac_fsh(k,i),n_sample_fsh_age(k,i)) << endl;
   */
-FUNCTION double sdnr(const dvar_vector& pred,const dvector& obs,double m)
+FUNCTION double sdnr(const dvector& obs, const dvar_vector& pred, const dvector& sig)
   RETURN_ARRAYS_INCREMENT();
   double sdnr;
-  dvector pp = value(pred)+0.000001;
-  sdnr = std_dev(elem_div(obs+0.000001-pp,sqrt(elem_prod(pp,(1.-pp))/m)));
+  sdnr = std_dev(elem_div((obs-value(pred)),sig));
   RETURN_ARRAYS_DECREMENT();
   return sdnr;
-
 
  /* ******************************************************
  FUNCTION dvariable Check_Parm(const double& Pmin, const double& Pmax, const double& jitter, const prevariable& Pval)
