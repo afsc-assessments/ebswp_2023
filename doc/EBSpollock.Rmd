@@ -71,12 +71,12 @@ nmods <- length(prof_names)
 for (i in 1:nmods) {
   proflst[[i]] <- c(proflst[[i]],get_vars(proflst[[i]]))
 }
-df <- tab_fit(proflst)
+df <- tab_fit(M=proflst,1:nmods)
 tab <- xtable(df, caption = "Goodness of fit to primary data used for assessment model parameter estimation profiling over different constraints on the extent bottom-trawl survey selectivity/availability is allowed to change;  EBS pollock.", label = "tab:mod_prof_fits")#, digits = 3,align="llrrrrr")
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
 
 # Fit to data------------------- 
-if (is.null(mod_scen)) mod_scen <- c(2,3)
+
 df <- tab_fit(modlst,mod_scen)
 tab <- xtable(df, caption = "Goodness of fit to primary data used for assessment model parameter estimation for different model configurations, EBS pollock.", label = "tab:mod_fits", digits = 3,align="llrrrrr")
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
@@ -87,14 +87,14 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 #```
 #```{r child = 'ref.Rmd'}
 #```
-```{r child = 'tab.Rmd'}
-```
-```{r child = 'figs.Rmd'}
-```
+#```{r child = 'tab.Rmd'}
+#```
+#```{r child = 'figs.Rmd'}
+#```
 #```{r child = 'model.Rmd'}
 #```
 #```{r child = 'App.Rmd'}
-```
+#```
 -->
  #\tableofcontents
 

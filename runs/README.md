@@ -7,6 +7,11 @@ also, ssb_wts run using A-season fishery smoothers...if possible. Go to sampler/
 but it turns out the A-season means are very similar to overall mean, and since spawning occurs to some extent year-round, stick
 with status quo
 
+vast run hierarchy
+1) vast_cp
+2) vast_nocp
+3) vastall includes ATS smoothed
+
 
 make.bat runs model within subdirectories
    - 2018 contains sub-directories for different model configurations     

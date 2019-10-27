@@ -80,6 +80,74 @@ Approaching overfished	              &	n/a	        &	No	      &	n/a	            
 
 ### General comments 
 
+
+Plan team If the survey index is going to include the NBS, then inclusion of
+the NBS in compositional data should also be explored (although this should
+not make much of a difference since the size compositions in the EBS and NBS
+are sufficiently similar) (done) Conduct a sensitivity test of the VAST index,
+with environmental covariates, by omitting one or two years of NBS data at a
+time  Compare and contrast other model-based index estimates with the VAST
+approach Regarding the apparent shift in year class dominance between 2012 and
+2013, the possibility of a shift in mean length at age should be explored, as
+should the possible influence of ageing error Full treatment of both the
+existing model and models with alternative treatments of the data should
+continue to be provided, along with maxABC values under Tier 3 for all models
+Re-examine the geographic subset of data currently used to develop the AVO
+index, specifically to see if including Bristol Bay data improves the
+correlation Explore “A” season trends in mean weight at length with a GAM or
+similar technique, to determine if the trends are either predominantly
+environmental or predominantly fishery-driven Regarding sR, explore
+alternative fixed values or estimation methods
+
+## SSC General comments 
+The SSC recommends that one additional column be added
+to include concerns related to fishery/resource-use performance and behavior,
+considering commercial as well as local/traditional knowledge for a broader
+set of observations. This additional column should not include socio-economic
+considerations, but rather indications of concern such as inability to catch
+the TAC, or dramatic changes in spatial or temporal distribution that could
+indicate anomalous biological conditions. The SSC requests that all authors
+fill out the risk table in 2019, and that the PTs provide comment on the
+author’s results in any cases where a reduction to the ABC may be warranted
+(concern levels 2-4). 
+
+_We included an expanded evaluation of fishery performance this year. Specifically, we 
+examined the spatial pattern of the fishery and developed a statistic of dispersion
+of individual tows_
+
+
+This is a mature assessment done annually with new catch, survey, and composition information. The base age-structured assessment model, labeled Model 0, was the preferred Model 16.1 from last year without new data. The inclusion of the new data in the Model 16.1, labeled Model 1, resulted in a 2017 biomass estimate that was similar to last year and a lower 2018 biomass estimate. Model 2 included data from the northern Bering Sea (NBS) and used the VAST model to account for spatiotemporal correlations and missing data (due to no surveys in many years in the NBS). Model 3 was the same as Model 1 but reduced the coefficients of variation in the most recent year as a sensitivity study of data variability versus structural uncertainty. Model 4 was the same as Model 1 but adjusted the steepness prior for recruitment to examine the effect on the spawner-recruit relationship, making it more like a Beverton-Holt asymptotic relationship instead of the standard Ricker dome-shaped relationship. Model 1 (with the new data) produced biomass estimates that were very similar to the base Model 0 from last year. 
+
+Surprisingly, inclusion of the NBS data in Model 2 also produced
+similar recent biomass estimates. Model 3 with reduced coefficients of
+variation produced slightly lower biomass estimates; this was due to
+the increased weighting of the survey data, which had declines in
+survey abundance from 2017 to 2018. Regardless of the model, the
+estimated 2012 and 2013 year-classes are strong; later year-classes
+appear weak to average. Estimated spawning biomass is well above Bmsy
+and B40%. EBS pollock has been placed in Tier 1 for years, because
+there exists a reliable probability density function for Fmsy; the
+analysis of Model 4 reaffirms this placement. Because of the small
+differences among Models 1 – 3, the SSC concurs with the authors and
+the PT to select Model 1 as the preferred model and to set maximum
+ABCs and OFLs for 2019 and 2020 using standard Tier 1a formulae. Also,
+as has been done since at least 2014, 2018 and 2019 ABCs are
+calculated using the Tier 3a formula for conservatism. 
+
+The SSC looks forward to an explicit set of concerns that explain the ABC adjustment in the next assessment. 
+
+In addition, the SSC commends the authors for providing a detailed decision table, showing several metrics of risk for harvest at a variety of levels. 
+
+The Plan Team minutes contain several useful suggestions for future work, which the authors should consider carefully. 
+
+In light of discussions at the PT and SSC meetings about Tier 1 and Tier 3 placements, the need to periodically review and update understanding of the underlying dynamics that determine stock productivity has become apparent. 
+
+Therefore the SSC encourages the authors and PT to continue examinations of the determinants of stock productivity, including environmental and density-dependent effects that underpin stock status. 
+
+
+
+xxxxxxxxxxx
+
 In the November 2017 Plan Team minutes: \"The Team recommends that
 more NBS surveys be conducted in the near future, as a time series of such
 data may be essential for understanding changes in the abundance of some
@@ -135,6 +203,7 @@ chosen by the author.
 
 _An array of fixed future catches has been included as part of the decision table._
 
+If the survey index is going to include the NBS, then inclusion of the NBS in compositional data should also be explored (although this should not make much of a difference since the size compositions in the EBS and NBS are sufficiently similar) 
  
 # Introduction
 
@@ -873,14 +942,19 @@ alternative catch scenarios and management targets (see this volume:
 
 ## Description of alternative models
 
-Model configuration options developed this year relate primarily to
-alternative data treatment and a separate re-evaluation of the steepness prior
-and stock recruitment relationship. The two model alternatives (treated as
-sensitivities) includes one which incorporates a spatio-temporal model fit to
-BTS CPUE data _including stations from the NBS._ This survey data model
+Model configuration options continue to be developed for
+alternative data treatment. The spatio-temporal model fit to
+BTS CPUE data _including stations from the NBS_ was expanded thanks to developments
+of the application (Thorson 2019). 
+
+This survey data model
 applies the VAST (Thorson 2018) approach and due to allowing for
 spatial and temporal correlation, is well suited to having missing stations in
-some areas and years (and adjusts uncertainty accordingly). The second data
+some areas and years (and adjusts uncertainty accordingly). 
+
+xxx
+
+The second data
 treatment simply increased the weight on the final two survey data points (by
 reducing the CVs by a factor of 2). This was done because initial model runs
 indicated relatively poor fits to these data and by adding some constraint, it
