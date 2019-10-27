@@ -20,18 +20,18 @@
         {
           df$obs  <- A$ob_eit
           df$pre  <- A$eb_eit
-          #df$lb   <- A$ob_eit-1.96*A$sd_ob_eit
-          #df$ub   <- A$ob_eit+1.96*A$sd_ob_eit
           df$lb   <- A$ob_eit/exp(2.*sqrt(log(1+(A$sd_ob_eit)^2/(A$ob_eit)^2)))
           df$ub   <- A$ob_eit*exp(2.*sqrt(log(1+(A$sd_ob_eit)^2/(A$ob_eit)^2)))
+          #df$lb   <- A$ob_eit-1.96*A$sd_ob_eit
+          #df$ub   <- A$ob_eit+1.96*A$sd_ob_eit
         }
         else{
           df$obs  <- A$ot_eit
           df$pre  <- A$et_eit
-          #df$lb   <- A$ot_eit-1.96*A$sd_ot_eit
-          #df$ub   <- A$ot_eit+1.96*A$sd_ot_eit
           df$lb   <- A$ot_eit/exp(2.*sqrt(log(1+(A$sd_ot_eit)^2/(A$ot_eit)^2)))
           df$ub   <- A$ot_eit*exp(2.*sqrt(log(1+(A$sd_ot_eit)^2/(A$ot_eit)^2)))
+          #df$lb   <- A$ot_eit-1.96*A$sd_ot_eit
+          #df$ub   <- A$ot_eit+1.96*A$sd_ot_eit
         }
         mdf     <- rbind(mdf, df)
     }
@@ -58,25 +58,30 @@ plot_ats <- function(M, xlab = "Year", ylab = "Acoustic trawl survey biomass", y
     ylab <- paste0(ylab, "\n")
     
     mdf <- .get_ats_df(M,biomass=biomass)
+
     p <- ggplot(mdf) + labs(x = xlab, y = ylab)
     
+    #if (!is.null(xlim))
+    #    p <- p + xlim(xlim[1], xlim[2])        
     if (is.null(ylim))
     {
         p <- p + expand_limits(y = 0)
     } else {
         p <- p + ylim(ylim[1], ylim[2])        
     }
-    
     if (length(M) == 1)
     {
         p <- p + geom_line(aes(x = year, y = pre)) +geom_point(aes(x=year, y=obs),size=2,color=color) + 
             geom_errorbar(aes(x = year, ymax = ub, ymin = lb),width=.5)
     } else {
-        p <- p + geom_line(aes(x = year, y = pre, colour = Model)) + geom_point(aes(x=year, y=obs),size=2,color=color) + 
-            geom_errorbar(aes(x = year, ymax = ub, ymin = lb),width=.5)
+        dw <- 0.5 
+        p <- p + geom_line(aes(x = year, y = pre, col = Model),size=0.8,position=position_dodge(width=dw)) + geom_point(aes(x=year, y=obs,col=Model,fill=Model),position = position_dodge(width=dw)) + 
+           geom_pointrange(aes(year, obs, ymax = ub, ymin = lb, color = Model,fill=Model), shape = 1, linetype = "solid", position = position_dodge(width = dw))
+            #geom_errorbar(aes(x = year, ymax = ub, ymin = lb),width=0.5,position=position_dodge(width=0.9))
     }
     
-    #if(!.OVERLAY) 
-    p <- p + guides(colour=FALSE)
+    if(!.OVERLAY) 
+      p <- p + guides(colour=FALSE)
     return(p + .THEME)
 }
+
