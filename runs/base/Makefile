@@ -26,7 +26,7 @@ mpd: $(EXEC)
 	@$(RM) $(EXEC).*[0123456789] *.rpt *.log variance gradient.* *tmp admodel.* *.eva
 
 mcmc: $(EXEC)
-	./$(EXEC) $(ARGS) -mcmc 3000000 -mcsave 600
+	./$(EXEC) $(ARGS) -mcmc 3000000 -mcsave 600 -hbf 1
 	./$(EXEC) -mceval 
 	
 

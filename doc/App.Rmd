@@ -4,7 +4,7 @@
 
 This application of `VAST` was configured to model a subset of
 NMFS/AFSC bottom trawl survey data.  Specifically, the station-specific CPUE
-(kg per hectare) for pollock were compiled from 1982-2018. Further details can
+(kg per hectare) for pollock were compiled from 1982-2019. Further details can
 be found at the [GitHub repo](https://github.com/james- thorson/VAST/#description) 
 mainpage, wiki, and glossary.  The R help files,
 e.g., `?Data_Fn` for explanation of data inputs, or `?Param_Fn` for

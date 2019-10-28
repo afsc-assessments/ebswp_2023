@@ -874,9 +874,7 @@ structure for sampling along transects (Table \ref{tab:ats_biom}; Petitgas 1993,
 Williamson and Traynor 1996). As in previous assessments, the other sources of
 error (e.g., target strength, trawl selectivity) were accounted for by
 inflating the annual error estimates to have an overall average CV of 25\% for
-application within the assessment model.
-
-Last year we estimated the 2018 EBS acoustic-trawl survey population numbers-at-age 
+application within the assessment model. Last year we estimated the 2018 EBS acoustic-trawl survey population numbers-at-age
 based primarily on the BT survey age samples with supplemental
 samples from the AT survey. This year those data were updated using only the AT age samples
 (Fig. \ref{fig:at_age}; Table \ref{tab:ats_age}).
@@ -1010,10 +1008,12 @@ $P_{mat}$&0.00&0.008&0.29&0.64&0.84&0.90&0.95&0.96&0.97&1.00&1.00&1.00&1.00&1.00
 \end{table}
 
 In the supplemental multi-species assessment model alternative values of age
-and time-varying natural mortality are presented. Those estimates indicate
-higher values than used here. In last year's evaluation of natural mortality
+and time-varying natural mortality are presented. As in past years the estimates indicate
+higher values than used here. 
+In last year's evaluation of natural mortality
 it was noted that the  survey age compositions favored lower values of M while
-the fishery age  composition favored higher values. This is consistent with
+the fishery age  composition favored higher values. 
+This is consistent with
 the patterns seen in the  BTS survey data as they show increased
 abundances of “fully selected” cohorts. Hence, given the model specification
 (asymptotic selectivity for the BTS age composition data), lower natural
@@ -1042,7 +1042,7 @@ The assessment model for EBS pollock accounts for numbers of individuals in
 the population. As noted above, management recommendations are based on
 allowable catch levels expressed as tons of fish. While estimates of pollock
 catch-at-age are based on large data sets, the data are only available up
-until the most recent completed calendar year of fishing (e.g., 2017 for this
+until the most recent completed calendar year of fishing (e.g., 2018 for this
 year). Consequently, estimates of weight-at-age in the
 current year are required to map total catch biomass (typically equal to the
 quota) to numbers of fish caught (in the current year). Therefore, these
@@ -1063,8 +1063,9 @@ from this method showed the relative variability between years and cohorts and
 provide estimates (and uncertainty) for `r paste0(thisyr,"--",thisyr+2)`
 (Table \ref{tab:wtage}). The changes in weight-at-age in the fishery are
 substantial, especially for the apparent abundant year-classes (e.g., the 4--9
-year-olds from 2012--2017 representing the 2008 year class; Fig.
-\ref{fig:fsh_wtage_comb}).) To examine this more closely, we split the
+year-olds from 2012--2018 representing the 2008 year class; Fig.
+\ref{fig:fsh_wtage_comb}).) 
+To examine this more closely, we split the
 bootstrap results into area-season strata and were able to get an overall
 picture of the pattern by strata (Fig. \ref{fig:fsh_wtage}).  Breaking this
 further by year and strata for recent years shows variability in the relative
@@ -1301,8 +1302,10 @@ biomass. The average F (ages 3--8) increased in 2011 to above 0.25 when the TAC
 increased but has dropped since then and in 2016 is estimated at about 0.16.
 Age specific fishing mortality rates reflect these patterns and show some
 increases in the oldest ages from 2011--2013 but also indicate a decline in
-recent years (Fig. \ref{fig:mod_F}). The estimates of age 3+ pollock biomass
-were mostly higher than the estimates from previous years (Fig. \ref{fig:mod_hist},
+recent years (Fig. \ref{fig:mod_F}). Last year's  estimates of age 3+ pollock
+biomass were mostly higher than the estimates from previous years but this
+year's estimates indicate a reduction, presumably due to below-average
+recruitment since the 2013 year class (Fig. \ref{fig:mod_hist},
 Table \ref{tab:biom_3plus}).
 
 Estimated numbers-at-age are presented in (Table \ref{tab:est_n}) and
@@ -1477,7 +1480,7 @@ scenarios.
 Five of the seven standard scenarios will be used in an Environmental
 Assessment prepared in conjunction with the final SAFE. These five scenarios,
 which are designed to provide a range of harvest alternatives that are likely
-to bracket the final TAC for 2018, are as follows (“$maxFABC$” refers to the
+to bracket the final TAC for `r nextyr`, are as follows (“$maxFABC$” refers to the
 maximum permissible value of FABC under Amendment 56):
 
 \begin{description}
@@ -1487,7 +1490,7 @@ TAC has been constrained by ABC, so this scenario provides a likely upper
 limit on future TACs).
 
 \item[Scenario 2:]   
-In `r nextyr; print("and"); nextyr+1` the catch is set equal to 1.35 million t
+In `r nextyr` and `r nextyr+1` the catch is set equal to 1.35 million t
 and in future years $F$ is set equal to the Tier 3 estimate (Rationale: this was
 has been about equal to the catch level in recent years).
 
@@ -1590,13 +1593,14 @@ is expected. The extent that the stock will exhibit declines into the future dep
 on future recruitment, which is always uncertain. Some issues to consider in 
 the medium-term are that
 
-1.  The conditions in summer 2018 were exceptional in the complete absence of a "cold pool" and being a second consecutive 
+1.  The conditions in summer 2019 were exceptional with another near absence of a "cold pool",
+   very warm conditions on the inner part of the EBS shelf, and being a third consecutive 
     year with significant abundances found outside of the standard survey area.
 
-2.  There were relatively few juvenile pollock observed in the surveys during the 
-summers of 2016--2018.
+2.  It appears that recruitment has dropped since the 2013 year class and this is expected
+to reduce spawning biomass below $B_{MSY}$ by 2021. 
 
-3.  The recent BTS data continue to show low abundances of pollock aged 10 and older (Table \ref{tab:bts_age}).
+3.  The BTS data continue to show low abundances of pollock aged 10 and older (Table \ref{tab:bts_age}).
 Historically there had been good representation of older fish in data from
 this survey. This is somewhat expected given the poor year-classes observed
 during the period 2000--2005.
@@ -1608,7 +1612,8 @@ the total natural mortality is higher in the multispecies model).
 9.  Pollock are an important prey species for other species in the ecosystem and apparent changes in the 
     distribution may shift their availability as prey. 
 
-11. Finally, given the same estimated aggregate fishing effort in 2018, the estimated stock trend is
+11. Finally, given the same estimated aggregate fishing effort in 2019, the 
+estimated stock trend is
     downwards except at low catch levels (a replacement yield of `r M$repl_ylds` kt is the amount that would
     maintain the spawning stock constant). Being a negative value means that even without any fishing,the stock
     is projected to decline. Furthermore, the ability to catch roughly the same amount as in `r thisyr` 
@@ -1625,16 +1630,41 @@ recommend an ABC lower than the maximum permissible. This was implemented for th
 
 \begin{table}[ht]
 \scalebox{0.88}{
-\begin{tabular}{C{0.7in}L{2.0in}L{2.0in}L{2.0in}}
+\begin{tabular}{C{0.7in}L{1.5in}L{1.5in}L{1.5in}L{1.5in}}
 \hline
- &\multicolumn{3}{c}{\textbf{Considerations}} \\
+ &\multicolumn{4}{c}{\textbf{Considerations}} \\
 \hline
- &\textbf{Assessment-related} & \textbf{ Population dynamics} & \textbf{Environmental \& ecosystem }     \\
+ &\textbf{Assessment-related} & \textbf{ Population dynamics} & \textbf
+ {Environmental \& ecosystem }    & Fishery performance \\
 \hline
-Level 1 Normal                           & Typical to moderately increased uncertainty \& minor unresolved issues in assessment               & Stock trends are typical for the stock; recent recruitment is within normal range.                                                      & No apparent environmental \& ecosystem concerns                                                                                                                      \\
-Level 2 Substantially increased concerns & Substantially increased assessment uncertainty unresolved issues.                                       & Stock trends are unusual; abundance increasing or decreasing faster than has been seen recently, or recruitment pattern is atypical.             & Some indicators showing an adverse signals but the pattern is inconsistent across all indicators.                                                            \\
-Level 3 Major Concern                    & Major problems with the stock assessment, very poor fits to data, high level of uncertainty, strong retrospective bias. & Stock trends are highly unusual; very rapid changes in stock abundance, or highly atypical recruitment patterns.                           & Multiple indicators showing consistent adverse signals a) across the same trophic level, and/or b) up or down trophic levels (i.e., predators and prey of stock) \\
-Level 4 Extreme concern                  & Severe problems with the stock assessment, severe retrospective bias. Assessment considered unreliable.          & Stock trends are unprecedented. More rapid changes in stock abundance than have ever been seen previously, or a very long stretch of poor recruitment compared to previous patterns. & Extreme anomalies in multiple ecosystem indicators that are highly likely to impact the stock. Potential for cascading effects on other ecosystem components    \\
+Level 1 Normal   
+& Typical to moderately increased uncertainty \& minor unresolved issues in assessment       
+& Stock trends are typical for the stock; recent recruitment is within normal range.    
+& No apparent environmental \& ecosystem concerns  
+&  No apparent fishery/resource-use performance and/or behavior concerns \\ 
+Level 2 Substantially increased concerns & Substantially increased assessment uncertainty unresolved issues.
+& Stock trends are unusual; abundance increasing or decreasing faster than has been seen
+  recently, or recruitment pattern is atypical. 
+& Some indicators showing an adverse signals but the pattern is inconsistent
+across all indicators. 
+& Some indicators showing adverse signals but the pattern is inconsistent
+across all indicators. \\
+Level 3 Major Concern                    
+& Major problems with the stock assessment, very poor fits to data, high level of 
+uncertainty, strong retrospective bias. 
+& Stock trends are highly unusual; very rapid changes in stock abundance, or highly atypical recruitment patterns.                           
+& Multiple indicators showing consistent adverse signals a) across the same trophic level, 
+and/or b) up or down trophic levels (i.e., predators and prey of stock) 
+& Multiple indicators showing consistent adverse signals a) across different sectors, 
+and/or b) different gear types
+\\
+Level 4 Extreme concern                  
+& Severe problems with the stock assessment, severe retrospective bias. Assessment considered unreliable.          
+& Stock trends are unprecedented. More rapid changes in stock abundance than have ever been seen previously, or a very long stretch of poor recruitment compared to previous patterns. 
+& Extreme anomalies in multiple ecosystem indicators that are highly likely to impact the stock. Potential for cascading effects on other ecosystem components    
+& Extreme anomalies in multiple performance indicators that are highly like to
+impact the stock.
+\\
 \hline
 \end{tabular}
 }
@@ -1659,7 +1689,9 @@ might be relevant include the following (as identified by the work-group):
   3. Environmental/ecosystem considerations—adverse trends in
   environmental/ecosystem indicators, ecosystem model results, decreases in
   ecosystem productivity, decreases in prey abundance or availability,
-  increases or increases in predator abundance or productivity.  
+  increases or increases in predator abundance or productivity. 
+
+  4. Fisheries considerations 
 
 *Assessment considerations*   The EBS pollock assessment model appears to
 track the  stock from year based on retrospective analysis (the pattern lacks
@@ -1693,77 +1725,158 @@ stock is at a low diversity of ages and the mean age of the spawning stock
 level 2, a substantially increased concern.**
 
 *Environmental/Ecosystem considerations*
-2018 was unprecedented (for the period of our observations) with near-
-complete lack of sea ice in the Northern Bering Sea and complete lack of sea
-ice (and resulting cold pool) over the southeastern Bering Sea shelf. The
-ecosystem responses indicate potential concerns for pollock, as both prey
-resources and predator dynamics were impacted. Over the southern shelf, a
-weak, delayed bloom provided reduced phytoplankton biomass which likely
-impacted the zooplankton prey base.
+The winter of 2018/2019 began with near-average accumulation of sea ice in the Bering Sea 
+during December and January, but warm, moist winds from the southwest persisted
+throughout February and eroded sea ice to extremely low levels (only 2018 was lower). 
+Trends in sea ice and resulting extent of the cold pool were similar between
+2018 and 2019, although a small cold pool occurred in 2019 and may have
+impacted pollock movement and ultimate distribution in 2019. That said, the
+winters of 2017/2018 and 2018/2019 were remarkably similar in terms of sea ice phenology  
+and (see Thoman in 2019 EBS ESR) extent as well as wind patterns, therefore ecosystem 
+indicators from 2018 may provide insights into 2019 conditions for pollock. In 2018, warm 
+water temperatures and salinity north of St. Lawrence Island may have contributed to the 
+northward movement of pollock into the northern Bering Sea (see Eisner et al. in 2019 EBS 
+ESR). With warm conditions persisting through winter 2018/2019, it is
+possible that pollock remained in the northern Bering Sea or were able to move along the 
+shelf (north or south) early in the spring/summer of 2019. The 2018 year class 
+experienced favorable conditions between a cooler summer as age-0s (2018) followed by a 
+warmer spring as age-1s (2019) (see Yasumiishi in 2019 EBS ESR). 
 
-Small copepod production in the spring of 2018 was apparently above average,
-but decreased nauplii survival is predicted based on reduced phytoplankton.
-Both acoustic and RZA (rapid zooplankton assessment) estimates indicate low
-euphausiid abundance; both indicators suggest this high-quality prey has
-become less available since 2012. Over the northern shelf, large copepods were
-an order of magnitude less abundant than a previous survey conducted in 2007;
-euphausiids were also several orders of magnitude lower. Larval pollock
-production appears high (comparable to 2014 and 2016), which is expected in
-warm years, but larval survival is expected to be low due to degraded prey
-resources and reduced energy transfer.
 
-Fish condition (based on weight/length residuals) show that adult pollock
-condition was negative in both the SEBS and NBS, which continues a declining
-trend since 2012. The biomass of the pelagic forager guild, which includes
-pollock, remains below the long-term mean with pollock declining 59\%
-since 2014 and 38\% since 2017. Total CPUE of groundfish estimated from the
-bottom trawl survey showed a sharp decline in 2018, primarily due to a
-decrease in pollock,  Pacific cod, and several flatfish species.
+The 2018 year class was sampled using surface trawls in the southern and northern Bering Sea 
+as age-0 in late summer 2018. Summer of 2018 was warm (above-average thermal
+  conditions) and age-0 fish had low energy density across the shelf (see Siddon et al. and  
+  Sewall et al. 2019 EBS ESR). The mean size of the 2018 year class was average but their 
+  biomass index was below average (Whitehouse in 2019 EBS ESR). However, anomalous winds from 
+  the southwest during February 2019 may have bolstered productivity over the shelf, 
+  sustained metabolic demands, and subsidized overwinter survival of the 2018 year class of 
+  pollock. 
+ 
+ The 2019 condition of juvenile (age-1) and adult pollock based on length-weight
+ residuals was assessed in the southern and northern survey regions. Over the southern shelf,
+  age-1 pollock have had positive length-weight residuals for the past 4 years while adult 
+  pollock had negative residuals in 2017-2018, but switched to positive residuals in 2019. 
+  The negative values are driven by fish sampled in the inner domain where unprecedentedly 
+  warm temperatures may have tested metabolic limits. Over the northern shelf, age-1 pollock 
+  had positive residuals (although less positive than 2018) while adult pollock continued 
+  negative residuals for the past 3 years (see Laman in 2019 EBS ESR). Over the southern 
+  shelf, abundance increased 53% while biomass increased 75%, indicating movement of adult 
+  fish back over the southern shelf. In the northern Bering Sea, abundance increased 59%, but 
+  biomass decreased 11%, indicating successful recruitment of younger age classes of pollock 
+  over the northern shelf (Britt Sept GPT presentation). 
 
-A seabird die-off event, unprecedented in terms of spatial and temporal scale,
-combined with broad reproductive failures and/or late breeding success
-indicate, in part, a lack of sufficient prey resources (emaciation and
-starvation are the only identified causes of mortality to date). 
-In addition to several of these species preying on juvenile pollock, 
-they also rely on the same zooplankton as pollock for survival. The die-offs
-may be indicative of poor juvenile pollock survival and/or available prey for
-juvenile pollock. Some outstanding ecosystem questions are whether
- Pacific cod and pollock remained in the NBS over winter 2017--2018.
- Given the warm water temperatures (and lack of sea
-ice), over-winter feeding to meet their metabolic demands may
-have reduced the prey base and shifted the food-web balance in the
-NBS.
 
-There were also unusual observations of adult pollock behavior in Bristol Bay
-and these may be indicative of (i) a distribution shift in response to warm
-temperatures (although temperatures SEBS shelf were similar to a ‘typical’
-warm year), (ii) looking for adequate prey (although stomachs were not empty
-and contents were ‘typical’), or (iii) potential harmful algal bloom event (samples still
-being processed). 
 
-In summary, 
+Prey: Small copepods form the prey base for larval to early juvenile pollock during spring. 
+Late juvenile pollock feed on a variety of planktonic crustaceans, including calanoid 
+copepods and euphausiids (principally Thysanoessa inermis and T. raschii). Pollock diets 
+become more piscivorous with age and cannibalism is commonly observed.
 
-  - Unprecedented warm conditions in 2018 resulted in reduced primary and secondary production        
+The number of small copepods available to juvenile pollock across the shelf during spring 
+2019 was high compared to historical abundances and increased from spring to fall, indicating 
+good foraging conditions for larval and juvenile pollock early in the year. However, the 
+abundance of large (typically more lipid-rich) copepods was low overall (lower than in 2018). 
+Although direct measurements of euphausiid abundances for both 2018 and 2019 indicate low 
+abundances, age-0 fish diets from 2018 contained over 50% euphausiids, suggesting euphausiids 
+may provide an alternative, lipid-rich prey source when large copepods are not as abundant.  
+Indirect information on prey resources for pollock is discussed below under ‘Competitors’.
 
-  - The cold pool prediction for summer 2019 is for continued warm conditions and reduced cold pool extent        
+*Predators:* Pollock are cannibalistic and rates of cannibalism might be
+expected to increase as the biomass of older, larger fish increases concurrent with increases 
+in juvenile abundance. With the lack of a cold pool over the southern shelf or thermal 
+barrier between the southern and northern shelves, spatial overlap and the potential for 
+cannibalism are increased. Other predators of pollock include northern fur seals. At this 
+time there are no indicators that suggest these populations are increasing in the eastern 
+Bering Sea (although note that the Bogoslof Island population of northern fur seals is 
+increasing while the Pribilof Islands populations are decreasing; see C. Kuhn ‘Noteworthy’ in 
+the 2019 EBS ESR). Fur seal consumption of adult pollock generally increases in years when 
+juvenile pollock are less abundant (Kuhn).
 
-  - Weak, delayed phytoplankton bloom, reduced biomass, and reduced energy transfer to upper trophic levels (i.e., zooplankton prey base and juvenile pollock)        
 
-  - Zooplankton prey base reduced (small, lipid-poor taxa, few euphausiids)        
+*Competitors:* While historical recruitment trends between Pacific cod and
+walleye pollock have mirrored each other, suggesting the species respond similarly to 
+environmental conditions, the timeseries appear to decouple after approximately 2010 and may 
+indicate broad-scale transitions in the southeastern Bering Sea ecosystem (e.g., from 
+pelagic- to benthic-dominated production) (Figure 1). The mechanisms driving early life 
+history survival versus recruitment success of Pacific cod and walleye pollock may differ 
+based on pelagic versus benthic habitat associations (e.g., prey availability). The 
+decoupling of abundance timeseries after 2010 suggests a shift (or greater disparity) between 
+drivers of survival in these two populations.
 
-  - Adult pollock condition index is negative in both SEBS and NBS and has been trending downwards in SEBS since 2010.        
+A widespread die-off event of short-tailed shearwaters began in the SEBS in June 2019 extended into the NBS and Chukchi Sea in August. These events may reflect 2018 conditions as shearwaters feed in the Bering Sea in summer before migrating to the southern hemisphere for breeding during the winter. Most sampled birds showed signs of emaciation; shearwaters are planktivorous birds and feed on euphausiids. 
 
-  - Unprecedented seabird die-off event and broad reproductive failures indicate, in part, a lack of sufficient prey resources        
+*Fishery performance*
+xxx
+As noted above, the 2019 B-season suggested that the fishery was dispersed and
+experienced relatively low catch rates compared to recent years. 
+
+
+[From 2013-2017 prices for pollock decreased as global pollock supply has been high, but increased landings have had the combined effect of marginal increases in value. In 2018 prices for pollock increased. (Fissel)
+
+The reduction in revenue from 2008-2010 was the result of conservation based reductions in 
+the pollock TAC. In 2018, strong demand and reductions in global supply have
+put upward pressure on whitefish product prices which has filtered through to ex-vessel 
+market. As a result, revenue increased in 2018 in the pelagic forager group despite stable 
+landings. (Fissel)]
+
+Canadian-origin stock group of Chinook salmon is a key stock group used to define 
+abundance-based bycatch caps in the EBS pollock fishery. Low juvenile abundance of this stock 
+ group increases the probability that future bycatch caps will be reduced in the
+ pollock fishery. (Murphy)_
+
+
+### 2018 year class
+  -   The 2018 year class experienced favorable conditions between a cooler
+  summer as age-0s (2018) followed by a warmer spring as age-1s (2019);     
+  -  The 2018 year class of age-0 fish had low energy density across the shelf,
+  average mean size, and below average biomass index;     
+  -  Anomalous winds from the southwest during February 2019 may have bolstered
+  productivity over the shelf, sustained metabolic demands, and subsidized
+  overwinter survival of the 2018 year class;     
+  - 2019 Shearwater die-off events could reflect feeding conditions (i.e.,
+  euphausiids) in the EBS in 2018.
+
+### 2019 year class
+  -  Second winter of low sea ice extent in the eastern Bering Sea (only 2018
+  was lower);
+  - A small cold pool occurred in 2019 and may have impacted pollock movement
+  and distribution;
+  - 2019 condition (length-weight residuals) of age-1 pollock was positive
+  over the entire shelf; adult pollock condition was positive in the south, but negative in the north;
+  - Over the southern shelf, abundance increased 53% while biomass increased
+  75%, indicating movement of adult fish to the region;
+  - Over the northern shelf, abundance increased 59%, but biomass decreased 11\%,
+  indicating successful recruitment of younger age classes; 
+  - Small copepod abundance was high, indicating good foraging conditions for larval  
+   and juvenile pollock early in the year; 
+  - Large copepod abundance was low
+   overall;
+  - Low abundances of euphausiids were observed in 2018 (MACE acoustic survey)
+   and 2019 (RPA RZA), but age-0 fish diets from 2018 contained over 50% euphausiids;
+  - Lack of cold pool over the southern shelf and thermal barrier between the
+  southern and northern shelves suggests spatial overlap and the potential for cannibalism are increased;
+  -  Fur seal consumption of adult pollock increases in years when juvenile
+   pollock are less abundant;
+  -  The decoupling of abundance timeseries for Pacific cod and walleye pollock
+  after 2010 suggests a shift in drivers of survival in these two populations. 
+  Mechanistic understanding of recruitment drivers is less well-known than for pollock.
+
 
 **We therefore rated the Ecosystem concern as Level 2, substantially increased concern.**
+Some indicators showing adverse signals relevant to the
+stock but the pattern was inconsistent across indicators.
+
 These results are summarized as:
 \begin{table}[h]
-\begin{tabular}{L{1.5in}L{1.5in}L{1.5in}L{1.5in}}
+\begin{tabular}{L{1.125in}L{1.125in}L{1.125in}L{1.125in}L{1.125in} }
 \hline
- \multicolumn{3}{c}{Considerations}  & \\
-Assessment-related & Population dynamics & Environmental or ecosystem & Score (max of individual) \\
+ \multicolumn{4}{c}{Considerations}  & \\
+Assessment-related & Population dynamics & Environmental or ecosystem
+&Fisheries& Score (max of individual) \\
 \hline
-Level 1: No concern               & Level 2: Substantially increased concerns & Level 2: Substantially increased concerns & Level 2: Substantially increased concerns       \\
+Level 1: No concern               & Level 2: Substantially increased concerns &
+Level 2: Substantially increased concerns & dunno       & Level 2: Substantially increased
+concerns \\
 \hline
 \end{tabular}
 \end{table}

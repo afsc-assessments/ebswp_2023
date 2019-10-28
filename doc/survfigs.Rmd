@@ -10,14 +10,16 @@ i<-11
  i <- i + 1
  printfig("bts_age.png",i)
  i <- i + 1
- printfig("at_age.png",i)
+ printfig("ATS_age_update.png",i)
  i <- i + 1
- printfig("at_unsampled.png",i)
+ printfig("vastage.png",i)
  i <- i + 1
- printfig("ats_bts.png",i)
- i <- i + 1
- printfig("avo_bts.png",i)
- i <- i + 1
+ #printfig("at_unsampled.png",i)
+ #i <- i + 1
+ #printfig("ats_bts.png",i)
+ #i <- i + 1
+ #printfig("avo_bts.png",i)
+ #i <- i + 1
  # printfig("mortprofile.png",19)
 ```
  
