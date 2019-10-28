@@ -1,6 +1,6 @@
 # Figures
 ```{r fshfigs}
- printfig("catch.png",1)
+ printfig("catch.pdf",1)
  printfig("catch_sex.pdf",2)
  printfig("catch_distn_a.png",3)
  printfig("cpue_aseason.png",4)

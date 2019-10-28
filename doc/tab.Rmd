@@ -155,10 +155,11 @@ Year    &   Catch   &   Year    &   ABC &   TAC &   Catch \\
 2012    &   95  (10\%)  &   0   (\%)    &   1,191   (tr)    &   4,187   (1\%)   &   5,473   (tr)    &   975 &   71  &   586,343 &    618,869    &   1,206,258   \\
 2013    &   108 (4\%)   &   0   (1\%)   &   1,226   (tr)    &   4,144   (1\%)   &   5,478   (tr)    &   2,964   &   57  &   575,098 &    695,667    &   1,273,786   \\
 2014    &   138 (6\%)   &   54  (13\%)  &   1,787   (tr)    &   12,568  (1\%)   &   14,547  (1\%)   &   2,375   &   427 &   439,180 &    858,240    &   1,300,221   \\
-2015    &   19  (2\%)   &   138 (19\%)  &   2,419   (tr)    &   7,062   (1\%)   &   9,638   (1\%)   &   915 &   733 &   625,331 &    696,249    &   1,323,228   \\
-2016    &   59  (5\%)   &   7   (1\%)   &    998    (1\%)   &   8,145   (1\%)   &   9,209   (1\%)   &   1,257   &   1,005   &   185,571 &    1,167,088  &   1,354,921   \\
-2017    &   17  (1\%)   &   2   (1\%)   &   1,357   (1\%)   &   6,944   (1\%)   &   8,321   (1\%)   &   1,384   &   186 &   181,162 &    1,178,112  &   1,360,844   \\
-2018    &           &   2   (21\%)  &    1,779  (1\%)   &    8,261  (1\%)   &   10,042  (1\%)   &       &   9   &   328,722 &    1,045,138  &   1,373,868   \\
+2015    &    20     (2\%)   &   138 (19\%)  &   2,419   (tr)    &   7,053   (1\%)   &   9,638   (1\%)   &    916    &    733    &    625,331    &   696,250 &   1,323,230   \\
+2016    &    59     (5\%)   &   7.24    (1\%)   &   998 (1\%)   &   8,141   (1\%)   &   9,209   (1\%)   &    1,257  &    1,004  &    185,572    &   1,167,089   &   1,354,922   \\
+2017    &    18     (1\%) &   2.46    (1\%)   &   1,357   (1\%)   &   6,940   (1\%)   &   8,299   (1\%)   &    1,507  &    186    &    181,161    &   1,178,113   &   1,360,968   \\
+2018    &    216    (12\%)    &   2.12    (1\%)   &   2,012   (1\%)   &   9,195   (1\%)   &   11,209  (1\%)   &    1,860  &    14     &    330,588    &   1,048,718   &   1,381,180   \\
+2019    &    57     (4\%) &   0.129   (1\%)   &   1,793   (1\%)   &   6,475   (1\%)   &   8,268   (1\%)   &    1,462  &    117    &    292,339    &   1,035,640   &   1,329,559   \\
 \hline
 \end{tabular}
 }
@@ -655,11 +656,19 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
     lab <- paste0("tab:",tablab[23])
     tab <- xtable(tab, caption = cap, label=lab, big.mark="," ,digits=0)
     print(tab, caption.placement = "top",digits=0,big.mark=",",include.rownames = FALSE, sanitize.text.function = function(x){x})
+
+
+#<!-- fishery wtage -->
+df <- data.frame(Year=1964:thisyr,wt=M$wt_fsh)
+names(df) <- c("Year",1:15)
+df <- df[df$Year>=1990,]
+df[1,1]<-"1964-1990"
+cap <- tabcap[24]
+lab <- paste0("tab:",tablab[24])
+tab <- xtable(df, caption = cap, label=lab, big.mark="," ,digits=3)
+print(tab, caption.placement = "top",digits=3,big.mark=",",include.rownames = FALSE, sanitize.text.function = function(x){x})
 ```
-
-\clearpage 
-
-<!-- fishery wtage -->
+xxxxx
 
 \begin{table}[ht]
 \centering
@@ -741,29 +750,31 @@ CV  &   NA  &   25\%    &   16\%    &   11\%    &   7\% &   8\% &   12\%    &   
 
 \clearpage
 ```{r modfits, results = "asis"}
-
 # Fit to data------------------- 
 # Comparison among variance constraints for RW in survey selectivity/q
-.MODELFN  = c("r_1","r_2","r_3","r_4","r_5")
-prof_names  = c("CV70%","CV50%","CV20%","CV10%","CV05%")
-fn       <- paste0("../runs/redqvar/prof/",.MODELFN)
+fnprof  = c("r_1","r_2","r_3","r_4","r_5")
+prof_names  = c("CV70\\%","CV50\\%","CV20\\%","CV10\\%","CV05\\%")
+fn       <- paste0("../runs/redqvar/prof/",fnprof)
 proflst   <- lapply(fn, read_admb)
 names(proflst) <- prof_names
 nmods <- length(prof_names)
 for (i in 1:nmods) {
   proflst[[i]] <- c(proflst[[i]],get_vars(proflst[[i]]))
 }
-df <- tab_fit(proflst)
+df <- tab_fit(M=proflst,1:nmods)
 tab <- xtable(df, caption = "Goodness of fit to primary data used for assessment model parameter estimation profiling over different constraints on the extent bottom-trawl survey selectivity/availability is allowed to change;  EBS pollock.", label = "tab:mod_prof_fits")#, digits = 3,align="llrrrrr")
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
 
 # Fit to data------------------- 
-if (is.null(mod_scen)) mod_scen <- c(2,3)
-df <- tab_fit(modlst,mod_scen)
+
+df <- tab_fit(modlst)
 tab <- xtable(df, caption = "Goodness of fit to primary data used for assessment model parameter estimation for different model configurations, EBS pollock.", label = "tab:mod_fits", digits = 3,align="llrrrrr")
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
 
 ```
+
+
+
 
 ```{r mgt_quants, results = "asis"}
 # Mgt quants by model
@@ -828,7 +839,7 @@ cap <- tabcap[32]
 biom <- read.csv("data/Age3plus.csv",header=T,as.is=TRUE)
 #biom <- read.csv("data/Age3history.csv",header=T,as.is=TRUE)
 t3  <- cbind(biom[,1],M$age3plus ,M$age3plus.sd/M$age3plus ,biom[,2:13])
-names(t3) <- c("Year","Current","CV","2017","CV","2016","CV", "2015","CV","2014","CV","2013","CV","2012","CV")
+names(t3) <- c("Year","Current","CV","2018","CV","2017","CV","2016","CV", "2015","CV","2014","CV","2013","CV")
 for (i in seq(2,length(t3[1,]),2 ) ){
       t3[,i]   <- formatC(t3[,i], format="d", big.mark=",",digits=0) 
       t3[,i+1] <- formatC( t3[,i+1]*100, format="d", digits=0,big.mark=",") 
@@ -850,8 +861,8 @@ df <- NULL
     b35    <- x$b35s ;                 names(b35)    <- paste0("$B_{35\\%}$")
     pbmsy  <- paste0(round(100*x$ssb1/x$bmsy,0),"\\%");    names(pbmsy)<- paste0("${B}_{", nextyr ,"}/B_{MSY}$")
     bzero  <- x$b0s ;                 names(bzero)    <- paste0("$B_0$")
-    dynb0  <- x$dynb0s;      names(dynb0) <- "Est. $B_{2018} / B_{2018,no fishing}$"
-    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- "$B_{2018} / B_{MSY}$"
+    dynb0  <- x$dynb0s;      names(dynb0) <- "Est. $B_{2019} / B_{2019,no fishing}$"
+    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- "$B_{2019} / B_{MSY}$"
     steep  <- round(x$steep,2);                 names(steep) <- "Steepness"
     v      <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero,b35, spr ,steep, dynb0,b_bmsy)
     df     <- cbind(df, v)
