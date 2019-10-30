@@ -116,50 +116,8 @@ examined the spatial pattern of the fishery and developed a statistic of dispers
 of individual tows_
 
 
-This is a mature assessment done annually with new catch, survey, and composition information. The base age-structured assessment model, labeled Model 0, was the preferred Model 16.1 from last year without new data. The inclusion of the new data in the Model 16.1, labeled Model 1, resulted in a 2017 biomass estimate that was similar to last year and a lower 2018 biomass estimate. Model 2 included data from the northern Bering Sea (NBS) and used the VAST model to account for spatiotemporal correlations and missing data (due to no surveys in many years in the NBS). Model 3 was the same as Model 1 but reduced the coefficients of variation in the most recent year as a sensitivity study of data variability versus structural uncertainty. Model 4 was the same as Model 1 but adjusted the steepness prior for recruitment to examine the effect on the spawner-recruit relationship, making it more like a Beverton-Holt asymptotic relationship instead of the standard Ricker dome-shaped relationship. Model 1 (with the new data) produced biomass estimates that were very similar to the base Model 0 from last year. 
-
-Surprisingly, inclusion of the NBS data in Model 2 also produced
-similar recent biomass estimates. Model 3 with reduced coefficients of
-variation produced slightly lower biomass estimates; this was due to
-the increased weighting of the survey data, which had declines in
-survey abundance from 2017 to 2018. Regardless of the model, the
-estimated 2012 and 2013 year-classes are strong; later year-classes
-appear weak to average. Estimated spawning biomass is well above Bmsy
-and B40%. EBS pollock has been placed in Tier 1 for years, because
-there exists a reliable probability density function for Fmsy; the
-analysis of Model 4 reaffirms this placement. Because of the small
-differences among Models 1 – 3, the SSC concurs with the authors and
-the PT to select Model 1 as the preferred model and to set maximum
-ABCs and OFLs for 2019 and 2020 using standard Tier 1a formulae. Also,
-as has been done since at least 2014, 2018 and 2019 ABCs are
-calculated using the Tier 3a formula for conservatism. 
-
-The SSC looks forward to an explicit set of concerns that explain the ABC adjustment in the next assessment. 
-
-In addition, the SSC commends the authors for providing a detailed decision table, showing several metrics of risk for harvest at a variety of levels. 
-
-The Plan Team minutes contain several useful suggestions for future work, which the authors should consider carefully. 
-
-In light of discussions at the PT and SSC meetings about Tier 1 and Tier 3 placements, the need to periodically review and update understanding of the underlying dynamics that determine stock productivity has become apparent. 
-
-Therefore the SSC encourages the authors and PT to continue examinations of the determinants of stock productivity, including environmental and density-dependent effects that underpin stock status. 
-
-
-
 xxxxxxxxxxx
 
-In the November 2017 Plan Team minutes: \"The Team recommends that
-more NBS surveys be conducted in the near future, as a time series of such
-data may be essential for understanding changes in the abundance of some
-individual stocks as well as the overall ecosystem. Some species, such as
-pollock and Pacific cod, exhibited enormous changes in NBS survey biomass
-between 2010 and 2017, both in absolute terms and relative to the NBS+EBS
-total, while others, such as Alaska plaice, exhibited very little change. The
-Team also recommends that assessment authors evaluate data from the NBS survey
-to determine if they should be included in their respective assessment models,
-particularly if more surveys are conducted, recognizing that it may be
-appropriate to include these data in some assessments but not others, and that
-the methods used to include these data may vary between assessments.\"
 
 _In this assessment, a complete time series approach using a spatio temporal
 model for survey observations outside the standard area was developed and applied. This
@@ -179,31 +137,7 @@ _A more formal qualitative risk table as developed by the Plan Team and a workin
 was used and is presented below in discussing ABC considerations_
 
 ### Comments specific to this assessment
-SSC and Plan Team 2017 minutes:
 
-...request that the authors develop a better prior for steepness, or at least a
-better rationale, and perhaps consider a meta-analytic approach.
-
-_A method outlined in a new meta-analytic paper on steepness using life
-history characteristics was evaluated using a Beverton-Holt stock recruitment
-relationship. This is presented as a model alternative._
-
-The Team requests that the “year class diversity” index that had been reported in previous assessments be included in future assessments.
-
-_This is standard output from the assessment model and a time series of the estimate is provided._
-
-The Team recommends that the authors compare fishery CPUE and survey CPUE in the core fishery area.
-
-_A more fully developed evaluation of fishery CPUE has yet to begin._
-
-The Team recommends that next year’s assessment include additional projections
-based on fixed levels of catch rather than fixed levels of fishing mortality,
-with the number of additional projections and the levels of fixed catch to be
-chosen by the author.
-
-_An array of fixed future catches has been included as part of the decision table._
-
-If the survey index is going to include the NBS, then inclusion of the NBS in compositional data should also be explored (although this should not make much of a difference since the size compositions in the EBS and NBS are sufficiently similar) 
  
 # Introduction
 
@@ -1201,18 +1135,23 @@ a lower biomass estimate for 2018 (Fig. \ref{fig:mod_data}). Additional models f
 
   1. The same as last year but with all data time series updated through the most recently available information       
 
-  2. The same as last year but with the survey time series including an alternative treatment of the NBS indicative biomass (application of the VAST model for the bottom trawl survey index)       
+  2. The same as last year but with the survey time series  including an alternative treatment of the 
+     NBS indicative biomass (application of the VAST model for the bottom trawl
+    survey index). This step included the revised VAST derived age compositions (Fig. \ref{fig:mod_data}). 
     - The rationale for considering this is the likelihood that pollock in the NBS are related and contribute to the EBS fishery  
 
-  3. The same as Model 16.1 but with the coefficient of variations reduced by half in the terminal year     
-    - This was done as a sensitivity since three observations indicated a decline yet the structural aspects of the model seem to constrain the extent of the decline given past trends in the indices. 
-
-  4. The same as Model 16.1 but with a Beverton-Holt stock recruitment relationship and steepness from a meta-analysis.     
-    - This was brought forward as a sensitivity in trying alternative prior distributions for steepness.
+  3. With Model 16.1 we evaluated the variability of the effective
+  catchability of the bottom trawl survey for ages 3-8, the age range over
+  which selectivity is allowed to vary. This pattern (and extent of
+  variability) was compared with new independent analysis specifically dealing
+  with the spatio-temporal patterns in 3 dimensions. 
+    - This work provides new evidence on the extent of variability in
+    effective catchability for the different survey gears used for assessing
+    pollock.
 
 The reference model (Model 16.1) when compared to the two with different data
-treatments showed different patterns but ended up with similar model
-predictions for 2018 (Fig. \ref{fig:mod_eval0c}). The spawning biomass
+treatments showed different patterns were fairly similar (Fig. \ref
+{fig:mod_eval0c}). The spawning biomass
 estimates and age compositions  indicates a slight shift in the scale of
 spawning biomass estimates relative to last year (Fig. \ref{fig:mod_eval0a}).
 The recent recruitment pattern (at age 1) shows an increase in  the 2014 value
@@ -1220,11 +1159,40 @@ The recent recruitment pattern (at age 1) shows an increase in  the 2014 value
 2012 year-class; Fig. \ref{fig:mod_eval0b}). Diagnostics of model fits between the
 set evaluated are given in Table \ref{tab:mod_fits}.
 
-The model with a prior distribution based on meta-analysis (see section below on 
-model description for details) using the Beverton-Holt stock recruitment estimation 
-had very minor impact on the historical biomass and numbers at age, but did influence
-the shape of the stock-recruitment curve (Fig. \ref{fig:bholt_ricker}). Also, it affected
-management quantities (Table \ref{tab:mgt_quants}).
+The BTS and ATS sample from distinct overlapping subsets of the water
+column: the BT covers from bottom to midwater, and AT from midwater to surface. 
+The proportion of fish available to each gear type depends on their vertical
+distribution, which varies in space and time. In the current and
+past assessments, this uncertainty counted as a type of process error (but with
+somewhat subjective approach to specifying the degree of variability allowed).
+A new method under development (Monnahan et al. in prep) provides a new method
+that explicitly models the vertical distribution of fish in discrete, spatially-correlated depth strata. 
+This model accounts for vertically-overlapping gears and is
+informed by both acoustic and bottom trawl data sets simultaneously. 
+These capabilities were added to the spatio-temporal standardization software
+VAST (Thorson 2019) which provides a convenient analysis platform and allows
+inclusion of temporal smoothing and environmental covariates, among other features. 
+Spatial patterns of pollock density for some selected years are shown in Fig.
+\ref{fig:layer1} and the relative availability to the gear types is shown in
+Fig. \ref{fig:layer2}). As the results become available, a model configuration
+using the combined index will be meshed as a direct alternative survey data 
+series fitting (e.g., by explicitly modeling survey availability). 
+
+This new study prompted an evaluation of the degree to which BTS selectivity 
+(and effectively, catchability/availability) is allowed to vary over time. As
+before, the ascending slope and age at 50% selected were modeled as independent
+random walk processes with a penalty (or prior constraint or smoothness
+regularization) specified to balance fitting composition and trend data from
+all sources reasonably. 
+
+A table showing the trade-offs in different model component fits shows that the
+degree of penalty can be relatively small (high CV on random-walk variability)
+without much repercussion on fitting different data components (e.g., the
+standard deviation of the normalized residuals (SDNR) scores are near 1.0 and
+not below (which would indicate over-fitting).
+
+
+ xxx Table \ref{tab:mgt_quants}).
 
 The fit to the early Japanese fishery CPUE data (Low and Ikeda 1980) is
 consistent with the estimated population trends for this period (Fig.
@@ -1237,7 +1205,7 @@ biomass series is consistent with the specified observation uncertainty (Fig.
 \ref{fig:mod_ats_biom}).
 
 The estimated parameters and standard errors are provided
-[online](https://www.afsc.noaa.gov/refm/stocks/plan_team/2018/EBSpollock_params.pdf). 
+[online](https://www.afsc.noaa.gov/refm/stocks/plan_team/2019/EBSpollock_params.pdf). 
 The code for the model (with dimensions
 and links to parameter names) and input files are available on request.
 

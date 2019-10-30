@@ -22,7 +22,7 @@ no,label,cap,Alt,Filename
 21,mod_eval0a,EBS pollock model evaluation results of female spawning biomass comparing model (and data) alternatives. Note that the 'with NBS' model is almost identical to model 16.1.,,
 22,mod_eval0b,EBS pollock model evaluation results of recruitment comparing last year's model with this year.,,
 23,mod_bts_biom,"EBS pollock model fit to the BTS biomass data (density dependence corrected estimates), 1982--2018.",,
-24,mod_ats_biom,"EBS pollock model fit to the ATS biomass data, 1994--2018.",,
+24,mod_ats_biom,"EBS pollock model fit to the ATS biomass data, 1994--2018; green points to the right of vertical grey line are a preliminary treatment of applying a VAST model to the acoustic trawl survey data.",,
 25,mod_mean_age,EBS pollock model fits to observed mean age for the Acoustic trawl survey (top), the bottom trawl survey (middle), and the fishery (bottom) for EBS pollock.  
 26,mod_fsh_sel,Selectivity at age estimates for the EBS pollock fishery.,,
 27,mod_fsh_age,Model fit (dots) to the EBS pollock fishery proportion-at-age data (columns; 1964--2017). The 2017 data are new to this year's assessment. Colors coincide with cohorts progressing through time.  ,,
@@ -59,4 +59,6 @@ no,label,cap,Alt,Filename
 58,fsh_lw_str_yr_mean,"EBS pollock body mass (given length) anomaly (standardized by overall mean body mass at each length) by year and season/area strata shown as mean values with a fitted loess smooth trend, 1991--2018.",,
 59,bts_data_by_yr,"Locations of stations used for the VAST moldel, 1982--2018.",,
 60,mod_data,"Model runs comparing last year's assessment with the impact of sequentially addint new data (first 2018 catch and 2017 fishery catch-at-age, then the acoustic trawl survey (ATS), bottom trawl survey (BTS) and the acoustic AVO data for model 16.1.",,
-61,risk,"Plot of age-1 abundance for walleye pollock (orange; in millions) and Pacific cod (blue; in 1000s) as estimated in the 2018 stock assessments (Ianelli et al. 2018; Thompson 2018)."
+61,poll_cod,"Plot of age-1 abundance for walleye pollock (orange; in millions) and Pacific cod (blue; in 1000s) as estimated in the 2018 stock assessments (Ianelli et al. 2018; Thompson 2018)."
+62,layer1,"Estimated log-density (color) of pollock for three select years (rows) for the base case combined model. Columns represent the density available to the gear types, which for the ATS is the sum of strata 2 and 3, and for the BTS is the sum of strata 1 and 2, while the total is the sum of all three. "
+63,layer2,"Estimated availability (i.e., fraction of pollock available to a survey gear type) for three select years (rows) for the bottom (BT) and acoustic (AT) trawl surveys (columns) from the combined base case model."

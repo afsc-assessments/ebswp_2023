@@ -12,8 +12,13 @@ explanation of parameters. VAST has involved many publications for developing
 individual features (see references section below). What follows is intended
 as  a step by step documentation of applying the model to these data.
 
-Settings and configurations are available here (link to come...). The location
+Settings and configurations are available here (link to come...). 
+
+The location
 by year for the stations used are shown in Figure \ref{fig:bts_data_by_yr}.
+
+## Spatio-temporal treatment of survey age composition data
+A spatiotemporal model for survey data on pollock was developed to provide key assessment inputs. In Ianelli et al. (2018) an alternative biomass index was provided and included as one model for consideration and as a sensitivity. This index was based on VAST. However, the age-composition data was unchanged (i.e., the estimates were based on the original design-based approach). Here we develop a spatio-temporal approach to obtain age composition estimates to include in the assessment. The second aspect of this work was to develop a model that incorporates all available data sets despite inconsistencies in spatial and temporal coverage (e.g., for years when the survey extended into the northern Bering Sea (NBS). This study provides an alternative method to calculate indices of abundance and age-composition estimates. Both the standard and VAST-developed indices of pollock abundance and age-composition were used in the pollock stock assessment model. We found that design-based and model-based inputs provided stock-assessment parameter estimates consistent with previous approaches (Fig. 5).
 
 ```{r set_options, echo=FALSE, message=FALSE, warning=FALSE}
 # Width should apply to tidy

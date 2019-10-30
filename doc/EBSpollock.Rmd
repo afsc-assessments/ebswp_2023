@@ -64,11 +64,11 @@ source("../pm_19.R")
 ```
 ```{r child = 'figs.Rmd'}
 ```
-#```{r child = 'model.Rmd'}
-#```
+```{r child = 'model.Rmd'}
+```
 #```{r child = 'App.Rmd'}
 #```
--->
+<!--
  #\tableofcontents
 
  #\listoftables
