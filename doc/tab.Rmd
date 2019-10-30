@@ -113,7 +113,7 @@ Year    &   Catch   &   Year    &   ABC &   TAC &   Catch \\
     &       &   2018    &   2,592,000   &   1,364,341   &   1,34xxxxx   \\
     &       &   2019    &   2,163,000   &   1,397,000   &   1,34xxxxx   \\
 \hline                                          
-    \multicolumn{3}{c}{1977--2017    mean}           &   1,455,902   &   1,241,006   &   1,188,382   \\
+    \multicolumn{3}{c}{1977--2019    mean}           &   1,455,902   &   1,241,006   &   1,188,382   \\
 \hline
 \end{tabular}
 \end{table}
@@ -197,6 +197,7 @@ Year     &    A season      & B-season          & Total             \\
 2016     & 510,700 t (35\%) & 784,000 t (62\%)  & 1,294,700 t (51\%) \\
 2017     & 555,300 t (51\%) & 750,800 t (54\%)  & 1,306,100 t (53\%)  \\
 2018     & 573,000 t (63\%) & 746,500 t (46\%)  & 1,319,500 t (54\%)  \\
+2019     & XXX,000 t (63\%) & XXX,500 t (46\%)  & 1,XXX,XXX t (54\%)  \\
 \hline
 \end{tabular}
 \end{table}
@@ -754,7 +755,7 @@ CV  &   NA  &   25\%    &   16\%    &   11\%    &   7\% &   8\% &   12\%    &   
 # Comparison among variance constraints for RW in survey selectivity/q
 fnprof  = c("r_1","r_2","r_3","r_4","r_5")
 prof_names  = c("CV70\\%","CV50\\%","CV20\\%","CV10\\%","CV05\\%")
-fn       <- paste0("../runs/redqvar/prof/",fnprof)
+fn       <- paste0("../runs/q_sens/prof/",fnprof)
 proflst   <- lapply(fn, read_admb)
 names(proflst) <- prof_names
 nmods <- length(prof_names)
@@ -1063,17 +1064,17 @@ $P\left[E_{2019}>E_{2018}\right]$   & Probability that the theoretical fishing e
 \clearpage
 
 ```{r dectable,results="asis",echo=FALSE}
-rn <- c("$P\\left[F_{2019}>F_{MSY}\\right]$",
-"$P\\left[B_{2020}<B_{MSY}\\right]$ ",
+rn <- c("$P\\left[F_{2020}>F_{MSY}\\right]$",
 "$P\\left[B_{2021}<B_{MSY}\\right]$ ",
-"$P\\left[B_{2020}<\\bar{B}\\right]$ ",
-"$P\\left[B_{2023}<\\bar{B}\\right]$ ",
-"$P\\left[B_{2023}<B_{2019}\\right]$ ",
-"$P\\left[B_{2021}<B_{20\\%}\\right]$",
-"$P\\left[p_{a_5,2021}>\\bar{p}_{a_5}\\right]$ ",
-"$P\\left[D_{2020}<D_{1994}\\right]$  ",
-"$P\\left[D_{2023}<D_{1994}\\right]$  ",
-"$P\\left[E_{2019}>E_{2018}\\right]$  ")
+"$P\\left[B_{2022}<B_{MSY}\\right]$ ",
+"$P\\left[B_{2021}<\\bar{B}\\right]$ ",
+"$P\\left[B_{2024}<\\bar{B}\\right]$ ",
+"$P\\left[B_{2024}<B_{2020}\\right]$ ",
+"$P\\left[B_{2022}<B_{20\\%}\\right]$",
+"$P\\left[p_{a_5,2022}>\\bar{p}_{a_5}\\right]$ ",
+"$P\\left[D_{2021}<D_{1994}\\right]$  ",
+"$P\\left[D_{2024}<D_{1994}\\right]$  ",
+"$P\\left[E_{2020}>E_{2019}\\right]$  ")
   m <- rbind(
   round(M$pfcur_fmsy*100,1)  ,
   round(M$pbcur_bmsy*100,1)  ,

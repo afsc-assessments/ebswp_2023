@@ -8,7 +8,7 @@ i<-11
  i <- i + 1
  printfig("bts_3d.png",i)
  i <- i + 1
- printfig("bts_age.png",i)
+ printfig("bts_age_comp.png",i)
  i <- i + 1
  printfig("ATS_age_update.png",i)
  i <- i + 1

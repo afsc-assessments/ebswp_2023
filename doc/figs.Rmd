@@ -24,6 +24,8 @@
  printfig("fsh_lw_str_yr_box.pdf",56)
  printfig("fsh_lw_str_box.pdf",57)
  printfig("fsh_lw_str_yr_mean.pdf",58)
+ printfig("layer1.png",62)
+ printfig("layer2.png",63)
  printfig("mod_data.pdf",60)
  printfig("mod_eval0c.pdf",50)
  printfig("mod_eval0a.pdf",21)
@@ -53,6 +55,7 @@
  printfig("tier3_proj.pdf",43)
  printfig("future_F.pdf",44)
  printfig("diversity.pdf",55)
+ printfig("poll_cod_rec.png",61)
 ```
 
 \clearpage

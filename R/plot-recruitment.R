@@ -36,8 +36,7 @@
 #' @author SJD Martell, DN Webber
 #' @export
 #' 
-plot_recruitment <- function(M, xlab = "Year", ylab = "Recruitment (millions of individuals)",xlim=c(1990,2016),fill="yellow",alpha=.8)
-{
+plot_recruitment <- function(M, xlab = "Year", ylab = "Recruitment (millions of individuals)",xlim=c(1990.5,2019.5),fill="yellow",alpha=.9) {
     xlab <- paste0("\n", xlab)
     ylab <- paste0(ylab, "\n")
     mdf <- .get_recruitment_df(M)
@@ -48,9 +47,9 @@ plot_recruitment <- function(M, xlab = "Year", ylab = "Recruitment (millions of 
             geom_pointrange(aes(ymax = ub, ymin = lb),size=.3 ) #, position = position_dodge(width = 1.9))
     } else {
         p <- ggplot(mdf, aes(x = year, y = rec, col = Model, group = Model)) +
-            #geom_hline(aes(yintercept = mean(rec), col = Model)) +
-            geom_bar(stat = "identity", alpha = alpha, aes(fill = Model), position = "dodge") + xlim(xlim) +
-            geom_pointrange(aes(year, rec, col = Model, ymax = ub, ymin = lb), position = position_dodge(width = 0.9))
+            scale_x_continuous(limits=xlim, breaks = seq(round(xlim[1],0),round(xlim[2],0), by = 2) ) +
+            geom_bar(stat = "identity", alpha = alpha, aes(fill = Model), limits=xlim, position = "dodge") + 
+            geom_pointrange(aes(year, rec, ymax = ub, ymin = lb),col = "grey",  size=.6,position = position_dodge(width = 0.9))
     }
     p <- p + labs(x = xlab, y = ylab) + .THEME
     if (!.OVERLAY) p <- p + facet_wrap(~Model)
