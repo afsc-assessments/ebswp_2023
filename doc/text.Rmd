@@ -263,6 +263,7 @@ greater flexibility to avoid Chinook salmon in the B-season. To date, it
 appears that the pollock fleet as a whole took advantage of  this added
 flexibility (Fig. \ref{fig:prop_a_season}).
 
+
 The fishing in summer-fall 2018 was again concentrated in the south eastern
 area near the shelf break but also showed more catches in the northwestern
 part compared to 2016 and 2017 (Fig. \ref{fig:catch_distn_b}).   The 2018
@@ -290,6 +291,8 @@ non-target, target, and prohibited species is presented in the section titled
 Ecosystem Considerations below. In that section it is noted that the bycatch
 of pollock in other target fisheries is more than double the bycatch of other
 target species (e.g., Pacific cod) in the pollock fishery.
+
+Fig. \ref{fig:fleet_dispersal}
 
 
 ## Management measures
@@ -329,21 +332,22 @@ marine portion of Steller sea lion critical habitat in Alaska west of 150 $^{\ci
 encompasses 386,770 km$^2$ of ocean surface, or 12\% of the fishery management
 regions.
 
-From 1995XX--1999 84,100 km$^2$, or 22\% of the Steller sea lion critical
+From 1995--1999 84,100 km$^2$, or 22\% of the Steller sea lion critical
 habitat was closed to the pollock fishery. Most of this closure consisted of
 the 10 and 20 nm radius all-trawl fishery exclusion zones around sea lion
 rookeries (48,920 km$^2$, or 13\% of critical habitat). The remainder was
 largely management area 518 (35,180 km$^2$, or 9\% of critical habitat) that
 was closed pursuant to an international agreement to protect spawning stocks
-of central Bering Sea pollock. In 1999, an additional 83,080 km$^2$ (21%) of critical habitat in the Aleutian
-Islands was closed to pollock fishing along with 43,170 km$^2$  (11%) around sea
-lion haulouts in the GOA and Eastern Bering Sea. In 1998, over 22,000 t of
-pollock were caught in the Aleutian Island region, with over 17,000 t taken
-within critical habitat region. Between 1999 and 2004 a directed fishery for
-pollock was prohibited in this region. Subsequently, 210,350 km$^2$  (54%) of
-critical habitat was closed to the pollock fishery. In 2000 the remaining
-phased-in reductions in the proportions of seasonal TAC that could be caught
-within the BSAI Steller sea lion Conservation Area (SCA) were implemented.
+of central Bering Sea pollock. In 1999, an additional 83,080 km$^2$ (21%) of
+critical habitat in the Aleutian Islands was closed to pollock fishing along
+with 43,170 km$^2$  (11%) around sea lion haulouts in the GOA and Eastern
+Bering Sea. In 1998, over 22,000 t of pollock were caught in the Aleutian
+Island region, with over 17,000 t taken within critical habitat region.
+Between 1999 and 2004 a directed fishery for pollock was prohibited in this
+region. Subsequently, 210,350 km$^2$  (54%) of critical habitat was closed to
+the pollock fishery. In 2000 the remaining phased-in reductions in the
+proportions of seasonal TAC that could be caught within the BSAI Steller sea
+lion Conservation Area (SCA) were implemented.
 
 On the EBS shelf, an estimate (based on observer at-sea data) of the
 proportion of pollock caught in the SCA has averaged about 44% annually.
@@ -600,6 +604,8 @@ plants) in Alaska. The increased production of oil beginning in 2008 can be
 attributed to the steady trend to add more value per ton of fish landed. 
 The oil production index remained stable in 2018.
 
+
+
 # Data
 The following lists the data used in this assessment: 
 
@@ -738,7 +744,7 @@ also found that the catchability of either the BTS or AT survey for pollock is
 variable in space and time because it depends on environmental variables, and
 is density-dependent in the case of the BTS survey.
 
-The 2018 survey age compositions were developed from age-structures collected
+The 2019 survey age compositions were developed from age-structures collected
 during the survey (June-July) and processed at the AFSC labs within a few
 weeks after the survey was completed. The level of sampling for lengths and
 ages in the BTS is shown in (Table \ref{tab:bts_n}). The estimated numbers-at-
@@ -1011,13 +1017,15 @@ Extensive fishery observer data were available for examining patterns in
 length-weight condition  (standardized for length over all years and areas,
 1991--2018). The process for these data were:
  
-   1. extract all data where non-zero measurements of pollock length and weight were available between the lengths of 35 and 60 cm for the EBS region
+   1. extract all data where non-zero measurements of pollock length and weight 
+	 were available between the lengths of 35 and 60 cm for the EBS region
 
    2. compute the mean value of body mass (weight) for each cm length bin over all areas and time
 
    3. divide each weight measurement by that mean cm-specific value (the "standardization" step)
 
-   4. plot these standardized values by different areas, years, months etc. to evaluate condition differences (pooling over ages is effective as there were no size-specific biases apparent)
+   4. plot these standardized values by different areas, years, months etc. to evaluate condition 
+	 differences (pooling over ages is effective as there were no size-specific biases apparent)
 
 
 In the first instance, the overarching seasonal pattern in body mass relative
@@ -1138,7 +1146,8 @@ a lower biomass estimate for 2018 (Fig. \ref{fig:mod_data}). Additional models f
   2. The same as last year but with the survey time series  including an alternative treatment of the 
      NBS indicative biomass (application of the VAST model for the bottom trawl
     survey index). This step included the revised VAST derived age compositions (Fig. \ref{fig:mod_data}). 
-    - The rationale for considering this is the likelihood that pollock in the NBS are related and contribute to the EBS fishery  
+    - The rationale for considering this is the likelihood that pollock in the NBS are related and 
+		contribute to the EBS fishery  
 
   3. With Model 16.1 we evaluated the variability of the effective
   catchability of the bottom trawl survey for ages 3-8, the age range over
@@ -1150,9 +1159,8 @@ a lower biomass estimate for 2018 (Fig. \ref{fig:mod_data}). Additional models f
     pollock.
 
 The reference model (Model 16.1) when compared to the two with different data
-treatments showed different patterns were fairly similar (Fig. \ref
-{fig:mod_eval0c}). The spawning biomass
-estimates and age compositions  indicates a slight shift in the scale of
+treatments showed different patterns were fairly similar (Fig. \ref{fig:mod_eval0c}). 
+The spawning biomass estimates and age compositions  indicates a slight shift in the scale of
 spawning biomass estimates relative to last year (Fig. \ref{fig:mod_eval0a}).
 The recent recruitment pattern (at age 1) shows an increase in  the 2014 value
 (representing the 2013 year-class) and a decline in the 2013 estimate (the
@@ -1774,9 +1782,12 @@ drivers of survival in these two populations.
 A widespread die-off event of short-tailed shearwaters began in the SEBS in June 2019 extended into the NBS and Chukchi Sea in August. These events may reflect 2018 conditions as shearwaters feed in the Bering Sea in summer before migrating to the southern hemisphere for breeding during the winter. Most sampled birds showed signs of emaciation; shearwaters are planktivorous birds and feed on euphausiids. 
 
 *Fishery performance*
-xxx
 As noted above, the 2019 B-season suggested that the fishery was dispersed and
-experienced relatively low catch rates compared to recent years. 
+experienced relatively low catch rates compared to recent years. Also, an approach
+to computing fleet dispersion (the relative distance or spread of the fishery in space) 
+was developed and indicated that while the A-season was the most intensely concentrated 
+for the fleet during this season (since 1991), the B-season indicated the most dispersed
+fishing activity over the same period (Fig \ref{fig:fleet_dispersal}).
 
 
 [From 2013-2017 prices for pollock decreased as global pollock supply has been high, but increased landings have had the combined effect of marginal increases in value. In 2018 prices for pollock increased. (Fissel)
@@ -1939,7 +1950,9 @@ seals depend on areas outside the energetic balance region. This study
 develops a method for evaluating the shape and extent of a key ecosystem in
 the EBS (i.e., the Pribilof Islands). Furthermore, the overlap of the pollock
 fishery and northern fur seal foraging habitat (see Sterling and Ream 2004,
-Zeppelin and Ream 2006) will require careful monitoring and evaluation.
+Zeppelin and Ream 2006). Currently, a multi-agency project is investigating 
+diet properties and forage related issues for northern fur seals (See
+https://tinyurl.com/y3vcg54e).
 
 A brief summary of these two perspectives (ecosystem effects on pollock stock
 and pollock fishery effects on ecosystem) is given in (Table \ref{tab:pscbycatch}). Unlike the

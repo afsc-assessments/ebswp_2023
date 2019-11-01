@@ -66,14 +66,24 @@ walk process as in Dorn et al. (2000):
 
 \begin{align}
     \delta_t^\mu  -  \delta_{t+1}^\mu     &\sim \mathcal{N}(0,\,\sigma_{\delta^\mu}^{2}) \\
+    \\
     \alpha_t^\mu  -  \alpha_{t+1}^\mu     &\sim \mathcal{N}(0,\,\sigma_{\alpha^\mu}^{2}) \\
     \beta_t^\mu  -  \beta_{t+1}^\mu     &\sim \mathcal{N}(0,\,\sigma_{\beta^\mu}^{2}) 
 \end{align}
 
-The parameters to be estimated in this part of the model are thus for t=1982,
-1983, 2016. The variance terms for these process error parameters were
-specified to be 0.04.
+The parameters to be estimated in this part of the model are thus for t=1982 through to `r thisyr`. 
+The variance terms for these process error parameters were specified to be 0.04.
 
+In this assessment, the random-walk deviation penalty was optionally shifted
+to the changes in log-selectivity. that is, for the BTS estimates, the process
+error was applied to the logistic parameters as above, but the  lognormal
+penalty was applied to the resulting selectivities-at-age directly. The extent
+of this variability was evaluated in the context of the impact on age-specific
+survey catchability/availability and contrasted with an independent estimate of 
+pollock availability to the bottom trawl survey. 
+\begin{align}
+    {ln(s_{t,a})}  -  {ln(s_{t+1,a})}  &\sim \mathcal{N}(0,\,\sigma_{sel}^{2}) \\
+\end{align}
 In 2008 the AT survey selectivity approach was modified. As an option, the age
 one pollock observed in this trawl can be treated as an index and are not
 considered part of the age composition (which then ranges from age 2-15). This
@@ -83,7 +93,7 @@ specification of input observation variance terms was allowed for the AT data.
 
 
 A diagnostic approach to evaluate input variance specifications (via sample
-size under multinomial assumptions) was added in this assessment. This method
+size under multinomial assumptions) was added in the 2018 assessment. This method
 uses residuals from mean ages together with the concept that the sample
 variance of mean age (from a given annual data set) varies inversely with
 input sample size. It can be shown that for a given set of input proportions
@@ -103,7 +113,7 @@ where $r^a_t$ is the residual of mean age and
 {\bar a_t}      &= \sum_a^A{a p_{ta}}\, 
 \end{align}
 
-For this assessment, we use the above relationship as a diagnostic for
+Based on previous analyses, we used the above relationship as a diagnostic for
 evaluating input sample sizes by comparing model predicted mean ages with
 observed mean ages and the implied 95% confidence bands. This method provided
 support for modifying the frequency of allowing selectivity changes.

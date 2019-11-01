@@ -1,0 +1,13 @@
+#!/bin/bash
+mv -f pm.dat tmp.dat
+cp -f control.dat t1.ctl
+awk 'NR==4{print "control.dat"} NR!=4 {print $0}' tmp.dat >pm.dat
+for i in `seq $2 $1`;
+do
+  awk -v rrr=$i 'NR==99{print rrr} NR!=99 {print $0}' t1.ctl >control.dat
+  pm -nox -iprint 500 
+	cp -f pm.std retro/r_$i.std
+	cp -f pm.rep retro/r_$i.rep
+done    
+mv -f tmp.dat pm.dat
+cp -f t1.ctl control.dat

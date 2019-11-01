@@ -1855,8 +1855,7 @@ FUNCTION Future_projections_fixed_F
   }
   MeanSSB    = mean(SSB(1978,endyr_r-1));
   // R_report(H);
-  for (int k=1;k<=nscen;k++)
-  {
+  for (int k=1;k<=nscen;k++) {
     future_SSB(k,endyr_r)         = SSB(endyr_r);
     dvariable Xspawn ;
     if (phase_sr<0) 
@@ -1871,7 +1870,6 @@ FUNCTION Future_projections_fixed_F
     // Set two-year olds in 1st future year to mean value...
     // natage_future(k,styr_fut,2)         = mean(column(natage,2));
     // natage_future(k,styr_fut,5)         = mean(column(natage,5));
-
 
       // case 2:
         // F_future(k,i) = sel_fut * F35;
@@ -4140,24 +4138,28 @@ FUNCTION write_R
   R_report(RelEffort.sd);
   R_report(LTA1_5);
   R_report(LTA1_5.sd);
+  double lb=0.;
+  double ub=0.;
   report<<"SER"<<endl; 
   for (i=styr;i<=endyr_r;i++) 
   {
-    double lb=value(SER(i)/exp(2.*sqrt(log(1+square(SER.sd(i))/square(SER(i))))));
-    double ub=value(SER(i)*exp(2.*sqrt(log(1+square(SER.sd(i))/square(SER(i))))));
+		//lb=value(SER(i)-2.*SER.sd(i));
+		//ub=value(SER(i)+2.*SER.sd(i));
+		lb=value(SER(i)/exp(2.*sqrt(log(1+square(SER.sd(i))/square(SER(i))))));
+		ub=value(SER(i)*exp(2.*sqrt(log(1+square(SER.sd(i))/square(SER(i))))));
     report<<i<<" "<<SER(i)<<" "<<SER.sd(i)<<" "<<lb<<" "<<ub<<endl;
   }
   report<<"SSB"<<endl; 
   for (i=styr;i<=endyr_r;i++) 
   {
-    double lb=value(SSB(i)/exp(2.*sqrt(log(1+square(SSB.sd(i))/square(SSB(i))))));
-    double ub=value(SSB(i)*exp(2.*sqrt(log(1+square(SSB.sd(i))/square(SSB(i))))));
+    lb=value(SSB(i)/exp(2.*sqrt(log(1+square(SSB.sd(i))/square(SSB(i))))));
+    ub=value(SSB(i)*exp(2.*sqrt(log(1+square(SSB.sd(i))/square(SSB(i))))));
     report<<i<<" "<<SSB(i)<<" "<<SSB.sd(i)<<" "<<lb<<" "<<ub<<endl;
   }
   report<<"R"<<endl; for (i=styr;i<=endyr_r;i++) 
   {
-    double lb=value(pred_rec(i)/exp(2.*sqrt(log(1+square(pred_rec.sd(i))/square(pred_rec(i))))));
-    double ub=value(pred_rec(i)*exp(2.*sqrt(log(1+square(pred_rec.sd(i))/square(pred_rec(i))))));
+    lb=value(pred_rec(i)/exp(2.*sqrt(log(1+square(pred_rec.sd(i))/square(pred_rec(i))))));
+    ub=value(pred_rec(i)*exp(2.*sqrt(log(1+square(pred_rec.sd(i))/square(pred_rec(i))))));
     report<<i<<" "<<pred_rec(i)<<" "<<pred_rec.sd(i)<<" "<<lb<<" "<<ub<<endl;
   }
   R_report(yrs_cpue); 
@@ -4641,46 +4643,6 @@ FUNCTION Est_Fixed_Effects_wts
     // wt_fut = wt_fsh(endyr_r); // initializes estimates to correct values...Eq. 21
     wt_fut(3,nages) = wt_next; // initializes estimates to correct values...Eq. 21
   }
-  // =====================================================
- /*FUNCTION Est_Fixed_Effects_wts
-  double sigma_coh = (mfexp(log_sd_coh));
-  double sigma_yr = (mfexp(log_sd_yr ));
-	wt_like=0.;
-  for (int i=styr_wt;i<=endyr_wt+3;i++)
-  {
-    wt_pre(i) = mnwt*exp(sigma_yr*yr_eff(i));
-    for (int j=age_st;j<=age_end;j++)
-    {
-      wt_pre(i,j) *= exp(sigma_coh*coh_eff(i-j));
-      if (i <= endyr_wt)
-        wt_like += square(wt_obs(i,j)-wt_pre(i,j))/(2.*square(sd_obs(i,j)));
-    }
-  }
-  wt_like += 0.5*norm2(coh_eff);
-  wt_like += 0.5*norm2( yr_eff);
-	fff += wt_like;
-  wt_last = wt_pre(endyr_wt  )*exp(sigma_coh*sigma_coh/2. + sigma_yr*sigma_yr/2.);;
-  wt_cur  = wt_pre(endyr_wt+1)*exp(sigma_coh*sigma_coh/2. + sigma_yr*sigma_yr/2.);;
-  wt_next = wt_pre(endyr_wt+2)*exp(sigma_coh*sigma_coh/2. + sigma_yr*sigma_yr/2.);;
-  wt_yraf = wt_pre(endyr_wt+3)*exp(sigma_coh*sigma_coh/2. + sigma_yr*sigma_yr/2.);;
-	
-	// Condition on using this based on wt flag
-	if (wt_fut_phase>0)
-	{
-		// Use cohort and year effects fits for current year catch
-    pred_catch(endyr_r) = catage(endyr_r)(3,nages) * wt_cur;
-
-    // Set future catch equal to estimate from model
-	  // Only model wts-at-age from 3+ so this is the 1's and 2's
-    pred_catch(endyr_r) = catage(endyr_r)(1,2) * wt_fsh(endyr_r)(1,2);
-    // wt_fut = wt_fsh(endyr_r); // initializes estimates to correct values...Eq. 21
-    wt_fut(3,nages) = wt_next; // initializes estimates to correct values...Eq. 21
-	}
-
-
-  // R_report <<" SDNR1 "<< wt_srv1*std_dev(elem_div((pred_srv1(yrs_srv1)-obs_srv1_biom),obs_srv1_se))<<endl;
-  //         R_report << yrs_fsh_age(k,i)<< " "<< sdnr( eac_fsh(k,i),oac_fsh(k,i),n_sample_fsh_age(k,i)) << endl;
-  */
 FUNCTION double sdnr(const dvector& obs, const dvar_vector& pred, const dvector& sig)
   RETURN_ARRAYS_INCREMENT();
   double sdnr;

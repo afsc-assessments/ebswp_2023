@@ -22,7 +22,7 @@ no,label,cap
 21,ats_age,"AT survey estimates of EBS pollock abundance-at-age (millions), 1979--2019. Age 2+ totals and age-1s were modeled as separate indices. "
 22,avo,"An abundance index derived from acoustic data collected opportunistically aboard bottom-trawl survey vessels (AVO index; Honkalehto et al. 2014). Note values in parentheses are the coefficients of variation from using 1-D geostatistical estimates of sampling variability (Petitgas, 1993). See Honkalehto et al. (2011) for the derivation of these estimates. The column ``$CV_{AVO}$'' was assumed to have a mean value of 0.30 for model fitting purposes (scaling relative to the AT and BTS indices)."
 23,input_n,"Pollock sample sizes assumed for the age-composition data likelihoods from the fishery, bottom-trawl survey, and AT surveys, 1964--2019. Note fishery sample size for 1964--1977 was fixed at 10."
-24,wtage,Mean weight-at-age (kg) estimates from the fishery (1991--2018; plus projections 2019--2021) showing the between-year variability (middle row) and sampling error (bottom panel) based on bootstrap resampling of observer data. 
+24,wtage,Mean weight-at-age (kg) estimates from the fishery (1991--2018; plus projections 2019--2021) showing the between-year variability (bottom row)."  
 25,rmse,Goodness of fit (root-mean square log errors) for EBS pollock comparing Models 15.1 and 16.1. Numbers in bold indicate that that index was used in tuning (otherwise is just for comparing).
 26,params1,Parameter estimates and their standard errors.
 27,res_summ,Summary of different model results and the stock condition for EBS pollock. Biomass units are thousands of t.
