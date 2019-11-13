@@ -1,4 +1,33 @@
 source("../R/prelims.R")
+
+
+ bfs <- bf %>% filter(Alternative==2) #%>% sample_n(30)
+bfs$Sim <- rep(1:1000,each=14) 
+bfs <- bfs %>% filter(Sim<=30) %>% mutate(Sim=as.factor(Sim))
+ dim(bf)
+  head(bfs)
+  write.csv(bfs,"data/proj.csv")
+ # head(bfs)
+  bfss <- bfs %>% filter(Alternative==2) %>% transmute(Alt=Alternative,Yr,Catch,SSB,Sim) 
+  pf <- data.frame(read.table(paste0(.projdir,"percentdb.out"),header=F) )
+  names(pf) <- c("stock","Alt","Yr","variable","value") 
+  p1 <- pf %>% filter(substr(variable,1,1)=="C",variable!="CStdn",Alt==2) %>% select(Yr,variable,value) %>% spread(variable,value) %>%
+    ggplot(aes(x=Yr,y=CMean),width=1.2) + geom_ribbon(aes(ymax=CUCI,ymin=CLCI),fill="goldenrod",alpha=.5) + theme_few() + geom_line() +
+    scale_x_continuous(breaks=seq(thisyr,thisyr+14,2))  +  xlab("Year")  + ylab("Tier 3 ABC (kt)") + geom_point() + 
+    geom_line(aes(y=Cabc)) + geom_line(aes(y=Cofl),linetype="dashed") + geom_line(data=bfss,aes(x=Yr,y=Catch, group=Sim, col="grey"))+ 
+    scale_y_continuous(labels = scales::comma, limits=c(0,150000))  +
+    guides(size=FALSE,fill=FALSE,alpha=FALSE,col=FALSE) ;p1
+library(scales)
+  p2 <- pf %>% filter(substr(variable,1,1)=="S",variable!="SSBStdn",Alt==2) %>% select(Yr,variable,value) %>% spread(variable,value) %>%
+    ggplot(aes(x=Yr,y=SSBMean),width=1.2) + geom_ribbon(aes(ymax=SSBUCI,ymin=SSBLCI),fill="coral",alpha=.5) + theme_few() + geom_line() +
+    scale_x_continuous(breaks=seq(thisyr,thisyr+14,2))  +  xlab("Year") + ylab("Tier 3 Spawning biomass (kt)") + geom_point() + 
+    scale_y_continuous(labels = scales::comma, limits=c(0,210000))  +
+    geom_line(aes(y=SSBFabc)) + geom_line(aes(y=SSBFofl),linetype="dashed")+ geom_line(data=bfss,aes(x=Yr,y=SSB, col="grey", group=Sim))+ 
+    guides(size=FALSE,fill=FALSE,alpha=FALSE,col=FALSE) ;p2
+  t3 <- grid.arrange(p1, p2, nrow=2)
+  ggsave("tier3_proj.pdf",plot=t3,width=5.4,height=7,units="in")
+
+
 df <- data.frame(sel=Alt$sel_fsh[56,],Age=1:15,Model="VAST")
 df <- rbind(df,data.frame(sel=M$sel_fsh[56,],Age=1:15,Model="16.1"))
 df %>% group_by(Model) %>% summarize(mean(sel))

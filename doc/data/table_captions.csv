@@ -12,7 +12,7 @@ no,label,cap
 11,fsh_meas,"Numbers of pollock NMFS observer samples measured for fishery catch length frequency (by sex and strata), 1977--2018."
 12,fsh_n,"Numbers of pollock fishery samples used for age determination estimates by sex and strata, 1977--2018, as sampled by the NMFS observer program."
 13,res_catch,"NMFS total pollock research catch by year in t, 1964--2019."
-14,bts_abund,"Biomass (age 1+) of Eastern Bering Sea pollock as estimated by surveys 1979--2019 (millions of t). Note that the bottom-trawl survey data only represent biomass from the survey strata (1--6) areas in 1982--1984, and 1986. For all other years the estimates include strata 8--9. DDC indicates the values obtained from the Kotwicki et al. Density-Dependence Correction method and the VAST columns are for the standard survey area including the Northern Bering Sea (NBS) extension. AT survey data prior to 1994 represent estimates from the surface to 3m off bottom."
+14,bts_abund,"Biomass (age 1+) of Eastern Bering Sea pollock as estimated by surveys 1979--2019 (millions of t). Note that the bottom-trawl survey data only represent biomass from the survey strata (1--6) areas in 1982--1984, and 1986. For all other years the estimates include strata 8--9. DDC indicates the values obtained from the Kotwicki et al. Density-Dependence Correction method and the VAST columns are for the standard survey area including the Northern Bering Sea (NBS) extension. "
 15,bts_biom,"Survey biomass estimates (age 1+, t) of Eastern Bering Sea pollock based on  design-based area-swept expansion methods from NMFS bottom trawl surveys 1982--2019."
 16,bts_n,Sampling effort for pollock in the EBS from the NMFS bottom trawl survey 1982--2019.
 17,bts_age,Bottom-trawl survey estimated numbers \(millions\) at age used for the stock assessment model. Note that in 1982--84 and 1986 only strata 1--6 were surveyed. Note these estimates are based on design-based procedures.
@@ -39,7 +39,7 @@ no,label,cap
 38,pollbycatch,"Bycatch estimates (t) of pollock caught in the other non-pollock EBS directed fisheries, 1997--2019 based on then NMFS Alaska Regional Office reports from observers."
 39,pscbycatch,"Bycatch estimates of prohibited species caught in the BSAI directed pollock fishery, 1997--2019 based on the AKFIN (NMFS Regional Office) reports from observers. Herring and halibut units are in t, all others represent numbers of individuals caught. Data for 2019 are preliminary."
 40,tier3_C,Tier 3 projections of EBS pollock catch for the 7 scenarios.
-41,tier3_ABC,Tier 3 projections of EBS pollock ABC (given catches in Table \ref{tab:tier3_C}) for the 7 scenarios.
+41,tier3_ABC,Tier 3 projections of EBS pollock ABC for the 7 scenarios. Note: scenario 2 results for 2020 and 2021 are conditioned on catches in that scenario listed in Table \ref{tab:tier3_C}). 
 42,tier3_F,Tier 3 projections of EBS pollock fishing mortality for the 7 scenarios.
 43,tier3_SSB,Tier 3 projections of EBS pollock spawning biomass (kt) for the 7 scenarios.
 44,dec_tab_rationale, Details and explanation of the decision table factors selected in response to the Plan Team requests (as originally proposed in the 2012 assessment).

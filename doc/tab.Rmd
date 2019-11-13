@@ -26,36 +26,38 @@ Year    &   Southeast   &   Northwest   &   Total   &Aleutians  &Donut  Hole&   
 1988    &   931,812 &   296,909 &   1,228,721   &   41,203  &   1,395,900   &   87,813  \\
 1989    &   904,201 &   325,399 &   1,229,600   &   10,569  &   1,447,600   &   36,073  \\
 1990    &   640,511 &   814,682 &   1,455,193   &   79,025  &   917,400 &   151,672 \\
-1991    &   653,555 &   542,109 &   1,195,664   &   98,604  &   293,400 &   316,038 \\
-1992    &   830,559 &   559,741 &   1,390,299   &   52,362  &   10,000  &   241 \\
-1993    &   1,094,429   &   232,173 &   1,326,602   &   57,138  &   1,957   &   886 \\
-1994    &   1,152,575   &   176,777 &   1,329,352   &   58,659  &       &   556 \\
-1995    &   1,172,306   &   91,941  &   1,264,247   &   64,925  &       &   334 \\
-1996    &   1,086,843   &   105,939 &   1,192,781   &   29,062  &       &   499 \\
-1997    &   819,889 &   304,544 &   1,124,433   &   25,940  &       &   163 \\
-1998    &   971,388 &   132,515 &   1,103,903   &   22,054  &       &   8   \\
-1999    &   782,983 &   206,698 &   989,680 &   1,010   &       &   29  \\
+1991    &   653,555 &   542,109 &   1,195,664   &   98,918  &   293,400 &   316,038 \\
+1992    &   830,559 &   559,741 &   1,390,299   &   52,559  &   10,000  &   241 \\
+1993    &   1,094,429   &   232,173 &   1,326,602   &   57,238  &   1,957   &   886 \\
+1994    &   1,152,575   &   176,777 &   1,329,352   &   58,853  &       &   556 \\
+1995    &   1,172,306   &   91,941  &   1,264,247   &   65,201  &       &   334 \\
+1996    &   1,086,843   &   105,939 &   1,192,781   &   29,158  &       &   499 \\
+1997    &   819,889 &   304,544 &   1,124,433   &   26,629  &       &   163 \\
+1998    &   971,388 &   132,515 &   1,103,903   &   23,823  &       &   8   \\
+1999    &   782,983 &   206,698 &   989,680 &   1,016   &       &   29  \\
 2000    &   839,177 &   293,532 &   1,132,710   &   1,244   &       &   29  \\
 2001    &   961,977 &   425,220 &   1,387,197   &   825 &       &   258 \\
 2002    &   1,160,334   &   320,442 &   1,480,776   &   1,177   &       &   1,042   \\
 2003    &   933,191 &   557,588 &   1,490,779   &   1,649   &       &   24  \\
 2004    &   1,090,008   &   390,544 &   1,480,552   &   1,158   &       &   0   \\
-2005    &   802,154 &   680,868 &   1,483,022   &   1,621   &       &   0   \\
-2006    &   827,207 &   660,824 &   1,488,031   &   1,745   &       &   0   \\
-2007    &   728,249 &   626,253 &   1,354,502   &   2,519   &       &   0   \\
-2008    &   482,698 &   507,880 &   990,578 &   1,278   &       &   9   \\
-2009    &   358,252 &   452,532 &   810,784 &   1,662   &       &   73  \\
-2010    &   255,132 &   555,075 &   810,207 &   1,285   &       &   176 \\
+2005    &   802,154 &   680,868 &   1,483,022   &   1,817   &       &   0   \\
+2006    &   827,207 &   660,824 &   1,488,031   &   1,775   &       &   0   \\
+2007    &   728,249 &   626,253 &   1,354,502   &   2,680   &       &   0   \\
+2008    &   482,698 &   507,880 &   990,578 &   1,428   &       &   9   \\
+2009    &   358,252 &   452,532 &   810,784 &   1,668   &       &   73  \\
+2010    &   255,132 &   555,075 &   810,207 &   1,460   &       &   176 \\
 2011    &   747,890 &   451,151 &   1,199,041   &   1,208   &       &   173 \\
 2012    &   618,869 &   586,343 &   1,205,212   &   975 &       &   71  \\
-2013    &   695,667 &   575,098 &   1,270,765   &   2,964   &       &   57  \\
+2013    &   695,667 &   575,098 &   1,270,765   &   3,107   &       &   57  \\
 2014    &   858,240 &   439,180 &   1,297,419   &   2,375   &       &   427 \\
-2015    &   696,249 &   625,331 &   1,321,581   &   915 &       &   733 \\
-2016    &   1,167,088   &   185,571 &   1,352,659   &   1,257   &       &   1,005   \\
+2015    &   696,249 &   625,331 &   1,321,581   &   919 &       &   733 \\
+2016    &   1,167,088   &   185,571 &   1,352,659   &   1,329   &       &   1,005   \\
 2017    &   1,178,112   &   181,162 &   1,359,274   &   1,507   &       &   186 \\
-2018    &   1,020,904   &   325,711 &   1,346,615   &   1,778   &       &   133 \\
+2018    &   1,061,598   &   333,169 &   1,394,767   &   1,962   &       &   133 \\
+2019    &   1,050,535   &   296,014 &   1,346,549   &   1,504   &       &   119 \\
 \hline                                                  
-Avg.    &   788,905 &   414,351 &   1,203,256   &   25,481  &   697,696 &   30,505  \\
+Avg.    &   796,279 &   411,646 &   1,207,925   &   25,012  &   697,696 &   29,584  \\
+\hline                                                  
 \end{tabular}
 \end{table}
 
@@ -110,8 +112,8 @@ Year    &   Catch   &   Year    &   ABC &   TAC &   Catch \\
     &       &   2015    &   1,637,000   &   1,310,000   &   1,321,581   \\
     &       &   2016    &   2,090,000   &   1,340,000   &   1,352,707   \\
     &       &   2017    &   2,800,000   &   1,345,000   &   1,343,217   \\
-    &       &   2018    &   2,592,000   &   1,364,341   &   1,34xxxxx   \\
-    &       &   2019    &   2,163,000   &   1,397,000   &   1,34xxxxx   \\
+    &       &   2018    &   2,592,000   &   1,364,341   &   1,379,306   \\
+    &       &   2019    &   2,163,000   &   1,397,000   &   1,387,000   \\
 \hline                                          
     \multicolumn{3}{c}{1977--2019    mean}           &   1,455,902   &   1,241,006   &   1,188,382   \\
 \hline
@@ -669,12 +671,12 @@ df[1,1]<-"1964-"; df[1,2:16]<-" "; df[2,1]<-"1990";
 mnw<- (colMeans(as.matrix(M$wt_fsh[1:nr,]))) 
 cvw<- (sdw/mnw ) 
 cvw<- c('CV','-','-',round(cvw[3:15]*100,0))
-df <- rbind(df, c("Mean",round(mnw,3 ) ) )
+df <- rbind(df,c(nextyr,'-','-',round(M$wt_next,3)), c(nextyr+1,'-','-',round(M$wt_yraf,3)), c("Mean",round(mnw,3 ) ) )
 df <- rbind(df, cvw)
 cap <- tabcap[24]
 lab <- paste0("tab:",tablab[24])
-tab <- xtable(df, caption = cap, label=lab, big.mark="," ,digits=3)
-print(tab, scalebox=0.7, caption.placement = "top",digits=3,big.mark=",",include.rownames = FALSE, sanitize.text.function = function(x){x})
+tab <- xtable(df, caption = cap, label=lab, ,digits=3)
+print(tab, scalebox=0.7, caption.placement = "top",align=rep("r",(length(df[1,])+1)), digits=3,include.rownames = FALSE, sanitize.text.function = function(x){x})
 ```
 \clearpage
 ```{r modfits, results = "asis"}
@@ -731,6 +733,23 @@ tab <- xtable(df, caption = tabcap[27], label = "tab:mgt_quants", digits = 3,ali
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
 ```
 
+\clearpage
+
+```{r biom_3plus,results="asis",echo=FALSE}
+cap <- tabcap[32]
+biom <- read.csv("data/Age3plus.csv",header=T,as.is=TRUE)
+#biom <- read.csv("data/Age3history.csv",header=T,as.is=TRUE)
+t3  <- cbind(biom[,1],M$age3plus ,M$age3plus.sd/M$age3plus ,biom[,2:13])
+names(t3) <- c("Year","Current","CV","2018","CV","2017","CV","2016","CV", "2015","CV","2014","CV","2013","CV")
+for (i in seq(2,length(t3[1,]),2 ) ){
+      t3[,i]   <- formatC(t3[,i], format="d", big.mark=",",digits=0) 
+      t3[,i+1] <- formatC( t3[,i+1]*100, format="d", digits=0,big.mark=",") 
+}
+
+tab <- xtable(t3, caption = cap, label=paste0("tab:",tablab[32]),digits=0, auto=TRUE, align=rep("r",(length(t3[1,])+1)) )
+print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.85)
+```
+\clearpage
 
 ```{r Nage, results="asis",echo=FALSE}
 tmp <- cbind(M$Yr,M$N[,1:9]/1000,rowSums(M$N[,10:15])/1000)
@@ -762,41 +781,29 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 ```
 \clearpage
 
-```{r biom_3plus,results="asis",echo=FALSE}
-cap <- tabcap[32]
-biom <- read.csv("data/Age3plus.csv",header=T,as.is=TRUE)
-#biom <- read.csv("data/Age3history.csv",header=T,as.is=TRUE)
-t3  <- cbind(biom[,1],M$age3plus ,M$age3plus.sd/M$age3plus ,biom[,2:13])
-names(t3) <- c("Year","Current","CV","2018","CV","2017","CV","2016","CV", "2015","CV","2014","CV","2013","CV")
-for (i in seq(2,length(t3[1,]),2 ) ){
-      t3[,i]   <- formatC(t3[,i], format="d", big.mark=",",digits=0) 
-      t3[,i+1] <- formatC( t3[,i+1]*100, format="d", digits=0,big.mark=",") 
-}
-
-tab <- xtable(t3, caption = cap, label=paste0("tab:",tablab[32]),digits=0, auto=TRUE, align=rep("r",(length(t3[1,])+1)) )
-print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.85)
-```
-
 ```{r res_summ, results = "asis"}
 # Mgt quants by final
 df <- NULL
-    x      <- modlst[[thismod]]
-    ssb    <- x$nextyrssbs;         names(ssb)    <- paste0("${B}_{", nextyr ,"}$")
+mod_scen <-c(2,3) 
+for (ii in mod_scen) {
+    x       <- modlst[[ii]]
+    ssb    <- x$nextyrssbs;         names(ssb)            <- paste0("${B}_{", nextyr ,"}$")
     ssbcv  <- round(x$nextyrssb.cv,2);  names(ssbcv)      <- paste0("$CV_{B_{", nextyr ,"}}$")
-    Bmsy   <- x$bmsys;         names(Bmsy)   <- "$B_{MSY}$"
-    Bmsycv <- round(x$bmsy.cv,2); names(Bmsycv) <- "$CV_{B_{MSY}}$"
-    spr    <- paste0(round(x$sprmsy*100,0),"\\%");       names(spr)    <- "SPR rate at $F_{MSY}$"
-    b35    <- x$b35s ;                 names(b35)    <- paste0("$B_{35\\%}$")
+    Bmsy   <- x$bmsys;         names(Bmsy)                <- "$B_{MSY}$"
+    Bmsycv <- round(x$bmsy.cv,2); names(Bmsycv)           <- "$CV_{B_{MSY}}$"
+    spr    <- paste0(round(x$sprmsy*100,0),"\\%");names(spr) <- "SPR rate at $F_{MSY}$"
+    b35    <- x$b35s ;                 names(b35)         <- paste0("$B_{35\\%}$")
     pbmsy  <- paste0(round(100*x$ssb1/x$bmsy,0),"\\%");    names(pbmsy)<- paste0("${B}_{", nextyr ,"}/B_{MSY}$")
-    bzero  <- x$b0s ;                 names(bzero)    <- paste0("$B_0$")
-    dynb0  <- x$dynb0s;      names(dynb0) <- "Est. $B_{2019} / B_{2019,no fishing}$"
+    bzero  <- x$b0s ;                 names(bzero)        <- paste0("$B_0$")
+    dynb0  <- x$dynb0s;      names(dynb0)                 <- "Est. $B_{2019} / B_{2019,no fishing}$"
     b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- "$B_{2019} / B_{MSY}$"
-    steep  <- round(x$steep,2);                 names(steep) <- "Steepness"
+    steep  <- round(x$steep,2);               names(steep) <- "Steepness"
     v      <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero,b35, spr ,steep, dynb0,b_bmsy)
     df     <- cbind(df, v)
+ }
 df <- data.frame(rownames(df), df, row.names = NULL)
-names(df) <- c("Component",mod_names[thismod])
-tab <- xtable(df, caption = "Summary of model 16.1 results and the stock condition for EBS pollock. Biomass units are thousands of t.", label = "tab:res_summ", digits = 3,align="llr")
+names(df) <- c("Component",mod_names[mod_scen])
+tab <- xtable(df, caption = "Summary of model 16.1 results and the stock condition for EBS pollock. Biomass units are thousands of t.", label = "tab:res_summ", digits = 3)
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
 ```
 
@@ -804,9 +811,8 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 ```{r tier1proj, results = "asis"}
 # Tier 1 projections
 df <- NULL
-mod_scen <- 2
-for (ii in mod_scen)
-{
+mod_scen <- c(2,3)
+for (ii in mod_scen) {
     x       <- modlst[[ii]]
     abcbiom <- paste0(x$ABC_biom1s,",000");         
     names(abcbiom)    <- paste0(nextyr," fishable biomass (GM)")
@@ -840,34 +846,11 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 # 41,tier3_ABC,"Tier 3 projections of EBS pollock ABC (given catches in Table \ref{tab:tier3_C}) for the 7 scenarios.
 # 42,tier3_F,"Tier 3 projections of EBS pollock fishing mortality for the 7 scenarios. 
 # 43,tier3_SSB,"Tier 3 projections of EBS pollock spawning biomass (kt) for the 7 scenarios. Note that the values for B100\%, B40\%, and B35\% are `r b100s`, `r b40s`, `r b35s`, thousand t, respectively."
-  tab <- read.csv("data/tier3_proj_C.csv",header=TRUE,as.is=TRUE)
-  cap <- tabcap[40]
-  for (i in 2:length(tab[1,]) ) 
-    tab[,i] <- formatC(as.numeric(tab[,i]), format="d", big.mark=",") 
-  tab <- xtable(tab, caption = cap, label=paste0("tab:",tablab[40]),digits=0, auto=TRUE, align=rep("r",(length(tab[1,])+1)) )
-  print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.85)
 
-  tab <- read.csv("data/tier3_proj_ABC.csv",header=TRUE,as.is=TRUE)
-  cap <- tabcap[41]
-  for (i in 2:length(tab[1,]) ) 
-    tab[,i] <- formatC(as.numeric(tab[,i]), format="d", big.mark=",") 
-  tab <- xtable(tab, caption = cap, label=paste0("tab:",tablab[41]),digits=0, auto=TRUE, align=rep("r",(length(tab[1,])+1)) )
-  print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.85)
+print_Tier3_tables(thismod)
 
-  tab <- read.csv("data/tier3_proj_F.csv",header=TRUE,as.is=TRUE)
-  cap <- tabcap[42]
-  for (i in 2:length(tab[1,]) ) 
-    tab[,i] <- formatC(as.numeric(tab[,i]), format="f",digits=3) 
-  tab <- xtable(tab, caption = cap, label=paste0("tab:",tablab[42]), digits=3, align=rep("r",(length(tab[1,])+1)) )
-  print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.85)
-
-  tab <- read.csv("data/tier3_proj_SSB.csv",header=TRUE,as.is=TRUE)
-  cap <- tabcap[43]
-  for (i in 2:length(tab[1,]) ) 
-    tab[,i] <- formatC(as.numeric(tab[,i]), format="d", big.mark=",") 
-  tab <- xtable(tab, caption = cap, label=paste0("tab:",tablab[43]),digits=0, auto=TRUE, align=rep("r",(length(tab[1,])+1)) )
-  print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.85)
-```
+print_Tier3_tables(3)
+  ```
 
 \clearpage
 

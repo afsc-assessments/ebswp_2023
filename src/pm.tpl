@@ -1186,6 +1186,8 @@ RUNTIME_SECTION
    maximum_function_evaluations 50,200,900,1800,1900,15000
    convergence_criteria .001,.001,1e-7
 
+
+
 PROCEDURE_SECTION
   if (active(yr_eff)||active(coh_eff))
 		Est_Fixed_Effects_wts();
@@ -1199,6 +1201,8 @@ PROCEDURE_SECTION
     Profile_F();
   if (mceval_phase()) 
     write_eval();
+
+
 
 REPORT_SECTION
 	// if (last_phase()) Get_Replacement_Yield();
@@ -4759,7 +4763,9 @@ FUNCTION double calc_Francis_weights(const dmatrix oac, const dvar_matrix eac, c
   }
 
 FINAL_SECTION
+
   write_R();
+
 TOP_OF_MAIN_SECTION
   gradient_structure::set_MAX_NVAR_OFFSET(2600);
   gradient_structure::set_GRADSTACK_BUFFER_SIZE(200000);

@@ -5,16 +5,14 @@
  printfig("catch_distn_a.png",3)
  printfig("cpue_aseason.png",4)
  printfig("catchp.png",5)
+ printfig("roe.pdf",8)
  printfig("catch_distn_b.png",6)
  printfig("cpue_bseason.png",7)
- printfig("roe.pdf",8)
+``` 
+\clearpage
+```{r  survfigs}
  printfig("fleet_dispersal.png",9)
  printfig("catage.png",10)
-``` 
-
-\clearpage
-
-```{r  survfigs}
  i <- 11
  printfig("bts_biom.pdf",i);i <- i + 1
  printfig("bts_temp.pdf",i);i <- i + 1
@@ -23,46 +21,50 @@
  printfig("bts_age_comp.png",i);i <- i + 1
  printfig("at_age.png",i);i <- i + 1
  printfig("vastage.png",i);i <- i + 1 
+ printfig("vast_idx.pdf",57)
  #17 figs...
 ```
 ```{r finfigs}
- printfig("fsh_wtage_strata.pdf",20)
- printfig("fsh_wtage_comb.pdf",21)
+ printfig("fsh_wtage_comb.pdf",20)
+ printfig("fsh_wtage_strata.pdf",21)
  printfig("fsh_wtage_strata_yr.pdf",22)
  printfig("fsh_lw_month.png",23)
  printfig("fsh_lw_str_yr_box.pdf",24)
- printfig("cole1.png",27)
- printfig("cole2.png",28)
  printfig("mod_data.pdf",30)
  printfig("mod_eval0a.pdf",31)
  printfig("mod_eval0b.pdf",32)
+ printfig("cole1.png",27)
+ printfig("cole1.png",27)
+ printfig("cole2.png",28)
+ printfig("q_sens.pdf",63)
+ printfig("q_sens_ssb.pdf",64)
+ printfig("mod_ats_biom.pdf",34)
  printfig("mod_cpue_fit.pdf",38)
  printfig("mod_avo_fit.pdf",39)
  printfig("mod_bts_biom.pdf",33)
- printfig("mod_ats_biom.pdf",34)
  printfig("mod_mean_age.pdf",35)
  printfig("mod_fsh_sel.pdf",36)
  printfig("mod_fsh_age.pdf",37)
  printfig("mod_bts_sel.pdf",40)
  printfig("mod_bts_age.pdf",41)
- # printfig("mod_atsones.pdf",32)
  printfig("mod_ats_age.pdf",43)
  printfig("mcmc_pairs.pdf",55)
  printfig("mcmc_marg.pdf",56)
  printfig("mod_ser.pdf",44)
  printfig("mod_F.pdf",45)
  printfig("mod_hist.pdf",46)
- printfig("N_comp.png",65)
- printfig("cum_N_wt.png",66)
+ printfig("N_comp.png",59)
+ printfig("cum_N_wt.png",60)
  printfig("mod_phase.pdf",47)
+ printfig("proj_ssb.pdf",65)
  printfig("mod_rec.pdf",48)
  printfig("mod_srr.pdf",49)
  printfig("mod_rs.pdf",50)
  printfig("mod_retro.pdf",52)
  printfig("tier3_proj.pdf",53)
-# printfig("future_F.pdf",54)
- printfig("age_diversity.pdf",64)
- printfig("poll_cod_rec.png",70)
+ printfig("age_diversity.pdf",51)
+ printfig("sel_comp_vast.pdf",61)
+ printfig("poll_cod_rec.png",62)
 ```
 
 \clearpage

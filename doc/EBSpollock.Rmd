@@ -70,12 +70,9 @@ source("../pm_19.R")
 ```
 ```{r child = 'alt_table.Rmd'}
 ```
-<!--
- #\tableofcontents
+ \tableofcontents
 
- #\listoftables
+ \listoftables
 
- #\listoffigures
+ \listoffigures
 
-
--->

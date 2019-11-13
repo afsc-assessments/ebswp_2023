@@ -14,17 +14,13 @@ as  a step by step documentation of applying the model to these data.
 
 Settings and configurations are available here (link to come...). 
 
-The location
-by year for the stations used are shown in Figure \ref{fig:bts_data_by_yr}.
-
 ## Spatio-temporal treatment of survey age composition data 
-
 To date, assessments using spatio-temporal indices have kept 
 age-composition data unchanged (i.e., the estimates were based on the
 original design-based approach). Here we develop a spatio-temporal approach to
 obtain age composition estimates. We found that design-based and model-based
 inputs provided stock-assessment parameter estimates consistent with previous
-approaches (Fig. \ref{fig:age_comp_vast}).
+approaches (Fig. \ref{fig:vastage}).
 
 ```{r set_options, echo=FALSE, message=FALSE, warning=FALSE}
 # Width should apply to tidy
@@ -110,14 +106,14 @@ SpatialDeltaGLMM::PlotResultsOnMap_Fn(plot_set=c(3), MappingDetails=MapDetails_L
   Legend=MapDetails_List[["Legend"]], zone=MapDetails_List[["Zone"]], mar=c(0,0,2,0), oma=c(3.5,3.5,0,0), 
   cex=1.8, plot_legend_fig=FALSE)
 ```
-![ Pollock density maps  using the VAST model approach, 1982-2018. \label{fig:density}](figs/Dens.png)
+![ Pollock density maps  using the VAST model approach, 1982-2019. \label{fig:density}](figs/Dens.png)
 
 
 ### Densities and biomass estimates 
 
 Relative densities over time suggests that the biomass of pollock can reflect
 abundances in the NBS even in years where samples are unavailable (all years
-except 2010, 2017, and 2018; (Figure \ref{fig:density}). Index values and error terms
+except 2010, 2017--2019; (Figure \ref{fig:density}). Index values and error terms
 (based on diagonal of covariance matrix over time) are shown in Figure \ref{fig:vast_idx}
 
 
@@ -127,7 +123,7 @@ except 2010, 2017, and 2018; (Figure \ref{fig:density}). Index values and error 
       #select(Year,Estimate, CV)
 #tab <- xtable(df, caption = "SMBKC male >89mm biomass (t) estimates as derived from the VAST modeling framework.", label = "tab:smbkc_biomass", digits = c(0,0,1,3))
 #print(tab, caption.placement = "top", include.rownames = FALSE)
-printfig("vast_idx.pdf",48)
+printfig("vast_idx.pdf",57)
 ```
 
 
