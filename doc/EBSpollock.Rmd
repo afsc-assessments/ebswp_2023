@@ -58,22 +58,21 @@ source("../pm_19.R")
 
 ```{r child = 'text.Rmd'}
 ```
-#```{r child = 'ref.Rmd'}
-#```
+```{r child = 'ref.Rmd'}
+```
 ```{r child = 'tab.Rmd'}
 ```
 ```{r child = 'figs.Rmd'}
 ```
 ```{r child = 'model.Rmd'}
 ```
-#```{r child = 'App.Rmd'}
-#```
-<!--
- #\tableofcontents
+```{r child = 'App.Rmd'}
+```
+```{r child = 'alt_table.Rmd'}
+```
+ \tableofcontents
 
- #\listoftables
+ \listoftables
 
- #\listoffigures
+ \listoffigures
 
-
--->
