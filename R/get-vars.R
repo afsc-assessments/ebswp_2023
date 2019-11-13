@@ -66,17 +66,23 @@ get_vars <- function(M){
 	B$ofl2s      <-  format(round(1e3*pdf$OFL[2],-3),big.mark=",",scientific=F,digits=0)
 	B$bfs        <- read.csv("../doc/data/proj.csv",header=T)
 	B$Tier3_ABC1 <- B$bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(ABC),0))
+	B$Tier3_ABC1s<- format(round(1e3*B$Tier3_ABC1,-3),big.mark=",",scientific=F,digits=0)
 	B$Tier3_OFL1 <- B$bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(OFL),0))
 	B$Tier3_OFL1s<- format(round(1e3*B$Tier3_OFL1,-3),big.mark=",",scientific=F,digits=0)
 	B$Tier3_SSB1 <- B$bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(SSB),0))
-	B$Tier3_F1   <- B$Tier3_ABC1 / B$ABC_biom1
+	B$Tier3_fabc1<- B$Tier3_ABC1 / B$ABC_biom1
+	B$Tier3_fofl1<- B$Tier3_OFL1 / B$ABC_biom1
 	B$Tier3_ABC2 <- B$bfs %>% filter(Alt==2,Yr==1+nextyr) %>% summarize(round(mean(ABC),0))
+	B$Tier3_ABC2s<- format(round(1e3*B$Tier3_ABC2,-3),big.mark=",",scientific=F,digits=0)
 	B$Tier3_OFL2 <- B$bfs %>% filter(Alt==2,Yr==1+nextyr) %>% summarize(round(mean(OFL),0))
 	B$Tier3_OFL2s<- format(round(1e3*B$Tier3_OFL2,-3),big.mark=",",scientific=F,digits=0)
 	B$Tier3_SSB2 <- B$bfs %>% filter(Alt==2,Yr==1+nextyr) %>% summarize(round(mean(SSB),0))
-	B$Tier3_F2   <- B$Tier3_ABC2 /B$ABC_biom2
-	B$abc1       <- 0.85*B$maxabc1 #B$Tier3_ABC1
-	B$abc2       <- 0.85*B$maxabc2 #B$Tier3_ABC2
+	B$Tier3_fabc2<- B$Tier3_ABC2 /B$ABC_biom2
+	B$Tier3_fofl2<- B$Tier3_OFL2 /B$ABC_biom2
+	#B$abc1       <- 0.85*B$maxabc1 #B$Tier3_ABC1
+	#B$abc2       <- 0.85*B$maxabc2 #B$Tier3_ABC2
+	B$abc1       <- B$Tier3_ABC1
+	B$abc2       <- B$Tier3_ABC2
 	B$abc1s      <- format(round(1e3*B$abc1,-3),big.mark=",",scientific=F,digits=0)
 	B$abc2s      <- format(round(1e3*B$abc2,-3),big.mark=",",scientific=F,digits=0)
 	B$fabc       <- B$Tier3_ABC1 /B$ABC_biom1

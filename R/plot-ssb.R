@@ -25,7 +25,6 @@
     return(mdf)
 }
 
-
 #' Plot predicted spawning stock biomass (ssb)
 #'
 #' Spawning biomass may be defined as all males or some combination of males and
@@ -66,7 +65,8 @@ plot_ssb <- function(M, xlab = "Year", ylab = "Female spawning biomass (kt)", yl
             geom_ribbon(aes(x = year, ymax = ub, ymin = lb), alpha = alpha,fill="salmon")
     } else {
         p <- p + geom_line(aes(x = year, y = ssb, col = Model),size=1.2, order=1:length(M)) +
-            geom_ribbon(aes(x = year, ymax = ub, ymin = lb, fill = Model), alpha = alpha)
+            geom_ribbon(aes(x = year, ymax = ub, ymin = lb, fill = Model), alpha = alpha) 
+            scale_x_continuous(limits=xlim, breaks = seq(round(xlim[1],0),round(xlim[2],0), by = 5) ) 
     }
     
     if (!legend)
