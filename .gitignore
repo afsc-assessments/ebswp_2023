@@ -3,6 +3,8 @@
 # API files
 html/
 docs/api/html/
+icon*
+Icon*
 
 # Latex files
 *.aux
@@ -21,6 +23,7 @@ auto/
 .Rproj.user
 *.Rout
 *.R~
+*.RData
 .RData
 .Rhistory
 *.Rmd.bak
