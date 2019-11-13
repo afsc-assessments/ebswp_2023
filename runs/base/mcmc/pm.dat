@@ -1,0 +1,16 @@
+MCMCrun
+pm_2019_ddc.dat
+scmed.dat
+control.dat 
+pm_fmsy_alt.dat 
+rescaled_cov_2019.dat  
+wtage2019.dat  
+surveycpue.dat 
+
+ln -s ../../dat/pm_2019_ddc.dat pm_2019_ddc.dat
+ln -s ../../dat/scmed.dat scmed.dat
+ln -s ../control.dat control.dat 
+ln -s ../../dat/pm_fmsy_alt.dat pm_fmsy_alt.dat 
+ln -s ../../dat/rescaled_cov_2019.dat  rescaled_cov_2019.dat  
+ln -s ../../dat/wtage2019.dat  wtage2019.dat  
+ln -s ../../dat/surveycpue.dat surveycpue.dat 
