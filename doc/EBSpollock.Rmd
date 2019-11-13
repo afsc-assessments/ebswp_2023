@@ -68,6 +68,8 @@ source("../pm_19.R")
 ```
 ```{r child = 'App.Rmd'}
 ```
+```{r child = 'alt_table.Rmd'}
+```
 <!--
  #\tableofcontents
 

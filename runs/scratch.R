@@ -1,15 +1,57 @@
 source("../R/prelims.R")
+df <- data.frame(sel=Alt$sel_fsh[56,],Age=1:15,Model="VAST")
+df <- rbind(df,data.frame(sel=M$sel_fsh[56,],Age=1:15,Model="16.1"))
+df %>% group_by(Model) %>% summarize(mean(sel))
+df %>% ggplot(aes(x=Age,y=sel,color=Model)) + geom_line(size=1.5) + theme_few()
+
+#---Compare selectivity for base w/ vast
+df <- data.frame(sel=Alt$sel_fut,Age=1:15,Model="VAST")
+df <- rbind(df,data.frame(sel=M$sel_fut,Age=1:15,Model="16.1"))
+df %>% group_by(Model) %>% summarize(mean(sel))
+df %>% ggplot(aes(x=Age,y=sel,color=Model)) + geom_line(size=1.5) + theme_few() + ylab("Selectivity") + scale_x_continuous(breaks=1:15)
+
+df <- data.frame(sel=Alt$wt_fsh[56,],Age=1:15,Model="VAST")
+df <- rbind(df,data.frame(sel=M$wt_fsh[56,],Age=1:15,Model="16.1"))
+df %>% ggplot(aes(x=Age,y=sel,color=Model)) + geom_line(size=1.5) + theme_few()
+
+df <- data.frame(sel=Alt$C[55,],Age=1:15,Model="VAST")
+df <- rbind(df,data.frame(sel=M$C[55,],Age=1:15,Model="16.1"))
+df %>% ggplot(aes(x=Age,y=sel,color=Model)) + geom_line(size=1.5) + theme_few()
+M$wt_fsh
+
 mod_names <- c("base","Const BTS Sel","redVarq")
-mod_names <- c("base","redqVar","VAST rvq")
-.MODELDIR = c( "../runs/base/", "../runs/redqvar/","../runs/vastall/")
+mod_names <- c("base","M")
+.MODELDIR = c( "../runs/base/", "../runs/M/")
 .MODELDIR = c( "../prof/")
 .MODELFN  = c("r_1.rep","r_2.rep","r_3.rep","r_4.rep","r_5.rep")
+fn       <- paste0(.MODELDIR, "pm")
+modlst   <- lapply(fn, read_admb)
+names(modlst) <- mod_names
+mod_names
+T<-modlst[[2]]
+bind(M$SSB, T$SSB)
+bind(M$rec, T$rec)
 
+plot_ssb(modlst,xlim=c(1990,2020))   
+plot_recruitment(modlst,xlim=c(1990,2020))   
+plot_srr(modlst)   
+plot_srr(modlst[c(1,2)],alpha=.2,xlim=c(0,5200),ylim=c(0,75000))
 
-  plot_bts_sel(modlst[[2]])
+# Comparison among variance constraints for RW in survey selectivity/q
+proflst   <- lapply(fn, read_admb)
+names(proflst) <- prof_names
+nmods <- length(prof_names)
+for (i in 1:nmods) {
+  proflst[[i]] <- c(proflst[[i]],get_vars(proflst[[i]]))
+}
+df <- tab_fit(M=proflst,1:nmods)
+tab <- xtable(df, caption = "Goodness of fit to primary data used for assessment model parameter estimation profiling over different constraints on the extent bottom-trawl survey selectivity/availability is allowed to change;  EBS pollock.", label = "tab:mod_prof_fits")#, digits = 3,align="llrrrrr")
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
+
+  plot_ssb(modlst[c(1,2)])
+  plot_ssb(modlst)
   plot_bts(modlst)
   plot_sel(sel=modlst[[2]]$sel_bts,styr=1982,fill="darkblue",alpha=.4) 
-  
   ############################################
   #
   # Compute average N over past 20 years

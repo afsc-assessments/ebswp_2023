@@ -210,6 +210,8 @@ Powers, J. E. 2014. Age-specific natural mortality rates in stock assessments: s
 
 Press, W.H., S.A. Teukolsky, W.T. Vetterling, B.P. Flannery. 1992. Numerical Recipes in C. Second Ed. Cambridge University Press. 994 p.
 
+Punt, E, Anthony D M Smith, David C Smith, Geoffrey N Tuck, and Neil L Klaer. 2014. Selecting Relative Abundance Proxies for BMSY and BMEY. ICES Journal of Marine Science 71: 469–83. https://doi.org/10.1093/icesjms/fst162.
+
 Punt, A.E., Smith, D.C., KrusicGolub, K. and Robertson, S. 2008. Quantifying age-reading error for use in fisheries stock assessments, with application to species in Australia’s Southern and Eastern Scalefish and Shark Fishery. Can. J. Fish. Aquat. Sci. 65:1991-2005.
 
 Ressler, P.H., De Robertis, A., Warren, J.D., Smith, J.N., and Kotwicki, S. (2012). Using an acoustic index of euphausiid abundance to understand trophic interactions in the Bering Sea ecosystem. Deep-Sea Res. II. 0967-0645,
@@ -263,6 +265,8 @@ Thorson, J.T., Rindorf, A., Gao, J., Hanselman, D.H., and Winker, H. 2016. Densi
 Thorson, J.T. 2018a, _In Press_. Predicting recruitment density dependence and intrinsic growth rate for all fishes worldwide using a data-integrated life-history model. Fish and Fisheries.
 
 Thorson, J..T. 2018b. Guidance for decisions using the Vector Autoregressive Spatio-Temporal (VAST) package in stock, ecosystem, habitat and climate assessments, Fisheries Research, Volume 210, 2019, Pages 143-161, ISSN 0165-7836, https://doi.org/10.1016/j.fishres.2018.10.013.(http://www.sciencedirect.com/science/article/pii/S0165783618302820)
+
+Thorson, James T. 2019. Measuring the Impact of Oceanographic Indices on Species Distribution Shifts : The Spatially Varying Effect of Cold-Pool Extent in the Eastern Bering Sea, 1–14. https://doi.org/10.1002/lno.11238.
 
 von Szalay PG, Somerton DA, Kotwicki S. 2007. Correlating trawl and acoustic data in the Eastern Bering Sea: A first step toward improving biomass estimates of walleye pollock (_Theragra chalcogramma_) and Pacific cod (Gadus macrocephalus)? Fisheries Research 86(1) 77-83. 
 

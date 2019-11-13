@@ -1746,7 +1746,8 @@ FUNCTION GetDependentVar
     {
       res.initialize(); 
       sel_fut   = sel_fsh(endyr_r-iyr+1);
-      sel_fut  /=sel_fut(6); // NORMALIZE TO AGE 6
+      // sel_fut  /=sel_fut(6); // NORMALIZE TO AGE 6
+      sel_fut  /=mean(sel_fut); // NORMALIZE TO AGE 6
       if (!mceval_phase()) res = get_msy_wt(); 
       Fmsy2_dec(iyr) = res(4); 
     //   cout <<endyr_r - iyr +1<<" "<<res<<endl;
@@ -2036,7 +2037,8 @@ FUNCTION compute_Fut_selectivity
 	else
 		sel_fut = sel_fsh(endyr_r+nyrs_sel_avg); // negative nyrs_sel_avg can be used to pick years for evaluation
 
-  sel_fut/=sel_fut(6); // NORMALIZE TO AGE 6
+  //sel_fut/=sel_fut(6); // NORMALIZE TO AGE 6
+  sel_fut/=mean(sel_fut); // NORMALIZE TO mean
 
 FUNCTION compute_spr_rates
   //Compute SPR Rates 
@@ -4019,8 +4021,6 @@ FUNCTION write_R
   adstring ad_tmp=initial_params::get_reportfile_name();
   ofstream report((char*)(adprogram_name + ad_tmp),ios::app);
 
-
-
   // Development--just start to get some output into R
 	R_report(H);
 	R_report(avg_age_mature);
@@ -4486,6 +4486,7 @@ FUNCTION write_R
          <<endl; 
    }
    compute_Fut_selectivity();
+   R_report(sel_fut);
    get_msy();
     SelGrid << "sel_fut"        // knife-selection
          <<" "<<value(MSY)

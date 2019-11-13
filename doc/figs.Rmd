@@ -8,64 +8,61 @@
  printfig("catch_distn_b.png",6)
  printfig("cpue_bseason.png",7)
  printfig("roe.pdf",8)
- printfig("fleet_dispersal.pdf",109)
- printfig("catage.png",9)
- # printfig("samplesize.png",10)
+ printfig("fleet_dispersal.png",9)
+ printfig("catage.png",10)
 ``` 
 
 \clearpage
 
 ```{r  survfigs}
  i <- 11
- printfig("bts_biom.png",i);i <- i + 1
+ printfig("bts_biom.pdf",i);i <- i + 1
  printfig("bts_temp.pdf",i);i <- i + 1
  printfig("bts_temp_cpue.pdf",i);i <- i + 1
  printfig("bts_3d.png",i);i <- i + 1
  printfig("bts_age_comp.png",i);i <- i + 1
- printfig("ATS_age_update.png",i);i <- i + 1
+ printfig("at_age.png",i);i <- i + 1
  printfig("vastage.png",i);i <- i + 1 
  #17 figs...
 ```
 ```{r finfigs}
- printfig("fsh_wtage_comb.pdf",53)
- printfig("fsh_wtage.pdf",20)
- printfig("fsh_wtage_strata.pdf",54)
- printfig("fsh_lw_month.png",47)
- printfig("fsh_lw_str_yr_box.pdf",56)
- #printfig("fsh_lw_str_box.pdf",57)
- printfig("fsh_lw_str_yr_mean.pdf",58)
- printfig("layer1.png",62)
- printfig("layer2.png",63)
- printfig("mod_data.pdf",60)
- printfig("mod_eval0c.pdf",50)
- printfig("mod_eval0a.pdf",21)
- printfig("mod_eval0b.pdf",22)
- #printfig("bholt_ricker.pdf",51)
- printfig("mod_cpue_fit.pdf",28)
- printfig("mod_avo_fit.pdf",29)
- printfig("mod_bts_biom.pdf",23)
- printfig("mod_ats_biom.pdf",24)
- printfig("mod_mean_age.pdf",25)
- printfig("mod_fsh_sel.pdf",26)
- printfig("mod_fsh_age.pdf",27)
- printfig("mod_bts_sel.pdf",30)
- printfig("mod_bts_age.pdf",31)
+ printfig("fsh_wtage_strata.pdf",20)
+ printfig("fsh_wtage_comb.pdf",21)
+ printfig("fsh_wtage_strata_yr.pdf",22)
+ printfig("fsh_lw_month.png",23)
+ printfig("fsh_lw_str_yr_box.pdf",24)
+ printfig("cole1.png",27)
+ printfig("cole2.png",28)
+ printfig("mod_data.pdf",30)
+ printfig("mod_eval0a.pdf",31)
+ printfig("mod_eval0b.pdf",32)
+ printfig("mod_cpue_fit.pdf",38)
+ printfig("mod_avo_fit.pdf",39)
+ printfig("mod_bts_biom.pdf",33)
+ printfig("mod_ats_biom.pdf",34)
+ printfig("mod_mean_age.pdf",35)
+ printfig("mod_fsh_sel.pdf",36)
+ printfig("mod_fsh_age.pdf",37)
+ printfig("mod_bts_sel.pdf",40)
+ printfig("mod_bts_age.pdf",41)
  # printfig("mod_atsones.pdf",32)
- printfig("mod_ats_age.pdf",33)
- printfig("mcmc_pairs.pdf",45)
- printfig("mcmc_marg.pdf",46)
- printfig("mod_ser.pdf",34)
- printfig("mod_F.pdf",35)
- printfig("mod_hist.pdf",36)
- printfig("mod_phase.pdf",37)
- printfig("mod_rec.pdf",38)
- printfig("mod_srr.pdf",39)
- printfig("mod_rs.pdf",40)
- printfig("mod_retro.pdf",42)
- printfig("tier3_proj.pdf",43)
- printfig("future_F.pdf",44)
- printfig("diversity.pdf",55)
- printfig("poll_cod_rec.png",61)
+ printfig("mod_ats_age.pdf",43)
+ printfig("mcmc_pairs.pdf",55)
+ printfig("mcmc_marg.pdf",56)
+ printfig("mod_ser.pdf",44)
+ printfig("mod_F.pdf",45)
+ printfig("mod_hist.pdf",46)
+ printfig("N_comp.png",65)
+ printfig("cum_N_wt.png",66)
+ printfig("mod_phase.pdf",47)
+ printfig("mod_rec.pdf",48)
+ printfig("mod_srr.pdf",49)
+ printfig("mod_rs.pdf",50)
+ printfig("mod_retro.pdf",52)
+ printfig("tier3_proj.pdf",53)
+# printfig("future_F.pdf",54)
+ printfig("age_diversity.pdf",64)
+ printfig("poll_cod_rec.png",70)
 ```
 
 \clearpage

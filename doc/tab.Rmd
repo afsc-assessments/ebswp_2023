@@ -663,9 +663,14 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 df <- data.frame(Year=1964:thisyr,wt=round(M$wt_fsh,3))
 names(df) <- c("Year",1:15)
 df <- df[df$Year>=1989,]
+sdw<- apply(df[,-1],2,sd)
 nr <- dim(df)[1]-2
 df[1,1]<-"1964-"; df[1,2:16]<-" "; df[2,1]<-"1990";
-df <- rbind(df, c("Mean",round(colMeans(as.matrix(M$wt_fsh[1:nr,])),3) ) )
+mnw<- (colMeans(as.matrix(M$wt_fsh[1:nr,]))) 
+cvw<- (sdw/mnw ) 
+cvw<- c('CV','-','-',round(cvw[3:15]*100,0))
+df <- rbind(df, c("Mean",round(mnw,3 ) ) )
+df <- rbind(df, cvw)
 cap <- tabcap[24]
 lab <- paste0("tab:",tablab[24])
 tab <- xtable(df, caption = cap, label=lab, big.mark="," ,digits=3)
