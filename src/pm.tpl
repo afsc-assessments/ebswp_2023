@@ -1233,6 +1233,10 @@ REPORT_SECTION
   report << natage<<endl;
   report << "C"<<endl;
   report << catage<<endl;
+  report << "Z"<<endl;
+  report << Z <<endl;
+  report << "S"<<endl;
+  report << S <<endl;
     legacy_rep << "Francis weights: fishery "<<endl;
     legacy_rep <<calc_Francis_weights(oac_fsh, eac_fsh,sam_fsh )<<endl;
     legacy_rep << "Francis weights: bTS "<<endl;
@@ -4311,7 +4315,7 @@ FUNCTION write_R
   ABC  = gm_b2(1)*hm_f*adj_2(1); 
   OFL  = gm_b2(1)*am_f*adj_2(1); 
   report << endyr_r+2<<" " << ABC <<" " << OFL <<" "<< future_SSB(1,styr_fut+1) <<" "<< age_3_plus_biom(endyr_r+2)  <<" "<<
-  future_catch(11,styr_fut+1) <<" " << hm_f  <<" "<< am_f <<" "<< gm_b2(1)<<" "<< SPR_ABC <<" "<< SPR_OFL <<endl;
+  future_catch(4,styr_fut+1) <<" " << hm_f  <<" "<< am_f <<" "<< gm_b2(1)<<" "<< SPR_ABC <<" "<< SPR_OFL <<endl;
 
   R_report(Cat_Fut);
 	report <<"YC"<<endl;
@@ -4426,8 +4430,15 @@ FUNCTION write_R
    F40_out << "B35 F_Fmsyr avgAgeMSY avgWtMSY"<<endl;
    double fshable;
    double AM_fmsyr;
-   for (i=styr;i<=endyr_r;i++)
+   dvar_matrix Ntmp(endyr_r,endyr_r+2,1,nages);
+   dvariable SSBtmp; 
+   Ntmp.initialize();
+	 Ntmp(endyr_r) = natage(endyr_r);
+	 cout << endyr_r <<" "<< Ntmp(endyr_r) <<" "<<SSB(endyr_r)<<endl;
+   sel_fut = sel_fsh(endyr);
+   for (i=styr;i<=endyr_r+2;i++)
    {
+		if(i<=endyr_r){
      sel_fut = sel_fsh(i);
      age_3_plus_biom(i)  = natage(i)(3,nages) * wt_ssb(i)(3,nages); 
      fshable = value(elem_prod(natage(i),sel_fut) * wt_ssb(endyr_r)); // fishable biomass
@@ -4457,6 +4468,42 @@ FUNCTION write_R
          <<" "<<value(avg_age_msy)
          <<" "<<value(avgwt_msy)
          <<endl; 
+    } else {
+
+     Ntmp(i)(2,nages) = ++elem_prod(Ntmp(i-1)(1,nages-1), S(endyr_r)(1,nages-1));  
+     Ntmp(i,nages)  += Ntmp(i-1,nages)*S(endyr,nages);
+     Ntmp(i,1)       = meanrec;
+		 SSBtmp = elem_prod(elem_prod(Ntmp(i),pow(S(endyr_r),yrfrac)),p_mature)*wt_ssb(endyr_r); // Eq. 1
+		  cout << i <<" "<< Ntmp(i) <<" "<<SSBtmp<<endl;
+     // age_3_plus_biom(i)  = natage(i)(3,nages) * wt_ssb(i)(3,nages); 
+     fshable = value(elem_prod(Ntmp(i),sel_fut) * wt_ssb(endyr_r)); // fishable biomass
+     AM_fmsyr =  value(exp(lnFmsy2 + lnFmsy2.sd*lnFmsy2.sd /2.));
+     get_msy();
+     F40_out << i       // Year
+         <<" "<< SSBtmp/Bmsy   // Fshable Bmsy
+         <<" "<< (obs_catch(endyr)/fshable) /AM_fmsyr  // Realized harvest rate
+         <<" "<< (SER(endyr)/SER_Fmsy)                 // SER harvest rate
+         <<" "<< mean(F(endyr))/Fmsy
+         <<" "<< Bmsy
+         <<" "<< SSBtmp
+         <<" "<< Bmsy2   // Fshable Bmsy
+         <<" "<< fshable // fishable biomass
+         <<" "<< AM_fmsyr// AM Msyr
+         <<" "<< obs_catch(endyr)/fshable // Realized harvest rate
+         <<" "<< get_spr_rates(value(SPR_OFL),sel_fut) // F at MSY
+         <<" "<< Implied_SPR(F(endyr))    // Implied SPR Given F
+         <<" "<< SPR_OFL 
+         <<" "<< mean(F(endyr))
+         <<" "<<get_spr_rates(.35,sel_fut)
+         <<" "<<Fmsy 
+         <<" "<<age_3_plus_biom(i) 
+         <<" "<<value(age_3_plus_biom(i))/value(Bmsy2)
+         <<" "<<value(SB100)*.35
+         <<" "<<(obs_catch(endyr)/value(age_3_plus_biom(i)))/value(Fmsy2)
+         <<" "<<value(avg_age_msy)
+         <<" "<<value(avgwt_msy)
+         <<endl; 
+      }
     }
     F40_out.close();
    ofstream SelGrid("selgrid.rep");

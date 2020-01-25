@@ -1,6 +1,6 @@
 ---
 title: "Chapter 1: Assessment of the Walleye Pollock Stock \\ in the Eastern Bering Sea"
-date: "18:26 November 07, 2019"
+date: "09:38 December 03, 2019"
 output:
   html_document:
     df_print: paged
@@ -9,15 +9,11 @@ output:
     highlight: zenburn
     fig_caption: yes
     includes:
-      in_header: mystyles.sty
     keep_tex: yes
-    template: ms.tex
 fontsize: 11pt
 header-includes:
-  - \usepackage{fontspec}
 geometry: margin=1in
 fontfamily: mathpazo
-#bibliography: ~/OneDrive/myref.bib
 ---
 \pagenumbering{gobble}
 
@@ -34,7 +30,7 @@ fontfamily: mathpazo
 \selectfont
   Alaska Fisheries Science Center, National Marine Fisheries Service \\
   National Oceanic and Atmospheric Administration \\ 
-  7600 Sand Point Way NE., Seattle, WA 98115-6349 \\ November 07, 2019 \\ \end{centering}
+  7600 Sand Point Way NE., Seattle, WA 98115-6349 \\ December 03, 2019 \\ \end{centering}
 ----
 
 
@@ -106,15 +102,15 @@ survey data and includes the Northern Bering Sea is provided at the end of this 
   \hline
 	M (natural mortality rate, ages 3+)	&	0.3	&	0.3	&	0.3	&	0.3 \\
 Tier	&	1a	&	1a	&	1a	&	1a \\
-Projected total (age  3+) biomass (t) & 9,110,000 t & 8,156,000 t & 8,580,000 t & 7,987,000 t \\
+Projected total (age  3+) biomass (t) & 9,110,000 t & 8,156,000 t & 8,580,000 t & 7,990,000 t \\
 Projected female  spawning  biomass (t) & 3,107,000 t & 2,725,000 t & 2,781,000  t & 2,476,000  t \\  
 $B_0$ & 5,866,000 t & 5,866,000 t & 5,748,000  t & 5,748,000  t \\          
 $B_{msy}$ & 2,280,000 t & 2,280,000 t & 2,147,000  t & 2,147,000  t \\          
 $F_{OFL}$ & 0.645 & 0.645 & 0.528  & 0.528  \\                  
 $maxF_{ABC}$  & 0.510 & 0.51  & 0.442  & 0.442  \\                  
-$F_{ABC}$ & 0.356 & 0.375 &  &  \\                  
-$OFL$ & 3,913,000 t & 3,082,000 t & 4,273,000  t & 3,456,000  t \\          
-$maxABC$  & 3,096,000 t & 2,437,000 t & 3,578,000 t & 2,894,000 t \\      
+$F_{ABC}$ & 0.356 & 0.375 & 0.253 & 0.262 \\                  
+$OFL$ & 3,913,000 t & 3,082,000 t & 4,273,000  t & 3,458,000  t \\          
+$maxABC$  & 3,096,000 t & 2,437,000 t & 3,578,000 t & 2,895,000 t \\      
 $ABC$ & 2,163,000 t & 1,792,000 t & 2,045,000 t & 1,716,000  t \\        
 \hline
 Status	                              &	2017	      &	2018	      &		2018             &	2019          \\
@@ -164,7 +160,7 @@ Regarding the apparent shift in year class dominance between 2012 and
 should the possible influence of ageing error 
 
    -  _Age determination experts re-examined subsets of these data and 
-    ageing error seems to be consistent and correct._        
+    age estimates seems to be consistent and correct._        
 
 Full treatment of both the existing model and models with alternative
 treatments of the data should continue to be provided, along with maxABC
@@ -182,13 +178,14 @@ correlation
 
 Explore “A” season trends in mean weight at length with a GAM or
 similar technique, to determine if the trends are either predominantly
-environmental or predominantly fishery-driven Regarding sR, explore
+environmental or predominantly fishery-driven, Regarding $\sigma_R$, explore
 alternative fixed values or estimation methods.
 
    - _Trends in mean weight given length are again presented. The extent that fishery 
-    effects this pattern was shown to be related to timing. Further work is needed to 
+    affects this pattern was shown to be related to timing. Further work is needed to 
     establish a mean baseline (in time and space) to try to sort out environmental 
-    effects hypotheses._      
+    effects hypotheses. Values of $\sigma_R$ were explored in previous years, no further
+    work was done on this in 2019._      
 
 
 _We included an expanded evaluation of fishery performance this year. Specifically, we 
@@ -301,11 +298,10 @@ degree, the way individual vessel operators fish (Stram and Ianelli, 2014).
 
 The catch estimates by sex for the seasons indicate that over time, the number
 of males and females has been fairly equal (Fig. \ref{fig:catch_sex}). The
-2018 A-season fishery spatial pattern had relatively high concentrations of
-fishing on the shelf north of Unimak Island, especially compared to the
-pattern observed in 2016 when the fishing activity extended farther north
-(Fig. \ref{fig:catch_distn_a}).  The 2018 A-season catch rates continued to be
-high improving even on the good conditions observed in 2016 and 2017 A (and B)
+2019 A-season fishery spatial pattern had relatively high concentrations of
+fishing on the shelf north of Unimak Island and extended along the 200m depth
+contour (Fig. \ref{fig:catch_distn_a}).  The 2019 A-season catch rates was very
+high improving even on the good conditions observed in other recent A 
 seasons (Fig. \ref{fig:aseas_cpue}). Beginning in 2017, due to  a regulatory
 change, up to 45\% of the TAC could be taken in the A-season (previously only
 40\% of the TAC could be taken). This conservation measure was made to allow
@@ -319,9 +315,9 @@ consistently about 10\% of the annual production (Fig. \ref{fig:roe}).
 The fishing in summer-fall 2019 was quite different than recent years
 with fishing much more broadly distributed and concentrated along the 
 shelf break. Catches in the northwestern
-part has increased relative 2016 and 2017 (Fig. \ref{fig:catch_distn_b}).   The 2019
-summer and fall (B-season) catch per hour fished was lower than the last few
-years (Fig. \ref{fig:bseas_cpue}).  Since 1979 the catch of EBS pollock has
+continued to increase relative 2017 and 2918 (Fig. \ref{fig:catch_distn_b}).   
+The 2019 summer and fall (B-season) catch per hour fished was lower than the 
+last few years (Fig. \ref{fig:bseas_cpue}).  Since 1979 the catch of EBS pollock has
 averaged 1.19 million t with the lowest catches occurring in 2009 and 2010
 when the limits were set to 0.81 million t due to stock declines (Table
 \ref{tab:abc_tac}). Pollock retained and discarded catch (based on NMFS
@@ -411,8 +407,8 @@ During the A-season, the average is also about 44%. Nonetheless, the
 proportion of pollock caught within the SCA varies considerably, presumably
 due to temperature regimes and the relative population age structure.  The
 annual proportion of catch within the SCA varies and has ranged from an annual
-low of 11% in 2010 to high of 60% in 1998--the 2018 annual value was 54% but
-was quite high in the  A-season (63\%; Table \ref{tab:catch_sca}).  The higher
+low of 11% in 2010 to high of 60% in 1998--the 2019 annual value was 58% but
+and quite high again in the A-season (68\%; Table \ref{tab:catch_sca}).  The higher
 values in recent years  were likely due to good fishing conditions close to
 the main port.
 
@@ -553,7 +549,7 @@ The catch of pollock can be broadly divided between the shore-based sector
 where catcher vessels make deliveries to inshore processors, and the at-sea
 sector where catch is processed at-sea by catcher/processors and motherships
 before going directly to the wholesale markets. The retained catch of the
-shore-based sector increased 1\% increase to 718 kt. The value of these
+shore-based sector increased 1\% to 718 kt. The value of these
 deliveries (shore-based ex-vessel value) totaled \$236.7 million in 2018,
 which was up 15\% from the ex-vessel value in 2017 driven mostly by a 14\%
 increase in the ex-vessel price (Table \ref{tab:bsaiplck_exv}). 
@@ -624,20 +620,20 @@ upward pressure on pollock fillet prices.
 ### Surimi seafood
 
 Surimi production in 2018 was 196.5 kt, which was approximately the same as 2017 
-was above the 2005--2007 average. Prices have, which have been rising since 2013, 
+and was above the 2005--2007 average. Prices which have been rising since 2013, 
 decrased 3\% to \$1.26 per pound in the BSAI in 2018 (Table
 \ref{tab:bsaiplck_wsl}). Because surimi and fillets are both made from pollock
 meat, activity in the fillet market can influence the decision of processors
 to produce surimi as smaller average size of fish can incentivize surimi
-production, particularly it yields a higher value than fillets. Additionally,
+production, particularly if it yields a higher value than fillets. Additionally,
 the supply of raw surimi material in Japan has been limited. 
 
 ### Pollock roe
 
 Roe is a high priced product that is the focus of the A season catch destined
 primarily for Asian markets. Roe production in the BSAI tapered off in the
-late--2000s and since has generally fluctuated at under or near 20 kt annually,
-production averaged 27 kt in 2005--2007 and was 20.6 kt in 2018, which was up
+late--2000s and since has generally fluctuated at under or near 20 kt annually.
+Production averaged 27 kt in 2005--2007 and was 20.6 kt in 2018, which was up
 12\% from 2017 (Fig. \ref{fig:roe}). Prices peaked in the mid-2000s and have
 followed a decreasing trend over the last decade which continued until 2015.
 The Yen to U.S. Dollar exchange rate can influence prices and relatively stable 
@@ -763,15 +759,15 @@ than zero degrees. In 2019, the mean bottom temperature was the warmest during
 the period the survey has occurred (since 1982;  Fig. \ref{fig:bts_temp}).  
 
 Beginning in 1987 NMFS expanded the standard survey area farther to the
-northwest. The pollock biomass levels found in the two northern strata were
-highly variable, ranging from 1\% to 22\% of the total biomass; whereas the 2014
-estimate was 12\%, 2015 was 7\%, and in the past two years is slightly below the
-average (5\%) at 4\% and 3\%--4\% (Table \ref{tab:bts_biom}). In some years (e.g.,
+northwest. The pollock biomass levels found in the two northern strata 
+in 2019 was 9\%--considerably more than the 4.3% average for the four previous
+survey years and the long-term average of 5\% (Table \ref{tab:bts_biom}). 
+In some years (e.g.,
 1997 and 1998) some stations had high catches of pollock in that region and
 this resulted in high estimates of sampling uncertainty (CVs of 95\% and 65\%
 for 1997 and 1998 respectively). This region is contiguous with the Russian
-border and these strata seem to improve coverage over the range of the
-exploited pollock stock.
+border and the NBS region, and measures to increase consideration of those regions
+relative to exploited pollock stock continues.
 
 The 2019 bottom-trawl survey biomass estimate (design-based, area swept) 
 was 5.48 million t, above the average for this survey (4.7 million t). 
@@ -808,14 +804,13 @@ during the survey (June-July) and processed at the AFSC labs within a few
 weeks after the survey was completed. The level of sampling for lengths and
 ages in the BTS is shown in (Table \ref{tab:bts_n}). The estimated numbers-at-
 age from the BTS for strata (1--9 except for 1982--84 and 1986, when only strata
-1--6 were surveyed) are presented in Table \ref{tab:bts_age} and contains the
-values used for the index which accounts for density-dependence in bottom
-trawl tows (Kotwicki et al. 2014). Mean body mass at ages from the survey are
+1--6 were surveyed) are presented in Table \ref{tab:bts_age} 
+(based on the method in Kotwicki et al. 2014). Mean body mass at ages from the survey are
 shown in (Table \ref{tab:wt_bts}) and the different alternative time series
 of BTS survey indices is shown in Table \ref{tab:bts_abund}.
 
-The bottom trawl survey has extended to the north in 2010, 2017, and again
-this year (but was limited to 49 stations). Given that the pollock abundance
+The bottom trawl survey has extended to the north in 2010, 2017, 2018 (limited
+to 49 stations) and again this year. Given that the pollock abundance
 was quite high in 2017 and 2018, a method for incorporating this information
 as part of the standard survey was desired. One approach for constructing a
 full time series  that included the NBS area is to use observed spatial and
@@ -857,11 +852,11 @@ structure for sampling along transects (Table \ref{tab:ats_biom}; Petitgas
 1993, Walline 2007, Williamson and Traynor 1996). As in previous assessments,
 the other sources of error (e.g., target strength, trawl selectivity) were
 accounted for by inflating the annual error estimates to have an overall
-average CV of 25\% for application within the assessment model. Last year we
+average CV of 25\% for application within the assessment model. In 2018 we
 estimated the 2018 EBS acoustic-trawl survey population numbers-at-age based
 primarily on the BT survey age samples with supplemental samples from the AT
-survey. This year those data were updated using only the AT age samples (Fig.
-\ref{fig:at_age}; Table \ref{tab:ats_age}).
+survey. In 2019 those data were updated using only the 2018 ATS age samples 
+(Fig. \ref{fig:at_age}; Table \ref{tab:ats_age}).
 
 ## Other time series used in the assessment
 
@@ -877,7 +872,7 @@ The details of how acoustic backscatter data from the two commercial fishing
 vessels chartered for the eastern Bering Sea bottom trawl survey (BTS) were
 used to compute a midwater abundance index for pollock can be found in
 Honkalehto et al. (2011). We updated the data through 2019 and after
-a gradual declin since 2015, the biomass was about the same as from 2018
+a gradual decline since 2015, the biomass was about the same as from 2018
 (Table \ref{tab:avo}).
 
 #  Analytic approach
@@ -1162,28 +1157,30 @@ following:
 
   1. The same as last year but with all data time series updated through the most recently available information       
 
- 3. With Model 16.1 we evaluated the variability of the effective
+ 2. With Model 16.1 we evaluated the variability of the effective
   catchability of the bottom trawl survey for ages 3-8, the age range over
   which selectivity is allowed to vary. This pattern (and extent of
   variability) was compared with new independent analysis specifically dealing
   with the spatio-temporal patterns in 3 dimensions. 
     - This work provides new evidence on the extent of variability in
-    effective catchability for the different survey gears used for assessing
-    pollock.
-  2. The same as last year but with the survey time series  including an alternative treatment of the NBS indicative biomass (application of the VAST model for the bottom trawl  survey index). This step included the revised VAST derived age compositions (Fig. \ref{fig:vastage}). 
-    - The rationale for considering this is the likelihood that pollock in the NBS are related and 
+    effective catchability for the different survey gears used for assessing pollock.
+
+  3. The same as last year but with the survey time series  including an alternative 
+   treatment of the NBS indicative biomass (application of the VAST model for the bottom trawl  
+   survey index). This step included the revised VAST derived age 
+   compositions (Fig. \ref{fig:vastage}). 
+      - The rationale for considering this is the likelihood that pollock in the NBS are related and 
 		contribute to the EBS fishery     
 
-  3. As with 2 but based Thorson's (2019) evaluation of including the cold pool extent
+  4. As with 3 but based Thorson's (2019) evaluation of including the cold pool extent
      as a covariate in creating an index.
 
   4. As with option 3 above including a preliminary treatment of using a 
-  spatio-temporal model on the acoustic-trawl survey data.
+  spatio-temporal model on just the acoustic-trawl survey data.
  
 
-The reference model (Model 16.1) differed from 
-models with different data
-treatments. The recruitment and spawning biomass estimates were general higher compared
+The reference model (Model 16.1) differed from models with different data
+treatments. The recruitment and spawning biomass estimates were generally higher compared
 to last year, and higher with the new data treatments, (Fig. \ref{fig:mod_eval0a}).
 The recent recruitment pattern (at age 1) shows an increase in  the 2014 value
 (representing the 2013 year-class) and a decline in the 2013 estimate (the
@@ -1191,25 +1188,25 @@ The recent recruitment pattern (at age 1) shows an increase in  the 2014 value
 set evaluated are given in Table \ref{tab:mod_fits} and 
 comparisons of management quantities are given in Table \ref{tab:mgt_quants}).
 
-The BTS and ATS sample from distinct overlapping subsets of the water
-column: the BT covers from bottom to midwater, and AT from midwater to surface. 
-The proportion of fish available to each gear type depends on their vertical
-distribution, which varies in space and time. In the current and
-past assessments, this uncertainty counted as a type of process error (but with
+The BTS and ATS sample from distinct overlapping subsets of the water column:
+the BT covers from bottom to midwater, and AT from midwater to surface.  The
+proportion of fish available to each gear type depends on their vertical
+distribution, which varies in space and time. In the current and past
+assessments, this uncertainty counted as a type of process error (but with
 somewhat subjective approach to specifying the degree of variability allowed).
-A new method under development (Monnahan et al. in prep) provides a new method
-that explicitly models the vertical distribution of fish in discrete, 
-spatially-correlated depth strata. 
-This model accounts for vertically-overlapping gears and is
-informed by both acoustic and bottom trawl data sets simultaneously. 
-These capabilities were added to the spatio-temporal standardization software
-VAST (Thorson 2019) which provides a convenient analysis platform and allows
-inclusion of temporal smoothing and environmental covariates, among other features. 
-Spatial patterns of pollock density for some selected years are shown in Fig.
-\ref{fig:cole1} and the relative availability to the gear types is shown in
-Fig. \ref{fig:cole2}). As the results become available, a model configuration
-using the combined index will be meshed as a direct alternative survey data 
-series fitting (e.g., by explicitly modeling survey availability). 
+A new method under development (Monnahan et al. in prep) that explicitly
+models the vertical distribution of fish in discrete,  spatially-correlated
+depth strata. This model accounts for vertically-overlapping gears and is
+informed by both acoustic and bottom trawl data sets simultaneously.  These
+capabilities were added to the spatio-temporal standardization software VAST
+(Thorson 2019) which provides a convenient analysis platform and allows
+inclusion of temporal smoothing and environmental covariates, among other
+features.  Spatial patterns of pollock density for some selected years are
+shown in Fig. \ref{fig:cole1} and the relative availability to the gear types
+is shown in Fig. \ref{fig:cole2}). As the results become available, a model
+configuration using the combined index will be meshed as a direct alternative
+survey data  series fitting (e.g., by explicitly modeling survey
+availability). 
 
 This new study prompted an evaluation of the degree to which BTS selectivity 
 (and effectively, catchability/availability) is allowed to vary over time. As
@@ -1283,7 +1280,7 @@ draws totaled 5,000). A pairwise comparison for some key parameters could be
 evaluated (along with their marginal distributions;  Fig.
 \ref{fig:mcmc_pairs}). To compare the point estimates (highest posterior
 density) with the mean of the posterior marginal distribution, overplotting
-the former on the latter for the 2018 spawning biomass estimate were similar
+the former on the latter for the 2019 spawning biomass estimate were similar
 (Fig. \ref{fig:mcmc_marg}). 
 
 
@@ -1306,16 +1303,14 @@ exploitation rate (SER, defined as the percent removal of egg production in
 each spawning year) has been mostly below 20\% since 1980 (Fig. \ref{fig:mod_ser}).
 During 2006 and 2007 the rate averaged more than 20\% and the average fishing
 mortality for ages 3--8 increased during the period of stock decline. The
-estimate for 2009 through 2016 was below 20\% due to the reductions in TACs
-relative to the maximum permissible ABC values and increased in the spawning
+estimate for 2009 through 2019 was below 20\% due to the reductions in TACs
+relative to the maximum permissible ABC values and increases in the spawning
 biomass. The average F (ages 3--8) increased in 2011 to above 0.25 when the TAC
-increased but has dropped since then and in 2016 is estimated at about 0.16.
+increased but has dropped since then and in 2019 is estimated at about 17\%.
 Age specific fishing mortality rates reflect these patterns and show some
 increases in the oldest ages from 2011--2013 but also indicate a decline in
 recent years (Fig. \ref{fig:mod_F}). Last year's  estimates of age 3+ pollock
-biomass were mostly higher than the estimates from previous years but this
-year's estimates indicate a reduction, presumably due to below-average
-recruitment since the 2013 year class (Fig. \ref{fig:mod_hist},
+biomass were similar to the estimates (Fig. \ref{fig:mod_hist},
 Table \ref{tab:biom_3plus}).
 
 Estimated numbers-at-age are presented in (Table \ref{tab:est_n}) and
@@ -1326,7 +1321,8 @@ To compare these estimates with mean values, and to show the relative
 age composition of the population, Fig. \ref{fig:N_comp} shows the 
 diminishing impact of the strong 2012 and 2013 year-classes in 2019 and 2020.
 Applying the weights-at-age estimates and accumulating over ages shows that 
-by 2020, the biomass will be below-average (Fig. \ref{fig:cum_N_wt}).
+by 2020, the biomass will be below-average (Fig. \ref{fig:cum_N_wt}) and spawning
+biomass will trend downwards (Fig. \ref{fig:cum_N_wt}).
 
 To evaluate past management and assessment performance it can be useful to
 examine estimated fishing mortality relative to reference values. For EBS
@@ -1343,7 +1339,7 @@ considerable uncertainty due to uncertainty in recruitment
 (Fig. \ref{fig:proj_ssb}). 
 
 ## Recruitment
-Model estimates indicate that both the 2008 and 2012 year classes are well
+Model estimates indicate that the 2008, 2012, and 2013 year classes are 
 above average (Fig. \ref{fig:mod_rec}). The stock-recruitment curve as
 fit within the integrated model shows a fair amount of variability both in the
 estimated recruitments and in the uncertainty of the curve (Fig.
@@ -1401,7 +1397,7 @@ of fishing shows that the 2019 spawning stock size is about
  since 1978 (Table \ref{tab:res_summ}). This compares with the 52\% 
 of $B_{100}$\% (based on the SPR expansion using mean recruitment from 1978--2016) 
 and 150\%
-of $B_{0}$ (based on the estimated stock-recruitment curve). The latter two
+of $B_{MSY}$ (based on the estimated stock-recruitment curve). The latter two
 values are based on expected recruitment from the mean value since 1978 or
 from the estimated stock recruitment relationship.
 
@@ -1469,7 +1465,7 @@ different Tiers would be:
 Tier & Year & MaxABC & OFL \\ 
   \hline
 1a & 2020 & 3,578,000 & 4,273,000 \\ 
-  1a & 2021 & 2,894,000 & 3,456,000 \\ 
+  1a & 2021 & 2,895,000 & 3,458,000 \\ 
    \hline
 3a & 2020 & 2,045,000 & 2,539,000 \\ 
   3a & 2021 & 1,716,000 & 2,098,000 \\ 
@@ -1562,7 +1558,8 @@ defined as $B_{35\%}$).
 For the purposes of these projections, we present results based on selecting
 the $F_{40\%}$ harvest rate as the $F_{ABC}$ value and use $F_{35\%}$ as a
 proxy for $F_{MSY}$. Scenarios 1 through 7 were projected 14 years from 
-2019 (Tables \ref{tab:tier3_C} through \ref{tab:tier3_SSB}). Under the
+2019 (Tables 35 through \ref{tab:tier3_SSB} for Model 16.1 and for 16.2--the 
+configuration that uses the NBS VAST data set). Under the
 catch set to Tier 3 ABC estimates, the expected spawning biomass will
 decline until 2020 and stabilize slightly above $B_{40\%}$ (in expectation,
 Fig. \ref{fig:tier3_proj}).
@@ -1603,7 +1600,7 @@ For scenarios 6 and 7, we conclude that pollock is above MSST for the year
 Scenario 7 (the mean spawning biomass in 2019 is above the $B_{35\%}$
 estimate; (Table \ref{tab:tier3_SSB}). Based on this, the EBS pollock stock is
 being fished below the overfishing level and the stock size is estimated to be
-above, abd stay above the overfished level.
+above, and stay above the overfished level.
 
 ## ABC Recommendation 
 ABC levels are affected by estimates of $F_{MSY}$ which
@@ -1613,9 +1610,8 @@ current stock size (both spawning and fishable) is estimated to be  at
 above-average levels and projections indicate declines.  Updated data and
 analysis result in an estimate of 2019 spawning biomass (3,220
 kt) which is about  150\% of $B_{MSY}$ 
-(2,147 kt).  
-This follows a period of increases from
-2008--2017 and is expected. The extent that the stock will declines
+(2,147 kt).  This follows a period of increases from
+2008--2017 and is expected. The extent that the stock will decline
 further depends  on recruitment, which is always uncertain.
 Some issues to consider in  the medium-term are that
 
@@ -1624,13 +1620,12 @@ of a "cold pool", very warm conditions on the inner part of the EBS shelf, and
 being a third consecutive  year with significant abundances found outside of
 the standard survey area.
 
-2.  It appears that recruitment has dropped since the 2013 year class and this
+2.  Recruitment since the 2013 year class is below average and this
 is expected to reduce spawning biomass below $B_{MSY}$ by 2021. 
 
 3.  The BTS data continue to show low abundances of pollock aged 10 and older
 (Table \ref{tab:bts_age}). Historically there had been good representation of
-older fish in data from this survey. This is somewhat expected given the poor
-year-classes observed during the period 2000--2005.
+older fish in data from this survey. 
 
 5.  The multispecies model suggests that the $B_{MSY}$ level is around 2.9
 million t instead of the  2.1 million t estimated in the
@@ -1640,19 +1635,19 @@ multispecies model).
 9.  Pollock are an important prey species for other species in the ecosystem and apparent changes in the 
     distribution may shift their availability as prey. 
 
-11. Finally, given the same estimated aggregate fishing effort in 2019, the 
-estimated stock trend is downwards except at low catch levels Furthermore, 
+11. Given the same estimated aggregate fishing effort in 2019, the 
+estimated stock trend is downwards except at low catch levels. Furthermore, 
 the ability to catch roughly the same amount as in 2019 
-through to 2022 will require more effort (effectively) with further declines 
-in spawning biomass .
+through to 2022 will require more effort (effectively) and will result
+in further declines in spawning biomass.
 
 ### Should the ABC be reduced below the maximum permissible ABC? 
 
 The SSC in its September 2018 minutes recommended that assessment authors and
-plan teams use the risk matrix table below when determining whether to
-recommend an ABC lower than the maximum permissible. This was implemented for this year's recommendation. 
+Plan Teams use the risk matrix table below when determining whether to
+recommend an ABC lower than the maximum permissible. 
 
-\clearpage
+\pagebreak
 
 \begin{table}[ht]
 \scalebox{0.88}{
@@ -1741,9 +1736,9 @@ particular, the 2012 year class. The stock is estimated to be well above
 $\it{B_{msy}}$ at present, but projections indicate a decline given recent
 catch levels and future trends will depend on pollock survival at egg, larval,
 and juvenile stages which may be compromised given the lack of a cold pool and
-a  considerable redistribution into the northern part of the Bering Sea. It
-seems likely that recruitment in the near term will be below average yet the
-population dynamics, being data driven, projects recruitment to be average.
+a  considerable redistribution into the northern part of the Bering Sea. 
+Recruitment in the near term could be below average yet projections
+assume average recruitment (with uncertainty).
 Additional age-specific aspects of the spawning population indicates that the
 stock has recovered somewhat from  a low diversity of ages (for both the
 population and the mean age of the spawning stock weighted by spawning output
@@ -1752,24 +1747,19 @@ concern as level 2, a substantially increased concern.**
 
 *Environmental/Ecosystem considerations* The winter of 2018/2019 began with
 near-average accumulation of sea ice in the Bering Sea  during December and
-January, but warm, moist winds from the southwest persisted throughout
-February and eroded sea ice to extremely low levels (only 2018 was lower). 
-Trends in sea ice and resulting extent of the cold pool were similar between
-2018 and 2019, although a small cold pool occurred in 2019 and may have
-impacted pollock movement and ultimate distribution in 2019. That said, the
-winters of 2017/2018 and 2018/2019 were remarkably similar in terms of sea ice
-extent and phenology (Thoman in 2019 EBS ESR) due to wind patterns. Therefore
-ecosystem  indicators from 2018 may provide insights into 2019 conditions for
+January, but warm moist winds from the southwest persisted throughout
+February and reduced sea ice extent to low levels (only 2018 was lower). 
+Winter sea ice patterns and the resulting extent of the cold pool in summer were similar between
+2018 and 2019 (Thoman in 2019 EBS ESR) due to these unusual wind patterns. 
+Ecosystem  indicators from 2018 may provide insights into 2019 conditions for
 pollock. In 2018, warm  water temperatures and higher salinity north of St.
 Lawrence Island may have  contributed to the northward movement of pollock
-into the northern Bering Sea  (see Eisner et al. in 2019 EBS ESR). With warm
-conditions persisting through  winter 2018/2019, it is possible that pollock
-remained in the northern Bering  Sea or were able to move along the shelf
+into the northern Bering Sea (see Eisner et al. in 2019 EBS ESR). With warm
+conditions persisting through  winter 2018/2019, pollock
+may have remained in the northern Bering Sea or moved along the shelf
 (north or south) early in the spring/summer of 2019. The 2018 year class 
-experienced favorable conditions between a cooler summer as age-0s (2018)
-followed by a  warmer spring as age-1s (2019) (see Yasumiishi in 2019 EBS
-ESR). 
-
+apparently experienced favorable conditions between a cooler summer as age-0s (2018)
+followed by a  warmer spring as age-1s in 2019 (see Yasumiishi in 2019 EBS ESR). 
 
 The 2018 year class was sampled using surface trawls in the southern and
 northern Bering Sea  as age-0 in late summer 2018. Summer of 2018 was warm
@@ -1794,15 +1784,12 @@ year class of  pollock.
  increased 53% while biomass increased 75%, indicating movement of adult  fish
  back over the southern shelf. In the northern Bering Sea, abundance increased
  59%, but  biomass decreased 11%, indicating successful recruitment of younger
- age classes of pollock  over the northern shelf (Britt Sept GPT
- presentation). 
-
-
+ age classes of pollock  over the northern shelf. 
 
 *Prey:* Small copepods form the prey base for larval to early juvenile pollock
 during spring.  Late juvenile pollock feed on a variety of planktonic
 crustaceans, including calanoid  copepods and euphausiids (principally
-Thysanoessa inermis and T. raschii). Pollock diets  become more piscivorous
+_Thysanoessa inermis_ and _T. raschii_). Pollock diets  become more piscivorous
 with age and cannibalism is commonly observed.
 
 The number of small copepods available to juvenile pollock across the shelf
@@ -1839,14 +1826,61 @@ walleye pollock have mirrored each other, suggesting the species respond
 similarly to  environmental conditions, the timeseries appear to decouple
 after approximately 2010 and may  indicate broad-scale transitions in the
 southeastern Bering Sea ecosystem (e.g., from  pelagic- to benthic-dominated
-production) (Figure 1). The mechanisms driving early life  history survival
+production;  Fig \ref{fig:poll_cod}). The mechanisms driving early life  history survival
 versus recruitment success of Pacific cod and walleye pollock may differ 
 based on pelagic versus benthic habitat associations (e.g., prey
 availability). The  decoupling of abundance timeseries after 2010 suggests a
 shift (or greater disparity) between  drivers of survival in these two
 populations.
 
-A widespread die-off event of short-tailed shearwaters began in the SEBS in June 2019 extended into the NBS and Chukchi Sea in August. These events may reflect 2018 conditions as shearwaters feed in the Bering Sea in summer before migrating to the southern hemisphere for breeding during the winter. Most sampled birds showed signs of emaciation; shearwaters are planktivorous birds and feed on euphausiids. 
+A widespread die-off event of short-tailed shearwaters began in the SEBS in
+June 2019 and extended into the NBS and Chukchi Sea in August. These events may
+reflect 2018 conditions as shearwaters feed in the Bering Sea in summer before
+migrating to the southern hemisphere for breeding during the winter. Most
+sampled birds showed signs of emaciation; shearwaters are planktivorous birds
+and feed on euphausiids.  
+
+The following are notes on ecosystem aspects that may affect the survival 
+of recruits from the 2018 and 2019 year classes.
+
+*2018 year class:*     
+
+  - The 2018 year class experienced favorable conditions between a cooler summer as age-0s (2018) followed by a warmer spring as age-1s (2019);     
+
+  - The 2018 year class of age-0 fish had low energy density across the shelf, average mean size, and below average biomass index;      
+
+  - Anomalous winds from the southwest during February 2019 may have bolstered productivity over the shelf, sustained metabolic demands, and subsidized overwinter survival of the 2018 year class;     
+
+  - The 2019 Shearwater die-off events could reflect feeding conditions (i.e., euphausiids) in the EBS in 2018.
+
+*2019 year class:*     
+
+  - Second winter of low sea ice extent in the eastern Bering Sea (only 2018 was lower);     
+
+  - A small cold pool occurred in 2019 and may have impacted pollock movement and distribution;     
+
+  - 2019 condition (length-weight residuals) of age-1 pollock was positive over the entire shelf; adult pollock condition was positive in the south, but negative in the north;     
+
+  - Over the southern shelf, abundance increased 53% while biomass increased 75%, indicating movement of adult fish to the region;     
+
+  - Over the northern shelf, abundance increased 59%, but biomass decreased 11\%, indicating successful recruitment of younger age classes;      
+
+  - Small copepod abundance was high, indicating good foraging conditions for larval  and juvenile pollock early in the year;      
+
+  - Large copepod abundance was low overall;     
+
+  - Low abundances of euphausiids were observed in 2018 (MACE acoustic survey) and 2019 (RPA RZA), but age-0 fish diets from 2018 contained over 50% euphausiids;     
+
+  - Lack of cold pool over the southern shelf and thermal barrier between the southern and northern shelves suggests spatial overlap and the potential for cannibalism are increased;     
+
+  - the 2019 year class may experience higher rates of cannibalism due to adult biomass returning over the shelf (75% increase in 2019) and the apparent strong 2018 year class;
+
+  - Fur seal consumption of adult pollock increases in years when juvenile pollock are less abundant;     
+
+  - The decoupling of abundance timeseries for Pacific cod and walleye pollock after 2010 suggests a shift in drivers of survival in these two populations. Mechanistic understanding of recruitment drivers is less well-known than for pollock.     
+
+**We therefore rated the Ecosystem concern as Level 2, substantially increased concern.**
+Some indicators showing adverse signals relevant to the stock but the pattern was inconsistent across indicators.
 
 *Fishery performance* As noted above, the 2019 B-season suggested that the
 fishery was dispersed and experienced relatively low catch rates compared to
@@ -1875,48 +1909,6 @@ summer (based on survey data), and the fact that the pollock fleet were more wid
 than seen in recent decades indicates that **fishery performance could be scored a 2, 
 substantially increased concerns.**
 
-
-### 2018 year class
-  -   The 2018 year class experienced favorable conditions between a cooler
-  summer as age-0s (2018) followed by a warmer spring as age-1s (2019);     
-  -  The 2018 year class of age-0 fish had low energy density across the shelf,
-  average mean size, and below average biomass index;     
-  -  Anomalous winds from the southwest during February 2019 may have bolstered
-  productivity over the shelf, sustained metabolic demands, and subsidized
-  overwinter survival of the 2018 year class;     
-  - 2019 Shearwater die-off events could reflect feeding conditions (i.e.,
-  euphausiids) in the EBS in 2018.
-
-### 2019 year class
-  -  Second winter of low sea ice extent in the eastern Bering Sea (only 2018
-  was lower);
-  - A small cold pool occurred in 2019 and may have impacted pollock movement
-  and distribution;
-  - 2019 condition (length-weight residuals) of age-1 pollock was positive
-  over the entire shelf; adult pollock condition was positive in the south, but negative in the north;
-  - Over the southern shelf, abundance increased 53% while biomass increased
-  75%, indicating movement of adult fish to the region;
-  - Over the northern shelf, abundance increased 59%, but biomass decreased 11\%,
-  indicating successful recruitment of younger age classes; 
-  - Small copepod abundance was high, indicating good foraging conditions for larval  
-   and juvenile pollock early in the year; 
-  - Large copepod abundance was low
-   overall;
-  - Low abundances of euphausiids were observed in 2018 (MACE acoustic survey)
-   and 2019 (RPA RZA), but age-0 fish diets from 2018 contained over 50% euphausiids;
-  - Lack of cold pool over the southern shelf and thermal barrier between the
-  southern and northern shelves suggests spatial overlap and the potential for cannibalism are increased;
-  -  Fur seal consumption of adult pollock increases in years when juvenile
-   pollock are less abundant;
-  -  The decoupling of abundance timeseries for Pacific cod and walleye pollock
-  after 2010 suggests a shift in drivers of survival in these two populations. 
-  Mechanistic understanding of recruitment drivers is less well-known than for pollock.
-
-
-**We therefore rated the Ecosystem concern as Level 2, substantially increased concern.**
-Some indicators showing adverse signals relevant to the
-stock but the pattern was inconsistent across indicators.
-
 These results are summarized as:
 \begin{table}[h]
 \begin{tabular}{L{1.125in}L{1.125in}L{1.125in}L{1.125in}L{1.125in} }
@@ -1943,12 +1935,11 @@ $0.85 \times \text{ABC}_{max}$ =
 3,041 
 kt). In the past,
 the SSC has considered factors similar to those presented above  and selected
-an ABC based on Tier 3 estimates. We recommend this added precaution again 
-again this year, (i.e., ABC = `r
-formatC(M$Tier3_ABC1,big.mark=",",digits=0,format="d")` kt)  which implies a
+an ABC based on Tier 3 estimates. We recommend this added precaution 
+again this year, (i.e., ABC = 2,045 kt)  which implies a
 buffer of  43\%.   The SSC requested
 "an explicit set of concerns that explain the ABC adjustment." In response, we
-direct attention to the decision table and the fact that the biological basis 
+direct attention to the decision table \ref{tab:dec_table}) and the fact that the biological basis 
 for the continued stock productivity has most to do with the OY constraint
 which has  effectively maintained fishery production at around 1.3 million t
 since 1990. Demonstrations that would allow fishing to near $F_{MSY}$ catch
@@ -1963,12 +1954,12 @@ of the 38 years since 1981 has the stock been below the $B_{MSY}$ level (13%
 of the years). The mean spawning biomass over this period has  averaged about
 30% higher than the estimated $B_{MSY}$. In terms of an actual "management
 target", Punt et al. (2013) developed some robust estimators for $B_{MEY}$
-(Maximum Economic Yield) noting that a typical target would be 1.2$/times
+(Maximum Economic Yield) noting that a typical target would be 1.2$\times
 B_{MSY}$. In this case that would make the female spawning biomass target at
 2.576 million t. It therefore  seems worth considering
 making an explicit harvest control rule that achieves the  productivity and
-ecosystem stability given yields biomass observed over  the past 30 years
-along with some basis of economics. 
+ecosystem stability given the catches and biomass estimates 
+observed over  the past 30 years. 
 
 Recognizing that the actual catch will be constrained by other factors (the 2
 million t BSAI groundfish catch limit and bycatch avoidance measures), 
@@ -1991,13 +1982,14 @@ term it appears unlikely that the spawning stock will be below $B_{MSY}$ (rows
 is more likely than not that the spawning biomass will be lower than the
 historical mean (fifth row). The range of catches examined have relatively
 small or no impact on  the age diversity indicators. However, for catch to
-equal the 2018 value, more fishing effort will likely be required and there is
-an good chance that the proportion of the stock less than age 6 will be
-greater than the historical average. In terms of catch advice, aiming for  a
-catch between 1.25 and 1.374 million t results in a roughly even chance that
-the stock in  2021 will be equal to the long term mean.
+equal the 2019 value, more fishing effort will likely be required and there is
+a good chance that the proportion of the stock less than age 6 will be
+greater than the historical average. In terms of catch advice, the results presented in 
+the decision table indicates that catches above 1.0 million t will very likely result in 
+2021 spawning stock estimates being below the long term mean (but above $B_{MSY}$).
   
-# Ecosystem considerations
+# Additional ecosystem considerations
+
 In general, a number of key issues for ecosystem conservation and management can be highlighted. These include:    
 
   * Preventing overfishing;    
@@ -2057,7 +2049,6 @@ and pollock fishery effects on ecosystem) is given in (Table \ref{tab:pscbycatch
 food-web models discussed above, examining predators and prey in isolation may
 overly simplify relationships. This table serves to highlight the main
 connections and the status of our understanding or lack thereof.
-
 
 ## Ecosystem effects on the EBS pollock stock 
 
@@ -2175,14 +2166,14 @@ in this assessment.  Finally, thanks to the many colleagues who provided edits
 and suggestions to improve this document.
 
 
-
-# References
+\clearpage
+# References {#references}
 
 \setlength{\parindent}{-0.2in}
 \setlength{\leftskip}{0.2in}
 \setlength{\parskip}{3pt}
 \noindent
- 
+
 Alaska Fisheries Science Center (AFSC). 2016. Wholesale market profiles for Alaska groundfish and crab fisheries. 134 p. Alaska Fish. Sci. Cent., NOAA, Natl. Mar. Fish. Serv., 7600 San Point Way NE, Seattle WA 98115. 
 
 Aydin, K. Y., et al.2002. A comparison of the Eastern Bering and western Bering Sea shelf and slope ecosystems through the use of mass-balance food web models. U.S. Department of Commerce, Seattle, WA. (NOAA Technical Memorandum NMFS-AFSC-130) 78p. 
@@ -2231,6 +2222,8 @@ Dorn, M.W. 1992. Detecting environmental covariates of Pacific whiting Merlucciu
 
 Duffy-Anderson, J. T., Barbeaux, S. J., Farley, E., Heintz, R., Horne, J. K., Parker-Stetter, S. L., … Smart, T. I. (2016). The critical first year of life of walleye pollock (Gadus chalcogrammus) in the eastern Bering Sea: Implications for recruitment and future research. Deep-Sea Research Part II: Topical Studies in Oceanography, 134, 283–301. [link](http://doi.org/10.1016/j.dsr2.2015.02.001).
 
+Eisner, L., J. Gann, K. Cieciel. 2019. “Variations in Temperature and Salinity During Late Summer/ Early Fall 2002-2018 in the Eastern Bering Sea - BASIS.” In Siddon, E., and Zador, S., 2019. Ecosystem Status Report 2019: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 605 W 4th Ave, Suite 306, Anchorage, AK 99501.  
+
 Fissel, B., M. Dalton, R. Felthoven, B. Garber-Yonts, A. Haynie, A. Himes-Cornell, S. Kasperski, J. Lee, D. Lew,  and C. Seung. 2014. Stock assessment and fishery evaluation report for the Groundfish fisheries of the Gulf of Alaska and Bering Sea/Aleutian Islands area: Economic status of the groundfish fisheries off Alaska, 2013.
 
 Fournier, D.A. and C.P. Archibald. 1982. A general theory for analyzing catch-at-age data. Can. J. Fish. Aquat. Sci. 39:1195-1207.
@@ -2266,8 +2259,6 @@ Hollowed, A. B., Aydin, K. Y., Essington, T. E., Ianelli, J. N., Megrey, B. a, P
 Hollowed, A. B., Barbeaux, S. J., Cokelet, E. D., Farley, E., Kotwicki, S., Ressler, P. H., … Wilson, C. D. 2012. Effects of climate variations on pelagic ocean habitats and their role in structuring forage fish distributions in the Bering Sea. Deep Sea Research Part II: Topical Studies in Oceanography, 65-70, 230–250. doi:10.1016/j.dsr2.2012.02.008
 
 Honkalehto, T., Ressler, P.H., Towler, R.H., Wilson, C.D., 2011. Using acoustic data from fishing vessels to estimate walleye pollock (_Theragra chalcogramma_) abundance in the eastern Bering Sea. 2011. Can. J. Fish. Aquat. Sci. 68: 1231–1242
-
-
 
 Honkalehto, T., D. McKelvey, and N. Williamson. 2005. Results of the echo integration-trawl survey of walleye pollock (_Theragra chalcogramma_) on the U.S. and Russian Bering Sea shelf in June and July 2004. AFSC Processed Rep. 2005-02, 43 p. 
 
@@ -2329,6 +2320,10 @@ Kotwicki, S. and Lauth R.R. 2013. Detecting temporal trends and environmentally-
 
 Kotwicki, S., Ianelli, J. N., \& Punt, A. E. 2014. Correcting density-dependent effects in abundance estimates from bottom-trawl surveys. ICES Journal of Marine Science, 71(5), 1107–1116.
 
+Kuhn, C., J. Sterling, E. McHuron. 2019. "Contrasting Trends in Northern Fur Seal Foraging E ort Between St. Paul and Bogoslof Islands: 2019 Preliminary Results." In Siddon, E., and Zador, S., 2019. Ecosystem Status Report 2019: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 605 W 4th Ave, Suite 306, Anchorage, AK 99501.
+
+Laman, N. 2019. "Eastern and Northern Bering Sea Groundsh Condition." In Siddon, E., and Zador, S., 2019. Ecosystem Status Report 2019: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 605 W 4th Ave, Suite 306, Anchorage, AK 99501.
+
 Lang, G.M., Livingston, P.A., Dodd, K.A., 2005. Groundfish food habits and predation on commercially important prey species in the eastern Bering Sea from 1997 through 2001. U.S. Dep. Commer., NOAA Tech. Memo. NMFS-AFSC-158, 230p. [URL](http://www.afsc.noaa.gov/Publications/AFSC-TM/NOAA-TM-AFSC-158.pdf)
 
 Lang, G.M., R.D. Brodeur, J.M. Napp, and R. Schabetsberger. (2000). Variation in groundfish predation on juvenile walleye pollock relative to hydrographic structure near the Pribilof Islands, Alaska. ICES Journal of Marine Science. 57:265-271.
@@ -2367,7 +2362,7 @@ Miller, T.J. 2005. Estimation of catch parameters from a fishery observer progra
 
 Mohn, R. 1999. The retrospective problem in sequential population analysis: An investigation using cod fishery and simulated data. Ices J. Mar Sci. 56, 473-488.
 
-Moss, J.H., E.V. Farley, Jr., A.M. Feldmann, and J.N. Ianelli. (in review). Spatial distribution, energetic status, and food habits of eastern Bering Sea age-0 walleye pollock. Transactions of the American Fisheries Society.
+Moss, J.H., E.V. Farley, Jr., A.M. Feldmann, and J.N. Ianelli. 2009. Spatial distribution, energetic status, and food habits of eastern Bering Sea age-0 walleye pollock. Transactions of the American Fisheries Society.
 
 Mueter, F. J., and M. Litzow. 2008. Sea ice retreat alters the biogeography of the Bering Sea continental shelf. Ecological Applications 18:309–320.
 
@@ -2401,7 +2396,11 @@ Schnute, J.T. and Richards, L.J. 1995. The influence of error on population esti
 
 Seung, C., \& Ianelli, J. (2016). Regional economic impacts of climate change: a computable general equilibrium analysis for an Alaskan fishery. Natural Resource Modeling, 29(2), 289–333. [link](http://doi.org/10.1111/nrm.12092  ).
 
+Sewall, F., K. Cieciel, T. Jarvis, J. Murphy, H. Schultz, J. Watson. 2019. "Total Energy Trends Among Juvenile Fishes in the Northern Bering Sea." In Siddon, E., and Zador, S., 2019. Ecosystem Status Report 2019: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 605 W 4th Ave, Suite 306, Anchorage, AK 99501.
+
 Siddon, E. C., Heintz, R. a., & Mueter, F. J. (2013). Conceptual model of energy allocation in walleye pollock (_Theragra chalcogramma_) from age-0 to age-1 in the southeastern Bering Sea. Deep Sea Research Part II: Topical Studies in Oceanography, 94, 140–149. [link](http://doi.org/10.1016/j.dsr2.2012.12.007).
+
+Siddon, E.C., T. Jarvis, R. Heintz, E. Farley, B. Cormack. 2019. "Condition of Age-0 Walleye Pollock and Pacic Cod." In Siddon, E., and Zador, S., 2019. Ecosystem Status Report 2019: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 605 W 4th Ave, Suite 306, Anchorage, AK 99501.  
 
 Smart, T. I., Siddon, E. C., & Duffy-Anderson, J. T. (2013). Vertical distributions of the early life stages of walleye pollock (_Theragra chalcogramma_) in the Southeastern Bering Sea. Deep Sea Research Part II: Topical Studies in Oceanography, 94, 201–210. [link](http://doi.org/10.1016/j.dsr2.2013.03.030).
 
@@ -2426,6 +2425,8 @@ Szuwalski, C.S, Ianelli, J.N, and Punt, A.E. 2018. Reducing retrospective patter
 Swartzman, G.L., A.G. Winter, K.O. Coyle, R.D. Brodeur, T. Buckley, L. Ciannelli, G.L. Hunt, Jr., J. Ianelli, and S.A. Macklin (2005). Relationship of age-0 pollock abundance and distribution around the Pribilof Islands with other shelf regions of the Eastern Bering Sea. Fisheries Research, Vol. 74, pp. 273-287.
 
 Takahashi, Y, and Yamaguchi, H. 1972. Stock of the Alaska pollock in the eastern Bering Sea. Bull. Jpn. Soc. Sci. Fish. 38:418-419.
+
+Thoman, R.L. 2019. “Sea Ice Metrics for the Bering Sea.” In Siddon, E., and Zador, S., 2019. Ecosystem Status Report 2019: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 605 W 4th Ave, Suite 306, Anchorage, AK 99501.
 
 Thompson, G.G. 1996. Risk-averse optimal harvesting in a biomass dynamic model. Unpubl. Manuscr., 54 p. Alaska Fisheries Science Center, 7600 Sand Pt. Way NE, Seattle WA, 98115. Distributed as Appendix B to the Environmental Analysis Regulatory Impact Review of Ammendments 44/44 to the Fishery Management Plans for the Groundfish Fisheries of the Bering Sea and Aleutian Islands Area and the Gulf of Alaska. 
 
@@ -2457,11 +2458,15 @@ Wespestad, V. G., J. Ianelli, L. Fritz, T. Honkalehto, G. Walters. 1996. Bering 
 
 Wespestad, V. G., L. W. Fritz, W. J. Ingraham, and B. A. Megrey. 2000. On relationships between cannibalism, climate variability, physical transport, and recruitment success of Bering Sea walleye pollock (_Theragra chalcogramma_). ICES Journal of Marine Science 57:272-278.
 
+Whitehouse, A., G. Lang. 2019."Mean Length of the Fish Community."  In Siddon, E., and Zador, S., 2019. Ecosystem Status Report 2019: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 605 W 4th Ave, Suite 306, Anchorage, AK 99501.
+
 Williamson, N., and J. Traynor. 1996. Application of a one-dimensional geostatistical procedure to fisheries acoustic surveys of Alaskan pollock. ICES J. Mar. Sci. 53:423-428.
 
 Winter, A.G., G.L. Swartzman, and L. Ciannelli (2005). Early- to late-summer population growth and prey consumption by age-0 pollock (_Theragra chalcogramma_), in two years of contrasting pollock abundance near the Pribilof Islands, Bering Sea. /Fisheries Oceanography/, Vol. 14, No. 4, pp. 307-320.
 
 Yasumiishi, E. M., K. R. Criddle, N. Hillgruber, F. J. Mueter, and J. H. Helle. 2015. Chum salmon (Oncorhynchus keta) growth and temperature indices as indicators of the year–class strength of age-1 walleye pollock (_Gadus chalcogrammus_) in the eastern Bering Sea. Fish. Oceanogr. 24:242-256.
+
+Yasumiishi, E. 2019. “ Pre- and Post-Winter Temperature Change Index and the Recruitment of Bering Sea Pollock.” In Siddon, E., and Zador, S., 2019. Ecosystem Status Report 2019: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 605 W 4th Ave, Suite 306, Anchorage, AK 99501.  
 
 Zeppelin, T. K. and R.R. Ream. 2006. Foraging habitats based on the diet of female northern fur seals (Callorhinus ursinus) on the Pribilof Islands, Alaska. Journal of Zoology 270(4): 565-576.
 
@@ -2470,9 +2475,8 @@ Zeppelin, T. K. and R.R. Ream. 2006. Foraging habitats based on the diet of fema
 \setlength{\parskip}{3pt}
 \noindent
 
-# Tables
-
 \clearpage
+# Tables {#tables}
 
 \renewcommand\thetable{\arabic{table}} 
 \setcounter{table}{0}  
@@ -2670,8 +2674,8 @@ Year     &    A season      & B-season          & Total             \\
 2015     & 490,400 t (15\%) & 765,900 t (45\%)  & 1,256,300 t (33\%) \\
 2016     & 510,700 t (35\%) & 784,000 t (62\%)  & 1,294,700 t (51\%) \\
 2017     & 555,300 t (51\%) & 750,800 t (54\%)  & 1,306,100 t (53\%)  \\
-2018     & 573,000 t (63\%) & 746,500 t (46\%)  & 1,319,500 t (54\%)  \\
-2019     & XXX,000 t (63\%) & XXX,500 t (46\%)  & 1,XXX,XXX t (54\%)  \\
+2018     & 573,000 t (63\%) & 746,500 t (46\%)  & 1,319,500 t (53\%)  \\
+2019     & 573,400 t (68\%) & 762,800 t (51\%)  & 1,336,200 t (58\%)  \\
 \hline
 \end{tabular}
 \end{table}
@@ -2729,7 +2733,7 @@ Years covered include the
 
 \begin{tabular}{lrrrrrrrr}
   \hline
- & Avg 05-07 & Avg 08-10 & Avg 08-10 & 2014 & 2015 & 2016 & 2017 & 2018 \\ 
+ & Avg 05-07 & Avg 08-10 & Avg 11-13 & 2014 & 2015 & 2016 & 2017 & 2018 \\ 
   \hline
 All sectors &  &  &  &  &  &  &  &  \\ 
   Catch & 1,444 & 872 & 1,227 & 1,300 & 1,323 & 1,355 & 1,361 & 1,381 \\ 
@@ -2760,7 +2764,7 @@ production). Years covered include the
 \scalebox{0.84}{
 \begin{tabular}{lrrrrrrrr}
   \hline
- & Avg 05-07 & Avg 08-10 & Avg 08-10 & 2014 & 2015 & 2016 & 2017 & 2018 \\ 
+ & Avg 05-07 & Avg 08-10 & Avg 11-13 & 2014 & 2015 & 2016 & 2017 & 2018 \\ 
   \hline
  & BSAI &  &  &  &  &  &  &  \\ 
   All products volume & 498.25 & 355.99 & 487.56 & 525.54 & 520.94 & 534.89 & 523.94 & 532.44 \\ 
@@ -2803,7 +2807,7 @@ and roe).  Years covered include the
 
 \begin{tabular}{lrrrrrrrrr}
   \hline
- & Avg 05-07 & Avg 08-10 & Avg 08-10 & 2014 & 2015 & 2016 & 2017 & 2018 & 2019* \\ 
+ & Avg 05-07 & Avg 08-10 & Avg 11-13 & 2014 & 2015 & 2016 & 2017 & 2018 & 2019* \\ 
   \hline
 Global pollock catch         & 2,854 & 2,662 & 3,241 & 3,245 & 3,373 & 3,476 & 3,488 & - & - \\ 
   U.S. share                 & 52\% & 35\% & 40\% & 44\% & 44\% & 44\% & 44\% & - & - \\ 
@@ -2851,7 +2855,7 @@ retained catch);
   
 \begin{tabular}{lrrrrrrrr}
   \hline
-sector      & Avg 05-07 & Avg 08-10 & Avg 08-10 & 2014 & 2015 & 2016 & 2017 & 2018 \\ 
+sector      & Avg 05-07 & Avg 08-10 & Avg 11-13 & 2014 & 2015 & 2016 & 2017 & 2018 \\ 
   \hline
 All sectors & 1.25 & 2.03 & 1.76 & 2.19 & 1.84 & 2.06 & 1.92 & 1.93 \\ 
   Shoreside & 2.07 & 2.58 & 2.00 & 2.42 & 1.94 & 2.28 & 2.09 & 2.07 \\ 
@@ -3117,7 +3121,8 @@ Year & Bering Sea & Year & Bering Sea & Year & Bering Sea \\
 1979 & 458        & 1997 & 262        & 2015 & 256        \\
 1980 & 139        & 1998 & 121        & 2016 & 198       \\
 1981 & 466        & 1999 & 299        & 2017 & 226       \\
-     &            &      &            & 2018 &           \\
+     &            &      &            & 2018 & 206       \\
+     &            &      &            & 2019 &   -       \\
 \hline
 \end{tabular}
 \end{table}
@@ -3328,11 +3333,6 @@ Avg & 0.016 & 0.089 & 0.223 & 0.391 & 0.504 & 0.611 & 0.728 & 0.847 & 0.973 & 1.
 
 \clearpage
 
-
-```
-## Error in `[.data.frame`(t3, , i): undefined columns selected
-```
-
 \begin{table}[ht]
 \centering
 \caption{Biomass (age 1+) of Eastern Bering Sea pollock as estimated by surveys 1979--2019 (millions of t). Note that the bottom-trawl survey data only represent biomass from the survey strata (1--6) areas in 1982--1984, and 1986. For all other years the estimates include strata 8--9. DDC indicates the values obtained from the Kotwicki et al. Density-Dependence Correction method and the VAST columns are for the standard survey area including the Northern Bering Sea (NBS) extension.} 
@@ -3340,51 +3340,52 @@ Avg & 0.016 & 0.089 & 0.223 & 0.391 & 0.504 & 0.611 & 0.728 & 0.847 & 0.973 & 1.
 \scalebox{0.9}{
 \begin{tabular}{rrrrrrr}
   \hline
-X...Year & Design.Based & DDC & VAST.NBS & VAST.NBS.CPE & ATS & VAST.ATS \\ 
+Year & Design.Based & DDC & VAST.NBS & VAST.NBS.CPE & ATS & VAST.ATS \\ 
   \hline
-1982 & 4069 & 4069 & 3,916 & 3,946 &      -  &      -  \\ 
-  1983 & 8409 & 8409 & 10,303 & 9,398 &      -  &      -  \\ 
-  1984 & 6409 & 6409 & 7,791 & 6,886 &      -  &      -  \\ 
-  1985 & 7189 & 7189 & 9,070 & 7,993 &      -  &      -  \\ 
-  1986 & 6826 & 6826 & 7,658 & 7,276 &      -  &      -  \\ 
-  1987 & 7892 & 7892 & 7,967 & 7,694 &      -  &      -  \\ 
-  1988 & 11088 & 11088 & 11,561 & 11,784 &      -  &      -  \\ 
-  1989 & 9796 & 9796 & 10,450 & 10,745 &      -  &      -  \\ 
-  1990 & 11900 & 11900 & 12,964 & 11,815 &      -  &      -  \\ 
-  1991 & 7390 & 7390 & 7,772 & 7,476 &      -  &      -  \\ 
-  1992 & 6211 & 6211 & 7,121 & 6,628 &      -  &      -  \\ 
-  1993 & 7089 & 7089 & 8,319 & 7,967 &      -  &      -  \\ 
-  1994 & 7100 & 7100 & 7,952 & 7,513 &  3,640  &  3,640  \\ 
-  1995 & 9107 & 9107 & 7,885 & 7,258 &      -  &      -  \\ 
-  1996 & 4079 & 4079 & 4,387 & 4,268 &  2,955  &  2,955  \\ 
-  1997 & 5019 & 5019 & 5,108 & 4,849 &  3,591  &  3,591  \\ 
-  1998 & 3510 & 3510 & 3,731 & 3,586 &      -  &      -  \\ 
-  1999 & 5455 & 5455 & 5,532 & 5,932 &  4,202  &  4,202  \\ 
-  2000 & 7355 & 7355 & 8,255 & 7,747 &  3,614  &  3,614  \\ 
-  2001 & 5440 & 5440 & 6,282 & 6,168 &      -  &      -  \\ 
-  2002 & 6771 & 6771 & 7,392 & 6,878 &  4,330  &  4,330  \\ 
-  2003 & 13508 & 13508 & 12,305 & 12,159 &      -  &      -  \\ 
-  2004 & 5106 & 5106 & 5,866 & 5,866 &  4,016  &  4,016  \\ 
-  2005 & 6696 & 6696 & 7,608 & 7,272 &      -  &      -  \\ 
-  2006 & 3886 & 3886 & 4,582 & 4,251 &  1,887  &  1,887  \\ 
-  2007 & 6145 & 6145 & 7,653 & 6,835 &      -  &      -  \\ 
-  2008 & 3994 & 3994 & 4,751 & 4,830 &  2,288  &  2,083  \\ 
-  2009 & 2990 & 2990 & 3,617 & 2,888 &  1,407  &    956  \\ 
-  2010 & 5132 & 5132 & 5,829 & 5,328 &  1,323  &    556  \\ 
-  2011 & 3949 & 3949 & 4,533 & 4,485 &  2,651  &  2,010  \\ 
-  2012 & 4614 & 4614 & 5,186 & 5,076 &  2,299  &  2,337  \\ 
-  2013 & 6115 & 6115 & 6,668 & 6,475 &      -  &      -  \\ 
-  2014 & 10331 & 10331 & 12,172 & 12,007 &  4,727  &  4,905  \\ 
-  2015 & 8587 & 8587 & 10,589 & 10,857 &      -  &      -  \\ 
-  2016 & 6608 & 6608 & 9,128 & 9,539 &  4,829  &  5,514  \\ 
-  2017 & 6256 & 6256 & 9,011 & 8,968 &      -  &      -  \\ 
-  2018 & 4187 & 4187 & 5,826 & 5,823 &  2,499  &  3,663  \\ 
-  2019 & 7381 & 7381 & 9,732 & 9,511 &      -  &      -  \\ 
-  Avg. & 6673 & 6673 & 7,539 & 7,262 &  3,141  &  3,141  \\ 
+1982 & 2,912 & 4,069 & 3,916 & 3,946 &       -  &        -  \\ 
+  1983 & 5,921 & 8,409 & 10,303 & 9,398 &       -  &        -  \\ 
+  1984 & 4,542 & 6,408 & 7,791 & 6,886 &       -  &        -  \\ 
+  1985 & 5,198 & 7,189 & 9,070 & 7,993 &       -  &        -  \\ 
+  1986 & 4,835 & 6,825 & 7,658 & 7,276 &       -  &        -  \\ 
+  1987 & 5,498 & 7,892 & 7,967 & 7,694 &       -  &        -  \\ 
+  1988 & 7,183 & 11,088 & 11,561 & 11,784 &       -  &        -  \\ 
+  1989 & 6,550 & 9,795 & 10,450 & 10,745 &       -  &        -  \\ 
+  1990 & 7,296 & 11,899 & 12,964 & 11,815 &       -  &        -  \\ 
+  1991 & 5,129 & 7,389 & 7,772 & 7,476 &       -  &        -  \\ 
+  1992 & 4,526 & 6,210 & 7,121 & 6,628 &       -  &        -  \\ 
+  1993 & 5,294 & 7,089 & 8,319 & 7,967 &       -  &        -  \\ 
+  1994 & 5,027 & 7,100 & 7,952 & 7,513 &    3,640 &     3,640 \\ 
+  1995 & 5,477 & 9,107 & 7,885 & 7,258 &       -  &        -  \\ 
+  1996 & 3,125 & 4,079 & 4,387 & 4,268 &    2,955 &     2,955 \\ 
+  1997 & 3,562 & 5,019 & 5,108 & 4,849 &    3,591 &     3,591 \\ 
+  1998 & 2,687 & 3,509 & 3,731 & 3,586 &       -  &        -  \\ 
+  1999 & 3,798 & 5,454 & 5,532 & 5,932 &    4,202 &     4,202 \\ 
+  2000 & 5,103 & 7,355 & 8,255 & 7,747 &    3,614 &     3,614 \\ 
+  2001 & 4,196 & 5,439 & 6,282 & 6,168 &       -  &        -  \\ 
+  2002 & 4,953 & 6,770 & 7,392 & 6,878 &    4,330 &     4,330 \\ 
+  2003 & 8,392 & 13,508 & 12,305 & 12,159 &       -  &        -  \\ 
+  2004 & 3,862 & 5,105 & 5,866 & 5,866 &    4,016 &     4,016 \\ 
+  2005 & 4,868 & 6,696 & 7,608 & 7,272 &       -  &        -  \\ 
+  2006 & 3,045 & 3,886 & 4,582 & 4,251 &    1,887 &     1,887 \\ 
+  2007 & 4,338 & 6,145 & 7,653 & 6,835 &       -  &        -  \\ 
+  2008 & 3,023 & 3,994 & 4,751 & 4,830 &    2,288 &     2,083 \\ 
+  2009 & 2,282 & 2,989 & 3,617 & 2,888 &    1,407 &       956 \\ 
+  2010 & 3,737 & 5,131 & 5,829 & 5,328 &    1,323 &       556 \\ 
+  2011 & 3,112 & 3,948 & 4,533 & 4,485 &    2,651 &     2,010 \\ 
+  2012 & 3,487 & 4,613 & 5,186 & 5,076 &    2,299 &     2,337 \\ 
+  2013 & 4,575 & 6,114 & 6,668 & 6,475 &       -  &        -  \\ 
+  2014 & 7,429 & 10,331 & 12,172 & 12,007 &    4,727 &     4,905 \\ 
+  2015 & 6,394 & 8,587 & 10,589 & 10,857 &       -  &        -  \\ 
+  2016 & 4,910 & 6,607 & 9,128 & 9,539 &    4,829 &     5,514 \\ 
+  2017 & 4,814 & 6,256 & 9,011 & 8,968 &       -  &        -  \\ 
+  2018 & 3,112 & 4,187 & 5,826 & 5,823 &    2,499 &     3,663 \\ 
+  2019 & 5,458 & 7,380 & 9,732 & 9,511 &       -  &        -  \\ 
+  Avg. & 4,728 & 6,673 & 7,539 & 7,262 & 3141.125 & 3141.1875 \\ 
    \hline
 \end{tabular}
 }
 \end{table}
+
 <!--
 
 \begin{table}[ht]  
@@ -3576,9 +3577,9 @@ Year    & AT scaled biomass index & AVO index &   $CV_{AVO}$  \\
 2014	&	3.439	(5\%)	&	0.897	5\%	&	13\%	\\
 2015	&	$-no\,	survey-$&		0.953	5\%	&	13\%	\\
 2016	&	4.063	(2\%)	&	0.776	5\%	&	13\%	\\
-2017	&	$-no\,	survey-$&		0.73	5\%	&	13\%	\\
+2017	&	$-no\,	survey-$&		0.730	5\%	&	13\%	\\
 2018	&	2.499	(2\%)	&	0.672	5\%	&	14\%	\\
-2019	&	$-no\,	survey-$&		0.68	5\%	&	13\%	\\
+2019	&	$-no\,	survey-$&		0.680	5\%	&	13\%	\\
 \hline
 \end{tabular}
 \end{table}
@@ -3586,11 +3587,12 @@ Year    & AT scaled biomass index & AVO index &   $CV_{AVO}$  \\
 
 \clearpage
 
-<!-- 
--->
+<!-- -->
 
 \clearpage
+
 <!-- sample size -->
+
 \begin{table}[ht]
 \centering
 \caption{Pollock sample sizes assumed for the age-composition data likelihoods from the fishery, bottom-trawl survey, and AT surveys, 1964--2019. Note fishery sample size for 1964--1977 was fixed at 10.} 
@@ -3693,6 +3695,7 @@ Year & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
 }
 \end{table}
 \clearpage
+
 \begin{table}[ht]
 \centering
 \caption{Goodness of fit to primary data used for assessment model parameter estimation profiling over different constraints on the extent bottom-trawl survey selectivity/availability is allowed to change;  EBS pollock.} 
@@ -3849,7 +3852,7 @@ Year & Current & CV & 2018 & CV & 2017 & CV & 2016 & CV & 2015 & CV & 2014 & CV 
 
 \begin{table}[ht]
 \centering
-\caption{Estimated billions of EBS pollock at age (columns 2--11) from the 2018 assessment model.} 
+\caption{Estimated billions of EBS pollock at age (columns 2--11) from the 2019 assessment model.} 
 \label{tab:est_n}
 \scalebox{0.8}{
 \begin{tabular}{rrrrrrrrrrr}
@@ -3921,7 +3924,7 @@ Year & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10+ \\
 
 \begin{table}[ht]
 \centering
-\caption{Estimated millions of EBS pollock caught at age (columns 2--11) from the 2018 assessment model.} 
+\caption{Estimated millions of EBS pollock caught at age (columns 2--11) from the 2019 assessment model.} 
 \label{tab:est_catage}
 \scalebox{0.8}{
 \begin{tabular}{rrrrrrrrrrr}
@@ -4101,7 +4104,7 @@ Component & Model 16.1 & VAST \\
   2020 Tier 1 $F_{OFL}$ & 0.528 & 0.449 \\ 
   2020 Tier 1 OFL & 4,273,000 & 4,085,000 \\ 
   MSY R (HM) & 0.376 & 0.326 \\ 
-  Recommended ABC & 2,045,000 & 2,045,000 \\ 
+  Recommended ABC & 2,045,000 & 2,043,000 \\ 
    \hline
 \end{tabular}
 \end{table}
@@ -4330,12 +4333,12 @@ ABC & Scenario.1 & Scenario.2 & Scenario.3 & Scenario.4 & Scenario.5 & Scenario.
 
 \begin{table}[ht]
 \centering
-\caption{Bycatch estimates (t) of FMP species caught in the BSAI directed pollock fishery, 1997--2018 based on then NMFS Alaska Regional Office reports from observers (2018 data are preliminary). } 
+\caption{Bycatch estimates (t) of other target species caught in the BSAI directed pollock fishery, 1997--2019 based on then NMFS Alaska Regional Office reports from observers (2019 data are preliminary).} 
 \label{tab:fmpbycatch}
 \scalebox{0.85}{
 \begin{tabular}{rrrrrrrrrrr}
   \hline
-\begin{sideways} X...Year \end{sideways} & \begin{sideways} Pacific.Cod \end{sideways} & \begin{sideways} Rock.Sole \end{sideways} & \begin{sideways} Flathead.Sole \end{sideways} & \begin{sideways} Arrowtooth.Flounder \end{sideways} & \begin{sideways} Pacific.Ocean.Perch \end{sideways} & \begin{sideways} Yellowfin.Sole \end{sideways} & \begin{sideways} Sablefish \end{sideways} & \begin{sideways} Sharks \end{sideways} & \begin{sideways} Sculpin \end{sideways} & \begin{sideways} Other \end{sideways} \\ 
+\begin{sideways} Year \end{sideways} & \begin{sideways} Pacific.Cod \end{sideways} & \begin{sideways} Rock.Sole \end{sideways} & \begin{sideways} Flathead.Sole \end{sideways} & \begin{sideways} Arrowtooth.Flounder \end{sideways} & \begin{sideways} Pacific.Ocean.Perch \end{sideways} & \begin{sideways} Yellowfin.Sole \end{sideways} & \begin{sideways} Sablefish \end{sideways} & \begin{sideways} Sharks \end{sideways} & \begin{sideways} Sculpin \end{sideways} & \begin{sideways} Other \end{sideways} \\ 
   \hline
 1991 & 24,310 & 5,120 & 0 & 5,719 & 418 & 417 & 9 & 0 & 0 & 10,722 \\ 
   1992 & 24,005 & 7,233 & 2 & 4,311 & 173 & 892 & 7 & 0 & 0 & 14,716 \\ 
@@ -4377,7 +4380,7 @@ ABC & Scenario.1 & Scenario.2 & Scenario.3 & Scenario.4 & Scenario.5 & Scenario.
 \scalebox{0.9}{
 \begin{tabular}{rrrrrrrr}
   \hline
-\begin{sideways} X...Year \end{sideways} & \begin{sideways} Pacific.Cod \end{sideways} & \begin{sideways} Yellowfin.Sole \end{sideways} & \begin{sideways} Rock.Sole \end{sideways} & \begin{sideways} Flathead.Sole \end{sideways} & \begin{sideways} Other.flatfish \end{sideways} & \begin{sideways} Other.fisheries \end{sideways} & \begin{sideways} Total \end{sideways} \\ 
+\begin{sideways} Year \end{sideways} & \begin{sideways} Pacific.Cod \end{sideways} & \begin{sideways} Yellowfin.Sole \end{sideways} & \begin{sideways} Rock.Sole \end{sideways} & \begin{sideways} Flathead.Sole \end{sideways} & \begin{sideways} Other.flatfish \end{sideways} & \begin{sideways} Other.fisheries \end{sideways} & \begin{sideways} Total \end{sideways} \\ 
   \hline
 1991 & 10,695 & NA & 9,711 & NA & 6,219 & 2,528 & 29,154 \\ 
   1992 & 20,778 & 13,100 & 9,824 & NA & 1,242 & 757 & 45,704 \\ 
@@ -4408,7 +4411,6 @@ ABC & Scenario.1 & Scenario.2 & Scenario.3 & Scenario.4 & Scenario.5 & Scenario.
   2017 & 8,346 & 23,414 & 5,616 & 1,956 & 149 & 2,014 & 41,497 \\ 
   2018 & 8,061 & 28,235 & 5,182 & 2,833 & 4 & 1,643 & 45,961 \\ 
   2019 & 4,936 & 19,828 & 3,085 & 6,851 & 73 & 979 & 35,754 \\ 
-   & NA & NA & NA & NA & NA & NA & NA \\ 
    \hline
 \end{tabular}
 }
@@ -4420,23 +4422,25 @@ ABC & Scenario.1 & Scenario.2 & Scenario.3 & Scenario.4 & Scenario.5 & Scenario.
 \scalebox{0.9}{
 \begin{tabular}{rrrrrrrrrrr}
   \hline
-\begin{sideways} Year \end{sideways} & \begin{sideways} Scypho.jellies \end{sideways} & \begin{sideways} Misc.fish \end{sideways} & \begin{sideways} Eulachon.Osmerid \end{sideways} & \begin{sideways} Sea.star \end{sideways} & \begin{sideways} Eelpouts \end{sideways} & \begin{sideways} Grenadier \end{sideways} & \begin{sideways} Sea.pen \end{sideways} & \begin{sideways} Lanternfish \end{sideways} & \begin{sideways} Snails \end{sideways} & \begin{sideways} All.other \end{sideways} \\ 
+\begin{sideways} Year \end{sideways} & \begin{sideways} Scypho.jellies \end{sideways} & \begin{sideways} Misc.fish \end{sideways} & \begin{sideways} Sea.star \end{sideways} & \begin{sideways} Eulachon.Osmerid \end{sideways} & \begin{sideways} Eelpouts \end{sideways} & \begin{sideways} Grenadier \end{sideways} & \begin{sideways} Sea.pen \end{sideways} & \begin{sideways} Lanternfish \end{sideways} & \begin{sideways} Snails \end{sideways} & \begin{sideways} All.other \end{sideways} \\ 
   \hline
-2003 & 5,591 & 98 & 9 & 88 & 1 & 20 & 0 & 0 & 0 & 1 \\ 
-  2004 & 6,490 & 87 & 20 & 7 & 0 & 14 & 0 & 0 & 0 & 1 \\ 
-  2005 & 5,084 & 146 & 12 & 9 & 1 & 14 & 1 & 0 & 6 & 2 \\ 
-  2006 & 2,657 & 147 & 92 & 8 & 20 & 15 & 1 & 9 & 0 & 6 \\ 
-  2007 & 2,150 & 198 & 136 & 4 & 118 & 27 & 3 & 5 & 0 & 6 \\ 
-  2008 & 3,711 & 103 & 4 & 6 & 7 & 27 & 1 & 0 & 0 & 6 \\ 
+2003 & 5,591 & 98 & 88 & 9 & 1 & 20 & 0 & 0 & 0 & 1 \\ 
+  2004 & 6,490 & 87 & 7 & 20 & 0 & 14 & 0 & 0 & 0 & 1 \\ 
+  2005 & 5,084 & 146 & 9 & 12 & 1 & 14 & 1 & 0 & 6 & 2 \\ 
+  2006 & 2,657 & 147 & 8 & 92 & 20 & 15 & 1 & 9 & 0 & 6 \\ 
+  2007 & 2,150 & 198 & 4 & 136 & 118 & 27 & 3 & 5 & 0 & 6 \\ 
+  2008 & 3,711 & 103 & 6 & 4 & 7 & 27 & 1 & 0 & 0 & 6 \\ 
   2009 & 3,703 & 58 & 4 & 4 & 2 & 3 & 1 & 0 & 0 & 1 \\ 
-  2010 & 2,153 & 116 & 0 & 4 & 0 & 1 & 1 & 0 & 0 & 1 \\ 
-  2011 & 6,571 & 216 & 2 & 18 & 0 & 1 & 2 & 0 & 0 & 1 \\ 
-  2012 & 2,454 & 124 & 1 & 3 & 0 & 0 & 2 & 0 & 0 & 1 \\ 
-  2013 & 4,734 & 101 & 0 & 2 & 0 & 0 & 1 & 0 & 0 & 2 \\ 
-  2014 & 11,036 & 40 & 2 & 5 & 2 & 0 & 3 & 0 & 0 & 4 \\ 
-  2015 & 4,748 & 87 & 21 & 28 & 9 & 1 & 2 & 0 & 0 & 2 \\ 
-  2016 & 2,185 & 70 & 5 & 48 & 22 & 3 & 1 & 0 & 0 & 2 \\ 
-  2017 & 5,776 & 46 & 3 & 4 & 18 & 2 & 0 & 0 & 0 & 0 \\ 
+  2010 & 2,153 & 116 & 4 & 0 & 0 & 1 & 1 & 0 & 0 & 1 \\ 
+  2011 & 6,571 & 216 & 18 & 2 & 0 & 1 & 2 & 0 & 0 & 1 \\ 
+  2012 & 2,454 & 124 & 3 & 1 & 0 & 0 & 2 & 0 & 0 & 1 \\ 
+  2013 & 4,734 & 101 & 2 & 0 & 0 & 0 & 1 & 0 & 0 & 2 \\ 
+  2014 & 12,767 & 43 & 29 & 1 & 7 & 10 & 3 & 0 & 1 & 10 \\ 
+  2015 & 4,950 & 90 & 41 & 21 & 10 & 4 & 2 & 0 & 1 & 6 \\ 
+  2016 & 2,203 & 75 & 54 & 1 & 22 & 1 & 1 & 0 & 0 & 3 \\ 
+  2017 & 6,156 & 48 & 12 & 1 & 18 & 1 & 0 & 0 & 0 & 2 \\ 
+  2018 & 7,943 & 50 & 22 & 0 & 4 & 9 & 1 & 0 & 0 & 4 \\ 
+  2019 & 3,815 & 68 & 47 & 0 & 0 & 7 & 0 & 0 & 0 & 3 \\ 
    \hline
 \end{tabular}
 }
@@ -4541,23 +4545,23 @@ Term & Description                                                              
 \midrule
 $P\left[F_{2020}>F_{MSY}\right]$  & Probability that the fishing mortality in 2020 exceeds $F_{MSY}$                 & OFL definition is based on $F_{MSY}$ \\
 \midrule
-$P\left[B_{2021 }<B_{MSY}\right]$  & Probability that the spawning biomass in 2021 is less than $B_{MSY}$             & $B_{MSY}$ is a reference point target and biomass in 2020 provides an indication of the impact of 2019 fishing                                                                                   \\
+$P\left[B_{2021 }<B_{MSY}\right]$  & Probability that the spawning biomass in 2021 is less than $B_{MSY}$             & $B_{MSY}$ is a reference point target and biomass in 2021 provides an indication of the impact of 2020 fishing                                                                                   \\
 \midrule
-$P\left[B_{2022 }<B_{MSY}\right]$  & Probability that the spawning biomass in 2022 is less than $B_{MSY}$ & $B_{MSY}$ is a reference point target and biomass in 2023 provides an indication of the impact of fishing in 2019 and 2020                                                                       \\
+$P\left[B_{2022 }<B_{MSY}\right]$  & Probability that the spawning biomass in 2022 is less than $B_{MSY}$ & $B_{MSY}$ is a reference point target and biomass in 2023 provides an indication of the impact of fishing in 2020 and 2021                                                                       \\
 \midrule
-$P\left[B_{2022 }<\bar{B}\right]$  & Probability that the spawning biomass in 2021 is less than the 1978--2019 mean    & To provide some perspective of what the stock condition might be relative to historical estimates after fishing in 2019.                                                                    \\
+$P\left[B_{2022 }<\bar{B}\right]$  & Probability that the spawning biomass in 2021 is less than the 1978--2019 mean    & To provide some perspective of what the stock condition might be relative to historical estimates after fishing in 2020.                                                                    \\
 \midrule
-$P\left[B_{2024 }<\bar{B}\right]$  & Probability that the spawning biomass in 2024 is less than the long term mean & To provide some perspective of what the stock condition might be relative to historical estimates after fishing in 2019.                                                                    \\
+$P\left[B_{2024 }<\bar{B}\right]$  & Probability that the spawning biomass in 2024 is less than the long term mean & To provide some perspective of what the stock condition might be relative to historical estimates after fishing in 2020.                                                                    \\
 \midrule
-$P\left[B_{2024 }<B_{2020 }\right]$  & Probability that the spawning biomass in 2024 is less than that estimated for 2020 & To provide a medium term expectation of stock status relative to 2019 levels                                                                                                                \\
+$P\left[B_{2024 }<B_{2020 }\right]$  & Probability that the spawning biomass in 2024 is less than that estimated for 2020 & To provide a medium term expectation of stock status relative to 2020 levels                                                                                                                \\
 \midrule
-$P\left[B_{2022 }<B_{20\%}\right]$  & Probability that the spawning biomass in 2021 is less than $B_{20\%}$            & $B_{20\%}$ had been selected as a Steller Sea Lion lower limit for allowing directed fishing                                                                                                    \\
+$P\left[B_{2022 }<B_{20\%}\right]$  & Probability that the spawning biomass in 2022 is less than $B_{20\%}$            & $B_{20\%}$ had been selected as a Steller Sea Lion lower limit for allowing directed fishing                                                                                                    \\
 \midrule
-$P\left[p_{a_5,2022 }>\bar{p}_{a_5}\right]$   & Probability that in 2023 the proportion of age 1--5 pollock in the population exceeds the long-term mean & To provide some relative indication of the age composition of the population relative to the long term mean.                                                                     \\
+$P\left[p_{a_5,2022 }>\bar{p}_{a_5}\right]$   & Probability that in 2022 the proportion of age 1--5 pollock in the population exceeds the long-term mean & To provide some relative indication of the age composition of the population relative to the long term mean.                                                                     \\
 \midrule
-$P\left[D_{2021 }<D_{1994}\right]$   & Probability that the diversity of ages represented in the spawning biomass (by weight) in 2021 2020 is less than the value estimated for 1994 & To provide a relative index on the abundance of different age classes in the 2020 population relative to 1994 (a year identified as having low age composition diversity)                 \\
+$P\left[D_{2021 }<D_{1994}\right]$   & Probability that the diversity of ages represented in the spawning biomass (by weight) in 2021 is less than the value estimated for 1994 & To provide a relative index on the abundance of different age classes in the 2021 population relative to 1994 (a year identified as having low age composition diversity)                 \\
 \midrule
-$P\left[D_{2024 }<D_{1994}\right]$   & Probability that the diversity of ages represented in the spawning biomass (by weight) in 2021 2023 is less than the value estimated for 1994 & To provide a medium-term relative index on the abundance of different age classes in the population relative to 1994 (a year identified as having low age composition diversity)          \\
+$P\left[D_{2024 }<D_{1994}\right]$   & Probability that the diversity of ages represented in the spawning biomass (by weight) in 2024 is less than the value estimated for 1994 & To provide a medium-term relative index on the abundance of different age classes in the population relative to 1994 (a year identified as having low age composition diversity)          \\
 \midrule
 $P\left[E_{2020}>E_{2019}\right]$   & Probability that the theoretical fishing effort in 2020 will be greater than that estimated in 2019.     & To provide the relative effort that is expected (and hence some idea of costs).                                                                                                                     \\
 \bottomrule
@@ -4569,7 +4573,7 @@ $P\left[E_{2020}>E_{2019}\right]$   & Probability that the theoretical fishing e
 
 \begin{table}[ht]
 \centering
-\caption{Outcomes of decision (expressed as chances out of 100) given different 2019 catches (first row, in kt). Note that for the 2017 and later year-classes average values were assumed. Constant Fs based on the 2019 catches were used for subsequent years. } 
+\caption{Outcomes of decision (expressed as chances out of 100) given different 2020 catches (first row, in kt). Note that for the 2017 and later year-classes average values were assumed. Constant Fs based on the 2020 catches were used for subsequent years. } 
 \label{tab:dec_table}
 \scalebox{1}{
 \begin{tabular}{rrrrrrrrr}
@@ -4592,9 +4596,10 @@ $P\left[F_{2020}>F_{MSY}\right]$ & 0 & 0 & 0 & 0 & 0 & 1 & 4 & 12 \\
 }
 \end{table}
 
+\pagebreak
+
+
 \clearpage
-
-
 # Figures
 
 ![Pollock catch estimates (t) from the Eastern Bering Sea by season and region. The A-season is defined as from Jan-May and B-season from June-October.\label{fig:catch}](figs/catch.pdf)   
@@ -4710,7 +4715,7 @@ $P\left[F_{2020}>F_{MSY}\right]$ & 0 & 0 & 0 & 0 & 0 & 1 & 4 & 12 \\
  
 ![Projected EBS Tier 3 pollock yield (top) and female spawning biomass (bottom) relative to the long-term expected values under $F_{35\%}$ and $F_{40\%}$ (horizontal lines).  $B_{40\%}$  is computed from average recruitment from 1978--2017. Future harvest rates follow the guidelines specified under Tier 3 Scenario 1.\label{fig:tier3_proj}](figs/tier3_proj.pdf)   
  
-![For the mature component of the EBS pollock stock, time series of estimated average age and diversity of ages (using the Shannon-Wiener H statistic), 1980<U+2013>2018.\label{fig:age_diversity}](figs/age_diversity.pdf)   
+![For the mature component of the EBS pollock stock, time series of estimated average age and diversity of ages (using the Shannon-Wiener H statistic), 1980–2018.\label{fig:age_diversity}](figs/age_diversity.pdf)   
  
 ![Comparison of the selectivity estimates between Model 16.1 and the implementation with the VAST treatment of the survey (including the NBS).\label{fig:sel_comp_vast}](figs/sel_comp_vast.pdf)   
  
@@ -4760,7 +4765,7 @@ with restrictions on the variability following Butterworth et al. (2003):
 
 \begin{align}
     F_{t,a}     &= s_{t,a} \, \mu^f e^{\epsilon_t}, &\epsilon_t   \sim \mathcal{N}(0,\,\sigma_E^{2}) \\
-    s_{t+1,a}   &= s_{t,a} \, \mu^f e^{\gamma_t},   &\gamma_t     \sim \mathcal{N}(0,\,\sigma_s^{2}) 
+    s_{t+1,a}   &= s_{t,a} \,       e^{\gamma_t},   &\gamma_t     \sim \mathcal{N}(0,\,\sigma_s^{2}) 
 \end{align}
 
 where $s_{t,a}$ is the selectivity for age class $a$ in year $t$, and $\mu^f$
@@ -5078,7 +5083,8 @@ nll_i = 0.5\mathbf{X}\Sigma^{-1}\mathbf{X}^{'}
 
 where is a vector of observed minus model predicted values for this index and
 $\Sigma$ is the estimated covariance matrix provided from the method provided in
-Kotwicki et al. 2014.
+Kotwicki et al. 2014. For the VAST estimates, the supplied covariance matrix was 
+used in the same way.
 
 The contribution to the negative log-likelihood function for the observed total catch biomass 
 ($C_b^{obs}, \hat{C_b}$) by the fishery is given by
@@ -5109,9 +5115,9 @@ The approach we use to solve for $F_{MSY}$ and related quantities (e.g., $B_{MSY
 within a general integrated model context was shown in Ianelli et al. (2001).
 In 2007 this was modified to include uncertainty in weight-at-age as an
 explicit part of the uncertainty for $F_{MSY}$ calculations. This involved
-estimating a vector of parameters ($w_{ta}^{future}$) on current (2017) and future mean weights
+estimating a vector of parameters ($w_{ta}^{future}$) on current (2019) and future mean weights
 for each age $i$,  $i$= (1, 2,…,15), given actual observed mean and variances in
-weight-at-age over the period 1991-2017. The values of based on available data
+weight-at-age over the period 1991-2018. The values of based on available data
 and (if this option is selected) estimates the parameters subject to the
 natural constraint:
     $$w_{ta}^{future} \sim \mathcal{N}(\bar{w_{a}},\,\sigma_{w_a}^{2})$$ 
@@ -5134,7 +5140,7 @@ are $\upsilon_t$ and $\psi_t$.
 
 ## Tier 1 projections
 
-Tier 1 projections were calculated two ways. First, for 2017 and 2018 ABC and
+Tier 1 projections were calculated two ways. First, for 2020 and 2021 ABC and
 $OFL$ levels, the harmonic mean $F_{MSY}$ value was computed and the analogous
 harvest rate ($\bar{u_{HM}}$) applied to the estimated geometric mean fishable biomass at
 $B_{MSY}$ :
@@ -5252,14 +5258,14 @@ except 2010, 2017--2019; (Figure \ref{fig:density}). Index values and error term
   \hline
 	M (natural mortality rate, ages 3+)	&	0.3	&	0.3	&	0.3	&	0.3 \\
 Tier	&	1a	&	1a	                                       &	3a	&	3a \\
-Projected total (age  3+) biomass (t) & 9,110,000 t & 8,156,000 t & 8,580,000 t & 7,987,000 t \\
+Projected total (age  3+) biomass (t) & 9,110,000 t & 8,156,000 t & 8,580,000 t & 7,990,000 t \\
 Projected female  spawning  biomass (t) & 3,107,000 t & 2,725,000 t & 2,781,000  t & 2,476,000  t \\  
 $B_0 or B_{100}$         & 5,866,000 t   & 5,866,000 t & 6,165,000  t & 6,165,000  t \\          
 $B_{msy}$     & 2,280,000 t   & 2,280,000 t & 2,158,000  t & 2,158,000  t \\          
 $F_{OFL}$     & 0.645 & 0.645 & 0.314  & 0.321  \\                  
 $maxF_{ABC}$  & 0.510 & 0.51  & 0.253  & 0.262  \\                  
 $F_{ABC}$     & 0.356 & 0.375 & 0.253  & 0.262 \\                  
-$OFL$         & 3,913,000 t   & 3,082,000 t           & 4,273,000  t & 3,456,000  t \\          
+$OFL$         & 3,913,000 t   & 3,082,000 t           & 2,539,000 t & 2,098,000  t \\          
 $maxABC$      & 3,096,000 t   & 2,437,000 t           & 2,045,000 t & 1,716,000 t \\      
 $ABC$         & 2,163,000 t   & 1,792,000 t           & 2,045,000 t & 1,716,000 t \\     
 \hline
@@ -5292,10 +5298,10 @@ $B_0$ & 5,866,000 t                     & 5,866,000 t & 5,777,000  t           &
 $B_{msy}$ & 2,280,000 t                 & 2,280,000 t & 2,148,000  t         & 2,148,000  t \\          
 $F_{OFL}$ & 0.645 & 0.645                             & 0.449  & 0.449  \\                  
 $maxF_{ABC}$  & 0.510 & 0.51                          & 0.383    & 0.383  \\                  
-$F_{ABC}$ & 0.356 & 0.375                             &              &  \\                  
+$F_{ABC}$ & 0.356 & 0.375                             & 0.225             & 0.235 \\                  
 $OFL$ & 3,913,000 t & 3,082,000 t                     & 4,085,000  t             & 3,385,000  t \\          
 $maxABC$  & 3,096,000 t & 2,437,000 t                 & 3,485,000 t & 2,888,000 t \\      
-$ABC$ & 2,163,000 t & 1,792,000 t                     & 2,045,000 t & 1,716,000  t \\        
+$ABC$ & 2,163,000 t & 1,792,000 t                     & 2,043,000 t & 1,767,000  t \\        
 \hline
 Status	                              &	2017	      &	2018	      &		2018             &	2019          \\
 \hline
@@ -5319,16 +5325,16 @@ Approaching overfished	              &	n/a	        &	No	      &	n/a	            
   \hline
 	M (natural mortality rate, ages 3+)	&	0.3	&	0.3	&	0.3	&	0.3 \\
 Tier	&	1a	&	1a	                                       &	3a	&	3a \\
-Projected total (age  3+) biomass (t) & 9,110,000 t & 8,156,000 t & 9,128,000 t & 8,494,000 t \\
-Projected female  spawning  biomass (t) & 3,107,000 t & 2,725,000 t & 2,991,000  t & 2,674,000  t \\  
-$B_0 or B_{100}$         & 5,866,000 t   & 5,866,000 t & 6,256,000  t & 6,256,000  t \\          
-$B_{msy}$     & 2,280,000 t   & 2,280,000 t & 2,190,000  t & 2,190,000  t \\          
-$F_{OFL}$     & 0.645 & 0.645 & 0.279  & 0.278  \\                  
-$maxF_{ABC}$  & 0.510 & 0.51  & 0.225  & 0.228  \\                  
-$F_{ABC}$     & 0.356 & 0.375 & 0.225  & 0.228 \\                  
-$OFL$         & 3,913,000 t   & 3,082,000 t           & 4,085,000  t & 3,385,000  t \\          
-$maxABC$      & 3,096,000 t   & 2,437,000 t           & 2,045,000 t & 1,716,000 t \\      
-$ABC$         & 2,163,000 t   & 1,792,000 t           & 2,045,000 t & 1,716,000 t \\     
+Projected total (age  3+) biomass (t)                 & 9,110,000 t & 8,156,000 t & 9,128,000 t & 8,494,000 t \\
+Projected female  spawning  biomass (t)               & 3,107,000 t & 2,725,000 t & 2,991,000  t & 2,674,000  t \\  
+$B_0 or B_{100}$         & 5,866,000 t                & 5,866,000 t & 6,256,000  t & 6,256,000  t \\          
+$B_{msy}$     & 2,280,000 t   & 2,280,000 t           & 2,190,000  t & 2,190,000  t \\          
+$F_{OFL}$     & 0.645         & 0.645                 & 0.277  & 0.29  \\                  
+$maxF_{ABC}$  & 0.510         & 0.51                  & 0.225  & 0.235  \\                  
+$F_{ABC}$     & 0.356         & 0.375                 & 0.225  & 0.235 \\                  
+$OFL$         & 3,913,000 t   & 3,082,000 t           & 2,523,000  t & 2,188,000  t \\          
+$maxABC$      & 3,096,000 t   & 2,437,000 t           & 2,043,000 t & 1,767,000 t \\      
+$ABC$         & 2,163,000 t   & 1,792,000 t           & 2,043,000 t & 1,767,000 t \\     
 \hline
 Status	                              &	2017	      &	2018	      &		2018             &	2019          \\
 \hline

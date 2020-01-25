@@ -1,3 +1,4 @@
+\clearpage
 # Figures
 ```{r fshfigs}
  printfig("catch.pdf",1)
