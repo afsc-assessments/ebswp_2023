@@ -41,7 +41,8 @@ clean_cache(clean = TRUE)
 \selectfont
   Alaska Fisheries Science Center, National Marine Fisheries Service \\
   National Oceanic and Atmospheric Administration \\ 
-  7600 Sand Point Way NE., Seattle, WA 98115-6349 \\ `r format(Sys.time(), '%B %d, %Y')` \\ \end{centering}
+  7600 Sand Point Way NE., Seattle, WA 98115-6349 \\ `r format(Sys.time(), '%B %d, %Y')` \\ 
+	\end{centering}
 ----
 
 ```{r giddy}
@@ -49,14 +50,14 @@ clean_cache(clean = TRUE)
 doplots <- F
 domcmc  <- F
 doproj  <- F
-source("../pm_19.R")
+source("../pm_20.R")
 ```
 
 ```{r child = 'text.Rmd'}
 ```
 ```{r child = 'ref.Rmd'}
-```
-```{r child = 'tab.Rmd'}
+# ```{r child = 'tab.Rmd'}
+# ```
 ```
 ```{r child = 'figs.Rmd'}
 ```

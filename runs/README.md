@@ -1,4 +1,9 @@
 # Summary
+
+For RE model on wts-at-age, there's a near perfect match except pm.tpl estimating an extra year effect that doesn't occur in 
+the wt-RE model...unsure why...maybe need to sub in current year estimates from RE model?...
+
+## 2019 notes
 2019 runs are in base, lastyr (2018 version of base) then the C-CABA runs, vastage, constsel, vast_cp, vastall.
 
 initial runs indicated that the small avg wts in 2018 need to be filled in...

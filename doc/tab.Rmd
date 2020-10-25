@@ -239,35 +239,36 @@ Year    &   Management  \\
 2017    &   Due to amendment 110 about 45\% of the TAC is taken in the A-season (traditionally only 40\% was allowed). \\
 2018    &   In-river estimates of Chinook salmon (three river index) fell below the threshold and therefore a lower PSC limit applies (from a performance standard of 47,491 to 33,318 and a PSC limit from 60,000 to 45,000 Chinook salmon overall). Additionally, squid have been recategorized as an ecosystem component.  \\
 2019    &   Some pollock sectors experienced high bycatch levels for chum and Chinook salmon and also for sablefish.\\
+2020    &   Bycatch rates unusually high again for sablefish. Herring in A season triggered closures...xxxSome pollock sectors experienced high bycatch levels for chum and Chinook salmon and also for sablefish.\\
 \hline
 \end{tabular}
 \end{table}
 
 \clearpage
+
 \begin{table}[ht]
 \centering
 \caption{BSAI pollock catch and ex-vessel data showing the total and retained catch (in kt), the 
 number of vessels for all sectors and for trawl catcher vessels including
 ex-vessel value (million US\$), price (US\$ per pound), and catcher vessel shares. 
-Years covered include the
-2005-2007 average, the 2008-2010 average, the 2011-2013 average, and annual from 2014-2018.}
+Years covered include the 2010-2014 average, and annual from 2015-2019.}
 \label{tab:bsaiplck_exv}
-\scalebox{0.90}{
+\scalebox{0.93}{
 
-\begin{tabular}{lrrrrrrrr}
+\begin{tabular}{lrrrrrr}
   \hline
- & Avg 05-07 & Avg 08-10 & Avg 11-13 & 2014 & 2015 & 2016 & 2017 & 2018 \\ 
+ & Avg 10-14 & 2015 & 2016 & 2017 & 2018 & 2019 \\ 
   \hline
-All sectors &  &  &  &  &  &  &  &  \\ 
-  Catch & 1,444 & 872 & 1,227 & 1,300 & 1,323 & 1,355 & 1,361 & 1,381 \\ 
-  Retained catch & 1,427 & 866 & 1,221 & 1,285 & 1,314 & 1,346 & 1,353 & 1,370 \\ 
-  Vessels \# & 110.3 & 121 & 120.3 & 121 & 120 & 122 & 118 & 115 \\ 
-  Catcher vessels (trawl) &  &  &  &  &  &  &  &  \\ 
-  Retained catch    & 768.3 & 459.0 & 640.8 & 668.5 & 687.1 & 703.9 & 710.4 & 718.3 \\ 
-  Ex-vessel value   & \$214.18  & \$184.89  & \$229.62  & \$226.54  & \$227.42  & \$209.36  & \$205.54  & \$236.67  \\ 
-  Ex-vessel price   & \$0.13  & \$0.18  & \$0.16  & \$0.16  & \$0.15  & \$0.14  & \$0.14  & \$0.16  \\ 
-  CV share of catch & 54\% & 53\% & 52\% & 52\% & 52\% & 52\% & 53\% & 52\% \\ 
-  Vessels \#        & 89 & 89 & 88 & 87 & 87 & 89 & 87 & 88 \\ 
+All sectors &  &  &  &  &  &  \\ 
+  Catch K mt & 1,158 & 1,323 & 1,355 & 1,361 & 1,381 & 1,411 \\ 
+  Retained Catch K mt & 1,151 & 1,314 & 1,346 & 1,353 & 1,370 & 1,402 \\ 
+  Vessels \# & 120.2 & 120 & 122 & 118 & 112 & 114 \\ 
+  Catcher Vessels (Trawl) &  &  &  &  &  &  \\ 
+  Retained Catch K mt & 603 & 687 & 704 & 710 & 718 & 736 \\ 
+  Ex-vessel Value M \$ & 211.7 & 227.4 & 209.4 & 205.5 & 236.7 & 259.8 \\ 
+  Ex-vessel Price/lb \$ & 0.159 & 0.154 & 0.139 & 0.137 & 0.156 & 0.167 \\ 
+  CV share of Retained Catch & 0.52 & 0.52 & 0.52 & 0.53 & 0.52 & 0.52 \\ 
+  Vessels \# & 88 & 87 & 89 & 87 & 85 & 84 \\ 
    \hline
 \end{tabular}
 }
@@ -281,29 +282,27 @@ the Alaska Fisheries Information Network (AKFIN).
 \caption{BSAI pollock first-wholesale market data including production (kt),
 value (million US\$), price (US\$ per pound) for all products and then
 separately for other categories (head and gut, fillet, surimi, and roe
-production). Years covered include the 
-2005-2007 average, the 2008-2010 average, the 2011-2013 average, and annual from 2014-2018.}
+production). Years covered include the 2010-2014 average, and annual from 2015-2019.}
 \label{tab:bsaiplck_wsl}
 \scalebox{0.84}{
-\begin{tabular}{lrrrrrrrr}
+\begin{tabular}{lrrrrrr}
   \hline
- & Avg 05-07 & Avg 08-10 & Avg 11-13 & 2014 & 2015 & 2016 & 2017 & 2018 \\ 
+ & Avg 10-14 & 2015 & 2016 & 2017 & 2018 & 2019 \\ 
   \hline
- & BSAI &  &  &  &  &  &  &  \\ 
-  All products volume & 498.25 & 355.99 & 487.56 & 525.54 & 520.94 & 534.89 & 523.94 & 532.44 \\ 
-  All products value & \$1,246.4  & \$1,133.4  & \$1,324.7  & \$1,301.4  & \$1,275.0  & \$1,351.5  & \$1,338.1  & \$1,378.6  \\ 
-  All products price & \$1.13  & \$1.44  & \$1.23  & \$1.12  & \$1.11  & \$1.15  & \$1.16  & \$1.17  \\ 
-  At-sea value share & 59\% & 58\% & 59\% & 58\% & 60\% & 60\% & 62\% & 59\% \\ 
-  Fillets volume     & 162.7 & 113.9 & 159.55 & 175.78 & 167.01 & 161.29 & 156.95 & 167.63 \\ 
-  Fillets price      & \$1.24  & \$1.73  & \$1.51  & \$1.374 & \$1.355 & \$1.412 & \$1.286 & \$1.370 \\ 
-  Fillets value share & 36\% & 38\% & 40\% & 41\% & 39\% & 37\% & 33\% & 37\% \\ 
-  Surimi volume      & 173.05 & 100.99 & 153.27 & 171.33 & 187.74 & 190.82 & 196.73 & 196.53 \\ 
-  Surimi price       & \$0.96  & \$1.63  & \$1.23  & \$1.105 & \$1.142 & \$1.194 & \$1.331 & \$1.259 \\ 
-  Surimi value share & 29\% & 32\% & 32\% & 32\% & 37\% & 37\% & 43\% & 40\% \\ 
-  Roe volume         & 27.03 & 17.63 & 16.14 & 20.60 & 18.75 & 14.26 & 18.43 & 20.64 \\ 
-  Roe price          & \$4.84  & \$4.14  & \$3.78  & \$2.915 & \$2.291 & \$2.844 & \$2.877 & \$2.892 \\ 
-  Roe value share    & 23\% & 14\% & 10\% & 10\% & 7\% & 7\% & 9\% & 10\% \\ 
-  At-sea price premium & \$0.30  & \$0.32  & \$0.19  & 0.15 & 0.25 & 0.25 & 0.37 & 0.21 \\ 
+All Products volume K mt & 468.5 & 520.9 & 534.9 & 523.9 & 532.4 & 557.9 \\ 
+  All Products value M \$ & \$1,263  & \$1,275  & \$1,352  & \$1,338  & \$1,383  & \$1,551  \\ 
+  All Products price lb \$ & \$1.22  & \$1.11  & \$1.15  & \$1.16  & \$1.18  & \$1.26  \\ 
+  At-sea value share & 58\% & 60\% & 60\% & 62\% & 59\% & 59\% \\ 
+  Fillets volume K mt & 152.2 & 167 & 161.3 & 157 & 167.6 & 186.8 \\ 
+  Fillets value share & 40\% & 39\% & 37\% & 33\% & 36\% & 40\% \\ 
+  Fillets price lb \$ & \$1.51  & \$1.36  & \$1.41  & \$1.29  & \$1.37  & \$1.52  \\ 
+  Surimi volume K mt & 145.6 & 187.7 & 190.8 & 196.7 & 196.5 & 192.2 \\ 
+  Surimi value share & 32\% & 37\% & 37\% & 43\% & 40\% & 38\% \\ 
+  Surimi price lb \$ & \$1.25  & \$1.14  & \$1.19  & \$1.33  & \$1.27  & \$1.37  \\ 
+  Roe volume K mt & 16.9 & 18.8 & 14.3 & 18.4 & 20.6 & 28 \\ 
+  Roe value share & 10\% & 7\% & 7\% & 9\% & 10\% & 9\% \\ 
+  Roe price lb \$ & \$3.38  & \$2.29  & \$2.84  & \$2.88  & \$2.89  & \$2.15  \\ 
+  At-sea price premium (\$/lb) & \$0.21  & \$0.25  & \$0.25  & \$0.37  & \$0.20  & \$0.26  \\ 
    \hline
 \end{tabular}
 }
@@ -323,36 +322,35 @@ import values (million US\$), and net exports (million US\$).
 Subsequent rows show the breakout of export shares (of U.S. pollock) by
 country (Japan, China and Europe) and the share of U.S. export volume and
 value of fish  (i.e., H\&G and fillets), and other product categories (surimi
-and roe).  Years covered include the 
-2005-2007 average, the 2008-2010 average, the 2011-2013 average, and annual from 2014-2019 (2019 through June).}
+and roe).  Years covered include the 2010-2014 average, and annual from 2015-2019.}
 \label{tab:bsaiplck_glbl}
-\scalebox{0.78}{
+\scalebox{0.83}{
 
-\begin{tabular}{lrrrrrrrrr}
+\begin{tabular}{lllllll}
   \hline
- & Avg 05-07 & Avg 08-10 & Avg 11-13 & 2014 & 2015 & 2016 & 2017 & 2018 & 2019* \\ 
+ & Avg 10-14 & 2015 & 2016 & 2017 & 2018 & 2019 \\ 
   \hline
-Global pollock catch         & 2,854 & 2,662 & 3,241 & 3,245 & 3,373 & 3,476 & 3,488 & - & - \\ 
-  U.S. share                 & 52\% & 35\% & 40\% & 44\% & 44\% & 44\% & 44\% & - & - \\ 
-  Russian share              & 37\% & 53\% & 49\% & 47\% & 48\% & 50\% & 50\% & - & - \\ 
-  BSAI share                 & 51\% & 33\% & 38\% & 40\% & 39\% & 39\% & 39\% & - & - \\ 
-  Export volume              & 278.9 & 192.2 & 326.2 & 395 & 377.8 & 379.6 & 398 & 243.8 & 191.5 \\ 
-  Export value               & \$867.4  & \$635.2  & \$943.6  & \$1,081.7  & \$1,038.2  & \$990.5  & \$1,007.6  & \$671.5  & \$586.8  \\ 
-  Export price               & \$1.41  & \$1.50  & \$1.31  & \$1.24  & \$1.25  & \$1.18  & \$1.15  & \$1.25  & \$1.39  \\ 
-  Import value               & \$173.40  & \$202.43  & \$166.58  & \$142.60  & \$130.48  & \$91.24  & \$74.98  & \$77.92  & \$53.70  \\ 
-  Net exports                & \$694.00  & \$432.77  & \$777.03  & \$939.05  & \$907.76  & \$899.27  & \$932.51  & \$1,051.22  & \$533.07  \\ 
-  Japan volume share & 34\% & 27\% & 21\% & 22\% & 25\% & 20\% & 22\% & 23\% & 24\% \\ 
-  Japan value share & 38\% & 26\% & 19\% & 22\% & 26\% & 20\% & 23\% & 29\% & 27\% \\ 
-  China volume share & 3\% & 9\% & 13\% & 15\% & 13\% & 12\% & 15\% & 14\% & 14\% \\ 
-  China value Share & 2\% & 7\% & 11\% & 12\% & 11\% & 10\% & 13\% & 10\% & 9\% \\ 
-  Europe volume share & 34\% & 37\% & 39\% & 38\% & 36\% & 35\% & 33\% & 33\% & 29\% \\ 
-  Europe value share & 28\% & 37\% & 39\% & 39\% & 36\% & 35\% & 33\% & 33\% & 29\% \\ 
-  Meat volume share & 33\% & 46\% & 50\% & 54\% & 49\% & 49\% & 49\% & 49\% & 45\% \\ 
-  Meat value share & 27\% & 45\% & 48\% & 52\% & 46\% & 46\% & 47\% & 40\% & 39\% \\ 
-  Surimi volume share & 57\% & 46\% & 45\% & 41\% & 45\% & 47\% & 47\% & 43\% & 43\% \\ 
-  Surimi value share & 38\% & 33\% & 38\% & 34\% & 39\% & 42\% & 42\% & 39\% & 38\% \\ 
-  Roe volume share & 10\% & 8\% & 5\% & 6\% & 5\% & 4\% & 5\% & 9\% & 13\% \\ 
-  Roe value share & 35\% & 23\% & 14\% & 14\% & 15\% & 11\% & 11\% & 21\% & 23\% \\ 
+Global Pollock Catch Kmt & 3,255 & 3,373 & 3,476 & 3,489 & 3,397 & - \\ 
+  U.S. Share of Global Catch & 42\% & 44\% & 44\% & 44\% & 45\% & - \\ 
+  Russian Share of global catch & 48\% & 48\% & 50\% & 50\% & 49\% & - \\ 
+  BSAI share of global & 36\% & 39\% & 39\% & 39\% & 41\% & - \\ 
+  Export Volume K mt & 315.5 & 377.8 & 379.6 & 397.9 & 415.2 & 380.2 \\ 
+  Export Value M \$ & \$915.7  & \$1,038.2  & \$990.5  & \$1,007.5  & \$1,129.1  & \$1,121.6  \\ 
+  Export Price/lb \$ & \$1.32  & \$1.25  & \$1.18  & \$1.15  & \$1.23  & \$1.34  \\ 
+  Import Value M US\$ & \$168.7  & \$130.5  & \$91.2  & \$75.0  & \$77.9  & \$123.2  \\ 
+  Net Exports & \$747.0  & \$907.8  & \$899.3  & \$932.5  & \$1,051.2  & \$998.4  \\ 
+  Japan Volume Share & 22\% & 25\% & 20\% & 22\% & 22\% & 23\% \\ 
+  Japan Value share & 21\% & 26\% & 20\% & 23\% & 26\% & 24\% \\ 
+  China Volume Share & 14\% & 13\% & 12\% & 15\% & 14\% & 10\% \\ 
+  China Value share & 11\% & 10\% & 10\% & 13\% & 10\% & 7\% \\ 
+  Europe Volume Share & 38\% & 36\% & 35\% & 32\% & 33\% & 35\% \\ 
+  Europe Value share & 38\% & 36\% & 35\% & 33\% & 33\% & 37\% \\ 
+  Meat Volume Share & 51\% & 49\% & 49\% & 49\% & 50\% & 47\% \\ 
+  Meat Value share & 49\% & 46\% & 46\% & 47\% & 45\% & 44\% \\ 
+  Surimi Volume Share & 44\% & 45\% & 47\% & 47\% & 45\% & 46\% \\ 
+  Surimi Value share & 37\% & 39\% & 42\% & 42\% & 42\% & 43\% \\ 
+  Roe Volume Share & 5\% & 5\% & 4\% & 5\% & 5\% & 7\% \\ 
+  Roe Value share & 14\% & 15\% & 11\% & 11\% & 13\% & 13\% \\ 
    \hline
 \end{tabular}
 }
@@ -372,26 +370,23 @@ of Agriculture
 \begin{table}[ht]
   \centering
   \caption{BSAI pollock fish oil production index (tons of oil per 100 tons of
-retained catch); 
-2005-2007 average, the 2008-2010 average, the 2011-2013 average, and annual from 2014-2018.}
+retained catch); 2010-2014 average, and annual from 2015-2019.}
   \label{tab:bsaiplck_oil}
   
-\begin{tabular}{lrrrrrrrr}
+\begin{tabular}{lrrrrrr}
   \hline
-sector      & Avg 05-07 & Avg 08-10 & Avg 11-13 & 2014 & 2015 & 2016 & 2017 & 2018 \\ 
+Sector & Avg 10-14 & 2015 & 2016 & 2017 & 2018 & 2019 \\ 
   \hline
-All sectors & 1.25 & 2.03 & 1.76 & 2.19 & 1.84 & 2.06 & 1.92 & 1.93 \\ 
-  Shoreside & 2.07 & 2.58 & 2.00 & 2.42 & 1.94 & 2.28 & 2.09 & 2.07 \\ 
-  At sea      & 0.30 & 1.41 & 1.50 & 1.94 & 1.72 & 1.82 & 1.74 & 1.77 \\ 
+All Sectors & 1.96 & 1.84 & 2.06 & 1.92 & 1.93 & 2.21 \\ 
+  Shoreside & 2.22 & 1.94 & 2.28 & 2.09 & 2.07 & 2.32 \\ 
+  At Sea & 1.68 & 1.72 & 1.82 & 1.74 & 1.77 & 2.10 \\ 
    \hline
 \end{tabular}
-
 Source: NMFS Alaska Region Blend and Catch-accounting System estimates; NMFS  
 Alaska Region At-sea Production Reports; and ADF\&G Commercial Operators Annual  
 Reports (COAR). Data compiled and provided by the Alaska Fisheries Information  
 Network (AKFIN).
 \end{table}
-
 
 \clearpage
 
@@ -446,6 +441,7 @@ Year & 1     & 2     & 3       & 4       & 5       & 6     & 7     & 8     & 9  
 2016    &    -   &   0.5     &   91.7    &   1,389.7     &   159.3   &   175.3   &   175.5   &   223.1   &   34.7    &   13.2    &   7.9     &   0.5     &   1.3     &   -   &   2,273.0    \\
 2017    &    -       &   2.0     &   29.8    &   551.4   &   894.6   &   214.7   &   147.5   &   123.2   &   96.3    &   21.5    &   7.8     &   6.3     &   0.6     &   0.4     &   2,096.0    \\
 2018     &   -   &   1.4     &   13.8    &   114.1   &   1,216.7     &   504.0   &   105.5   &   82.2    &   60.9    &   26.6    &   4.2     &   1.2     &   0.3     &   1.1     &  2,131.99    \\
+201xxx   &   -   &   1.4     &   13.8    &   114.1   &   1,216.7     &   504.0   &   105.5   &   82.2    &   60.9    &   26.6    &   4.2     &   1.2     &   0.3     &   1.1     &  2,131.99    \\
 \hline                                                                                                                          
 Avg.    &   6.8 &   53.2    &   201.2   &   373.3   &   410.6   &   325.4   &   203.8   &   113.4   &   65.3    &   33.3    &   22.9    &   11.6    &   7.9 &   11.4    &   1,836.87    \\
 \hline
@@ -505,6 +501,7 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 2016    &   57,478  &   59,000  &   10,264  &   9,016   &   72,973  &   69,669  &   278,400 \\
 2017    &   55,965  &   64,728  &   15,871  &   14,136  &   70,285  &   66,026  &   287,011 \\
 2018    &   57,156  &   64,639  &   35,811  &   32,842  &   56,243  &   49,671  &   296,362 \\
+2019    &   57,156  &   64,639  &   35,811  &   32,842  &   56,243  &   49,671  &   296,362 \\
 \hline
 \end{tabular}
 \end{table}

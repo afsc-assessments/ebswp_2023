@@ -8,51 +8,30 @@ separately.
 
 Relative to last year’s BSAI SAFE report, the
 following substantive changes have been made in the EBS pollock stock
-assessment.
+assessment. Notably, a number of surveys were cancelled including the
+ `r thisyr` NMFS bottom-trawl survey (BTS),
+   the `r thisyr` NMFS acoustic-trawl survey (ATS), and 
+   th `r thisyr` opportunistic acoustic data from vessels (AVO).  
 
 #### Changes in the data
-
-   1.	The `r thisyr` NMFS bottom-trawl survey (BTS) biomass and abundance at age estimates were included. 
-
-   2.  The `r lastyr` NMFS acoustic-trawl survey (ATS) age composition data were updated using samples from the ATS survey
-       (in last year's assessment the age-length key was mainly composed of samples from the BTS)
-
-   2.  The `r thisyr` opportunistic acoustic data from vessels (AVO) conducting the
-   bottom trawl survey was used as an added index of pollock biomass in mid-
-   water. 
-
    2.  Observer data for catch-at-age and average weight-at-age from
    the `r lastyr` fishery were finalized and included. 
 
    2.  Total catch as reported by NMFS Alaska Regional office was updated and included through `r thisyr`.
+   
+   2.  In summer `r thisyr`, the AFSC coordinated a survey conducted by three sailing drones (SD) using acoustics.
 
 ### Changes in the assessment methods
 
-There were some minor changes to the assessment model. We added the facility
-to incorporate a full time and age varying matrix of natural mortality rates
-to be specified (previously we used a time-constant vector of
-natural-mortality-at-age). This was done to provide an alternative evaluation
-of the output from the multi-species trophic model (CEATTLE; this volume).
-Also, new information is becoming available on the relative availability of
-pollock to our bottom trawl  survey gear. To make comparisons, we added control over
-the way selectivity in that survey impacts the relative "catchability" for key
-age groups. The control allows an approach to approximate the relative
-amount of process error to allow for selectivity changes (previously, the
-process error variance was specified through the ascending logistic
-parameters). This allowed us to compare results from an availability study that is presently
-being completed. 
-
+There were some minor changes to data used for the assessment model this year. 
 We continued to refine treatment of survey data via spatial-temporal models
 for  creating an alternative index including the broader region of the
-northern Bering Sea. Additionally, we applied the VAST model to age-specific
-data to derive alternative estimates of age composition data for   the
-bottom-trawl survey. Preliminary results from applying spatial smoothers to
-the acoustic index was also provided as a sensitivity.
+northern Bering Sea, mainly by improving the documentation. 
 
 ## Summary of EBS pollock results
-The following table applies for Model 16.1, the model used for last year's assessment
-advice. An alternative table is provided for this same model but uses the VAST-treated 
-survey data and includes the Northern Bering Sea is provided at the end of this draft. Here, the ABC recommendation reflects the Tier 3 estimate.
+The following table applies for Model 16.2, the model used for last year's assessment
+advice. An alternative table is provided for this same model but ignores the new Saildrone acoustic data collected in 2020.
+as in past years,  the ABC recommendation reflects the Tier 3 estimate.
 
 \begin{table}[ht]
 \centering
@@ -88,55 +67,41 @@ Approaching overfished	              &	n/a	        &	No	      &	n/a	            
 
 ### General comments 
 
-The SSC recommends that one additional column be added
-to include concerns related to fishery/resource-use performance and behavior,
-considering commercial as well as local/traditional knowledge for a broader
-set of observations. This additional column should not include socio-economic
-considerations, but rather indications of concern such as inability to catch
-the TAC, or dramatic changes in spatial or temporal distribution that could
-indicate anomalous biological conditions. The SSC requests that all authors
-fill out the risk table in 2019, and that the PTs provide comment on the
-author’s results in any cases where a reduction to the ABC may be warranted
-(concern levels 2-4). 
+The SSC recommended that a detailed review of the support for retaining the EBS Pollock assessment in Tier 1 
+versus reclassifying it as Tier 3 be pursued in the 2020 assessment. 
+    _We added a trade-off table between the applications of these two approaches._
 
-   -  _The risk table was again included, this year with the requested additional column
-on fishery performance_    
+The SSC had a number of recommendations for additional research supporting this assessment:  
+  *   The SSC encourages further investigation of the apparent shift between a clear 2012 year-class to mixed 2012-2013 year classes in the data, suggestive of potentially variable ageing bias.   
+    - _The 2019 fishery age data shows XXX relative proportion of these two year classes in the data..._ 
+  *   Noting the work in deriving an external estimate of temporal variability in catchability for the bottom trawl survey (relative to the acoustic survey) due to vertical availability, the SSC noted that
+catchability would logically also vary for the acoustic survey. 
+The SSC encourages further work to develop the simultaneous modelling of these two surveys, accounting for vertical and distributional
+shifts (including into the NBS). When sufficiently explored, the SSC looks forward to assessment model configurations that explore the 
+use of a time-series from this method.  
+  - _Work on this topic has stalled since survey model efforts focus on methods to incorporate the new Sail Drone acoustic data._
 
-The Plan Team noted that if the survey index is going to include the NBS, then inclusion of
-the NBS in compositional data should also be explored (although this should
-not make much of a difference since the size compositions in the EBS and NBS
-are sufficiently similar)
+  *   The SSC supports ongoing genetic studies to determine the relationship between pollock in the NBS and EBS, as well as other surrounding regions (AI, GOA).  
+  - _A post doctoral research has been assigned to undertake this work but progress has been limited due to lab access_
+  *   The SSC supports the continued use of a formal decision table to illustrate risks of alternative harvest strategies.  
+  - _This is again included in this year's assessment report_
 
-   -  _A model run with VAST processed age composition data was included and compared
-with the survey standard estimates._        
+  *   The SSC supports the GPT’s recommendation to revisit the treatment of all variance parameters in the next assessment,
+particularly those that are set at fixed values (e.g., the value of 0.2 for the acoustic survey).
+  - _This planned activity is only partially underway._
 
-Conduct a sensitivity test of the VAST index, with environmental covariates, 
-by omitting one or two years of NBS data at a time.
+  * 	The SSC also looks forward to estimates of movement and abundance along the U.S.-Russia EEZ boundary based
+on echosounders fixed to moorings in this area. 
+     - _The moored sounders have been recovered in September 2020 but the data have yet to be processed_
 
-   -  _Thanks to the work of Thorson 2019 we were able to evaluate an index that included
-the extent of the cold pool as a covariate. Comparisons of index fitting out of sample
-as suggested has been done for several of the publications using VAST_     
+From previous requests
 
-Regarding the apparent shift in year class dominance between 2012 and
-2013, the possibility of a shift in mean length at age should be explored, as
-should the possible influence of ageing error 
-
-   -  _Age determination experts re-examined subsets of these data and 
-    age estimates seems to be consistent and correct._        
-
-Full treatment of both the existing model and models with alternative
-treatments of the data should continue to be provided, along with maxABC
-values under Tier 3 for all models.
-
-   -  _Summary tables for alternative treatments of data including Tier 3 are provided._     
-     
-
-Re-examine the geographic subset of data currently used to develop the AVO
+     Re-examine the geographic subset of data currently used to develop the AVO
 index, specifically to see if including Bristol Bay data improves the
 correlation 
 
-   - _Due to staffing issues, including the government shutdown, this was given low
-   priority over other work._     
+   - _Work on this continues but was given lower priority given that the AVO
+   was not part of this year's assessment_
 
 Explore “A” season trends in mean weight at length with a GAM or
 similar technique, to determine if the trends are either predominantly
@@ -425,19 +390,40 @@ allocation from 40% to 45% (as noted above in Fig. \ref{fig:prop_a_season}).
 These measures are all part of Amendment 110 and a summary of this and other
 key management measures is provided in Table \ref{tab:mgt}.
 
+XXXXXXXX
+There were two directed pollock fishing closures:
+b. Coordinates
+Name	Description and effective date
+Summer Herring Savings Area 1	That part of the Bering Sea subarea that is south of 57° N lat and between 162° and 164° W long from 1200 hours, A.l.t., June 15 through 1200 hours, A.l.t. July 1 of a fishing year.
+Summer Herring Savings Area 2	That part of the Bering Sea subarea that is south of 56°30′′ N lat and between 164° and 167° W long from 1200 hours, A.l.t., July 1 through 1200 hours, A.l.t. August 15 of a fishing year.
+Winter Herring Savings Area	That part of the Bering Sea subarea that is between 58° and 60° N lat and between 172° and 175° W long from 1200 hours, A.l.t. September 1 of the current fishing year through 1200 hours, A.l.t. March 1 of the succeeding fishing year.
 
-## Economic conditions as of 2018
+Also, the Summer Herring Savings Area 2 was open in 2020, but the Summer Herring Savings Area 1 was closed (doesn't impact the fishery that much) and the Winter Herring Savings Area is closed from September 1, 2020 to March 1, 2021. The pollock exceeded the herring PSC limit late in the A season. For the B season the CV fleet has been working to avoid salmon, herring, and sablefish. Also to some extent squid.
+
+Voluntary closures by the CV fleet for directed fishing for pollock.
+2nd closure for trawl CVs for herring.
+Closing an area in the horseshoe to pollock fishing for 5 days beginning tomorrow morning, September 3rd, at 8:00 am ADT.  The closure applies to all pollock fishing east of 166° 00' West Longitude, south of 54° 32" North Latitude, and inside of 80 fathoms.  The closure will end at 8:00 am ADT on Tuesday, September 8th.   This closure is intended to minimize herring bycatch in the horseshoe.    
+
+1st closure for trawl CVs for herring.
+To AFA Catcher Vessels:
+
+Herring bycatch in the horseshoe this past week has reached a level that requires the fleet to take action to reduce their herring bycatch.  I propose that the CV fleet initiate a “voluntary” stand down on pollock fishing in the horseshoe area for 10 days starting at midnight on Tuesday, July 21st.    The voluntary closure would end at first light on the morning of Saturday, August 1st.  The closure area I am proposing would be to prohibit all pollock fishing south of 54° 50” north and east of 166° 00’ west.
+
+
+## Economic conditions as of 2019
+
 Alaska pollock is the dominant species in terms of catch in the Bering Sea \&
-Aleutian Island (BSAI) region. In 2018 pollock accounted for 70\% of the
-BSAI's FMP groundfish harvest and 90\% of the total pollock harvest in Alaska.
-Retained catch of pollock increased 1.5\% to 1.38 million t in 2018 (Table \ref{tab:bsaiplck_exv}). BSAI
-pollock first-wholesale value was \$1.38 billion 2018, which was 3\% increase 
-from 2017 and above the 2005--2007 average of \$1.25 billion (Table \ref{tab:bsaiplck_wsl}). The higher revenues
-in recent years is the combined effect of strong catch and production levels and 
-a steady increase in the average first-wholesale price between 2016 and 2017. The 
-increases in the average  first-wholesale price of pollock products in 2016 and 2017 
-were largely due to increases the price of surimi products while the price increase 
-in 2018 was largely due to an increase in the price of fillets.
+Aleutian Island (BSAI) region. In 2019 pollock accounted for 73\% of the
+BSAI's FMP groundfish harvest and 92\% of the total pollock harvest in Alaska.
+Retained catch of pollock increased 2.2\% to 1.41 million t in 2019 (Table \ref{tab:bsaiplck_exv}). BSAI
+pollock first-wholesale value was \$1.55 billion 2019, which was 12\% increase
+from 2018 and above the 2010--2014 average of \$1.26 billion (Table \ref{tab:bsaiplck_wsl}). The higher revenues
+in recent years is the combined effect of strong catch and production levels and
+a steady increase in the average first-wholesale price since 2016. The
+increases in the average  first-wholesale price of pollock products in 2016 and 2017
+were largely due to increases the price of surimi products while the price increase
+in 2018 was largely due to an increase in the price of fillets. Price increases in 2019 
+were the combined effect of price increases in both fillets and surimi.
 
 Pollock is targeted exclusively with pelagic trawl gear. The catch of pollock
 in the BSAI was rationalized with the passage of the
@@ -447,7 +433,7 @@ among other things, established a proportional allocation of the total
 allowable catch (TAC) among vessels in sectors which were allowed to form into
 cooperatives.\footnote{The BSAI pollock TAC is divided between Community
 Development Program (10\% off the top), with the remaining amount split among shore-based
-catcher vessels (50\%), at-sea catcher/processors (40\%) and motherships (10\%).} 
+catcher vessels (50\%), at-sea catcher/processors (40\%) and motherships (10\%).}
 
 Prior to 2008 pollock catches were high at approximately 1.4 million t in the
 BSAI for an extended period (Table \ref{tab:bsaiplck_exv}). The U.S. accounted
@@ -469,7 +455,7 @@ in requiring MSC certification. The U.S. was the only producer of MSC
 certified pollock until 2013 when roughly 50\% of the Russian catch became MSC
 certified.\footnote{Alaska caught pollock in
 the BSAI became certified by the Marine Stewardship Council (MSC) in 2005, an
-NGO based third-party sustainability certification, which some buyers seek.} 
+NGO based third-party sustainability certification, which some buyers seek.}
 Since 2010 the U.S. pollock stock rebounded with catches in the
 BSAI ranging from 1.2--1.3 million t and Russia's catch has stabilized at 1.5
 to 1.6 million t. The majority of pollock is exported; consequently exchange
@@ -479,10 +465,10 @@ may not fully account for all pollock exports as products such as meal,
 minced fish and other ancillary product may be coded as generic fish type for export purposes.}
 In 2015 the official U.S. market name changed from "Alaska pollock" to
 "pollock" enabling U.S. retailers to differentiate between pollock caught in
-Alaska and Russia. Additionally, pollock more broadly competes with other whitefish that, 
-to varying degrees, can serve as substitutes depending on the product. The pollock industry 
-has avoided U.S. tariffs that would have a significant negative impact on them in the 
-U.S.-China trade war. However, Chinese tariffs on U.S. products could 
+Alaska and Russia. Additionally, pollock more broadly competes with other whitefish that,
+to varying degrees, can serve as substitutes depending on the product. The pollock industry
+has avoided U.S. tariffs that would have a significant negative impact on them in the
+U.S.-China trade war. However, Chinese tariffs on U.S. products could
 inhibit growth in that market.
 
 This market environment accounts for some of the major trends in prices and
@@ -511,21 +497,20 @@ The catch of pollock can be broadly divided between the shore-based sector
 where catcher vessels make deliveries to inshore processors, and the at-sea
 sector where catch is processed at-sea by catcher/processors and motherships
 before going directly to the wholesale markets. The retained catch of the
-shore-based sector increased 1\% to 718 kt. The value of these
-deliveries (shore-based ex-vessel value) totaled \$236.7 million in 2018,
-which was up 15\% from the ex-vessel value in 2017 driven mostly by a 14\%
-increase in the ex-vessel price (Table \ref{tab:bsaiplck_exv}). 
-The first-wholesale value of pollock products was
-\$811 million for the at-sea sector and \$568 million for the shore-based
+shore-based sector increased 1\% to 710 kt. The value of these
+deliveries (shore-based ex-vessel value) totaled \$259.8 million in 2019,
+which was up 10\% from the ex-vessel value in 2018 driven mostly by a 7\%
+increase in the ex-vessel price which is above the 2010-2014 average
+(Table \ref{tab:bsaiplck_exv}). The first-wholesale value of pollock products was
+\$920 million for the at-sea sector and \$630 million for the shore-based
 sector (Table \ref{tab:bsaiplck_wsl}). The higher revenue in recent years is
-largely the result of increased catch levels as the average price of pollock
-products has declined since peaking in 2008--2010 and since 2013 has been close
-to the 2005--2007 average, though this varies across products types. The
-average price of pollock products in 2018 decreased for the at-sea sector and
-increased for the shore-based sectors. The increase in the at-sea sector
-revenues was largely due to an increase in surimi prices. Fillet product prices
-increased 6.5\% in 2018. Roe prices also increased slightly however they 
-remain low relative to levels roughly a decade ago.
+combined effect of increased catch levels and price increases of pollock
+products of fillet and surimi products. The
+average price of pollock products in 2019 increased 9\% for the at-sea sector to
+$1.38 and
+increased 5\% for the shore-based sector to $1.12. Surimi pricesincreased 8\% 
+and fillet prices increased 11\% in 2019. Roe prices decreased 26\%, however, 
+production increased 36\% to the highest level observed over the last decade.
 
 The portfolios of products shore-based and at-sea processors produce are
 similar. In both sectors the primary products processed from pollock are
@@ -538,9 +523,8 @@ freezing. Since 2014 the price of fillets produced at-sea tend to be about
 about 50\% higher. Average prices for fillets produced at-sea also tend to be
 higher because they produce proportionally more higher-priced fillet types
 (like deep-skin fillets). The at-sea price first wholesale premium averaged
-roughly \$0.30 per pound between 2005--2010 but has decreased to an average of
-\$0.25 per pound between 2014--2018, in part, because the shore-based sector
-increased their relative share of surimi production.\footnote{The at-sea price
+roughly \$0.21 per pound between 2010--2014 and has increased to an average of
+\$0.27 per pound between 2015--2019.\footnote{The at-sea price
 premium is the difference between the average price of first-wholesale
 products at-sea and the average price of first-wholesale products shore-
 based.}
@@ -549,18 +533,18 @@ based.}
 
 A variety of different fillets are produced from pollock, with pin-bone-out
 (PBO) and deep-skin fillets typically accounting for approximately 70\% and
-30\% of production in the BSAI, respectively. Deep-skin fillet's share of
-production  decreased to 34% in 2018. Total fillet production increased 7\%
-to 168 kt in 2018, but since 2010 has increased with aggregate production and
-catch and has been higher than the 2005--2007 average (Table
+30\% of production in the BSAI, respectively. Deep-skin fillet's share of fillet
+production was 33\% in 2019. Total fillet production increased 11.5\%
+to 187 kt in 2019, and since 2010 has increased with aggregate production and
+catch and was higher than the 2010--2014 average (Table
 \ref{tab:bsaiplck_wsl}). The average price of fillet products in the BSAI
-increased 7\% to \$1.37 per pound and is below the inflation adjusted average
-price of fillets in 2005--2007 of \$1.49 per pound (2017 dollars).  Media
-reports indicate that headed-and-gutted (H\&G) and fillet prices tended to be
-strong throughout much of 2018 relative to 2017. Pollock fillets sourced from Russia
+increased 11\% to \$1.52 per pound and is below the inflation adjusted average
+price of fillets in 2010--2014 of \$1.69 per pound (2019 dollars).  Media
+reports indicate that fillet prices tended to be
+strong throughout much of 2019. Pollock fillets sourced from Russia
 are the direct competitor to Alaska sourced pollock fillets.
 Fillets were a relatively small portion of Russian primary production
-however, they plan to upgrade their fillet production capacity. Much of the
+however, they are increasing their fillet production capacity. Much of the
 Russian catch goes to China for secondary processing into fillets so
 this would do little to increase the overall volume, however, increased
 primary fillet processing in Russia could increase competition with U.S.
@@ -572,50 +556,53 @@ processed as H\&G which is mostly exported, primarily to China, where is
 reprocessed as fillets and some share of which returns to the U.S.. China also
 processes H\&G from Russia into fillets which are also imported into the
 domestic market. Current data collection does not allow us to estimate the
-share of U.S. returning imports.} As pollock markets in recent years have
-become increasingly tight, the industry has tried to maintain value by
+share of U.S. returning imports.} The U.S. industry has tried to maintain value by
 increasing domestic marketing for fillet based product and creating product
 types that are better suited to the American palette, in addition to increased
-utilization of by-products. Reductions in whitefish supplies in 2018 may have put
-upward pressure on pollock fillet prices. 
+utilization of by-products. Reductions in global pollock supplies in 2020 reported by the
+Groundfish Forum may upward pressure on pollock fillet prices.
 
 ### Surimi seafood
 
-Surimi production in 2018 was 196.5 kt, which was approximately the same as 2017 
-and was above the 2005--2007 average. Prices which have been rising since 2013, 
-decrased 3\% to \$1.26 per pound in the BSAI in 2018 (Table
+Surimi production in 2019 was 192.2 kt, which was down 2.2\%
+and was above the 2010--2014 average. Prices have generally increased since 2013
+and resumed their upward progress in 2019 increasing 8\% to \$1.37 (Table
 \ref{tab:bsaiplck_wsl}). Because surimi and fillets are both made from pollock
 meat, activity in the fillet market can influence the decision of processors
 to produce surimi as smaller average size of fish can incentivize surimi
 production, particularly if it yields a higher value than fillets. Additionally,
-the supply of raw surimi material in Japan has been limited. 
+strong demand for surimi has put upward pressure on prices.
 
 ### Pollock roe
 
 Roe is a high priced product that is the focus of the A season catch destined
 primarily for Asian markets. Roe production in the BSAI tapered off in the
 late--2000s and since has generally fluctuated at under or near 20 kt annually.
+Roe production incrased to 28 kt in 2019
 Production averaged 27 kt in 2005--2007 and was 20.6 kt in 2018, which was up
 12\% from 2017 (Fig. \ref{fig:roe}). Prices peaked in the mid-2000s and have
-followed a decreasing trend over the last decade which continued until 2015.
-The Yen to U.S. Dollar exchange rate can influence prices and relatively stable 
-through 2018 relative to 2017. The average roe price in the BSAI was up 0.5\%  in
-2018 to \$2.89 per pound, and value rose 12\% with the increase in 
-production to \$132 million (Table \ref{tab:bsaiplck_wsl}).
+followed a decreasing trend over the last decade which continued until 2015,
+after which prices increased to \$2.89 per pound in 2018.
+The Yen to U.S. Dollar exchange rate can influence prices and weakened against 
+the Yen in 2019. The average roe price in the BSAI was down 26\% in
+2019 to \$2.15 per pound, but value rose 1\% with the increase in
+production to \$132.2 million (Table \ref{tab:bsaiplck_wsl}).
 
 ### Fish oil
+
 Using oil production per 100 tons as a basic index (tons of oil per ton
 retained catch) shows increases for the at-sea sector. In 2005--2007 it was
 0.3\% and starting in 2008 it increased and leveled off after 2010 with over
 1.5\% of the catch being converted to fish oil (Table \ref{tab:bsaiplck_oil}).
 This represents about a 5-fold increase in recorded oil production during this
 period. Oil production from the shore-based fleet was somewhat higher than the
-at-sea processors prior to 2008 but has been relatively stable. Oil production 
+at-sea processors prior to 2008 but has been relatively stable. Oil production
 estimates from the shore-based fleet may be
 biased low because some production occurs at secondary processors (fishmeal
 plants) in Alaska. The increased production of oil beginning in 2008 can be
-attributed to the steady trend to add more value per ton of fish landed. 
-The oil production index remained stable in 2018.
+attributed to the steady trend to add more value per ton of fish landed.
+The oil production index incrased 15\% in 2019 and was at levels not seen 
+since before 2015.
 
 
 
