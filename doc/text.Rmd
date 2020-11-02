@@ -41,25 +41,25 @@ as in past years,  the ABC recommendation reflects the Tier 3 estimate.
        & \multicolumn{2}{c|}{$\mathit{last}$ year for:}  & \multicolumn{2}{c}{$\mathit{this}$ year for: }               \\
         Quantity & `r thisyr`      &`r thisyr+1`   & `r thisyr+1`      &`r thisyr+2` \\ 
   \hline
-	M (natural mortality rate, ages 3+)	&	0.3	&	0.3	&	0.3	&	0.3 \\
-Tier	&	1a	&	1a	&	1a	&	1a \\
-Projected total (age  3+) biomass (t) & 9,110,000 t & 8,156,000 t & `r  M$age3plus1s` t & `r  M$age3plus2s` t \\
-Projected female  spawning  biomass (t) & 3,107,000 t & 2,725,000 t & `r  M$ssb1s`  t & `r  M$ssb2s`  t \\  
-$B_0$ & 5,866,000 t & 5,866,000 t & `r  M$b0s`,000  t & `r  M$b0s`,000  t \\          
-$B_{msy}$ & 2,280,000 t & 2,280,000 t & `r  M$bmsys`,000  t & `r  M$bmsys`,000  t \\          
-$F_{OFL}$ & 0.645 & 0.645 & `r  round(M$arithmeanF,3)`  & `r  round(M$arithmeanF,3)`  \\                  
-$maxF_{ABC}$  & 0.510 & 0.51  & `r  round(M$harmeanF,3)`  & `r  round(M$harmeanF,3)`  \\                  
-$F_{ABC}$ & 0.356 & 0.375 & `r  (M$fabc1)` & `r  (M$fabc2)` \\                  
-$OFL$ & 3,913,000 t & 3,082,000 t & `r  M$ofl1s`  t & `r  M$ofl2s`  t \\          
-$maxABC$  & 3,096,000 t & 2,437,000 t & `r  M$maxabc1s  ` t & `r  M$maxabc2s  ` t \\      
-$ABC$ & 2,163,000 t & 1,792,000 t & `r  M$abc1s ` t & `r  M$abc2s`  t \\        
-\hline
-Status	                              &	2017	      &	2018	      &		`r lastyr`             &	`r thisyr`          \\
-\hline
-Overfishing	                          &	No	        &	n/a	      &	No	                       &	n/a                 \\
-Overfished	                          &	n/a	        &	No	      &	n/a	                       &	No                  \\
-Approaching overfished	              &	n/a	        &	No	      &	n/a	                       &	No                  \\
-\hline
+  M            (natural mortality rate, ages 3+)	&	0.3	&	0.3	&	0.3	&	0.3 \\
+  Tier         &	1a	&	1a	&	1a	&	1a \\
+  Projected    total (age  3+) biomass (t)     & `r M$it$a1[1]` t & `r M$it$a2[1]` t & `r  M$age3plus1s` t & `r  M$age3plus2s` t \\
+  Projected    female  spawning  biomass (t)   & `r M$it$b1[1]` t & `r M$it$b2[1]` t & `r  M$ssb1s`  t & `r  M$ssb2s`  t \\  
+  $B_0$        & `r M$it$c1[1]` t & `r M$it$c2[1]` t & `r  M$b0s`,000  t & `r  M$b0s`,000  t \\          
+  $B_{msy}$    & `r M$it$d1[1]` t & `r M$it$d2[1]` t & `r  M$bmsys`,000  t & `r  M$bmsys`,000  t \\          
+  $F_{OFL}$    & `r M$it[1,8]` & `r M$it[2,8]` & `r  round(M$arithmeanF,3)`  & `r  round(M$arithmeanF,3)`  \\                  
+  $maxF_{ABC}$ & `r M$it[1,9]` & `r M$it[2,9]` & `r  round(M$harmeanF,3)`  & `r  round(M$harmeanF,3)`  \\                  
+  $F_{ABC}$    & `r M$it[1,10]`& `r M$it[2,10]`& `r  (M$fabc1)` & `r  (M$fabc2)` \\                  
+  $OFL$        & `r M$it$e1[1]` t & `r M$it$e2[1]` t & `r  M$ofl1s`  t & `r  M$ofl2s`  t \\          
+  $maxABC$     & `r M$it$f1[1]` t & `r M$it$f2[1]` t & `r  M$maxabc1s  ` t & `r  M$maxabc2s  ` t \\      
+  $ABC$        & `r M$it$g1[1]` t & `r M$it$g2[1]` t & `r  M$abc1s ` t & `r  M$abc2s`  t \\        
+  \hline
+  Status	                              &	`r lastyr-1`  & `r lastyr`&			`r lastyr`             &	`r thisyr`          \\
+  \hline
+  Overfishing	                          &	No	        &	n/a	      &	No	                       &	n/a                 \\
+  Overfished	                          &	n/a	        &	No	      &	n/a	                       &	No                  \\
+  Approaching overfished	              &	n/a	        &	No	      &	n/a	                       &	No                  \\
+  \hline
 \end{tabular}
 \end{table}
 
@@ -72,31 +72,33 @@ versus reclassifying it as Tier 3 be pursued in the 2020 assessment.
     _We added a trade-off table between the applications of these two approaches._
 
 The SSC had a number of recommendations for additional research supporting this assessment:  
+
   *   The SSC encourages further investigation of the apparent shift between a clear 2012 year-class to mixed 2012-2013 year classes in the data, suggestive of potentially variable ageing bias.   
-    - _The 2019 fishery age data shows XXX relative proportion of these two year classes in the data..._ 
-  *   Noting the work in deriving an external estimate of temporal variability in catchability for the bottom trawl survey (relative to the acoustic survey) due to vertical availability, the SSC noted that
-catchability would logically also vary for the acoustic survey. 
-The SSC encourages further work to develop the simultaneous modelling of these two surveys, accounting for vertical and distributional
-shifts (including into the NBS). When sufficiently explored, the SSC looks forward to assessment model configurations that explore the 
-use of a time-series from this method.  
-  - _Work on this topic has stalled since survey model efforts focus on methods to incorporate the new Sail Drone acoustic data._
+     - _The 2019 fishery age data shows XXX relative proportion of these two year classes in the data..._ 
+
+  *   Noting the work in deriving an external estimate of temporal variability in catchability for the bottom trawl survey (relative to the acoustic survey) due to vertical availability, 
+     the SSC noted that catchability would logically also vary for the acoustic survey. The SSC encourages 
+     further work to develop the simultaneous modelling of these two surveys, accounting for vertical and distributional 
+     shifts (including into the NBS). When sufficiently explored, the SSC looks forward to assessment model configurations that explore the 
+     use of a time-series from this method.  
+     - _Work on this topic has stalled since survey model efforts focus on methods to incorporate the new Sail Drone acoustic data._
 
   *   The SSC supports ongoing genetic studies to determine the relationship between pollock in the NBS and EBS, as well as other surrounding regions (AI, GOA).  
-  - _A post doctoral research has been assigned to undertake this work but progress has been limited due to lab access_
+     - _A post doctoral research has been assigned to undertake this work but progress has been limited due to lab access_
   *   The SSC supports the continued use of a formal decision table to illustrate risks of alternative harvest strategies.  
-  - _This is again included in this year's assessment report_
+     - _This is again included in this year's assessment report_
 
   *   The SSC supports the GPT’s recommendation to revisit the treatment of all variance parameters in the next assessment,
 particularly those that are set at fixed values (e.g., the value of 0.2 for the acoustic survey).
-  - _This planned activity is only partially underway._
+     - _This planned activity is only partially underway._
 
   * 	The SSC also looks forward to estimates of movement and abundance along the U.S.-Russia EEZ boundary based
-on echosounders fixed to moorings in this area. 
+       on echosounders fixed to moorings in this area. 
      - _The moored sounders have been recovered in September 2020 but the data have yet to be processed_
 
 From previous requests
 
-     Re-examine the geographic subset of data currently used to develop the AVO
+Re-examine the geographic subset of data currently used to develop the AVO
 index, specifically to see if including Bristol Bay data improves the
 correlation 
 
@@ -114,10 +116,6 @@ alternative fixed values or estimation methods.
     effects hypotheses. Values of $\sigma_R$ were explored in previous years, no further
     work was done on this in 2019._      
 
-
-_We included an expanded evaluation of fishery performance this year. Specifically, we 
-examined the spatial pattern of the fishery and developed a statistic of dispersion
-of individual tows_
 
 # Introduction
 ## General
@@ -160,25 +158,22 @@ northern part of the shelf region between the 100 and 200 m isobaths
 other areas.
 
 
-## Stock structure
-Data from the survey work in the Northern Bering Sea (NBS) region (north of
-Nunivak Island to the Russian convention line and into Norton Sound) from 2017
-and 2018, as shown below and evaluated in the appendix, suggests that there
-are concentrations of pollock present which contrasts with the 2010 survey
-when relatively few pollock were present. The pattern of temperatures in the
-region likely affect the pollock distribution in ways that likely vary over
-time.  However, there is evidence of a relationship between mean bottom
-temperatures in the US zone on the EBS shelf and subsequent biomass estimates
-in the  Navarin basin (the Russian area adjacent to the Convention Line; e.g.,
-Stepanenko and Gritsay 2018,  Ianelli et al. 2015). Some genetic samples were
-taken from pollock and collections continue. Pending funding availability,
-analysis of these samples could  help ascertain the extent that these fish are
-related to those observed in the normal EBS shelf survey area.   Genetic
-samples taken from the 2017 summer bottom trawl survey from the Northern
-Bering Sea can be compared with samples from the standard Bering Sea Unimak,
-Pribilof, Bogoslof, and Zhemchug. This planned study should help improve stock
+## Stock structure 
+Genetic samples were taken from pollock and collections
+have continued from sources including observers and AFSC research surveys. A
+large study using whole genome sequencing is currently underway for samples of
+walleye pollock from Zhemchug Canyon, Japan, Prince William Sound, Bogoslof,
+Shelikof, and the Northern Bering Sea. This project was funded by the Joint
+Institute for the Study of Atmosphere and Oceans (currently
+CICOES, the Cooperative Institute for Climate, Ocean, and Ecosystem Science)
+and the Alaska Fisheries Science Center Cooperative Research Institute. The
+goals of the project include investigating whether genetic stock structure
+exists in walleye pollock, if these patterns are temporally stable, and if
+distributional shifts under climate change are detectable using genomic data.
+Whole genome sequencing is a new approach to the study of walleye pollock that
+is expected to yield higher statistical power than previous results using
+microsatellite DNA markers. This planned study should help improve stock
 structure evaluation (last done in Ianelli et al. 2015).
-
 
 # Fishery  
 ## Description of the directed fishery 
@@ -220,15 +215,23 @@ varied over time with recent B-season catches occurring in the southeast
 portion of the shelf (east of 170$^\circ$W longitude; Fig. \ref{fig:catch}).
 Since 2011, regulations and industry-based measures to reduce Chinook salmon
 bycatch have affected the spatial distribution of the fishery and to some
-degree, the way individual vessel operators fish (Stram and Ianelli, 2014).
+degree, the way individual vessel operators fish (Stram and Ianelli, 2014). In 
+2020, the fishing fleet encountered higher than normal bycatch of herring and this
+has further constrained the fishing grounds due to area closures. Additionally,
+sablefish appear to be highly abundant in the region and have comprised a significant
+proportion of the incidental catches in the pollock fishery (proportionally still less
+than 1% of the total landings).
 
 
 The catch estimates by sex for the seasons indicate that over time, the number
-of males and females has been fairly equal (Fig. \ref{fig:catch_sex}). The
-2019 A-season fishery spatial pattern had relatively high concentrations of
+of males and females has been fairly equal but in the period 2017-2019 A-season
+catch of females has been slightly higher and conversely, the B-season has been
+slightly higher number of males taken (Fig. \ref{fig:catch_sex}). The
+2020 A-season fishery spatial pattern had relatively high concentrations of
 fishing on the shelf north of Unimak Island and extended along the 200m depth
-contour (Fig. \ref{fig:catch_distn_a}).  The 2019 A-season catch rates was very
-high improving even on the good conditions observed in other recent A 
+contour similar to 2019 but with a more dispersed distribution (Fig. \ref{fig:catch_distn_a}). 
+The 2020 A-season nominal catch rates
+were high similar to the good conditions observed in other recent A 
 seasons (Fig. \ref{fig:aseas_cpue}). Beginning in 2017, due to  a regulatory
 change, up to 45\% of the TAC could be taken in the A-season (previously only
 40\% of the TAC could be taken). This conservation measure was made to allow
@@ -239,10 +242,13 @@ winter fishery is  the sale of pollock roe, production during the B-season is
 consistently about 10\% of the annual production (Fig. \ref{fig:roe}). 
 
 
-The fishing in summer-fall 2019 was quite different than recent years
+The fishing in summer-fall 2020 was characterized as being poor fishing and
+requiring increased effort in terms of hours spend fishing (jxxxite different
+than
+recent years
 with fishing much more broadly distributed and concentrated along the 
 shelf break. Catches in the northwestern
-continued to increase relative 2017 and 2918 (Fig. \ref{fig:catch_distn_b}).   
+continued to increase relative to 2018 (Fig. \ref{fig:catch_distn_b}).   
 The 2019 summer and fall (B-season) catch per hour fished was lower than the 
 last few years (Fig. \ref{fig:bseas_cpue}).  Since 1979 the catch of EBS pollock has
 averaged 1.19 million t with the lowest catches occurring in 2009 and 2010
@@ -1686,139 +1692,60 @@ population and the mean age of the spawning stock weighted by spawning output
 Fig. \ref{fig:age_diversity}). **We therefore rated the population-dynamic
 concern as level 2, a substantially increased concern.**
 
-*Environmental/Ecosystem considerations* The winter of 2018/2019 began with
-near-average accumulation of sea ice in the Bering Sea  during December and
-January, but warm moist winds from the southwest persisted throughout
-February and reduced sea ice extent to low levels (only 2018 was lower). 
-Winter sea ice patterns and the resulting extent of the cold pool in summer were similar between
-2018 and 2019 (Thoman in 2019 EBS ESR) due to these unusual wind patterns. 
-Ecosystem  indicators from 2018 may provide insights into 2019 conditions for
-pollock. In 2018, warm  water temperatures and higher salinity north of St.
-Lawrence Island may have  contributed to the northward movement of pollock
-into the northern Bering Sea (see Eisner et al. in 2019 EBS ESR). With warm
-conditions persisting through  winter 2018/2019, pollock
-may have remained in the northern Bering Sea or moved along the shelf
-(north or south) early in the spring/summer of 2019. The 2018 year class 
-apparently experienced favorable conditions between a cooler summer as age-0s (2018)
-followed by a  warmer spring as age-1s in 2019 (see Yasumiishi in 2019 EBS ESR). 
+ ### Risk Table information for Environmental/Ecosystem considerations Provided by: Elizabeth Siddon, NOAA/AFSC
+*Environmental processes:* Following two years of physical oceanographic perturbations, the eastern Bering Sea experienced a return to near-normal climatic conditions in 2020. Residual warmth delayed sea ice formation until late 2019. Considerable cooling then allowed for rapid build-up of sea ice, even exceeding median ice extent in parts of February and March 2020. The 2019-2020 daily mean extent was within 1 SD of the long-term mean. However, ice thickness was low, and retreated quickly in spring.
+Summer bottom temperatures and spatial extent of the cold pool were average based on the ROMS hindcast model and observations from the 2020 Dyson cruise. However, summer sea surface temperatures through August were above average in the southeastern and northern Bering Sea, similar to those observed in 2019. In fact, both the southeastern and northern Bering Sea are experiencing a persistent warm stanza, greater in both magnitude and duration than that of the early 2000s.
+The winters of 2017/2018 and 2018/2019 had strong south winds, which contributed to low sea ice extent in those years. These anomalous winds from the south are hypothesized to have bolstered productivity over the shelf, sustained metabolic demands, and subsidized overwinter survival of the 2018 year class of pollock. The most recent winter (2019/2020) had an average wind speed direction (north/south) near the long-term average. Similarly, based on the OSCURS model, the 2020 springtime drift pattern was mixed, with an early period of eastward drift followed by a period of westward drift that may have retained larvae over the middle shelf.
 
-The 2018 year class was sampled using surface trawls in the southern and
-northern Bering Sea  as age-0 in late summer 2018. Summer of 2018 was warm
-(above-average thermal conditions) and age-0 fish had low energy density
-across the shelf (see Siddon et al. and   Sewall et al. 2019 EBS ESR). The
-mean size of the 2018 year class was average but their  biomass index was
-below average (Whitehouse in 2019 EBS ESR). However, anomalous winds from  the
-southwest during February 2019 may have bolstered productivity over the shelf,
- sustained metabolic demands, and subsidized overwinter survival of the 2018
-year class of  pollock. 
- 
- The 2019 condition of juvenile (age-1) and adult pollock based on
- length-weight residuals was assessed in the southern and northern survey
- regions. Over the southern shelf, age-1 pollock have had positive
- length-weight residuals for the past 4 years while adult  pollock had
- negative residuals in 2017-2018, but switched to positive residuals in 2019. 
- The negative values are driven by fish sampled in the inner domain where
- unprecedentedly  warm temperatures may have tested metabolic limits. Over the
- northern shelf, age-1 pollock  had positive residuals (although less positive
- than 2018) while adult pollock continued  negative residuals for the past 3
- years (see Laman in 2019 EBS ESR). Over the southern  shelf, abundance
- increased 53% while biomass increased 75%, indicating movement of adult  fish
- back over the southern shelf. In the northern Bering Sea, abundance increased
- 59%, but  biomass decreased 11%, indicating successful recruitment of younger
- age classes of pollock  over the northern shelf. 
+These environmental indicators are presented in the new Physical Oceanography Summary section of the 2020 EBS Ecosystem Status Report (Siddon, 2020). 
 
-*Prey:* Small copepods form the prey base for larval to early juvenile pollock
-during spring.  Late juvenile pollock feed on a variety of planktonic
-crustaceans, including calanoid  copepods and euphausiids (principally
-_Thysanoessa inermis_ and _T. raschii_). Pollock diets  become more piscivorous
-with age and cannibalism is commonly observed.
+Age-0 fish experiencing warm temperatures during late summer followed by relatively cooler temperatures in spring of age-1 are thought to have below average survival (Yasumiishi, 2020). Based on this Temperature Change index, the 2016 and 2019 year classes are predicted to have below-average recruitment to age-4 in 2020 and 2023. 
 
-The number of small copepods available to juvenile pollock across the shelf
-during spring  2019 was high compared to historical abundances and increased
-from spring to fall, indicating  good foraging conditions for larval and
-juvenile pollock early in the year. However, the  abundance of large
-(typically more lipid-rich) copepods was low overall (lower than in 2018). 
-Although direct measurements of euphausiid abundances for both 2018 and 2019
-indicate low  abundances, age-0 fish diets from 2018 contained over 50%
-euphausiids, suggesting euphausiids  may provide an alternative, lipid-rich
-prey source when large copepods are not as abundant.   Indirect information on
-prey resources for pollock is discussed below under ‘Competitors’.
-
-*Predators:* Pollock are cannibalistic and rates of cannibalism might be
-expected to increase as the biomass of older, larger fish increases concurrent
-with increases  in juvenile abundance. With the lack of a cold pool over the
-southern shelf or thermal  barrier between the southern and northern shelves,
-spatial overlap and the potential for  cannibalism are increased.  Warmer
-waters also increase the metabolic demand and potentially increase foraging
-rates; the CEATTLE multispecies model indicates an increase in demand of
-individual predators, although total mortality is reduced relative to high
-levels in 2016 due to declines in abundance of older conspecifics and adult
-cod.   Other predators of pollock include northern fur seals. At this  time
-there are no indicators that suggest these populations are increasing in the
-eastern  Bering Sea (although note that the Bogoslof Island population of
-northern fur seals is  increasing while the Pribilof Islands populations are
-decreasing; see C. Kuhn ‘Noteworthy’ in  the 2019 EBS ESR). Fur seal
-consumption of adult pollock generally increases in years when  juvenile
-pollock are less abundant (Kuhn).
+*Prey:* The spring bloom over the south inner and middle domains occurred about a week earlier than the long-term mean; in comparison, 2017 was among the earliest spring blooms while 2018 was among the latest (Nielsen et a., 2020). Chlorophyll concentrations in this region have been below the long-term mean since 2016. Depending on the spatial and temporal overlap of productivity, this can result in a match or mismatch with favorable feeding conditions for larval pollock.
+Small copepods form the prey base for larval to early juvenile pollock during spring. Late juvenile pollock feed on a variety of planktonic crustaceans, including calanoid copepods and euphausiids. Pollock diets become more piscivorous with age and cannibalism is commonly observed. No direct measurements of zooplankton community composition are available for 2020 due to survey cancellations. 
+The abundance of large copepods during late-summer is correlated with recruitment to age-3 pollock; low abundance of large copepods during late-summer 2017 and 2018 indicate poor overwinter survival and recruitment to age-3 in 2020 and 2021 (Yasumiishi et al., 2020). In 2019, over the southern middle shelf, small copepods were abundant in spring while large copepod abundance was quite low in late-summer (Kimmel et al., 2020). This indicates good foraging conditions for larval and juvenile pollock early in the year, however, large, lipid-rich copepods may have again limited energy storage for age-0 pollock entering their first winter. 
+Fish condition (as measured by weighted length-weight residuals [updated method]) patterns over the southeastern and northern shelves differed for juvenile (100-250 mm total length) and adult (>250 mm TL) pollock in 2019 (no 2020 survey data available) (Rohan and Laman, 2020). Within both regions, juvenile condition was at the long-term mean while adult condition was positive. This indicates juvenile fish may not be finding adequate prey resources, while adult fish are finding adequate prey (including cannibalism on juvenile pollock). Spatially, adult pollock showed negative residuals while juvenile pollock showed positive residuals over the inner shelf from 2015-2019 (warm years).
+Predators: Pollock are cannibalistic and rates of cannibalism might be expected to increase as the biomass of older, larger fish increases. In 2019, over the southern shelf, biomass increased 75% indicating movement of adult fish over the southern shelf. In the northern Bering Sea, abundance increased, but biomass decreased, indicating successful recruitment over the northern shelf (L. Britt, pers comm). In 2020, with an average cold pool extent over the shelf, predation pressure from cannibalism may have been mitigated by this thermal barrier as adult pollock tend to avoid the cold bottom waters.
+Fur seal consumption of adult pollock generally increases in years when juvenile pollock are less abundant (Kuhn et al., 2019). However, no information on 2020 population trends for fur seals is available.
+Other potential predators of juvenile pollock include jellyfish and chum salmon; no direct measurements of predation pressure exist at this time.
+Competitors: While historical recruitment trends between Pacific cod and walleye pollock have mirrored each other, the timeseries appear to decouple between 2008 and 2009. This may indicate broad-scale transitions in the southeastern Bering Sea ecosystem (e.g., from pelagic- to benthic-dominated production). The mechanisms driving early life history survival versus recruitment success of Pacific cod and walleye pollock may differ based on pelagic versus benthic habitat associations (e.g., prey availability). The decoupling of abundance timeseries suggests a shift (or greater disparity) between drivers of survival in these two populations.
+The widespread die-off event of short-tailed shearwaters slowed in 2020 (Siddon, 2020). Shearwaters are planktivorous birds and feed on euphausiids in the Bering Sea in summer. The die-off event is thought to reflect poor foraging conditions for birds during summer 2018 as most sampled birds showed signs of emaciation; lower mortality in 2020 may reflects (i) better feeding conditions in 2019 or (ii) lower overall population levels for shearwaters.
 
 
-*Competitors:* While historical recruitment trends between Pacific cod and
-walleye pollock have mirrored each other, suggesting the species respond
-similarly to  environmental conditions, the timeseries appear to decouple
-after approximately 2010 and may  indicate broad-scale transitions in the
-southeastern Bering Sea ecosystem (e.g., from  pelagic- to benthic-dominated
-production;  Fig \ref{fig:poll_cod}). The mechanisms driving early life  history survival
-versus recruitment success of Pacific cod and walleye pollock may differ 
-based on pelagic versus benthic habitat associations (e.g., prey
-availability). The  decoupling of abundance timeseries after 2010 suggests a
-shift (or greater disparity) between  drivers of survival in these two
-populations.
 
-A widespread die-off event of short-tailed shearwaters began in the SEBS in
-June 2019 and extended into the NBS and Chukchi Sea in August. These events may
-reflect 2018 conditions as shearwaters feed in the Bering Sea in summer before
-migrating to the southern hemisphere for breeding during the winter. Most
-sampled birds showed signs of emaciation; shearwaters are planktivorous birds
-and feed on euphausiids.  
+*Summary for Environmental/Ecosystem considerations:* Level 2 – substantially increased concerns. “Some indicators showing adverse signals relevant to the stock but the pattern is not consistent across all indicators.”
+  *  The eastern Bering Sea experienced a return to near-normal climatic conditions in 2020;
 
-The following are notes on ecosystem aspects that may affect the survival 
-of recruits from the 2018 and 2019 year classes.
+  *  Sea ice extent exceeded the historical median in parts of February and March 2020;
 
-*2018 year class:*     
+  *  Ice thickness was low and retreated quickly in spring 2020;
 
-  - The 2018 year class experienced favorable conditions between a cooler summer as age-0s (2018) followed by a warmer spring as age-1s (2019);     
+  *  The spatial extent of the cold pool was average;
 
-  - The 2018 year class of age-0 fish had low energy density across the shelf, average mean size, and below average biomass index;      
+  *  The eastern Bering Sea is experiencing a persistent warm stanza, greater in both magnitude and duration than that of the early 2000s;
 
-  - Anomalous winds from the southwest during February 2019 may have bolstered productivity over the shelf, sustained metabolic demands, and subsidized overwinter survival of the 2018 year class;     
+  *  The 2019 year class experienced unfavorable temperature conditions from age-0 to age-1 and is predicted to have below-average recruitment to age-4 in 2023. 
 
-  - The 2019 Shearwater die-off events could reflect feeding conditions (i.e., euphausiids) in the EBS in 2018.
+  *  Winter 2019/2020 had an average wind speed direction (north/south) near the long-term average;
 
-*2019 year class:*     
+  *  The 2020 springtime drift pattern was mixed indicating larvae may have been retained over the southern middle shelf; 
 
-  - Second winter of low sea ice extent in the eastern Bering Sea (only 2018 was lower);     
+  *  The spring bloom over the southern shelf occurred about a week earlier than the long-term mean;
 
-  - A small cold pool occurred in 2019 and may have impacted pollock movement and distribution;     
+  *  Chlorophyll concentrations over the southern shelf have been below the long-term mean since 2016;
 
-  - 2019 condition (length-weight residuals) of age-1 pollock was positive over the entire shelf; adult pollock condition was positive in the south, but negative in the north;     
+  *  Low abundance of large copepods during late-summer in 2017-2019 indicate poor overwinter survival and recruitment to age-3 in 2020-2022;
 
-  - Over the southern shelf, abundance increased 53% while biomass increased 75%, indicating movement of adult fish to the region;     
+  *  Condition (weighted length-weight residuals) of juvenile pollock (100-250 mm TL) in 2019 was at the long-term mean indicating moderate foraging conditions;
 
-  - Over the northern shelf, abundance increased 59%, but biomass decreased 11\%, indicating successful recruitment of younger age classes;      
+  *  Condition of adult pollock (>250 mm TL) in 2019 was above-average indicating good foraging conditions (including cannibalism of juvenile pollock);
 
-  - Small copepod abundance was high, indicating good foraging conditions for larval  and juvenile pollock early in the year;      
+  *  Predation pressure from cannibalism may have been mitigated by the average spatial extent of the cold pool (i.e., thermal barrier);
 
-  - Large copepod abundance was low overall;     
+  *  The decoupling of abundance timeseries for Pacific cod and walleye pollock suggests a shift in drivers of survival in these two populations and may indicate broad-scale transitions in the ecosystem (e.g., from pelagic- to benthic-dominated production);
 
-  - Low abundances of euphausiids were observed in 2018 (MACE acoustic survey) and 2019 (RPA RZA), but age-0 fish diets from 2018 contained over 50% euphausiids;     
+  *  The widespread die-off event of short-tailed shearwaters slowed in 2020 and may reflect better feeding conditions (i.e., euphausiids) over the shelf in 2019.
 
-  - Lack of cold pool over the southern shelf and thermal barrier between the southern and northern shelves suggests spatial overlap and the potential for cannibalism are increased;     
-
-  - the 2019 year class may experience higher rates of cannibalism due to adult biomass returning over the shelf (75% increase in 2019) and the apparent strong 2018 year class;
-
-  - Fur seal consumption of adult pollock increases in years when juvenile pollock are less abundant;     
-
-  - The decoupling of abundance timeseries for Pacific cod and walleye pollock after 2010 suggests a shift in drivers of survival in these two populations. Mechanistic understanding of recruitment drivers is less well-known than for pollock.     
 
 **We therefore rated the Ecosystem concern as Level 2, substantially increased concern.**
 Some indicators showing adverse signals relevant to the stock but the pattern was inconsistent across indicators.

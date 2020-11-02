@@ -10,7 +10,9 @@
  printfig("catch_distn_b.png",6)
  printfig("cpue_bseason.png",7)
 ``` 
+
 \clearpage
+
 ```{r  survfigs}
  printfig("fleet_dispersal.png",9)
  printfig("catage.png",10)

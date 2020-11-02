@@ -1,5 +1,21 @@
 get_vars <- function(M){
   B <- list()
+  A <- read.table("data/intro_table.dat",header = TRUE)
+  A$a1 <- format(A[1,4] ,big.mark               = ",",scientific=F,digits=0)
+  A$a2 <- format(A[2,4] ,big.mark               = ",",scientific=F,digits=0)
+  A$b1 <- format(A[1,5] ,big.mark               = ",",scientific=F,digits=0)
+  A$b2 <- format(A[2,5] ,big.mark               = ",",scientific=F,digits=0)
+  A$c1 <- format(A[1,6] ,big.mark               = ",",scientific=F,digits=0)
+  A$c2 <- format(A[2,6] ,big.mark               = ",",scientific=F,digits=0)
+  A$d1 <- format(A[1,7] ,big.mark               = ",",scientific=F,digits=0)
+  A$d2 <- format(A[2,7] ,big.mark               = ",",scientific=F,digits=0)
+  A$e1 <- format(A[1,11] ,big.mark              = ",",scientific=F,digits=0)
+  A$e2 <- format(A[2,11] ,big.mark              = ",",scientific=F,digits=0)
+  A$f1 <- format(A[1,12] ,big.mark              = ",",scientific=F,digits=0)
+  A$f2 <- format(A[2,12] ,big.mark              = ",",scientific=F,digits=0)
+  A$g1 <- format(A[1,13] ,big.mark              = ",",scientific=F,digits=0)
+  A$g2 <- format(A[2,13] ,big.mark              = ",",scientific=F,digits=0)
+	B$it <- A #format(A[1,2],  big.mark=",",scientific=F,digits=0)
 	B$npar <- M$fit$nopar
 	# String versions of these values
 	B$age3plus<-M$fit$est[M$fit$names=="age_3_plus_biom"][1:length(M$R[,1])]  
@@ -104,5 +120,7 @@ get_vars <- function(M){
   B$pmatdiv2      <- pnorm(1, M$MatAgeDiv2[ord]  ,  M$MatAgeDiv2.sd[ord] )
   B$prel_effort   <- 1-pnorm(1, M$RelEffort[ord]   ,  M$RelEffort.sd[ord]  )
   B$plta1_5       <- 1-pnorm(1, M$LTA1_5[ord]      ,  M$LTA1_5.sd[ord]    )
+
+
   return(B)
 }

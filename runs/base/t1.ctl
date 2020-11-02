@@ -39,9 +39,9 @@
 #q_all_sigma
 2
 #q_bts_prior
-0.
+0
 #q_bts_sigma
-2.
+2
 #sigrprior
 1
 #cvsigrprior
@@ -73,7 +73,7 @@
 #nyrs_future;
 5
 #next_yrs_catch;
-2500
+1390
 #nscen
 22
 #fixed_catch_fut2;

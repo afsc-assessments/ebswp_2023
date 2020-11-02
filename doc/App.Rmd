@@ -12,7 +12,47 @@ explanation of parameters. VAST has involved many publications for developing
 individual features (see references section below). What follows is intended
 as  a step by step documentation of applying the model to these data.
 
-Settings and configurations are available here (link to come...). 
+The software versions of dependent programs used to generate VAST estimates were:
+  - Microsoft Open R (3.5.3)
+  - INLA (18.7.12)
+  - TMB (1.7.18)
+  - TMBhelper (1.2.0)
+  - VAST (3.2.0)
+  - FishStatsUtils (2.3.0)
+
+For the model-based index time series, we used the same VAST model run (and associated results) as the 2019 SAFE.  
+We include additional details regarding model settings here, as requested during the December 2019 SSC meeting.
+
+We fitted records of biomass per unit area from all grid cells and corner stations in the 83-112 
+bottom trawl survey of the EBS, 1982-2019, as well as 83-112 samples available in the NBS in 
+1982, 1985, 1988, 1991, 2010, and 2017-2019.  NBS samples prior to 2010 did not follow the 30 
+nautical mile sampling grid that was used in 2010, 2017, and 2019, and the 2018 sampling followed 
+a coarsened grid as well.  Assimilating these data therefore required extrapolating into unsampled areas.  
+This extrapolation was assisted by including a spatially varying response to cold-pool extent (Thorson, 2019).  
+This spatially varying response was estimated for both linear predictors of the delta-model, and detailed 
+comparison of results for EBS pollock has showed that it has a small but notable effect (O’Leary et al., In press).  
+For example, the NBS was not sampled between 2010 and 2017, and the cold-pool extent started to decrease 
+substantially around 2014; therefore including this covariate results in estimates that depart somewhat 
+from a “Brownian bridge” between 2010 and 2017, and instead suggests that densities in the NBS increased 
+progressively after 2014 when cold-pool-extent declined prior to 2017.  
+
+Specifically, we used a Poisson-link delta-model (Thorson, 2018) involving two linear predictors, 
+and a gamma distribution for the distribution of positive catch rates.  We extrapolated density to 
+the entire EBS and NBS in each year, using extrapolation-grids that are available within _FishStatsUtils_ 
+are used when integrating densities.  These extrapolation-grids are defined using 3705 m 
+(2 nmi) X 3705 m (2 nmi) cells;  this results in 36,690 extrapolation-grid cells for the 
+eastern Bering Sea and 15,079 in the northern Bering Sea.  We used bilinear interpolation 
+to interpolate densities from 250 “knots” to these extrapolation-grid cells; knots where 
+distributed spatially in proportion to the distribution of extrapolation-grid cells (i.e., 
+having an approximately even distribution across space).  We estimated “geometric anisotropy” 
+(the tendency for correlations to decline faster in some cardinal directions than others), and 
+including a spatial and spatio-temporal term for both linear predictors.  To improve interpolation 
+of density “hotspots” between unsampled years, we specified that the spatio-temporal term was 
+autocorrelated across years (where the magnitude of autocorrelation was estimated as a fixed 
+effect for each linear predictor).  However, we did not include any temporal correlation for 
+intercepts, which we treated as fixed effects for each linear predictor and year.  Finally, 
+we used epsilon bias-correction to correct for retransformation bias (Thorson and Kristensen, 2016).  
+
 
 ## Spatio-temporal treatment of survey age composition data 
 To date, assessments using spatio-temporal indices have kept 

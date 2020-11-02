@@ -1,7 +1,14 @@
 # Summary
 
-For RE model on wts-at-age, there's a near perfect match except pm.tpl estimating an extra year effect that doesn't occur in 
+## Tasks and todo list 2020
+    [ ] Add in SD biomass     
+    [ ] For RE model on wts-at-age, there's a near perfect match except pm.tpl estimating an extra year effect that doesn't occur in 
 the wt-RE model...unsure why...maybe need to sub in current year estimates from RE model?...
+    [ ] Use vast nocp runs for last year's 1st table
+    [ ] For Tier 1 v 3 comparison, run the estimation such that F35==Fmsy, compare SRR curves, say something smart?
+    [x] Add in 2019 fishery age compositions      
+    [ ] Add in 2019 fishery age compositions      
+
 
 ## 2019 notes
 2019 runs are in base, lastyr (2018 version of base) then the C-CABA runs, vastage, constsel, vast_cp, vastall.

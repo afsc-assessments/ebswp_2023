@@ -1,8 +1,8 @@
-# Parameter estimates for the EBS pollock reference model picked by the SSC (19.0, uses VAST full time series including Northern Bering Sea segment) 
+# Parameter estimates for the EBS pollock reference model picked by the SSC (16.2, uses VAST full time series including Northern Bering Sea segment) 
 \fontsize{7}{9}
 ```{r eval = TRUE, include=TRUE,echo=FALSE, comment=NA }
 opts_chunk$set(fig.width = 12, fig.height = 8, echo = FALSE, warning = FALSE, message = FALSE)
-ts <- readLines("../runs/vast_nocp/pm.std")
+ts <- readLines("../runs/2020/pm.std")
 for (i in 1:length(ts)) cat(ts[i], "\n")
 ```
 <!-- 

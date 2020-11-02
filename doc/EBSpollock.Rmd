@@ -45,20 +45,24 @@ clean_cache(clean = TRUE)
 	\end{centering}
 ----
 
-```{r giddy}
-# settings for speed/updating 
-doplots <- F
-domcmc  <- F
-doproj  <- F
+```{r         giddy}
+#             settings for speed/updating 
+doplots       <<- FALSE
+do_data_plots <<- FALSE
+domcmc        <<- FALSE
+doproj        <<- FALSE
 source("../pm_20.R")
 ```
 
 ```{r child = 'text.Rmd'}
 ```
+
 ```{r child = 'ref.Rmd'}
-# ```{r child = 'tab.Rmd'}
-# ```
 ```
+
+```{r child = 'tab.Rmd'}
+```
+
 ```{r child = 'figs.Rmd'}
 ```
 ```{r child = 'model.Rmd'}

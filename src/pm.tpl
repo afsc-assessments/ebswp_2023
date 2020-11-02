@@ -1183,7 +1183,7 @@ PRELIMINARY_CALCS_SECTION
   lvarb_eit  = square(lseb_eit);
 
 RUNTIME_SECTION
-   maximum_function_evaluations 50,200,900,1800,1900,15000
+   maximum_function_evaluations 50,400,900,1800,1900,15000
    convergence_criteria .001,.001,1e-7
 
 
@@ -4435,7 +4435,7 @@ FUNCTION write_R
    Ntmp.initialize();
 	 Ntmp(endyr_r) = natage(endyr_r);
 	 cout << endyr_r <<" "<< Ntmp(endyr_r) <<" "<<SSB(endyr_r)<<endl;
-   sel_fut = sel_fsh(endyr);
+   sel_fut = sel_fsh(endyr_r);
    for (i=styr;i<=endyr_r+2;i++)
    {
 		if(i<=endyr_r){
@@ -4471,7 +4471,7 @@ FUNCTION write_R
     } else {
 
      Ntmp(i)(2,nages) = ++elem_prod(Ntmp(i-1)(1,nages-1), S(endyr_r)(1,nages-1));  
-     Ntmp(i,nages)  += Ntmp(i-1,nages)*S(endyr,nages);
+     Ntmp(i,nages)  += Ntmp(i-1,nages)*S(endyr_r,nages);
      Ntmp(i,1)       = meanrec;
 		 SSBtmp = elem_prod(elem_prod(Ntmp(i),pow(S(endyr_r),yrfrac)),p_mature)*wt_ssb(endyr_r); // Eq. 1
 		  cout << i <<" "<< Ntmp(i) <<" "<<SSBtmp<<endl;
@@ -4481,25 +4481,25 @@ FUNCTION write_R
      get_msy();
      F40_out << i       // Year
          <<" "<< SSBtmp/Bmsy   // Fshable Bmsy
-         <<" "<< (obs_catch(endyr)/fshable) /AM_fmsyr  // Realized harvest rate
-         <<" "<< (SER(endyr)/SER_Fmsy)                 // SER harvest rate
-         <<" "<< mean(F(endyr))/Fmsy
+         <<" "<< (obs_catch(endyr_r)/fshable) /AM_fmsyr  // Realized harvest rate
+         <<" "<< (SER(endyr_r)/SER_Fmsy)                 // SER harvest rate
+         <<" "<< mean(F(endyr_r))/Fmsy
          <<" "<< Bmsy
          <<" "<< SSBtmp
          <<" "<< Bmsy2   // Fshable Bmsy
          <<" "<< fshable // fishable biomass
          <<" "<< AM_fmsyr// AM Msyr
-         <<" "<< obs_catch(endyr)/fshable // Realized harvest rate
+         <<" "<< obs_catch(endyr_r)/fshable // Realized harvest rate
          <<" "<< get_spr_rates(value(SPR_OFL),sel_fut) // F at MSY
-         <<" "<< Implied_SPR(F(endyr))    // Implied SPR Given F
+         <<" "<< Implied_SPR(F(endyr_r))    // Implied SPR Given F
          <<" "<< SPR_OFL 
-         <<" "<< mean(F(endyr))
+         <<" "<< mean(F(endyr_r))
          <<" "<<get_spr_rates(.35,sel_fut)
          <<" "<<Fmsy 
          <<" "<<age_3_plus_biom(i) 
          <<" "<<value(age_3_plus_biom(i))/value(Bmsy2)
          <<" "<<value(SB100)*.35
-         <<" "<<(obs_catch(endyr)/value(age_3_plus_biom(i)))/value(Fmsy2)
+         <<" "<<(obs_catch(endyr_r)/value(age_3_plus_biom(i)))/value(Fmsy2)
          <<" "<<value(avg_age_msy)
          <<" "<<value(avgwt_msy)
          <<endl; 
@@ -4819,6 +4819,7 @@ TOP_OF_MAIN_SECTION
   gradient_structure::set_NUM_DEPENDENT_VARIABLES(9100); 
   gradient_structure::set_CMPDIF_BUFFER_SIZE(3000000);
   arrmblsize=10000000;
+
 GLOBALS_SECTION
   #include <float.h>
   #include <admodel.h>

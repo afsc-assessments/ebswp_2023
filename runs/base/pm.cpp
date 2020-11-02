@@ -38,9 +38,14 @@
   adstring Wtage_file;
   adstring RawSurveyCPUE_file; 
   adstring endyrn_file;
+#ifdef DEBUG
+  #include <chrono>
+#endif
 #include <admodel.h>
+#ifdef USE_ADMB_CONTRIBS
 #include <contrib.h>
 
+#endif
   extern "C"  {
     void ad_boundf(int i);
   }
@@ -48,6 +53,35 @@
 
 model_data::model_data(int argc,char * argv[]) : ad_comm(argc,argv)
 {
+  adstring tmpstring;
+  tmpstring=adprogram_name + adstring(".dat");
+  if (argc > 1)
+  {
+    int on=0;
+    if ( (on=option_match(argc,argv,"-ind"))>-1)
+    {
+      if (on>argc-2 || argv[on+1][0] == '-')
+      {
+        cerr << "Invalid input data command line option"
+                " -- ignored" << endl;
+      }
+      else
+      {
+        tmpstring = adstring(argv[on+1]);
+      }
+    }
+  }
+  global_datafile = new cifstream(tmpstring);
+  if (!global_datafile)
+  {
+    cerr << "Error: Unable to allocate global_datafile in model_data constructor.";
+    ad_exit(1);
+  }
+  if (!(*global_datafile))
+  {
+    delete global_datafile;
+    global_datafile=NULL;
+  }
   *(ad_comm::global_datafile) >>  model_name; 
   *(ad_comm::global_datafile) >>  datafile_name; 
   *(ad_comm::global_datafile) >>  selchng_filename; 
@@ -683,6 +717,11 @@ void model_parameters::initializationfunction(void)
   sel_a501_fsh.set_initial_value(3);
   sel_dif2_fsh.set_initial_value(5);
   sel_trm2_fsh.set_initial_value(.90);
+  if (global_datafile)
+  {
+    delete global_datafile;
+    global_datafile = NULL;
+  }
 }
 
 model_parameters::model_parameters(int sz,int argc,char * argv[]) : 
@@ -1184,8 +1223,8 @@ model_parameters::model_parameters(int sz,int argc,char * argv[]) :
   #ifndef NO_AD_INITIALIZE
     mnwt.initialize();
   #endif
-  coh_eff.allocate(styr_wt-nages_wt-age_st+1,endyr_wt-age_st+3,-15,15,phase_coheff,"coh_eff");
-  yr_eff.allocate(styr_wt,endyr_wt+3,-15,15,phase_yreff,"yr_eff");
+  coh_eff.allocate(styr_wt-nages_wt-age_st+1,endyr_wt-age_st+2,-15,15,phase_coheff,"coh_eff");
+  yr_eff.allocate(styr_wt,endyr_wt+2,-15,15,phase_yreff,"yr_eff");
   wt_last.allocate(age_st,age_end,"wt_last");
   wt_cur.allocate(age_st,age_end,"wt_cur");
   wt_next.allocate(age_st,age_end,"wt_next");
@@ -5025,7 +5064,7 @@ void model_parameters::write_R(void)
      Ntmp(i)(2,nages) = ++elem_prod(Ntmp(i-1)(1,nages-1), S(endyr_r)(1,nages-1));  
      Ntmp(i,nages)  += Ntmp(i-1,nages)*S(endyr,nages);
      Ntmp(i,1)       = meanrec;
-		 SSBtmp = elem_prod(elem_prod(Ntmp(i),pow(S(endyr),yrfrac)),p_mature)*wt_ssb(endyr); // Eq. 1
+		 SSBtmp = elem_prod(elem_prod(Ntmp(i),pow(S(endyr_r),yrfrac)),p_mature)*wt_ssb(endyr_r); // Eq. 1
 		  cout << i <<" "<< Ntmp(i) <<" "<<SSBtmp<<endl;
      // age_3_plus_biom(i)  = natage(i)(3,nages) * wt_ssb(i)(3,nages); 
      fshable = value(elem_prod(Ntmp(i),sel_fut) * wt_ssb(endyr_r)); // fishable biomass
@@ -5445,6 +5484,7 @@ int main(int argc,char * argv[])
   #ifndef __SUNPRO_C
 std::feclearexcept(FE_ALL_EXCEPT);
   #endif
+  auto start = std::chrono::high_resolution_clock::now();
 #endif
     gradient_structure::set_YES_SAVE_VARIABLES_VALUES();
     if (!arrmblsize) arrmblsize=15000000;
@@ -5453,6 +5493,7 @@ std::feclearexcept(FE_ALL_EXCEPT);
     mp.preliminary_calculations();
     mp.computations(argc,argv);
 #ifdef DEBUG
+  std::cout << endl << argv[0] << " elapsed time is " << std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - start).count() << " microseconds." << endl;
   #ifndef __SUNPRO_C
 bool failedtest = false;
 if (std::fetestexcept(FE_DIVBYZERO))

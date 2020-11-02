@@ -1,4 +1,6 @@
 EXEC = pm
+PROJ = main
+	PROJDIST = ~/_mymods/afsc-assessments/AMAK/src/
 ifeq ($(SAFE),TRUE)
 	DIST = ../../src/
 else
@@ -16,6 +18,7 @@ all: mpd
 $(EXEC): $(DIST)$(EXEC).tpl
 	ln -sf $(DIST)$(EXEC) $@
 	ln -sf $(DIST)$(EXEC).tpl $@.tpl
+	ln -sf $(PROJDIST)$(PROJ) $(PROJ)
 
 $(DIST)$(EXEC).tpl:
 	$(MAKE) --directory=../../src
@@ -26,9 +29,11 @@ mpd: $(EXEC)
 	@$(RM) $(EXEC).*[0123456789] *.rpt *.log variance gradient.* *tmp admodel.* *.eva
 
 mcmc: $(EXEC)
-	./$(EXEC) $(ARGS) -mcmc 3000000 -mcsave 600 -hbf 1
+	./$(EXEC) $(ARGS) -mcmc 3000000 -mcsave 600
 	./$(EXEC) -mceval 
 	
+proj: $(PROJ)
+	./$(PROJ) 
 
 debug: $(EXEC)
 	./$(EXEC) $(ARGS)
@@ -50,5 +55,3 @@ clean:
 	@$(RM) pm.par
 	@$(RM) SIS_out.rep
 	@$(RM) mceval.dat
-
-
