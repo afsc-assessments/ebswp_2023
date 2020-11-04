@@ -403,7 +403,7 @@ Network (AKFIN).
 
 \clearpage
 
-<!-- catch-age? -->
+<!-- fishery catch-age -->
 \begin{table}[ht]
 \centering
 \caption{`r tabcap[10]`} 

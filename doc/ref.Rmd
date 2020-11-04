@@ -50,6 +50,8 @@ De Robertis, A., McKelvey, D.R., and Ressler, P.H. 2010. Development and applica
 
 De Robertis, A., Taylor, K., Wilson, C., and Farley, E. 2017. Abundance and Distribution of Arctic cod (Boreogadus saida) and other Pelagic Fishes over the U.S. Continental Shelf of the Northern Bering and Chukchi Seas Deep-Sea Research II, 135: 51-65.
 
+De Robertis, A., N. Lawrence-Slavas, R. Jenkins, I. Wangen, C.W. Mordy, C. Meinig, M. Levine, D. Peacock, H. Tabisola, and O. Rune Godø. 2019. “Long-Term Measurements of Fish Backscatter from Saildrone Unmanned Surface Vehicles and Comparison with Observations from a Noise-Reduced Research Vessel.” ICES Journal of Marine Science 76 (7): 2459–70. https://doi.org/10.1093/icesjms/fsz124.
+
 Dorn, M.W. 1992. Detecting environmental covariates of Pacific whiting Merluccius productus growth using a growth-increment regression model. Fish. Bull. 90:260-275.
 
 Duffy-Anderson, J. T., Barbeaux, S. J., Farley, E., Heintz, R., Horne, J. K., Parker-Stetter, S. L., … Smart, T. I. (2016). The critical first year of life of walleye pollock (Gadus chalcogrammus) in the eastern Bering Sea: Implications for recruitment and future research. Deep-Sea Research Part II: Topical Studies in Oceanography, 134, 283–301. [link](http://doi.org/10.1016/j.dsr2.2015.02.001).
@@ -206,7 +208,10 @@ Mueter, F. J., N.A. Bond, J.N. Ianelli, and A.B. Hollowed. 2011. Expected declin
 
 Nielsen, J.M., Eisner, L., Watson, J., Gann, J.C., Mordy, C.W., Bell, S.W., Harpold, C., Crouser, D.,  and Stabeno, P. (2020). Spring satellite chlorophyll-a concentrations in the Eastern Bering Sea. In: E.C. Siddon, 2020. Ecosystem Status Report 2020: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
 
-O’Leary, C.A., Thorson, J.T., Ianelli, J.N., Kotwicki, S., In press. Adapting to climate-driven distribution shifts using model-based indices and age composition from multiple surveys in the walleye pollock (Gadus chalcogrammus) stock assessment. Fish. Oceanogr. n/a. https://doi.org/10.1111/fog.12494
+O’Leary, C.A., J.T. Thorson, J.N. Ianelli, and S. Kotwicki. 2020. Adapting to Climate-Driven Distribution Shifts Using Model-Based Indices and Age Composition from Multiple Surveys in the Walleye Pollock (_Gadus Chalcogrammus_) Stock Assessment. Fisheries Oceanography 29 (6): 541–57. https://doi.org/10.1111/fog.12494.
+
+O’Leary, C.A., J.T. Thorson, J.N. Ianelli, S. Kotwicki, G.R. Hoff, V.V. Kulik, R.R. Lauth, D.G. Nichol, J. Conner, and A.E. Punt
+(_submitted_). Estimating spatiotemporal availability of transboundary fishes to fishery-independent surveys. Journal of Applied Ecology
 
 O’Reilly, P.T., M.F. Canino, K.M. Bailey and P. Bentzen. 2004. Inverse relationship between FST and microsatellite polymorphism in the marine fish, walleye pollock (_Theragra chalcogramma_): implications for resolving weak population structure. Molecular Ecology (2004) 13, 1799–1814
 

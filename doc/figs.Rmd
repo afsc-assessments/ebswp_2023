@@ -1,7 +1,8 @@
 \clearpage
 # Figures
+
 ```{r fshfigs}
- printfig("catch.pdf",1)
+printfig("catch.pdf",1)
  printfig("catch_sex.pdf",2)
  printfig("catch_distn_a.png",3)
  printfig("cpue_aseason.png",4)
@@ -22,7 +23,8 @@
  printfig("bts_temp_cpue.pdf",i);i <- i + 1
  printfig("bts_3d.png",i);i <- i + 1
  printfig("bts_age_comp.png",i);i <- i + 1
- printfig("at_age.png",i);i <- i + 1
+ printfig("sa_v_biom.png",i); i <- i + 1
+ printfig("transect_spacing.png",66)
  printfig("vastage.png",i);i <- i + 1 
  printfig("vast_idx.pdf",57)
  #17 figs...
@@ -67,7 +69,7 @@
  printfig("tier3_proj.pdf",53)
  printfig("age_diversity.pdf",51)
  printfig("sel_comp_vast.pdf",61)
- printfig("poll_cod_rec.png",62)
+ #printfig("poll_cod_rec.png",62)
 ```
 
 \clearpage

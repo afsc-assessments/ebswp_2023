@@ -2052,6 +2052,7 @@ FUNCTION compute_spr_rates
   //Compute SPR Rates 
   F35 = get_spr_rates(.35);
   F40 = get_spr_rates(.40);
+
 FUNCTION dvariable get_spr_rates(double spr_percent,dvar_vector sel)
   RETURN_ARRAYS_INCREMENT();
   double df=1.e-3;
@@ -2155,6 +2156,7 @@ FUNCTION dvariable spr_ratio(double trial_F)
   SBtmp  += Ntmp(nages)*p_mature(nages)*wttmp(nages)*pow(srvtmp(nages),yrfrac);
   RETURN_ARRAYS_DECREMENT();
   return(SBtmp/phizero);
+
 FUNCTION dvariable spr_ratio(dvariable trial_F)
   RETURN_ARRAYS_INCREMENT();
   dvariable SBtmp;
@@ -2180,6 +2182,7 @@ FUNCTION dvariable spr_ratio(dvariable trial_F)
   SBtmp  += Ntmp(nages)*p_mature(nages)*wttmp(nages)*pow(srvtmp(nages),yrfrac);
   RETURN_ARRAYS_DECREMENT();
   return(SBtmp/phizero);
+
 FUNCTION dvariable spr_unfished()
   RETURN_ARRAYS_INCREMENT();
   dvariable Ntmp;
@@ -4507,6 +4510,7 @@ FUNCTION write_R
     }
     F40_out.close();
    ofstream SelGrid("selgrid.rep");
+    SelGrid << "KE_Year MSY Bmsy avgAgeMSY avgWtMSY F40 Fmsy FmsySPR"<<endl;
    for (i=1;i<=5;i++)
    {
      sel_fut = 0.0;
@@ -4519,8 +4523,10 @@ FUNCTION write_R
          <<" "<<value(Bmsy)
          <<" "<<value(avg_age_msy)
          <<" "<<value(avgwt_msy)
-         <<" SPR "<<get_spr_rates(.4,sel_fut)
+         <<" "<<get_spr_rates(.4,sel_fut)
          <<" "<< value(Fmsy2)
+         <<" "<< value(spr_ratio(Fmsy,sel_fut))
+         <<" NA "   // Implied SPR Given F
          <<endl; 
    }
    for (i=styr;i<=endyr_r;i++)
@@ -4532,8 +4538,10 @@ FUNCTION write_R
          <<" "<<value(Bmsy)
          <<" "<<value(avg_age_msy)
          <<" "<<value(avgwt_msy)
-         <<" SPR "<<get_spr_rates(.4,sel_fut)
+         <<" "<<get_spr_rates(.4,sel_fut)
          <<" "<< value(Fmsy2)
+         <<" "<< value(spr_ratio(Fmsy,sel_fut))
+         <<" "<< Implied_SPR(F(i))    // Implied SPR Given F
          <<endl; 
    }
    compute_Fut_selectivity();
@@ -4544,11 +4552,14 @@ FUNCTION write_R
          <<" "<<value(Bmsy)
          <<" "<<value(avg_age_msy)
          <<" "<<value(avgwt_msy)
-         <<" SPR "<<get_spr_rates(.4,sel_fut)
+         <<" "<<get_spr_rates(.4,sel_fut)
          <<" "<< value(Fmsy2)
+         <<" "<< value(spr_ratio(Fmsy,sel_fut))
+         <<" NA "   // Implied SPR Given F
          <<endl; 
     SelGrid.close();
   }
+
 FUNCTION dvariable Implied_SPR( const dvar_vector& F_age) 
   RETURN_ARRAYS_INCREMENT();
   // Function that returns SPR percentage given a realized value of F...

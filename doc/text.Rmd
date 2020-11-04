@@ -14,12 +14,13 @@ assessment. Notably, a number of surveys were cancelled including the
    th `r thisyr` opportunistic acoustic data from vessels (AVO).  
 
 #### Changes in the data
-   2.  Observer data for catch-at-age and average weight-at-age from
+
+   1.  Observer data for catch-at-age and average weight-at-age from
    the `r lastyr` fishery were finalized and included. 
 
    2.  Total catch as reported by NMFS Alaska Regional office was updated and included through `r thisyr`.
    
-   2.  In summer `r thisyr`, the AFSC coordinated a survey conducted by three sailing drones (SD) using acoustics.
+   3.  In summer `r thisyr`, the AFSC coordinated a survey conducted by three sailing drones (SD) using acoustics.
 
 ### Changes in the assessment methods
 
@@ -69,53 +70,65 @@ as in past years,  the ABC recommendation reflects the Tier 3 estimate.
 
 The SSC recommended that a detailed review of the support for retaining the EBS Pollock assessment in Tier 1 
 versus reclassifying it as Tier 3 be pursued in the 2020 assessment. 
-    _We added a trade-off table between the applications of these two approaches._
 
-The SSC had a number of recommendations for additional research supporting this assessment:  
+    _We evaluated factors affecting the Tier classification._     
 
-  *   The SSC encourages further investigation of the apparent shift between a clear 2012 year-class to mixed 2012-2013 year classes in the data, suggestive of potentially variable ageing bias.   
-     - _The 2019 fishery age data shows XXX relative proportion of these two year classes in the data..._ 
+**The SSC had a number of recommendations for additional research supporting this assessment:**
 
-  *   Noting the work in deriving an external estimate of temporal variability in catchability for the bottom trawl survey (relative to the acoustic survey) due to vertical availability, 
+The SSC encourages further investigation of the apparent shift between a clear 2012 year-class to mixed 2012-2013 year classes in the data, suggestive of potentially variable ageing bias.   
+
+   _The newly available 2019 fishery age data shows a similar relative proportion of these two year classes; this suggests (based on earlier inquiries with the age-determination experts) that this pattern is reasonable._     
+
+Noting the work in deriving an external estimate of temporal variability in catchability for the bottom trawl survey (relative to the acoustic survey) due to vertical availability, 
      the SSC noted that catchability would logically also vary for the acoustic survey. The SSC encourages 
      further work to develop the simultaneous modelling of these two surveys, accounting for vertical and distributional 
-     shifts (including into the NBS). When sufficiently explored, the SSC looks forward to assessment model configurations that explore the 
+     shifts (including into the northern Bering Sea survey area; NBS). When
+     sufficiently explored, the SSC looks forward to assessment model configurations that explore the
      use of a time-series from this method.  
-     - _Work on this topic has stalled since survey model efforts focus on methods to incorporate the new Sail Drone acoustic data._
 
-  *   The SSC supports ongoing genetic studies to determine the relationship between pollock in the NBS and EBS, as well as other surrounding regions (AI, GOA).  
-     - _A post doctoral research has been assigned to undertake this work but progress has been limited due to lab access_
-  *   The SSC supports the continued use of a formal decision table to illustrate risks of alternative harvest strategies.  
-     - _This is again included in this year's assessment report_
+   _Work on this topic has stalled since survey model efforts focus on methods to incorporate the unmanned surface vessels (USVs) to collect acoustic data._
 
-  *   The SSC supports the GPT’s recommendation to revisit the treatment of all variance parameters in the next assessment,
-particularly those that are set at fixed values (e.g., the value of 0.2 for the acoustic survey).
-     - _This planned activity is only partially underway._
 
-  * 	The SSC also looks forward to estimates of movement and abundance along the U.S.-Russia EEZ boundary based
-       on echosounders fixed to moorings in this area. 
-     - _The moored sounders have been recovered in September 2020 but the data have yet to be processed_
+The SSC supports ongoing genetic studies to determine the relationship between pollock in the NBS and EBS,  as well as other surrounding regions (AI, GOA).  
 
-From previous requests
+   _A post doctoral research has been assigned to undertake this work but progress has been limited due to lab access_
+
+The SSC supports the continued use of a formal decision table to illustrate risks of alternative harvest strategies.  
+
+   _This is again included in this year's assessment report_
+
+The SSC supports the GPT’s recommendation to revisit the treatment of all variance parameters 
+      in the next assessment, particularly those that are set at fixed values 
+      (e.g., the value of 0.2 for the acoustic survey).    
+
+   _This planned activity is only partially underway and will include process error parameters._
+
+The SSC also looks forward to estimates of movement and abundance along the US-Russia EEZ 
+      boundary based on echosounders fixed to moorings in this area.     
+
+  _The moored sounders have been recovered in September 2020 but the data have yet to be processed._     
+
+**From previous requests:**
 
 Re-examine the geographic subset of data currently used to develop the AVO
 index, specifically to see if including Bristol Bay data improves the
-correlation 
+correlation.    
 
-   - _Work on this continues but was given lower priority given that the AVO
-   was not part of this year's assessment_
+   _Work on this continues but was given lower priority given that the AVO
+   was not part of this year's assessment_     
 
 Explore “A” season trends in mean weight at length with a GAM or
 similar technique, to determine if the trends are either predominantly
 environmental or predominantly fishery-driven, Regarding $\sigma_R$, explore
 alternative fixed values or estimation methods.
 
-   - _Trends in mean weight given length are again presented. The extent that fishery 
+   _Trends in mean weight given length are again presented. The extent that fishery 
     affects this pattern was shown to be related to timing. Further work is needed to 
     establish a mean baseline (in time and space) to try to sort out environmental 
     effects hypotheses. Values of $\sigma_R$ were explored in previous years, no further
-    work was done on this in 2019._      
+    work was done on this in 2019._           
 
+\pagebreak
 
 # Introduction
 ## General
@@ -243,7 +256,7 @@ consistently about 10\% of the annual production (Fig. \ref{fig:roe}).
 
 
 The fishing in summer-fall 2020 was characterized as being poor fishing and
-requiring increased effort in terms of hours spend fishing (jxxxite different
+requiring increased effort in terms of hours spend fishing (xxx different
 than
 recent years
 with fishing much more broadly distributed and concentrated along the 
@@ -396,24 +409,23 @@ allocation from 40% to 45% (as noted above in Fig. \ref{fig:prop_a_season}).
 These measures are all part of Amendment 110 and a summary of this and other
 key management measures is provided in Table \ref{tab:mgt}.
 
-XXXXXXXX
-There were two directed pollock fishing closures:
-b. Coordinates
-Name	Description and effective date
-Summer Herring Savings Area 1	That part of the Bering Sea subarea that is south of 57° N lat and between 162° and 164° W long from 1200 hours, A.l.t., June 15 through 1200 hours, A.l.t. July 1 of a fishing year.
-Summer Herring Savings Area 2	That part of the Bering Sea subarea that is south of 56°30′′ N lat and between 164° and 167° W long from 1200 hours, A.l.t., July 1 through 1200 hours, A.l.t. August 15 of a fishing year.
-Winter Herring Savings Area	That part of the Bering Sea subarea that is between 58° and 60° N lat and between 172° and 175° W long from 1200 hours, A.l.t. September 1 of the current fishing year through 1200 hours, A.l.t. March 1 of the succeeding fishing year.
+There are three time/area closures in regulation to minimize herring PSC
+impacts: *Summer Herring Savings Area 1* an area south of 57° N latitude and between 162°
+and 164° W longitude from June 15 through July 1st.
+*Summer Herring Savings Area 2* an area south of 56°30′′ N latitude and between
+164° and 167° W longitude from July 1 through August 15.
+*Winter Herring Savings Area* an area between 58° and 60° N 
+latitude and between 172° and 175° W longitude from 
+September 1st through  March 1st of the next fishing year.
 
-Also, the Summer Herring Savings Area 2 was open in 2020, but the Summer Herring Savings Area 1 was closed (doesn't impact the fishery that much) and the Winter Herring Savings Area is closed from September 1, 2020 to March 1, 2021. The pollock exceeded the herring PSC limit late in the A season. For the B season the CV fleet has been working to avoid salmon, herring, and sablefish. Also to some extent squid.
-
+The pollock fishery exceeded the herring PSC limit late in the 2020 A season 
+which invoked two directed pollock fishing closures: the Summer Herring Savings 
+Area 1 and the Winter Herring Savings Area (closed since September 1, 2020 through March 1, 2021).
 Voluntary closures by the CV fleet for directed fishing for pollock.
 2nd closure for trawl CVs for herring.
-Closing an area in the horseshoe to pollock fishing for 5 days beginning tomorrow morning, September 3rd, at 8:00 am ADT.  The closure applies to all pollock fishing east of 166° 00' West Longitude, south of 54° 32" North Latitude, and inside of 80 fathoms.  The closure will end at 8:00 am ADT on Tuesday, September 8th.   This closure is intended to minimize herring bycatch in the horseshoe.    
-
-1st closure for trawl CVs for herring.
-To AFA Catcher Vessels:
-
-Herring bycatch in the horseshoe this past week has reached a level that requires the fleet to take action to reduce their herring bycatch.  I propose that the CV fleet initiate a “voluntary” stand down on pollock fishing in the horseshoe area for 10 days starting at midnight on Tuesday, July 21st.    The voluntary closure would end at first light on the morning of Saturday, August 1st.  The closure area I am proposing would be to prohibit all pollock fishing south of 54° 50” north and east of 166° 00’ west.
+Additionally, voluntary closure areas were announced throughout
+the B-season 2020 and intended to minimize herring bycatch in areas where
+herring occurred.
 
 
 ## Economic conditions as of 2019
@@ -513,10 +525,9 @@ sector (Table \ref{tab:bsaiplck_wsl}). The higher revenue in recent years is
 combined effect of increased catch levels and price increases of pollock
 products of fillet and surimi products. The
 average price of pollock products in 2019 increased 9\% for the at-sea sector to
-$1.38 and
-increased 5\% for the shore-based sector to $1.12. Surimi pricesincreased 8\% 
-and fillet prices increased 11\% in 2019. Roe prices decreased 26\%, however, 
-production increased 36\% to the highest level observed over the last decade.
+$1.38 and increased 5\% for the shore-based sector to $1.12. Surimi prices increased 
+8\% and fillet prices increased 11\% in 2019. Roe prices decreased 26\% while
+production increased 36\%---the highest level observed in the last decade.
 
 The portfolios of products shore-based and at-sea processors produce are
 similar. In both sectors the primary products processed from pollock are
@@ -610,8 +621,6 @@ attributed to the steady trend to add more value per ton of fish landed.
 The oil production index incrased 15\% in 2019 and was at levels not seen 
 since before 2015.
 
-
-
 # Data
 The following lists the data used in this assessment: 
 
@@ -625,9 +634,10 @@ The following lists the data used in this assessment:
  Fishery & Catch biomass & 1964--`r thisyr` \\
  Fishery & Catch age composition & 1964--`r lastyr` \\
  Fishery & Japanese trawl CPUE & 1965--1976 \\
- EBS bottom trawl & Area-swept biomass and age-specific proportions & 1982--`r thisyr` \\
- Acoustic trawl survey & Biomass index and age-specific proportions & 1994, 1996, 1997, 1999, 2000, 2002, 2004, 2006--2010, 2012, 2014, 2016, 2018 \\
- Acoustic vessels of opportunity (AVO) & Biomass index & 2006--`r thisyr` \\
+ EBS bottom trawl & Area-swept biomass and age-specific proportions & 1982--`r thisyr-1 ` \\ 
+ Acoustic trawl survey & Biomass index and age-specific
+ proportions & 1994, 1996, 1997, 1999, 2000, 2002, 2004, 2006--2010, 2012, 2014, 2016, 2018 \\
+ Acoustic vessels of opportunity (AVO) & Biomass index & 2006--`r thisyr-1` \\
 \hline
 \end{tabular}
 \end{table}
@@ -691,14 +701,14 @@ of crab and groundfish in the Eastern Bering Sea since 1979 and since 1982
 using standardized gear and methods. For pollock, this survey has been
 instrumental in providing an abundance index and information on the population
 age structure. This survey is complemented by the acoustic trawl (AT) surveys
-that sample mid-water components of the pollock stock. Between 1991 and 2018
+that sample mid-water components of the pollock stock. Between 1991 and 2019
 the BTS biomass estimates ranged from 2.28 to 8.39 million t 
 (Table \ref{tab:bts_biom}; Fig. \ref{fig:bts_biom}). In the mid-1980s and early
 1990s several years resulted in above-average biomass estimates. The stock
 appeared to be at lower levels during 1996--1999 then increased moderately
 until about 2003 and since then has averaged just over 4 million t. These
-surveys provide consistent measurements of environmental conditions, such as
-the sea surface and bottom temperatures. Large-scale zoogeographic shifts in
+surveys also provide consistent measurements of environmental conditions, such
+as the sea surface and bottom temperatures. Large-scale zoogeographic shifts in
 the EBS shelf documented during a warming trend in the early 2000s were
 attributed to temperature changes (e.g., Mueter and Litzow 2008). However,
 after the period of relatively warm conditions ended in 2005, the next eight
@@ -711,22 +721,26 @@ low value in 2010 but declined again in 2012--2013. However, in the period
 slightly above average) but was highly unusual due to the complete lack of 
 "cold pool" (i.e., a defined area where water near bottom was less 
 than zero degrees. In 2019, the mean bottom temperature was the warmest during
-the period the survey has occurred (since 1982;  Fig. \ref{fig:bts_temp}).  
+the period the survey has occurred (since 1982;  Fig. \ref{fig:bts_temp}).  In
+2020 the survey was canceled and detailed data were
+unavailable. The 2020 Ecosystem report (reference ?) contains model estimates of
+temperature distributions for the region and indicates that the bottom temperatures and cold
+pool extent were about average in 2020.
 
-Beginning in 1987 NMFS expanded the standard survey area farther to the
-northwest. The pollock biomass levels found in the two northern strata 
-in 2019 was 9\%--considerably more than the 4.3% average for the four previous
-survey years and the long-term average of 5\% (Table \ref{tab:bts_biom}). 
-In some years (e.g.,
-1997 and 1998) some stations had high catches of pollock in that region and
-this resulted in high estimates of sampling uncertainty (CVs of 95\% and 65\%
-for 1997 and 1998 respectively). This region is contiguous with the Russian
+The AFSC has expanded the area covered by the bottom trawl survey over time.
+In 1987 the "standard survey area" comprising 6 main strata was increased 
+farther to the northwest and covered in all subsquent years. These two
+northern strata have varied in estimated pollock abundance.
+In 2019 about 9\% of the pollock biomass was found in these strata compared
+to a long term average of 5\% (Table \ref{tab:bts_biom}). 
+Importantly, this region is contiguous with the Russian
 border and the NBS region, and measures to increase consideration of those regions
-relative to exploited pollock stock continues.
+relative to the exploited pollock stock continues (e.g., O'leary et al.
+Submitted).
 
 The 2019 bottom-trawl survey biomass estimate (design-based, area swept) 
 was 5.48 million t, above the average for this survey (4.7 million t). 
-This is a substantial increase over the 3.11 million t estimated from
+This was a substantial increase over the 3.11 million t estimated from
 the 2018 estimates. Both years were unusual in
 that there was a near-complete lack of cold water on the bottom 
 throughout the survey area (Fig. \ref{fig:bts_temp_cpue}). 
@@ -764,8 +778,8 @@ age from the BTS for strata (1--9 except for 1982--84 and 1986, when only strata
 shown in (Table \ref{tab:wt_bts}) and the different alternative time series
 of BTS survey indices is shown in Table \ref{tab:bts_abund}.
 
-The bottom trawl survey has extended to the north in 2010, 2017, 2018 (limited
-to 49 stations) and again this year. Given that the pollock abundance
+The NBS survey area was sampled in 2010, 2017, 2018 (limited
+to 49 stations), and in 2019. Given that the pollock abundance
 was quite high in 2017 and 2018, a method for incorporating this information
 as part of the standard survey was desired. One approach for constructing a
 full time series  that included the NBS area is to use observed spatial and
@@ -776,12 +790,10 @@ Table \ref{tab:bts_abund}). Please refer to the appendix for further details
 on the implementation. The appendix also shows results that indicate the VAST
 model diagnostics are reasonable and provide consistent interpretations
 relative to the observations. Notably, results indicate increased uncertainty
-in years and areas when stations were missing.  Application of this index
-within the stock assessment model requires accounting for the temporal
-covariation. Since this has been part of the assessment for the time series of
-biomass used  in past years, including the covariance specification was simple
-to implement and required no changes to the assessment model code.
-
+in years and areas when stations were missing.  As noted in past
+assessments, application of this index
+within the stock assessment model required accounting for the temporal
+covariation. 
 
 ### Acoustic trawl (AT) surveys
 The AT surveys are conducted biennially and are designed to estimate the off-
@@ -807,11 +819,58 @@ structure for sampling along transects (Table \ref{tab:ats_biom}; Petitgas
 1993, Walline 2007, Williamson and Traynor 1996). As in previous assessments,
 the other sources of error (e.g., target strength, trawl selectivity) were
 accounted for by inflating the annual error estimates to have an overall
-average CV of 25\% for application within the assessment model. In 2018 we
-estimated the 2018 EBS acoustic-trawl survey population numbers-at-age based
-primarily on the BT survey age samples with supplemental samples from the AT
-survey. In 2019 those data were updated using only the 2018 ATS age samples 
-(Fig. \ref{fig:at_age}; Table \ref{tab:ats_age}).
+average CV of 25\% for application within the assessment model. 
+The age composition data from the ATS sampling are provided in 
+Table \ref{tab:ats_age}.
+
+### Unmanned surface vehicle (USV) deployment and data processing
+
+NOAA's fisheries research vessel was unable to  
+perform the planned 2020 acoustic-trawl survey due to the COVID-19 pandemic.
+Instead, three Saildrone unmanned surface vehicles (USVs) deployed from 
+Alameda, CA, to the Bering Sea to perform this task. AFSC scientists acted fast
+to organize this as an option given the potential for surveys to be canceled.
+“We knew there was a possibility that surveys may be canceled this year, so we worked on a 
+This contingency plan was aided by having previous experience working closely with Saildrone 
+and NOAA Research’s Pacific Marine Environmental Laboratory (PMEL).
+Saildrone has collaborated with the AFSC and PMEL on several missions in the
+Arctic since 2015 to develop the vehicle’s capabilities and refine the
+sensors. Missions include studying the impacts of climate variability and
+other environmental aspects on northern fur seals and other marine mammal
+populations, measuring carbon dioxide and the abundance of Arctic cod,
+collecting observations for sea ice prediction and satellite algorithm
+development, and tracking Alaska red king crab (De Robertis et al. 2017). 
+
+The three saildrones reached the Bering Sea in early July and began
+the 60-day acoustic survey. Each vehicle covered about one third of the total
+survey area normally covered by research vessel. They were equipped with Simrad
+EK80 high-precision split-beam echo sounders. Whereas our research vessel
+operations use trawls sample fish observed in the echo-sign, a drawback of the
+saildrones includes the inability to evaluate the species, size, and biological
+characteristics of the fish. Past work using similar equipment allows
+experts to evaluat and ascertain which part of the echograms are most
+likely to represent pollock. The Saildrone USVs also carry a standard suite of 
+science-grade instruments to collect oceanographic and meteorological data above 
+and below the sea surface
+including air, sea, and skin temperature, wind speed and direction, relative
+humidity, barometric pressure, photosynthetically active radiation, salinity,
+dissolved oxygen, chlorophyll, and wave height and period. 
+
+The lack of biological samples affects the ability to convert the acoustic
+backscatter (_sA_) into biomass. Nonetheless, there is a strong relationship
+between past backscatter values and biomass estimates from the research ships 
+(Figure \ref{fig:sa_v_biom}). This relationship was used to convert the acoustic
+backscatter to biomass (with added uncertainty) for the USV data collected in
+2020. Another component of uncertainty for the USV data was the fact that due to
+time constraints, the transect spacing to cover the area of the EBS had to be
+doubled. To evaluate this, we compared past surveys and computed biomass and
+uncertainty estimates as if the even number (20-mile transects) were dropped or
+alternatively the odd numbered transects. Results from this showed that the
+estimates were consistent with the "full" survey (at 20-mile transects) but that
+the uncertainty increased (Figure \ref{fig:transect_spacing}).
+
+
+
 
 ## Other time series used in the assessment
 
