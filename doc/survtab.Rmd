@@ -24,7 +24,8 @@ Year & Bering Sea & Year & Bering Sea & Year & Bering Sea \\
 1979 & 458        & 1997 & 262        & 2015 & 256        \\
 1980 & 139        & 1998 & 121        & 2016 & 198       \\
 1981 & 466        & 1999 & 299        & 2017 & 226       \\
-     &            &      &            & 2018 &           \\
+     &            &      &            & 2018 & 206       \\
+     &            &      &            & 2019 &   -       \\
 \hline
 \end{tabular}
 \end{table}
@@ -237,8 +238,9 @@ Avg & 0.016 & 0.089 & 0.223 & 0.391 & 0.504 & 0.611 & 0.728 & 0.847 & 0.973 & 1.
 
 ```{r indices,results="asis",echo=FALSE}
 biom <- read.csv("data/Indices.csv",header=T,as.is=TRUE)
+
 t3  <- biom
-for (i in 2:length(t3[1,])+2) {
+for (i in 2:length(t3[1,])) {
       t3[,i]   <- formatC(t3[,i], format="d", big.mark=",",digits=0) 
 }
 cap <- tabcap[14]
@@ -246,6 +248,7 @@ lab <- paste0("tab:",tablab[14])
 tab <- xtable(t3, caption = cap, label=lab,digits=0, auto=TRUE, align=rep("r",(length(t3[1,])+1)) )
 print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.90)
 ```
+
 <!--
 
 \begin{table}[ht]  
@@ -437,9 +440,9 @@ Year    & AT scaled biomass index & AVO index &   $CV_{AVO}$  \\
 2014	&	3.439	(5\%)	&	0.897	5\%	&	13\%	\\
 2015	&	$-no\,	survey-$&		0.953	5\%	&	13\%	\\
 2016	&	4.063	(2\%)	&	0.776	5\%	&	13\%	\\
-2017	&	$-no\,	survey-$&		0.73	5\%	&	13\%	\\
+2017	&	$-no\,	survey-$&		0.730	5\%	&	13\%	\\
 2018	&	2.499	(2\%)	&	0.672	5\%	&	14\%	\\
-2019	&	$-no\,	survey-$&		0.68	5\%	&	13\%	\\
+2019	&	$-no\,	survey-$&		0.680	5\%	&	13\%	\\
 \hline
 \end{tabular}
 \end{table}

@@ -565,7 +565,6 @@ PARAMETER_SECTION
   // init_bounded_vector Fabc(1,nspp,0.00001,5)
   // init_bounded_vector F40(1,nspp,0.00001,5)
   // init_bounded_vector Fofl(1,nspp,0.00001,5)
-
   init_bounded_vector log_Rzero(1,nspp,0,13,phase_sr)
   init_bounded_vector steepness(1,nspp,0.2,1.0,phase_sr+1)
   init_bounded_vector sigr(1,nspp,0.1,1.5,phase_sr+2)
@@ -600,7 +599,6 @@ PARAMETER_SECTION
   for (int ispp=1;ispp<=nspp;ispp++)
   {
    // Get parameter values for InvGauss
-
     if (nsexes(ispp)==1) 
       AMeanRec(ispp) = mean(R(ispp));  // Arithmetic mean
     else
@@ -634,24 +632,13 @@ PARAMETER_SECTION
         {
           envin >>  Rsim(ispp,i,j);
           Rsim(ispp,i,j) *= exp(rnorms(i,j)*.375); // about 15% CV to get historical mean
-          //cout << i<<" "<<j<<" "<<Rsim(ispp,i,j)<<endl;
-      // cout <<sst<<endl;exit(1);
-          //Rsim(ispp,i,j) /= AMeanRec(ispp); // get residual value
-          // use environmental series
-          //Rsim(ispp,i,j) = Rsim(ispp,i,j) * exp(9.789 - 1.763 *sst(j) - 0.6626*sst(j)*sst(j));
-          // Rsim(ispp,i,j) =               exp(9.789 - 1.763 *sst(j) - 0.6626*sst(j)*sst(j));
         }
-     //  log(R/S)  = 0.4354 - 0.00031516*Predation - 0.7722*SST - 0.3160*SST^2
-    // log(R) = 10.835 - 0.0005810*1801 - 1.763 *SST - 0.6626*SST^2
-
        if (nsims<=5) Rsim(ispp,i,j) = AMeanRec(ispp); // XXX constant recruitment
       }
     }
     envin.close();
     AMeanRec(ispp) *= .5;  // Arithmetic mean
     cout <<"recruits"<<endl;
-    //cout <<Rsim<<endl;exit(1);
-
     // cout<< " Solving spp "<<ispp<<" "<<spname(ispp)<<" "<<yr_one_catch(ispp)<<" "; // <<N_F*wt_mature(ispp)<<" "<<N_F*wt_F(ispp)+N_M(ispp)*wt_F(ispp)<<" ";
     for (int k=1;k<=nyrs_catch_in;k++)
     {
@@ -688,17 +675,14 @@ PRELIMINARY_CALCS_SECTION
      F40(ispp) = (get_spr_rates(0.4,ispp));
     Fofl(ispp) = (get_spr_rates(SPR_ofl(ispp),ispp));
     F35(ispp)  = (get_spr_rates(.35,ispp));
-    // Ftarg(ispp)= F35(ispp); 
     Ftarg(ispp)= Fofl(ispp); 
-    // Ftarg(ispp)= Fabc(ispp); 
-    // targ_SPR(ispp) = SPR_abc(ispp);
     targ_SPR(ispp) = SPR_ofl(ispp);
   }
   compute_spr_rates();
-  if (Rec_Gen==1||Rec_Gen==4) {
-   Run_Sim();  cout<< "Finished simulations using standard (avg, var) stochastic approach"<<endl;exit(1);
-   }
-
+  if (Rec_Gen==1||Rec_Gen==4) 
+	{
+    Run_Sim();  cout<< "Finished simulations using standard (avg, var) stochastic approach"<<endl;exit(1);
+  }
 
 PROCEDURE_SECTION
   compute_obj_fun();
@@ -720,7 +704,6 @@ FUNCTION Run_Sim
       nyrs_catch = nyrs_catch_in;
     else 
       nyrs_catch = 1;// NOTA BUENO: this is changed under the new EIS Alternatives (May 06)
-
     Do_Sims();
     // if (alt==2) write_alts();
     write_alts();
@@ -837,7 +820,6 @@ FUNCTION Do_Sims
        // else 
         // ABCs_by_yr(ipro,ispp) = ABC(ispp);  // Cumulate ABCs here for printout later...
      }
-       // if (ipro<3) cout<<isim<<" "<<ipro<<" "<<OFL<<" "<<ABC<<endl;
      // Now get actual catch...  
      if (ipro <= nyrs_catch && !(alt == 6 || alt == 7)) // use observed catches from setup file for the first year(s)
      {

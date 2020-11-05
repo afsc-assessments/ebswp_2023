@@ -38,7 +38,7 @@ with restrictions on the variability following Butterworth et al. (2003):
 
 \begin{align}
     F_{t,a}     &= s_{t,a} \, \mu^f e^{\epsilon_t}, &\epsilon_t   \sim \mathcal{N}(0,\,\sigma_E^{2}) \\
-    s_{t+1,a}   &= s_{t,a} \, \mu^f e^{\gamma_t},   &\gamma_t     \sim \mathcal{N}(0,\,\sigma_s^{2}) 
+    s_{t+1,a}   &= s_{t,a} \,       e^{\gamma_t},   &\gamma_t     \sim \mathcal{N}(0,\,\sigma_s^{2}) 
 \end{align}
 
 where $s_{t,a}$ is the selectivity for age class $a$ in year $t$, and $\mu^f$
@@ -356,7 +356,8 @@ nll_i = 0.5\mathbf{X}\Sigma^{-1}\mathbf{X}^{'}
 
 where is a vector of observed minus model predicted values for this index and
 $\Sigma$ is the estimated covariance matrix provided from the method provided in
-Kotwicki et al. 2014.
+Kotwicki et al. 2014. For the VAST estimates, the supplied covariance matrix was 
+used in the same way.
 
 The contribution to the negative log-likelihood function for the observed total catch biomass 
 ($C_b^{obs}, \hat{C_b}$) by the fishery is given by
@@ -387,9 +388,9 @@ The approach we use to solve for $F_{MSY}$ and related quantities (e.g., $B_{MSY
 within a general integrated model context was shown in Ianelli et al. (2001).
 In 2007 this was modified to include uncertainty in weight-at-age as an
 explicit part of the uncertainty for $F_{MSY}$ calculations. This involved
-estimating a vector of parameters ($w_{ta}^{future}$) on current (2017) and future mean weights
+estimating a vector of parameters ($w_{ta}^{future}$) on current (`r thisyr`) and future mean weights
 for each age $i$,  $i$= (1, 2,…,15), given actual observed mean and variances in
-weight-at-age over the period 1991-2017. The values of based on available data
+weight-at-age over the period 1991-`r thisyr-1`. The values of based on available data
 and (if this option is selected) estimates the parameters subject to the
 natural constraint:
     $$w_{ta}^{future} \sim \mathcal{N}(\bar{w_{a}},\,\sigma_{w_a}^{2})$$ 
@@ -412,7 +413,7 @@ are $\upsilon_t$ and $\psi_t$.
 
 ## Tier 1 projections
 
-Tier 1 projections were calculated two ways. First, for 2017 and 2018 ABC and
+Tier 1 projections were calculated two ways. First, for `r nextyr` and `r nextyr+1` ABC and
 $OFL$ levels, the harmonic mean $F_{MSY}$ value was computed and the analogous
 harvest rate ($\bar{u_{HM}}$) applied to the estimated geometric mean fishable biomass at
 $B_{MSY}$ :

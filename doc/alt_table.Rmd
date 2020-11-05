@@ -2,7 +2,7 @@
 
 # Summary tables for alternative models and/or Tiers
 
-## Tier 3, Model 16.1 
+## Tier 3, Model 16.1 VAST 
 \begin{table}[ht]
 \centering
 \begin{tabular}{lrr|rr}
@@ -11,32 +11,30 @@
        & \multicolumn{2}{c|}{$\mathit{last}$ year for:}  & \multicolumn{2}{c}{$\mathit{this}$ year for: }               \\
         Quantity & `r thisyr`      &`r thisyr+1`   & `r thisyr+1`      &`r thisyr+2` \\ 
   \hline
-	M (natural mortality rate, ages 3+)	&	0.3	&	0.3	&	0.3	&	0.3 \\
-Tier	&	1a	&	1a	                                       &	3a	&	3a \\
-Projected total (age  3+) biomass (t) & 9,110,000 t & 8,156,000 t & `r  M$age3plus1s` t & `r  M$age3plus2s` t \\
-Projected female  spawning  biomass (t) & 3,107,000 t & 2,725,000 t & `r  M$ssb1s`  t & `r  M$ssb2s`  t \\  
-$B_0 or B_{100}$         & 5,866,000 t   & 5,866,000 t & `r  M$b100s`,000  t & `r  M$b100s`,000  t \\          
-$B_{msy}$     & 2,280,000 t   & 2,280,000 t & `r  M$b35s `,000  t & `r  M$b35s`,000  t \\          
-$F_{OFL}$     & 0.645 & 0.645 & `r  round(M$Tier3_fofl1,3)`  & `r  round(M$Tier3_fofl2,3)`  \\                  
-$maxF_{ABC}$  & 0.510 & 0.51  & `r  round(M$Tier3_fabc1,3)`  & `r  round(M$Tier3_fabc2,3)`  \\                  
-$F_{ABC}$     & 0.356 & 0.375 & `r  round(M$Tier3_fabc1,3)`  & `r  round(M$Tier3_fabc2,3)` \\                  
-$OFL$         & 3,913,000 t   & 3,082,000 t           & `r  M$ofl1s`  t & `r  M$ofl2s`  t \\          
-$maxABC$      & 3,096,000 t   & 2,437,000 t           & `r  M$Tier3_ABC1s` t & `r  M$Tier3_ABC2s  ` t \\      
-$ABC$         & 2,163,000 t   & 1,792,000 t           & `r  M$Tier3_ABC1s` t & `r  M$Tier3_ABC2s  ` t \\     
-\hline
-Status	                              &	2017	      &	2018	      &		`r lastyr`             &	`r thisyr`          \\
-\hline
-Overfishing	                          &	No	        &	n/a	      &	No	                       &	n/a                 \\
-Overfished	                          &	n/a	        &	No	      &	n/a	                       &	No                  \\
-Approaching overfished	              &	n/a	        &	No	      &	n/a	                       &	No                  \\
-\hline
+  M            (natural mortality rate, ages 3+)  & 0.3 & 0.3 & 0.3 & 0.3 \\
+  Tier         &  3a  & 3a  & 3a  & 3a \\
+  Projected    total (age  3+) biomass (t)     & `r M$it$a1[1]` t & `r M$it$a2[1]` t & `r  M$age3plus1s` t & `r  M$age3plus2s` t \\
+  Projected    female  spawning  biomass (t)   & `r M$it$b1[1]` t & `r M$it$b2[1]` t & `r  M$ssb1s`  t     & `r  M$ssb2s`  t \\  
+  $B_{100}$        & `r M$it$c1[1]` t & `r M$it$c2[1]` t & `r  M$b100s`,000  t           & `r  M$b100s`,000  t \\          
+  $B_{msy}$    & `r M$it$d1[1]` t & `r M$it$d2[1]` t & `r  M$b35s `,000  t           & `r  M$b35s`,000  t \\          
+  $F_{OFL}$    & `r M$it[1,8]`    & `r M$it[2,8]`    & `r  round(M$Tier3_fofl1,3)`   & `r  round(M$Tier3_fofl2,3)`  \\                  
+  $maxF_{ABC}$ & `r M$it[1,9]`    & `r M$it[2,9]`    & `r  round(M$Tier3_fabc1,3)`   & `r  round(M$Tier3_fabc2,3)`  \\                  
+  $F_{ABC}$    & `r M$it[1,10]`   & `r M$it[2,10]`   & `r  round(M$Tier3_fabc1,3)`   & `r  round(M$Tier3_fabc2,3)`   \\                  
+  $OFL$        & `r M$it$e1[1]` t & `r M$it$e2[1]` t & `r  M$Tier3_OFL1s`  t         & `r  M$Tier3_OFL2s`  t \\          
+  $maxABC$     & `r M$it$f1[1]` t & `r M$it$f2[1]` t & `r  M$Tier3_ABC1s  ` t        & `r  M$Tier3_ABC2s  ` t \\      
+  $ABC$        & `r M$it$g1[1]` t & `r M$it$g2[1]` t & `r  M$Tier3_ABC1s ` t               & `r  M$Tier3_ABC2s`  t \\        
+  \hline
+  Status                                & `r lastyr-1`  & `r lastyr`&     `r lastyr`             &  `r thisyr`          \\
+  \hline
+  Overfishing                           & No          & n/a       & No                         &  n/a                 \\
+  Overfished                            & n/a         & No        & n/a                        &  No                  \\
+  Approaching overfished                & n/a         & No        & n/a                        &  No                  \\
+  \hline
 \end{tabular}
 \end{table}
 
-\clearpage
 
-
-## Tier 1, Model 16.2 (VAST bottom trawl survey data, full time series, include NBS)
+## Tier 1, Model 16.1 SRR conditioned so Fmsy=F35 
 \begin{table}[ht]
 \centering
 \begin{tabular}{lrr|rr}
@@ -45,57 +43,24 @@ Approaching overfished	              &	n/a	        &	No	      &	n/a	            
        & \multicolumn{2}{c|}{$\mathit{last}$ year for:}  & \multicolumn{2}{c}{$\mathit{this}$ year for: }               \\
         Quantity & `r thisyr`      &`r thisyr+1`   & `r thisyr+1`      &`r thisyr+2` \\ 
   \hline
-	M (natural mortality rate, ages 3+)	&	0.3	&	0.3	&	0.3	&	0.3 \\
-Tier	&	1a	&	1a	&	1a	&	1a \\
-Projected total (age  3+) biomass (t)   & 9,110,000 t & 8,156,000 t                   & `r  Alt$age3plus1s` t & `r  Alt$age3plus2s` t \\
-Projected female  spawning  biomass (t) & 3,107,000 t & 2,725,000 t                   & `r  Alt$ssb1s`  t & `r  Alt$ssb2s`  t \\  
-$B_0$ & 5,866,000 t                     & 5,866,000 t & `r  Alt$b0s`,000  t           & `r  Alt$b0s`,000  t \\          
-$B_{msy}$ & 2,280,000 t                 & 2,280,000 t & `r  Alt$bmsys`,000  t         & `r  Alt$bmsys`,000  t \\          
-$F_{OFL}$ & 0.645 & 0.645                             & `r  round(Alt$arithmeanF,3)`  & `r  round(Alt$arithmeanF,3)`  \\                  
-$maxF_{ABC}$  & 0.510 & 0.51                          & `r  round(Alt$harmeanF,3)`    & `r  round(Alt$harmeanF,3)`  \\                  
-$F_{ABC}$ & 0.356 & 0.375                             & `r  (Alt$fabc1s)`             & `r  (Alt$fabc2s)` \\                  
-$OFL$ & 3,913,000 t & 3,082,000 t                     & `r  Alt$ofl1s`  t             & `r  Alt$ofl2s`  t \\          
-$maxABC$  & 3,096,000 t & 2,437,000 t                 & `r  Alt$maxabc1s  ` t & `r  Alt$maxabc2s  ` t \\      
-$ABC$ & 2,163,000 t & 1,792,000 t                     & `r  Alt$abc1s ` t & `r  Alt$abc2s`  t \\        
-\hline
-Status	                              &	2017	      &	2018	      &		`r lastyr`             &	`r thisyr`          \\
-\hline
-Overfishing	                          &	No	        &	n/a	      &	No	                       &	n/a                 \\
-Overfished	                          &	n/a	        &	No	      &	n/a	                       &	No                  \\
-Approaching overfished	              &	n/a	        &	No	      &	n/a	                       &	No                  \\
-\hline
-\end{tabular}
-\end{table}
-
-\clearpage
-
-## Tier 3, Model 16.2 (VAST bottom trawl survey data, full time series, include NBS)
-\begin{table}[ht]
-\centering
-\begin{tabular}{lrr|rr}
+  M            (natural mortality rate, ages 3+)  & 0.3 & 0.3 & 0.3 & 0.3 \\
+  Tier         &  1a  & 1a  & 1a  & 1a \\
+  Projected    total (age  3+) biomass (t)     & `r M$it$a1[1]` t & `r M$it$a2[1]` t & `r  Alt$age3plus1s` t & `r  Alt$age3plus2s` t \\
+  Projected    female  spawning  biomass (t)   & `r M$it$b1[1]` t & `r M$it$b2[1]` t & `r  Alt$ssb1s`  t     & `r  Alt$ssb2s`  t \\  
+  $B_0$        & `r M$it$c1[1]` t & `r M$it$c2[1]` t & `r  M$b0s`,000  t             & `r  Alt$b0s`,000  t \\          
+  $B_{msy}$    & `r M$it$d1[1]` t & `r M$it$d2[1]` t & `r  M$bmsys`,000  t           & `r  Alt$bmsys`,000  t \\          
+  $F_{OFL}$    & `r M$it[1,8]`    & `r M$it[2,8]`    & `r  round(M$arithmeanF,3)`    & `r  round(M$arithmeanF,3)`  \\                  
+  $maxF_{ABC}$ & `r M$it[1,9]`    & `r M$it[2,9]`    & `r  round(M$harmeanF,3)`      & `r  round(M$harmeanF,3)`  \\                  
+  $F_{ABC}$    & `r M$it[1,10]`   & `r M$it[2,10]`   & `r  (M$fabc1)`                & `r  (Alt$fabc2)` \\                  
+  $OFL$        & `r M$it$e1[1]` t & `r M$it$e2[1]` t & `r  M$ofl1s`  t               & `r  Alt$ofl2s`  t \\          
+  $maxABC$     & `r M$it$f1[1]` t & `r M$it$f2[1]` t & `r  M$maxabc1s  ` t           & `r  Alt$maxabc2s  ` t \\      
+  $ABC$        & `r M$it$g1[1]` t & `r M$it$g2[1]` t & `r  M$abc1s ` t               & `r  Alt$abc2s`  t \\        
   \hline
-       & \multicolumn{2}{c|}{As estimated or $\mathit{specified}$ } & \multicolumn{2}{c}{As estimated or $\mathit{recommended}$ }  \\
-       & \multicolumn{2}{c|}{$\mathit{last}$ year for:}  & \multicolumn{2}{c}{$\mathit{this}$ year for: }               \\
-        Quantity & `r thisyr`      &`r thisyr+1`   & `r thisyr+1`      &`r thisyr+2` \\ 
+  Status                                & `r lastyr-1`  & `r lastyr`&     `r lastyr`             &  `r thisyr`          \\
   \hline
-	M (natural mortality rate, ages 3+)	&	0.3	&	0.3	&	0.3	&	0.3 \\
-Tier	&	1a	&	1a	                                       &	3a	&	3a \\
-Projected total (age  3+) biomass (t) & 9,110,000 t & 8,156,000 t & `r  Alt$age3plus1s` t & `r  Alt$age3plus2s` t \\
-Projected female  spawning  biomass (t) & 3,107,000 t & 2,725,000 t & `r  Alt$ssb1s`  t & `r  Alt$ssb2s`  t \\  
-$B_0 or B_{100}$         & 5,866,000 t   & 5,866,000 t & `r  Alt$b100s`,000  t & `r  Alt$b100s`,000  t \\          
-$B_{msy}$     & 2,280,000 t   & 2,280,000 t & `r  Alt$b35s `,000  t & `r  Alt$b35s`,000  t \\          
-$F_{OFL}$     & 0.645 & 0.645 & `r  round(Alt$Tier3_fofl1,3)`  & `r  round(Alt$Tier3_fofl2,3)`  \\                  
-$maxF_{ABC}$  & 0.510 & 0.51  & `r  round(Alt$Tier3_fabc1,3)`  & `r  round(Alt$Tier3_fabc2,3)`  \\                  
-$F_{ABC}$     & 0.356 & 0.375 & `r  round(Alt$Tier3_fabc1,3)`  & `r  round(Alt$Tier3_fabc2,3)` \\                  
-$OFL$         & 3,913,000 t   & 3,082,000 t           & `r  Alt$ofl1s`  t & `r  Alt$ofl2s`  t \\          
-$maxABC$      & 3,096,000 t   & 2,437,000 t           & `r  Alt$Tier3_ABC1s` t & `r  Alt$Tier3_ABC2s  ` t \\      
-$ABC$         & 2,163,000 t   & 1,792,000 t           & `r  Alt$Tier3_ABC1s` t & `r  Alt$Tier3_ABC2s  ` t \\     
-\hline
-Status	                              &	2017	      &	2018	      &		`r lastyr`             &	`r thisyr`          \\
-\hline
-Overfishing	                          &	No	        &	n/a	      &	No	                       &	n/a                 \\
-Overfished	                          &	n/a	        &	No	      &	n/a	                       &	No                  \\
-Approaching overfished	              &	n/a	        &	No	      &	n/a	                       &	No                  \\
-\hline
+  Overfishing                           & No          & n/a       & No                         &  n/a                 \\
+  Overfished                            & n/a         & No        & n/a                        &  No                  \\
+  Approaching overfished                & n/a         & No        & n/a                        &  No                  \\
+  \hline
 \end{tabular}
 \end{table}

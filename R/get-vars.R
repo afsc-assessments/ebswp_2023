@@ -64,7 +64,8 @@ get_vars <- function(M){
 	B$ofl2       <-  pdf$OFL[2]
 	B$ofl1s      <-  format(round(1e3*pdf$OFL[1],-3),big.mark=",",scientific=F,digits=0)
 	B$ofl2s      <-  format(round(1e3*pdf$OFL[2],-3),big.mark=",",scientific=F,digits=0)
-	B$bfs        <- read.csv("../doc/data/proj.csv",header=T)
+	#B$bfs        <- read.csv("../doc/data/proj.csv",header=T)
+	B$bfs        <- read.table(proj_file,header=TRUE)
 	B$Tier3_ABC1 <- B$bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(ABC),0))
 	B$Tier3_ABC1s<- format(round(1e3*B$Tier3_ABC1,-3),big.mark=",",scientific=F,digits=0)
 	B$Tier3_OFL1 <- B$bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(OFL),0))
@@ -85,7 +86,9 @@ get_vars <- function(M){
 	B$abc2       <- B$Tier3_ABC2
 	B$abc1s      <- format(round(1e3*B$abc1,-3),big.mark=",",scientific=F,digits=0)
 	B$abc2s      <- format(round(1e3*B$abc2,-3),big.mark=",",scientific=F,digits=0)
-	B$fabc       <- B$Tier3_ABC1 /B$ABC_biom1
+	B$fabc1      <- round(B$Tier3_ABC1 /B$ABC_biom1,3)
+	B$fabc2      <- round(B$Tier3_ABC2 /B$ABC_biom2,3)
+	B$fabc1s     <- B$Tier3_ABC1 /B$ABC_biom1
 	# Decision table stuff
 	ord <- c(8,2:4,1,5:7)
   B$catch_dec_tab <- M$dec_tab_catch[ord]
