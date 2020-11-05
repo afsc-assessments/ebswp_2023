@@ -1,6 +1,6 @@
 ---
 title: "Chapter 1: Assessment of the Walleye Pollock Stock \\ in the Eastern Bering Sea"
-date: "10:29 November 04, 2020"
+date: "13:47 November 04, 2020"
 output:
   html_document:
     df_print: paged
@@ -112,14 +112,11 @@ versus reclassifying it as Tier 3 be pursued in the 2020 assessment.
 
     _We evaluated factors affecting the Tier classification._     
 
-*The SSC had a number of recommendations for additional research supporting this assessment:*
+**The SSC had a number of recommendations for additional research supporting this assessment:**
 
 The SSC encourages further investigation of the apparent shift between a clear 2012 year-class to mixed 2012-2013 year classes in the data, suggestive of potentially variable ageing bias.   
 
-  - _The newly available 2019 fishery age data shows a similar relative
-     proportion of these two year classes; this suggests (based on
-     earlier inquiries with the age-determination experts) that this pattern
-     is reasonable._
+   _The newly available 2019 fishery age data shows a similar relative proportion of these two year classes; this suggests (based on earlier inquiries with the age-determination experts) that this pattern is reasonable._     
 
 Noting the work in deriving an external estimate of temporal variability in catchability for the bottom trawl survey (relative to the acoustic survey) due to vertical availability, 
      the SSC noted that catchability would logically also vary for the acoustic survey. The SSC encourages 
@@ -128,34 +125,35 @@ Noting the work in deriving an external estimate of temporal variability in catc
      sufficiently explored, the SSC looks forward to assessment model configurations that explore the
      use of a time-series from this method.  
 
-  - _Work on this topic has stalled since survey model efforts focus on methods to incorporate the new Sail Drone acoustic data._
+   _Work on this topic has stalled since survey model efforts focus on methods to incorporate the unmanned surface vessels (USVs) to collect acoustic data._
+
 
 The SSC supports ongoing genetic studies to determine the relationship between pollock in the NBS and EBS,  as well as other surrounding regions (AI, GOA).  
 
-  - _A post doctoral research has been assigned to undertake this work but progress has been limited due to lab access_
+   _A post doctoral research has been assigned to undertake this work but progress has been limited due to lab access_
 
 The SSC supports the continued use of a formal decision table to illustrate risks of alternative harvest strategies.  
 
-  - _This is again included in this year's assessment report_
+   _This is again included in this year's assessment report_
 
 The SSC supports the GPT’s recommendation to revisit the treatment of all variance parameters 
       in the next assessment, particularly those that are set at fixed values 
       (e.g., the value of 0.2 for the acoustic survey).    
 
-  - _This planned activity is only partially underway and will include process error parameters._
+   _This planned activity is only partially underway and will include process error parameters._
 
 The SSC also looks forward to estimates of movement and abundance along the US-Russia EEZ 
       boundary based on echosounders fixed to moorings in this area.     
 
-  - _The moored sounders have been recovered in September 2020 but the data have yet to be processed._     
+  _The moored sounders have been recovered in September 2020 but the data have yet to be processed._     
 
-*From previous requests:*
+**From previous requests:**
 
 Re-examine the geographic subset of data currently used to develop the AVO
 index, specifically to see if including Bristol Bay data improves the
 correlation.    
 
-   - _Work on this continues but was given lower priority given that the AVO
+   _Work on this continues but was given lower priority given that the AVO
    was not part of this year's assessment_     
 
 Explore “A” season trends in mean weight at length with a GAM or
@@ -163,7 +161,7 @@ similar technique, to determine if the trends are either predominantly
 environmental or predominantly fishery-driven, Regarding $\sigma_R$, explore
 alternative fixed values or estimation methods.
 
-   - _Trends in mean weight given length are again presented. The extent that fishery 
+   _Trends in mean weight given length are again presented. The extent that fishery 
     affects this pattern was shown to be related to timing. Further work is needed to 
     establish a mean baseline (in time and space) to try to sort out environmental 
     effects hypotheses. Values of $\sigma_R$ were explored in previous years, no further
@@ -4704,7 +4702,7 @@ $P\left[F_{2020}>F_{MSY}\right]$ & 15 & 0 & 1 & 3 & 8 & 5 & 8 & 11 \\
  
 ![EBS pollock fishery body mass (given length) anomaly (standardized by overall mean body mass at each length) by month based on some over 700 thousand fish measurements from 1991--2018.\label{fig:fsh_lw_month}](figs/fsh_lw_month.png)   
  
-![EBS pollock fishery body mass (given length) anomaly (standardized by overall mean body mass at each length) by year and season/area strata, 1991--2019.\label{fig:fsh_lw_str_yr_box}](figs/fsh_lw_str_yr_box.pdf)   
+![EBS pollock fishery body mass (given length) anomaly (standardized by overall mean body mass at each length) by year and season/area strata, 1991--2020.\label{fig:fsh_lw_str_yr_box}](figs/fsh_lw_str_yr_box.pdf)   
  
 ![Model runs comparing last year's assessment with the impact of sequentially adding new data (first 2019 catch and 2018 fishery catch-at-age, then the bottom trawl survey (BTS) and the acoustic AVO data for model 16.1.\label{fig:mod_data}](figs/mod_data.pdf)   
  
