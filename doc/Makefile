@@ -19,6 +19,12 @@ test: test.Rmd
 	R ${R_OPTS} -e 'library(knitr); knit("test.Rmd");'
 	pandoc test.md -o test.pdf ${PANDOC_OPTS}
 	open test.pdf
+	
+avo: avo.Rmd
+#	cp pm.R pm.Rmd
+	R ${R_OPTS} -e 'library(knitr); knit("avo.Rmd");'
+	pandoc avo.md -o AVO.pdf ${PANDOC_OPTS}
+	open AVO.pdf
 
 params: params.Rmd 
 #	cp pm.R pm.Rmd
@@ -41,6 +47,10 @@ pm1: pm1.Rmd
 	R ${R_OPTS} -e 'library(knitr); knit("pm1.Rmd");'
 	pandoc pm1.md -o pm1.pdf  ${PANDOC_OPTS}
 	#open pm1.pdf
+
+params: params.Rmd 
+	R ${R_OPTS} -e 'library(knitr); knit("params.Rmd");'
+	pandoc params.md -o EBSpollock_params.pdf  ${PANDOC_OPTS}
 
 ref: ref.Rmd 
 	R ${R_OPTS} -e 'library(knitr); knit("ref.Rmd");'

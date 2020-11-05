@@ -1,5 +1,61 @@
 source("../R/prelims.R")
 
+  p1 <- plot_avo(modlst[c(1,4,5)]);p1 
+  p1
+  plot_avo
+  L
+df <- NULL
+mod_scen <-c(4,5) 
+for (ii in mod_scen) {
+    x       <- modlst[[ii]]
+    ssb    <- x$nextyrssbs;         names(ssb)            <- paste0("${B}_{", nextyr ,"}$")
+    ssbcv  <- round(x$nextyrssb.cv,2);  names(ssbcv)      <- paste0("$CV_{B_{", nextyr ,"}}$")
+    Bmsy   <- x$bmsys;         names(Bmsy)                <- "$B_{MSY}$"
+    Bmsycv <- round(x$bmsy.cv,2); names(Bmsycv)           <- "$CV_{B_{MSY}}$"
+    spr    <- paste0(round(x$sprmsy*100,0),"\\%");names(spr) <- "SPR rate at $F_{MSY}$"
+    b35    <- x$b35s ;                 names(b35)         <- paste0("$B_{35\\%}$")
+    pbmsy  <- paste0(round(100*x$ssb1/x$bmsy,0),"\\%");    names(pbmsy)<- paste0("${B}_{", nextyr ,"}/B_{MSY}$")
+    bzero  <- x$b0s ;                 names(bzero)        <- paste0("$B_0$")
+    dynb0  <- x$dynb0s;      names(dynb0)                 <- "Est. $B_{2019} / B_{2019,no fishing}$"
+    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- "$B_{2019} / B_{MSY}$"
+    steep  <- round(x$steep,2);               names(steep) <- "Steepness"
+    v      <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero,b35, spr ,steep, dynb0,b_bmsy)
+    df     <- cbind(df, v)
+ }
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Component",mod_names[mod_scen])
+tab <- xtable(df, caption = "Summary of model 16.1 results and the stock condition for EBS pollock. Biomass units are thousands of t.", label = "tab:res_summ", digits = 3)
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
+```
+
+df <- NULL
+mod_scen <- c(4,5)
+for (ii in mod_scen) {
+    x       <- modlst[[ii]]
+    abcbiom <- paste0(x$ABC_biom1s,",000");         
+    names(abcbiom)    <- paste0(nextyr," fishable biomass (GM)")
+    msybiom           <- paste0(x$bmsyrs,",000");         
+    names(msybiom)    <- paste0("Equilibrium fishable biomass at MSY")
+    msyr        <- round(x$harmeanF,3);  
+    names(msyr) <- ("MSY R (HM)")
+    tier1abc        <- x$maxabc1s;  
+    names(tier1abc) <- paste(nextyr,"Tier 1 ABC")
+    fofl            <- x$arithmeanF;         
+    names(fofl)     <- paste(nextyr,"Tier 1 $F_{OFL}$")
+    ofl        <- x$ofl1s;         
+    names(ofl) <- paste(nextyr,"Tier 1 OFL")
+    fabc        <- round(0.85*x$harmeanF,3);  
+    names(fabc) <- ("MSY R (HM)")
+    recabc         <- x$abc1s;  
+    names(recabc)  <- "Recommended ABC"
+    v      <- c(abcbiom,msybiom,msyr,tier1abc,fofl,ofl,fabc,recabc)
+    df     <- cbind(df, v)
+}
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Component",mod_names[mod_scen])
+tab <- xtable(df, caption = tabcap[28], label = paste0("tab:",tablab[28]), digits = 3,align=paste0("ll",strrep("r",length(mod_scen))) )
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
+```
 
  bfs <- bf %>% filter(Alternative==2) #%>% sample_n(30)
 bfs$Sim <- rep(1:1000,each=14) 

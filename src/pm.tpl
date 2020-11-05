@@ -1183,7 +1183,7 @@ PRELIMINARY_CALCS_SECTION
   lvarb_eit  = square(lseb_eit);
 
 RUNTIME_SECTION
-   maximum_function_evaluations 50,200,900,1800,1900,15000
+   maximum_function_evaluations 50,400,900,1800,1900,15000
    convergence_criteria .001,.001,1e-7
 
 
@@ -2052,6 +2052,7 @@ FUNCTION compute_spr_rates
   //Compute SPR Rates 
   F35 = get_spr_rates(.35);
   F40 = get_spr_rates(.40);
+
 FUNCTION dvariable get_spr_rates(double spr_percent,dvar_vector sel)
   RETURN_ARRAYS_INCREMENT();
   double df=1.e-3;
@@ -2155,6 +2156,7 @@ FUNCTION dvariable spr_ratio(double trial_F)
   SBtmp  += Ntmp(nages)*p_mature(nages)*wttmp(nages)*pow(srvtmp(nages),yrfrac);
   RETURN_ARRAYS_DECREMENT();
   return(SBtmp/phizero);
+
 FUNCTION dvariable spr_ratio(dvariable trial_F)
   RETURN_ARRAYS_INCREMENT();
   dvariable SBtmp;
@@ -2180,6 +2182,7 @@ FUNCTION dvariable spr_ratio(dvariable trial_F)
   SBtmp  += Ntmp(nages)*p_mature(nages)*wttmp(nages)*pow(srvtmp(nages),yrfrac);
   RETURN_ARRAYS_DECREMENT();
   return(SBtmp/phizero);
+
 FUNCTION dvariable spr_unfished()
   RETURN_ARRAYS_INCREMENT();
   dvariable Ntmp;
@@ -4435,7 +4438,7 @@ FUNCTION write_R
    Ntmp.initialize();
 	 Ntmp(endyr_r) = natage(endyr_r);
 	 cout << endyr_r <<" "<< Ntmp(endyr_r) <<" "<<SSB(endyr_r)<<endl;
-   sel_fut = sel_fsh(endyr);
+   sel_fut = sel_fsh(endyr_r);
    for (i=styr;i<=endyr_r+2;i++)
    {
 		if(i<=endyr_r){
@@ -4471,7 +4474,7 @@ FUNCTION write_R
     } else {
 
      Ntmp(i)(2,nages) = ++elem_prod(Ntmp(i-1)(1,nages-1), S(endyr_r)(1,nages-1));  
-     Ntmp(i,nages)  += Ntmp(i-1,nages)*S(endyr,nages);
+     Ntmp(i,nages)  += Ntmp(i-1,nages)*S(endyr_r,nages);
      Ntmp(i,1)       = meanrec;
 		 SSBtmp = elem_prod(elem_prod(Ntmp(i),pow(S(endyr_r),yrfrac)),p_mature)*wt_ssb(endyr_r); // Eq. 1
 		  cout << i <<" "<< Ntmp(i) <<" "<<SSBtmp<<endl;
@@ -4481,25 +4484,25 @@ FUNCTION write_R
      get_msy();
      F40_out << i       // Year
          <<" "<< SSBtmp/Bmsy   // Fshable Bmsy
-         <<" "<< (obs_catch(endyr)/fshable) /AM_fmsyr  // Realized harvest rate
-         <<" "<< (SER(endyr)/SER_Fmsy)                 // SER harvest rate
-         <<" "<< mean(F(endyr))/Fmsy
+         <<" "<< (obs_catch(endyr_r)/fshable) /AM_fmsyr  // Realized harvest rate
+         <<" "<< (SER(endyr_r)/SER_Fmsy)                 // SER harvest rate
+         <<" "<< mean(F(endyr_r))/Fmsy
          <<" "<< Bmsy
          <<" "<< SSBtmp
          <<" "<< Bmsy2   // Fshable Bmsy
          <<" "<< fshable // fishable biomass
          <<" "<< AM_fmsyr// AM Msyr
-         <<" "<< obs_catch(endyr)/fshable // Realized harvest rate
+         <<" "<< obs_catch(endyr_r)/fshable // Realized harvest rate
          <<" "<< get_spr_rates(value(SPR_OFL),sel_fut) // F at MSY
-         <<" "<< Implied_SPR(F(endyr))    // Implied SPR Given F
+         <<" "<< Implied_SPR(F(endyr_r))    // Implied SPR Given F
          <<" "<< SPR_OFL 
-         <<" "<< mean(F(endyr))
+         <<" "<< mean(F(endyr_r))
          <<" "<<get_spr_rates(.35,sel_fut)
          <<" "<<Fmsy 
          <<" "<<age_3_plus_biom(i) 
          <<" "<<value(age_3_plus_biom(i))/value(Bmsy2)
          <<" "<<value(SB100)*.35
-         <<" "<<(obs_catch(endyr)/value(age_3_plus_biom(i)))/value(Fmsy2)
+         <<" "<<(obs_catch(endyr_r)/value(age_3_plus_biom(i)))/value(Fmsy2)
          <<" "<<value(avg_age_msy)
          <<" "<<value(avgwt_msy)
          <<endl; 
@@ -4507,6 +4510,7 @@ FUNCTION write_R
     }
     F40_out.close();
    ofstream SelGrid("selgrid.rep");
+    SelGrid << "KE_Year MSY Bmsy avgAgeMSY avgWtMSY F40 Fmsy FmsySPR"<<endl;
    for (i=1;i<=5;i++)
    {
      sel_fut = 0.0;
@@ -4519,8 +4523,10 @@ FUNCTION write_R
          <<" "<<value(Bmsy)
          <<" "<<value(avg_age_msy)
          <<" "<<value(avgwt_msy)
-         <<" SPR "<<get_spr_rates(.4,sel_fut)
+         <<" "<<get_spr_rates(.4,sel_fut)
          <<" "<< value(Fmsy2)
+         <<" "<< value(spr_ratio(Fmsy,sel_fut))
+         <<" NA "   // Implied SPR Given F
          <<endl; 
    }
    for (i=styr;i<=endyr_r;i++)
@@ -4532,8 +4538,10 @@ FUNCTION write_R
          <<" "<<value(Bmsy)
          <<" "<<value(avg_age_msy)
          <<" "<<value(avgwt_msy)
-         <<" SPR "<<get_spr_rates(.4,sel_fut)
+         <<" "<<get_spr_rates(.4,sel_fut)
          <<" "<< value(Fmsy2)
+         <<" "<< value(spr_ratio(Fmsy,sel_fut))
+         <<" "<< Implied_SPR(F(i))    // Implied SPR Given F
          <<endl; 
    }
    compute_Fut_selectivity();
@@ -4544,11 +4552,14 @@ FUNCTION write_R
          <<" "<<value(Bmsy)
          <<" "<<value(avg_age_msy)
          <<" "<<value(avgwt_msy)
-         <<" SPR "<<get_spr_rates(.4,sel_fut)
+         <<" "<<get_spr_rates(.4,sel_fut)
          <<" "<< value(Fmsy2)
+         <<" "<< value(spr_ratio(Fmsy,sel_fut))
+         <<" NA "   // Implied SPR Given F
          <<endl; 
     SelGrid.close();
   }
+
 FUNCTION dvariable Implied_SPR( const dvar_vector& F_age) 
   RETURN_ARRAYS_INCREMENT();
   // Function that returns SPR percentage given a realized value of F...
@@ -4819,6 +4830,7 @@ TOP_OF_MAIN_SECTION
   gradient_structure::set_NUM_DEPENDENT_VARIABLES(9100); 
   gradient_structure::set_CMPDIF_BUFFER_SIZE(3000000);
   arrmblsize=10000000;
+
 GLOBALS_SECTION
   #include <float.h>
   #include <admodel.h>

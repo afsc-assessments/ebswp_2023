@@ -6,7 +6,7 @@
 for i in `seq $2 $1`;
 do
   awk -v rrr=$i 'NR==157{print rrr} NR!=157 {print $0}' t1.ctl >control.dat
-  pm -nox -iprint 500 
+  ./pm -nox -iprint 500 
 	/bin/cp -f pm.std retro/r_$i.std
 	/bin/cp -f pm.rep retro/r_$i.rep
 done    
