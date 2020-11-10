@@ -207,7 +207,7 @@ Year     &    A season      & B-season          & Total             \\
 2017     & 555,300 t (51\%) & 750,800 t (54\%)  & 1,306,100 t (53\%)  \\
 2018     & 573,000 t (63\%) & 746,500 t (46\%)  & 1,319,500 t (53\%)  \\
 2019     & 573,400 t (68\%) & 762,800 t (51\%)  & 1,336,200 t (58\%)  \\
-2020     & xxx,400 t (68\%) & xxx,800 t (51\%)  & 1,xxx,200 t (58\%)  \\
+2020     & xxx,400 t (xx\%) & xxx,800 t (xx\%)  & 1,xxx,200 t (58\%)  \\
 \hline
 \end{tabular}
 \end{table}
@@ -248,7 +248,7 @@ Year    &   Management  \\
 2017    &   Due to amendment 110 about 45\% of the TAC is taken in the A-season (traditionally only 40\% was allowed). \\
 2018    &   In-river estimates of Chinook salmon (three river index) fell below the threshold and therefore a lower PSC limit applies (from a performance standard of 47,491 to 33,318 and a PSC limit from 60,000 to 45,000 Chinook salmon overall). Additionally, squid have been recategorized as an ecosystem component.  \\
 2019    &   Some pollock sectors experienced high bycatch levels for chum and Chinook salmon and also for sablefish.\\
-2020    &   Bycatch rates unusually high again for sablefish. Herring in A season triggered closures...xxxSome pollock sectors experienced high bycatch levels for chum and Chinook salmon and also for sablefish.\\
+2020    &   Bycatch rates unusually high again for sablefish. Herring PSC occurred in the A season and triggered area closures that will persist into 2021. Salmon bycatch rates (relative to hours fished) was lower than last year for both chum and Chinook. \\
 \hline
 \end{tabular}
 \end{table}
@@ -571,7 +571,7 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 2016    &   5,312   &   5,725   &   1,077   &   909 &   6,872   &   6,635   &   26,530  \\
 2017    &   5,238   &   6,047   &   1,586   &   1,343   &   6,575   &   6,254   &   27,043  \\
 2018    &   5,583   &   6,174   &   3,430   &   3,172   &   5,506   &   4,850   &   28,715  \\
-2019    &   5,xxx   &   6,xxx   &   3,430   &   3,172   &   5,506   &   4,850   &   28,715  \\
+2019    &   6,098   &   4,520   &   2,953   &   3,594   &   5,501   &   5,822   &   28,488  \\
 \hline
 \end{tabular}
 \end{table}
@@ -624,7 +624,7 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 2016    &   488 &   599 &   157 &   125 &   929 &   969 &   3,267   \\
 2017    &   604 &   778 &   179 &   163 &   777 &   753 &   3,254   \\
 2018    &   569 &   662 &   366 &   358 &   621 &   591 &   3,167   \\
-2019    &   xxx &   662 &   366 &   358 &   621 &   591 &   3,167   \\
+2019    &   778 &   552 &   332 &   387 &   531 &   558 &   3,138   \\
 \hline
 \end{tabular}
 \end{table}
@@ -653,7 +653,7 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
       if(M$yr_bts[i_bts]==i) 
       {
         t[3] <- M$sam_bts[i_bts]
-        i_bts <- i_bts+1
+        if (M$yr_bts[i_bts]<thisyr)  i_bts <- i_bts+1
       } 
       else 
         t[3] <- NA
@@ -682,7 +682,7 @@ nr <- dim(df)[1]-2
 df[1,1]<-"1964-"; df[1,2:16]<-" "; df[2,1]<-"1990";
 mnw<- (colMeans(as.matrix(M$wt_fsh[1:nr,]))) 
 cvw<- (sdw/mnw ) 
-cvw<- c('CV','-','-',round(cvw[3:15]*100,0))
+cvw<- c('CV','-','-',paste0(round(cvw[3:15]*100,0),"\%"))
 df <- rbind(df,c(nextyr,'-','-',round(M$wt_next,3)), c(nextyr+1,'-','-',round(M$wt_yraf,3)), c("Mean",round(mnw,3 ) ) )
 df <- rbind(df, cvw)
 cap <- tabcap[24]
@@ -696,18 +696,19 @@ print(tab, scalebox=0.7, caption.placement = "top",align=rep("r",(length(df[1,])
 ```{r modfits, results = "asis"}
 # Fit to data------------------- 
 # Comparison among variance constraints for RW in survey selectivity/q
-fnprof  = c("r_1","r_2","r_3","r_4","r_5")
-prof_names  = c("CV70\\%","CV50\\%","CV20\\%","CV10\\%","CV05\\%")
-fn       <- paste0("../runs/q_sens/prof/",fnprof)
-proflst   <- lapply(fn, read_admb)
-names(proflst) <- prof_names
-nmods <- length(prof_names)
-for (i in 1:nmods) {
-  proflst[[i]] <- c(proflst[[i]],get_vars(proflst[[i]]))
-}
-df <- tab_fit(M=proflst,1:nmods)
-tab <- xtable(df, caption = "Goodness of fit to primary data used for assessment model parameter estimation profiling over different constraints on the extent bottom-trawl survey selectivity/availability is allowed to change;  EBS pollock.", label = "tab:mod_prof_fits")#, digits = 3,align="llrrrrr")
-print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
+#fnprof  = c("r_1","r_2","r_3","r_4","r_5")
+#prof_names  = c("CV70\\%","CV50\\%","CV20\\%","CV10\\%","CV05\\%")
+#fn       <- paste0("../runs/q_sens/prof/",fnprof)
+#proflst   <- lapply(fn, read_admb)
+#names(proflst) <- prof_names
+#nmods <- length(prof_names)
+#for (i in 1:nmods) {
+#  proflst[[i]] <- c(proflst[[i]],get_vars(proflst[[i]]))
+#}
+#df <- tab_fit(M=proflst,1:nmods)
+#tab <- xtable(df, caption = "Goodness of fit to primary data used for assessment model parameter estimation profiling over different constraints on the extent bottom-trawl survey selectivity/availability is allowed to change;  EBS pollock.", label = "tab:mod_prof_fits")#, digits = 3,align="llrrrrr")
+#print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
+#
 
 # Fit to data------------------- 
 
@@ -716,8 +717,6 @@ tab <- xtable(df, caption = "Goodness of fit to primary data used for assessment
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
 
 ```
-
-
 
 
 ```{r mgt_quants, results = "asis"}
@@ -754,7 +753,7 @@ cap <- tabcap[32]
 biom <- read.csv("data/Age3plus.csv",header=T,as.is=TRUE)
 #biom <- read.csv("data/Age3history.csv",header=T,as.is=TRUE)
 t3  <- cbind(biom[,1],M$age3plus ,M$age3plus.sd/M$age3plus ,biom[,2:13])
-names(t3) <- c("Year","Current","CV","2018","CV","2017","CV","2016","CV", "2015","CV","2014","CV","2013","CV")
+names(t3) <- c("Year","Current","CV","2019","CV","2018","CV","2017","CV","2016","CV", "2015","CV","2014","CV")
 for (i in seq(2,length(t3[1,]), 2 ) ){
       t3[,i]   <- formatC(t3[,i], format="d", big.mark=",",digits=0) 
       t3[,i+1] <- formatC( t3[,i+1]*100, format="d", digits=0,big.mark=",") 
@@ -768,7 +767,7 @@ print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.fun
 ```{r Nage, results="asis",echo=FALSE}
 tmp <- cbind(M$Yr,M$N[,1:9]/1000,rowSums(M$N[,10:15])/1000)
 colnames(tmp) <- c("Year",1:9,"10+")
-tab <- xtable(tmp, digits=2, auto=TRUE,caption = "Estimated billions of EBS pollock at age (columns 2--11) from the 2019 assessment model." , 
+tab <- xtable(tmp, digits=2, auto=TRUE,caption = "Estimated billions of EBS pollock at age (columns 2--11) from the current assessment model." , 
               label = "tab:est_n")
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=0.8)
 ```
@@ -778,7 +777,7 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 ```{r Cage,results="asis",echo=FALSE}
 tmp <- cbind(M$Yr,M$C[,1:9],rowSums(M$C[,10:15]))
 colnames(tmp) <- c("Year",1:9,"10+")
-tab <- xtable(tmp, digits=2, auto=TRUE,caption = "Estimated millions of EBS pollock caught at age (columns 2--11) from the 2019 assessment model." ,
+tab <- xtable(tmp, digits=2, auto=TRUE,caption = "Estimated millions of EBS pollock caught at age (columns 2--11) from the current assessment model." ,
               label = "tab:est_catage")
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=0.8)
 ```
@@ -992,17 +991,17 @@ $P\left[E_{`r nextyr`}>E_{`r thisyr`}\right]$   & Probability that the theoretic
 \clearpage
 
 ```{r dectable,results="asis",echo=FALSE}
-rn <- c("$P\\left[F_{2020}>F_{MSY}\\right]$",
-"$P\\left[B_{2021}<B_{MSY}\\right]$ ",
+rn <- c("$P\\left[F_{2021}>F_{MSY}\\right]$",
 "$P\\left[B_{2022}<B_{MSY}\\right]$ ",
-"$P\\left[B_{2021}<\\bar{B}\\right]$ ",
-"$P\\left[B_{2024}<\\bar{B}\\right]$ ",
-"$P\\left[B_{2024}<B_{2020}\\right]$ ",
-"$P\\left[B_{2022}<B_{20\\%}\\right]$",
-"$P\\left[p_{a_5,2022}>\\bar{p}_{a_5}\\right]$ ",
-"$P\\left[D_{2021}<D_{1994}\\right]$  ",
-"$P\\left[D_{2024}<D_{1994}\\right]$  ",
-"$P\\left[E_{2020}>E_{2019}\\right]$  ")
+"$P\\left[B_{2023}<B_{MSY}\\right]$ ",
+"$P\\left[B_{2022}<\\bar{B}\\right]$ ",
+"$P\\left[B_{2025}<\\bar{B}\\right]$ ",
+"$P\\left[B_{2025}<B_{2021}\\right]$ ",
+"$P\\left[B_{2023}<B_{20\\%}\\right]$",
+"$P\\left[p_{a_5,2023}>\\bar{p}_{a_5}\\right]$ ",
+"$P\\left[D_{2022}<D_{1994}\\right]$  ",
+"$P\\left[D_{2025}<D_{1994}\\right]$  ",
+"$P\\left[E_{2021}>E_{2020}\\right]$  ")
   m <- rbind(
   round(M$pfcur_fmsy*100,1)  ,
   round(M$pbcur_bmsy*100,1)  ,
@@ -1018,7 +1017,7 @@ rn <- c("$P\\left[F_{2020}>F_{MSY}\\right]$",
   colnames(m) <- round(M$catch_dec_tab,0)
   rownames(m) <- rn
   # cap<-"\\label{tab:dec_table} "
-  cap<-"Outcomes of decision (expressed as chances out of 100) given different 2020 catches (first row, in kt). Note that for the 2017 and later year-classes average values were assumed. Constant Fs based on the 2020 catches were used for subsequent years. "
+  cap<-"Outcomes of decision (expressed as chances out of 100) given different 2021 catches (first row, in kt). Note that for the 2018 and later year-classes average values were assumed. Constant Fs based on the 2021 catches were used for subsequent years. "
   ## kable(m,caption=cap,format="pandoc")
   tab <- xtable(m, caption = cap, label="tab:dec_table",digits=0, auto=TRUE, align=rep("r",(length(m[1,])+1)) )
   print(tab, caption.placement = "top",include.rownames = TRUE, sanitize.text.function = function(x){x}, scalebox=1)

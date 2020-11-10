@@ -13,36 +13,32 @@ nextyr    = thisyr+1
 
 # Read report file and create gmacs report object (a list):
 #mod_names <- c("No AVO","Model 16.1","VAST","Low AVO", "High AVO")
+#.MODELDIR = c( "../runs/CA/","../runs/last_year/","../runs/usv/","../runs/sr1/")
 #mod_names <- c("2020","last year","Low AVO")
-mod_names <- c("2020","last year","with saildrone","conditioned SRR")
+#mod_names <- c("16.2","16.2 last year","20.0 USV","20.1 USVast","20.1a Ignore 1978 YC", "20.0c Fmsy=F35","20.0d Fmsy=F45","20.1b Diffuse SRR prior")
+#.MODELDIR = c( "../runs/2020/","../runs/last_year/","../runs/usv/","../runs/usv_vast/","../runs/sr0/","../runs/sr1/","../runs/sr3/","../runs/sr2/")
 #.MODELDIR = c( "../runs/2020/","../runs/last_year/","../runs/2020Lavo/")
 #.MODELDIR = c( "../runs/2020/","../runs/last_year/","../runs/sr1/")
-.MODELDIR = c( "../runs/2020/","../runs/last_year/","../runs/base/","../runs/sr1/")
-fn       <- paste0(.MODELDIR, "pm")
-
-system.time( modlst <- mclapply(fn, read_admb,mc.cores=4) )
-
-thismod <- 3 # the selected model
-names(modlst) <- mod_names
-# The model picked
+mod_names <- c("16.2","16.2 last year","20.0 USV","20.1 USVast","20.0a base")
+.MODELDIR <- c( "../runs/2020/","../runs/last_year/","../runs/usv/","../runs/usv_vast/","../runs/base/")
+fn        <- paste0(.MODELDIR, "pm")
 nmods <- length(mod_names)
+system.time( modlst <- mclapply(fn, read_admb,mc.cores=nmods) )
+names(modlst) <- mod_names
+
+# The model picked
+thismod <- 5 # the selected model
 #add_stuff<-function(idx){ proj_file<- paste0(.MODELDIR[idx],"proj/bigfile.out") #modlst[[idx]] <- c(modlst[[idx]],get_vars(modlst[[idx]])) return( c(modlst[[i]],get_vars(modlst[[i]])) ) }
 #system.time( modlst<-mclapply(1:nmods,add_stuff,mc.cores=nmods) )
 #system.time( 
-i=1
 for (i in 1:nmods) {
   proj_file<- paste0(.MODELDIR[i],"proj/bigfile.out")
   modlst[[i]] <- c(modlst[[i]],get_vars(modlst[[i]])) 
 } 
- # )
-##names(M)
-
-#proj_file<- paste0(.MODELDIR[thismod],"proj/bigfile.out")
-#t2 <- read.table(proj_file,header=TRUE)
-#names(modlst)
 M        <- modlst[[thismod]]
 P        <- modlst[[2]] # Last year's model (P=previous)
-Alt      <- modlst[[1]] # Last year's model (P=previous)
+Alt      <- modlst[[3]] # Last year's model (P=previous)
+M$future_catch[12,1]
 
 #
 rhodf      <- read.csv("../doc/data/mohnrho.csv",header=T)

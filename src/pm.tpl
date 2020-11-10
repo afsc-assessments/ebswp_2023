@@ -961,7 +961,7 @@ PARAMETER_SECTION
   number meanrec
   vector SR_resids(styr_est,endyr_est);
   matrix Nspr(1,4,1,nages)
-  vector sel_fut(1,nages)
+  sdreport_vector sel_fut(1,nages)
  
   3darray natage_future(1,nscen,styr_fut,endyr_fut,1,nages)
   init_vector rec_dev_future(styr_fut,endyr_fut,phase_F40);
@@ -1070,7 +1070,7 @@ PARAMETER_SECTION
   sdreport_number MSY;
   sdreport_number MSY_wt;
   sdreport_number Fmsy;
-  sdreport_number Fmsy_wt;
+  sdreport_number Fmsy_wt; // includes vector on value...default is equal weight
   sdreport_number Fmsy2;
   sdreport_number Fmsy2_wt;
   sdreport_vector Fmsy2_dec(1,10);   // uncertain next year weight previous decade selectivity estimates
@@ -1670,6 +1670,7 @@ FUNCTION GetNumbersAtAge
   SSB(endyr_r)  = elem_prod(elem_prod(natage(endyr_r),pow(S(endyr_r),yrfrac)),p_mature)*wt_ssb(endyr_r); // Eq. 1
 
   meanrec = mean(pred_rec(styr_est,endyr_r)); 
+
 FUNCTION GetDependentVar 
   // For making some output for spiffy output
   // Spiffy SR output
@@ -1755,7 +1756,7 @@ FUNCTION GetDependentVar
       res.initialize(); 
       sel_fut   = sel_fsh(endyr_r-iyr+1);
       // sel_fut  /=sel_fut(6); // NORMALIZE TO AGE 6
-      sel_fut  /=mean(sel_fut); // NORMALIZE TO AGE 6
+      sel_fut  /=mean(sel_fut); // NORMALIZE TO mean
       if (!mceval_phase()) res = get_msy_wt(); 
       Fmsy2_dec(iyr) = res(4); 
     //   cout <<endyr_r - iyr +1<<" "<<res<<endl;
@@ -1891,7 +1892,8 @@ FUNCTION Future_projections_fixed_F
 		else
 		{
 	    if (nscen>8)
-        ftmp= F(endyr_r,6) * ((double(k-1)-1.)*.05 + 0.5); // this takes endyr F and brackets it...
+        ftmp= mean(F(endyr_r)) * ((double(k-1)-1.)*.05 + 0.5); // this takes endyr F and brackets it...for mean
+        // ftmp= F(endyr_r,6) * ((double(k-1)-1.)*.05 + 0.5); // this takes endyr F and brackets it...for age 6 std
 	    else
         ftmp = SolveF2(natage_future(k,styr_fut),dec_tab_catch(k));
 		}
@@ -2428,6 +2430,7 @@ FUNCTION dvar_vector get_msy_wt();
   results(4) = results(2)/Btmp; 
   RETURN_ARRAYS_DECREMENT();
   return(results);
+
 FUNCTION dvariable get_yield_wt(dvariable& Ftmp)
   RETURN_ARRAYS_INCREMENT();
   // Note that two wt vectors are used: 1 for yield, the other for biomass.  
@@ -2453,6 +2456,7 @@ FUNCTION dvariable get_yield_wt(dvariable& Ftmp)
   yield *= Req;
   RETURN_ARRAYS_DECREMENT();
   return yield;
+
 FUNCTION dvariable get_yield_wt(dvariable& Ftmp, double& Stmp,double& Rtmp,dvariable& Btmp)
   RETURN_ARRAYS_INCREMENT();
   // Note that two wt vectors are used: 1 for yield, the other for biomass.  
@@ -2481,6 +2485,7 @@ FUNCTION dvariable get_yield_wt(dvariable& Ftmp, double& Stmp,double& Rtmp,dvari
   Rtmp   = value(Req);   
   RETURN_ARRAYS_DECREMENT();
   return yield;
+
 FUNCTION dvariable get_yield(dvariable& Ftmp, dvariable& Stmp,dvariable& Rtmp,dvariable& Btmp)
   RETURN_ARRAYS_INCREMENT();
   // Note that two wt vectors are used: 1 for yield, the other for biomass.  
@@ -4112,12 +4117,12 @@ FUNCTION write_R
   report<<"sd_ob_eit"<<endl<<std_ob_eit<<endl;
   report<<"sd_ot_eit"<<endl<<std_ot_eit<<endl;
   report<<"sd_eit"<<endl<<std_ob_eit<<endl;
-  report<<"Future_F"<<endl;
+  report<<"future_F"<<endl;
   for (int k=1;k<=nscen;k++) 
   {
-    report<< mean(F(endyr_r)(4,10))<<" "; // reference year as current
+    report<< mean(F(endyr_r))<<" "; // reference year as current
     for (int i=styr_fut;i<=endyr_fut;i++) 
-       report<< mean(F_future(k,i)(4,10))<<" ";
+       report<< mean(F_future(k,i))<<" ";
     report<<endl;
   }
   // 3darray F_future(1,nscen,styr_fut,endyr_fut,1,nages);

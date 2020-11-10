@@ -1,5 +1,5 @@
 #DoCovBTS
-0
+1
 #SrType
 1
 #Do_Combined
@@ -61,7 +61,7 @@
 #use_last_eit_ac
 1
 #nyrs_sel_avg
-1
+-15
 #do_bts_bio
 1
 #do_eit_bio
@@ -75,7 +75,7 @@
 #next_yrs_catch;
 1390
 #nscen
-11
+22
 #fixed_catch_fut2;
 900
 #fixed_catch_fut3;
@@ -105,7 +105,7 @@
 #phase_natmort
 -6
 #phase_q_bts
--3
+3
 #phase_q_std_area
 4
 #phase_q_eit

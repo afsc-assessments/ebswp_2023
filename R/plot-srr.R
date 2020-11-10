@@ -62,7 +62,7 @@
 #' @export
 #' 
 plot_srr <- function(M, ylab = "Recruits (age 1, millions)", xlab = "Female spawning biomass (kt)", 
-                     ylim = NULL, xlim=NULL, alpha = 0.05,ebar="FALSE",leglabs=NULL,coverlap=FALSE)
+                     ylim = NULL, xlim=NULL, alpha = 0.05,ebar="FALSE",leglabs=NULL,coverlap=FALSE, sizein=3,sizeout=2,yrsin=1977:2019)
 {
     xlab <- paste0("\n", xlab)
     ylab <- paste0(ylab, "\n")
@@ -84,7 +84,8 @@ plot_srr <- function(M, ylab = "Recruits (age 1, millions)", xlab = "Female spaw
     if (length(M) == 1)
     {
         p <- p + geom_line(aes(x = ssb, y = rhat)) +
-            geom_ribbon(aes(x = ssb, ymax = ub, ymin = lb), alpha = alpha)
+            geom_ribbon(aes(x = ssb, ymax = ub, ymin = lb), fill="coral",alpha = alpha) +
+            geom_ribbon(aes(x = ssb, ymax = rhat+.5*(ub-rhat), ymin = rhat-.5*(rhat-lb) ), fill="coral",alpha = 1.5*alpha)
     } else {
         p <- p + geom_line(aes(x = ssb, y = rhat, col = Model),size=1.2) +
             geom_ribbon(aes(x = ssb, ymax = ub, ymin = lb, fill = Model), alpha = alpha)
@@ -92,13 +93,18 @@ plot_srr <- function(M, ylab = "Recruits (age 1, millions)", xlab = "Female spaw
     #if (!is.null(xlim)) #p <- scale_x_continuous(expand=c(0,0)) + p <- coord_cartesian(xlim=xlim) 
     #if (!is.null(ylim)) p <-  coord_cartesian(ylim=ylim) #p <- scale_y_continuous(expand=c(0,0), limits=c(-50,ylim[2]*1.1)) + coord_cartesian(ylim=ylim) 
 
-    mdf2<- .get_sr_est_df(M)
+    mdf2<- .get_sr_est_df(M) 
+		mdf3<- mdf2 %>% filter(!(Year %in% yrsin))
+		mdf2<- mdf2 %>% filter(Year %in% yrsin)
+		
     if (length(M) == 1)
     {
-        p <- p + geom_text(data=mdf2, aes(x = ssb, y = rhat, label=Year),size=4,check_overlap=coverlap) 
+        p <- p + geom_text(data=mdf2, aes(x = ssb, y = rhat, label=Year),size=sizein,check_overlap=coverlap) 
+        p <- p + geom_text(data=mdf3, aes(x = ssb, y = rhat, label=Year),size=sizeout,check_overlap=coverlap) 
         if (ebar) p <- p + geom_errorbar(data=mdf2, aes(x = ssb, ymax = ub, ymin = lb))
     } else {
-        p <- p + geom_text(data=mdf2, aes(x = ssb, y = rhat, label=Year , col = Model),size=4,check_overlap=coverlap) 
+        p <- p + geom_text(data=mdf2, aes(x = ssb, y = rhat, label=Year, col = Model), size=sizein, check_overlap=coverlap) 
+        p <- p + geom_text(data=mdf3, aes(x = ssb, y = rhat, label=Year, col = Model), size=sizeout,check_overlap=coverlap) 
         if (ebar) p <- p +  geom_errorbar(data=mdf2, aes(x = ssb, ymax = ub, ymin = lb ,colour=Model))
     }
     

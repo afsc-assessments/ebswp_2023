@@ -1,4 +1,5 @@
-# Appendix on spatio-temporal analysis of NMFS bottom-trawl survey data
+
+# Appendix on spatio-temporal analysis of NMFS bottom-trawl survey data {#VAST bts}
 
 ## Overview 
 

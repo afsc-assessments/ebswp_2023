@@ -33,9 +33,8 @@ clean_cache(clean = TRUE)
 
 
 \begin{centering}
-  James Ianelli, Ben Fissel, Kirstin Holsman, Taina Honkalehto, \\
-  Stan Kotwicki, Cole Monnahan, Elizabeth Siddon, \\
-  Sarah Stienessen, and James Thorson \\
+  James Ianelli, Ben Fissel, Kirstin Holsman, Alex De Robertis, Taina Honkalehto, \\
+  Stan Kotwicki, Cole Monnahan, Elizabeth Siddon, and James Thorson \\
 \fontfamily{cmr}
 \fontsize{10}{12}
 \selectfont
@@ -65,12 +64,16 @@ source("../pm_20.R")
 
 ```{r child = 'figs.Rmd'}
 ```
+
 ```{r child = 'model.Rmd'}
 ```
+
 ```{r child = 'App.Rmd'}
 ```
+
 ```{r child = 'alt_table.Rmd'}
 ```
+
  \tableofcontents
 
  \listoftables

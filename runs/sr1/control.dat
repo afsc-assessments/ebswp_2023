@@ -55,13 +55,13 @@
 #phase_steepness
 5
 #use_spr_msy_pen
-1
+0
 #sigma_spr_msy
-0.0016
+0.20
 #use_last_eit_ac
 1
 #nyrs_sel_avg
-1
+-15
 #do_bts_bio
 1
 #do_eit_bio
@@ -151,7 +151,7 @@
 0.1
 5
 1
-0
+1 # exclude 1978 yc in SRR? 0=no, 1=yes
 2
 -3
 0

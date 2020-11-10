@@ -429,10 +429,12 @@ a given year): $\sum_a{N_as_{ta}w_{ta}}$ with $N_{ta}$, $s_{ta}$, and $w_{ta}$ t
 (begin year), selectivity and weights-at-age, respectively. $B_{MSY}$ and $B_{t}$ are
 the point estimates spawning biomass levels at equilibrium $F_{MSY}$ and in year $t$
 (at time of spawning). For these projections, catch must be specified (or
-solved for if in the current year when $B_t$ < $B_{MSY}$). For longer term projections
+solved for if in the current year when $B_t < B_{MSY}$). For longer term projections
 a form of operating model (as has been presented for the evaluation of $B_{20\%}$)
 with feedback (via future catch specifications) using the control rule and
 assessment model would be required.
+
+\end{align}
 
 
 

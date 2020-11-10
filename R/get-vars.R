@@ -98,8 +98,10 @@ get_vars <- function(M){
 	B$Tier3_fofl2<- B$Tier3_OFL2 /B$ABC_biom2
 	#B$abc1       <- 0.85*B$maxabc1 #B$Tier3_ABC1
 	#B$abc2       <- 0.85*B$maxabc2 #B$Tier3_ABC2
-	B$abc1       <- B$Tier3_ABC1
-	B$abc2       <- B$Tier3_ABC2
+	B$abc1       <- M$future_catch[12,1]
+	B$abc2       <- M$future_catch[12,2]
+	#B$abc1       <- (B$Tier3_ABC1)
+	#B$abc2       <- (B$Tier3_ABC2)
 	B$abc1s      <- format(round(1e3*B$abc1,-3),big.mark=",",scientific=F,digits=0)
 	B$abc2s      <- format(round(1e3*B$abc2,-3),big.mark=",",scientific=F,digits=0)
 	B$fabc1      <- round(B$Tier3_ABC1 /B$ABC_biom1,3)

@@ -9,6 +9,12 @@ the wt-RE model...unsure why...maybe need to sub in current year estimates from 
     [x] Add in 2019 fishery age compositions      
     [ ] Add in 2019 fishery age compositions      
 
+### SRR runs
+  sr0:	saildrone include 1978 YC
+  sr1:	as sr0 but exclude 78 (20.0a)
+  sr2:	as sr1 but diffuse prior
+  sr3:	as sr1 but conditioned so Fmsy=F35
+
 
 ## 2019 notes
 2019 runs are in base, lastyr (2018 version of base) then the C-CABA runs, vastage, constsel, vast_cp, vastall.
@@ -41,4 +47,4 @@ make.bat runs model within subdirectories
     16.1 final model, 16.1a and 16.1b have different SRR assumptions (moderate and diffuse conditioning of data)
     16.1m has M profiles (done w/ arcit.sh changed to mprof.sh)
 
-
+kkkk

@@ -375,7 +375,7 @@ private:
   param_number meanrec;
   param_vector SR_resids;
   param_matrix Nspr;
-  param_vector sel_fut;
+  param_stddev_vector sel_fut;
   param_3array natage_future;
   param_init_vector rec_dev_future;
   param_3array F_future;
