@@ -98,10 +98,22 @@ get_vars <- function(M){
 	B$Tier3_fofl2<- B$Tier3_OFL2 /B$ABC_biom2
 	#B$abc1       <- 0.85*B$maxabc1 #B$Tier3_ABC1
 	#B$abc2       <- 0.85*B$maxabc2 #B$Tier3_ABC2
-	B$abc1       <- M$future_catch[12,1]
-	B$abc2       <- M$future_catch[12,2]
-	#B$abc1       <- (B$Tier3_ABC1)
-	#B$abc2       <- (B$Tier3_ABC2)
+	# Mean F
+	if (dim(M$future_catch)[1]>8) {
+		B$abc1constF <- M$future_catch[12,1]
+		B$abc2constF <- M$future_catch[12,2]
+	} else{
+		B$abc1constF <- M$future_catch[5,1]
+		B$abc2constF <- M$future_catch[5,2]
+  }
+
+	# Set recommended ABC here--Tier 3
+	B$abc1       <- (B$Tier3_ABC1)
+	B$abc2       <- (B$Tier3_ABC2)
+
+	B$abc1constFs<- format(round(1e3*B$abc1constF,-3),big.mark=",",scientific=F,digits=0)
+	B$abc2constFs<- format(round(1e3*B$abc2constF,-3),big.mark=",",scientific=F,digits=0)
+
 	B$abc1s      <- format(round(1e3*B$abc1,-3),big.mark=",",scientific=F,digits=0)
 	B$abc2s      <- format(round(1e3*B$abc2,-3),big.mark=",",scientific=F,digits=0)
 	B$fabc1      <- round(B$Tier3_ABC1 /B$ABC_biom1,3)

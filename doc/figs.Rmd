@@ -12,6 +12,8 @@ printfig("fsh_psc_cpue.png",67)
  printfig("catch_distn_b.png",6)
  #printfig("cpue_bseason.png",7)
  printfig("fleet_dispersal.png",9)
+ printfig("fsh_wt_freq.png",72)
+ printfig("fsh_wt_freq_week.png",73)
 ``` 
 
 \clearpage
@@ -24,11 +26,20 @@ printfig("fsh_psc_cpue.png",67)
  printfig("bts_temp_cpue.pdf",i);i <- i + 1
  printfig("bts_3d.png",i);i <- i + 1
  printfig("bts_age_comp.png",i);i <- i + 1
- printfig("sa_v_biom.png",i); i <- i + 1
- printfig("transect_spacing.png",66)
- printfig("ats_usv.jpg",18)
- printfig("ats_vast.png",19)
- # printfig("vastage.png",i);i <- i + 1 
+
+ printfig("at_timing.png",74); 
+ printfig("at_pollock_in_sa.png",75); 
+ printfig("at_sa_biom.png",76); 
+ printfig("at_sa_biom_regress.png",77); 
+ printfig("at_usv_biom.png",78); 
+ printfig("at_transect_spacing.png",66)
+ printfig("at_biom.png",79); 
+ printfig("at_sa_map.png",80); 
+ printfig("at_sa_prop.png",81); 
+
+ #printfig("sa_v_biom.png",i); i <- i + 1
+ #printfig("ats_usv.jpg",18)
+ printfig("at_sa_density.pdf",62)
  #printfig("vast_idx.pdf",57)
  #17 figs...
 ```
@@ -40,7 +51,9 @@ printfig("fsh_psc_cpue.png",67)
  printfig("fsh_wtage_strata.pdf",21)
  printfig("fsh_wtage_strata_yr.pdf",22)
  printfig("mod_data.pdf",30)
- printfig("mod_ats_eval.pdf",32)
+ printfig("mod_ats_eval1.pdf",31)
+ printfig("mod_ats_eval2.pdf",32)
+ #printfig("mod_ats_eval.pdf",32)
  # printfig("mod_eval0a.pdf",31)
  printfig("mod_srr_sq_a.pdf",68)
  printfig("mod_srr_a_b.pdf",69)
@@ -76,6 +89,7 @@ printfig("fsh_psc_cpue.png",67)
  printfig("mod_retro.pdf",52)
  printfig("tier3_proj.pdf",53)
  printfig("age_diversity.pdf",51)
+ #printfig("sa_density.pdf",61)
  #printfig("sel_comp_vast.pdf",61)
  #printfig("poll_cod_rec.png",62)
 ```

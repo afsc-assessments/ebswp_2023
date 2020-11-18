@@ -25,39 +25,38 @@ Year    &   Southeast   &   Northwest   &   Total   &Aleutians  &Donut  Hole&   
 1988    &   931,812 &   296,909 &   1,228,721   &   41,203  &   1,395,900   &   87,813  \\
 1989    &   904,201 &   325,399 &   1,229,600   &   10,569  &   1,447,600   &   36,073  \\
 1990    &   640,511 &   814,682 &   1,455,193   &   79,025  &   917,400 &   151,672 \\
-1991    &   653,555 &   542,109 &   1,195,664   &   0   &   293,400 &   1,195,664   \\
-1992    &   830,559 &   559,741 &   1,390,299   &   0   &   10,000  &   1,390,299   \\
-1993    &   1,094,429   &   232,173 &   1,326,602   &   0   &   1,957   &   1,326,602   \\
-1994    &   1,152,575   &   176,777 &   1,329,352   &   0   &       &   1,329,352   \\
-1995    &   1,172,306   &   91,941  &   1,264,247   &   0   &       &   1,264,247   \\
-1996    &   1,086,843   &   105,939 &   1,192,781   &   0   &       &   1,192,781   \\
-1997    &   819,889 &   304,544 &   1,124,433   &   0   &       &   1,124,433   \\
-1998    &   969,644 &   132,515 &   1,102,159   &   0   &       &   1,102,159   \\
-1999    &   782,983 &   206,698 &   989,680 &   0   &       &   989,680 \\
-2000    &   839,177 &   293,532 &   1,132,710   &   0   &       &   1,132,710   \\
-2001    &   961,977 &   425,220 &   1,387,197   &   0   &       &   1,387,197   \\
-2002    &   1,160,334   &   320,442 &   1,480,776   &   0   &       &   1,480,776   \\
-2003    &   933,191 &   557,588 &   1,490,779   &   0   &       &   1,490,779   \\
-2004    &   1,090,008   &   390,544 &   1,480,552   &   0   &       &   1,480,552   \\
-2005    &   802,154 &   680,868 &   1,483,022   &   0   &       &   1,483,022   \\
-2006    &   827,207 &   660,824 &   1,488,031   &   0   &       &   1,488,031   \\
-2007    &   728,249 &   626,253 &   1,354,502   &   0   &       &   1,354,502   \\
-2008    &   482,698 &   507,880 &   990,578 &   0   &       &   990,578 \\
-2009    &   358,252 &   452,532 &   810,784 &   0   &       &   810,784 \\
-2010    &   255,114 &   555,072 &   810,186 &   0   &       &   810,186 \\
-2011    &   747,891 &   451,150 &   1,199,041   &   0   &       &   1,199,041   \\
-2012    &   618,872 &   586,350 &   1,205,222   &   0   &       &   1,205,222   \\
-2013    &   695,673 &   575,098 &   1,270,770   &   0   &       &   1,270,770   \\
-2014    &   858,243 &   439,180 &   1,297,422   &   0   &       &   1,297,422   \\
-2015    &   696,253 &   625,331 &   1,321,584   &   0   &       &   1,321,584   \\
-2016    &   1,167,072   &   185,609 &   1,352,681   &   0   &       &   1,352,681   \\
-2017    &   1,178,021   &   181,161 &   1,359,182   &   0   &       &   1,359,182   \\
-2018    &   1,048,693   &   330,595 &   1,379,287   &   0   &       &   1,379,287   \\
-2019    &   1,102,049   &   307,177 &   1,409,227   &   0   &       &   1,409,227   \\
-2020    &   829,704 &   496,080 &   1,325,784   &   0   &       &   1,325,784   \\
+1991    &   653,555 &   542,109 &   1,195,664   &   98,604  &   293,400 &   316,038 \\
+1992    &   830,559 &   559,741 &   1,390,299   &   52,352  &   10,000  &   241 \\
+1993    &   1,094,429   &   232,173 &   1,326,602   &   57,132  &   1,957   &   886 \\
+1994    &   1,152,575   &   176,777 &   1,329,352   &   58,659  &       &   556 \\
+1995    &   1,172,306   &   91,941  &   1,264,247   &   64,925  &       &   334 \\
+1996    &   1,086,843   &   105,939 &   1,192,781   &   29,062  &       &   499 \\
+1997    &   819,889 &   304,544 &   1,124,433   &   25,940  &       &   163 \\
+1998    &   969,644 &   132,515 &   1,102,159   &   23,798  &       &   8   \\
+1999    &   782,983 &   206,698 &   989,680 &   1,010   &       &   29  \\
+2000    &   839,177 &   293,532 &   1,132,710   &   1,244   &       &   29  \\
+2001    &   961,977 &   425,220 &   1,387,197   &   825 &       &   258 \\
+2002    &   1,160,334   &   320,442 &   1,480,776   &   1,177   &       &   1,042   \\
+2003    &   933,191 &   557,588 &   1,490,779   &   1,649   &       &   24  \\
+2004    &   1,090,008   &   390,544 &   1,480,552   &   1,158   &       &   0   \\
+2005    &   802,154 &   680,868 &   1,483,022   &   1,621   &       &   0   \\
+2006    &   827,207 &   660,824 &   1,488,031   &   1,745   &       &   0   \\
+2007    &   728,249 &   626,253 &   1,354,502   &   2,519   &       &   0   \\
+2008    &   482,698 &   507,880 &   990,578 &   1,278   &       &   9   \\
+2009    &   358,252 &   452,532 &   810,784 &   1,662   &       &   73  \\
+2010    &   255,114 &   555,072 &   810,186 &   1,289   &       &   176 \\
+2011    &   747,891 &   451,150 &   1,199,041   &   1,208   &       &   173 \\
+2012    &   618,872 &   586,350 &   1,205,222   &   975 &       &   71  \\
+2013    &   695,673 &   575,098 &   1,270,770   &   2,964   &       &   57  \\
+2014    &   858,243 &   439,180 &   1,297,422   &   2,375   &       &   427 \\
+2015    &   696,253 &   625,331 &   1,321,584   &   913 &       &   733 \\
+2016    &   1,167,072   &   185,609 &   1,352,681   &   1,257   &       &   1,005   \\
+2017    &   1,178,021   &   181,161 &   1,359,182   &   1,507   &       &   185 \\
+2018    &   1,048,693   &   330,595 &   1,379,287   &   1,860   &       &   14  \\
+2019    &   1,102,049   &   307,177 &   1,409,227   &   1,663   &       &   8   \\
+2020    &   829,704 &   496,080 &   1,325,784   &   2,870   &       &   8   \\
 \hline                                                  
-Avg.    &   797,950 &   413,862 &   1,211,812   &   13,818  &   697,696 &   1,135,221   \\
-
+Avg.    &   797,950 &   413,862 &   1,211,812   &   24,419  &   697,696 &   28,707  \\
 \hline                                                  
 \end{tabular}
 \end{table}
@@ -629,6 +628,8 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 \end{tabular}
 \end{table}
 
+\clearpage
+
 ```{r child = 'survtab.Rmd'}
 ```
 <!-- -->
@@ -636,45 +637,67 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 \clearpage
 
 <!-- sample size -->
+\begin{table}[ht]
+\centering
+\caption{Pollock sample sizes assumed for the age-composition data likelihoods from the fishery, bottom-trawl survey, and AT surveys, 1964--2020. Note fishery sample size for 1964--1977 was fixed at 10.}
+\label{tab:input_n}
+\begin{tabular}{rrrr}
+  \hline
+Year & Fishery & BTS & ATS \\
+  \hline
+1978 & 39 & 0 &  \\
+  1979 & 39 & 0 &  \\
+  1980 & 39 & 0 &  \\
+  1981 & 39 & 0 &  \\
+  1982 & 39 & 105 &  \\
+  1983 & 39 & 126 &  \\
+  1984 & 39 & 118 &  \\
+  1985 & 39 & 125 &  \\
+  1986 & 39 & 88 &  \\
+  1987 & 39 & 105 &  \\
+  1988 & 39 & 76 &  \\
+  1989 & 39 & 80 &  \\
+  1990 & 39 & 82 &  \\
+  1991 & 401 & 71 &  \\
+  1992 & 453 & 82 &  \\
+  1993 & 569 & 90 &  \\
+  1994 & 338 & 74 & 43 \\
+  1995 & 572 & 75 &  \\
+  1996 & 254 & 90 & 32 \\
+  1997 & 582 & 78 & 49 \\
+  1998 & 426 & 82 &  \\
+  1999 & 519 & 90 & 67 \\
+  2000 & 526 & 101 & 70 \\
+  2001 & 390 & 107 &  \\
+  2002 & 513 & 110 & 72 \\
+  2003 & 453 & 107 &  \\
+  2004 & 457 & 108 & 51 \\
+  2005 & 482 & 109 &  \\
+  2006 & 469 & 102 & 47 \\
+  2007 & 529 & 97 & 39 \\
+  2008 & 464 & 82 & 35 \\
+  2009 & 362 & 87 & 26 \\
+  2010 & 602 & 90 & 34 \\
+  2011 & 561 & 113 &  \\
+  2012 & 541 & 116 & 44 \\
+  2013 & 625 & 120 &  \\
+  2014 & 513 & 137 & 79 \\
+  2015 & 668 & 151 &  \\
+  2016 & 588 & 115 & 61 \\
+  2017 & 587 & 105 &  \\
+  2018 & 545 & 100 & 50 \\
+  2019 & 500 & 100 &  \\
+   \hline
+\end{tabular}
+\end{table}
+
+\clearpage
 
 ```{r input_n,results="asis",echo=FALSE}
-    i_bts=1; i_eit=1
-    i=1982
-    tab <- data.frame()
-    for (i in 1978:thisyr)
-    {
-      t <- c(i,0,0,0)
-      if(M$Yr[i-1963]==i) 
-      {
-        t[2] <- M$sam_fsh[i-1963]
-      } 
-      else 
-        t[2] <- 0
-      if(M$yr_bts[i_bts]==i) 
-      {
-        t[3] <- M$sam_bts[i_bts]
-        if (M$yr_bts[i_bts]<thisyr)  i_bts <- i_bts+1
-      } 
-      else 
-        t[3] <- NA
-      if(M$yr_eit[i_eit]==i && i_eit<=length(M$yr_eit)) 
-      {
-        t[4] <- M$sam_eit[i_eit]
-        i_eit <- i_eit+1
-      } 
-      else 
-        t[4] <- NA
-      tab <- rbind(tab, t)
-    }
-    names(tab) <- c("Year", "Fishery", "BTS", "ATS")
-    cap <- tabcap[23]
-    lab <- paste0("tab:",tablab[23])
-    tab <- xtable(tab, caption = cap, label=lab, big.mark="," ,digits=0)
-    print(tab, caption.placement = "top",digits=0,big.mark=",",include.rownames = FALSE, sanitize.text.function = function(x){x})
-
 
 #<!-- fishery wtage -->
-df <- data.frame(Year=1964:thisyr,wt=round(M$wt_fsh,3))
+
+df <- data.frame(Year = 1964: thisyr,wt=round(M$wt_fsh,3))
 names(df) <- c("Year",1:15)
 df <- df[df$Year>=1989,]
 sdw<- apply(df[,-1],2,sd)
@@ -682,7 +705,7 @@ nr <- dim(df)[1]-2
 df[1,1]<-"1964-"; df[1,2:16]<-" "; df[2,1]<-"1990";
 mnw<- (colMeans(as.matrix(M$wt_fsh[1:nr,]))) 
 cvw<- (sdw/mnw ) 
-cvw<- c('CV','-','-',paste0(round(cvw[3:15]*100,0),"\%"))
+cvw<- c('CV','-','-',paste0(round(cvw[3:15]*100,0),"\\%"))
 df <- rbind(df,c(nextyr,'-','-',round(M$wt_next,3)), c(nextyr+1,'-','-',round(M$wt_yraf,3)), c("Mean",round(mnw,3 ) ) )
 df <- rbind(df, cvw)
 cap <- tabcap[24]
@@ -734,8 +757,8 @@ for (ii in mod_scen)
     b35    <- x$b35s ;                 names(b35)    <- paste0("$B_{35\\%}$")
     pbmsy  <- paste0(round(100*x$ssb1/x$bmsy,0),"\\%");    names(pbmsy)<- paste0("${B}_{", nextyr ,"}/B_{MSY}$")
     bzero  <- x$b0s ;                 names(bzero)    <- paste0("$B_0$")
-    dynb0  <- x$dynb0s;      names(dynb0) <- "Est. $B_{2018} / B_{2018,no fishing}$"
-    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- "$B_{2018} / B_{MSY}$"
+    dynb0  <- x$dynb0s;      names(dynb0) <- "Est. $B_{2020} / B_{2020,no fishing}$"
+    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- "$B_{2020} / B_{MSY}$"
     steep  <- round(x$steep,2);                 names(steep) <- "Steepness"
     v      <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero,b35, spr ,steep, dynb0,b_bmsy)
     df     <- cbind(df, v)
@@ -808,8 +831,8 @@ for (ii in mod_scen) {
     b35    <- x$b35s ;                 names(b35)         <- paste0("$B_{35\\%}$")
     pbmsy  <- paste0(round(100*x$ssb1/x$bmsy,0),"\\%");    names(pbmsy)<- paste0("${B}_{", nextyr ,"}/B_{MSY}$")
     bzero  <- x$b0s ;                 names(bzero)        <- paste0("$B_0$")
-    dynb0  <- x$dynb0s;      names(dynb0)                 <- "Est. $B_{2019} / B_{2019,no fishing}$"
-    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- "$B_{2019} / B_{MSY}$"
+    dynb0  <- x$dynb0s;      names(dynb0)                 <- "Est. $B_{2020} / B_{2020,no fishing}$"
+    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- "$B_{2020} / B_{MSY}$"
     steep  <- round(x$steep,2);               names(steep) <- "Steepness"
     v      <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero,b35, spr ,steep, dynb0,b_bmsy)
     df     <- cbind(df, v)
@@ -945,7 +968,7 @@ Sensitive non-target species                                & Likely minor impac
 Fishery concentration in space and time                     & Generally more diffuse                                                   & Mixed potential impact (fur seals vs Steller sea lions)                                                             & Possible concern                                                                                      \\
 Fishery effects on amount of large size target fish         & Depends on highly variable year-class strength                           & Natural fluctuation                                                                                                 & Probably no concern                                                                                   \\
 Fishery contribution to discards and offal production       & Decreasing                                                               & Improving, but data limited                                                                                         & Possible concern                                                                                      \\
-Fishery effects on age-at-maturity and fecundity            & Maturity study (gonad collection) underway                               & NA                                                                                                                  & Possible concern                                                                                      \\
+Fishery effects on age-at-maturity and fecundity            & Maturity study (gonad collection) continues                              & NA                                                                                                                  & Possible concern                                                                                      \\
 \hline
 \end{tabular}
 }

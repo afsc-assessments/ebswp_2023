@@ -516,12 +516,12 @@ DATA_SECTION
   endyr_est = endyr_r - int(ctrl_flag(29)); // lop off last couple of years 
   cout <<"Last yr of estimation..."<<endyr_est<<endl;
   dec_tab_catch(1) = obs_catch(endyr_r);
-  dec_tab_catch(2) = 500;
+  dec_tab_catch(2) = 850;
   dec_tab_catch(3) = 1000;
-  dec_tab_catch(4) = 1250;
-  dec_tab_catch(5) = 1500;
-  dec_tab_catch(6) = 1750;
-  dec_tab_catch(7) = 2000;
+  dec_tab_catch(4) = 1150;
+  dec_tab_catch(5) = 1300;
+  dec_tab_catch(6) = 1450;
+  dec_tab_catch(7) = 1600;
   dec_tab_catch(8) =   10; // bycatch in other fisheries
 
   // Used to count parameters changes in EIT survey selectivities

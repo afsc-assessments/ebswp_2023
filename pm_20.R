@@ -1,7 +1,7 @@
 setwd("~/_mymods/ebswp/doc")
+rm(list=ls())
 library(doParallel)
 library(patchwork)
-registerDoParallel(5)
 source("../R/prelims.R")
 thisyr    = 2020
 lastyr    = thisyr-1
@@ -23,6 +23,7 @@ mod_names <- c("16.2","16.2 last year","20.0 USV","20.1 USVast","20.0a base")
 .MODELDIR <- c( "../runs/2020/","../runs/last_year/","../runs/usv/","../runs/usv_vast/","../runs/base/")
 fn        <- paste0(.MODELDIR, "pm")
 nmods <- length(mod_names)
+registerDoParallel(nmods)
 system.time( modlst <- mclapply(fn, read_admb,mc.cores=nmods) )
 names(modlst) <- mod_names
 
@@ -38,7 +39,9 @@ for (i in 1:nmods) {
 M        <- modlst[[thismod]]
 P        <- modlst[[2]] # Last year's model (P=previous)
 Alt      <- modlst[[3]] # Last year's model (P=previous)
-M$future_catch[12,1]
+#M$future_catch[12,1]
+#M$future_catch[5,1]
+#M$abc1s
 
 #
 rhodf      <- read.csv("../doc/data/mohnrho.csv",header=T)

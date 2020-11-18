@@ -424,6 +424,7 @@ u_{HM,t}^f &= e^{\ln{\hat{u}_{MSY,t}}-0.5\sigma_{u_{MSY}}^2} \\
 \zeta_{t} &= \frac{B_t/B_{MSY}-0.05}{1-0.05} & B_t < B_{MSY} \\
 \zeta_{t} &= 1.0 & B_t \ge  B_{MSY} 
 \end{align}
+
 where $\hat{B}_t^f$ is the point estimate of the fishable biomass defined (for
 a given year): $\sum_a{N_as_{ta}w_{ta}}$ with $N_{ta}$, $s_{ta}$, and $w_{ta}$ the estimated population numbers
 (begin year), selectivity and weights-at-age, respectively. $B_{MSY}$ and $B_{t}$ are
@@ -434,7 +435,6 @@ a form of operating model (as has been presented for the evaluation of $B_{20\%}
 with feedback (via future catch specifications) using the control rule and
 assessment model would be required.
 
-\end{align}
 
 
 

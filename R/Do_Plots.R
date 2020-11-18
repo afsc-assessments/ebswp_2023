@@ -168,13 +168,17 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
   p1 <- plot_sel(sel=M$sel_bts,styr=1982,fill="darkblue") 
   #plot_sel(sel=M$sel_eit,styr=1994,fill="darkblue") 
   ggsave("figs/mod_bts_sel.pdf",plot=p1,width=4,height=8,units="in")
-  p1 <- plot_mnage(modlst[thismod]) ;p1
  # p1 <- plot_mnage(modlst[c(2,3)]) 
-  ggsave("figs/mod_mean_age.pdf",plot=p1,width=5.8,height.=8,units="in")
+  #p1 <- plot_mnage(modlst[thismod]) ;p1
+  p1 <- plot_mnage(modlst[1]) ;p1 # Note used model 1 for figure...because of kludge for age compos
+  ggsave("figs/mod_mean_age.pdf",plot=p1,width=5.8,height=8,units="in")
   p1 <- plot_bts(modlst[thismod]) 
   ggsave("figs/mod_bts_biom.pdf",plot=p1,width=5.2,height=3.7,units="in")
 
   p1 <- plot_ats(modlst[c(1,thismod)]) ;p1
+  p1 <- plot_ats(modlst[c(1,3,4,thismod)]) ;p1
+  p1 <- plot_ats(modlst[c(1,thismod)]) ;p1
+  p1 <- plot_ats(modlst[c(4,thismod)]) ;p1
   p1 <- plot_bts(modlst) 
 
 #  p1 <- p1+ geom_vline(xintercept=2006.5,color="grey",size=1)
@@ -318,10 +322,13 @@ p1 <- plot_ssb(cvlst, ylim=c(0,6500),breaks=seq(1990,2020,2), xlim=c(1990.5,2020
 
 p1 <- plot_ats(cvlst[c(1:2)]) +theme_few(base_size=11) ;p1
 p2 <- plot_ats(cvlst[c(3:4)]) +theme_few(base_size=11) ;p2
-p3 <- plot_ssb(cvlst[c(1,3)] , ylim=c(0,6000),breaks=seq(1990,2020,2), xlim=c(1990.5,2020.5),alpha=.1) ;p3
-p4 <- plot_ssb(cvlst[c(2,4)] , ylim=c(0,6000),breaks=seq(1990,2020,2), xlim=c(1990.5,2020.5),alpha=.1) ;p4
-p5 <- p1/p2/p3/p4
-ggsave("figs/mod_ats_eval.pdf",plot=p5,height=10,width=7.0,units="in"); 
+p5 <- p1/p2
+p5
+ggsave("figs/mod_ats_eval1.pdf",plot=p5,height=10,width=7.0,units="in"); 
+p3 <- plot_ssb(cvlst[c(1,3)] , ylim=c(0,6000),breaks=seq(1990,2020,5), xlim=c(1990.5,2020.5),alpha=.1) ;p3
+p4 <- plot_ssb(cvlst[c(2,4)] , ylim=c(0,6000),breaks=seq(1990,2020,5), xlim=c(1990.5,2020.5),alpha=.1) ;p4
+p5 <- p3/p4
+ggsave("figs/mod_ats_eval2.pdf",plot=p5,height=10,width=7.0,units="in"); 
 
 
 
