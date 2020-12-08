@@ -1,48 +1,53 @@
-# Appendix on spatio-temporal analysis of NMFS bottom-trawl survey data
+
+# Appendix on spatio-temporal analysis of NMFS survey data 
 
 ## Overview 
 
-This application of `VAST` was configured to model a subset of
-NMFS/AFSC bottom trawl survey data.  Specifically, the station-specific CPUE
+These applications of `VAST` were configured to model 
+NMFS/AFSC bottom trawl survey (BTS) data and for acoustic backscatter data (next section).
+For the BTS, the station-specific CPUEs
 (kg per hectare) for pollock were compiled from 1982-2019. Further details can
 be found at the [GitHub repo](https://github.com/james- thorson/VAST/#description) 
 mainpage, wiki, and glossary.  The R help files,
-e.g., `?Data_Fn` for explanation of data inputs, or `?Param_Fn` for
-explanation of parameters. VAST has involved many publications for developing
+e.g., `?make_data` for explanation of data inputs, or `?make_settings` for
+explanation of settings. VAST has involved many publications for developing
 individual features (see references section below). What follows is intended
-as  a step by step documentation of applying the model to these data.
+as a step by step documentation of applying the model to these data.
 
-The software versions of dependent programs used to generate VAST estimates were:
-  - Microsoft Open R (3.5.3)
-  - INLA (18.7.12)
-  - TMB (1.7.18)
-  - TMBhelper (1.2.0)
-  - VAST (3.2.0)
-  - FishStatsUtils (2.3.0)
+The software versions of dependent programs used to generate VAST estimates were:   
 
-For the model-based index time series, we used the same VAST model run (and associated results) as the 2019 SAFE.  
-We include additional details regarding model settings here, as requested during the December 2019 SSC meeting.
+  - Microsoft Open R (3.5.3)    
+  - INLA (18.7.12)    
+  - TMB (1.7.18)    
+  - TMBhelper (1.2.0)    
+  - VAST (3.5.2)    
+  - FishStatsUtils (2.7.0)    
+    
+For the model-based index time series, we used the same VAST model run (and associated results)
+as the 2019 SAFE. We include additional details regarding model settings here, as requested
+during the December 2019 SSC meeting.
 
+## Spatio-temporal treatment of survey data on pollock density
 We fitted records of biomass per unit area from all grid cells and corner stations in the 83-112 
 bottom trawl survey of the EBS, 1982-2019, as well as 83-112 samples available in the NBS in 
-1982, 1985, 1988, 1991, 2010, and 2017-2019.  NBS samples prior to 2010 did not follow the 30 
+1982, 1985, 1988, 1991, 2010, and 2017-2019. NBS samples prior to 2010 did not follow the 30 
 nautical mile sampling grid that was used in 2010, 2017, and 2019, and the 2018 sampling followed 
-a coarsened grid as well.  Assimilating these data therefore required extrapolating into unsampled areas.  
-This extrapolation was assisted by including a spatially varying response to cold-pool extent (Thorson, 2019).  
+a coarsened grid as well. Assimilating these data therefore required extrapolating into unsampled areas.
+This extrapolation was assisted by including a spatially varying response to cold-pool extent (Thorson, 2019). 
 This spatially varying response was estimated for both linear predictors of the delta-model, and detailed 
-comparison of results for EBS pollock has showed that it has a small but notable effect (O’Leary et al., In press).  
+comparison of results for EBS pollock has showed that it has a small but notable effect (O’Leary et al., 2020). 
 For example, the NBS was not sampled between 2010 and 2017, and the cold-pool extent started to decrease 
 substantially around 2014; therefore including this covariate results in estimates that depart somewhat 
 from a “Brownian bridge” between 2010 and 2017, and instead suggests that densities in the NBS increased 
-progressively after 2014 when cold-pool-extent declined prior to 2017.  
+progressively after 2014 when cold-pool-extent declined prior to 2017. 
 
 Specifically, we used a Poisson-link delta-model (Thorson, 2018) involving two linear predictors, 
-and a gamma distribution for the distribution of positive catch rates.  We extrapolated density to 
+and a gamma distribution for the distribution of positive catch rates. We extrapolated density to 
 the entire EBS and NBS in each year, using extrapolation-grids that are available within _FishStatsUtils_ 
-are used when integrating densities.  These extrapolation-grids are defined using 3705 m 
+are used when integrating densities. These extrapolation-grids are defined using 3705 m 
 (2 nmi) X 3705 m (2 nmi) cells;  this results in 36,690 extrapolation-grid cells for the 
 eastern Bering Sea and 15,079 in the northern Bering Sea.  We used bilinear interpolation 
-to interpolate densities from 250 “knots” to these extrapolation-grid cells; knots where 
+to interpolate densities from 250 “knots” to these extrapolation-grid cells; knots were 
 distributed spatially in proportion to the distribution of extrapolation-grid cells (i.e., 
 having an approximately even distribution across space).  We estimated “geometric anisotropy” 
 (the tendency for correlations to decline faster in some cardinal directions than others), and 
@@ -55,56 +60,19 @@ we used epsilon bias-correction to correct for retransformation bias (Thorson an
 
 
 ## Spatio-temporal treatment of survey age composition data 
-To date, assessments using spatio-temporal indices have kept 
-age-composition data unchanged (i.e., the estimates were based on the
-original design-based approach). Here we develop a spatio-temporal approach to
-obtain age composition estimates. We found that design-based and model-based
-inputs provided stock-assessment parameter estimates consistent with previous
-approaches (Fig. \ref{fig:vastage}).
+To date, assessments using spatio-temporal indices have kept age-composition data unchanged 
+(i.e., the estimates were based on the original design-based approach). In 2019 we develop a spatio-temporal 
+approach to obtain age composition estimates (O'leary et al. 2020).  The comparison with design-based age 
+composition estimates was similar to the model-based estimates.
 
-```{r set_options, echo=FALSE, message=FALSE, warning=FALSE}
-# Width should apply to tidy
-# digits hopefully affects number of digits when using print
-options(width=50, width.cutoff=50, digits = 3) 
-tidy.opts=list(blank=FALSE, width.cutoff=60, size='small')
-library(pander)
-library(knitr)
-hook_output = knit_hooks$get('output')
-DateFile="figs"
-knit_hooks$set(output = function(x, options) {
-  # this hook is used only when the linewidth option is not NULL
-  if (!is.null(n <- options$linewidth)) {
-    x = knitr:::split_lines(x)
-    # any lines wider than n should be wrapped
-    if (any(nchar(x) > n)) x = strwrap(x, width = n)
-    x = paste(x, collapse = '\n')
-  }
-  hook_output(x, options)
-})
-library(xtable)
-library(tidyverse)
-options(xtable.comment = FALSE)
-printfig("bts_data_by_yr.png",59)
-```
 
-## Diagnostic plots
-
-```{r plots, eval=FALSE  , tidy=TRUE}
-SpatialDeltaGLMM::Plot_data_and_knots(Extrapolation_List=Extrapolation_List, Spatial_List=Spatial_List, 
-           Data_Geostat=Data_Geostat, PlotDir=DateFile )
-Region="Other"
-MapDetails_List <- SpatialDeltaGLMM::MapDetails_Fn( "Region"=Region, "NN_Extrap"=Spatial_List$PolygonList$NN_Extrap, 
-                   "Extrapolation_List"=Extrapolation_List )
-# Decide which years to plot                                                   
-Year_Set        <- seq(min(Data_Geostat[,'Year']),max(Data_Geostat[,'Year']))
-Years2Include   <- which( Year_Set %in% sort(unique(Data_Geostat[,'Year'])))
-```
+## Diagnostic plots from BTS work
 
 ### Encounter-probability component
 One can check to ensure that observed encounter frequencies for either low or high
 probability samples are within the 95% predictive interval for predicted
-encounter probability (Figure \ref{fig:encounter}. 
-Diagnostics for positive-catch-rate component was evaluated using a standard Q-Q plot. 
+encounter probability (Fig. \ref{fig:encounter}. 
+Diagnostics for positive-catch-rate component were evaluated using a standard Q-Q plot. 
 Qualitatively, the fits to pollock data are reasonable (Figures \ref{fig:eq1} and \ref{fig:qq2}).
 
 ### Pearson residuals
@@ -112,6 +80,46 @@ Spatially the residual pattern can be evaluated over time. Results for pollock d
 residuals accross or within years is limited for the encounter probability component of the model and 
 for the positive catch rate component (Figures \ref{fig:pearson1} and \ref{fig:pearson2}, respectively).
 
+### Densities and biomass estimates 
+
+Relative densities over time suggests that the biomass of pollock can reflect
+abundances in the NBS even in years where samples are unavailable (all years
+except 2010, 2017--2019; (Fig. \ref{fig:density}). Index values and error terms
+(based on diagonal of covariance matrix over time) are shown in Figure \ref{fig:vast_idx}
+
+
+## Extending VAST to create estimates from acoustic backscatter data
+
+We used acoustic backscatter data collected to half meter from the seafloor from RV Oscar Dyson
+(1994-2018) and the USV in 2020 following the same extrapolation area as for the BTS analyses. We
+briefly highlight key differences with the approach as described above. First, the data were
+acoustic backscatter for each interval summed from half meter from the seafloor to
+near-surface. VAST assumes the catch inputs are in kg/km^2 so an extra conversion back to
+backscatter units is required for the acoustic index. The acoustic transects can have unexpected
+interactions with how the spatial grid is setup, so we used 400 spatial knots but without the
+bilinear interpolation. The extrapolation region included only the EBS BT footprint (i.e., it did
+not include the NBS), and was consistent among years in contrast to the design-based AT index whose
+extent varies by year. We also did not include a cold pool effect, nor any temporal smoothing on the
+spatiotemporal effects.
+
+The diagnostics for the model fit was good (Fig. \ref{fig:sa_quantiles}).  Relative log densities
+for the survey years show the biomass of pollock varied spatially with a peak value in 2016
+(Fig. \ref{fig:at_sa_density}). Index values and estimation errors from the VAST model covered an
+constant (and larger) area compared to the design-based approach which covers the transect
+area. Nonetheless, for the assessment these series are used as trend data which result in quite
+similar values (Fig. \ref{fig:rv_usv_biom}).
+
+
+```{r plots, eval=FALSE  , tidy=TRUE}
+SpatialDeltaGLMM::Plot_data_and_knots(Extrapolation_List=Extrapolation_List, Spatial_List=Spatial_List, 
+           Data_Geostat=Data_Geostat, PlotDir=DateFile )
+       Region="Other"
+MapDetails_List <- SpatialDeltaGLMM::MapDetails_Fn( "Region"=Region, "NN_Extrap"=Spatial_List$PolygonList$NN_Extrap, 
+                   "Extrapolation_List"=Extrapolation_List )
+# Decide which years to plot                                                   
+Year_Set        <- seq(min(Data_Geostat[,'Year']),max(Data_Geostat[,'Year']))
+Years2Include   <- which( Year_Set %in% sort(unique(Data_Geostat[,'Year'])))
+```
 
 ```{r encplots, eval=FALSE  , tidy=TRUE}
 Enc_prob  <- SpatialDeltaGLMM::Check_encounter_prob( Report=Report, Data_Geostat=Data_Geostat, DirName=DateFile)
@@ -122,6 +130,10 @@ Q         <- SpatialDeltaGLMM::QQ_Fn( TmbData=TmbData, Report=Report, FileName_P
 
 
 ![ Plot indicating distribution of quantiles for "positive catch rate" component. \label{fig:eq1}](figs/Q-Q_hist.jpg)
+
+```{r vastage, eval=FALSE  , tidy=TRUE}
+ printfig("vastage.png",17)
+```
 
 ![ Quantile-quantile plot of residuals for "positive catch rate" component. \label{fig:qq2}](figs/Q-Q_plot.jpg)
 
@@ -146,15 +158,7 @@ SpatialDeltaGLMM::PlotResultsOnMap_Fn(plot_set=c(3), MappingDetails=MapDetails_L
   Legend=MapDetails_List[["Legend"]], zone=MapDetails_List[["Zone"]], mar=c(0,0,2,0), oma=c(3.5,3.5,0,0), 
   cex=1.8, plot_legend_fig=FALSE)
 ```
-![ Pollock density maps  using the VAST model approach, 1982-2019. \label{fig:density}](figs/Dens.png)
-
-
-### Densities and biomass estimates 
-
-Relative densities over time suggests that the biomass of pollock can reflect
-abundances in the NBS even in years where samples are unavailable (all years
-except 2010, 2017--2019; (Figure \ref{fig:density}). Index values and error terms
-(based on diagonal of covariance matrix over time) are shown in Figure \ref{fig:vast_idx}
+![ Pollock log density maps of the BTS data using the VAST model approach, 1982-2019. \label{fig:density}](figs/Dens.png)
 
 
 ```{r indexplots, echo=FALSE, results="asis"}
@@ -163,8 +167,11 @@ except 2010, 2017--2019; (Figure \ref{fig:density}). Index values and error term
       #select(Year,Estimate, CV)
 #tab <- xtable(df, caption = "SMBKC male >89mm biomass (t) estimates as derived from the VAST modeling framework.", label = "tab:smbkc_biomass", digits = c(0,0,1,3))
 #print(tab, caption.placement = "top", include.rownames = FALSE)
-printfig("vast_idx.pdf",57)
-```
+  printfig("vast_idx.pdf",57)
 
+ printfig("sa_quantiles.png",61)
+ printfig("rv_usv_biom.png",71)
+
+```
 
 

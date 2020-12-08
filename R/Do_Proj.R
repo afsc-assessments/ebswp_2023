@@ -36,7 +36,8 @@ if(doproj)
     ggplot(aes(x=Yr,y=SSBMean),width=1.2) + geom_ribbon(aes(ymax=SSBUCI,ymin=SSBLCI),fill="coral",alpha=.5) + theme_few() + geom_line() +
     scale_x_continuous(breaks=seq(thisyr,thisyr+14,2))  +  xlab("Year") + ylim(0,5000) + ylab("Tier 3 Spawning biomass (kt)") + geom_point() + 
     geom_line(aes(y=SSBFabc)) + geom_line(aes(y=SSBFofl),linetype="dashed")+ geom_line(data=bfss,aes(x=Yr,y=SSB,col=as.factor(Sim)))+ guides(size=FALSE,fill=FALSE,alpha=FALSE,col=FALSE) 
-  t3 <- grid.arrange(p1, p2, nrow=2)
+  #t3 <- grid.arrange(p1, p2, nrow=2)
+  t3 <- p1/ p2
   print(t3)
   ggsave("figs/tier3_proj.pdf",plot=t3,width=5.4,height=7,units="in")
 }

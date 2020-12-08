@@ -38,8 +38,9 @@
 #' @return Plot of model estimates of spawning stock biomass 
 #' @export
 #' 
-plot_ssb <- function(M, xlab = "Year", ylab = "Female spawning biomass (kt)", ylim = NULL, xlim=NULL,breaks=seq(1990,2018,2), alpha = 0.1,legend=TRUE,order=NULL)
-{
+plot_ssb <- function(M, xlab = "Year", ylab = "Female spawning biomass (kt)", 
+    ylim = NULL, xlim=NULL,breaks=seq(1990,2018,2), alpha = 0.1,legend=TRUE,
+    order=NULL) {
     xlab <- paste0("\n", xlab)
     ylab <- paste0(ylab, "\n")
     
@@ -64,14 +65,14 @@ plot_ssb <- function(M, xlab = "Year", ylab = "Female spawning biomass (kt)", yl
         p <- p + geom_line(aes(x = year, y = ssb)) +
             geom_ribbon(aes(x = year, ymax = ub, ymin = lb), alpha = alpha,fill="salmon")
     } else {
-        p <- p + geom_line(aes(x = year, y = ssb, col = Model),size=1.2, order=1:length(M)) +
+        p <- p + geom_line(aes(x = year, y = ssb, col = Model), size=1.2 ) +
             geom_ribbon(aes(x = year, ymax = ub, ymin = lb, fill = Model), alpha = alpha) 
             scale_x_continuous(limits=xlim, breaks = seq(round(xlim[1],0),round(xlim[2],0), by = 5) ) 
     }
     
     if (!legend)
         p <- p + theme(legend.position="none")
-    if (!is.null(order))
+    #if (!is.null(order))
         p <- p + guides(fill=guide_legend(reverse=TRUE),color=guide_legend(reverse=TRUE))
 
     if(!.OVERLAY) p <- p + facet_wrap(~Model) 

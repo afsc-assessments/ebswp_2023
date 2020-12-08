@@ -5,7 +5,6 @@ output:
   html_document:
     df_print: paged
   pdf_document:
-    toc: true
     highlight: zenburn
     fig_caption: yes
     includes:
@@ -19,8 +18,13 @@ fontfamily: mathpazo
 
 ```{r global_options, include=FALSE}
 
+doplots       <<- FALSE
+do_data_plots <<- FALSE
+domcmc        <<- FALSE
+doproj        <<- FALSE
+source("../pm_20.R")
 library(knitr)
-opts_chunk$set(fig.width = 6, fig.height = 8, echo = FALSE, warning = FALSE, message = FALSE, cache=FALSE,results="asis")
+opts_chunk$set(fig.width = 6, fig.height = 8, echo = FALSE, warning = FALSE, message = FALSE, cache=FALSE,results="asis",knitr.duplicate.label = "allow")
 clean_cache(clean = TRUE)
 #include = FALSE prevents code and results from appearing in the finished file. R Markdown still runs the code in the chunk, and the results can be used by other chunks.
 #echo = FALSE prevents code, but not the results from appearing in the finished file. This is a useful way to embed figures.
@@ -33,9 +37,8 @@ clean_cache(clean = TRUE)
 
 
 \begin{centering}
-  James Ianelli, Ben Fissel, Kirstin Holsman, Taina Honkalehto, \\
-  Stan Kotwicki, Cole Monnahan, Elizabeth Siddon, \\
-  Sarah Stienessen, and James Thorson \\
+  James Ianelli, Ben Fissel, Kirstin Holsman, Alex De Robertis, Taina Honkalehto, \\
+  Stan Kotwicki, Cole Monnahan, Elizabeth Siddon, and James Thorson \\
 \fontfamily{cmr}
 \fontsize{10}{12}
 \selectfont
@@ -45,32 +48,37 @@ clean_cache(clean = TRUE)
 	\end{centering}
 ----
 
-```{r         giddy}
-#             settings for speed/updating 
-doplots       <<- FALSE
-do_data_plots <<- FALSE
-domcmc        <<- FALSE
-doproj        <<- FALSE
-source("../pm_20.R")
-```
-
 ```{r child = 'text.Rmd'}
 ```
 
 ```{r child = 'ref.Rmd'}
 ```
+\pagebreak
 
 ```{r child = 'tab.Rmd'}
 ```
 
 ```{r child = 'figs.Rmd'}
 ```
+
 ```{r child = 'model.Rmd'}
 ```
+\pagebreak
+
 ```{r child = 'App.Rmd'}
 ```
+\pagebreak
+
+<!--
 ```{r child = 'alt_table.Rmd'}
 ```
+-->
+
+\pagebreak
+
+# List of contents, tables and figures
+
+
  \tableofcontents
 
  \listoftables

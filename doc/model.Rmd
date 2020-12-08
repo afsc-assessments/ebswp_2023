@@ -192,7 +192,7 @@ circular (i.e., using data for prior elicitation), the point here is that
 residual patterns (typically ignored in these types of models) were 
 qualitatively considered. 
 
-In model 16.1, "Bholt", a Beverton Holt stock recruitment form was implemented
+In model 16.1 (from the 2019 assessment), a Beverton Holt stock recruitment form was implemented
 using the prior value of 0.67 for steepness and a CV of 0.17. This resulted in 
 beta distribution parameters (for the prior) at $\alpha = 6.339$ and  
 $\beta = 4.293$.
@@ -424,15 +424,17 @@ u_{HM,t}^f &= e^{\ln{\hat{u}_{MSY,t}}-0.5\sigma_{u_{MSY}}^2} \\
 \zeta_{t} &= \frac{B_t/B_{MSY}-0.05}{1-0.05} & B_t < B_{MSY} \\
 \zeta_{t} &= 1.0 & B_t \ge  B_{MSY} 
 \end{align}
+
 where $\hat{B}_t^f$ is the point estimate of the fishable biomass defined (for
 a given year): $\sum_a{N_as_{ta}w_{ta}}$ with $N_{ta}$, $s_{ta}$, and $w_{ta}$ the estimated population numbers
 (begin year), selectivity and weights-at-age, respectively. $B_{MSY}$ and $B_{t}$ are
 the point estimates spawning biomass levels at equilibrium $F_{MSY}$ and in year $t$
 (at time of spawning). For these projections, catch must be specified (or
-solved for if in the current year when $B_t$ < $B_{MSY}$). For longer term projections
+solved for if in the current year when $B_t < B_{MSY}$). For longer term projections
 a form of operating model (as has been presented for the evaluation of $B_{20\%}$)
 with feedback (via future catch specifications) using the control rule and
 assessment model would be required.
+
 
 
 

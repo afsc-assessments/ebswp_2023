@@ -57,11 +57,11 @@
 #use_spr_msy_pen
 0
 #sigma_spr_msy
-0.16
+0.20
 #use_last_eit_ac
 1
 #nyrs_sel_avg
-1
+-15
 #do_bts_bio
 1
 #do_eit_bio
@@ -75,7 +75,7 @@
 #next_yrs_catch;
 1390
 #nscen
-22
+8 #22
 #fixed_catch_fut2;
 900
 #fixed_catch_fut3;
@@ -151,7 +151,7 @@
 0.1
 5
 1
-0
+1 # exclude 1978 yc in SRR? 0=no, 1=yes
 2
 -3
 0

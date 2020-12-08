@@ -3,19 +3,22 @@
 
 ```{r fshfigs}
 printfig("catch.pdf",1)
+printfig("fsh_psc_cpue.png",67)
  printfig("catch_sex.pdf",2)
  printfig("catch_distn_a.png",3)
- printfig("cpue_aseason.png",4)
+ printfig("fsh_cpue.png",4)
  printfig("catchp.png",5)
  printfig("roe.pdf",8)
  printfig("catch_distn_b.png",6)
- printfig("cpue_bseason.png",7)
+ #printfig("cpue_bseason.png",7)
+ printfig("fleet_dispersal.png",9)
+ printfig("fsh_wt_freq.png",72)
+ printfig("fsh_wt_freq_week.png",73)
 ``` 
 
 \clearpage
 
 ```{r  survfigs}
- printfig("fleet_dispersal.png",9)
  printfig("catage.png",10)
  i <- 11
  printfig("bts_biom.pdf",i);i <- i + 1
@@ -23,26 +26,44 @@ printfig("catch.pdf",1)
  printfig("bts_temp_cpue.pdf",i);i <- i + 1
  printfig("bts_3d.png",i);i <- i + 1
  printfig("bts_age_comp.png",i);i <- i + 1
- printfig("sa_v_biom.png",i); i <- i + 1
- printfig("transect_spacing.png",66)
- printfig("vastage.png",i);i <- i + 1 
- printfig("vast_idx.pdf",57)
+
+ printfig("at_timing.png",74); 
+ printfig("at_pollock_in_sa.png",75); 
+ printfig("at_sa_biom.png",76); 
+ printfig("at_sa_biom_regress.png",77); 
+ printfig("at_usv_biom.png",78); 
+ printfig("at_transect_spacing.png",66)
+ printfig("at_biom.png",79); 
+ printfig("at_sa_map.png",80); 
+ printfig("at_sa_prop.png",81); 
+
+ #printfig("sa_v_biom.png",i); i <- i + 1
+ #printfig("ats_usv.jpg",18)
+ printfig("at_sa_density.pdf",62)
+ #printfig("vast_idx.pdf",57)
  #17 figs...
 ```
 ```{r finfigs}
+ printfig("fsh_lw_month.png",23)
+ printfig("fsh_lw_anom_yr_box.pdf",25)
+ printfig("fsh_lw_anom_str_yr_box.pdf",24)
  printfig("fsh_wtage_comb.pdf",20)
  printfig("fsh_wtage_strata.pdf",21)
  printfig("fsh_wtage_strata_yr.pdf",22)
- printfig("fsh_lw_month.png",23)
- printfig("fsh_lw_str_yr_box.pdf",24)
  printfig("mod_data.pdf",30)
- printfig("mod_eval0a.pdf",31)
- printfig("mod_eval0b.pdf",32)
- printfig("cole1.png",27)
- printfig("cole1.png",27)
- printfig("cole2.png",28)
- printfig("q_sens.pdf",63)
- printfig("q_sens_ssb.pdf",64)
+ printfig("mod_ats_eval1.pdf",31)
+ printfig("mod_ats_eval2.pdf",32)
+ #printfig("mod_ats_eval.pdf",32)
+ # printfig("mod_eval0a.pdf",31)
+ printfig("mod_srr_sq_a.pdf",68)
+ printfig("mod_srr_a_b.pdf",69)
+ printfig("mod_srr_sq_c_d.pdf",70)
+ #printfig("mod_eval0b.pdf",32)
+ #printfig("cole1.png",27)
+ #printfig("cole1.png",27)
+ #printfig("cole2.png",28)
+ #printfig("q_sens.pdf",63)
+ #printfig("q_sens_ssb.pdf",64)
  printfig("mod_ats_biom.pdf",34)
  printfig("mod_cpue_fit.pdf",38)
  printfig("mod_avo_fit.pdf",39)
@@ -58,8 +79,8 @@ printfig("catch.pdf",1)
  printfig("mod_ser.pdf",44)
  printfig("mod_F.pdf",45)
  printfig("mod_hist.pdf",46)
- printfig("N_comp.png",59)
- printfig("cum_N_wt.png",60)
+ #printfig("N_comp.png",59)
+ #printfig("cum_N_wt.png",60)
  printfig("mod_phase.pdf",47)
  printfig("proj_ssb.pdf",65)
  printfig("mod_rec.pdf",48)
@@ -68,7 +89,8 @@ printfig("catch.pdf",1)
  printfig("mod_retro.pdf",52)
  printfig("tier3_proj.pdf",53)
  printfig("age_diversity.pdf",51)
- printfig("sel_comp_vast.pdf",61)
+ #printfig("sa_density.pdf",61)
+ #printfig("sel_comp_vast.pdf",61)
  #printfig("poll_cod_rec.png",62)
 ```
 

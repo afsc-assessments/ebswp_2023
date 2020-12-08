@@ -34,8 +34,8 @@ theme(panel.grid.major.x = element_blank())
 ##########
 # unstratified results wt-age
 ##########
-i = 2018
-for (i in c(1998,2003,2008,2013 ,2018)) {
+i = 2020
+for (i in c(1999,2004,2009,2014 ,2019)) {
   p <- dtmp[yr %between% c(i-4,i) &age>2&age<11] %>% ggplot(aes(x=as.factor(age),y=swt,fill=as.factor(yr-age))) +
        geom_hline(yintercept=1,color="brown",size=1) + scale_fill_discrete(guide=FALSE) +
        geom_violin() + facet_grid(yr~.) + xlab("Age") + ylab("Body weight relative to mean") + 
@@ -53,7 +53,7 @@ i=1991
 #swadt <- data.table(read.table(paste0("mainresults/str_wtage",i,".rep"),header=TRUE) )
 swadt <- data.table(read.table(paste0("results/str_wtage",i,".rep"),header=TRUE) )
 names(swadt) <- c("bs","sam","yr","str",1:15)
-for (i in 1992:2018) 
+for (i in 1992:2019) 
 {
   swadt <- rbind(swadt,data.table(read.table(paste0("results/str_wtage",i,".rep"),header=TRUE)) ,use.names=FALSE)
 }
@@ -90,9 +90,9 @@ dtmp
   #ggsave("~/OneDrive/ebswp/EBSpollock/doc/figs/fsh_wtage.pdf",plot=p,width=8,height=6)
   ggsave("~/_mymods/ebswp/doc/figs/fsh_wtage.pdf",plot=p,width=8,height=6)
 
-i=2018
+i=2019
 summary(dtmp)
-for (i in c(1998,2003,2008,2013 ,2018)) {
+for (i in c(1999,2004,2009,2014 ,2019)) {
   p <- dtmp[yr %between% c(i-4,i)&age>2&age<11&str!=999&str!="Combined"] %>% ggplot(aes(x=as.factor(age),y=swt,fill=as.factor(yr-age))) 
   # with combined
   #p <- dtmp[yr %between% c(i-4,i)&age>2&age<11] %>% ggplot(aes(x=as.factor(age),y=swt,fill=as.factor(yr-age))) 
@@ -104,6 +104,7 @@ for (i in c(1998,2003,2008,2013 ,2018)) {
   #scale_fill_brewer(palette="Pastel2") # + scale_colour_manual(palette-"Pastel2") #scale_fill_discrete()
   ggsave(paste0("~/_mymods/ebswp/doc/figs/rel_bodywt_",i,".pdf"),plot=p,width=8,height=6)
 }
+ggsave(paste0("~/_mymods/ebswp/doc/figs/fsh_wtage_comb_",i,".pdf"),p,width=5,height=8)
 i=2018
   p <- dtmp[yr %between% c(i-5,i)&age>2&age<11&str=="Combined"] %>% ggplot(aes(x=as.factor(age),y=swt,fill=as.factor(yr-age))) 
   p <- p + geom_violin() + facet_wrap(~yr,nrow=6 ) + xlab("Age") + theme_bw(base_size=13) +

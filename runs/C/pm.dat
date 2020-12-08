@@ -1,8 +1,8 @@
-C
-../dat/pm19C.dat
-../dat/scmed18.dat
+VAST_nocp
+../dat/pm_2020_C.dat
+../dat/scmed20.dat
 control.dat
 ../dat/pm_fmsy_alt.dat
-../dat/rescaled_cov_2018.dat
-../dat/wtage2019.dat
+../dat/rescaled_cov_2019.dat
+../dat/wtage2020.dat
 ../dat/surveycpue.dat

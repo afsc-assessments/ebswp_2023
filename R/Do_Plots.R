@@ -3,8 +3,8 @@ if (doplots) {
 
   do_data_plots <- FALSE
   
-  if(do_data_plots){
-    #--Fishery--------------------
+if(do_data_plots){
+#--Fishery--------------------
 
 #---Fishery stuff----------------------
 wed <- read.csv("~/OneDrive/sampler/cases/ebswpSAM/imported/akfin_cat.csv",as.is=TRUE)
@@ -70,38 +70,35 @@ p1 <- df %>% filter(!is.na(strata)) %>% mutate(strata=ifelse(strata==1,"A-season
               scale_x_continuous(breaks=seq(1990,2020,2)) + ylab("Catch (thousands)") + xlab("Year")
               p1
         ggsave("figs/catch_sex.pdf",plot=p1,width=7.5,height=4.5,units="in")
-  }
+      #df <- tibble(read.csv("../doc/data/product.csv",header=T))
+      #df[,2] <- df[,2]/1e6
+      #df
+      #ggcorr(df[,c(2:3,5:8)] ,label=TRUE)+ theme_few()
+      #ggpairs(df,columns=c(2:4,6:8)) + theme_few()
+      #ggpairs(df[,c(2:3,5:8)] ,label=TRUE,
+      #     upper = list(continuous = wrap(ggally_cor, displayGrid = FALSE)),
+      #     diag = list(continuous = "blank"), 
+      #     lower = list(continuous = "smooth") ) + theme_few()
+      #upper = list(continuous = "density", combo = "box_no_facet"),
+      #lower = list(continuous = "points", geom_smooth(),combo = "dot_no_facet") 
 
-  
-#df <- tibble(read.csv("../doc/data/product.csv",header=T))
-#df[,2] <- df[,2]/1e6
-#df
-#ggcorr(df[,c(2:3,5:8)] ,label=TRUE)+ theme_few()
-#ggpairs(df,columns=c(2:4,6:8)) + theme_few()
-#ggpairs(df[,c(2:3,5:8)] ,label=TRUE,
-#     upper = list(continuous = wrap(ggally_cor, displayGrid = FALSE)),
-#     diag = list(continuous = "blank"), 
-#     lower = list(continuous = "smooth") ) + theme_few()
-  #upper = list(continuous = "density", combo = "box_no_facet"),
-   #lower = list(continuous = "points", geom_smooth(),combo = "dot_no_facet") 
-
-  rd <- data.table(read.csv("../doc/data/roe.csv",header=T))
-  #rd.s <- rd %>% select(Year, Prod, t)%>% group_by(Year,Prod) %>% summarise(t=sum(t)) %>% spread(Prod,t) 
-  #rd.s<-rd.s[,2:10]
-  #rd.s
-  #ggpairs(rd.s[,c(7,8,2,5,1)],aes(fill="lemonchiffon",alpha=.5)) + .THEME
-  #names(rd)
-  rd %>% gather(Season,Year) %>% head
-  rd <- select(rd,Year, Season, Prod,t) %>% group_by(Year,Season,Prod) %>% summarize(t=sum(t)) 
-  #df <-data.frame(Year=M$Yr,M$F); names(df) <- c("Year",1:15); df.g <- gather(df,age,F,2:16,-Year)
-  .THEME <- theme(panel.grid.major.x = element_blank(), panel.grid.minor.y = element_blank(), panel.grid.major.y = element_blank() )
-  .THEME <- .THEME + theme(text=element_text(size=12)) + theme(axis.title.x=element_text(size=14) ,axis.title.y=element_text(size=14))
-  .THEME <- .THEME + theme( panel.background = element_rect(fill="white"), panel.border = element_rect(colour="black", fill=NA, size=1))
-  #p1 <- rd %>% ggplot(aes(x=Year,y=t,shape=Season,col=Prod)) + geom_point(size=2) + geom_line(size=1.0) + .THEME + ylab("Tons of roe produced") + expand_limits(y=0) + scale_x_continuous(breaks=seq(1982,2018,1))
-  p1 <- rd %>% filter(Prod=="ROE") %>% ggplot(aes(x=Year,y=t,shape=Season,col=Season)) + geom_point(size=2) + geom_line(size=1.0) + .THEME + ylab("Tons of roe produced") + expand_limits(y=0) + 
-       scale_x_continuous(breaks=seq(2000,2020,2))
-        #  + geom_hline(yintercept=mst,linetype="dashed") + geom_hline(yintercept=mbt,linetype="dashed") 
-  ggsave("figs/roe.pdf",plot=p1,width=7.5,height=4.5,units="in")
+      rd <- data.table(read.csv("../doc/data/roe.csv",header=T))
+      #rd.s <- rd %>% select(Year, Prod, t)%>% group_by(Year,Prod) %>% summarise(t=sum(t)) %>% spread(Prod,t) 
+      #rd.s<-rd.s[,2:10]
+      #rd.s
+      #ggpairs(rd.s[,c(7,8,2,5,1)],aes(fill="lemonchiffon",alpha=.5)) + .THEME
+      #names(rd)
+      rd %>% gather(Season,Year) %>% head
+      rd <- select(rd,Year, Season, Prod,t) %>% group_by(Year,Season,Prod) %>% summarize(t=sum(t)) 
+      #df <-data.frame(Year=M$Yr,M$F); names(df) <- c("Year",1:15); df.g <- gather(df,age,F,2:16,-Year)
+      .THEME <- theme(panel.grid.major.x = element_blank(), panel.grid.minor.y = element_blank(), panel.grid.major.y = element_blank() )
+      .THEME <- .THEME + theme(text=element_text(size=12)) + theme(axis.title.x=element_text(size=14) ,axis.title.y=element_text(size=14))
+      .THEME <- .THEME + theme( panel.background = element_rect(fill="white"), panel.border = element_rect(colour="black", fill=NA, size=1))
+      #p1 <- rd %>% ggplot(aes(x=Year,y=t,shape=Season,col=Prod)) + geom_point(size=2) + geom_line(size=1.0) + .THEME + ylab("Tons of roe produced") + expand_limits(y=0) + scale_x_continuous(breaks=seq(1982,2018,1))
+      p1 <- rd %>% filter(Prod=="ROE") %>% ggplot(aes(x=Year,y=t,shape=Season,col=Season)) + geom_point(size=2) + geom_line(size=1.0) + .THEME + ylab("Tons of roe produced") + expand_limits(y=0) + 
+         scale_x_continuous(breaks=seq(2000,2020,2))
+          #  + geom_hline(yintercept=mst,linetype="dashed") + geom_hline(yintercept=mbt,linetype="dashed") 
+      ggsave("figs/roe.pdf",plot=p1,width=7.5,height=4.5,units="in")
 
 
   #--- Catch-age estimates for sex catch age --------------------------
@@ -121,6 +118,7 @@ p1 <- df %>% filter(!is.na(strata)) %>% mutate(strata=ifelse(strata==1,"A-season
           scale_x_continuous(breaks=seq(1990,2020,2)) + ylab("Catch (thousands)") + xlab("Year")
           p1
   ggsave("figs/catch_sex.pdf",plot=p1,width=7.5,height=4.5,units="in")
+  }
 
 #---Compare selectivity for base w/ vast
 df <- data.frame(sel=Alt$sel_fut,Age=1:15,Model="VAST")
@@ -131,20 +129,20 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
 #---Age diversity
   df <- data.frame(Year=M$Yr,Age=M$H,Measure="Population Age\n diversity")
   df <- rbind(df,data.frame(Year=M$Yr,Age=M$avg_age_mature,Measure="SSB Age\n diversity"))
-  p1 <- df %>% filter(Year>1979) %>% ggplot(aes(x=Year,y=Age,color=Measure)) + geom_line(size=2) + theme_few() + scale_x_continuous(limits=c(1980,2019), breaks=seq(1980,2020,5));p1
+  p1 <- df %>% filter(Year>1979) %>% ggplot(aes(x=Year,y=Age,color=Measure)) + geom_line(size=2) + theme_few() + scale_x_continuous(limits=c(1980,2020), breaks=seq(1980,2020,5));p1
   ggsave("figs/age_diversity.pdf",plot=p1,width=8,height=3.0,units="in")
 #---
   #p1 <- plot_recruitment(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
   #p1 <- plot_ssb(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
   #p1 <- plot_bts(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
-  p1 <- plot_recruitment(modlst[c(1,3)],xlim=c(2007.5,2021.5));p1
-  p2 <- plot_ssb(modlst[c(1,3)],xlim=c(2008.5,2021.5),breaks=seq(2008,2021,by=2),alpha=.2); p2
+  p1 <- plot_recruitment(modlst[c(1,3,4)],xlim=c(2007.5,2020.5));p1
+  p2 <- plot_ssb(modlst[c(1,3,4)],xlim=c(2008.5,2020.5),breaks=seq(2008,2021,by=2),alpha=.2); p2
   # Comparing base with 2 vast configurations
   p3 <- p1/p2; p3
   ggsave("figs/mod_eval0a.pdf",plot=p3,width=8,height=5.0,units="in")
   # Comparing base with 2 vast configurations
   #p1 <- plot_recruitment(modlst[c(2,4,5)],xlim=c(2010.8,2019.5));p1
-  p1 <- plot_bts(modlst[c(1,2,3)],xlim=c(1981.5,2020.5),ylim=c(0,30000)) ;p1
+  p1 <- plot_bts(modlst[c(thismod)],xlim=c(1981.5,2020.5),ylim=c(0,20000)) ;p1
   ggsave("figs/mod_eval0b.pdf",plot=p1,width=8,height=4.0,units="in")
   #p1 <- plot_ssb(modlst[c(3,4)],xlim=c(2000.5,2020.5),alpha=.2); p1
   #plot_recruitment(modlst,xlim=c(2004.5,2018.5))
@@ -156,34 +154,74 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
   plot_bts(modlst[c(3)],xlim=c(1982,2019.5),ylim=c(0,15000)) 
   plot_bts(modlst[c(2)],xlim=c(1982,2019.5),ylim=c(0,15000)) 
   ggsave("figs/mod_eval0c.pdf",plot=p1,width=8,height=4,units="in")
-  p1 <- plot_sel();p1
-  #plot_sel(sel=Alt$sel_fsh)
+  #p1 <- plot_sel();p1 
+  #i=5; M <- modlst[[i]] <- read_admb(fn[i]);modlst[[i]] <- c(modlst[[i]],get_vars(modlst[[i]]));M <- modlst[[i]] 
+  #M$maxabc2s
+  yr=c(M$Yr,2021);sel<-rbind(M$sel_fsh,M$sel_fut)
+  p1 <- plot_sel(Year=yr,sel=sel)
+  dtmp <- p1$data %>% filter(Year==2021)
+  p1 <- p1 + geom_density_ridges(data=dtmp, stat="identity",fill="gold") ;p1
 
+  #plot_sel(sel=Alt$sel_fsh)
   ggsave("figs/mod_fsh_sel.pdf",plot=p1,width=4,height=8,units="in")
+
   p1 <- plot_sel(sel=M$sel_bts,styr=1982,fill="darkblue") 
   #plot_sel(sel=M$sel_eit,styr=1994,fill="darkblue") 
   ggsave("figs/mod_bts_sel.pdf",plot=p1,width=4,height=8,units="in")
-  p1 <- plot_mnage(modlst[thismod]) ;p1
  # p1 <- plot_mnage(modlst[c(2,3)]) 
-  ggsave("figs/mod_mean_age.pdf",plot=p1,width=5.8,height.=8,units="in")
+  #p1 <- plot_mnage(modlst[thismod]) ;p1
+  p1 <- plot_mnage(modlst[1]) ;p1 # Note used model 1 for figure...because of kludge for age compos
+  ggsave("figs/mod_mean_age.pdf",plot=p1,width=5.8,height=8,units="in")
   p1 <- plot_bts(modlst[thismod]) 
   ggsave("figs/mod_bts_biom.pdf",plot=p1,width=5.2,height=3.7,units="in")
-  p1 <- plot_ats(modlst[thismod]) ;p1
+
+  p1 <- plot_ats(modlst[c(1,thismod)]) ;p1
+  p1 <- plot_ats(modlst[c(1,3,4,thismod)]) ;p1
+  p1 <- plot_ats(modlst[c(1,thismod)]) ;p1
+  p1 <- plot_ats(modlst[c(4,thismod)]) ;p1
   p1 <- plot_bts(modlst) 
-  p1 <- plot_ats(modlst[c(1,3)]) ;p1
-  p1 <- p1+ geom_vline(xintercept=2006.5,color="grey",size=1)
+
+#  p1 <- p1+ geom_vline(xintercept=2006.5,color="grey",size=1)
   #p1 <- p1+scale_y_log10()
-  p1
-  ggsave("figs/mod_ats_biom.pdf",plot=p1,width=5.2,height=3.7,units="in")
+  p1 <- plot_ats(modlst[c(1,3,4)]) +theme_few(base_size=11) ;p1
+  ggsave("figs/mod_ats_biom.pdf",plot=p1,width=9.2,height=3.7,units="in"); 
   p1 <- plot_avo(modlst[thismod]) 
   ggsave("figs/mod_avo_fit.pdf",plot=p1,width=5.2,height=3.7,units="in")
   p1 <- plot_cpue(modlst[[thismod]]) 
   ggsave("figs/mod_cpue_fit.pdf",plot=p1,width=5.2,height=3.7,units="in")
   p1 <- plot_recruitment(modlst[thismod],xlim=c(1963.5,2020.5),fill="yellow");p1
   ggsave("figs/mod_rec.pdf",plot=p1,width=9,height=4,units="in")
-  p1 <- plot_srr(modlst[c(1,2)],alpha=.2,xlim=c(0,5200),ylim=c(0,75000))
-  p1 <- p1 + theme_few(base_size=16)
-  p1
+
+  p1 <- plot_srr(modlst[c(3,4)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000));p1
+  ggsave("figs/mod_srr_sq_a.pdf",plot=p1,width=9,height=4,units="in")
+
+  srr_dir  = c("../runs/sr0/","../runs/sr1/", "../runs/sr2/","../runs/sr3/")
+  srr_names  = c("Standard","Ignore 1978 YC","Diffuse prior","FMSY=F35%")
+  fn       <- paste0(srr_dir,"pm")
+  srrlst   <- lapply(fn, read_admb)
+  names(srrlst) <- c(srr_names)
+  nsrrmods <- length(srr_names)
+  #for (i in 1:nmods) {
+  p1 <- plot_srr(srrlst[c(1)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000)                    );p1
+  p1 <- plot_srr(srrlst[c(1)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000),yrsin=1978,sizeout=1,sizein=5);p1
+  p1 <- plot_srr(srrlst[c(1)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000),yrsin=c(1977,1979:2018),sizeout=1,sizein=3);p1
+  p1 <- plot_srr(srrlst[c(1)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000),sizeout=3,sizein=3);p1
+  p1 <- plot_srr(srrlst[c(1)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000),sizeout=3,sizein=1);p1
+  p1 <- plot_srr(srrlst[c(1)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000),sizeout=1,sizein=3);p1
+  p1 <- plot_srr(srrlst[c(2)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000),yrsin=c(1977,1979:2018),sizeout=1,sizein=3);p1
+  p1 <- plot_srr(srrlst[c(1,3)],alpha=.2,xlim=c(0,5200),ylim=c(0,95000),yrsin=c(1977,1979:2018),sizeout=1,sizein=3);p1
+  p1 <- plot_srr(srrlst[c(1,4)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000),yrsin=c(1977,1979:2018),sizeout=1,sizein=3);p1
+  p1 <- plot_srr(srrlst[c(1,2)],alpha=.2,xlim=c(0,5200),ylim=c(0,100000));p1
+
+  p1 <- plot_srr(modlst[c(4,7)],alpha=.2,xlim=c(0,5200),ylim=c(0,100000));p1
+  ggsave("figs/mod_srr_a_b.pdf",plot=p1,width=9,height=4,units="in")
+  p1 <- plot_srr(modlst[c(3,5)],alpha=.2,xlim=c(0,5200),ylim=c(0,80000));p1
+  p1 <- plot_srr(modlst[c(3,6)],alpha=.2,xlim=c(0,5200),ylim=c(0,80000));p1
+  p1 <- plot_srr(modlst[c(3,5,6)],alpha=.2,xlim=c(0,5200),ylim=c(0,80000));p1
+  ggsave("figs/mod_srr_sq_c_d.pdf",plot=p1,width=9,height=4,units="in")
+  #names(modlst) modlst[[3]]$abc1s modlst[[4]]$abc1s modlst[[3]]$maxabc1s
+  #p1 <- p1 + theme_few(base_size=16) p1
+  p1 <- plot_srr(modlst[thismod],alpha=.2,xlim=c(0,5200),ylim=c(0,80000),ebar=TRUE);p1
   ggsave("figs/mod_srr.pdf",plot=p1,width=9.4,height=5.9,units="in")
   #p1 <- plot_srr(modlst[c(2,4)],alpha=.2,xlim=c(0,5200),ylim=c(0,75000))
   #ggsave("figs/bholt_ricker.pdf",plot=p1,width=7.4,height=3.9,units="in")
@@ -197,15 +235,17 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
   #---Data influence------------
   #XXXXXX
   #CAB_names <- factor(c("Model 16.1 \nlast year", "Catch added", "Add ATS", "Add BTS", "Add AVO"),levels=c("Model 16.1 \nlast year", "Catch added", "Add ATS", "Add BTS", "Add AVO"))
-  CAB_names <- factor(c("Model 16.1 \nlast year", "Catch added", "Add Catch-age", "Add BTS", "Add AVO"),levels=c("Model 16.1 \nlast year", "Catch added", "Add BTS", "Add AVO"))
   #CAB_names <- c("Model 16.1 \nlast year", "Catch added","C")
   #factor(sizes, levels = c("small", "medium", "large"))
-  .CABMODELDIR = c( "../runs/lastyr/", "../runs/C/","../runs/CA/","../runs/CAB/","../runs/CABA/")
+  #.CABMODELDIR = c( "../runs/lastyr/", "../runs/C/","../runs/CA/","../runs/CAB/","../runs/CABA/")
+  CAB_names <- (c("Model 16.2 \nlast year", "Catch added", "Add Catch-age", "Add DB USV", "VAST USV"))
+  #CAB_names <- (c("Model 16.2 \nlast year", "Catch added", "Add Catch-age", "Add DB USV", "VAST USV")) ,levels=c("Model 16.2 \nlast year", "Catch added", "Add Catch-age", "Add DB USV", "VAST USV"))
+  .CABMODELDIR = c( "../runs/last_year/", "../runs/C/","../runs/CA/","../runs/usv/","../runs/usv_vast/")
 
   # Read report file and make list
   fn       <- paste0(.CABMODELDIR, "pm")
   CABmodlst   <- lapply(fn, read_admb)
-  CAB_names <- c("last year", "Catch added", "+Catch-age", "+BTS", "+AVO")
+  #CAB_names <- c("last year", "Catch added", "+Catch-age", "+BTS", "+AVO")
 #  CAB_names <- c("last year", "Catch added","Agin")
   names(CABmodlst) <- CAB_names
   nmods <- length(CAB_names)
@@ -214,50 +254,82 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
     CABmodlst[[i]] <- c(CABmodlst[[i]],get_vars(CABmodlst[[i]]))
   }
   #p1 <-  plot_ssb(CABmodlst[c(1,3,5)],xlim=c(2009.5,2019.5),alpha=.1,ylim=c(0,5200)); p1
-  p1 <-  plot_ssb(CABmodlst,xlim=c(2009.5,2019.5),alpha=.05,ylim=c(0,5000)) + scale_x_continuous(limits=c(2009,2019),breaks=2009:2019)
-  p1 <-  p1 + scale_fill_discrete(labels=CAB_names) + scale_color_discrete(labels=CAB_names) + theme_few()
-  #p2 <-  plot_recruitment(CABmodlst,xlim=c(2009.5,2019.5),alpha=.05) ;p2
+  names(CABmodlst[[1]])
+  plot_ssb(CABmodlst)
+  A <- .get_ssb_df(CABmodlst)
+  names(A)
+  A$Model <- factor(A$Model ,levels=c("Model 16.2 \nlast year", "Catch added", "Add Catch-age", "Add DB USV", "VAST USV"))
+  p1 <- ggplot(A,aes(x=year,y=ssb,ymin=lb,ymax=ub,fill=Model)) + labs(x = "Year", y = "Spawning biomass") + .THEME +
+        expand_limits(y = 0) + geom_line(aes(color=Model),size=1.2) +
+        scale_x_continuous(limits=c(2009,2020), breaks=2009:2020)  +
+        geom_ribbon(alpha = 0.1)  ;p1
+  ggsave("figs/mod_data.pdf",plot=p1,width=8,height=4,units="in")
+  #plot_ssb(CABmodlst,xlim=c(2009.5,2020.5),alpha=.05,ylim=c(0,6000),breaks=2009:2020)
+  #p2 <-  plot_recruitment(CABmodlst,xlim=c(2009.5,2020.5),alpha=.05) ;p2
   #p2 <-  p2 + scale_fill_discrete(labels=CAB_names) + scale_color_discrete(labels=CAB_names) + theme_few()
-  #p3 <- arrangeGrob(p1,p2,nrow=2)
+  #p3 <- p1/p2
   #p1
   #plot_ssb(modlst[],xlim=c(2004.5,2018.5),alpha=.1,ylim=c(0,5200))
-  ggsave("figs/mod_data.pdf",plot=p1,width=8,height=4,units="in")
   #for (i in 1:length(mod_names)) modlst[[i]] <- c(modlst[[i]],get_vars(modlst[[i]]))
   #plot_recruitment(CABmodlst[c(1,5)],xlim=c(2000.5,2019.5),fill="yellow")
 
 #--q sensitivity----------
 # taken from tab.Rmd (proflst)
-names(proflst)
-.MODELFN  = c("r_1","r_2","r_3","r_4","r_5")
-prof_names  = c("CV70%","CV50%","CV20%","CV10%","CV05%")
-fn       <- paste0("../runs/q_sens/prof/",.MODELFN)
-proflst   <- lapply(fn, read_admb)
-proflst[[6]] <- M
-names(proflst) <- c(prof_names,"16.1")
+#names(proflst)
+#.MODELFN  = c("r_1","r_2","r_3","r_4","r_5")
+#prof_names  = c("CV70%","CV50%","CV20%","CV10%","CV05%")
+#fn       <- paste0("../runs/q_sens/prof/",.MODELFN)
+#proflst   <- lapply(fn, read_admb)
+#proflst[[6]] <- M
+#names(proflst) <- c(prof_names,"16.1")
+#nmods <- length(prof_names)
+#for (i in 1:nmods) {
+  ##print(i)k
+  #proflst[[i]] <- c(proflst[[i]],get_vars(proflst[[i]]))
+#}
+
+#p1 <- plot_ssb(proflst[c(2,6)],ylim=c(0,5500),xlim=c(1990.5,2019.5),alpha=.1) + scale_x_continuous(limits=c(1990,2020),breaks=seq(1990,2020,5))
+#p2 <- plot_ssb(proflst[c(5,6)],ylim=c(0,5500),xlim=c(1990.5,2019.5),alpha=.1)+ scale_x_continuous(limits=c(1990,2020),breaks=seq(1990,2020,5))
+#p3 <- arrangeGrob(p1,p2,nrow=2)
+#ggsave("figs/q_sens_ssb.pdf",plot=p3,width=5.2,height=7.5,units="in")
+  #q<-NULL
+  #for (i in 1:5)
+	  #q <- rbind(q,data.frame(Year=1982:2019,Model=names(proflst[i]),q=rowMeans(proflst[[i]]$q_bts_3_8)))
+#
+	#head(q) 
+	#av <- read.table("../runs/dat/avail.dat",header=TRUE)
+	#av <- av %>% transmute(Year=Year,Model="COLE",q=q)
+	#q <- rbind(q,av)
+	#q <- q %>% group_by(Model) %>% mutate(mq=mean(q)) %>% ungroup() %>% transmute(Year=Year,Model=Model,q=q/mq)
+#
+  #q %>% group_by(Model) %>% summarize(mean(q))
+	#p3 <- q %>% filter(Model %in% c("CV70%")) %>% ggplot(aes(y=q,x=Year,col=Model)) + geom_line(size=1.3) + theme_few() +  scale_x_continuous(limits=c(1987,2019),breaks=seq(1987,2019,by=3)) ;p3
+	#p3 <- q %>% filter(Model %in% c("COLE","CV05%","CV50%")) %>% ggplot(aes(y=q,x=Year,col=Model)) + geom_line(size=1.3) + theme_few() +  scale_x_continuous(limits=c(1987,2019),breaks=seq(1987,2019,by=3)) ;p3
+#ggsave("figs/q_sens.pdf",plot=p3,width=8.2,height=3.5,units="in")
+
+#--CV sensitivity----------
+.MODELFN  = c("../runs/usv/","../runs/usv_vast/","../runs/estcvdb/","../runs/estcvvast/")
+prof_names  = c("DB CV20%","VAST CV20%","DB Sampling CV","VAST est. CV")
+fn       <- paste0(.MODELFN,"pm")
+cvlst   <- lapply(fn, read_admb)
+#proflst[[6]] <- M
+names(cvlst) <- c(prof_names)
 nmods <- length(prof_names)
 for (i in 1:nmods) {
-  #print(i)k
-  proflst[[i]] <- c(proflst[[i]],get_vars(proflst[[i]]))
+  cvlst[[i]] <- c(cvlst[[i]],get_vars(cvlst[[i]]))
 }
+p1 <- plot_ssb(cvlst, ylim=c(0,6500),breaks=seq(1990,2020,2), xlim=c(1990.5,2020.5),alpha=.1) ;p1
 
-p1 <- plot_ssb(proflst[c(2,6)],ylim=c(0,5500),xlim=c(1990.5,2019.5),alpha=.1) + scale_x_continuous(limits=c(1990,2020),breaks=seq(1990,2020,5))
-p2 <- plot_ssb(proflst[c(5,6)],ylim=c(0,5500),xlim=c(1990.5,2019.5),alpha=.1)+ scale_x_continuous(limits=c(1990,2020),breaks=seq(1990,2020,5))
-p3 <- arrangeGrob(p1,p2,nrow=2)
-ggsave("figs/q_sens_ssb.pdf",plot=p3,width=5.2,height=7.5,units="in")
-  q<-NULL
-  for (i in 1:5)
-	  q <- rbind(q,data.frame(Year=1982:2019,Model=names(proflst[i]),q=rowMeans(proflst[[i]]$q_bts_3_8)))
+p1 <- plot_ats(cvlst[c(1:2)]) +theme_few(base_size=11) ;p1
+p2 <- plot_ats(cvlst[c(3:4)]) +theme_few(base_size=11) ;p2
+p5 <- p1/p2
+p5
+ggsave("figs/mod_ats_eval1.pdf",plot=p5,height=8,width=7.0,units="in"); 
+p3 <- plot_ssb(cvlst[c(1,3)] , ylim=c(0,6000),breaks=seq(1990,2020,5), xlim=c(1990.5,2020.5),alpha=.1) ;p3
+p4 <- plot_ssb(cvlst[c(2,4)] , ylim=c(0,6000),breaks=seq(1990,2020,5), xlim=c(1990.5,2020.5),alpha=.1) ;p4
+p5 <- p3/p4
+ggsave("figs/mod_ats_eval2.pdf",plot=p5,height=8,width=7.0,units="in"); 
 
-	head(q) 
-	av <- read.table("../runs/dat/avail.dat",header=TRUE)
-	av <- av %>% transmute(Year=Year,Model="COLE",q=q)
-	q <- rbind(q,av)
-	q <- q %>% group_by(Model) %>% mutate(mq=mean(q)) %>% ungroup() %>% transmute(Year=Year,Model=Model,q=q/mq)
-
-  q %>% group_by(Model) %>% summarize(mean(q))
-	p3 <- q %>% filter(Model %in% c("CV70%")) %>% ggplot(aes(y=q,x=Year,col=Model)) + geom_line(size=1.3) + theme_few() +  scale_x_continuous(limits=c(1987,2019),breaks=seq(1987,2019,by=3)) ;p3
-	p3 <- q %>% filter(Model %in% c("COLE","CV05%","CV50%")) %>% ggplot(aes(y=q,x=Year,col=Model)) + geom_line(size=1.3) + theme_few() +  scale_x_continuous(limits=c(1987,2019),breaks=seq(1987,2019,by=3)) ;p3
-ggsave("figs/q_sens.pdf",plot=p3,width=8.2,height=3.5,units="in")
 
 
 
@@ -301,7 +373,7 @@ p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb)) + geom_ribbon(fill="salmon",a
   #---fishing mortality mod_F.pdf-----------------------------------------------------------------
   df <-data.frame(Year=M$Yr,M$F); names(df) <- c("Year",1:15); df.g <- gather(df,age,F,2:16,-Year)
   p1 <- df.g %>% mutate(age=as.numeric(age)) %>% filter(age<11)%>% ggplot(aes(y=age,x=Year,fill=F)) + geom_tile() + .THEME + ylab("Age")+ geom_contour(aes(z=F),color="darkgrey",size=.5,alpha=.4) +
-            scale_fill_gradient(low = "white", high = "red") + scale_x_continuous(breaks=seq(1965,thisyr,4)) + geom_line(data=df.g[df.g$age=="6",],aes(x=Year,y=F*10)) +
+            scale_fill_gradient(low = "white", high = "red") + scale_x_continuous(breaks=seq(1965,thisyr,5)) + geom_line(data=df.g[df.g$age=="6",],aes(x=Year,y=F*10)) +
             annotate("text", label = "Age 6 F (x10)" , x = 2015, y = 1.2, size = 5, colour = "black") + scale_y_continuous(breaks=seq(0,10,1)) 
   ggsave("figs/mod_F.pdf",plot=p1,width=9.2,height=6.0,units="in")
 
@@ -333,12 +405,12 @@ p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb)) + geom_ribbon(fill="salmon",a
   dev.off()
   
   #----Read in retro results-----------------
-  j='18.2'
+  j='16.2'
   i=0
   #read_rep("../runs/16.0/retro/r_1.rep")
   retouts <- list()
   for (i in 0:20) {
-      rn=paste0("../runs/2020/retro/r_",i,".rep")
+      rn=paste0("../runs/base/retro/r_",i,".rep")
       mn=paste0("r_",i)
       assign(mn,read_rep(rn))
       retouts[[mn]] <- (get(mn))
@@ -389,21 +461,24 @@ p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb)) + geom_ribbon(fill="salmon",a
   #ggplot(df,aes(x=Year,y=U)) + geom_line(size=2,color="red") + .THEME + xlim(c(1990,2020)) + ylab("Catch / spawning biomass")
   #--------phase plane figure-------------------
 
-  df2 <- rbind(data.frame(Year= M$SSB[,1], SSB=M$SSB[,2], lb=M$SSB[,4], ub=M$SSB[,5]),
+  #df2 <- rbind(data.frame(Year= M$SSB[,1], SSB=M$SSB[,2], lb=M$SSB[,4], ub=M$SSB[,5]),
 #    ), lb = M$future_SSB[4,2:6] -2*M$future_SSB.sd[4,2:6], ub = M$future_SSB[4,2:6] +2*M$future_SSB.sd[4,2:6]))
 
 
-  df  <- read.table(paste0(.MODELDIR[thismod],"F40_t.rep"),header=T)
-  pt  <- df %>% filter(Year>thisyr) %>% transmute(F.Fmsy=meanF/Fmsy,Bmsy=Bmsy,Year=substr(as.character(Year),3,4))  
+  df <- read.table(paste0(.MODELDIR[thismod],"F40_t.rep"),header=T)
+  pt <- df %>% filter(Year>thisyr) %>% transmute(F.Fmsy=meanF/Fmsy,Bmsy=Bmsy,Year=substr(as.character(Year),3,4))  
   df <- df %>%filter(Year<=thisyr,Year>1977)  %>%transmute(F.Fmsy=meanF/Fmsy,B.Bmsy=SSB/Bmsy,Bmsy=Bmsy,Year=substr(as.character(Year),3,4))   
-  df2 <- data.frame(SSB=M$future_SSB[4,2:3])
+  df2 <- data.frame(SSB=M$future_SSB[1,2:3])
   pt2 <- cbind(df2,pt) 
-  pt  <- pt2 %>% mutate(B.Bmsy=SSB/Bmsy)
-  p1  <- df %>% filter(Year>1977,Year<=thisyr) #%>% mutate(F.Fmsy=meanF/Fmsy,B.Bmsy=SSB/Bmsy,Year=substr(as.character(Year),3,4)) #%>% 
-      ggplot(df,aes(x=B.Bmsy,y=F.Fmsy,label=Year)) + 
+  pt2  <- pt2 %>% transmute(F.Fmsy,B.Bmsy=SSB/Bmsy,Bmsy,Year)
+  head(df)
+         #mutate(F.Fmsy=meanF/Fmsy,B.Bmsy=SSB/Bmsy,Year=substr(as.character(Year),3,4)) %>% 
+  ggplot(df,aes(x=B.Bmsy,y=F.Fmsy,label=Year)) + 
          geom_text(aes(color=as.factor(Year)),size=4,col="blue")+ .THEME + xlim(c(0,2.0))+ ylim(c(0,1.1)) + xlab("B/Bmsy") + ylab("F/Fmsy") +
-         geom_label(data=pt,size=2,fill="yellow",color="red",alpha=.4) +
-         geom_hline(size=.5,yintercept=1) + geom_vline(size=0.5,linetype="dashed",xintercept=.2) + geom_vline(size=.5,xintercept=1) + geom_path(size=.4) + guides(size=FALSE,fill=FALSE,alpha=FALSE,col=FALSE) 
+         geom_label(data=pt2,size=2,fill="yellow",color="red",alpha=.4) +
+         geom_line(data=pt2,color="red",alpha=.4) +
+         geom_hline(size=.5,yintercept=1) + geom_vline(size=0.5,linetype="dashed",xintercept=.2) + geom_vline(size=.5,xintercept=1) + geom_path(size=.4) + 
+          guides(size=FALSE,fill=FALSE,alpha=FALSE,col=FALSE) 
          p1
   ggsave("figs/mod_phase.pdf",plot=p1,width=7.2,height=5.7,units="in")
 

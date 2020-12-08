@@ -44,7 +44,7 @@ plot_recruitment <- function(M, xlab = "Year", ylab = "Recruitment (millions of 
     {
         p <- ggplot(mdf, aes(x = year, y = rec)) +
             geom_bar(stat = "identity", alpha = 0.4, position = "dodge", col="grey60", fill=fill) + 
-            scale_x_continuous(limits=xlim, breaks = seq(round(xlim[1],0),round(xlim[2],0), by = 2) ) +
+            scale_x_continuous(limits=xlim, breaks = seq(round(xlim[1],0),round(xlim[2],0), by = 5) ) +
             geom_pointrange(aes(ymax = ub, ymin = lb),size=.3 ) #, position = position_dodge(width = 1.9))
     } else {
         p <- ggplot(mdf, aes(x = year, y = rec, col = Model, group = Model)) +

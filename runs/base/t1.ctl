@@ -61,7 +61,7 @@
 #use_last_eit_ac
 1
 #nyrs_sel_avg
-1
+-15
 #do_bts_bio
 1
 #do_eit_bio
@@ -151,7 +151,7 @@
 0.1
 5
 1
-0
+1 # Include 1978 yc in SRR? 0=yes, 1=no
 2
 -3
 0
