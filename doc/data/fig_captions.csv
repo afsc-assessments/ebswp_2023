@@ -62,7 +62,7 @@ mcmc_marg.pdf   ,56,mcmc_marg,Integrated marginal posterior density (based on MC
 at_sa_density.pdf,62,at_sa_density,"Predicted log-backscatter (arbitrary units) from the VAST model fitted to the AT data, where the 2020 data are from the USV.",,  
                 ,63,q_sens,"Results of effective BTS survey catchability/availability for different levels of constraints on time-varying selectivity parameters, together with the estimate from the COLE model.",,
                 ,64,q_sens_ssb,The estimated spawning stock biomass for different constraints on time-varying selectivity parameters.,,
-                ,65,proj_ssb,"The estimated EBS pollock spawning stock biomass for model 20.0 with projections equal to the estimated fishing mortality from 2019.",,
+                ,65,proj_ssb,"The estimated EBS pollock spawning stock biomass for model 20.0 with projections equal to the estimated fishing mortality from 2020.",,
 at_transect_spacing.png,66,at_transect_spacing,"An evaluation of the impact on historical pollock ATS biomass estimates if alternate transects were dropped (and uncertainty increases as depicted by vertical error bars) compared to the actual (full) number of survey transects.",,
 fsh_psc_cpue.png,67,fsh_psc_cpue,"Nominal catch divided by effort (hours towed) for some bycatch species and pollock for the EBS pollock fleet (sectors combined), 2000-2020.",,
 mod_srr_sq_a.pdf   ,68,mod_srr_sq_a,"Stock-recruitment estimates (shaded represents uncertainty in SRR) and age-1 EBS pollock estimates labeled by year-classes for Model 20.0 and with the influence of the 1978 year-class removed.",,

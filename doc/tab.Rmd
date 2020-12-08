@@ -8,6 +8,7 @@
 \centering
 \caption{`r tabcap[1]` }
 \label{tab:`r tablab[1]`}
+\scalebox{0.95}{
 \begin{tabular}{crrrrrr}
 \hline
 & \multicolumn{3}{c}{Eastern Bering Sea  }             &             &               & \\
@@ -59,6 +60,7 @@ Year    &   Southeast   &   Northwest   &   Total   &Aleutians  &Donut  Hole&   
 Avg.    &   797,950 &   413,862 &   1,211,812   &   24,419  &   697,696 &   28,707  \\
 \hline                                                  
 \end{tabular}
+}
 \end{table}
 
 \clearpage
@@ -67,6 +69,7 @@ Avg.    &   797,950 &   413,862 &   1,211,812   &   24,419  &   697,696 &   28,7
 \centering
 \caption{`r tabcap[2]`}
 \label{`r paste0("tab:",tablab[2])`}
+\scalebox{0.95}{
 \begin{tabular}{rrrrrr}
 \hline
 Year    &   Catch   &   Year    &   ABC &   TAC &   Catch   \\
@@ -119,6 +122,7 @@ Year    &   Catch   &   Year    &   ABC &   TAC &   Catch   \\
     \multicolumn{3}{c}{1977--2020   mean}           &   1,492,045   &   1,218,468   &   1,201,282   \\
 \hline                                          
 \end{tabular}
+}
 \end{table}
 
 \clearpage
@@ -206,7 +210,6 @@ Year     &    A season      & B-season          & Total             \\
 2017     & 555,300 t (51\%) & 750,800 t (54\%)  & 1,306,100 t (53\%)  \\
 2018     & 573,000 t (63\%) & 746,500 t (46\%)  & 1,319,500 t (53\%)  \\
 2019     & 573,400 t (68\%) & 762,800 t (51\%)  & 1,336,200 t (58\%)  \\
-2020     & xxx,400 t (xx\%) & xxx,800 t (xx\%)  & 1,xxx,200 t (58\%)  \\
 \hline
 \end{tabular}
 \end{table}
@@ -783,7 +786,7 @@ for (i in seq(2,length(t3[1,]), 2 ) ){
 }
 
 tab <- xtable(t3, caption = cap, label=paste0("tab:",tablab[32]),digits=0, auto=TRUE, align=rep("r",(length(t3[1,])+1)) )
-print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.85)
+print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.75)
 ```
 \clearpage
 
@@ -839,7 +842,7 @@ for (ii in mod_scen) {
  }
 df <- data.frame(rownames(df), df, row.names = NULL)
 names(df) <- c("Component",mod_names[mod_scen])
-tab <- xtable(df, caption = "Summary of model 16.1 results and the stock condition for EBS pollock. Biomass units are thousands of t.", label = "tab:res_summ", digits = 3)
+tab <- xtable(df, caption = "Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t.", label = "tab:res_summ", digits = 3)
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
 ```
 

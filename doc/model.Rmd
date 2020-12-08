@@ -192,7 +192,7 @@ circular (i.e., using data for prior elicitation), the point here is that
 residual patterns (typically ignored in these types of models) were 
 qualitatively considered. 
 
-In model 16.1, "Bholt", a Beverton Holt stock recruitment form was implemented
+In model 16.1 (from the 2019 assessment), a Beverton Holt stock recruitment form was implemented
 using the prior value of 0.67 for steepness and a CV of 0.17. This resulted in 
 beta distribution parameters (for the prior) at $\alpha = 6.339$ and  
 $\beta = 4.293$.

@@ -324,11 +324,11 @@ p1 <- plot_ats(cvlst[c(1:2)]) +theme_few(base_size=11) ;p1
 p2 <- plot_ats(cvlst[c(3:4)]) +theme_few(base_size=11) ;p2
 p5 <- p1/p2
 p5
-ggsave("figs/mod_ats_eval1.pdf",plot=p5,height=10,width=7.0,units="in"); 
+ggsave("figs/mod_ats_eval1.pdf",plot=p5,height=8,width=7.0,units="in"); 
 p3 <- plot_ssb(cvlst[c(1,3)] , ylim=c(0,6000),breaks=seq(1990,2020,5), xlim=c(1990.5,2020.5),alpha=.1) ;p3
 p4 <- plot_ssb(cvlst[c(2,4)] , ylim=c(0,6000),breaks=seq(1990,2020,5), xlim=c(1990.5,2020.5),alpha=.1) ;p4
 p5 <- p3/p4
-ggsave("figs/mod_ats_eval2.pdf",plot=p5,height=10,width=7.0,units="in"); 
+ggsave("figs/mod_ats_eval2.pdf",plot=p5,height=8,width=7.0,units="in"); 
 
 
 

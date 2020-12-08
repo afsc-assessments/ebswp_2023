@@ -5,7 +5,6 @@ output:
   html_document:
     df_print: paged
   pdf_document:
-    toc: true
     highlight: zenburn
     fig_caption: yes
     includes:
@@ -76,6 +75,8 @@ clean_cache(clean = TRUE)
 -->
 
 \pagebreak
+
+# List of contents, tables and figures
 
 
  \tableofcontents
