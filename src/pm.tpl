@@ -27,6 +27,7 @@ DATA_SECTION
  !!  *(ad_comm::global_datafile) >> Wtage_file;
  !!  *(ad_comm::global_datafile) >> RawSurveyCPUE_file;
  // !!  *(ad_comm::global_datafile) >> endyrn_file;
+ !!  *(ad_comm::global_datafile) >> tempPredFile;
  !! write_log(model_name);
  !! write_log(datafile_name);
  !! write_log(selchng_filename);
@@ -264,7 +265,7 @@ DATA_SECTION
   // init_vector YC_mult(1,15) 
   // !! cout << "Simulation status = "<<Sim_status<<endl;
   // !! cout << "iseed             = "<<iseed_junk<<endl;
-  // !! cout << "YC                = "<<YC_mult<<endl;exit(1);
+  // !! cout << "YC                = "<<YC_mult<<endl;
 
   // Read in datafile now...
   // !! global_datafile= new cifstream(datafile_name);
@@ -395,6 +396,50 @@ DATA_SECTION
   init_matrix age_len(1,nages,1,nlbins)
   init_number test
   !! if(test!=1234567){ cout<<"Failed on data read "<<test<<endl;exit(1);}
+
+ !! ad_comm::change_datafile_name(tempPredFile);
+  init_vector SST(1964,2011);
+  init_int do_temp
+  init_int temp_phase           // phase for parameters in recruitment function
+  int      do_temp_phase        // copy the temperture phase here
+  init_int do_pred              // switch to do the predation mortality (1=yes)
+  init_int pred_phase           // phase for parameters for estimating spatial predation
+  int      do_pred_phase        // phase for estimating the predation parameters     
+  init_number n_pred_grp_nonpoll  // the number of non-pollock predator groups
+  init_number n_pred_grp_poll     // the number of pollock predator groups
+  number n_pred_grp               // the total number of predator groups
+  !! n_pred_grp = n_pred_grp_nonpoll + n_pred_grp_poll;         // the number of predator groups
+  init_matrix N_pred(1,n_pred_grp,1964,2014)   // the abindance of the predator groups
+  init_int nstrata_pred           // the number of strata for computing spatial predation
+  init_vector strata(1,nstrata_pred)                      // vector of strata names
+  init_number n_pred_ages                   // the number of ages which are preyed upon
+  init_vector pred_ages(1,n_pred_ages)      // the ages which are preyed upon
+  init_3darray poll_dist(1,n_pred_ages,1964,2014,1,nstrata_pred)  // the distribution of age 1 pollock across strata, by year
+  init_3darray pred_dist_nonpoll(1,n_pred_grp,1964,2014,1,nstrata_pred)      // the distribution of predators by strata, by year 
+  3darray  Npred_bystrata_nonpoll(1964,2014,1,n_pred_grp_nonpoll,1,nstrata_pred)      // the number of non-pollock predators by strata for a given year
+  init_vector area_pred(1,nstrata_pred)     // the strata area for getting predatuion by area (sq km)
+  init_int nyrs_cons_nonpoll                  // the number of years for which we have estimates of nonpollock predator consumption
+  init_vector yrs_cons_nonpoll(1,nyrs_cons_nonpoll)                  // the years for which we have predator consumption estimates
+  init_matrix obs_cons_nonpoll(1,n_pred_grp_nonpoll,1,nyrs_cons_nonpoll) // the time series of consumption estiates for each predator (kilotons)
+  init_3darray oac_cons_nonpoll(1,n_pred_grp_nonpoll,1,nyrs_cons_nonpoll,1,n_pred_ages)      // the observed age comps for predation for each predator, by year   
+  init_matrix  sam_oac_cons_nonpoll(1,n_pred_grp_nonpoll,1,nyrs_cons_nonpoll)                // the sample size for the consumption age comps
+  3darray  obs_cons_wgt_atage_nonpoll(1,n_pred_grp_nonpoll,1,nyrs_cons_nonpoll,1,n_pred_ages)  // the observed weight consumed at age (by predator and year)
+  3darray  obs_cons_natage_nonpoll(1,n_pred_grp_nonpoll,1,nyrs_cons_nonpoll,1,n_pred_ages)  // the observed consumed number at age (by predator and year)
+  3darray  obs_cpup_nonpoll(1,n_pred_grp_nonpoll,1,nyrs_cons_nonpoll,1,n_pred_ages)  // the observed number consumed per unit predator
+  init_vector C_a_nonpoll(1,n_pred_grp_nonpoll)                                            // C_a parameter for max consumption
+  init_vector C_b_nonpoll(1,n_pred_grp_nonpoll)                                            // C_b parameter for max consumption
+  init_vector TCM_nonpoll(1,n_pred_grp_nonpoll)                                            // TCM parameter for max consumption temperature function
+  init_vector TC0_nonpoll(1,n_pred_grp_nonpoll)                                            // TC0 parameter for max consumption temperature funcion  
+  init_vector CQ_nonpoll(1,n_pred_grp_nonpoll)                                             // CQ parameter for max consumption  temperature function
+  init_matrix  temp_bystrata(1964,2014,1,nstrata_pred)  // the temperature by strata (year before 1982 are an average)
+  init_matrix mn_wgt_nonpoll(1,n_pred_grp_nonpoll,1964,2014)                 // the mean weight of the predator groups
+  vector Y_nonpoll(1,n_pred_grp_nonpoll)                                                   // Y number for max consumption temperature function
+  vector Z_nonpoll(1,n_pred_grp_nonpoll)                                                   // Z number for max consumption temperature function
+  vector X_nonpoll(1,n_pred_grp_nonpoll)                                                   // X number for max consumption temperature function
+  3darray V_nonpoll(1964,2014,1,n_pred_grp_nonpoll,1,nstrata_pred)                         // V matrix for max consumption temperature function 
+  3darray F_t_nonpoll(1964,2014,1,n_pred_grp_nonpoll,1,nstrata_pred)                       // the max consumption temperature function
+  3darray Cmax_nonpoll(1964,2014,1,n_pred_grp_nonpoll,1,nstrata_pred)       // Cmax by year, predator group, and region
+  
   // ____________________________________________________________________________________
   // Bit to simulate from covariance matrix on numbers at age in terminal year
   // 
@@ -463,7 +508,52 @@ DATA_SECTION
   vector eit_ch_in(styr,endyr);
   int nch_fsh;
   int nch_eit;
- LOCAL_CALCS
+
+ LOCAL_CALCS    
+   // ****added by Paul -- assign values to temperature and predation phases
+  if(do_pred==1) do_pred_phase = pred_phase;
+  else do_pred_phase = -1;
+  
+  if(do_temp==1) do_temp_phase = temp_phase;
+  else do_temp_phase = -1;
+
+   // ****added by Paul -- rescale distribution matrices to add to one, and compute predator by year and strata
+  for (i=1;i<=n_pred_ages;i++) {
+    for (ii=1964;ii<=2014;ii++) {
+      poll_dist(i,ii) = poll_dist(i,ii)/sum(poll_dist(i,ii));
+       }
+    }
+       
+  for (i=1;i<=n_pred_grp;i++) {
+    for (ii=1964;ii<=2014;ii++) {
+      pred_dist_nonpoll(i,ii) = pred_dist_nonpoll(i,ii)/sum(pred_dist_nonpoll(i,ii));
+      Npred_bystrata_nonpoll(ii,i) = N_pred(i,ii)*pred_dist_nonpoll(i,ii); 
+       }
+    }
+   // ****added by Paul -- compute the catch per unit predator (CPUP) in numbers
+  for (i=1;i<=nyrs_cons_nonpoll;i++){
+    yr_ind = yrs_cons_nonpoll(i) - 1981;    // for getting the index for the wt_bts
+    if(yr_ind<1) yr_ind = 1;
+    
+   for (m=1;m<=n_pred_grp;m++) {
+      obs_cons_wgt_atage_nonpoll(m,i) = oac_cons_nonpoll(m,i)*obs_cons_nonpoll(m,i);  // kilotons
+      obs_cons_natage_nonpoll(m,i) = elem_div(obs_cons_wgt_atage_nonpoll(m,i),wt_bts(yr_ind)(1,n_pred_ages));  
+      obs_cpup_nonpoll(m,i) =  obs_cons_natage_nonpoll(m,i)/N_pred(m,yrs_cons_nonpoll(i));  
+    }
+  }
+  // **** added by Paul -- compute things for Cmax
+  for (i=1;i<=n_pred_grp_nonpoll;i++)
+  {
+    Y_nonpoll(i) = log(CQ_nonpoll(i))*(TCM_nonpoll(i)-TC0_nonpoll(i)+2);
+    Z_nonpoll(i) = log(CQ_nonpoll(i))*(TCM_nonpoll(i)-TC0_nonpoll(i));
+    X_nonpoll(i) = Z_nonpoll(i)*Z_nonpoll(i)*pow(1+sqrt(1+40.0/Y_nonpoll(i)),2)/400.0;
+    for (j=1964;j<=2014;j++)
+     {
+      V_nonpoll(j,i) = (TCM_nonpoll(i) - temp_bystrata(j))/(TCM_nonpoll(i) - TC0_nonpoll(i));    
+      F_t_nonpoll(j,i) = elem_prod(pow(V_nonpoll(j,i),X_nonpoll(i)),mfexp(X_nonpoll(i)*(1.0- V_nonpoll(j,i))));
+      Cmax_nonpoll(j,i) = 365*C_a_nonpoll(i)*pow(mn_wgt_nonpoll(i,j),C_b_nonpoll(i))*F_t_nonpoll(j,i);
+     }
+  } 
    // Sets up sigmas (for each age) used to estimate future mean-wt-age (Eq. 21)
   for (i=1991;i<=endyr-1;i++) 
     for (j=1;j<=nages;j++) 
@@ -844,6 +934,9 @@ INITIALIZATION_SECTION
   sel_a501_fsh 3
   sel_dif2_fsh 5
   sel_trm2_fsh .90
+  log_a_II -6.0
+  log_b_II 3.912
+
 PARAMETER_SECTION
   init_number log_avgrec(1);
   init_number log_avginit(1);
@@ -1118,6 +1211,54 @@ PARAMETER_SECTION
   sdreport_vector Age3_Abund(styr,endyr_r)
   vector age_1_7_biomass(styr,endyr_r);
   objective_function_value fff;
+
+  //  Things for estimating the relation between temperature and SR residuals
+  init_number resid_temp_int(do_temp_phase);
+  init_number resid_temp_x1(do_temp_phase);
+  init_number resid_temp_x2(do_temp_phase);
+  vector SR_resids_temp(styr_est,endyr_est); 
+  number SR_resids_like;
+
+  //   Thingies for estimating the predation mortality rates (added by Paul)
+  init_bounded_matrix  log_a_II(1,n_pred_grp,1,n_pred_ages,-12,0,do_pred_phase)   // the "a" parameter for Holling type 2(log scale, by predator and age) 
+  init_bounded_matrix  log_b_II(1,n_pred_grp,1,n_pred_ages,0,12,do_pred_phase)   // the "b" parameter for Holling type 2(log scale, by predator and age)
+  init_bounded_vector  log_resid_M(1,n_pred_ages,-3,0.1,do_pred_phase)  // the residual natural mortality for the ages that are preyed upon (on log scale)
+  vector       resid_M(1,n_pred_ages)   
+  vector       resid_M_like(1,n_pred_ages)    // the likelihood for fitting the residual natural mortality rates 
+  matrix       a_II(1,n_pred_grp,1,n_pred_ages)   // unlogged versions of the Holling type II parameters 
+  matrix       b_II(1,n_pred_grp,1,n_pred_ages)  
+   
+  3darray natage_strat(styr,endyr_r,1,n_pred_ages,1,nstrata_pred)  // the number of poll by strata for a given year and age
+  3darray natage_strat_dens(styr,endyr_r,1,n_pred_ages,1,nstrata_pred) // the density of poll by strata for a given year and age
+  3darray meanN(styr,endyr_r,1,n_pred_ages,1,nstrata_pred);  // the mean N from the iteration with the predation mortality
+  matrix  meannatage(styr,endyr,1,nages)                     // the mean N summed across the strata
+  3darray meannatage_bystrata(styr,endyr,1,nages,1,nstrata_pred)      // the mean N by strata
+  3darray mean_dens_bystrata(styr,endyr,1,nages,1,nstrata_pred)  // mean density at age by strata
+  matrix  mean_dens(styr,endyr_r,1,n_pred_ages)  // the mean density over all the area, within year and strata
+  4darray cons(1,n_pred_grp,styr,endyr_r,1,n_pred_ages,1,nstrata_pred);  // the consumption of pollock, by predator, year, pollock age, and area
+  3darray natmort_pred(1,n_pred_ages,styr,endyr_r,1,nstrata_pred);       // the natural mortality with spatial predation
+  4darray M_pred(styr,endyr_r,1,n_pred_ages,1,nstrata_pred,1,n_pred_grp_nonpoll);  // the inst predation rate for pollock, of pollock, by predator, year, pollock age, and area
+  3darray M_pred_sum(styr,endyr_r,1,n_pred_ages,1,nstrata_pred)                  // the total M across predators within a year, pollock age, and strata 
+  3darray Z_pred(styr,endyr_r,1,n_pred_ages,1,nstrata_pred);  // the Z for a1 pollock, by year and area  
+  3darray S_pred(styr,endyr_r,1,n_pred_ages,1,nstrata_pred);  // the S for a1 pollock, by year and area
+  matrix  M_pred_avg(1,n_pred_ages,styr,endyr_r);  // average of predation mortality across the strata, weighted by poll abundance at start of year
+  3darray cons_atage(1,n_pred_grp,styr,endyr_r,1,n_pred_ages);   // total consumption by predator, year and age (sums over strata)
+  3darray cons_atage_wt(1,n_pred_grp,styr,endyr_r,1,n_pred_ages);   // total weight of consumption by predator, year and age (sums over strata)
+  matrix  pred_cons(1,n_pred_grp,styr,endyr_r);                  // the predicted total consumption bny predator within a year (across ages) 
+  3darray eac_cons(1,n_pred_grp,styr,endyr_r,1,n_pred_ages);   // the estimated age comp for consumption(by predator and year, sums over strata)
+  vector  ssq_cons(1,n_pred_grp);                                              // the sum of squares for total consumption
+  vector  oac_cons_like_offset(1,n_pred_grp);                  // offset for multinomial  
+  vector  age_like_cons(1,n_pred_grp);              // likelihood for the age comps
+  3darray pred_cpup(1,n_pred_grp,styr,endyr_r,1,n_pred_ages)  // the predicted CPUP by predator, year, and age
+  4darray implied_cpuppa(1,n_pred_grp,1,nyrs_cons_nonpoll,1,n_pred_ages,1,nstrata_pred);  // predicted catch per unit predator per area 
+  4darray implied_obs_cons_bystrata(1,n_pred_grp,1,nyrs_cons_nonpoll,1,n_pred_ages,1,nstrata_pred)  // implied observed consumption by strata
+  4darray implied_prop_Cmax(1,n_pred_grp,1,nyrs_cons_nonpoll,1,n_pred_ages,1,nstrata_pred)  // implied consumption rate as proportion of Cmax
+
+  //matrix  ssq_cpup(1,n_pred_grp,1,n_pred_ages)
+ 
+
+
+
 PRELIMINARY_CALCS_SECTION
   // fixed_catch_fut1 = fixed_catch_fut1 + 0.1 ;
   wt_fut = wt_fsh(endyr_r); // initializes estimates to correct values...Eq. 21
@@ -1181,6 +1322,15 @@ PRELIMINARY_CALCS_SECTION
 		lseb_eit(i) = (std_ob_eit(i)/ob_eit(i));
   lseb_eit   = sqrt(log(square(lseb_eit) + 1.));
   lvarb_eit  = square(lseb_eit);
+
+  // calc offset for ATF predation age comps (added by Paul)
+  oac_cons_like_offset.initialize();
+  for (i=1;i<=nyrs_cons_nonpoll;i++) {  
+    for(j=1;j<=n_pred_grp;j++) {
+       oac_cons_nonpoll(j,i) = oac_cons_nonpoll(j,i)/sum(oac_cons_nonpoll(j,i));     
+       oac_cons_like_offset(j) -=sam_oac_cons_nonpoll(j,i)*oac_cons_nonpoll(j,i)*log(oac_cons_nonpoll(j,i) +1e-3);
+    }
+  }
 
 RUNTIME_SECTION
    maximum_function_evaluations 50,400,900,1800,1900,15000
@@ -4880,3 +5030,4 @@ GLOBALS_SECTION
   adstring Wtage_file;
   adstring RawSurveyCPUE_file; 
   adstring endyrn_file;
+  adstring tempPredFile;
