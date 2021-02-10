@@ -53,7 +53,7 @@ DATA_SECTION
   vector selages(1,15)
   !! selages=1.0;selages(1)=0;selages(2)=0;
   vector avo_sel(1,15)
-  !! avo_sel(1)=0.0;	avo_sel(2)=1;	avo_sel(3)=1;	avo_sel(4)=0.85;	avo_sel(5)=0.7;	avo_sel(6)=0.55;	avo_sel(7)=0.3;	avo_sel(8)=0.15;	avo_sel(9)=0.05;	avo_sel(10)=0.01;	avo_sel(11)=0.01;	avo_sel(12)=0.01;	avo_sel(13)=0.01;	avo_sel(14)=0.01;	avo_sel(15)=0.01;
+  !! avo_sel(1)=0.0;  avo_sel(2)=1;  avo_sel(3)=1;  avo_sel(4)=0.85;  avo_sel(5)=0.7;  avo_sel(6)=0.55;  avo_sel(7)=0.3;  avo_sel(8)=0.15;  avo_sel(9)=0.05;  avo_sel(10)=0.01;  avo_sel(11)=0.01;  avo_sel(12)=0.01;  avo_sel(13)=0.01;  avo_sel(14)=0.01;  avo_sel(15)=0.01;
   vector Cat_Fut(1,10);
   !! do_EIT1=1; // flag to carry EIT out in future year (for simulations only)
   !! pflag=0;
@@ -136,7 +136,7 @@ DATA_SECTION
   init_int    nyrs_future;
   init_number next_yrs_catch; // Used to grid / interpolate...when below target.
   // init_number fixed_catch_fut1;
-	init_int nscen; // !! nscen=7 or 22; // 10 scenarios above and 10 below, number 11 target, (stranger things ref) and 22 is level catch
+  init_int nscen; // !! nscen=7 or 22; // 10 scenarios above and 10 below, number 11 target, (stranger things ref) and 22 is level catch
   init_number fixed_catch_fut2;
   init_number fixed_catch_fut3;
   init_int phase_F40;
@@ -630,7 +630,7 @@ DATA_SECTION
   // Read in covariance matrix of BTS survey biomass over time
   init_matrix cov_in(1,n_bts,1,n_bts);
   matrix cov(1,n_bts_r,1,n_bts_r);
-	!! for (i=1;i<=n_bts_r;i++) cov(i) = cov_in(i)(1,n_bts_r);
+  !! for (i=1;i<=n_bts_r;i++) cov(i) = cov_in(i)(1,n_bts_r);
   matrix inv_bts_cov(1,n_bts_r,1,n_bts_r) // Covariance matrix     
   !! inv_bts_cov = inv(cov) ;
   !! write_log(cov);
@@ -1485,7 +1485,7 @@ PRELIMINARY_CALCS_SECTION
   // Simple decrement of future cathes to capture relationship between adjustments (below Bmsy) w/in same year
   for (i=2;i<=10;i++) 
     Cat_Fut(i) = Cat_Fut(i-1)*.90;
-	write_log(Cat_Fut);
+  write_log(Cat_Fut);
 
   // cout << "Next year's catch and decrements"<<endl<<Cat_Fut<<endl;
   lse_eit    = elem_div(std_ot_eit(1,n_eit_r),ot_eit);
@@ -1493,7 +1493,7 @@ PRELIMINARY_CALCS_SECTION
   lvar_eit   = square(lse_eit);
   var_ob_eit = elem_prod(std_ob_eit_data,std_ob_eit_data);
   for (i=1;i<=n_eit_r;i++) 
-		lseb_eit(i) = (std_ob_eit(i)/ob_eit(i));
+    lseb_eit(i) = (std_ob_eit(i)/ob_eit(i));
   lseb_eit   = sqrt(log(square(lseb_eit) + 1.));
   lvarb_eit  = square(lseb_eit);
 
@@ -1505,6 +1505,8 @@ PRELIMINARY_CALCS_SECTION
        oac_cons_like_offset(j) -=sam_oac_cons_nonpoll(j,i)*oac_cons_nonpoll(j,i)*log(oac_cons_nonpoll(j,i) +1e-3);
     }
   }
+  write_log(oac_cons_nonpoll);
+  write_log(oac_cons_like_offset);
 
 
 
@@ -1516,19 +1518,25 @@ RUNTIME_SECTION
 
 PROCEDURE_SECTION
   if (active(yr_eff)||active(coh_eff))
-		Est_Fixed_Effects_wts();
+    Est_Fixed_Effects_wts();
+  cout<<"her1"<<endl;
   Get_Selectivity();
+  cout<<"her2"<<endl;
   Get_Mortality_Rates();
+  cout<<"her3"<<endl;
   GetNumbersAtAge();
+  cout<<"her4"<<endl;
   Get_Catch_at_Age();
   if(active(log_resid_M))                // added by Paul
     Get_Cons_at_Age();
+  cout<<"here"<<endl;
   GetDependentVar();  // Includes MSY, F40% computations
   Evaluate_Objective_Function();
   if (do_fmort)
     Profile_F();
   if (mceval_phase()) 
     write_eval();
+  cout<<"here"<<endl;
   update_compweights();  //  added by Paul
 
 FUNCTION update_compweights   // added by Paul, update if the comp is estmated, otherwise carry over previous comp weight
@@ -1550,30 +1558,30 @@ FUNCTION update_compweights   // added by Paul, update if the comp is estmated, 
 
 
 REPORT_SECTION
-	// if (last_phase()) Get_Replacement_Yield();
+  // if (last_phase()) Get_Replacement_Yield();
   save_gradients(gradients);
   if (last_phase())
-		cout << endl<<"Finished last phase: "<<current_phase()<<" ============================================="<<endl<<endl;
+    cout << endl<<"Finished last phase: "<<current_phase()<<" ============================================="<<endl<<endl;
   else
-		cout << endl<<"Changing phases from: "<<current_phase()<<" ============================================="<<endl<<endl;
-	if (ctrl_flag(28)==0 && last_phase())
-	{
-		int k;
-	  i=1;k=i+2;
-	  all_like(i,k) = surv_like            ;i+=3;
-	  all_like(i)   = cpue_like            ;i++;
-	  all_like(i)   = avo_like             ;i++;k=i+2;
-	  all_like(i,k) = age_like.shift(i)    ;i+=3;k=i+2;
-	  all_like(i,k) = sel_like.shift(i)    ;i+=3;k=i+2;
-	  all_like(i,k) = sel_like_dev.shift(i);i+=3;
-	  all_like(i)   = wt_like              ;i++;k=i+3;
-	  all_like(i,k) = Priors.shift(i)      ;i+=4;k=i+6;
-	  all_like(i,k) = rec_like.shift(i)    ;i++ ;
-	  age_like.shift(1);
-	  sel_like.shift(1);
-	  sel_like_dev.shift(1);
-	  rec_like.shift(1);
-	  Priors.shift(1);
+    cout << endl<<"Changing phases from: "<<current_phase()<<" ============================================="<<endl<<endl;
+  if (ctrl_flag(28)==0 && last_phase())
+  {
+    int k;
+    i=1;k=i+2;
+    all_like(i,k) = surv_like            ;i+=3;
+    all_like(i)   = cpue_like            ;i++;
+    all_like(i)   = avo_like             ;i++;k=i+2;
+    all_like(i,k) = age_like.shift(i)    ;i+=3;k=i+2;
+    all_like(i,k) = sel_like.shift(i)    ;i+=3;k=i+2;
+    all_like(i,k) = sel_like_dev.shift(i);i+=3;
+    all_like(i)   = wt_like              ;i++;k=i+3;
+    all_like(i,k) = Priors.shift(i)      ;i+=4;k=i+6;
+    all_like(i,k) = rec_like.shift(i)    ;i++ ;
+    age_like.shift(1);
+    sel_like.shift(1);
+    sel_like_dev.shift(1);
+    rec_like.shift(1);
+    Priors.shift(1);
   report << "N"<<endl;
   report << natage<<endl;
   report << "C"<<endl;
@@ -1824,7 +1832,7 @@ REPORT_SECTION
     }
 
   if (ctrl_flag(28)==0 && last_phase())
-	{
+  {
     FW_fsh(1) = calc_Francis_weights(oac_fsh, eac_fsh,sam_fsh );
     FW_fsh(2) = calc_Francis_weights(oac_fsh_2, eac_fsh_2,sam_fsh_2 );
     FW_fsh(3) = calc_Francis_weights(oac_fsh_3, eac_fsh_3,sam_fsh_3 );
@@ -1839,7 +1847,7 @@ REPORT_SECTION
       eac_ats(i) = eac_eit(i)(mina_eit,nages);
     }
     FW_eit = calc_Francis_weights(oac_ats, eac_ats,sam_eit );
-	}
+  }
     // cout<<"Report"<<endl;
     get_msy();
     // cout<<"Report"<<endl;
@@ -1923,7 +1931,7 @@ REPORT_SECTION
   */ 
   legacy_rep << F<<endl;
   legacy_rep << wt_pre<<endl;
-	
+  
   report << "phizero is " << phizero << endl;
   report << "Bzero is " << Bzero << endl; 
   if (do_temp==1){
@@ -2130,170 +2138,164 @@ FUNCTION GetNumbersAtAge
 
 
 
-  if(do_pred==1){                       // switch to estimate predation mort, otherwise revert back to standad equations
+  // switch to estimate predation mort, otherwise revert back to standad equations
+  if(do_pred==1)
+  {                       
+    if(active(log_resid_M))   
+      resid_M = mfexp(log_resid_M);
+    else {
+      resid_M(1) = 0.9;
+      resid_M(2) = 0.45;
+      resid_M(3) = 0.3;
+    }
  
- if(active(log_resid_M))   resid_M = mfexp(log_resid_M);
- else {
-    resid_M(1) = 0.9;
-    resid_M(2) = 0.45;
-    resid_M(3) = 0.3;
-  }
- 
-
-
-
-  if(active(log_resid_M)){
-    a_II = mfexp(log_a_II);
-    b_II = mfexp(log_b_II);
-    a_II_vec = mfexp(log_a_II_vec);
-    b_II_vec = mfexp(log_b_II_vec);
-    for (i=1;i<=n_pred_grp;i++)
+    if(active(log_resid_M))
+    {
+      a_II = mfexp(log_a_II);
+      b_II = mfexp(log_b_II);
+      a_II_vec = mfexp(log_a_II_vec);
+      b_II_vec = mfexp(log_b_II_vec);
+      for (i=1;i<=n_pred_grp;i++)
       {
         /*
+        */
         cout << "pred_grp is "  << i <<endl;
         cout << " log_rho(i) is "  << log_rho(i) << endl;
         cout << " mfexp(log_rho(i) is "  << mfexp(log(rho(i)))  <<  endl;
         cout << " sum(mfexp(log_rho(i))) "  << sum(mfexp(log_rho(i))) << endl;
         cout << "log_rho minus sum is "  << log_rho(i) -  log(sum(mfexp(log_rho(i)))) << endl;
         cout << " exponentiated is "  << mfexp(log_rho(i) -  log(sum(mfexp(log_rho(i))))) << endl;
-        */
         //log_rho(i) -=log(sum(mfexp(log_rho(i))));
         //log_rho2(i) = log_rho(i) - log(sum(exp(log_rho(i)))); 
         rho(i) = mfexp(log_rho(i));
         //rho(i) = rho(i)/sum(rho(i));
-        /*
         cout << "actual is "  << rho(i) << endl;
         cout << " " << endl; 
+        /*
         */
 
       }
-   }
-   else {
-    a_II = 0.0;
-    b_II = 50.0;
-    a_II_vec = 0.0;
-    b_II_vec = 50.0;
-    rho = 0.0;
-   }
+    }
+    else 
+    {
+      a_II = 0.0;
+      b_II = 50.0;
+      a_II_vec = 0.0;
+      b_II_vec = 50.0;
+      rho = 0.0;
+    }
+    // loop over years
+    for (i=styr;i<=endyr_r;i++)
+    {           
+      SSB(i) = 0.0;          // set SSB for year to zero
+      yr_ind = i - 1981;    // for getting the index for the wt_bts
+      if(yr_ind<1) 
+        yr_ind = 1;
 
-  
-
-    for (i=styr;i<=endyr_r;i++){           // loop over years
-          SSB(i) = 0.0;          // set SSB for year to zero
-     yr_ind = i - 1981;    // for getting the index for the wt_bts
-       if(yr_ind<1) yr_ind = 1;
-
-    for (k=1;k<=n_pred_ages;k++)            // loop over ages of pollock that are preyed upon
-     {           
-       natage_strat(i,k) = natage(i,pred_ages(k))*poll_dist(k,i);       // distribute the age k pollock in each area  
-       natage_strat_dens(i,k) = elem_div(natage_strat(i,k),area_pred);  // the density of age k pollock in each area
-     }
-     
-       // do the multispecies funcction response thing    
-     
-     if (do_mult_func_resp==1)
-     {
-     for (j=1;j<=nstrata_pred;j++)  // loop over strata, and get the mean abundance accounting for all mortality
-      {            
-      
-       M_pred_tmp = get_Mpred2(column(natage_strat_dens(i),j),resid_M,F(i)(1,n_pred_ages),
-                      column(Npred_bystrata_nonpoll(i),j),column(mn_wgt_nonpoll,i), wt_bts(yr_ind)(1,n_pred_ages)*1000,column(Cmax_nonpoll(i),j),rho,
-                      a_II_vec,b_II_vec, j);
-
-      
-       // loop to get the results in the right structure
-       for (ii=1;ii<=n_pred_ages;ii++){
-        for (jj=1;jj<=n_pred_grp;jj++){
-            M_pred(i,ii,j,jj) = M_pred_tmp(jj,ii);
-            //cout <<" prey age is " << ii<< " pred_grp is "<< jj << " strata is "  << j << " M_pred is " << M_pred(i,ii,j,jj) << endl;
-         }     
-       }
+      for (k=1;k<=n_pred_ages;k++)            // loop over ages of pollock that are preyed upon
+      {           
+        natage_strat(i,k) = natage(i,pred_ages(k))*poll_dist(k,i);       // distribute the age k pollock in each area  
+        natage_strat_dens(i,k) = elem_div(natage_strat(i,k),area_pred);  // the density of age k pollock in each area
       }
-    }   // loop if doing the multispecies functional response 
+     
+      // do the multispecies funcction response thing    
+      if (do_mult_func_resp==1)
+      {
+        for (j=1;j<=nstrata_pred;j++)  // loop over strata, and get the mean abundance accounting for all mortality
+        {            
+          M_pred_tmp = get_Mpred2(column(natage_strat_dens(i),j),resid_M,F(i)(1,n_pred_ages),
+                                    column(Npred_bystrata_nonpoll(i),j),
+                                    column(mn_wgt_nonpoll,i), 
+                                    wt_bts(yr_ind)(1,n_pred_ages)*1000,
+                                    column(Cmax_nonpoll(i),j),rho,
+                                    a_II_vec,b_II_vec, j);
 
-
-
-  for (k=1;k<=n_pred_ages;k++)            // loop over ages of pollock that are preyed upon
-     {           
-    
-    for (j=1;j<=nstrata_pred;j++){            // loop over strata, and get the mean abundance accounting for all mortality
-      
-
-      if (do_mult_func_resp != 1)   // loop is doing the single species functional response
-        {
-          M_pred(i,k,j) = get_Mpred(natage_strat_dens(i,k,j),F(i,pred_ages(k)),resid_M(k),column(natage_strat_dens(i),j),
-                      column(a_II,k),column(b_II,k),column(Npred_bystrata_nonpoll(i),j),column(mn_wgt_nonpoll,i)/(wt_bts(yr_ind,k)*1000),column(Cmax_nonpoll(i),j),rho);
+          cout << "M_pred_tmp is "  << M_pred_tmp << endl;
+          // loop to get the results in the right structure
+          for (ii=1;ii<=n_pred_ages;ii++)
+          {
+            for (jj=1;jj<=n_pred_grp;jj++)
+            {
+              M_pred(i,ii,j,jj) = M_pred_tmp(jj,ii);
+              //cout <<" prey age is " << ii<< " pred_grp is "<< jj << " strata is "  << j << " M_pred is " << M_pred(i,ii,j,jj) << endl;
+            }     
+          }
         }
+      }   // loop if doing the multispecies functional response 
 
-        
-
-       M_pred_sum(i,k,j) = sum(M_pred(i,k,j));  // sum across the different predators
-
-      natmort_pred(k,i,j) = M_pred_sum(i,k,j) + resid_M(k);
-      Z_pred(i,k,j) = F(i,pred_ages(k)) + natmort_pred(k,i,j);   // get the total Z by year, pollock age, and strata
-      S_pred(i,k,j) =  mfexp(-1.0*Z_pred(i,k,j));
-      
-    }                                // close strata loop 
-     meannatage_bystrata(i,k) = elem_div(elem_prod(natage_strat(i,k),(1.-S_pred(i,k))),Z_pred(i,k)); // the mean number at age by strata      
-     meannatage(i,k) = sum(meannatage_bystrata(i,k));             // the mean N summed across the strata
-     mean_dens_bystrata(i,k) = elem_div(meannatage_bystrata(i,k),area_pred); 
-     mean_dens(i,k) = (meannatage(i,k))/sum(area_pred);   // the mean density summed over the strata within a year and age 
+      // loop over ages of pollock that are preyed upon
+      for (k=1;k<=n_pred_ages;k++)            
+      {           
+        // loop over strata, and get the mean abundance accounting for all mortality
+        for (j=1;j<=nstrata_pred;j++)
+        {            
+          if (do_mult_func_resp != 1)   // loop is doing the single species functional response
+          {
+            M_pred(i,k,j) = get_Mpred(natage_strat_dens(i,k,j),
+                                      F(i,pred_ages(k)),
+                                      resid_M(k),
+                                      column(natage_strat_dens(i),j),
+                                      column(a_II,k),
+                                      column(b_II,k),
+                                      column(Npred_bystrata_nonpoll(i),j),
+                                      column(mn_wgt_nonpoll,i)/(wt_bts(yr_ind,k)*1000),
+                                      column(Cmax_nonpoll(i),j),rho);
+          }
+          M_pred_sum(i,k,j) = sum(M_pred(i,k,j));  // sum across the different predators
+          natmort_pred(k,i,j) = M_pred_sum(i,k,j) + resid_M(k);
+          Z_pred(i,k,j) = F(i,pred_ages(k)) + natmort_pred(k,i,j);   // get the total Z by year, pollock age, and strata
+          S_pred(i,k,j) =  mfexp(-1.0*Z_pred(i,k,j));
+        }                                // close strata loop 
+        cout << "M_pred is "  << M_pred<< endl;
+        meannatage_bystrata(i,k) = elem_div(elem_prod(natage_strat(i,k),(1.-S_pred(i,k))),Z_pred(i,k)); // the mean number at age by strata      
+        meannatage(i,k) = sum(meannatage_bystrata(i,k));             // the mean N summed across the strata
+        mean_dens_bystrata(i,k) = elem_div(meannatage_bystrata(i,k),area_pred); 
+        mean_dens(i,k) = (meannatage(i,k))/sum(area_pred);   // the mean density summed over the strata within a year and age 
      
-     for (j=1;j<=nstrata_pred;j++){            // loop over strata, and get the mean abundance accounting for all mortality
-       for (m=1;m<=n_pred_grp;m++){   // loop over predators, and get the consumption and M by predator, pollock age, year, and strata 
-        cons(m,i,k,j) = M_pred(i,k,j,m)*meannatage_bystrata(i,k,j); 
-       }
-     } 
-     
-      M_pred_avg(k,i) = (M_pred_sum(i,k)*meannatage_bystrata(i,k))/sum(meannatage_bystrata(i,k));     // get an average M_pred across the strata, weighted by the beginning abundance in each strata                                                  
-                                 // get the total survival by year, pollock age, and strata
-      if(i < endyr_r) 
-         natage(i+1,k+1) = natage_strat(i,k)*S_pred(i,k);     // the natage after predation (summed over strata) 
-     
-      SSB(i) +=  natage_strat(i,k)*pow(S_pred(i,k),yrfrac)*p_mature(pred_ages(k))*wt_ssb(i,pred_ages(k)); 
-
-   }                                  // end age loop
+        for (j=1;j<=nstrata_pred;j++)
+        {            // loop over strata, and get the mean abundance accounting for all mortality
+          for (m=1;m<=n_pred_grp;m++)
+          {   // loop over predators, and get the consumption and M by predator, pollock age, year, and strata 
+            cons(m,i,k,j) = M_pred(i,k,j,m)*meannatage_bystrata(i,k,j); 
+          }
+        } 
+        M_pred_avg(k,i) = (M_pred_sum(i,k)*meannatage_bystrata(i,k))/sum(meannatage_bystrata(i,k));     // get an average M_pred across the strata, weighted by the beginning abundance in each strata                                                  
+        // get the total survival by year, pollock age, and strata
+        if(i < endyr_r) 
+          natage(i+1,k+1) = natage_strat(i,k)*S_pred(i,k);     // the natage after predation (summed over strata) 
+        SSB(i) +=  natage_strat(i,k)*pow(S_pred(i,k),yrfrac)*p_mature(pred_ages(k))*wt_ssb(i,pred_ages(k)); 
+      } // end age loop
       SSB(i) += elem_prod(elem_prod(natage(i)(n_pred_ages+1,nages),
                    pow(S(i)(n_pred_ages+1,nages),yrfrac)),p_mature(n_pred_ages+1,nages))*wt_ssb(i)(n_pred_ages+1,nages); // Eq. 1 
       
       meannatage(i)(n_pred_ages+1,nages) = elem_prod(elem_div(1.-S(i)(n_pred_ages+1,nages),Z(i)(n_pred_ages+1,nages)),
                    natage(i)(n_pred_ages+1,nages));   // the mean n at age for the ages not preyed upon
-
-
-
-      if (i < endyr_r) {
+      if (i < endyr_r) 
+      {
         natage(i+1)(n_pred_ages+2,nages) = ++elem_prod(natage(i)(n_pred_ages+1,nages-1), S(i)(n_pred_ages+1,nages-1));
-        natage(i+1,nages)   += natage(i,nages)*S(i,nages); // Eq. 1 
+        natage(i+1,nages)               += natage(i,nages)*S(i,nages); // Eq. 1
       }
-   
-   }                                  // end year loop
-
-
+    } // end year loop
    // added by Paul to get M values the reflect the recent predation
-   for (i=1;i<=n_pred_ages;i++)
+    for (i=1;i<=n_pred_ages;i++)
     {
-       natmort_fut(i) = mean(M_pred_avg(i)(endyr_r-4,endyr_r) + resid_M(i));      
-   }
-
-   }   //   ********* end of thing by Paul  *******************
-
-
-  else {
-  SSB(styr)  = elem_prod(elem_prod(natage(styr),pow(S(styr),yrfrac)),p_mature)*wt_ssb(styr); // Eq. 1
-  natage(styr+1)(2,nages) = ++elem_prod(natage(styr)(1,nages-1), S(styr)(1,nages-1));   // Eq. 1
-  natage(styr+1,nages)   += natage(styr,nages)*S(styr,nages); // Eq. 1
-
-  for (i=styr+1;i<endyr_r;i++)
+      natmort_fut(i) = mean(M_pred_avg(i)(endyr_r-4,endyr_r) + resid_M(i));      
+    }
+  }   //   ********* end of thing by Paul  *******************
+  else 
   {
-    SSB(i)          = elem_prod(elem_prod(natage(i),pow(S(i),yrfrac)),p_mature)*wt_ssb(i); // Eq. 1
-    natage(i+1)(2,nages) = ++elem_prod(natage(i)(1,nages-1), S(i)(1,nages-1));   // Eq. 1
-    natage(i+1,nages)   += natage(i,nages)*S(i,nages); // Eq. 1
-  }
-  SSB(endyr_r)  = elem_prod(elem_prod(natage(endyr_r),pow(S(endyr_r),yrfrac)),p_mature)*wt_ssb(endyr_r); // Eq. 1
-  meannatage = elem_prod(elem_div(1.-S,Z),natage);
-
+    SSB(styr)               = elem_prod(elem_prod(natage(styr),pow(S(styr),yrfrac)),p_mature)*wt_ssb(styr); // Eq. 1
+    natage(styr+1)(2,nages) = ++elem_prod(natage(styr)(1,nages-1), S(styr)(1,nages-1));   // Eq. 1
+    natage(styr+1,nages)   += natage(styr,nages)*S(styr,nages); // Eq. 1
+    for (i=styr+1;i<endyr_r;i++)
+    {
+      SSB(i)               = elem_prod(elem_prod(natage(i),pow(S(i),yrfrac)),p_mature)*wt_ssb(i); // Eq. 1
+      natage(i+1)(2,nages) = ++elem_prod(natage(i)(1,nages-1), S(i)(1,nages-1));   // Eq. 1
+      natage(i+1,nages)   += natage(i,nages)*S(i,nages); // Eq. 1
+    }
+    SSB(endyr_r) = elem_prod(elem_prod(natage(endyr_r),pow(S(endyr_r),yrfrac)),p_mature)*wt_ssb(endyr_r); // Eq. 1
+    meannatage   = elem_prod(elem_div(1.-S,Z),natage);
   }  // end else loop
-
   //meanrec = mean(pred_rec(styr_est,endyr_r));
   meanrec = mean(pred_rec(1978,endyr_r));  // *****  changed by Paul to hard-wire mean rec to 1978 onwards 
  
@@ -2307,53 +2309,50 @@ FUNCTION dvar_vector get_Mpred(const dvariable& tmp_abun_bg,const dvariable& tmp
     dvar_vector M_pred(1,n_pred_grp);          // Holling type II predation F (for each predator type)
     dvariable M_pred_sum;               // the total M_pred  
     dvariable prev_tmp_abun_end;    // the abundance at the end of the period, from the previous time step 
-    
-   
-
-    if (tmp_abun_bg >0) {
-
-    tmp_abun_end = tmp_abun_bg*mfexp(-tmp_F -tmp_M);
-    avg_N = tmp_abun_bg*(1-mfexp(-tmp_F -tmp_M))/(tmp_F + tmp_M);
-    M_pred = elem_prod(elem_prod(wt_ratio,elem_prod(tmp_Cmax,elem_prod(a,Npred))),(1/(b+avg_N))); 
-    M_pred_sum = sum(M_pred);
-    //M_pred = elem_prod(a,Npred)*(1/(b+avg_N));
-    /*cout << "the weight ratio is " << endl;
-    cout << wt_ratio << endl;
-    cout << "the tmp_Cmax is  " << endl;
-    cout << tmp_Cmax << endl;
-    cout << "the a_II  " << endl;
-    cout << a << endl;
-    cout << "the Npred  " << endl;
-    cout << Npred << endl;
-    cout << "The b_II  " << endl;
-    cout << b  << endl;
-    cout << "The avg_N  " << endl;
-    cout << avg_N  << endl;
-    cout << "the M_pred  " << endl;
-    cout << elem_prod(wt_ratio,elem_prod(tmp_Cmax,elem_prod(a,Npred)))*(1/(b+avg_N))   << endl;
-    */
-    
-
-
-    dvariable dd = 10.;
-    int iter = 0;
-    while (dd > 1e-6) 
+    if (tmp_abun_bg >0) 
     {
-      iter++;
-      prev_tmp_abun_end = tmp_abun_end;
-      tmp_abun_end = tmp_abun_bg*mfexp(-tmp_F -tmp_M -M_pred_sum);
-      avg_N = tmp_abun_bg*(1-mfexp(-tmp_F -tmp_M -M_pred_sum))/(tmp_F + tmp_M + M_pred_sum);
-      M_pred = elem_prod(elem_prod(wt_ratio,elem_prod(tmp_Cmax,elem_prod(a,Npred))),(1/(b+avg_N))); 
-      M_pred_sum = sum(M_pred);
-      //M_pred = elem_prod(a,Npred)*(1/(b+avg_N)); 
+      tmp_abun_end = tmp_abun_bg*mfexp(-tmp_F -tmp_M);
+      avg_N        = tmp_abun_bg*(1-mfexp(-tmp_F -tmp_M))/(tmp_F + tmp_M);
+      M_pred       = elem_prod(elem_prod(wt_ratio,elem_prod(tmp_Cmax,elem_prod(a,Npred))),(1/(b+avg_N)));
+      M_pred_sum   = sum(M_pred);
+      //M_pred     = elem_prod(a,Npred)*(1/(b+avg_N));
+      /*cout << "the weight ratio is " << endl;
+      cout << wt_ratio << endl;
+      cout << "the tmp_Cmax is  " << endl;
+      cout << tmp_Cmax << endl;
+      cout << "the a_II  " << endl;
+      cout << a << endl;
+      cout << "the Npred  " << endl;
+      cout << Npred << endl;
+      cout << "The b_II  " << endl;
+      cout << b  << endl;
+      cout << "The avg_N  " << endl;
+      cout << avg_N  << endl;
+      cout << "the M_pred  " << endl;
+      cout << elem_prod(wt_ratio,elem_prod(tmp_Cmax,elem_prod(a,Npred)))*(1/(b+avg_N))   << endl;
+      */
+    
+      // Check this should be double not dvariable...
+      dvariable dd = 10.;
+      int iter     = 0;
+      // Check differentiability here...
+      while (dd > 1e-6) 
+      {
+        iter++;
+        prev_tmp_abun_end = tmp_abun_end;
+        tmp_abun_end = tmp_abun_bg*mfexp(-tmp_F -tmp_M -M_pred_sum);
+        avg_N = tmp_abun_bg*(1-mfexp(-tmp_F -tmp_M -M_pred_sum))/(tmp_F + tmp_M + M_pred_sum);
+        M_pred = elem_prod(elem_prod(wt_ratio,elem_prod(tmp_Cmax,elem_prod(a,Npred))),(1/(b+avg_N))); 
+        M_pred_sum = sum(M_pred);
+        //M_pred = elem_prod(a,Npred)*(1/(b+avg_N)); 
 
-      dd =  prev_tmp_abun_end / tmp_abun_end - 1.;
-      if (dd<0.) dd *= -1.;
-    //  if(active(log_a_II)){
-    //  cout <<"in loop  "<<iter<<" "<<tmp_abun_bg<<" "<<prev_tmp_abun_end<<" "<< tmp_abun_end<<" "<<"M_pred is "<< M_pred<<endl;
-    //  cout << avg_N << endl;
-    //  }
-     }
+        dd =  prev_tmp_abun_end / tmp_abun_end - 1.;
+        if (dd<0.) dd *= -1.;
+        //  if(active(log_a_II)){
+        //  cout <<"in loop  "<<iter<<" "<<tmp_abun_bg<<" "<<prev_tmp_abun_end<<" "<< tmp_abun_end<<" "<<"M_pred is "<< M_pred<<endl;
+        //  cout << avg_N << endl;
+        //  }
+      }
     }
     else 
       M_pred = 0.0;
@@ -2365,30 +2364,32 @@ FUNCTION dvar_matrix get_Mpred2(const dvar_vector& tmp_abun_vec,
                 const dvar_vector& tmp_M_vec, const dvar_vector& F_vec,
                 const dvector& Npred, const dvector& wts_pred, const dvector& wts_prey, const dvector& tmp_Cmax, const dvar_matrix& rho,
                 const dvar_vector& a_vec,const dvar_vector& b_vec, const int strata)
-     // function to iterate to get the mean numbers, based on F, residual M, and predation M with type II function response
-    RETURN_ARRAYS_INCREMENT();
+  // function to iterate to get the mean numbers, based on F, residual M, and predation M with type II function response
+  RETURN_ARRAYS_INCREMENT();
 
-    dvar_vector tmp_abun_end_vec(1,n_pred_ages);  // the abundance at the end of the period, by prey age      
-    dvar_vector avg_N_vec(1,n_pred_ages); // the average N within the year, by prey age 
-    dvar_matrix M_pred_mat(1,n_pred_grp,1,n_pred_ages);          // Holling type II predation F (for each predator type and prey age)
-    dvar_vector M_pred_sum_vec(1,n_pred_ages);  // the total M_pred, by prey age group
-    dvar_vector prev_tmp_abun_end_vec(1,n_pred_ages);  // the vector of abundances at the end of the period, from the previous time step   
+  dvar_vector tmp_abun_end_vec(1,n_pred_ages);  // the abundance at the end of the period, by prey age      
+  dvar_vector avg_N_vec(1,n_pred_ages); // the average N within the year, by prey age 
+  dvar_matrix M_pred_mat(1,n_pred_grp,1,n_pred_ages);          // Holling type II predation F (for each predator type and prey age)
+  dvar_vector M_pred_sum_vec(1,n_pred_ages);  // the total M_pred, by prey age group
+  dvar_vector prev_tmp_abun_end_vec(1,n_pred_ages);  // the vector of abundances at the end of the period, from the previous time step   
 
-    int ii;
-    int jj;
+  int ii;
+  int jj;
 
-    if (sum(tmp_abun_vec) >0.0) {
+  if (sum(tmp_abun_vec) >0.0) 
+  {
     tmp_abun_end_vec = elem_prod(tmp_abun_vec,mfexp(-F_vec -tmp_M_vec));
     avg_N_vec = elem_prod(tmp_abun_vec,elem_div((1-mfexp(-F_vec -tmp_M_vec)),(F_vec + tmp_M_vec)));
 
     for (ii=1;ii<=n_pred_ages;ii++)   // loop over prey ages
-      {
+    {
       for (jj=1;jj<=n_pred_grp;jj++)  // loop over number of predators   
       {
-         M_pred_mat(jj,ii) = (tmp_Cmax(jj)*(wts_pred(jj)/wts_prey(ii))*a_vec(jj)*Npred(jj)*rho(jj,ii))/(b_vec(jj) + rho(jj)*avg_N_vec);
+         M_pred_mat(jj,ii) = (tmp_Cmax(jj)* (wts_pred(jj)/wts_prey(ii)) *a_vec(jj)*Npred(jj)*rho(jj,ii))/
+                               (b_vec(jj) + rho(jj)*avg_N_vec);
       }
       M_pred_sum_vec(ii) = sum(column(M_pred_mat,ii));
-     } 
+    } 
 
     dvector dd_vec(1,n_pred_ages);
     double dd_vec_sum = 10;
@@ -2402,13 +2403,13 @@ FUNCTION dvar_matrix get_Mpred2(const dvar_vector& tmp_abun_vec,
       avg_N_vec = elem_prod(tmp_abun_vec,elem_div((1-mfexp(-F_vec -tmp_M_vec -M_pred_sum_vec)),(F_vec + tmp_M_vec +M_pred_sum_vec)));
       
       for (ii=1;ii<=n_pred_ages;ii++)   // loop over prey ages
-       {
+      {
         for (jj=1;jj<=n_pred_grp;jj++)  // loop over number of predators   
         {
           M_pred_mat(jj,ii) = (tmp_Cmax(jj)*(wts_pred(jj)/wts_prey(ii))*a_vec(jj)*Npred(jj)*rho(jj,ii))/(b_vec(jj) + rho(jj)*avg_N_vec);
         }
-       M_pred_sum_vec(ii) = sum(column(M_pred_mat,ii));
-       }
+        M_pred_sum_vec(ii) = sum(column(M_pred_mat,ii));
+      }
 
       for (ii=1;ii<=n_pred_ages;ii++)
       {
@@ -2419,28 +2420,22 @@ FUNCTION dvar_matrix get_Mpred2(const dvar_vector& tmp_abun_vec,
           }              
         else dd_vec(ii) = 0.0;   
       }
-
       dd_vec_sum = sum(dd_vec);
     }  
-        //cout << " after while loop"  << endl;
-   }
-
-    else 
-      {
-      M_pred_mat = 0.0;
-      }
-
-
-      for (ii=1;ii<=n_pred_ages;ii++)
-       {
-         if (tmp_abun_end_vec(ii)==0.0) 
-         {
-            for (jj=1;jj<=n_pred_grp;jj++)  M_pred_mat(jj,ii) = 0.0; 
-          }
-       }  
-    
-    RETURN_ARRAYS_DECREMENT();
-    return M_pred_mat;
+  }
+  else 
+  {
+    M_pred_mat = 0.0;
+  }
+  for (ii=1;ii<=n_pred_ages;ii++)
+  {
+     if (tmp_abun_end_vec(ii)==0.0) 
+     {
+        for (jj=1;jj<=n_pred_grp;jj++)  M_pred_mat(jj,ii) = 0.0; 
+     }
+  }  
+  RETURN_ARRAYS_DECREMENT();
+  return M_pred_mat;
 
 
 FUNCTION GetDependentVar 
@@ -2458,20 +2453,19 @@ FUNCTION GetDependentVar
 
    // Spiffy SR resid-temp output (added by Paul)
   if (active(resid_temp_x1))
-   {
-  dvariable Xsst ;
-  dvariable step;
-  dvariable dist;
-  dvariable low; 
-  low = 0.9*min(SST_mean0);
-  dist = 1.1*max(SST_mean0) - low;
-
-  for (i=1;i<=40;i++)
-   {
-    fake_SST(i)=low + dist*(i-0.5)/39.5;  
-    Xsst = fake_SST(i); 
-    SRresidhat(i)=resid_temp_x1*Xsst + resid_temp_x2*Xsst*Xsst;  
-   }
+  {
+    dvariable Xsst ;
+    dvariable step;
+    dvariable dist;
+    dvariable low; 
+    low = 0.9*min(SST_mean0);
+    dist = 1.1*max(SST_mean0) - low;
+    for (i=1;i<=40;i++)
+    {
+      fake_SST(i)=low + dist*(i-0.5)/39.5;  
+      Xsst = fake_SST(i); 
+      SRresidhat(i)=resid_temp_x1*Xsst + resid_temp_x2*Xsst*Xsst;  
+    }
   }
 
   if (last_phase())
@@ -2491,18 +2485,16 @@ FUNCTION GetDependentVar
     
     if (do_yield_curve)
     {
-    max_F_yldcrv = get_spr_rates(0.10);   // set max F for yield curve to F10%
-    dvariable Ftmp; 
-    for (i=1;i<=40;i++)
-     {
+      max_F_yldcrv = get_spr_rates(0.10);   // set max F for yield curve to F10%
+      dvariable Ftmp; 
+      for (i=1;i<=40;i++)
+      {
         F_yldcrv(i) = max_F_yldcrv*double(i-.5)/39.5;
         Ftmp = F_yldcrv(i); 
         yield_curve(i) = get_yield_curve(Ftmp);
         //yield_curve_fut(i) = get_yield_curve_fut(Ftmp);
-     }
-   }
-
-
+      }
+    }
   }
   ////For standard deviation report////////////////////
   // if (mceval_phase())
@@ -2568,7 +2560,7 @@ FUNCTION GetDependentVar
       Fmsy2_dec(iyr) = res(4); 
     //   cout <<endyr_r - iyr +1<<" "<<res<<endl;
     }
-		// need to reset it ...
+    // need to reset it ...
     compute_Fut_selectivity();
     
     for (int iyr=10;iyr>=1;iyr--)
@@ -2603,7 +2595,7 @@ FUNCTION GetDependentVar
     age_3_plus_biom(i+2)  = Ntmp2(3,nages) * wt_ssb(endyr_r)(3,nages); 
 
     // Loop over range of future catch levels
-		for (int icat=1;icat<=10;icat++)
+    for (int icat=1;icat<=10;icat++)
     {
       Ntmp(2,nages) = ++elem_prod(natage(i)(1,nages-1), S(i)(1,nages-1));  
       Ntmp(nages)  += natage(i,nages)*S(i,nages);
@@ -2659,10 +2651,10 @@ FUNCTION Future_projections_fixed_F
   sumtmp1=0.;
   sumtmp2=0.;
   dvector agevec(1,nages);
-	for (int j=1;j<=nages;j++) agevec(j) = double(j);
+  for (int j=1;j<=nages;j++) agevec(j) = double(j);
   for (i=styr; i<=endyr_r; i++)
   {
-		dvar_vector wtmatage = elem_prod(elem_prod(natage(i),wt_ssb(i)),p_mature);
+    dvar_vector wtmatage = elem_prod(elem_prod(natage(i),wt_ssb(i)),p_mature);
     avg_age_mature(i) = (agevec * wtmatage)/sum(wtmatage);
     ptmp     = wtmatage +0.0001;
     ptmp    /= sum(ptmp);
@@ -2696,13 +2688,13 @@ FUNCTION Future_projections_fixed_F
     // Get future F's since these are the same in the future...
     if (k==1) // for all cases...
       ftmp = SolveF2(natage_future(k,i),obs_catch(endyr_r));
-		else
-		{
-	    if (nscen>8)
+    else
+    {
+      if (nscen>8)
         ftmp= mean(F(endyr_r)) * ((double(k-1)-1.)*.05 + 0.5); // this takes endyr F and brackets it...for mean
-	    else
+      else
         ftmp = SolveF2(natage_future(k,styr_fut),dec_tab_catch(k));
-		}
+    }
     for (i=styr_fut;i<=endyr_fut;i++)
     {
       F_future(k,i) = sel_fut*ftmp;
@@ -2842,16 +2834,16 @@ FUNCTION get_SER
   SER(endyr_r)    = 1. - spawn_wfsh/spawn_nofsh;
 FUNCTION compute_Fut_selectivity
   sel_fut.initialize();
-	// If nyrs_sel_avg negative, use that year (as abs())
+  // If nyrs_sel_avg negative, use that year (as abs())
   // Average future selectivity based on most recent years' (as read in from file)
-	if (nyrs_sel_avg >0 )
-	{
+  if (nyrs_sel_avg >0 )
+  {
     for (i=endyr_r-(nyrs_sel_avg+1);i<=endyr_r;i++)
       sel_fut = sel_fut + sel_fsh(i);
     sel_fut/=nyrs_sel_avg;
-	}
-	else
-		sel_fut = sel_fsh(endyr_r+nyrs_sel_avg); // negative nyrs_sel_avg can be used to pick years for evaluation
+  }
+  else
+    sel_fut = sel_fsh(endyr_r+nyrs_sel_avg); // negative nyrs_sel_avg can be used to pick years for evaluation
 
   //sel_fut/=sel_fut(6); // NORMALIZE TO AGE 6
   sel_fut/=mean(sel_fut); // NORMALIZE TO mean
@@ -3222,14 +3214,14 @@ FUNCTION get_msy
   // Newton Raphson stuff to go here //cout <<endl<<endl<<"Iter  F  Stock  1Deriv  Yld  2Deriv"<<endl; //for (int ii=1;ii<=500;ii++)
   for (int ii=1;ii<=8;ii++)
   {
-		int bomb_flag=0;
+    int bomb_flag=0;
     if (mceval_phase()&&(F1>5||F1<0.01)) 
     {
       ii=9;
       count_Ffail++;
       cout<<F1<<" Bombed at  "<<count_mcmc<<" "<<count_Ffail<<" ";
       F1=F35; // When things bomb (F <0 or F really big then just set it to F35...)
-			bomb_flag=1;
+      bomb_flag=1;
     }
     else
     {
@@ -3242,7 +3234,7 @@ FUNCTION get_msy
       dyldp  = (yld2 + yld3 - 2.*yld1)/(.25*df*df);   // Second derivative (for Newton Raphson)
       F1    -= dyld/dyldp;
     }
-		if (bomb_flag) break;
+    if (bomb_flag) break;
   }
   Fdmsy    = F1;
   Fmsy     = Fdmsy;
@@ -3278,14 +3270,14 @@ FUNCTION dvar_vector get_msy_wt();
   // Newton Raphson stuff to go here //cout <<endl<<endl<<"Iter  F  Stock  1Deriv  Yld  2Deriv"<<endl; //for (int ii=1;ii<=500;ii++)
   for (int ii=1;ii<=8;ii++)
   {
-		int bomb_flag=0;
+    int bomb_flag=0;
     if (mceval_phase()&&(F1>5||F1<0.01)) 
     {
       ii=5;
       count_Ffail++;
       cout<<F1<<" Bombed at  "<<count_mcmc<<" "<<count_Ffail<<" ";
       F1=F35; // When things bomb (F <0 or F really big then just set it to F35...)
-			bomb_flag=1;
+      bomb_flag=1;
     }
     else
     {
@@ -3298,7 +3290,7 @@ FUNCTION dvar_vector get_msy_wt();
       dyldp  = (yld2 + yld3 - 2.*yld1)/(.25*df*df);   // Second derivative (for Newton Raphson)
       F1    -= dyld/dyldp;
     }
-		if (bomb_flag) break;
+    if (bomb_flag) break;
   }
   // Fmsy_wt  = F1;
   // MSY_wt   = get_yield_wt(Fmsy,Stmp,Rtmp,Btmp);
@@ -3588,10 +3580,6 @@ FUNCTION Recruitment_Likelihood
         SR_resids_temp = ++(resid_temp_x1*SST_mean0 + resid_temp_x2*elem_prod(SST_mean0,SST_mean0));  //***** added by Paul ******
         //SR_resids_like = norm2(SR_resids - SR_resids_temp);    // *** added by Paul *****
       }
-
-    
-
-
   
     // if (ctrl_flag(30)==0)// use srr in fit (not just the prior) { }
 
@@ -3609,9 +3597,9 @@ FUNCTION Recruitment_Likelihood
         }
       }
       if (last_phase()) 
-				rec_like(1) *= ctrl_flag(30);
-			else 
-				rec_like(1) *= .8;
+        rec_like(1) *= ctrl_flag(30);
+      else 
+        rec_like(1) *= .8;
   }
 
  // This sets variability of future recruitment to same as in past....
@@ -3674,10 +3662,10 @@ FUNCTION Evaluate_Objective_Function
 
   fff+= sum(sel_like);
   fff+= sum(sel_like_dev);
-	// COUT(sel_like);
-	// COUT(age_like);
-	// COUT(avo_like);
-	// COUT(surv_like);
+  // COUT(sel_like);
+  // COUT(age_like);
+  // COUT(avo_like);
+  // COUT(surv_like);
 
   // Condition model in early phases to stay reasonable
   if (current_phase()<3)
@@ -3906,14 +3894,14 @@ FUNCTION Selectivity_Likelihood
   {
     // sel_like_dev(2) += 12.5*norm2(first_difference(sel_a50_bts_dev)); 
     // sel_like_dev(2) += 12.5*norm2(first_difference(sel_slp_bts_dev)); 
-		if(ctrl_flag(19)>0.){
-		  dvar_matrix lnseltmp = trans(log_sel_bts);
+    if(ctrl_flag(19)>0.){
+      dvar_matrix lnseltmp = trans(log_sel_bts);
       for (j=q_amin;j<q_amax;j++)
-			  sel_like_dev(2) += ctrl_flag(26)*norm2(first_difference(lnseltmp(j))); 
-		} else {
+        sel_like_dev(2) += ctrl_flag(26)*norm2(first_difference(lnseltmp(j))); 
+    } else {
       sel_like_dev(2) += 50.*norm2(first_difference(sel_a50_bts_dev)); 
       sel_like_dev(2) += 50.*norm2(first_difference(sel_slp_bts_dev)); 
-		}
+    }
 
     if (active(sel_one_bts_dev))
       sel_like_dev(2) += 8.*norm2(first_difference(sel_one_bts_dev)); // 25% CV on this
@@ -3968,7 +3956,7 @@ FUNCTION Surv_Likelihood
     // eb_bts *= mean(ob_bts)/mean(eb_bts);
     if (do_bts_bio)
       srv_tmp = (ob_bts )-(eb_bts );
-		else
+    else
       srv_tmp = (ot_bts )-(et_bts );
 
     // Covariance on observed population (numbers) switch
@@ -4155,7 +4143,7 @@ FUNCTION write_eval
     else
     {
       // if (!pflag) 
-			/*
+      /*
       for (int k=1;k<=nscen;k++)
       {
         write_mceval(future_SSB(k));
@@ -4174,24 +4162,24 @@ FUNCTION write_eval
       write_mceval(MatAgeDiv2);
       write_mceval(RelEffort);
       write_mceval <<endl;
-			*/
-			get_msy();
-			write_nofish();
-			write_mceval(fff);
-			write_mceval(steepness);
-			write_mceval(log_Rzero);
-			write_mceval(Fmsy2);
-			write_mceval(SPR_OFL);
-			write_mceval(SER_Fmsy);
-			write_mceval(Bzero);
-			write_mceval(Bmsy);
-			write_mceval(SB100);
-			write_mceval(SSB(endyr_r));
-			write_mceval(future_SSB(1,endyr_r+1));
-			write_mceval(Bcur_Bmean(1)); //8 
-			write_mceval(Bcur2_B20(1)); //8 
-			write_mceval(B_Bnofsh); //8 
-			write_mceval(q_all); //8 
+      */
+      get_msy();
+      write_nofish();
+      write_mceval(fff);
+      write_mceval(steepness);
+      write_mceval(log_Rzero);
+      write_mceval(Fmsy2);
+      write_mceval(SPR_OFL);
+      write_mceval(SER_Fmsy);
+      write_mceval(Bzero);
+      write_mceval(Bmsy);
+      write_mceval(SB100);
+      write_mceval(SSB(endyr_r));
+      write_mceval(future_SSB(1,endyr_r+1));
+      write_mceval(Bcur_Bmean(1)); //8 
+      write_mceval(Bcur2_B20(1)); //8 
+      write_mceval(B_Bnofsh); //8 
+      write_mceval(q_all); //8 
       write_mceval <<endl;
       // eval<< "Obj_Fun steep q AvgRec SER_endyr SSBendyr_B40 1989_YC 1992_YC 1996_YC 2000YC MSYR Bmsy3+ Fmsy F35 SER_Fmsy SER_Endyr SBF40 Bcur_Bmsy Cur_Sp F40Catch Steepness Q CC1_1 CC1_2 CC1_3 CC2_1 CC2_2 CC2_3"<<endl;
       // eval <<" Future ssb"<<endl;
@@ -4611,7 +4599,7 @@ FUNCTION SimulateData1
     simdat << nlbins                                        <<endl;
     simdat << olc_fsh(1,nlbins)                             <<endl;
     simdat << age_len << endl;
-    simdat << "1234567"                                     <<endl;																																														
+    simdat << "1234567"                                     <<endl;                                                                                            
     simdat.close();
   }
 
@@ -5033,28 +5021,28 @@ FUNCTION write_R
   ofstream report((char*)(adprogram_name + ad_tmp),ios::app);
 
   // Development--just start to get some output into R
-	R_report(H);
-	R_report(avg_age_mature);
+  R_report(H);
+  R_report(avg_age_mature);
   report << "h_prior" << endl << Priors(1) << endl;
   report << "q_prior" << endl << Priors(2) << endl;
   if (ctrl_flag(28)==0)// Only do these if not retrospective..
-	{
-		dvector sigtmp(1,n_bts);
-		if (DoCovBTS) for (i=1;i<=n_bts;i++) sigtmp(i) = sqrt(cov(i,i)); 
-		double sdnr_bts;
-		double sdnr_ats;
-		double sdnr_avo;
-		sdnr_bts = sdnr(ob_bts,eb_bts,std_ob_bts_data);
-		sdnr_ats = sdnr(ob_eit,eb_eit,std_ob_eit_data);
+  {
+    dvector sigtmp(1,n_bts);
+    if (DoCovBTS) for (i=1;i<=n_bts;i++) sigtmp(i) = sqrt(cov(i,i)); 
+    double sdnr_bts;
+    double sdnr_ats;
+    double sdnr_avo;
+    sdnr_bts = sdnr(ob_bts,eb_bts,std_ob_bts_data);
+    sdnr_ats = sdnr(ob_eit,eb_eit,std_ob_eit_data);
   // dvar_vector avo_dev = obs_avo-pred_avo;
-		sdnr_avo = sdnr(obs_avo,pred_avo,obs_avo_std);
+    sdnr_avo = sdnr(obs_avo,pred_avo,obs_avo_std);
   // std_ob_eit_data(1,n_eit)
   // std_ob_bts_data(1,n_bts)
   // obs_avo_std(1,n_avo)
 
-		report << "sdnr_bts"<< endl << sdnr_bts << endl;
-		report << "sdnr_ats"<< endl << sdnr_ats << endl;
-		report << "sdnr_avo"<< endl << sdnr_avo << endl;
+    report << "sdnr_bts"<< endl << sdnr_bts << endl;
+    report << "sdnr_ats"<< endl << sdnr_ats << endl;
+    report << "sdnr_avo"<< endl << sdnr_avo << endl;
 
     report << "FW_fsh"  << endl << FW_fsh(1) << endl;
     report << "FW_fsh1" << endl << FW_fsh(2) << endl;
@@ -5064,7 +5052,7 @@ FUNCTION write_R
     R_report(pred_catch);
     R_report(FW_bts);
     R_report(FW_eit);
-	}
+  }
   R_report(dec_tab_catch);
   R_report(sam_fsh);
   R_report(sam_bts);
@@ -5083,8 +5071,8 @@ FUNCTION write_R
   R_report(repl_F);
   R_report(repl_yld);
   R_report(repl_SSB);
-	report<<"cat_like"<<endl<< ctrl_flag(1) * ssqcatch      << endl;
-	report<<"Fpen_like"<<endl<< ctrl_flag(4) * F_pen         << endl;
+  report<<"cat_like"<<endl<< ctrl_flag(1) * ssqcatch      << endl;
+  report<<"Fpen_like"<<endl<< ctrl_flag(4) * F_pen         << endl;
   R_report(wt_like);
   R_report(all_like);
   R_report(surv_like);
@@ -5095,7 +5083,7 @@ FUNCTION write_R
   R_report(age_like);
   R_report(len_like);
   R_report(rec_like);
-	report<<"tot_like"<<endl<<fff<<endl;
+  report<<"tot_like"<<endl<<fff<<endl;
   report<<"Yr"<<endl; for (i=styr;i<=endyr_r;i++) report<<i<<" "; report<<endl;
   report<<"yr_bts"<<endl; report<<yrs_bts_data<<endl;
   R_report(ob_bts);
@@ -5154,10 +5142,10 @@ FUNCTION write_R
   report<<"SER"<<endl; 
   for (i=styr;i<=endyr_r;i++) 
   {
-		//lb=value(SER(i)-2.*SER.sd(i));
-		//ub=value(SER(i)+2.*SER.sd(i));
-		lb=value(SER(i)/exp(2.*sqrt(log(1+square(SER.sd(i))/square(SER(i))))));
-		ub=value(SER(i)*exp(2.*sqrt(log(1+square(SER.sd(i))/square(SER(i))))));
+    //lb=value(SER(i)-2.*SER.sd(i));
+    //ub=value(SER(i)+2.*SER.sd(i));
+    lb=value(SER(i)/exp(2.*sqrt(log(1+square(SER.sd(i))/square(SER(i))))));
+    ub=value(SER(i)*exp(2.*sqrt(log(1+square(SER.sd(i))/square(SER(i))))));
     report<<i<<" "<<SER(i)<<" "<<SER.sd(i)<<" "<<lb<<" "<<ub<<endl;
   }
   report<<"SSB"<<endl; 
@@ -5271,10 +5259,10 @@ FUNCTION write_R
   R_report(wt_yraf.sd);
   R_report(wt_fsh);
   R_report(wt_fut);
-	// Report survey q for bts
+  // Report survey q for bts
   report << "q_bts_3_8" <<endl;
-	double qtmp;
-	for ( i=1;i<=n_bts_r;i++)
+  double qtmp;
+  for ( i=1;i<=n_bts_r;i++)
   {
     iyr          = yrs_bts_data(i);
     qtmp         = value(bt_slope * bottom_temp(i) + q_bts );
@@ -5310,8 +5298,8 @@ FUNCTION write_R
 
   dvariable ABC  = gm_b(1)*hm_f*adj_1(1); 
   dvariable OFL  = gm_b(1)*am_f*adj_1(1); 
-	report <<"T1"<<endl;
-	//  yr ABC OFL SSB 3+Biom CatchFut harmeanF arithmeanF geomB SPRABC SPROFL
+  report <<"T1"<<endl;
+  //  yr ABC OFL SSB 3+Biom CatchFut harmeanF arithmeanF geomB SPRABC SPROFL
   report << endyr_r+1<<" " << ABC <<" " << OFL <<" "<< future_SSB(1,styr_fut) <<" "<< age_3_plus_biom(endyr_r+1) <<" "<<
   future_catch(1,styr_fut) <<" " << hm_f  <<" "<< am_f <<" "<< gm_b(1) <<" "<< SPR_ABC <<" "<< SPR_OFL <<endl;
 
@@ -5321,25 +5309,25 @@ FUNCTION write_R
   future_catch(4,styr_fut+1) <<" " << hm_f  <<" "<< am_f <<" "<< gm_b2(1)<<" "<< SPR_ABC <<" "<< SPR_OFL <<endl;
 
   R_report(Cat_Fut);
-	report <<"YC"<<endl;
-	int age1tmp=1990;
-	report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
+  report <<"YC"<<endl;
+  int age1tmp=1990;
+  report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
   age1tmp = 1993; 
-	if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
+  if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
   age1tmp = 1997; 
-	if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
+  if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
   age1tmp = 2001; 
-	if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
+  if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
   age1tmp = 2009; 
-	if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
+  if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
   age1tmp = 2013; 
-	if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
+  if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
   age1tmp = 2014; 
-	if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
+  if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
 
 
   for_sd<<
-	"Scen Catch	SSBNext	AdjNext	ABC1	OFL1	SSB2yrs	Adj2yrs	ABC2	OFL2"<<endl;
+  "Scen Catch  SSBNext  AdjNext  ABC1  OFL1  SSB2yrs  Adj2yrs  ABC2  OFL2"<<endl;
    for (i=1;i<=10;i++)
    {
       for_sd <<  i           << " ";
@@ -5436,12 +5424,12 @@ FUNCTION write_R
    dvar_matrix Ntmp(endyr_r,endyr_r+2,1,nages);
    dvariable SSBtmp; 
    Ntmp.initialize();
-	 Ntmp(endyr_r) = natage(endyr_r);
-	 cout << endyr_r <<" "<< Ntmp(endyr_r) <<" "<<SSB(endyr_r)<<endl;
+   Ntmp(endyr_r) = natage(endyr_r);
+   cout << endyr_r <<" "<< Ntmp(endyr_r) <<" "<<SSB(endyr_r)<<endl;
    sel_fut = sel_fsh(endyr_r);
    for (i=styr;i<=endyr_r+2;i++)
    {
-		if(i<=endyr_r){
+    if(i<=endyr_r){
      sel_fut = sel_fsh(i);
      age_3_plus_biom(i)  = natage(i)(3,nages) * wt_ssb(i)(3,nages); 
      fshable = value(elem_prod(natage(i),sel_fut) * wt_ssb(endyr_r)); // fishable biomass
@@ -5476,8 +5464,8 @@ FUNCTION write_R
      Ntmp(i)(2,nages) = ++elem_prod(Ntmp(i-1)(1,nages-1), S(endyr_r)(1,nages-1));  
      Ntmp(i,nages)  += Ntmp(i-1,nages)*S(endyr_r,nages);
      Ntmp(i,1)       = meanrec;
-		 SSBtmp = elem_prod(elem_prod(Ntmp(i),pow(S(endyr_r),yrfrac)),p_mature)*wt_ssb(endyr_r); // Eq. 1
-		  cout << i <<" "<< Ntmp(i) <<" "<<SSBtmp<<endl;
+     SSBtmp = elem_prod(elem_prod(Ntmp(i),pow(S(endyr_r),yrfrac)),p_mature)*wt_ssb(endyr_r); // Eq. 1
+      cout << i <<" "<< Ntmp(i) <<" "<<SSBtmp<<endl;
      // age_3_plus_biom(i)  = natage(i)(3,nages) * wt_ssb(i)(3,nages); 
      fshable = value(elem_prod(Ntmp(i),sel_fut) * wt_ssb(endyr_r)); // fishable biomass
      AM_fmsyr =  value(exp(lnFmsy2 + lnFmsy2.sd*lnFmsy2.sd /2.));
@@ -5607,13 +5595,13 @@ FUNCTION Get_Replacement_Yield
       ssb1   = get_repl_b(F1); 
       ssb2   = get_repl_b(F2);
       ssb3   = get_repl_b(F3);
-			cout<<ii<<" "<<F1<<" "<<ssb1<<" "<<ssb3<<endl;
+      cout<<ii<<" "<<F1<<" "<<ssb1<<" "<<ssb3<<endl;
       dssb   = (ssb2 - ssb3)/df;                          // First derivative (to find the root of this)
       dssbp  = (ssb2 + ssb3 - 2.*ssb1)/(.25*df*df);   // Second derivative (for Newton Raphson)
       F1    -= dssb/dssbp;
   }
-	repl_F = F1;
-	repl_SSB= ssb3;
+  repl_F = F1;
+  repl_SSB= ssb3;
 
 FUNCTION dvariable get_repl_b(const dvariable& Ftry)
  // Next year's yield and SSB and add penalty to ensure F gives same SSB... 
@@ -5636,7 +5624,7 @@ FUNCTION dvariable get_repl_b(const dvariable& Ftry)
   ntmp(nages)   += ntmp(nages)*Stmp(nages);
   ntmp(1)       = mean(pred_rec);
   ssb_tmp       = elem_prod(p_mature,elem_prod(ntmp, pow(Stmp,yrfrac))) * wt_ssb(endyr_r); 
-	return(ssb_tmp);
+  return(ssb_tmp);
   // cout<<Ftmp<<endl; cout<<Ztmp<<endl; cout<<Stmp<<endl; cout<<Ctmp<<endl; cout<<repl_yld<<endl; cout<<ntmp<<endl; cout<<repl_SSB<<endl; cout<<SSB(endyr_r)<<endl; cout<< 500.*square(log(SSB(endyr_r))-log(repl_SSB))<<endl; exit(1);
   // SSB(styr)  = elem_prod(elem_prod(natage(styr),pow(S(styr),yrfrac)),p_mature)*wt_ssb(styr); // Eq. 1
 
@@ -5684,7 +5672,7 @@ FUNCTION Est_Fixed_Effects_wts
     for (int i=1;i<=nyrs_data(h);i++)
     {
       iyr = yrs_data(h,i);
-			// COUT(i);COUT(iyr);
+      // COUT(i);COUT(iyr);
       if (h>int(1) )
         wt_hat(h,i) = elem_prod(d_scale(h-1) , wt_pre(iyr) );
       else
