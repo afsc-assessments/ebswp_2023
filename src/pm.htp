@@ -640,6 +640,7 @@ public:
   void Get_Selectivity(void);
   void Get_Mortality_Rates(void);
   void GetNumbersAtAge(void);
+ dvar_vector get_Mpred(const int& i,const int& j,const int& k);
  dvar_vector get_Mpred(const dvariable& tmp_abun_bg,const dvariable& tmp_F,const dvariable& tmp_M, const dvar_vector& tmp_abun_vec,
                 const dvar_vector& a,const dvar_vector& b,const dvector& Npred, const dvector& wt_ratio, const dvector& tmp_Cmax, const dvar_matrix& rho);
  dvar_matrix get_Mpred2(const dvar_vector& tmp_abun_vec,
