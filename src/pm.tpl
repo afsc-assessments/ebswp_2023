@@ -931,88 +931,89 @@ DATA_SECTION
 
    // Assign values to temperature and predation phases (if estimating predation mortality or climate enhanced recruitment)
   if(do_pred==1  && do_mult_func_resp==1)
-    {
-      do_pred_phase_ms = pred_phase;
-      do_pred_phase_ss = -1;
-      do_pred_phase = pred_phase;
-    } 
+  {
+    do_pred_phase_ms = pred_phase;
+    do_pred_phase_ss = -1;
+    do_pred_phase    = pred_phase;
+  } 
   else if (do_pred==1  && do_mult_func_resp!=1)
-    {
-      do_pred_phase_ms = -1;
-      do_pred_phase_ss = pred_phase;
-      do_pred_phase = pred_phase;
-    }
+  {
+    do_pred_phase_ms = -1;
+    do_pred_phase_ss = pred_phase;
+    do_pred_phase    = pred_phase;
+  }
   else
-    {
-      do_pred_phase_ms = -1;
-      do_pred_phase_ss = -1;
-      do_pred_phase = -1;
-    }  
+  {
+    do_pred_phase_ms = -1;
+    do_pred_phase_ss = -1;
+    do_pred_phase    = -1;
+  }  
   
-  if(do_temp==1) do_temp_phase = temp_phase;
-  else do_temp_phase = -1;
-// If estimating predation mortality, do a bunch of preliminary calculations
+  if(do_temp==1) 
+    do_temp_phase = temp_phase;
+  else 
+    do_temp_phase = -1;
+  // If estimating predation mortality, do a bunch of preliminary calculations
   if (do_pred==1)
   {
-//Rescale spatial distribution matrices to add to one, and compute predator by year and strata
-  for (i=1;i<=n_pred_ages;i++) {
-    for (ii=styr;ii<=endyr;ii++) {
-      poll_dist(i,ii) = poll_dist(i,ii)/sum(poll_dist(i,ii));
-       }
+    //Rescale spatial distribution matrices to add to one, and compute predator by year and strata
+    for (i=1;i<=n_pred_ages;i++) 
+    {
+      for (ii=styr;ii<=endyr;ii++) 
+      {
+        poll_dist(i,ii) = poll_dist(i,ii)/sum(poll_dist(i,ii));
+      }
     }
 
-  for (i=1;i<=n_pred_grp;i++) {
-    for (ii=styr;ii<=endyr;ii++) {
-      pred_dist_nonpoll(i,ii) = pred_dist_nonpoll(i,ii)/sum(pred_dist_nonpoll(i,ii));
-      Npred_bystrata_nonpoll(ii,i) = N_pred(i,ii)*pred_dist_nonpoll(i,ii); 
-       }
+    for (i=1;i<=n_pred_grp;i++) 
+    {
+      for (ii=styr;ii<=endyr;ii++) 
+      {
+        pred_dist_nonpoll(i,ii)      = pred_dist_nonpoll(i,ii)/sum(pred_dist_nonpoll(i,ii));
+        Npred_bystrata_nonpoll(ii,i) = N_pred(i,ii)*pred_dist_nonpoll(i,ii);
+      }
     }
 
-
-
-// Compute the catch per unit predator (CPUP) in numbers
-  for (m=1;m<=n_pred_grp;m++) {
-  for (i=1;i<=nyrs_cons_nonpoll(m);i++){
-    yr_ind = yrs_cons_nonpoll(m,i) - 1981;    // for getting the index for the wt_bts
-    if(yr_ind<1) yr_ind = 1;
-      obs_cons_wgt_atage_nonpoll(m,i) = oac_cons_nonpoll(m,i)*obs_cons_nonpoll(m,i);  // kilotons
-      obs_cons_natage_nonpoll(m,i) = elem_div(obs_cons_wgt_atage_nonpoll(m,i),wt_bts(yr_ind)(1,n_pred_ages));  
-      obs_cpup_nonpoll(m,i) =  obs_cons_natage_nonpoll(m,i)/N_pred(m,yrs_cons_nonpoll(m,i));  
+  // Compute the catch per unit predator (CPUP) in numbers
+    for (m=1;m<=n_pred_grp;m++) 
+    {
+      for (i=1;i<=nyrs_cons_nonpoll(m);i++)
+      {
+        yr_ind = yrs_cons_nonpoll(m,i) - 1981;    // for getting the index for the wt_bts
+        if(yr_ind<1) 
+          yr_ind = 1;
+        if(yr_ind>38) 
+          yr_ind = 38;
+        obs_cons_wgt_atage_nonpoll(m,i) = oac_cons_nonpoll(m,i)*obs_cons_nonpoll(m,i);  // kilotons
+        obs_cons_natage_nonpoll(m,i)    = elem_div(obs_cons_wgt_atage_nonpoll(m,i),wt_bts(yr_ind)(1,n_pred_ages));
+        obs_cpup_nonpoll(m,i)           = obs_cons_natage_nonpoll(m,i)/N_pred(m,yrs_cons_nonpoll(m,i));
+      }
     }
+
+  // Compute things for Cmax
+    for (i=1;i<=n_pred_grp_nonpoll;i++)
+    {
+      Y_nonpoll(i) = log(CQ_nonpoll(i))*(TCM_nonpoll(i)-TC0_nonpoll(i)+2);
+      Z_nonpoll(i) = log(CQ_nonpoll(i))*(TCM_nonpoll(i)-TC0_nonpoll(i));
+      X_nonpoll(i) = Z_nonpoll(i)*Z_nonpoll(i)*pow(1+sqrt(1+40.0/Y_nonpoll(i)),2)/400.0;
+      for (j=styr;j<=endyr;j++)
+      {
+        V_nonpoll(j,i)    = (TCM_nonpoll(i) - temp_bystrata(j))/(TCM_nonpoll(i) - TC0_nonpoll(i));
+        F_t_nonpoll(j,i)  = elem_prod(pow(V_nonpoll(j,i),X_nonpoll(i)),mfexp(X_nonpoll(i)*(1.0- V_nonpoll(j,i))));
+        Cmax_nonpoll(j,i) = 365*C_a_nonpoll(i)*pow(mn_wgt_nonpoll(i,j),C_b_nonpoll(i))*F_t_nonpoll(j,i);
+      }
+    }
+
+    // Compute average of atf and pollock weights for computing functional response
+    for (i=1;i<=n_pred_grp;i++)  
+      atf_wgts(i)  = mean(mn_wgt_nonpoll(i));
+    for(i=1;i<=n_pred_ages;i++)
+      poll_wgts(i) = 1000.0*mean(column(wt_bts,i));   // convert from kg to g 
   }
-
-  
-
-// Compute things for Cmax
-  for (i=1;i<=n_pred_grp_nonpoll;i++)
-  {
-    Y_nonpoll(i) = log(CQ_nonpoll(i))*(TCM_nonpoll(i)-TC0_nonpoll(i)+2);
-    Z_nonpoll(i) = log(CQ_nonpoll(i))*(TCM_nonpoll(i)-TC0_nonpoll(i));
-    X_nonpoll(i) = Z_nonpoll(i)*Z_nonpoll(i)*pow(1+sqrt(1+40.0/Y_nonpoll(i)),2)/400.0;
-    for (j=styr;j<=endyr;j++)
-     {
-      V_nonpoll(j,i) = (TCM_nonpoll(i) - temp_bystrata(j))/(TCM_nonpoll(i) - TC0_nonpoll(i));    
-      F_t_nonpoll(j,i) = elem_prod(pow(V_nonpoll(j,i),X_nonpoll(i)),mfexp(X_nonpoll(i)*(1.0- V_nonpoll(j,i))));
-      Cmax_nonpoll(j,i) = 365*C_a_nonpoll(i)*pow(mn_wgt_nonpoll(i,j),C_b_nonpoll(i))*F_t_nonpoll(j,i);
-     }
-  }
-
-  
-
-  // Compute average of atf and pollock weights for computing functional response
-  for (i=1;i<=n_pred_grp;i++)  
-    atf_wgts(i) = mean(mn_wgt_nonpoll(i));
-  for(i=1;i<=n_pred_ages;i++)
-    poll_wgts(i) = 1000.0*mean(column(wt_bts,i));   // convert from kg to g 
-
-
-
-  
-  }
-   write_log(do_temp_phase);        // copy the temperture phase here
-   write_log(do_pred_phase_ss);     // phase for estimating the predation parameters, single species function response
-   write_log(do_pred_phase_ms);     // phase for estimating the predation parameters, multi-species function response
-   write_log(do_pred_phase);        // phase for estimating the residual M
+  write_log(do_temp_phase);        // copy the temperture phase here
+  write_log(do_pred_phase_ss);     // phase for estimating the predation parameters, single species function response
+  write_log(do_pred_phase_ms);     // phase for estimating the predation parameters, multi-species function response
+  write_log(do_pred_phase);        // phase for estimating the residual M
 
  END_CALCS
  init_number test_2
@@ -1022,34 +1023,25 @@ DATA_SECTION
  // Create matrix for predation sample sizes
   matrix  sam_oac_cons_nonpoll(1,n_pred_grp_nonpoll,1,nyrs_cons_nonpoll)
 
-  
-
-
  LOCAL_CALCS
   // start to read from the composition weight file
   // only reweighting the consumption estimates
     ad_comm::change_datafile_name("compweights.ctl"); 
  END_CALCS
 
-  init_vector compweights(1,n_pred_grp_nonpoll)    // separate compweights for the different predator classes
-  init_vector consweights(1,n_pred_grp_nonpoll)    // separate consumption weights for the different predator classes 
+ init_vector compweights(1,n_pred_grp_nonpoll)    // separate compweights for the different predator classes
+ init_vector consweights(1,n_pred_grp_nonpoll)    // separate consumption weights for the different predator classes 
 
   
  LOCAL_CALCS  
-   if(do_pred==1){
-   for (i=1;i<=n_pred_grp_nonpoll;i++)
-      {
-       sam_oac_cons_nonpoll(i) = compweights(i)*sam_oac_cons_nonpoll_raw(i);    
-      }
+  if(do_pred==1)
+  {
+    for (i=1;i<=n_pred_grp_nonpoll;i++)
+    {
+      sam_oac_cons_nonpoll(i) = compweights(i)*sam_oac_cons_nonpoll_raw(i);    
     }
-   
-
-
+  }
  END_CALCS
-
-
- 
- 
 
  
 INITIALIZATION_SECTION
@@ -1508,8 +1500,6 @@ PRELIMINARY_CALCS_SECTION
   write_log(oac_cons_nonpoll);
   write_log(oac_cons_like_offset);
 
-
-
 RUNTIME_SECTION
    maximum_function_evaluations 50,400,900,1800,1900,15000
    convergence_criteria .001,.001,1e-7
@@ -1519,43 +1509,34 @@ RUNTIME_SECTION
 PROCEDURE_SECTION
   if (active(yr_eff)||active(coh_eff))
     Est_Fixed_Effects_wts();
-  cout<<"her1"<<endl;
   Get_Selectivity();
-  cout<<"her2"<<endl;
   Get_Mortality_Rates();
-  cout<<"her3"<<endl;
   GetNumbersAtAge();
-  cout<<"her4"<<endl;
   Get_Catch_at_Age();
   if(active(log_resid_M))                // added by Paul
     Get_Cons_at_Age();
-  cout<<"here"<<endl;
   GetDependentVar();  // Includes MSY, F40% computations
   Evaluate_Objective_Function();
   if (do_fmort)
     Profile_F();
   if (mceval_phase()) 
     write_eval();
-  cout<<"here"<<endl;
   update_compweights();  //  added by Paul
 
 FUNCTION update_compweights   // added by Paul, update if the comp is estmated, otherwise carry over previous comp weight
   if(active(log_resid_M))
+  {
+    for (i=1;i<=n_pred_grp_nonpoll;i++)
     {
-     for (i=1;i<=n_pred_grp_nonpoll;i++)
-       {
-         compweightsnew(i) = 1.0/mean(comp_mcian_wgt_inv(i));  // weights for consumption age comps
-         consweightsnew(i) = std_dev(cons_nr(i));              // weights for consumption estimates
-       }
-
-     }
-  else
-    {
-     compweightsnew = compweights;
-     consweightsnew = consweights;
+      compweightsnew(i) = 1.0/mean(comp_mcian_wgt_inv(i));  // weights for consumption age comps
+      consweightsnew(i) = std_dev(cons_nr(i));              // weights for consumption estimates
     }
-
-
+  }
+  else
+  {
+    compweightsnew = compweights;
+    consweightsnew = consweights;
+  }
 
 REPORT_SECTION
   // if (last_phase()) Get_Replacement_Yield();
@@ -1781,11 +1762,6 @@ REPORT_SECTION
 
   legacy_rep << " fake density for plotting" <<endl;   // added by Paul
   legacy_rep << fake_dens << endl;                     // added by Paul 
-
-
-
-
-
 
   for (i=1;i<=11;i++)
     for (j=1;j<=11;j++)
@@ -2157,8 +2133,8 @@ FUNCTION GetNumbersAtAge
       b_II_vec = mfexp(log_b_II_vec);
       for (i=1;i<=n_pred_grp;i++)
       {
+        rho(i) = mfexp(log_rho(i));
         /*
-        */
         cout << "pred_grp is "  << i <<endl;
         cout << " log_rho(i) is "  << log_rho(i) << endl;
         cout << " mfexp(log_rho(i) is "  << mfexp(log(rho(i)))  <<  endl;
@@ -2167,11 +2143,9 @@ FUNCTION GetNumbersAtAge
         cout << " exponentiated is "  << mfexp(log_rho(i) -  log(sum(mfexp(log_rho(i))))) << endl;
         //log_rho(i) -=log(sum(mfexp(log_rho(i))));
         //log_rho2(i) = log_rho(i) - log(sum(exp(log_rho(i)))); 
-        rho(i) = mfexp(log_rho(i));
         //rho(i) = rho(i)/sum(rho(i));
         cout << "actual is "  << rho(i) << endl;
         cout << " " << endl; 
-        /*
         */
 
       }
@@ -2191,6 +2165,8 @@ FUNCTION GetNumbersAtAge
       yr_ind = i - 1981;    // for getting the index for the wt_bts
       if(yr_ind<1) 
         yr_ind = 1;
+    if(yr_ind>38) 
+      yr_ind = 38;
 
       for (k=1;k<=n_pred_ages;k++)            // loop over ages of pollock that are preyed upon
       {           
@@ -2210,7 +2186,7 @@ FUNCTION GetNumbersAtAge
                                     column(Cmax_nonpoll(i),j),rho,
                                     a_II_vec,b_II_vec, j);
 
-          cout << "M_pred_tmp is "  << M_pred_tmp << endl;
+          // cout << "M_pred_tmp is "  << M_pred_tmp << endl;
           // loop to get the results in the right structure
           for (ii=1;ii<=n_pred_ages;ii++)
           {
@@ -2249,7 +2225,7 @@ FUNCTION GetNumbersAtAge
           Z_pred(i,k,j) = F(i,pred_ages(k)) + natmort_pred(k,i,j);   // get the total Z by year, pollock age, and strata
           S_pred(i,k,j) =  mfexp(-1.0*Z_pred(i,k,j));
         }                                // close strata loop 
-        cout << "M_pred is "  << M_pred<< endl;
+        // cout << "M_pred is "  << M_pred<< endl;
         meannatage_bystrata(i,k) = elem_div(elem_prod(natage_strat(i,k),(1.-S_pred(i,k))),Z_pred(i,k)); // the mean number at age by strata      
         meannatage(i,k) = sum(meannatage_bystrata(i,k));             // the mean N summed across the strata
         mean_dens_bystrata(i,k) = elem_div(meannatage_bystrata(i,k),area_pred); 
@@ -2410,14 +2386,15 @@ FUNCTION dvar_vector get_Mpred(const dvariable& tmp_abun_bg,const dvariable& tmp
       {
         iter++;
         prev_tmp_abun_end = tmp_abun_end;
-        tmp_abun_end = tmp_abun_bg*mfexp(-tmp_F -tmp_M -M_pred_sum);
-        avg_N = tmp_abun_bg*(1-mfexp(-tmp_F -tmp_M -M_pred_sum))/(tmp_F + tmp_M + M_pred_sum);
-        M_pred = elem_prod(elem_prod(wt_ratio,elem_prod(tmp_Cmax,elem_prod(a,Npred))),(1/(b+avg_N))); 
-        M_pred_sum = sum(M_pred);
-        //M_pred = elem_prod(a,Npred)*(1/(b+avg_N)); 
+        tmp_abun_end      = tmp_abun_bg*mfexp(-tmp_F -tmp_M -M_pred_sum);
+        avg_N             = tmp_abun_bg*(1-mfexp(-tmp_F -tmp_M -M_pred_sum))/(tmp_F + tmp_M + M_pred_sum);
+        M_pred            = elem_prod(elem_prod(wt_ratio,elem_prod(tmp_Cmax,elem_prod(a,Npred))),(1/(b+avg_N)));
+        M_pred_sum        = sum(M_pred);
+        dd                = prev_tmp_abun_end / tmp_abun_end - 1.;
+        //M_pred          = elem_prod(a,Npred)*(1/(b+avg_N));
 
-        dd =  prev_tmp_abun_end / tmp_abun_end - 1.;
-        if (dd<0.) dd *= -1.;
+        if (dd<0.) 
+          dd *= -1.;
         //  if(active(log_a_II)){
         //  cout <<"in loop  "<<iter<<" "<<tmp_abun_bg<<" "<<prev_tmp_abun_end<<" "<< tmp_abun_end<<" "<<"M_pred is "<< M_pred<<endl;
         //  cout << avg_N << endl;
@@ -3162,75 +3139,81 @@ FUNCTION Get_Catch_at_Age
 FUNCTION Get_Cons_at_Age
   // added by Paul  
   // if doing the spatial predation thing, get the consumption at age
-  for (i=styr;i<=endyr_r;i++){
-     for (k=1;k<=n_pred_ages;k++){
-        for (m=1;m<=n_pred_grp;m++){
-           cons_atage(m,i,k) = sum(cons(m,i,k));  // get ths consumption by predator, year, and age (summed over strata)
-           pred_cpup(m,i,k) = cons_atage(m,i,k)/N_pred(m,i);
-        }    // predator loop
-     }  // age loop
+  for (i=styr;i<=endyr_r;i++)
+  {
+    for (k=1;k<=n_pred_ages;k++)
+    {
+      for (m=1;m<=n_pred_grp;m++)
+      {
+        cons_atage(m,i,k) = sum(cons(m,i,k));  // get ths consumption by predator, year, and age (summed over strata)
+        pred_cpup(m,i,k)  = cons_atage(m,i,k)/N_pred(m,i);
+      }    // predator loop
+    }  // age loop
   }  // year loop
 
-  for (i=styr;i<=endyr_r;i++){
+  for (i=styr;i<=endyr_r;i++)
+  {
     yr_ind = i-1981;    // for getting the index for the wt_bts
-    if(yr_ind<1) yr_ind = 1;
-     for (m=1;m<=n_pred_grp;m++){
-        cons_atage_wt(m,i) = elem_prod(cons_atage(m,i),wt_bts(yr_ind)(1,n_pred_ages));  
-        pred_cons(m,i) = sum(cons_atage_wt(m,i));  // the predicted consumption by predator and year (summed over age and strata)
-        eac_cons(m,i) = cons_atage_wt(m,i)/pred_cons(m,i);  // the predicted consumption age comp (by predator and year)
-      } // predator loop
+    if(yr_ind<1) 
+      yr_ind = 1;
+    if(yr_ind>38) 
+      yr_ind = 38;
+    for (m=1;m<=n_pred_grp;m++)
+    {
+      cons_atage_wt(m,i) = elem_prod(cons_atage(m,i),wt_bts(yr_ind)(1,n_pred_ages));
+      pred_cons(m,i)     = sum(cons_atage_wt(m,i));  // the predicted consumption by predator and year (summed over age and strata)
+      eac_cons(m,i)      = cons_atage_wt(m,i)/pred_cons(m,i);  // the predicted consumption age comp (by predator and year)
+    } // predator loop
   }  // year loop
 
-   for (i=styr;i<=endyr_r;i++){
-       yr_ind = i-1981;    // for getting the index for the wt_bts
-       if(yr_ind<1) yr_ind = 1;
+  for (i=styr;i<=endyr_r;i++)
+  {
+    yr_ind = i-1981;    // for getting the index for the wt_bts
+    if(yr_ind<1) 
+      yr_ind = 1;
+    if(yr_ind>38) 
+      yr_ind = 38;
     
-       for (m=1;m<=n_pred_grp;m++){
-          for (k=1;k<=n_pred_ages;k++){
-           // implied_obs_cons_bystrata(m,i,k) = obs_cons_natage_nonpoll(m,i,k)*(cons(m,iyr,k)/cons_atage(m,iyr,k));
-          implied_obs_cons_bystrata(m,i,k) = cons(m,i,k);            
-
-        for (z=1;z<=nstrata_pred;z++) {
-
-               if (Npred_bystrata_nonpoll(i,m,z)>0) 
-                      {
-                         implied_cpuppa(m,i,k,z) = 
-                          implied_obs_cons_bystrata(m,i,k,z)/(Npred_bystrata_nonpoll(i,m,z)*area_pred(z));
-
-                          implied_prop_Cmax(m,i,k,z) = (implied_cpuppa(m,i,k,z)*area_pred(z))/
+    for (m=1;m<=n_pred_grp;m++)
+    {
+      for (k=1;k<=n_pred_ages;k++)
+      {
+        // implied_obs_cons_bystrata(m,i,k) = obs_cons_natage_nonpoll(m,i,k)*(cons(m,iyr,k)/cons_atage(m,iyr,k));
+        implied_obs_cons_bystrata(m,i,k) = cons(m,i,k);            
+        for (z=1;z<=nstrata_pred;z++) 
+        {
+          if (Npred_bystrata_nonpoll(i,m,z)>0) 
+          {
+            implied_cpuppa(m,i,k,z)    = implied_obs_cons_bystrata(m,i,k,z)/(Npred_bystrata_nonpoll(i,m,z)*area_pred(z));
+            implied_prop_Cmax(m,i,k,z) = (implied_cpuppa(m,i,k,z)*area_pred(z))/
                                 ((mn_wgt_nonpoll(m,i)/(wt_bts(yr_ind,k)*1000))*Cmax_nonpoll(i,m,z));
                        
+            //  old code here -- used in model runs for Brazil paper
+            //  implied_cpuppa(m,i,k,z) = 
+            //   (implied_obs_cons_bystrata(m,i,k,z)*((wt_bts(yr_ind,k)*1000)/mn_wgt_nonpoll(m,iyr)))/
+            //          (Cmax_nonpoll(iyr,m,z)*Npred_bystrata_nonpoll(iyr,m,z)*area_pred(z));
+            //  implied_prop_Cmax(m,i,k,z) = implied_cpuppa(m,i,k,z)*area_pred(z);
+          } 
+          else 
+          {
+            implied_cpuppa(m,i,k,z)    = -9;
+            implied_prop_Cmax(m,i,k,z) = -9;
+          }
 
-                       //  old code here -- used in model runs for Brazil paper
-                       //  implied_cpuppa(m,i,k,z) = 
-                       //   (implied_obs_cons_bystrata(m,i,k,z)*((wt_bts(yr_ind,k)*1000)/mn_wgt_nonpoll(m,iyr)))/
-                       //          (Cmax_nonpoll(iyr,m,z)*Npred_bystrata_nonpoll(iyr,m,z)*area_pred(z));
-                       //  implied_prop_Cmax(m,i,k,z) = implied_cpuppa(m,i,k,z)*area_pred(z);
-                      } 
-              else 
-              {
-                implied_cpuppa(m,i,k,z) = -9;
-                implied_prop_Cmax(m,i,k,z) = -9;
-              }
+          /*cout <<"year is "<<yrs_cons_nonpoll(i)<<", pred is "<<m<<", prey age is "<<k<<"strata is "<<z<<endl;
+          cout << "implied_obs_cons_bystrata is "<< implied_obs_cons_bystrata(m,i,k,z) << endl;
+          cout << "poll wghts "<< wt_bts(yr_ind,k)*1000 << endl; 
+          cout << "atf wghts "<< mn_wgt(m,iyr) << endl;
+          cout << "Cmax is " << Cmax(iyr,m,z) << endl;
+          cout << "Npred_bystrata is "<< Npred_bystrata(iyr,m,z) << endl;
+          cout << "area_pred is " << area_pred(z) << endl;
+          cout << "implied_cpuppa(m,i,k,z) is " << implied_cpuppa(m,i,k,z) << endl;
+          */
 
-              /*cout <<"year is "<<yrs_cons_nonpoll(i)<<", pred is "<<m<<", prey age is "<<k<<"strata is "<<z<<endl;
-              cout << "implied_obs_cons_bystrata is "<< implied_obs_cons_bystrata(m,i,k,z) << endl;
-              cout << "poll wghts "<< wt_bts(yr_ind,k)*1000 << endl; 
-              cout << "atf wghts "<< mn_wgt(m,iyr) << endl;
-              cout << "Cmax is " << Cmax(iyr,m,z) << endl;
-              cout << "Npred_bystrata is "<< Npred_bystrata(iyr,m,z) << endl;
-              cout << "area_pred is " << area_pred(z) << endl;
-              cout << "implied_cpuppa(m,i,k,z) is " << implied_cpuppa(m,i,k,z) << endl;
-              */
-
-           }
-                 
-           }
-       }
+        }
+      }
     }
-
-
-
+  }
 
 FUNCTION get_combined_index
   {
