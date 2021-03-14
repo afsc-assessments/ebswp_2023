@@ -89,6 +89,16 @@ class model_data : public ad_comm{
   data_int sel_dev_shift;
   data_int phase_coheff;
   data_int phase_yreff;
+  data_int do_temp;
+  data_int temp_phase;
+  int do_temp_phase;
+  data_int do_pred;
+  data_int pred_phase;
+  int do_pred_phase_ss;
+  int do_pred_phase_ms;
+  int do_pred_phase;
+  data_int do_mult_func_resp;
+  data_int do_yield_curve;
   data_int styr;
   data_int styr_bts;
   data_int styr_eit;
@@ -249,16 +259,6 @@ class model_data : public ad_comm{
   dvector FW_fsh;
   double FW_bts;
   double FW_eit;
-  data_int do_temp;
-  data_int temp_phase;
-  int do_temp_phase;
-  data_int do_pred;
-  data_int pred_phase;
-  int do_pred_phase_ss;
-  int do_pred_phase_ms;
-  int do_pred_phase;
-  data_int do_mult_func_resp;
-  data_int do_yield_curve;
   data_vector SST;
   dvector SST_mean0;
   double SST_fut;
@@ -326,6 +326,10 @@ public:
   static int mceval_phase(void)
   {
     return initial_params::mceval_phase;
+  }
+  static int hessian_phase(void)
+  {
+    return initial_params::in_hessian_phase;
   }
   static int sd_phase(void)
   {

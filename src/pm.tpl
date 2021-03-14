@@ -26,7 +26,7 @@ DATA_SECTION
  !!  *(ad_comm::global_datafile) >> Cov_Filename;
  !!  *(ad_comm::global_datafile) >> Wtage_file;
  !!  *(ad_comm::global_datafile) >> RawSurveyCPUE_file;
- !!  *(ad_comm::global_datafile) >> control_temp_pred_filename;
+ // !!  *(ad_comm::global_datafile) >> control_temp_pred_filename;
  !!  *(ad_comm::global_datafile) >> Temp_Cons_Dist_file;
  // !!  *(ad_comm::global_datafile) >> endyrn_file;
  !! write_log(model_name);
@@ -37,7 +37,7 @@ DATA_SECTION
  !! write_log(Cov_Filename);
  !! write_log(Wtage_file);
  !! write_log(RawSurveyCPUE_file);
- !! write_log(control_temp_pred_filename);
+ // !! write_log(control_temp_pred_filename);
  !! write_log(Temp_Cons_Dist_file);
  // !! write_log(endyrn_file);
   int count_Ffail;
@@ -260,6 +260,27 @@ DATA_SECTION
   !! write_log(last_age_sel_group_eit);
   !! write_log(ctrl_flag);
   !! write_log(sel_dev_shift);
+// read in control file for doing temp-recuitment model, and spatial predation
+//  !! ad_comm::change_datafile_name(control_temp_pred_filename);
+ init_int do_temp
+ init_int temp_phase           // phase for parameters in recruitment function
+ int      do_temp_phase        // copy the temperture phase here
+ init_int do_pred              // switch to do the predation mortality (1=yes)
+ init_int pred_phase           // phase for parameters for estimating spatial predation
+ int      do_pred_phase_ss     // phase for estimating the predation parameters, single species function response
+ int      do_pred_phase_ms     // phase for estimating the predation parameters, multi-species function response
+ int      do_pred_phase        // phase for estimating the residual M
+ init_int do_mult_func_resp    // switch to do teh mutlispecies functional response
+ init_int do_yield_curve       // switch to do yield curve
+ LOCAL_CALCS
+   write_log(do_temp);
+   write_log(temp_phase);           // phase for parameters in recruitment function
+   write_log(do_pred);              // switch to do the predation mortality (1=yes)
+   write_log(pred_phase);           // phase for parameters for estimating spatial predation
+   write_log(do_mult_func_resp);    // switch to do teh mutlispecies functional response
+   write_log(do_yield_curve);       // switch to do yield curve
+ END_CALCS
+
 
   // init_int Sim_status   //Simulation flag 0=none, 1=1-yr ahead, 2=full simulation (all data)
   // init_int iseed_junk   //rng seed in
@@ -823,27 +844,6 @@ DATA_SECTION
  vector FW_fsh(1,4);
  number FW_bts;
  number FW_eit;
-
-// read in control file for doing temp-recuitment model, and spatial predation
- !! ad_comm::change_datafile_name(control_temp_pred_filename);
- init_int do_temp
- init_int temp_phase           // phase for parameters in recruitment function
- int      do_temp_phase        // copy the temperture phase here
- init_int do_pred              // switch to do the predation mortality (1=yes)
- init_int pred_phase           // phase for parameters for estimating spatial predation
- int      do_pred_phase_ss     // phase for estimating the predation parameters, single species function response
- int      do_pred_phase_ms     // phase for estimating the predation parameters, multi-species function response
- int      do_pred_phase        // phase for estimating the residual M
- init_int do_mult_func_resp    // switch to do teh mutlispecies functional response
- init_int do_yield_curve       // switch to do yield curve
- LOCAL_CALCS
-   write_log(do_temp);
-   write_log(temp_phase);           // phase for parameters in recruitment function
-   write_log(do_pred);              // switch to do the predation mortality (1=yes)
-   write_log(pred_phase);           // phase for parameters for estimating spatial predation
-   write_log(do_mult_func_resp);    // switch to do teh mutlispecies functional response
-   write_log(do_yield_curve);       // switch to do yield curve
- END_CALCS
 
 
 // read in data for doing temp-recuitment model, and spatial predation
@@ -1910,102 +1910,111 @@ REPORT_SECTION
   
   report << "phizero is " << phizero << endl;
   report << "Bzero is " << Bzero << endl; 
-  if (do_temp==1){
-  ofstream SR_sst_out("SR_sst_out.dat");
-  SR_sst_out << "year SST SR_resid  SR_residuals_temp  SSB pred_rec srmod_rec  "<<endl;   //**** added by Paul
-  for (i=styr_est;i<=endyr_est;i++)
-    SR_sst_out << i<<" "<<SST_mean0(i-1)<<" "<<SR_resids(i) <<" "<<SR_resids_temp(i) <<" "<<SSB(i-1)<<" "<<pred_rec(i)<<" "<<srmod_rec(i)   <<endl;
+  if (do_temp==1)
+	{
+    ofstream SR_sst_out("SR_sst_out.dat");
+    SR_sst_out << "year SST SR_resid  SR_residuals_temp  SSB pred_rec srmod_rec  "<<endl;   //**** added by Paul
+    for (i=styr_est;i<=endyr_est;i++)
+      SR_sst_out << i<<" "<<SST_mean0(i-1)<<" "<<SR_resids(i) <<" "<<SR_resids_temp(i) <<" "<<SSB(i-1)<<" "<<pred_rec(i)<<" "<<srmod_rec(i)   <<endl;
   }
 
   if (do_pred==1)
   {
-  ofstream est_cons_out("est_cons_out.dat");    // added by Paul
-  est_cons_out << "predator year  obs_cons_nonpoll pred_cons"<<endl;
+    ofstream est_cons_out("est_cons_out.dat");    // added by Paul
+    est_cons_out << "predator year  obs_cons_nonpoll pred_cons"<<endl;
 
-  for (j=1;j<=n_pred_grp;j++){
-   for (i=1;i<=nyrs_cons_nonpoll(j);i++) {
-     iyr = yrs_cons_nonpoll(j,i);
-     est_cons_out <<j<<" "<<iyr<<" "<<obs_cons_nonpoll(j,i)<<" "<<pred_cons(j,iyr) <<endl;
-   }
-  }
-
-  legacy_rep <<"consumption ssq are "<< endl;    // added by Paul
-  legacy_rep << ssq_cons << endl;
-  legacy_rep <<"the resid M like is  "<< endl;
-  legacy_rep << sum(resid_M_like) << endl;
-
-  ofstream meanM_out("meanM_out.dat");           // added by Paul
-  meanM_out << " the mean M across strata are " << endl;
-  meanM_out << "year  age1 age2 age3 "<< endl;
-  for (i=styr;i<=endyr_r;i++)
-     meanM_out <<i<<" "<<M_pred_avg(1,i) + resid_M(1) <<" "<<M_pred_avg(2,i) + resid_M(2)<<" "<<M_pred_avg(3,i) + resid_M(3)<<endl;
-
-  for (j=1;j<=n_pred_grp;j++) {                 // added by Paul
-     legacy_rep << "the observed age comps for predator "<<j << endl;
-    for (i=1;i<=nyrs_cons_nonpoll(j);i++){
-         iyr = yrs_cons_nonpoll(j,i);     
-         legacy_rep <<iyr<<" "<<oac_cons_nonpoll(j,i)<<endl;
-       }
-    legacy_rep << "the estimated age comps for predator "<<j << endl;     
-
-    for (i=1;i<=nyrs_cons_nonpoll(j);i++){
-         iyr = yrs_cons_nonpoll(j,i);          
-         legacy_rep <<iyr<<" "<<eac_cons(j,iyr)<<endl;
-       }
-   }
-
-  legacy_rep << " the predator age comps likelihood is "<<endl;  // added by Paul
-  legacy_rep <<age_like_cons << endl;
-
-  ofstream cpuppa_out("cpuppa_out.dat");              // added by Paul
-  cpuppa_out <<" predator year  age strata implied_cpuppa meanN implied_prop_Cmax "<<endl; 
-   for (j=1;j<=n_pred_grp;j++) {
-     for (i=1;i<=n_pred_ages;i++) {
-       for (k=styr;k<=endyr_r;k++){
-        for (z=1;z<=nstrata_pred;z++){
-         cpuppa_out << j <<" "<<k<<" "<<i<<" "<<z<<" "<<implied_cpuppa(j,k,i,z)<<" "<<mean_dens_bystrata(k,i,z)<<" "<<implied_prop_Cmax(j,k,i,z) <<endl;
-       }
-       }
+    for (j=1;j<=n_pred_grp;j++)
+    {
+      for (i=1;i<=nyrs_cons_nonpoll(j);i++) 
+    	{
+        iyr = yrs_cons_nonpoll(j,i);
+        est_cons_out <<j<<" "<<iyr<<" "<<obs_cons_nonpoll(j,i)<<" "<<pred_cons(j,iyr) <<endl;
       }
-     }
+    }
+    legacy_rep <<"consumption ssq are "<< endl;    // added by Paul
+    legacy_rep << ssq_cons << endl;
+    legacy_rep <<"the resid M like is  "<< endl;
+    legacy_rep << sum(resid_M_like) << endl;
 
-  legacy_rep << " the mean density across strata are " << endl;
-  legacy_rep << "Year  age1 age2 age3 "<< endl;
-  for (i=styr;i<=endyr_r;i++)
-     legacy_rep <<i<<" "<<mean_dens(i) <<endl;
-  legacy_rep << " the function response parameters are "<< endl;
-    for (j=1;j<=n_pred_grp;j++) {
-       legacy_rep << "predator  "<<j <<" a: "<<mfexp(log_a_II(j)) << endl;
-       legacy_rep << "predator  "<<j <<" b: "<<mfexp(log_b_II(j)) << endl;
+    ofstream meanM_out("meanM_out.dat");           // added by Paul
+    meanM_out << " the mean M across strata are " << endl;
+    meanM_out << "year  age1 age2 age3 "<< endl;
+    for (i=styr;i<=endyr_r;i++)
+      meanM_out <<i<<" "<<M_pred_avg(1,i) + resid_M(1) <<" "<<M_pred_avg(2,i) + resid_M(2)<<" "<<M_pred_avg(3,i) + resid_M(3)<<endl;
+
+    for (j=1;j<=n_pred_grp;j++) 
+    {                 
+      legacy_rep << "the observed age comps for predator "<<j << endl;
+      for (i=1;i<=nyrs_cons_nonpoll(j);i++)
+    	{
+        iyr = yrs_cons_nonpoll(j,i);     
+        legacy_rep <<iyr<<" "<<oac_cons_nonpoll(j,i)<<endl;
+      }
+      legacy_rep << "the estimated age comps for predator "<<j << endl;     
+
+      for (i=1;i<=nyrs_cons_nonpoll(j);i++)
+    	{
+        iyr = yrs_cons_nonpoll(j,i);          
+        legacy_rep <<iyr<<" "<<eac_cons(j,iyr)<<endl;
+      }
     }
 
-   legacy_rep <<" the meannatage is "  << endl;
-   for (i=styr;i<=endyr_r;i++)
-     legacy_rep <<i<<" "<<meannatage(i) <<endl;
+    legacy_rep << " the predator age comps likelihood is "<<endl;  // added by Paul
+    legacy_rep <<age_like_cons << endl;
+
+    ofstream cpuppa_out("cpuppa_out.dat");              // added by Paul
+    cpuppa_out <<" predator year  age strata implied_cpuppa meanN implied_prop_Cmax "<<endl; 
+    for (j=1;j<=n_pred_grp;j++) 
+    {
+      for (i=1;i<=n_pred_ages;i++) 
+      {
+        for (k=styr;k<=endyr_r;k++)
+      	{
+          for (z=1;z<=nstrata_pred;z++)
+      	  {
+            cpuppa_out << j <<" "<<k<<" "<<i<<" "<<z<<" "<<implied_cpuppa(j,k,i,z)<<" "<<mean_dens_bystrata(k,i,z)<<" "<<implied_prop_Cmax(j,k,i,z) <<endl;
+          }
+        }
+      }
+    }
+
+    legacy_rep << " the mean density across strata are " << endl;
+    legacy_rep << "Year  age1 age2 age3 "<< endl;
+    for (i=styr;i<=endyr_r;i++)
+      legacy_rep <<i<<" "<<mean_dens(i) <<endl;
+    legacy_rep << " the function response parameters are "<< endl;
+    for (j=1;j<=n_pred_grp;j++) 
+    {
+      legacy_rep << "predator  "<<j <<" a: "<<mfexp(log_a_II(j)) << endl;
+      legacy_rep << "predator  "<<j <<" b: "<<mfexp(log_b_II(j)) << endl;
+    }
+
+    legacy_rep <<" the meannatage is "  << endl;
+    for (i=styr;i<=endyr_r;i++)
+      legacy_rep <<i<<" "<<meannatage(i) <<endl;
 
     if(active(log_resid_M))
     {
-     legacy_rep << "the sd of normalized residuals for the rescaled consumption estimates are   "<< endl;
-     legacy_rep <<std_dev(cons_nr(1))/consweights(1) <<" "<<std_dev(cons_nr(2))/consweights(2)<< endl;
-   
-     legacy_rep << "the sd of normalized residuals for the reweighted consumption age comps are   "<< endl;
-     legacy_rep <<std_dev(comp_nr(1)) <<" "<<std_dev(comp_nr(2))<< endl;
+      legacy_rep << "the sd of normalized residuals for the rescaled consumption estimates are   "<< endl;
+      legacy_rep <<std_dev(cons_nr(1))/consweights(1) <<" "<<std_dev(cons_nr(2))/consweights(2)<< endl;
+
+      legacy_rep << "the sd of normalized residuals for the reweighted consumption age comps are   "<< endl;
+      legacy_rep <<std_dev(comp_nr(1)) <<" "<<std_dev(comp_nr(2))<< endl;
     }
 
-  ofstream compweightsnew_file("compweights_new.ctl");    // new comp weights McAllister-Ianelli method (TA1.1) (first comp weights, then cons weights)
-  compweightsnew_file << compweightsnew <<" "<<consweightsnew << endl;
- 
-  
-  ofstream fakeSSBfile("FakeSSB.txt");
-  fakeSSBfile << SRR_SSB << endl;
+    ofstream compweightsnew_file("compweights_new.ctl");    // new comp weights McAllister-Ianelli method (TA1.1) (first comp weights, then cons weights)
+    compweightsnew_file << compweightsnew <<" "<<consweightsnew << endl;
+
+    ofstream fakeSSBfile("FakeSSB.txt");
+    fakeSSBfile << SRR_SSB << endl;
 
   }
 
   if (do_yield_curve==1)
   {
-     legacy_rep << " the F values and yield curve are " << endl;
-     legacy_rep << F_yldcrv << endl;
-     legacy_rep << yield_curve << endl;
+    legacy_rep << " the F values and yield curve are " << endl;
+    legacy_rep << F_yldcrv << endl;
+    legacy_rep << yield_curve << endl;
 
     ofstream fakeFfile("FakeF.txt");
     fakeFfile << F_yldcrv << endl;
@@ -5912,6 +5921,6 @@ GLOBALS_SECTION
   adstring Cov_Filename;
   adstring Wtage_file;
   adstring RawSurveyCPUE_file;
-  adstring control_temp_pred_filename;
+  // adstring control_temp_pred_filename;
   adstring Temp_Cons_Dist_file; 
   adstring endyrn_file;
