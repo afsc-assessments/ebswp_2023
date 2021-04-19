@@ -1908,8 +1908,8 @@ REPORT_SECTION
   legacy_rep << F<<endl;
   legacy_rep << wt_pre<<endl;
   
-  report << "phizero is " << phizero << endl;
-  report << "Bzero is " << Bzero << endl; 
+  report << "phizero" << endl << phizero << endl;
+  report << "Bzero"   << endl << Bzero   << endl; 
   if (do_temp==1)
 	{
     ofstream SR_sst_out("SR_sst_out.dat");
