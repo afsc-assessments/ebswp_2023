@@ -848,9 +848,7 @@ DATA_SECTION
 
 // read in data for doing temp-recuitment model, and spatial predation
  !! ad_comm::change_datafile_name(Temp_Cons_Dist_file);
- init_vector SST(styr,endyr-3);
- vector SST_mean0(styr_est-1,endyr_est-1)   // SST woth mean zero for the years we will use it
- !! SST_mean0 = SST(styr_est-1,endyr_est-1) - mean(SST(styr_est-1,endyr_est-1));    // rescale to have mean of zero
+ init_vector SST(styr-1,endyr-1);
  number SST_fut
  !! SST_fut = mean(SST(endyr-7,endyr-3));
  init_number n_pred_grp_nonpoll  // the number of non-pollock predator groups
@@ -1422,6 +1420,11 @@ PARAMETER_SECTION
   matrix cons_nr(1,n_pred_grp_nonpoll,1,nyrs_cons_nonpoll)
   matrix comp_nr(1,n_pred_grp_nonpoll,1,comp_nr_ub)  // for holding the composition standardized resids
 
+  // alpha terms that scale the environment effect to log_avg_rec and modeled recruitment (following Maunder and Watters 2002 paper)
+  number pred_rec_alpha
+  number srmod_rec_alpha
+
+
 
 
 
@@ -1758,7 +1761,7 @@ REPORT_SECTION
   legacy_rep << rechat<<endl;
   legacy_rep << " SST and fitted SR_resid for plotting" <<endl;  // added by Paul
   legacy_rep << fake_SST<<endl;                                    
-  //legacy_rep << SRresidhat<<endl;
+  legacy_rep << SRresidhat<<endl;
 
   legacy_rep << " fake density for plotting" <<endl;   // added by Paul
   legacy_rep << fake_dens << endl;                     // added by Paul 
@@ -1915,7 +1918,7 @@ REPORT_SECTION
     ofstream SR_sst_out("SR_sst_out.dat");
     SR_sst_out << "year SST SR_resid  SR_residuals_temp  SSB pred_rec srmod_rec  "<<endl;   //**** added by Paul
     for (i=styr_est;i<=endyr_est;i++)
-      SR_sst_out << i<<" "<<SST_mean0(i-1)<<" "<<SR_resids(i) <<" "<<SR_resids_temp(i) <<" "<<SSB(i-1)<<" "<<pred_rec(i)<<" "<<srmod_rec(i)   <<endl;
+      SR_sst_out << i<<" "<<SST(i-1)<<" "<<SR_resids(i) <<" "<<SR_resids_temp(i) <<" "<<SSB(i-1)<<" "<<pred_rec(i)<<" "<<srmod_rec(i)   <<endl;
   }
 
   if (do_pred==1)
@@ -2107,11 +2110,27 @@ FUNCTION GetNumbersAtAge
   natage(styr)(2,nages)=mfexp(log_initage); // Eq. 1
 
   // Recruitment in subsequent years
-  for (i=styr;i<=endyr_r;i++)
+  
+  
+  if(active(resid_temp_x1))
   {
-    natage(i,1) = mfexp(log_avgrec+rec_epsilons(i)); // Eq. 1
-    pred_rec(i) = natage(i,1);
+    pred_rec_alpha = log(size_count(SST(styr-1,endyr_r-1))/sum(mfexp(resid_temp_x1*SST(styr-1,endyr_r-1)   + resid_temp_x2*elem_prod(SST(styr-1,endyr_r-1),SST(styr-1,endyr_r-1)))));
+  
+    for (i=styr;i<=endyr_r;i++)
+    {
+      natage(i,1) = mfexp(log_avgrec+rec_epsilons(i)+pred_rec_alpha + resid_temp_x1*SST(i-1)   + resid_temp_x2*SST(i-1)*SST(i-1)); // Eq. 1
+      pred_rec(i) = natage(i,1);
+    }
   }
+  else
+  {
+    for (i=styr;i<=endyr_r;i++)
+    {
+      natage(i,1) = mfexp(log_avgrec+rec_epsilons(i)); // Eq. 1
+      pred_rec(i) = natage(i,1); 
+    }  
+  }
+  
 
   // ***** start of thing by Paul  **********
   // *****  for each year, for each predator and age of pollock preyed upon, distribute the predator and prey across the strata,
@@ -2514,13 +2533,13 @@ FUNCTION GetDependentVar
     dvariable step;
     dvariable dist;
     dvariable low; 
-    low = 0.9*min(SST_mean0);
-    dist = 1.1*max(SST_mean0) - low;
+    low = 0.9*min(SST);
+    dist = 1.1*max(SST) - low;
     for (i=1;i<=40;i++)
     {
       fake_SST(i)=low + dist*(i-0.5)/39.5;  
       Xsst = fake_SST(i); 
-      SRresidhat(i)=resid_temp_x1*Xsst + resid_temp_x2*Xsst*Xsst;  
+      SRresidhat(i)= srmod_rec_alpha + resid_temp_x1*Xsst + resid_temp_x2*Xsst*Xsst;  
     }
   }
 
@@ -3629,21 +3648,26 @@ FUNCTION Recruitment_Likelihood
     sigmarsq_out    = norm2(log_rec_devs(styr_est,endyr_est))/size_count(log_rec_devs(styr_est,endyr_est));
 
     // SRR estimated for a specified window of years, with optional SST effect 
-    for (i=styr_est;i<=endyr_est;i++)
-    {
-      if (active(resid_temp_x1)) 
-          srmod_rec(i) = SRecruit(SSB(i-1))*mfexp(resid_temp_x1*SST_mean0(i-1) + resid_temp_x2*SST_mean0(i-1)*SST_mean0(i-1)); ///1 year lag w/ SSB and sst
-      else
-          srmod_rec(i) = SRecruit(SSB(i-1)); // 1 year lag w/ SSB
-    }
+    if (active(resid_temp_x1))    
+      {
+      srmod_rec_alpha = log(size_count(SST(styr_est-1,endyr_est-1))/sum(mfexp(resid_temp_x1*SST(styr_est-1,endyr_est-1)   + resid_temp_x2*elem_prod(SST(styr_est-1,endyr_est-1),SST(styr_est-1,endyr_est-1)))));
+      for (i=styr_est;i<=endyr_est;i++)
+        {
+          srmod_rec(i) = SRecruit(SSB(i-1))*mfexp(srmod_rec_alpha +  resid_temp_x1*SST(i-1) + resid_temp_x2*SST(i-1)*SST(i-1)); ///1 year lag w/ SSB and sst
+          SR_resids_temp(i) = srmod_rec_alpha +  resid_temp_x1*SST(i-1) + resid_temp_x2*SST(i-1)*SST(i-1);  //***** added by Paul ******, log scale resids due to temp
+        }
+      }
+    else
+     {
+      for (i=styr_est;i<=endyr_est;i++)
+        srmod_rec(i) = SRecruit(SSB(i-1)); // 1 year lag w/ SSB
+     }  
+   
+    
+    
     SR_resids = log(pred_rec(styr_est,endyr_est)+1.e-8) - log(srmod_rec + 1.e-8)  ;
 
-    // added by Paul
-    if (active(resid_temp_x1))
-    {    
-      SR_resids_temp = ++(resid_temp_x1*SST_mean0 + resid_temp_x2*elem_prod(SST_mean0,SST_mean0));  //***** added by Paul ******
-      //SR_resids_like = norm2(SR_resids - SR_resids_temp);    // *** added by Paul *****
-    }
+   
     // if (ctrl_flag(30)==0)// use srr in fit (not just the prior) { }
     // Flag to ignore the impact of the 1978 YC on S-Rec estimation...
     if (ctrl_flag(25)<1)
@@ -4227,8 +4251,98 @@ FUNCTION write_eval
       write_mceval(Bcur_Bmean(1)); //8 
       write_mceval(Bcur2_B20(1)); //8 
       write_mceval(B_Bnofsh); //8 
-      write_mceval(q_all); //8 
+      write_mceval(q_all); //8
+      if(do_temp){
+        write_mceval(resid_temp_x1);
+        write_mceval(resid_temp_x2);
+      }
       write_mceval <<endl;
+                               // stuff added by Paul for posterior predictive distribution
+      
+      write_mceval_eb_bts(count_mcmc);
+      write_mceval_eb_bts(fff);  
+      write_mceval_eb_bts(eb_bts);
+      write_mceval_eb_bts <<endl;
+
+      write_mceval_eb_eit(count_mcmc);
+      write_mceval_eb_eit(fff);  
+      write_mceval_eb_eit(eb_eit);
+      write_mceval_eb_eit <<endl;
+      
+      write_mceval_ea1_eit(count_mcmc);
+      write_mceval_ea1_eit(fff);  
+      write_mceval_ea1_eit(ea1_eit*mfexp(mean(log(oa1_eit)-log(ea1_eit))));
+      write_mceval_ea1_eit <<endl;
+
+      write_mceval_pred_catch(count_mcmc);
+      write_mceval_pred_catch(fff);  
+      write_mceval_pred_catch(pred_catch);
+      write_mceval_pred_catch <<endl;
+
+      write_mceval_mnwt(count_mcmc);
+      write_mceval_mnwt(fff);  
+      write_mceval_mnwt(mnwt);
+      write_mceval_mnwt <<endl;
+
+      for (i=1;i<=n_fsh_r;i++){
+        write_mceval_eac_fsh(count_mcmc);
+        write_mceval_eac_fsh(fff);
+        write_mceval_eac_fsh(yrs_fsh_data(i));
+        write_mceval_eac_fsh(eac_fsh(i));
+        write_mceval_eac_fsh <<endl;
+      }
+      
+      for (i=1;i<=n_bts_r;i++){
+        write_mceval_eac_bts(count_mcmc);
+        write_mceval_eac_bts(fff);
+        write_mceval_eac_bts(yrs_bts_data(i));
+        write_mceval_eac_bts(eac_bts(i));
+        write_mceval_eac_bts <<endl;
+      }
+
+      for (i=1;i<=n_eit_r;i++){
+        write_mceval_eac_eit(count_mcmc);
+        write_mceval_eac_eit(fff);
+        write_mceval_eac_eit(yrs_eit_data(i));
+        write_mceval_eac_eit(eac_eit(i));
+        write_mceval_eac_eit <<endl;
+      }
+
+      for (i=1;i<=nyrs_data(1);i++){
+        write_mceval_fsh_wt(count_mcmc);
+        write_mceval_fsh_wt(fff);
+        write_mceval_fsh_wt(yrs_data(1,i));
+        write_mceval_fsh_wt(wt_hat(1,i));
+        write_mceval_fsh_wt <<endl;
+      }
+
+     for (i=1;i<=nyrs_data(2);i++){
+        write_mceval_srv_wt(count_mcmc);
+        write_mceval_srv_wt(fff);
+        write_mceval_srv_wt(yrs_data(2,i));
+        write_mceval_srv_wt(wt_hat(2,i));
+        write_mceval_srv_wt <<endl;
+      }
+
+      write_mceval_pred_cpue(count_mcmc);
+      write_mceval_pred_cpue(fff);  
+      write_mceval_pred_cpue(pred_cpue);
+      write_mceval_pred_cpue <<endl;
+
+      write_mceval_pred_avo(count_mcmc);
+      write_mceval_pred_avo(fff);  
+      write_mceval_pred_avo(pred_avo);
+      write_mceval_pred_avo <<endl;
+      
+      
+                                
+
+
+
+      
+
+
+
       // eval<< "Obj_Fun steep q AvgRec SER_endyr SSBendyr_B40 1989_YC 1992_YC 1996_YC 2000YC MSYR Bmsy3+ Fmsy F35 SER_Fmsy SER_Endyr SBF40 Bcur_Bmsy Cur_Sp F40Catch Steepness Q CC1_1 CC1_2 CC1_3 CC2_1 CC2_2 CC2_3"<<endl;
       // eval <<" Future ssb"<<endl;
       // pflag=1;
@@ -5896,6 +6010,54 @@ GLOBALS_SECTION
   ofstream write_mceval("mceval.rep");
   #undef write_mceval
   #define write_mceval(object) write_mceval << " " << object ;
+
+  ofstream write_mceval_eb_bts("mceval_eb_bts.rep");
+  #undef write_mceval_eb_bts
+  #define write_mceval_eb_bts(object) write_mceval_eb_bts << " " << object ;
+
+  ofstream write_mceval_eb_eit("mceval_eb_eit.rep");
+  #undef write_mceval_eb_eit
+  #define write_mceval_eb_eit(object) write_mceval_eb_eit << " " << object ;
+
+  ofstream write_mceval_ea1_eit("mceval_ea1_eit.rep");
+  #undef write_mceval_ea1_eit
+  #define write_mceval_ea1_eit(object) write_mceval_ea1_eit << " " << object ;
+
+  ofstream write_mceval_pred_catch("mceval_pred_catch.rep");
+  #undef write_mceval_pred_catch
+  #define write_mceval_pred_catch(object) write_mceval_pred_catch << " " << object ;
+
+  ofstream write_mceval_eac_fsh("mceval_eac_fsh.rep");
+  #undef write_mceval_eac_fsh
+  #define write_mceval_eac_fsh(object) write_mceval_eac_fsh << " " << object ;
+
+  ofstream write_mceval_eac_bts("mceval_eac_bts.rep");
+  #undef write_mceval_eac_bts
+  #define write_mceval_eac_bts(object) write_mceval_eac_bts << " " << object ;
+
+  ofstream write_mceval_eac_eit("mceval_eac_eit.rep");
+  #undef write_mceval_eac_eit
+  #define write_mceval_eac_eit(object) write_mceval_eac_eit << " " << object ;
+
+  ofstream write_mceval_pred_cpue("mceval_pred_cpue.rep");
+  #undef write_mceval_pred_cpue
+  #define write_mceval_pred_cpue(object) write_mceval_pred_cpue << " " << object ;
+
+  ofstream write_mceval_pred_avo("mceval_pred_avo.rep");
+  #undef write_mceval_pred_avo
+  #define write_mceval_pred_avo(object) write_mceval_pred_avo << " " << object ;
+
+  ofstream write_mceval_mnwt("mceval_mnwt.rep");
+  #undef write_mceval_mnwt
+  #define write_mceval_mnwt(object) write_mceval_mnwt << " " << object ;
+
+  ofstream write_mceval_fsh_wt("mceval_fsh_wt.rep");
+  #undef write_mceval_fsh_wt
+  #define write_mceval_fsh_wt(object) write_mceval_fsh_wt << " " << object ;
+
+  ofstream write_mceval_srv_wt("mceval_srv_wt.rep");
+  #undef write_mceval_srv_wt
+  #define write_mceval_srv_wt(object) write_mceval_srv_wt << " " << object ;
 
   ofstream write_log("Input_Log.rep");
   #undef write_log
