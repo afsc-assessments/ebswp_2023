@@ -150,7 +150,7 @@
 5
 0.1
 5
-1
+0  # changed by Paul to include years back to 1964
 1 # exclude 1978 yc in SRR? 0=no, 1=yes
 2
 -3
@@ -164,7 +164,7 @@
 #phase_yreff
 1
 #switch_temp_recruitment
-0 
+0
 #phase_temp_recruitment
 6
 #switch_pred_mort
@@ -172,5 +172,7 @@
 #phase_pred_mort
 1 
 #switch_multispecies_fucntional_response
+1
+#switch fo do the yield curve
 1
 
