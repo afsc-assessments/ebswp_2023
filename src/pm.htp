@@ -1,5 +1,5 @@
-#if !defined(_PM_)
-#  define _PM_
+#if !defined(_pm_)
+#  define _pm_
 
 class model_data : public ad_comm{
   int count_Ffail;
@@ -298,6 +298,11 @@ class model_data : public ad_comm{
   dvector atf_wgts;
   dvector poll_wgts;
   ivector comp_nr_ub;
+  data_int phase_cope;
+  data_int n_cope;
+  data_ivector yrs_cope;
+  data_vector obs_cope;
+  data_vector obs_cope_std;
   int k;
   int m;
   int yr_ind;
@@ -306,6 +311,7 @@ class model_data : public ad_comm{
   dmatrix sam_oac_cons_nonpoll;
   data_vector compweights;
   data_vector consweights;
+  data_matrix M_matrix;
   ~model_data();
   model_data(int argc,char * argv[]);
   friend class model_parameters;
@@ -318,7 +324,6 @@ public:
   ~model_parameters();
   void preliminary_calculations(void);
   void set_runtime(void);
-  virtual void * mycast(void) {return (void*)this;}
   static int mc_phase(void)
   {
     return initial_params::mc_phase;
@@ -326,6 +331,10 @@ public:
   static int mceval_phase(void)
   {
     return initial_params::mceval_phase;
+  }
+  static int hessian_phase(void)
+  {
+    return initial_params::in_hessian_phase;
   }
   static int sd_phase(void)
   {
@@ -345,6 +354,12 @@ public:
     return *objective_function_value::pobjfun;
   }
 private:
+  dvariable adromb(dvariable(model_parameters::*f)(const dvariable&), double a, double b, int ns)
+  {
+    using namespace std::placeholders;
+    _func func = std::bind(f, this, _1);
+    return function_minimizer::adromb(func, a, b, ns);
+  }
   ivector integer_control_flags;
   dvector double_control_flags;
   param_init_number log_avgrec;
@@ -463,6 +478,8 @@ private:
   param_vector Pred_N_bts;
   param_vector Pred_N_eit;
   param_vector pred_cpue;
+  param_vector pred_cope;
+  param_stddev_vector Nage_3;
   param_vector pred_avo;
   param_matrix natage;
   param_vector srmod_rec;
@@ -485,6 +502,7 @@ private:
   param_number nthisage;
   param_vector surv_like;
   param_number cpue_like;
+  param_number cope_like;
   param_number avo_like;
   param_vector sel_like;
   param_vector sel_like_dev;
@@ -716,6 +734,7 @@ public:
   void Fit_resid_M(void);
   void Est_Fixed_Effects_wts(void);
  double sdnr(const dvector& obs, const dvar_vector& pred, const dvector& sig);
+ dvector rmultinomial(const dvector ptmp, const int n_sam);
  double calc_Francis_weights(const dmatrix oac, const dvar_matrix eac, const ivector sam );
 
 };

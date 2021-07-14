@@ -64,7 +64,7 @@ DATA_SECTION
   // writes when -mceval invoked (which uses pm.psv file from -mcmc 10000000 -mcsave 200)
   !!CLASS ofstream eval("pm_eval.rep")     
   // Control file read from here--------------------------------------
- !! ad_comm::change_datafile_name(control_filename);
+ !! ad_comm::change_datafile_name(control_filename); cout<<"Opening "<<control_filename<<endl;
   init_int DoCovBTS           // Flag to use covariance for bottom trawl survey
   init_int SrType             // SRR 1=ricker, 2 bholt, 3 avg
   init_int Do_Combined        // Flag to try experimental combined-surveys method (not used yet)
@@ -265,7 +265,7 @@ DATA_SECTION
  init_int do_temp
  init_int temp_phase           // phase for parameters in recruitment function
  int      do_temp_phase        // copy the temperture phase here
- init_int do_pred              // switch to do the predation mortality (1=yes)
+ init_int do_pred              // switch to do the predation mortality (1=yes,2=use M_matrix.dat)
  init_int pred_phase           // phase for parameters for estimating spatial predation
  int      do_pred_phase_ss     // phase for estimating the predation parameters, single species function response
  int      do_pred_phase_ms     // phase for estimating the predation parameters, multi-species function response
@@ -281,7 +281,6 @@ DATA_SECTION
    write_log(do_yield_curve);       // switch to do yield curve
  END_CALCS
 
-
   // init_int Sim_status   //Simulation flag 0=none, 1=1-yr ahead, 2=full simulation (all data)
   // init_int iseed_junk   //rng seed in
   // modify endyr numbers at age to test alternative future "truths" in a simulation
@@ -293,7 +292,7 @@ DATA_SECTION
 
   // Read in datafile now...
   // !! global_datafile= new cifstream(datafile_name);
- !! ad_comm::change_datafile_name(datafile_name);
+ !! ad_comm::change_datafile_name(datafile_name); cout<<"Opening "<<datafile_name<<endl;
   init_int styr
   init_int styr_bts
   init_int styr_eit
@@ -479,10 +478,10 @@ DATA_SECTION
   //
   //   Reads in a matrix of 3 columns by nyrs rows.  Values for 3rd column are used to allow some variability in 
   //      EIT availability by year (a type of process error, Eqs. 4 and 5)
-  !! ad_comm::change_datafile_name(Alt_MSY_File);
+  !! ad_comm::change_datafile_name(Alt_MSY_File);cout<<"Opening "<<Alt_MSY_File<<endl;
   // Vector of additional weight due to cost of travel (apply to Fmsy calc)
   init_vector Fmoney(1,nages);
-  !! ad_comm::change_datafile_name(selchng_filename);
+  !! ad_comm::change_datafile_name(selchng_filename);cout<<"Opening "<<selchng_filename<<endl;
   int ii;
   init_matrix sel_data(styr,endyr,0,3);  // Columns: year, change by gear type (fsh, bts, eit)
 
@@ -647,7 +646,7 @@ DATA_SECTION
   else
     phase_nosr = 1;
  END_CALCS
-  !! ad_comm::change_datafile_name(Cov_Filename);
+  !! ad_comm::change_datafile_name(Cov_Filename);cout<<"Opening "<<Cov_Filename<<endl;
   // Read in covariance matrix of BTS survey biomass over time
   init_matrix cov_in(1,n_bts,1,n_bts);
   matrix cov(1,n_bts_r,1,n_bts_r);
@@ -893,6 +892,11 @@ DATA_SECTION
  vector poll_wgts(1,n_pred_ages);    // mean poll weights for computing functional response
  ivector comp_nr_ub(1,n_pred_grp_nonpoll);                   // define upper bound for ragged matrix cons_nr as integer vector
  !! comp_nr_ub = ivector(nyrs_cons_nonpoll*n_pred_ages);  
+ init_int phase_cope;
+ init_int n_cope;
+ init_ivector yrs_cope(1,n_cope);
+ init_vector obs_cope(1,n_cope);
+ init_vector obs_cope_std(1,n_cope);
  
 
  int k     // added by Paul (k,m,yr_ind,z) 
@@ -926,6 +930,11 @@ DATA_SECTION
    write_log(temp_bystrata);  
    write_log(mn_wgt_nonpoll);
    write_log(Cmax_avg);  
+   write_log(phase_cope);
+   write_log(n_cope);
+   write_log(yrs_cope);
+   write_log(obs_cope);
+   write_log(obs_cope_std);
 
    // Assign values to temperature and predation phases (if estimating predation mortality or climate enhanced recruitment)
   if(do_pred==1  && do_mult_func_resp==1)
@@ -946,7 +955,6 @@ DATA_SECTION
     do_pred_phase_ss = -1;
     do_pred_phase    = -1;
   }  
-  
   if(do_temp==1) 
     do_temp_phase = temp_phase;
   else 
@@ -1039,7 +1047,12 @@ DATA_SECTION
       sam_oac_cons_nonpoll(i) = compweights(i)*sam_oac_cons_nonpoll_raw(i);    
     }
   }
+  if(do_pred==2)
+  {
+    ad_comm::change_datafile_name("../dat/M_matrix.dat"); cout<<"Opening ../dat/M_matrix.dat"<<endl;
+  }  
  END_CALCS
+   init_matrix M_matrix(styr,endyr,1,nages);
 
  
 INITIALIZATION_SECTION
@@ -1231,6 +1244,8 @@ PARAMETER_SECTION
   vector Pred_N_bts(styr,endyr_r)
   vector Pred_N_eit(styr,endyr_r)
   vector pred_cpue(1,n_cpue)
+  vector pred_cope(1,n_cope)
+  sdreport_vector Nage_3(1,n_cope)
   vector pred_avo(1,n_avo)
   // vector SSB(styr,endyr_r)
   matrix natage(styr,endyr_r,1,nages);
@@ -1254,6 +1269,7 @@ PARAMETER_SECTION
   number nthisage;
   vector surv_like(1,3);
   number cpue_like;
+  number cope_like;
   number avo_like;
   vector sel_like(1,3);
   vector sel_like_dev(1,3);
@@ -1502,6 +1518,8 @@ PRELIMINARY_CALCS_SECTION
   }
   write_log(oac_cons_nonpoll);
   write_log(oac_cons_like_offset);
+	if (do_pred==2)
+		M = M_matrix;
 
 RUNTIME_SECTION
    maximum_function_evaluations 50,400,900,1800,1900,15000
@@ -1572,6 +1590,10 @@ REPORT_SECTION
   report << catage<<endl;
   report << "Z"<<endl;
   report << Z <<endl;
+  report << "F"<<endl;
+  report << F <<endl;
+  report << "M"<<endl;
+  report << M <<endl;
   report << "S"<<endl;
   report << S <<endl;
     legacy_rep << "Francis weights: fishery "<<endl;
@@ -2091,10 +2113,11 @@ FUNCTION Get_Mortality_Rates
   Fmort=  mfexp(log_avg_F + log_F_devs); // Eq. 2
   for (i=styr; i<=endyr_r; i++)
   {
-    if (i==styr) 
+    // if (i==styr) 
+		if (do_pred !=2)
       M(i) = natmort;
-    else
-      M(i) = M(i-1)*mfexp(M_dev(i));
+    // else
+      // M(i) = M(i-1)*mfexp(M_dev(i));
     F(i) = Fmort(i) * sel_fsh(i); // Eq. 2
     Z(i) = F(i) + M(i); // Eq. 1
   }
@@ -3114,6 +3137,14 @@ FUNCTION Get_Catch_at_Age
       // pred_avo(i)  = wt_fsh(iyr) * elem_prod(natage(iyr)  , avo_sel) * q_avo; 
       // pred_avo(i)  = wt_fsh(iyr) * natage(iyr)  * q_avo; 
     }
+    for (i=1;i<=n_cope;i++)
+    {
+      iyr          = yrs_cope(i)+3;
+      if (iyr<=endyr_r)
+        pred_cope(i) = natage(iyr,3) ; 
+
+    }
+ //avo predicted values..
    
   //Trawl survey expected values------------------------
   dvar_vector ntmp(1,nages); 
@@ -3736,6 +3767,8 @@ FUNCTION Evaluate_Objective_Function
   fff += ctrl_flag(12) * cpue_like;
   fff += ctrl_flag(6) * avo_like;
   fff += ctrl_flag(3) * sum(rec_like);
+  if (phase_cope>0 & current_phase()>=phase_cope)
+    fff += cope_like;
   F_pen = norm2(log_F_devs);
   fff += ctrl_flag(4) * F_pen;
 
@@ -4080,6 +4113,7 @@ FUNCTION Surv_Likelihood
   }
   avo_like.initialize();
   cpue_like.initialize();
+  cope_like.initialize();
 
   dvar_vector cpue_dev = obs_cpue-pred_cpue;
   for (i=1;i<=n_cpue;i++)
@@ -4088,6 +4122,35 @@ FUNCTION Surv_Likelihood
   dvar_vector avo_dev = obs_avo-pred_avo;
   for (i=1;i<=n_avo_r;i++)
     avo_like += square(avo_dev(i))/(2.*obs_avo_var(i));
+
+  if (phase_cope>0 & current_phase()>=phase_cope)
+  {
+    // Compute q for this age1 index...
+    int ntmp = n_cope - (yrs_cope(n_cope)+3-endyr_r);
+    dvariable qtmp = mfexp(mean(log(obs_cope(1,ntmp))-log(pred_cope(1,ntmp))));
+    for (i=ntmp+1;i<=n_cope;i++)
+      pred_cope(i) = obs_cope(i)/qtmp;
+    pred_cope *= qtmp;
+    if (sd_phase())
+      Nage_3 = pred_cope/qtmp;
+
+    dvar_vector cope_dev = obs_cope-pred_cope;
+    for (i=1;i<=n_cope;i++)
+      cope_like += square(cope_dev(i))/(2.*square(obs_cope_std(i)));
+	}
+  else
+  {
+    if (sd_phase())
+    {
+      for (i=1;i<=n_cope;i++)
+        if (yrs_cope(i)>endyr_r)
+          Nage_3(i) = natage_future(3,yrs_cope(i),3);
+        else
+          Nage_3(i) = natage(yrs_cope(i),3);
+      
+    }
+  }
+  
 FUNCTION Robust_Likelihood
   age_like.initialize();
   len_like.initialize();
@@ -4257,8 +4320,91 @@ FUNCTION write_eval
         write_mceval(resid_temp_x2);
       }
       write_mceval <<endl;
-                               // stuff added by Paul for posterior predictive distribution
+      // stuff added by Paul for posterior predictive distribution
+			
+      // write_mceval_ppl(count_mcmc);
+      // write_mceval_ppl(fff);  
+      // write_mceval_ppl(eb_bts);
       
+      for (i=1;i<=n_bts_r;i++){
+        double cvtmp = std_ob_bts(i)/ob_bts(i);
+        double lnstd = sqrt(log(square(cvtmp) + 1.));
+        double simtmp= mfexp(rnorm(log(value(eb_bts(i))) , lnstd, rng));
+        mceval_ppl << "BTS,"  
+                  << fff        << ","
+                  << count_mcmc << ","
+                  << yrs_bts_data(i)<<","
+			            << ob_bts(i)<<","
+								  << eb_bts(i) <<","
+                  << simtmp      <<","
+								  << var_ob_bts(i) <<" "
+								  <<endl;
+      }
+      for (i=1;i<=n_eit_r;i++){
+        double cvtmp = std_ob_eit(i)/ob_eit(i);
+        double lnstd = sqrt(log(square(cvtmp) + 1.));
+        double simtmp= mfexp(rnorm(log(value(eb_eit(i))) , lnstd, rng));
+        mceval_ppl << "ATS,"  
+                  << fff        << ","
+                  << count_mcmc << ","
+                  << yrs_eit_data(i)<<","
+                  << ob_eit(i)<<","
+                  << eb_eit(i) <<","
+                  << simtmp      <<","
+                  << var_ob_eit(i) <<" "
+                  <<endl;
+      }
+      for (i=1;i<=n_avo;i++){
+        double cvtmp = obs_avo_std(i)/obs_avo(i);
+        double lnstd = sqrt(log(square(cvtmp) + 1.));
+        double simtmp= mfexp(rnorm(log(value(pred_avo(i))) , lnstd, rng));
+        mceval_ppl << "AVO,"  
+                  << fff        << ","
+                  << count_mcmc << ","
+                  << yrs_avo(i)<<","
+                  << obs_avo(i)<<","
+                  << pred_avo(i) <<","
+                  << simtmp      <<","
+                  << obs_avo_var(i) <<" "
+                  <<endl;
+      }
+      for (i=1;i<=n_cpue;i++){
+        mceval_ppl << "CPUE,"  
+                  << fff        << ","
+                  << count_mcmc << ","
+                  << yrs_cpue(i)<<","
+                  << obs_cpue(i)<<","
+                  << pred_cpue(i) <<","
+                  << mfexp(rnorm(log(value(pred_avo(i))) , obs_avo_std(i), rng)) <<","
+                  << obs_avo_var(i) <<" "
+                  <<endl;
+      }
+  // !! write_log(sam_fsh);write_log(sam_bts);write_log(sam_eit);
+  // !! write_log(oac_fsh_data);write_log(yrs_bts_data);write_log(yrs_eit_data);
+      for (i=1;i<=n_fsh_r;i++){
+        if(count_mcmc==1)
+          mceval_ac_ppl << "0 oac" <<" fsh "
+            << yrs_fsh_data(i)<<" " <<  oac_fsh(i) <<endl;
+          mceval_ac_ppl << count_mcmc<<" eac fsh "
+            << yrs_fsh_data(i)<<" " <<  eac_fsh(i) <<endl;
+          mceval_ac_ppl << count_mcmc<<" sim fsh "
+            << yrs_fsh_data(i)<<" " <<  rmultinomial(value(eac_fsh(i)),sam_fsh(i)) <<endl;
+        write_mceval_ac_ppl(count_mcmc);
+        write_mceval_ac_ppl(oac_fsh_data);
+        write_mceval_eac_fsh(fff);
+        write_mceval_eac_fsh(yrs_fsh_data(i));
+        write_mceval_eac_fsh(eac_fsh(i));
+        write_mceval_eac_fsh <<endl;
+      }
+      
+      for (i=1;i<=n_bts_r;i++){
+        write_mceval_eac_bts(count_mcmc);
+        write_mceval_eac_bts(fff);
+        write_mceval_eac_bts(yrs_bts_data(i));
+        write_mceval_eac_bts(eac_bts(i));
+        write_mceval_eac_bts <<endl;
+      }
+
       write_mceval_eb_bts(count_mcmc);
       write_mceval_eb_bts(fff);  
       write_mceval_eb_bts(eb_bts);
@@ -5239,6 +5385,7 @@ FUNCTION write_R
   R_report(all_like);
   R_report(surv_like);
   R_report(cpue_like);
+  R_report(cope_like);
   R_report(avo_like);
   R_report(sel_like);
   R_report(sel_like_dev);
@@ -5301,6 +5448,13 @@ FUNCTION write_R
   R_report(LTA1_5.sd);
   double lb=0.;
   double ub=0.;
+  report<<"N_age_3"<<endl; 
+  for (i=1;i<=n_cope;i++) 
+  {
+    lb=value(Nage_3(i)/exp(2.*sqrt(log(1+square(Nage_3.sd(i))/square(Nage_3(i))))));
+    ub=value(Nage_3(i)*exp(2.*sqrt(log(1+square(Nage_3.sd(i))/square(Nage_3(i))))));
+    report<<3+yrs_cope(i)<<" "<<Nage_3(i)<<" "<<Nage_3.sd(i)<<" "<<lb<<" "<<ub<<endl;
+  }
   report<<"SER"<<endl; 
   for (i=styr;i<=endyr_r;i++) 
   {
@@ -5331,6 +5485,10 @@ FUNCTION write_R
   R_report(obs_avo); 
   R_report(obs_avo_std); 
   R_report(pred_avo); 
+  R_report(yrs_cope); 
+  R_report(obs_cope); 
+  R_report(obs_cope_std); 
+  R_report(pred_cope); 
   report << "pobs_fsh"<<  endl;
   for (i=1;i<=n_fsh_r;i++) 
     report << yrs_fsh_data(i)<< " "<< oac_fsh(i) << endl;
@@ -5946,7 +6104,17 @@ FUNCTION double sdnr(const dvector& obs, const dvar_vector& pred, const dvector&
   }
   **/
 
-
+FUNCTION dvector rmultinomial(const dvector ptmp, const int n_sam)
+      dvector freq(1,nages);
+      dvector p(1,nages);
+      ivector bin(1,n_sam);
+      p  = ptmp;
+      p /= sum(p);
+      bin.fill_multinomial(rng,p); // fill a vector v
+      for (int j=1;j<=n_sam;j++)
+          freq(bin(j))++;
+        // Apply ageing error to samples..............
+        return( freq/sum(freq) ); 
   /**
    * @brief Calculate Francis weights
    * @details this code based on equation TA1.8 in Francis(2011) should be changed so separate weights if by sex
@@ -6010,6 +6178,15 @@ GLOBALS_SECTION
   ofstream write_mceval("mceval.rep");
   #undef write_mceval
   #define write_mceval(object) write_mceval << " " << object ;
+
+  ofstream mceval_ac_ppl("mceval_ac_ppl.csv");
+  #undef write_mceval_ac_ppl
+  #define write_mceval_ac_ppl(object) mceval_ac_ppl << "," << object ;
+
+
+  ofstream mceval_ppl("mceval_ppl.csv");
+  #undef write_mceval_ppl
+  #define write_mceval_ppl(object) mceval_ppl << "," << object ;
 
   ofstream write_mceval_eb_bts("mceval_eb_bts.rep");
   #undef write_mceval_eb_bts
