@@ -1,0 +1,5 @@
+# Parameter file for frame 320
+MOVIE_FRAME=320
+MOVIE_NFRAMES=360
+MOVIE_TAG=320
+MOVIE_NAME=globe_320

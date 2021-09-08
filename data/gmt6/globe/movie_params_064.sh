@@ -1,0 +1,5 @@
+# Parameter file for frame 064
+MOVIE_FRAME=64
+MOVIE_NFRAMES=360
+MOVIE_TAG=064
+MOVIE_NAME=globe_064

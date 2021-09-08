@@ -1,0 +1,5 @@
+# Parameter file for frame 301
+MOVIE_FRAME=301
+MOVIE_NFRAMES=360
+MOVIE_TAG=301
+MOVIE_NAME=globe_301

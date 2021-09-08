@@ -303,6 +303,8 @@ class model_data : public ad_comm{
   data_ivector yrs_cope;
   data_vector obs_cope;
   data_vector obs_cope_std;
+  dvector lse_cope;
+  dvector lvar_cope;
   int k;
   int m;
   int yr_ind;
@@ -493,7 +495,7 @@ private:
   param_matrix log_sel_bts;
   param_matrix log_sel_eit;
   param_number ff;
-  param_number ssqcatch;
+  param_number catch_like;
   param_number avgsel_fsh;
   param_number avgsel_bts;
   param_number avgsel_eit;

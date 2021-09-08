@@ -135,8 +135,9 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
   #p1 <- plot_recruitment(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
   #p1 <- plot_ssb(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
   #p1 <- plot_bts(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
-  p1 <- plot_recruitment(modlst[c(1,3,4)],xlim=c(2007.5,2020.5));p1
-  p2 <- plot_ssb(modlst[c(1,3,4)],xlim=c(2008.5,2020.5),breaks=seq(2008,2021,by=2),alpha=.2); p2
+  p1 <- plot_Nage_3(modlst[c(1,5)],xlim=c(2000.5,2023.5));p1
+  p1 <- plot_recruitment(modlst[c(1:2)],xlim=c(2000.5,2020.5));p1
+  p2 <- plot_ssb(modlst[c(1:3)],xlim=c(2008.5,2020.5),breaks=seq(2008,2021,by=2),alpha=.2); p2
   # Comparing base with 2 vast configurations
   p3 <- p1/p2; p3
   ggsave("figs/mod_eval0a.pdf",plot=p3,width=8,height=5.0,units="in")
@@ -172,14 +173,16 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
   #p1 <- plot_mnage(modlst[thismod]) ;p1
   p1 <- plot_mnage(modlst[1]) ;p1 # Note used model 1 for figure...because of kludge for age compos
   ggsave("figs/mod_mean_age.pdf",plot=p1,width=5.8,height=8,units="in")
-  p1 <- plot_bts(modlst[thismod]) 
+  p1 <- plot_bts(modlst[thismod]) ; p1
   ggsave("figs/mod_bts_biom.pdf",plot=p1,width=5.2,height=3.7,units="in")
 
   p1 <- plot_ats(modlst[c(1,thismod)]) ;p1
   p1 <- plot_ats(modlst[c(1,3,4,thismod)]) ;p1
   p1 <- plot_ats(modlst[c(1,thismod)]) ;p1
   p1 <- plot_ats(modlst[c(4,thismod)]) ;p1
-  p1 <- plot_bts(modlst) 
+  p1 <- plot_bts(modlst) ; p1
+
+  p1 <- plot_bts(modlst[thismod]) ; p1
 
 #  p1 <- p1+ geom_vline(xintercept=2006.5,color="grey",size=1)
   #p1 <- p1+scale_y_log10()
@@ -187,12 +190,13 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
   ggsave("figs/mod_ats_biom.pdf",plot=p1,width=9.2,height=3.7,units="in"); 
   p1 <- plot_avo(modlst[thismod]) 
   ggsave("figs/mod_avo_fit.pdf",plot=p1,width=5.2,height=3.7,units="in")
+  p1 <- plot_cope(modlst[[5]]) ;p1
   p1 <- plot_cpue(modlst[[thismod]]) 
   ggsave("figs/mod_cpue_fit.pdf",plot=p1,width=5.2,height=3.7,units="in")
   p1 <- plot_recruitment(modlst[thismod],xlim=c(1963.5,2020.5),fill="yellow");p1
   ggsave("figs/mod_rec.pdf",plot=p1,width=9,height=4,units="in")
 
-  p1 <- plot_srr(modlst[c(3,4)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000));p1
+  p1 <- plot_srr(modlst[c(1,2)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000));p1
   ggsave("figs/mod_srr_sq_a.pdf",plot=p1,width=9,height=4,units="in")
 
   srr_dir  = c("../runs/sr0/","../runs/sr1/", "../runs/sr2/","../runs/sr3/")

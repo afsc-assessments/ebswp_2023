@@ -1,0 +1,5 @@
+# Parameter file for frame 174
+MOVIE_FRAME=174
+MOVIE_NFRAMES=360
+MOVIE_TAG=174
+MOVIE_NAME=globe_174

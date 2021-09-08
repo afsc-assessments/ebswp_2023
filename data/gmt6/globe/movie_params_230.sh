@@ -1,0 +1,5 @@
+# Parameter file for frame 230
+MOVIE_FRAME=230
+MOVIE_NFRAMES=360
+MOVIE_TAG=230
+MOVIE_NAME=globe_230

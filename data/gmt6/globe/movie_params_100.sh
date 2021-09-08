@@ -1,0 +1,5 @@
+# Parameter file for frame 100
+MOVIE_FRAME=100
+MOVIE_NFRAMES=360
+MOVIE_TAG=100
+MOVIE_NAME=globe_100

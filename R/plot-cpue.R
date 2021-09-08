@@ -1,4 +1,4 @@
-#' Extract spawning stock biomass (ssb) from gmacs run
+#' Extract CPUE data
 #'
 #' Spawning biomass may be defined as all males or some combination of males and
 #' females

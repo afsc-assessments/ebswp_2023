@@ -1,0 +1,5 @@
+# Parameter file for frame 040
+MOVIE_FRAME=40
+MOVIE_NFRAMES=360
+MOVIE_TAG=040
+MOVIE_NAME=globe_040

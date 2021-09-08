@@ -1,0 +1,5 @@
+# Parameter file for frame 020
+MOVIE_FRAME=20
+MOVIE_NFRAMES=360
+MOVIE_TAG=020
+MOVIE_NAME=globe_020

@@ -1,0 +1,5 @@
+# Parameter file for frame 049
+MOVIE_FRAME=49
+MOVIE_NFRAMES=360
+MOVIE_TAG=049
+MOVIE_NAME=globe_049

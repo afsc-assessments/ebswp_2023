@@ -1,0 +1,5 @@
+# Parameter file for frame 195
+MOVIE_FRAME=195
+MOVIE_NFRAMES=360
+MOVIE_TAG=195
+MOVIE_NAME=globe_195

@@ -1,0 +1,3 @@
+[submodule "data/fishcond"]
+	path = data/fishcond
+	url = https://github.com/sean-rohan-NOAA/akfishcondition.git

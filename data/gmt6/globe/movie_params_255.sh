@@ -1,0 +1,5 @@
+# Parameter file for frame 255
+MOVIE_FRAME=255
+MOVIE_NFRAMES=360
+MOVIE_TAG=255
+MOVIE_NAME=globe_255

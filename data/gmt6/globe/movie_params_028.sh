@@ -1,0 +1,5 @@
+# Parameter file for frame 028
+MOVIE_FRAME=28
+MOVIE_NFRAMES=360
+MOVIE_TAG=028
+MOVIE_NAME=globe_028

@@ -1,0 +1,5 @@
+# Parameter file for frame 158
+MOVIE_FRAME=158
+MOVIE_NFRAMES=360
+MOVIE_TAG=158
+MOVIE_NAME=globe_158

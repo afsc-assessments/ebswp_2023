@@ -1,0 +1,5 @@
+# Parameter file for frame 137
+MOVIE_FRAME=137
+MOVIE_NFRAMES=360
+MOVIE_TAG=137
+MOVIE_NAME=globe_137

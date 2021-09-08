@@ -1,0 +1,16 @@
+Gadget version 2.3.7 running on Jims-Mac.local Sun Aug  1 22:42:26 2021
+Log file to record Gadget actions that take place during this run
+
+Starting Gadget from directory: /Users/jim/_mymods/ebswp/data/simple_model
+using data from directory: /Users/jim/_mymods/ebswp/data/simple_model
+
+Checking to see if file params.out.2021-08-01 can be opened ... OK
+
+Checking to see if file main can be opened ... OK
+Opening file main
+Checking to see if file Modelfiles/time can be opened ... OK
+Opening file Modelfiles/time
+Read time file - number of timesteps 40
+Closing file Modelfiles/time
+Checking to see if file printfiles can be opened ... failed
+Error in file main - failed to open datafile printfiles
