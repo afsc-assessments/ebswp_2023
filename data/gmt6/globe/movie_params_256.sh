@@ -1,5 +1,0 @@
-# Parameter file for frame 256
-MOVIE_FRAME=256
-MOVIE_NFRAMES=360
-MOVIE_TAG=256
-MOVIE_NAME=globe_256

@@ -1,5 +1,0 @@
-# Parameter file for frame 018
-MOVIE_FRAME=18
-MOVIE_NFRAMES=360
-MOVIE_TAG=018
-MOVIE_NAME=globe_018

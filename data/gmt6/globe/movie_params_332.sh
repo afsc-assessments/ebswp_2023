@@ -1,5 +1,0 @@
-# Parameter file for frame 332
-MOVIE_FRAME=332
-MOVIE_NFRAMES=360
-MOVIE_TAG=332
-MOVIE_NAME=globe_332

@@ -1,5 +1,0 @@
-# Parameter file for frame 080
-MOVIE_FRAME=80
-MOVIE_NFRAMES=360
-MOVIE_TAG=080
-MOVIE_NAME=globe_080

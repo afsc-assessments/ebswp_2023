@@ -1,5 +1,0 @@
-# Parameter file for frame 007
-MOVIE_FRAME=7
-MOVIE_NFRAMES=360
-MOVIE_TAG=007
-MOVIE_NAME=globe_007

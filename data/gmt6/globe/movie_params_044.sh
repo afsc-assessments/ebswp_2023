@@ -1,5 +1,0 @@
-# Parameter file for frame 044
-MOVIE_FRAME=44
-MOVIE_NFRAMES=360
-MOVIE_TAG=044
-MOVIE_NAME=globe_044

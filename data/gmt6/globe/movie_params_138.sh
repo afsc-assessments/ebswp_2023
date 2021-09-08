@@ -1,5 +1,0 @@
-# Parameter file for frame 138
-MOVIE_FRAME=138
-MOVIE_NFRAMES=360
-MOVIE_TAG=138
-MOVIE_NAME=globe_138

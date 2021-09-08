@@ -1,5 +1,0 @@
-# Parameter file for frame 220
-MOVIE_FRAME=220
-MOVIE_NFRAMES=360
-MOVIE_TAG=220
-MOVIE_NAME=globe_220

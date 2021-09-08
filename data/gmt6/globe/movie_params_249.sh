@@ -1,5 +1,0 @@
-# Parameter file for frame 249
-MOVIE_FRAME=249
-MOVIE_NFRAMES=360
-MOVIE_TAG=249
-MOVIE_NAME=globe_249

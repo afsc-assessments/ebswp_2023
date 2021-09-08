@@ -1,5 +1,0 @@
-# Parameter file for frame 127
-MOVIE_FRAME=127
-MOVIE_NFRAMES=360
-MOVIE_TAG=127
-MOVIE_NAME=globe_127

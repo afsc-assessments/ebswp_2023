@@ -1,5 +1,0 @@
-# Parameter file for frame 288
-MOVIE_FRAME=288
-MOVIE_NFRAMES=360
-MOVIE_TAG=288
-MOVIE_NAME=globe_288

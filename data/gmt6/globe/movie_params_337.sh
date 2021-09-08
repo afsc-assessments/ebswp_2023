@@ -1,5 +1,0 @@
-# Parameter file for frame 337
-MOVIE_FRAME=337
-MOVIE_NFRAMES=360
-MOVIE_TAG=337
-MOVIE_NAME=globe_337

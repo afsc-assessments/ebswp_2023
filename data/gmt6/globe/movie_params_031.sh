@@ -1,5 +1,0 @@
-# Parameter file for frame 031
-MOVIE_FRAME=31
-MOVIE_NFRAMES=360
-MOVIE_TAG=031
-MOVIE_NAME=globe_031

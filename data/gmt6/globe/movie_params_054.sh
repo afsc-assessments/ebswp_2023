@@ -1,5 +1,0 @@
-# Parameter file for frame 054
-MOVIE_FRAME=54
-MOVIE_NFRAMES=360
-MOVIE_TAG=054
-MOVIE_NAME=globe_054

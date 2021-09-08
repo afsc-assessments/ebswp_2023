@@ -1,5 +1,0 @@
-# Parameter file for frame 304
-MOVIE_FRAME=304
-MOVIE_NFRAMES=360
-MOVIE_TAG=304
-MOVIE_NAME=globe_304
