@@ -1,3 +1,6 @@
 [submodule "data/fishcond"]
 	path = data/fishcond
 	url = https://github.com/sean-rohan-NOAA/akfishcondition.git
+[submodule "model_alts/AMAK"]
+	path = model_alts/AMAK
+	url = https://github.com/afsc-assessments/AMAK.git
