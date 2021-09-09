@@ -1,0 +1,9 @@
+Eastern Bering Sea pollock
+       1
+data/cn.dat
+data/cw.dat
+data/dw.dat
+data/nm.dat
+data/pf.dat
+data/pm.dat
+data/mo.dat
