@@ -1,6 +1,6 @@
 ---
 title: "Chapter 1: Assessment of the Walleye Pollock Stock \\ in the Eastern Bering Sea"
-date: "11:19 September 07, 2021"
+date: "07:56 October 21, 2021"
 output:
   html_document:
     df_print: paged
@@ -28,7 +28,7 @@ fontfamily: mathpazo
 \selectfont
   Alaska Fisheries Science Center, National Marine Fisheries Service \\
   National Oceanic and Atmospheric Administration \\ 
-  7600 Sand Point Way NE., Seattle, WA 98115-6349 \\ September 07, 2021 \\ 
+  7600 Sand Point Way NE., Seattle, WA 98115-6349 \\ October 21, 2021 \\ 
 	\end{centering}
 ----
 

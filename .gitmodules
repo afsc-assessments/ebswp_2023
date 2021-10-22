@@ -4,3 +4,6 @@
 [submodule "model_alts/AMAK"]
 	path = model_alts/AMAK
 	url = https://github.com/afsc-assessments/AMAK.git
+[submodule "data/fishBodyMassAtAge"]
+	path = data/fishBodyMassAtAge
+	url = https://github.com/jimianelli/fishBodyMassAtAge.git

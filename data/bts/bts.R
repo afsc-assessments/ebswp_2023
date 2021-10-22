@@ -25,3 +25,4 @@ csv_files10
 bts2019 <- csv_files19 %>% map(read_csv)
 bts2010 <- csv_files10 %>% map(read_csv)
 csv_files19
+dfu<-read_csv("VAST_ddc_all_2021.csv")

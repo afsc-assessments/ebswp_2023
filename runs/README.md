@@ -1,11 +1,18 @@
 # Summary
 ## Tasks and todo list 2021
+    
     [x] Update Paul's temperature series
     [x] Run 2020 model with and without "ce" climate effects (in directories withce and withoutce)
     [x] Run 2020 model with M-matrix no CE
     [x] Run 2020 model with M-matrix with CE
     [x] Add in copepod index for age 3   
-    [ ] 
+    [ ] Wt-age from coh and yr effect model
+    [ ] Catch age from 
+    [ ] Cov matrix from survey
+    [ ] Srv biomass NBS+EBS vast runs
+    [ ] Srv wt-age vast runs
+    [ ] AVO index
+
 
 ## Tasks and todo list 2020
     [ ] Add in SD biomass     
