@@ -1,5 +1,4 @@
-# SRR evaluation
+# Model config
 
-attempt to show how SRR can be conditioned based on SPR rates...
-
-Start w/ F35==Fmsy
+  - Ignores 1978 YC in SRR fit
+	- Uses USV DB estimates with std 20% CVs

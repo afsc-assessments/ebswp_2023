@@ -1,4 +1,4 @@
-plot_agefit <- function( x, case_label="2018 assessment",gear="bts",type="survey") {
+plot_agefit <- function( x, case_label="2021 assessment",gear="bts",type="survey",styr=NULL,ageplus=NULL) {
   subtle.color <- "gray40"
   if (gear=="bts"){
     fage <- 1
@@ -22,7 +22,20 @@ plot_agefit <- function( x, case_label="2018 assessment",gear="bts",type="survey
     years     <- x$pobs_eit[,1]
     #obs.data
   }
+  if (!is.null(styr)){
+    ss <-years>=styr
+    years <- years[ss]
+    obs.data  <- obs.data[ss,]
+    pred.data <- pred.data[ss,]
+  }
   nyears <- length(years)
+  if (!is.null(ageplus)){
+    obs.data[,ageplus]  <- rowSums(obs.data[,ageplus:ages[2]])
+    pred.data[,ageplus]  <- rowSums(pred.data[,ageplus:ages[2]])
+    pred.data <- pred.data[,1:ageplus]
+    obs.data  <- obs.data[,1:ageplus]
+    ages[2]   <- ageplus
+  }
   ages.list <- ages[1]:ages[2]
   nages <- length(ages.list)
   

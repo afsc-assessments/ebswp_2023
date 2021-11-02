@@ -21,7 +21,7 @@ doplots       <<- FALSE
 do_data_plots <<- FALSE
 domcmc        <<- FALSE
 doproj        <<- FALSE
-source("../pm_20.R")
+source("../pm_21.R")
 library(knitr)
 opts_chunk$set(fig.width = 6, fig.height = 8, echo = FALSE, warning = FALSE, message = FALSE, cache=FALSE,results="asis",knitr.duplicate.label = "allow")
 clean_cache(clean = TRUE)
@@ -36,8 +36,8 @@ clean_cache(clean = TRUE)
 
 
 \begin{centering}
-  James Ianelli, Ben Fissel, Kirstin Holsman, Alex De Robertis, Taina Honkalehto, \\
-  Stan Kotwicki, Cole Monnahan, Elizabeth Siddon, and James Thorson \\
+  James Ianelli, Ben Fissel, Sarah Stienessen Taina Honkalehto, \\
+  Elizabeth Siddon, and Caitlin Allen-Akselrud \\
 \fontfamily{cmr}
 \fontsize{10}{12}
 \selectfont
@@ -68,15 +68,7 @@ clean_cache(clean = TRUE)
 ```
 \pagebreak
 
-<!--
-```{r child = 'alt_table.Rmd'}
-```
--->
-
-\pagebreak
-
 # List of contents, tables and figures
-
 
  \tableofcontents
 

@@ -1,2 +1,0 @@
-call make_mcmc_ce
-call make_mcmc_not_ce

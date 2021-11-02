@@ -73,11 +73,11 @@
 #nyrs_future;
 5
 #next_yrs_catch;
-1390
+1200
 #nscen
-22
+8 #22
 #fixed_catch_fut2;
-900
+1100
 #fixed_catch_fut3;
 1000
 #phase_F40;
@@ -121,7 +121,7 @@
 #wt_fut_phase
 6
 #last_age_sel_group_fsh
-6
+4
 #last_age_sel_group_bts
 8
 #last_age_sel_group_eit
@@ -163,3 +163,14 @@
 1
 #phase_yreff
 1
+#switch_temp_recruitment
+0 
+#phase_temp_recruitment
+6
+#switch_pred_mort
+0 
+#phase_pred_mort
+1 
+#switch_multispecies_fucntional_response
+1
+

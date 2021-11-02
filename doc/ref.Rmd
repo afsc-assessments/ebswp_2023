@@ -22,6 +22,9 @@ Barbeaux, S.J., Horne, J., Ianelli, J. 2014. A novel approach for estimating loc
 
 Brodeur, R.D.; Wilson, M.T.; Ciannelli, L.; Doyle, M. and Napp, J.M. (2002). Interannual and regional variability in distribution and ecology of juvenile pollock and their prey in frontal structures of the Bering Sea. Deep-Sea Research II. 49: 6051-6067.
 
+Britt, L. 2021. Jellyfishes - Eastern Bering Sea Shelf. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.  
+
+
 Butterworth, D.S., J.N. Ianelli, and R. Hilborn. 2003. A statistical model for stock assessment of southern bluefin tuna with temporal changes in selectivity. Afr. J. mar. Sci. 25: 331-361.
 
 Buckley, T.W., Greig, A., Boldt, J.L., 2009. Describing summer pelagic habitat over the continental shelf in the eastern Bering Sea, 1982–2006. United States Depart- ment of Commerce, NOAA Technical Memorandum. NMFS-AFSC-196. pp. 49.
@@ -43,6 +46,8 @@ Cotter, A.J.R., L. Burt, C.G.M Paxton, C. Fernandez, S.T. Buckland, and  J.X Pan
 Cotter, A. J. R., Mesnil, B., and Piet, G. J. 2007. Estimating stock parameters from trawl cpue-at-age series using year-class curves. – ICES Journal of Marine Science, 64: 234–247.
 
 Coyle, K. O., Eisner, L. B., Mueter, F. J., Pinchuk, A. I., Janout, M. A., Cieciel, K. D., … Andrews, A. G. (2011). Climate change in the southeastern Bering Sea: impacts on pollock stocks and implications for the oscillating control hypothesis. Fisheries Oceanography, 20(2), 139–156. doi:10.1111/j.1365-2419.2011.00574.x
+
+Cunningham, C.J., Buck, G., Vega, S., and Head, J. 2021. Temporal Trend in the Annual Inshore Run Size of Bristol Bay Sockeye Salmon (Oncorhynchus nerka). In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.  
 
 De Robertis, A., and K. Williams. 2008. Weight-length relationships in fisheries studies: the standard allometric model should be applied with caution. Trans. Am. Fish. Soc. 137:707-719. 
 
@@ -138,6 +143,8 @@ Kastelle, C. R., and Kimura, D. K. 2006. Age validation of walleye pollock (_The
 
 Kimmel, D., Eisner, L., Harpold, C., and Crouser, D. 2020. Current and Historical Trends for Zooplankton in the Bering Sea. In: E.C. Siddon, 2020. Ecosystem Status Report 2020: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.
 
+Kimmel, D., Cormack, B., Crouser, D., Eisner, L., Harpold, C., Murphy, J., Pinchuk, A., Pinger, C., and Suryan, R. 2021. Current and Historical Trends for Zooplankton in the Bering Sea. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+
 Kimura, D.K. 1989. Variability in estimating catch-in-numbers-at-age and its impact on cohort analysis. In R.J. Beamish and G.A. McFarlane (eds.), Effects on ocean variability on recruitment and an evaluation of parameters used in stock assessment models. Can. Spec. Publ. Fish. Aq. Sci. 108:57-66.
 
 Kimura, D.K., J.J. Lyons, S.E. MacLellan, and B.J. Goetz. 1992. Effects of year-class strength on age determination. Aust. J. Mar. Freshwater Res. 43:1221-8.
@@ -169,6 +176,10 @@ Lauffenberger, N., De Robertis, A., and Kotwicki, S. 2017. Combining bottom traw
 Lauth, R.R., J.N. Ianelli, and W.W. Wakefield. 2004. Estimating the size selectivity and catching efficiency of a survey bottom trawl for thornyheads, Sebastolobus spp. using a towed video camera sled. Fisheries Research. 70:39-48.
 
 Lehodey, P., I. Senina, and R. Murtugudde. 2008. A spatial ecosystem and populations dynamics model (SEAPODYM) – Modeling of tuna and tuna-like populations. Progress in Oceanography 78: 304–318.
+
+Li, Bai, James N. Ianelli, Kyle W. Shertzer, Patrick D. Lynch, Christopher M. Legault, Erik H. Williams, Richard D. Methot, et al. 2021. “A Comparison of 4 Primary Age-Structured Stock Assessment Models Used in the United States.” Fishery Bulletin 119 (2–3): 149–67. https://doi.org/10.7755/FB.119.2-3.5.
+
+Liller, Z.W. 2021. Adult Salmon Run Failures Throughout the Arctic-Yukon-Kuskokwim Region. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
 
 Livingston, P. A., and Methot, R. D. (1998). Incorporation of predation into a population assessment model of Eastern Bering Sea walleye pollock. In Fishery Stock Assessment Models. NOAA Technical Report 126, NMFS F/NWC-54, Alaska Sea Grant Program, 304 Eielson Building, University of Alaska Fairbanks, Fairbanks, AK 99775. pp. 663-678.
 
@@ -202,13 +213,15 @@ Mohn, R. 1999. The retrospective problem in sequential population analysis: An i
 
 Moss, J.H., E.V. Farley, Jr., A.M. Feldmann, and J.N. Ianelli. 2009. Spatial distribution, energetic status, and food habits of eastern Bering Sea age-0 walleye pollock. Transactions of the American Fisheries Society.
 
+Mueter, F., and Britt, L. 2021.  Aggregated Catch-Per-Unit-Effort of Fish and Invertebrates in Bottom Trawl Surveys on the Eastern and Northern Bering Sea Shelf, 1982-2021. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501. 
+
 Mueter, F. J., and M. Litzow. 2008. Sea ice retreat alters the biogeography of the Bering Sea continental shelf. Ecological Applications 18:309–320.
 
 Mueter, F. J., C. Ladd, M. C. Palmer, and B. L. Norcross. 2006. Bottom-up and top-down controls of walleye pollock (_Theragra chalcogramma_) on the Eastern Bering Sea shelf. Progress in Oceanography 68:152-183. 
 
 Mueter, F. J., N.A. Bond, J.N. Ianelli, and A.B. Hollowed. 2011. Expected declines in recruitment of walleye pollock (_Theragra chalcogramma_) in the eastern Bering Sea under future climate change. ICES Journal of Marine Science. 
 
-Nielsen, J.M., Eisner, L., Watson, J., Gann, J.C., Mordy, C.W., Bell, S.W., Harpold, C., Crouser, D.,  and Stabeno, P. (2020). Spring satellite chlorophyll-a concentrations in the Eastern Bering Sea. In: E.C. Siddon, 2020. Ecosystem Status Report 2020: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+Nielsen, J.M., Eisner, L., Watson, J., Gann, J.C., Callahan, M.W., Mordy, C.W., Bell, S.W., and Stabeno, P. 2021. Spring Satellite Chlorophyll-a Concentrations in the Eastern Bering Sea. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
 
 O’Leary, C.A., J.T. Thorson, J.N. Ianelli, and S. Kotwicki. 2020. Adapting to Climate-Driven Distribution Shifts Using Model-Based Indices and Age Composition from Multiple Surveys in the Walleye Pollock (_Gadus Chalcogrammus_) Stock Assessment. Fisheries Oceanography 29 (6): 541–57. https://doi.org/10.1111/fog.12494.
 
@@ -216,6 +229,8 @@ O’Leary, C.A., J.T. Thorson, J.N. Ianelli, S. Kotwicki, G.R. Hoff, V.V. Kulik,
 (_submitted_). Estimating spatiotemporal availability of transboundary fishes to fishery-independent surveys. Journal of Applied Ecology
 
 O’Reilly, P.T., M.F. Canino, K.M. Bailey and P. Bentzen. 2004. Inverse relationship between FST and microsatellite polymorphism in the marine fish, walleye pollock (_Theragra chalcogramma_): implications for resolving weak population structure. Molecular Ecology (2004) 13, 1799–1814
+
+Park, Joo-myun, Hae-kun Jung, and Chung-il Lee. 2021. Factors Influencing Dietary Changes of Walleye Pollock , _Gadus Chalcogrammus_ , Inhabiting the East Sea off the Korean Coast.
 
 Parma, A.M. 1993. Retrospective catch-at-age analysis of Pacfic halibut: implications on assessment of harvesting policies. In  Proceedings of the International Symposium on Management Strategies of Exploited Fish Populations. Alaska Sea Grant Rep. No. 93-02. Univ. Alaska Fairbanks.
 
@@ -235,7 +250,14 @@ Ressler, P.H., De Robertis, A., Warren, J.D., Smith, J.N., and Kotwicki, S. (201
 
 Restrepo, V.R., G.G. Thompson, P.M Mace, W.L Gabriel, L.L. Low, A.D. MacCall, R.D. Methot, J.E. Powers, B.L. Taylor, P.R. Wade, and J.F. Witzig. 1998. Technical guidance on the use of precautionary approaches to implementing National Standard 1 of the Magnuson-Stevens Fishery Conservation and Management Act. NOAA Tech. Memo. NMFS-F/SPO-31. 54 p.
 
-Rohan, S., and Laman, N., 2020. Eastern and Northern Bering Sea Groundfish Condition. In Siddon, E.C., 2020. Ecosystem Status Report 2020: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+Richar, J. 2021. Eastern Bering Sea Commercial Crab Stock Biomass Indices. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+
+Rohan, S., and Prohaska, B. 2021. Eastern and Northern Bering Sea Groundfish Condition. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+
+Rohan, S., and Barnett, L. 2021a. 2021 Report Card. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.  
+
+Rohan, S., and Barnett, L. 2021b. Physical Environment Synthesis: Cold Pool Extent Maps and Index Time Series. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+
 
 Schnute, J.T. 1994. A general framework for developing sequential fisheries models. Can. J. Fish. Aquat. Sci. 51:1676-1688.
 
@@ -250,6 +272,10 @@ Siddon, E. C., Heintz, R. a., & Mueter, F. J. (2013). Conceptual model of energy
 Siddon, E.C., T. Jarvis, R. Heintz, E. Farley, B. Cormack. 2019. "Condition of Age-0 Walleye Pollock and Pacic Cod." In Siddon, E., and Zador, S., 2019. Ecosystem Status Report 2019: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 605 W 4th Ave, Suite 306, Anchorage, AK 99501.  
 
 Siddon, E.C., 2020. Ecosystem Status Report 2020: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+
+Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+
+Siddon, E., and Zador, S., 2019. Ecosystem Status Report 2019: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 605 W 4th Ave, Suite 306, Anchorage, AK 99501.
 
 Smart, T. I., Siddon, E. C., & Duffy-Anderson, J. T. (2013). Vertical distributions of the early life stages of walleye pollock (_Theragra chalcogramma_) in the Southeastern Bering Sea. Deep Sea Research Part II: Topical Studies in Oceanography, 94, 201–210. [link](http://doi.org/10.1016/j.dsr2.2013.03.030).
 
@@ -311,18 +337,19 @@ Wespestad, V. G., L. W. Fritz, W. J. Ingraham, and B. A. Megrey. 2000. On relati
 
 Whitehouse, A., G. Lang. 2019."Mean Length of the Fish Community."  In Siddon, E., and Zador, S., 2019. Ecosystem Status Report 2019: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 605 W 4th Ave, Suite 306, Anchorage, AK 99501.
 
+Whitehouse, G.A., 2021a. 2021 Report Card. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.  
+
+Whitehouse, G.A., 2021b. Trends in Alaska Commercial Salmon Catch - Bering Sea. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501. 
+
 Williamson, N., and J. Traynor. 1996. Application of a one-dimensional geostatistical procedure to fisheries acoustic surveys of Alaskan pollock. ICES J. Mar. Sci. 53:423-428.
 
 Winter, A.G., G.L. Swartzman, and L. Ciannelli (2005). Early- to late-summer population growth and prey consumption by age-0 pollock (_Theragra chalcogramma_), in two years of contrasting pollock abundance near the Pribilof Islands, Bering Sea. /Fisheries Oceanography/, Vol. 14, No. 4, pp. 307-320.
 
-
-Yasumiishi, E. 2019. “ Pre- and Post-Winter Temperature Change Index and the Recruitment of Bering Sea Pollock.” In Siddon, E., and Zador, S., 2019. Ecosystem Status Report 2019: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 605 W 4th Ave, Suite 306, Anchorage, AK 99501.  
-
 Yasumiishi, E., Eisner, L., and Kimmel, D. 2020. Large Copepod Abundance (Sample-Based and Modeled) as an Indicator of Pollock Recruitment to Age-3 in the Southeastern Bering Sea. In: E.C. Siddon, 2020. Ecosystem Status Report 2020: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
 
-Yasumiishi, E. M., K. R. Criddle, N. Hillgruber, F. J. Mueter, and J. H. Helle. 2015. Chum salmon (Oncorhynchus keta) growth and temperature indices as indicators of the year–class strength of age-1 walleye pollock (_Gadus chalcogrammus_) in the eastern Bering Sea. Fish. Oceanogr. 24:242-256.
+Yasumiishi, E. M., K. R. Criddle, N. Hillgruber, F. J. Mueter, and J. H. Helle. 2015. Chum salmon (_Oncorhynchus keta_) growth and temperature indices as indicators of the year–class strength of age-1 walleye pollock (_Gadus chalcogrammus_) in the eastern Bering Sea. Fish. Oceanogr. 24:242-256.
 
-Yasumiishi, E., 2020. Temperature Change Index and the Recruitment of Bering Sea Pollock. In: E.C. Siddon, 2020. Ecosystem Status Report 2020: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+Yasumiishi, E., 2021. Pre- and Post-Winter Temperature Change Index and the Recruitment of Bering Sea Pollock. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.  
 
 Zeppelin, T. K. and R.R. Ream. 2006. Foraging habitats based on the diet of female northern fur seals (Callorhinus ursinus) on the Pribilof Islands, Alaska. Journal of Zoology 270(4): 565-576.
 

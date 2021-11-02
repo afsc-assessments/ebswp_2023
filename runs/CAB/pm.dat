@@ -1,8 +1,9 @@
-CAB
-../dat/pm_2019_CAB.dat
-../dat/scmed.dat
+With_USV_Ignore_78_YC
+../dat/pm_2021_cab.dat
+../dat/scmed21.dat
 control.dat
 ../dat/pm_fmsy_alt.dat
-../dat/rescaled_cov_2019.dat
-../dat/wtage2019.dat
+../dat/rescaled_cov_2021.dat
+../dat/wtage2021.dat
 ../dat/surveycpue.dat
+../dat/temp_paul21.dat

@@ -1,17 +1,16 @@
-#  Executive summary
+# Executive summary
 
 This chapter covers the Eastern Bering Sea (EBS) region—the Aleutian Islands
 region (Chapter 1A) and the Bogoslof Island area (Chapter 1B) are presented
-separately.
+separately. A multi-species stock assessment (e.g., from [2020](https://apps-afsc.fisheries.noaa.gov/refm/docs/2020/EBSmultispp.pdf)).
 
 ### Summary of changes in assessment inputs
 
-Relative to last year’s BSAI SAFE report, the
-following substantive changes have been made in the EBS pollock stock
-assessment. Notably, a number of surveys were cancelled including the
- `r thisyr` NMFS bottom-trawl survey (BTS),
-   the `r thisyr` NMFS acoustic-trawl survey (ATS), and 
-   th `r thisyr` opportunistic acoustic data from vessels (AVO).  
+Relative to last year’s BSAI SAFE report, the following substantive changes have been made in the EBS pollock stock
+assessment. This includes the `r thisyr` NMFS bottom-trawl survey (BTS) covering the EBS and NBS. As before, these
+data were treated with a spatio temporal model for index standardization; however, this year a number of refinements from the 2019 index
+were made which changed the time series used for tuning the assessment.
+The BTS chartered boats also collected acoustic data and the series  was updated this year (AVO).  
 
 #### Changes in the data
 
@@ -20,20 +19,23 @@ assessment. Notably, a number of surveys were cancelled including the
 
    2.  Total catch as reported by NMFS Alaska Regional office was updated and included through `r thisyr`.
    
-   3.  In summer `r thisyr`, the AFSC coordinated a survey conducted by three uncrewed surface vehicles (USVs) using acoustics.
+   3.  In summer `r thisyr`, the AFSC conducted the bottom trawl survey in the EBS and extended into the NBS.
+   A VAST model evaluation (including the cold-pool extent) was used as the main index.
+
+   3.  The bottom trawl survey collected acoustic data opportunistically and extend the index from 2006-2019 and again this year.
+
+   3.  Because of indications of smaller-than usual fish apparent in the 2021 fishery, length composition data from this year's fishery, along with 
+  a preliminary estimate of the catch-age composition for this year was used.
 
 ### Changes in the assessment methods
 
-There were some minor changes to data used for the assessment model this year. 
-We continued to refine treatment of survey data via spatial-temporal models
-for  creating an alternative index including the broader region of the
-northern Bering Sea, mainly by improving the documentation. 
+There were some minor changes to data used for the assessment model this year to accommodate requests 
+from the SSC and Plan Team. 
 
 ## Summary of EBS pollock results
-The following table applies for Model 20.0, the model used for last year's assessment but with data from the 
-uncrewed surface vehicles (USVs) included as an extension of the acoustic trawl survey. 
-An alternative table is provided for this model which excludes the USV data from 2020.
-As in past years,  the ABC recommendation reflects the Tier 3 estimate.
+The following table applies for Model 20.0, the model used for last year's assessment 
+An alternative table is provided xxxx.
+As in past years, the ABC recommendation reflects the Tier 3 estimate.
 
 \begin{table}[ht]
 \centering
@@ -67,64 +69,98 @@ As in past years,  the ABC recommendation reflects the Tier 3 estimate.
 
 ## Response to SSC and Plan Team comments
 
-### General comments 
+### General comments
 
-The SSC recommended that a detailed review of the support for retaining the EBS Pollock assessment in Tier 1 
-versus reclassifying it as Tier 3 be pursued in the 2020 assessment. 
+_From several SSC comments in the past few years related reviewiing the support for retaining the EBS Pollock assessment in Tier 1 
+versus reclassifying it as Tier 3._
 
-  - _We evaluated factors affecting the Tier classification._     
+  * Consideration of whether the observed sensitivity in the SRR to prior specification should
+constitute an increased risk level specification within the assessment or population dynamics related
+considerations. This could provide a clearer justification for the use of the Tier 3 calculation as
+the basis for harvest specification.     
+
+    - _We evaluated factors affecting the Tier classification in the 2020 assessment and showed that the 
+priors used reflect the SRR curve were conservative and justified based on residual patterns near the origin (as 
+opposed to alternatives that fit data on the descending slope of the Ricker SRR._
+
+
+  * The SSC recommends that if the assessment is considered in the appropriate Tier, buffers should be based on     
+the use of the Risk Table rather than the continued use of Tier 3 calculations for a Tier 1 stock.
+
+    - _We agree in principle, and the second part of applying the risk table approach would be to specify a buffer. 
+  One logical application of the buffer would be to use the ratio of the Tier 3 ABC divided by the Tier 1 value (which would result in a 
+recommended ABC equal to Tier 3)._
+
+  * The SSC also notes that this stock may be a candidate for the infrequently used Tier 2
+classification. This tier uses the SR relationship for stock status and OFL, but uses the ratio of SPR rates for adjustments when the 
+stock is below $B_{MSY}$.
+
+    - _An examination of Tier 2 as an option resulted in a value of `r M$Tier2_ABC1s ` t (or a hybrid of Tier 1 and 2 of 
+`r M$Tier1.5_ABC1s` t for 2022 ABC values. We note that selecting Tier 2 would require similar reliance on the SRR estimates
+and impact on fishing rate values._         
+
+---
+
 
 **The SSC had a number of recommendations for additional research supporting this assessment:**
 
-The SSC encourages further investigation of the apparent shift between a clear 2012 year-class to mixed 2012-2013 year classes in the data, suggestive of potentially variable ageing bias.   
+**From previous requests:**
 
-  - _The newly available 2019 fishery age data shows a similar relative proportion of these two year classes; this suggests (based on earlier inquiries with the age-determination experts) that this pattern is reasonable._     
+The SSC had encouraged further investigation of the apparent shift between a clear 2012 year-class to mixed 2012-2013 
+year classes in the data, suggestive of potentially variable ageing bias.   
 
-Noting the work in deriving an external estimate of temporal variability in catchability for the bottom trawl survey (relative to the acoustic survey) due to vertical availability, 
+  - _The fishery and survey age data shows a similar relative proportion of these two year classes. This year we present a spatial map of where these
+		year classes have appeared and note that there appears to be some separation in their average locations. This could indicate that the year-classes
+		may have had sufficient separation to minimize spatial overlap and exposure to cannibalism._
+
+The work in deriving an external estimate of temporal variability in catchability for the bottom trawl survey (relative to the acoustic survey) due to vertical availability, 
 the SSC noted that catchability would logically also vary for the acoustic survey. The SSC encourages 
 further work to develop the simultaneous modelling of these two surveys, accounting for vertical and distributional 
 shifts (including into the northern Bering Sea survey area; NBS). When
 sufficiently explored, the SSC looks forward to assessment model configurations that explore the
 use of a time-series from this method.  
 
-  - _Work on this topic stalled as analysts focused their efforts on methods
-  to incorporate the uncrewed surface vessels (USVs) to collect acoustic data._
-
+  - _Work on this topic stalled as analysts focused their efforts on methods to incorporate the uncrewed surface 
+  vessels (USVs) to collect acoustic data in 2020. We anticipate this work to be pursued when the planned 2022 acoustic-trawl survey become available._
 
 The SSC supports ongoing genetic studies to determine the relationship between pollock in the NBS and EBS,  as well as other surrounding regions (AI, GOA).  
 
-  - _A post doctoral researcher has begun this work but
-  progress has been limited due to lab access and other factors related to the pandemic._
-
-The SSC supports the continued use of a formal decision table to illustrate risks of alternative harvest strategies.  
-
-  - _This was included in this year's assessment report._
-
-The SSC supports the GPT’s recommendation to revisit the treatment of all variance parameters 
-in the next assessment, particularly those that are set at fixed values 
-(e.g., the value of 0.2 for the acoustic survey).    
-
-  - _This planned activity is only partially underway. More work is planned on estimating process error parameters._
+  - _Some preliminary results showing the main genetic population components are presented below. Indications are 
+  that there is a high degree of separation of pollock from Japan compared to those sampled off of Alaska. Within
+  Alaskan waters, the Bering Sea samples were relatively distinct from the Aleutian Islands and the Gulf of Alaska._
 
 The SSC also looks forward to estimates of movement and abundance along the US-Russia EEZ 
 boundary based on echosounders fixed to moorings in this area.     
 
   - _The moored sounders have been recovered in September 2020 but the data have yet to be processed._     
 
-**From previous requests:**
-
 Re-examine the geographic subset of data currently used to develop the AVO
 index, specifically to see if including Bristol Bay data improves the
 correlation.    
 
-  -  _Work on this continues but was given lower priority given that the AVO was not part of this year's assessment._     
+  -  _Work on this continues and there are plans to refine the treatment of AVO data relative to the full  acoustic-trawl survey
+		slated for 2022._     
 
-Explore “A” season trends in mean weight-at-length with a GAM or
-similar technique, to determine if the trends are either predominantly
-environmental or predominantly fishery-driven, Regarding $\sigma_R$, explore
-alternative fixed values or estimation methods.
+Given the apparent disappearance of the second and large mode in fishery length compositions as
+the 2020 B-season progressed, exploration of within-season spatial variation in fishery length
+composition would be useful in evaluating whether these larger pollock simply moved out of the area
+of fishing effort, or died as a result of natural or fishing mortality.
 
-  - _Trends in mean weight given length are again presented. The extent that fishery affects this pattern was shown to be related to timing. Further work is needed to establish a mean baseline (in time and space) to try to sort out environmental effects hypotheses. Values of $\sigma_R$ were explored in previous years, no further work was done on this in 2020._           
+  - _Because of this concern, we re-estimated the length-at-age values in order to include the 
+  2021 fishery data (conventionally, aspects of the current-year age structure of fishing is unavailable
+until samples can be returned from NMFS observers and aged). We also constructed a global age-length key
+to supplement age composition information from the 2021 fishery._
+
+From October 2021 (unless covered above): 
+
+The SSC provides a clarification that it is requesting a description of the method used for
+projecting selectivity when calculating the OFL/ABC and looks forward to a retrospective analysis on
+the performance of this projection method relative to the subsequently estimated selectivity in the
+next assessment. This request was motivated by the large change in FOFL observed from the 2019 to
+2020 assessments.
+
+  -  _These estimates are compared from the retrospective runs in addition to a review of how
+   recent selectivity estimates impact $F_{MSY}$ rates._
 
 \pagebreak
 
@@ -138,7 +174,7 @@ concentrations found in the Eastern Bering Sea. Also  known as
 Alaska pollock, this species continues to play important roles ecologically
 and economically.
 
-## Review of Life History 
+## Review of Life History
 In the EBS pollock spawn generally in the period
 March-May and in relatively localized regions during specific periods (Bailey
 2000). Generally spawning begins nearshore north of Unimak Island in March and
@@ -171,22 +207,37 @@ northern part of the shelf region between the 100 and 200 m isobaths
 other areas.
 
 
-## Stock structure 
-Genetic samples were taken from pollock and collections
-have continued from sources including observers and AFSC research surveys. A
-large study using whole genome sequencing is currently underway for samples of
-walleye pollock from Zhemchug Canyon, Japan, Prince William Sound, Bogoslof,
-Shelikof, and the Northern Bering Sea. This project is a collaboration between 
-the Joint Institute for the Study of Atmosphere and Oceans (currently
-CICOES, the Cooperative Institute for Climate, Ocean, and Ecosystem Science)
-and the Alaska Fisheries Science Center Cooperative Research Program. The
-goals of the project include investigating whether genetic stock structure
-exists in walleye pollock, if these patterns are temporally stable, and if
-distributional shifts under climate change are detectable using genomic data.
-Whole genome sequencing is a new approach to the study of pollock stock structure that 
-is expected to yield higher statistical power than previous results using
-microsatellite DNA markers. This planned study should help improve stock
-structure evaluation (last done in Ianelli et al. 2015).
+## Stock structure
+Genetic samples were taken from pollock and collections have continued from sources including
+observers and AFSC research surveys. A large study using whole genome sequencing is currently
+underway for samples of walleye pollock from Zhemchug Canyon, Japan, Prince William Sound, Bogoslof,
+Shelikof, and the Northern Bering Sea. This project is a collaboration between the Joint Institute
+for the Study of Atmosphere and Oceans (currently CICOES, the Cooperative Institute for Climate,
+Ocean, and Ecosystem Science) and the Alaska Fisheries Science Center Cooperative Research Program.
+The goals of the project include investigating whether genetic stock structure exists in walleye
+pollock, if these patterns are temporally stable, and if distributional shifts under climate change
+are detectable using genomic data. Whole genome sequencing is a new approach to the study of pollock
+stock structure that is expected to yield higher statistical power than previous results using
+microsatellite DNA markers. This team \footnote{   Eleni Petrou, Eleanor Bors, Lorenz Hauser, and
+Ingrid Spies } sequenced 617 pollock collected from Japan, the Bering Sea, Chukchi Sea, Aleutian
+Islands, Alaska Peninsula, and Gulf of Alaska using low-coverage whole genome sequencing. They
+identified 5,316,997 single nucleotide polymorphisms (i.e., sites in the genome with genetic
+variation) that were genotyped in more than 70% of samples and had a minor allele frequency of more
+than 0.05. To visualize genetic differences between samples, they conducted principal components
+analysis (PCA) using all samples and found that samples from Japan were highly distinct. A separate PCA was
+run with Japan excluded showed a “three stripe” pattern (Fig. \ref{fig:PCA_genetics}). 
+In other systems, this pattern has been associated with the presence of chromosomal 
+inversions, as homo- and heterokaryotypes for each inversion
+polymorphism form distinct clusters in a PCA. Additional analyses are needed to test 
+and quantify genetic population structure in pollock.
+
+For management purposes, the preliminary conclusions from these genetics results are:
+1) there is stock structure in pollock that appears to be stable through time and 2) Some aspect of stock
+structure is latitudinal---Bering Sea pollock appear distinct from fish collected from the Gulf
+of Alaska and the Aleutian Islands. The results appear strong enough that a GTseq panel could be
+designed in the future to determine stock of origin of walleye pollock, the scale of which may be
+relatively large, such as “Bering Sea” or “GOA”. The scope and funding sources for this project will be planned
+in 2022 with sampling designs developed for implementation as early as 2023.
 
 # Fishery  
 ## Description of the directed fishery 
@@ -238,39 +289,41 @@ relative to the effort (total duration of all tows) the pollock fleet
 the Chinook salmon bycatch rate was relatively flat whereas the encounters with
 sablefish were markedly higher (Fig. \ref{fig:fsh_psc_cpue}). 
 
-
 The catch estimates by sex for the seasons indicate that over time, the number
-of males and females has been fairly equal but in the period 2017-2019
+of males and females has been fairly equal but in the period 2017-2020
 the A-season catch of females has been slightly higher and conversely, in the B-season
 there has been a slightly higher number of males taken (Fig. \ref{fig:catch_sex}). The
-2020 A-season fishery spatial pattern had relatively high concentrations of
-fishing on the shelf north of Unimak Island and extended along the 200m depth
-contour similar to 2019 but with a more dispersed distribution 
-(Fig. \ref{fig:catch_distn_a}). The 2020 A-season nominal catch rates
-were high similar to the good conditions observed in other recent A 
-seasons (Fig. \ref{fig:fsh_cpue}). Beginning in 2017, due to  a regulatory
+2021 A-season fishery spatial pattern had a relatively higher concentrations of
+fishing near the Pribilof Islands and catches near Unimak and east compared to recent years  
+(Fig. \ref{fig:catch_distn_a}). 
+The 2021 A-season nominal catch rates
+were lower than the 2020 peak (for the fleet in aggregate) (Fig. \ref{fig:fsh_cpue}). 
+Beginning in 2017, due to  a regulatory
 change, up to 45\% of the TAC could be taken in the A-season (previously only
 40\% of the TAC could be taken). This conservation measure was made to allow
 greater flexibility to avoid Chinook salmon in the B-season. To date, it
 appears that the pollock fleet as a whole took advantage of  this added
-flexibility (Fig. \ref{fig:prop_a_season}). While an important product from the
-winter fishery is  the sale of pollock roe, production during the B-season is 
-consistently about 10\% of the annual commercial products produced (Fig. \ref{fig:roe}).
+flexibility (Fig. \ref{fig:prop_a_season}). However, this figure indicates that in 2021,
+the proportion of catch in February dropped relative to recent patterns but was made up 
+by the end of April. Pollock roe is an important product coming from the
+winter fishery. The amount produced in the 2021 A-season was the lowest since 2016 and a 
+considerable drop from the previous two years (Fig. \ref{fig:roe}).
 
 
-The fishing in summer-fall 2020 was characterized as having low nominal catch
-rates (Fig. \ref{fig:fsh_cpue}). The number of hours the fleet required to catch
-the same tonnage of pollock was much higher than in recent years. 
+The summer-fall fishing conditions for 2021 improved considerably over 2020 and was 
+about average on nominal catch rates (Fig. \ref{fig:fsh_cpue}). The number of hours 
+the fleet required to catch the same tonnage of pollock was also improved relative to 
+2020.
 
- Catches in the northwestern area continued to increase over the past three years 
- (Fig. \ref{fig:catch_distn_b}). Also, the approach presented in 2019 to compute 
- the fleet dispersion 
+Catches in the northwestern area dropped relative to the previous two years
+(Fig. \ref{fig:catch_distn_b}). 
+Also, the approach presented in 2019 to compute the fleet dispersion 
 (the relative distance or spread of the fishery in space) indicated that 
-the A-season in 2019 and 2020 was relatively more concentrated compared to 
-other years since 2000. Conversely, the B-season indicated the most dispersed
-fishing activity over the same period (Fig \ref{fig:fleet_dispersal}).
+in both seasons the fleet was less disperse than last year and 
+was roughly similar to the recent lower concentration levels 
+compared to other years since 2000 (Fig \ref{fig:fleet_dispersal}).
 
-In addition to logistic issues related to ensuring crew and observer
+XX In addition to logistic issues related to ensuring crew and observer
 safety due to the COVID19 pandemic, there were reports of unusually small 
 pollock in the catch. Consequently, we investigated whether the amount
 of small fish has occurred in the past. The NMFS observer collections, in
@@ -291,7 +344,7 @@ smaller fish predominated in the catch (Fig. \ref{fig:fsh_wt_freq_week}).
 The catch of EBS pollock has averaged 1.21 million t in the period since 1979. 
 The lowest catches occurred in 2009 and 2010
 when the limits were set to 0.81 million t due to stock declines (Table
-\ref{tab:abc_tac}). The recent 5-year average (2016-2020) catch has been 1.365
+\ref{tab:abc_tac}). The recent 5-year average (2017-2021) catch has been xxx1.365
 million t. Pollock catches that are retained or discarded (based on NMFS
 observer estimates) in the Eastern Bering Sea and Aleutian Islands for 
 1991--`r thisyr` are shown in Table \ref{tab:catch_disc}. Since 1991, estimates of
@@ -372,9 +425,14 @@ proportion of pollock caught within the SCA varies considerably, presumably
 due to temperature regimes and the relative population age structure.  The
 annual proportion of catch within the SCA varies and has ranged from an annual
 low of 11% in 2010 to high of 60% in 1998--the 2019 annual value was 58% but
-and quite high again in the A-season (68\%; Table \ref{tab:catch_sca}).  The higher
-values in recent years  were likely due to good fishing conditions close to
-the main port.
+and quite high again in the A-season (68\%; Ianelli et al. 2020).
+The higher values in recent years  were likely due to good fishing conditions close to
+the main port. Note that the conversion of many catcher-vessels to shore-based 
+biological sampling with at-sea operations monitored electronically, catch reporting to 
+specific areas will be possible when the position information is fully operational
+and offloads can be easily linked to haul records. Initial investigations on 
+configuring these data for this purpose were promising and should be possible 
+retroactively when the routines for the new database are developed further.
 
 The AFA reduced the capacity of the catcher/processor fleet and permitted the
 formation of cooperatives in each industry sector by the year 2000. Because of
@@ -447,21 +505,29 @@ Additionally, voluntary closure areas were announced throughout
 the B-season 2020 and intended to minimize herring bycatch in areas where
 herring occurred.
 
-
-## Economic conditions as of 2019
+## Economic conditions as of 2020
 
 Alaska pollock is the dominant species in terms of catch in the Bering Sea \&
-Aleutian Island (BSAI) region. In 2019 pollock accounted for 73\% of the
-BSAI's FMP groundfish harvest and 92\% of the total pollock harvest in Alaska.
-Retained catch of pollock increased 2.2\% to 1.41 million t in 2019 (Table \ref{tab:bsaiplck_exv}). BSAI
-pollock first-wholesale value was \$1.55 billion 2019, which was 12\% increase
-from 2018 and above the 2010--2014 average of \$1.26 billion (Table \ref{tab:bsaiplck_wsl}). The higher revenues
-in recent years is the combined effect of strong catch and production levels and
-a steady increase in the average first-wholesale price since 2016. The
-increases in the average  first-wholesale price of pollock products in 2016 and 2017
+Aleutian Island (BSAI) region. In 2020 pollock accounted for 72\% of the
+BSAI's FMP groundfish harvest and 93\% of the total pollock harvest in Alaska.
+Retained catch of pollock decreased 2.9\% to 1.37 million t in 2020 (Table \ref{tab:bsaiplck_exv}).
+The decrease in 2020 catch was despite an increase in the TAC as poor fishing conditions 
+resulted in only 95\% of the TAC being harvested.
+BSAI pollock first-wholesale value was \$1.37 billion 2020, which was a 12\% decrease
+from 2019 and above the 2011--2015 average of \$1.31 billion (Table \ref{tab:bsaiplck_wsl}). 
+The decrease in
+2020 revenues was largely driven by the decrease in catch and corresponding production
+as the average first-wholesale price was stable (Table \ref{tab:bsaiplck_wsl}). The
+increases in the average first-wholesale price of pollock products in 2016 and 2017
 were largely due to increases the price of surimi products while the price increase
 in 2018 was largely due to an increase in the price of fillets. Price increases in 2019 
-were the combined effect of price increases in both fillets and surimi.
+were the combined effect of price increases in both fillets and surimi. In 2020, price 
+increases in fishmeal and minced fish offset decreases in the H\&G, roe and surimi prices
+while fillet prices stable. The primary revenue impact of COVID-19 pandemic was increased 
+demand for retail products which put upward pressure on retail focused products like 
+single-frozen fillets, minced, and surimi. However, smaller average size of fish in
+catch limited the quantity and grades of product forms which generally put downward 
+pressure on prices.
 
 Pollock is targeted exclusively with pelagic trawl gear. The catch of pollock
 in the BSAI was rationalized with the passage of the
@@ -475,16 +541,23 @@ catcher vessels (50\%), at-sea catcher/processors (40\%) and motherships (10\%).
 
 Prior to 2008 pollock catches were high at approximately 1.4 million t in the
 BSAI for an extended period (Table \ref{tab:bsaiplck_exv}). The U.S. accounted
-for over 50\% of the global pollock catch (Table \ref{tab:bsaiplck_glbl}).
+for over 50\% of the global pollock catch.
 Between 2008--2010 conservation reductions in the pollock total allowable catch
 (TAC) trimmed catches to an average 867 kt. The supply reduction
 resulted in price increases for most pollock products, which mitigated the
 short-term revenue loss (Table \ref{tab:bsaiplck_glbl}). Over this same
 period, the pollock catch in Russia increased from an average of 1 million t
 in 2005--2007 to 1.4 million t in 2008--2010 and Russia's share of global catch
-increased to over 50\% and the U.S. share decreased to 35\%. Russia lacks the
-primary processing capacity of the U.S. and much of their catch is exported to
-China and is re-processed as twice-frozen fillets. Around the mid- to late-
+increased to over 50\% and the U.S. share decreased to 35\%. Since 2011 the U.S. 
+has accounted for approximately 44\% of the global pollock catch the majority of
+which comes from the BSAI (Table \ref{tab:bsaiplck_glbl}).
+
+Russia has histoically lacked the
+primary processing capacity of the U.S., with much of their catch being exported to
+China where it is re-processed as twice-frozen fillets. In recent years Russia has pursued
+upgrading its processing capacity of fillets, minced, roe, and surimi which could compete more 
+directly with primary processed products made by the U.S..
+Around the mid- to late-
 2000s, buyers in Europe, an important segment of the fillet market, started to
 source fish products with the MSC sustainability certification, and
 retailers in the U.S. later began to follow suit. Asian markets, an important
@@ -527,27 +600,27 @@ sources of raw materials (see Guenneugues and Ianelli 2013 for a global review
 of surimi resources and market). This contributed to a growth in surimi from
 warm-water fish of southeast Asia. Surimi prices spiked in 2008--2010 and have
 since tapered off as production from warm-water species increased (as has
-pollock). A relatively small fraction of pollock caught in Russian waters is
-processed as surimi. Surimi is consumed globally, but Asian markets dominate
+pollock). Surimi is consumed globally, but Asian markets dominate
 the demand for surimi and demand has remained strong.
 
 The catch of pollock can be broadly divided between the shore-based sector
 where catcher vessels make deliveries to inshore processors, and the at-sea
 sector where catch is processed at-sea by catcher/processors and motherships
 before going directly to the wholesale markets. The retained catch of the
-shore-based sector increased 1\% to 710 kt. The value of these
-deliveries (shore-based ex-vessel value) totaled \$259.8 million in 2019,
-which was up 10\% from the ex-vessel value in 2018 driven mostly by a 7\%
-increase in the ex-vessel price which is above the 2010-2014 average
+shore-based sector decreased 1\% to 725 kt. The value of these
+deliveries (shore-based ex-vessel value) totaled \$233.7 million in 2020,
+which was down 10\% from the ex-vessel value in 2019 driven mostly by a 7\%
+decrease in the ex-vessel price which was just below the 2011-2015 average
 (Table \ref{tab:bsaiplck_exv}). The first-wholesale value of pollock products was
-\$920 million for the at-sea sector and \$630 million for the shore-based
-sector (Table \ref{tab:bsaiplck_wsl}). The higher revenue in recent years is
-combined effect of increased catch levels and price increases of pollock
-products of fillet and surimi products. The
-average price of pollock products in 2019 increased 9\% for the at-sea sector to
-$1.38 and increased 5\% for the shore-based sector to $1.12. Surimi prices increased 
-8\% and fillet prices increased 11\% in 2019. Roe prices decreased 26\% while
-production increased 36\%---the highest level observed in the last decade.
+\$814 million for the at-sea sector and \$552 million for the shore-based
+sector (Table \ref{tab:bsaiplck_wsl}). The
+average price of pollock products in 2020 increased 2\% for the at-sea sector to
+$1.41 and
+decreased 4\% for the shore-based sector to $1.08. Surimi prices decreased 8\%, 
+fillet prices increased 3\%, and roe prices decreased 7\% in 2020. Minced prices 
+increased 11\% and minced production rose 38\% as demand for retail products increased
+as a result of COVID-19. Fishmeal prices rose 43\% with a reduced Peruvian fishmeal 
+supply because of a temporary fishery closure early in the year.
 
 The portfolios of products shore-based and at-sea processors produce are
 similar. In both sectors the primary products processed from pollock are
@@ -555,13 +628,13 @@ fillets, surimi and roe, with each accounting for approximately 40\%, 40\%,
 and 10\% of first-wholesale value (Table \ref{tab:bsaiplck_wsl}). The price of
 products produced at-sea tend to be higher than comparable products produced
 by the shore-based because of the shorter time span between catch, processing and
-freezing. Since 2014 the price of fillets produced at-sea tend to be about
-10\% higher, surimi prices tend to be about 30\% higher and the price of roe
+freezing. Over the past 5 years the price of fillets produced at-sea tend to be about
+7\% higher, surimi prices tend to be about 25\% higher and the price of roe
 about 50\% higher. Average prices for fillets produced at-sea also tend to be
 higher because they produce proportionally more higher-priced fillet types
 (like deep-skin fillets). The at-sea price first wholesale premium averaged
-roughly \$0.21 per pound between 2010--2014 and has increased to an average of
-\$0.27 per pound between 2015--2019.\footnote{The at-sea price
+roughly \$0.20 per pound between 2011--2015 and has increased to an average of
+\$0.28 per pound between 2016--2020.\footnote{The at-sea price
 premium is the difference between the average price of first-wholesale
 products at-sea and the average price of first-wholesale products shore-
 based.}
@@ -571,59 +644,69 @@ based.}
 A variety of different fillets are produced from pollock, with pin-bone-out
 (PBO) and deep-skin fillets typically accounting for approximately 70\% and
 30\% of production in the BSAI, respectively. Deep-skin fillet's share of fillet
-production was 33\% in 2019. Total fillet production increased 11.5\%
-to 187 kt in 2019, and since 2010 has increased with aggregate production and
-catch and was higher than the 2010--2014 average (Table
+production was 34\% in 2020. Total fillet production decreased 20\%
+to 149 kt in 2020, and was below the the 2011--2015 average (Table
 \ref{tab:bsaiplck_wsl}). The average price of fillet products in the BSAI
-increased 11\% to \$1.52 per pound and is below the inflation adjusted average
-price of fillets in 2010--2014 of \$1.69 per pound (2019 dollars).  Media
-reports indicate that fillet prices tended to be
-strong throughout much of 2019. Pollock fillets sourced from Russia
-are the direct competitor to Alaska sourced pollock fillets.
+increased 3\% to \$1.56 per pound and is below the inflation adjusted average
+price of fillets in 2011--2015 of \$1.63 per pound (2020 dollars). Media
+reports indicate that for single-frozen fillets increased retail demand stemming 
+from COVID-19 supported strong prices, however, low double-frozen fillets prices 
+(which have a strong foodservice component) put downward pressure on 
+single-frozen prices. The decrease in fillet volumes was related to smaller fish 
+size in the 2020 catch which are less suited to fillet production and better suited
+for minced which saw significant increases in both volume and value.
+
+Pollock fillets sourced from Russia
+are a competitor to Alaska sourced pollock fillets.
 Fillets were a relatively small portion of Russian primary production
 however, they are increasing their fillet production capacity. Much of the
 Russian catch goes to China for secondary processing into fillets so
 this would do little to increase the overall volume, however, increased
 primary fillet processing in Russia could increase competition with U.S.
-produced single-frozen fillet products. Approximately 30\% of the fillets
+produced single-frozen fillet products. Using data through 2017 approximately 30\% of the fillets
 produced in Alaska are estimated to remain in the domestic market, which
 accounts for roughly 45\% of domestic pollock fillet consumption (AFSC
-2016).\footnote{Additionally, roughly 10\% of the at-sea BSAI production is
+2020).\footnote{Additionally, roughly 10\% of the at-sea BSAI production is
 processed as H\&G which is mostly exported, primarily to China, where is
 reprocessed as fillets and some share of which returns to the U.S.. China also
 processes H\&G from Russia into fillets which are also imported into the
 domestic market. Current data collection does not allow us to estimate the
-share of U.S. returning imports.} The U.S. industry has tried to maintain value by
+share of U.S. returning imports.} The U.S. industry has tried to maintain value
+over the years by
 increasing domestic marketing for fillet based product and creating product
 types that are better suited to the American palette, in addition to increased
-utilization of by-products. Reductions in global pollock supplies in 2020 reported by the
-Groundfish Forum may upward pressure on pollock fillet prices.
+utilization of by-products. 
 
 ### Surimi seafood
 
-Surimi production in 2019 was 192.2 kt, which was down 2.2\%
-and was above the 2010--2014 average. Prices have generally increased since 2013
-and resumed their upward progress in 2019 increasing 8\% to \$1.37 (Table
-\ref{tab:bsaiplck_wsl}). Because surimi and fillets are both made from pollock
+Surimi production in 2020 was 171.7 kt, which was down 11\%
+and was above the 2011--2015 average. Prices have generally increased since 2013
+and although they fell 8\% in 2020 to \$1.26 they remain strong (Table
+\ref{tab:bsaiplck_wsl}). Surimi is primarily a retail product, and demand in 2020
+was strong with the increased focus on retail resulting from COVID-19 pandemic. 
+Furthermore, the supply tropical species used to produce surimi has been tight. The
+smaller-sized fish caught by the U.S. in 2020 is better suited to production of 
+low- to mid-grade surimi which puts downward pressure on surimi prices. Demand for 
+high-grade surimi is high and supplies were tight.
+Because surimi and fillets are both made from pollock
 meat, activity in the fillet market can influence the decision of processors
 to produce surimi as smaller average size of fish can incentivize surimi
-production, particularly if it yields a higher value than fillets. Additionally,
-strong demand for surimi has put upward pressure on prices.
+production, particularly if it yields a higher value than fillets. 
 
 ### Pollock roe
 
 Roe is a high priced product that is the focus of the A season catch destined
-primarily for Asian markets. Roe production in the BSAI tapered off in the
+primarily for Asian markets. Roe production in the BSAI averaged 27 kt in 
+2005--2007 and tapered off in the
 late--2000s and since has generally fluctuated at under or near 20 kt annually.
-Roe production increased to 28 kt in 2019
-Production averaged 27 kt in 2005--2007 and was 20.6 kt in 2018, which was up
-12\% from 2017 (Fig. \ref{fig:roe}). Prices peaked in the mid-2000s and have
+Roe production decreased to 24.7 kt in 2020 and was above the 2011-2015 average
+(Fig. \ref{fig:roe}). Prices peaked in the mid-2000s and have
 followed a decreasing trend over the last decade which continued until 2015,
 after which prices increased to \$2.89 per pound in 2018.
-The Yen to U.S. Dollar exchange rate can influence prices and weakened against 
-the Yen in 2019. The average roe price in the BSAI was down 26\% in
-2019 to \$2.15 per pound, but value rose 1\% with the increase in
-production to \$132.2 million (Table \ref{tab:bsaiplck_wsl}).
+The Yen to U.S. Dollar exchange rate can influence prices and strengthed against 
+the Yen in 2020. The average roe price in the BSAI was down 7\% in
+2020 to \$2.01 per pound, the lowest observed. Value fell 17\% with the decrease in
+production to \$109.1 million (Table \ref{tab:bsaiplck_wsl}).
 
 ### Fish oil
 
@@ -638,8 +721,8 @@ estimates from the shore-based fleet may be
 biased low because some production occurs at secondary processors (fishmeal
 plants) in Alaska. The increased production of oil beginning in 2008 can be
 attributed to the steady trend to add more value per ton of fish landed.
-The oil production index increased 15\% in 2019 and was at levels not seen 
-since before 2015.
+The oil production index decrased 27\% in 2020 and was at levels not seen 
+since before 2012.
 
 # Data
 
@@ -655,10 +738,10 @@ The following lists the data used in this assessment:
  Fishery & Catch biomass & 1964--`r thisyr` \\
  Fishery & Catch age composition & 1964--`r lastyr` \\
  Fishery & Japanese trawl CPUE & 1965--1976 \\
- EBS bottom trawl & Area-swept biomass and age-specific proportions & 1982--`r thisyr-1 ` \\ 
+ EBS bottom trawl & Area-swept biomass and age-specific proportions & 1982--2019, `r thisyr-1 ` \\ 
  Acoustic trawl survey & Biomass index and age-specific
  proportions & 1994, 1996, 1997, 1999, 2000, 2002, 2004, 2006--2010, 2012, 2014, 2016, 2018, 2020 \\
- Acoustic vessels of opportunity (AVO) & Biomass index & 2006--`r thisyr-1` \\
+ Acoustic vessels of opportunity (AVO) & Biomass index & 2006--2019, `r thisyr` \\
 \hline
 \end{tabular}
 \end{table}
@@ -701,8 +784,20 @@ at age. In 2011 the winter fishery catch consisted primarily of age 5 pollock
 (the 2006 year class) and later in that year age 3 pollock (the 2008 year
 class) were present. In 2012--2016 the 2008 year class was prominent in the
 catches with 2015 showing the first signs of the 2012 year-class as three
-year-olds in the catch (Fig. \ref{fig:catage}; Table \ref{tab:fsh_age}). The
-sampling effort for age determinations, weight-length measurements, and length
+year-olds in the catch (Fig. \ref{fig:catage}; Table \ref{tab:fsh_age}). However,
+by 2017 the 2013 year-class began to be also evident, and surpassed the 2012 
+year-class in dominance and continued through to 2020. In 2020, an unusual 
+presents of age-2 pollock appeared in the catch, along with some from the 
+2014 year-class while the 2012 year-class was a small part of the catch 
+(Fig. \ref{fig:catage}). The unusual pattern of switching adjacent year-classes
+was examined more closely to see if there was a pattern of spatial differences.
+Plotting the locales where the aged fish arose shows some separation with the 2013
+year-class occuring further north (Fig. \ref{fig:fsh_cohort_locales}). This could
+be due to a number of factors including the relative concentrations of the 
+original spawning fish and the relatively warm conditions which may have reduced
+the potential overlap and vulnerability to cannibalism.
+
+The sampling effort for age determinations, weight-length measurements, and length
 frequencies is shown in Tables \ref{tab:fsh_meas}, \ref{tab:lw_meas}, and
 \ref{tab:fsh_n}. Sampling for pollock lengths and ages by area has been shown
 to be relatively proportional to catches (e.g., Fig. 1.8 in Ianelli et al.
@@ -725,12 +820,13 @@ of crab and groundfish in the Eastern Bering Sea since 1979 and since 1982
 using standardized gear and methods. For pollock, this survey has been
 instrumental in providing an abundance index and information on the population
 age structure. This survey is complemented by the acoustic trawl (AT) surveys
-that sample mid-water components of the pollock stock. Between 1991 and 2019
+that sample mid-water components of the pollock stock. Between 1991 and 2021
 the BTS biomass estimates ranged from 2.28 to 8.39 million t 
 (Table \ref{tab:bts_biom}; Fig. \ref{fig:bts_biom}). In the mid-1980s and early
 1990s several years resulted in above-average biomass estimates. The stock
 appeared to be at lower levels during 1996--1999 then increased moderately
-until about 2003 and since then has averaged just over 4 million t. These
+until about 2003 and since then has averaged just over 4 million t (from the 
+standard EBS region using design-based estimators). These
 surveys also provide consistent measurements of environmental conditions, such
 as the sea surface and bottom temperatures. Large-scale zoogeographic shifts in
 the EBS shelf documented during a warming trend in the early 2000s were
@@ -747,15 +843,16 @@ slightly above average) but was highly unusual due to the complete lack of
 than zero degrees. In 2019, the mean bottom temperature was the warmest during
 the period the survey has occurred (since 1982;  Fig. \ref{fig:bts_temp}).  In
 2020 the survey was canceled and detailed data were
-unavailable. The 2020 Ecosystem report (Siddon 2020) contains model
+unavailable (although the 2020 Ecosystem report (Siddon 2020) contains model
 estimates of temperature distributions for the region and indicates that the bottom temperatures 
-and cold pool extent were about average in 2020.
+and cold pool extent were about average). In 2021, the temperatures on bottom were above average
+again with a relatively constricted cold pool extent.
 
 The AFSC has expanded the area covered by the bottom trawl survey over time.
 In 1987 the "standard survey area" comprising 6 main strata was increased 
 farther to the northwest and covered in all subsequent years. These two
 northern strata have varied in estimated pollock abundance.
-In 2019 about 9\% of the pollock biomass was found in these strata compared
+In 2021 about 9\% of the pollock biomass was found in these strata compared
 to a long term average of 5\% (Table \ref{tab:bts_biom}). 
 Importantly, this region is contiguous with the Russian
 border and the NBS region, and measures to increase consideration of those regions
@@ -776,9 +873,12 @@ The BTS abundance-at-age estimates show variability in year-class strengths
 with substantial consistency over time (Fig. \ref{fig:bts_age}). Pollock above
 40 cm in length generally appear to be fully selected and in some years many
 1-year olds occur on or near the bottom (with modal lengths around 10--19 cm).
-Age 2 or 3 pollock (lengths around 20--29 cm and 30--39 cm, respectively) are
-relatively rare in this survey presumably because they are more pelagic as
-juveniles. Observed fluctuations in survey estimates may be attributed to a
+Generally speaking, age 2 or 3 pollock (lengths around 20--29 cm and 30--39 cm, respectively) are
+relatively rare in this survey because they tend to be more pelagic as
+juveniles. In 2021, the relative abundance of these size ranges was more apparent
+and this was unusual compared to the other years (Fig. \ref{fig:bts_lenfreq}).
+
+Observed fluctuations in survey estimates may be attributed to a
 variety of sources including unaccounted-for variability in natural mortality,
 survey catchability, and migrations. As an example, some strong year classes
 appear in the surveys over several ages (e.g., the 1989 year class) while
@@ -825,6 +925,7 @@ Acoustic trawl (AT) surveys The AT surveys are typically conducted every other y
 to estimate the off- bottom component of the pollock stock (compared to the BTS which are conducted
 annually and provide an abundance index of the near-bottom pollock). The number of trawl hauls,
 lengths, and ages sampled from the AT survey are presented in  (Table \ref{tab:bts_abund}).
+
 Estimated pollock biomass (to 0.5m from bottom) for the EBS shelf was above 4 million tons in the
 early years of the time series (prior to 1998  Table \ref{tab:bts_abund} ).   Biomass dipped below 2
 million t in 1991. Since 1994, the years for which AT survey estimates are  available to within 0.5
@@ -832,17 +933,19 @@ m of bottom, the biomass increased and remained between about 3 and 4.5 million 
 (1994–2004). The early 2000s (a relatively ‘warm’ period) were characterized by low  pollock
 recruitment, which was subsequently reflected in lower pollock biomass estimates between 2006 and
 2012 (a ‘cold’ period; Honkalehto and McCarthy 2015). In 2014 and 2016 (another ‘warm’ period) with
-the growth of the strong 2012 year class, AT biomass estimates increased to over 4 million t,
-exceeding levels observed in 1994-2004  (Tables \ref{tab:bts_abund}).
+the growth of the strong 2012 year class, AT biomass estimates increased to over
+4 million t, exceeding levels observed in 1994-2004  (Table \ref{tab:bts_abund}).
 
 Relative estimation errors for the total biomass were derived from a one-dimensional (1D)
 geostatistical method, which accounts for observed spatial structure for sampling along transects 
 (Table 21; Petitgas 1993, Walline 2007, Williamson and Traynor 1996).  As in previous assessments,
 the other sources of error (e.g., target strength, trawl selectivity) were accounted for by
-inflating the annual error estimates to have an overall average CV of 20% for  application within
-the assessment model.  The age composition data from the ATS sampling are provided in  Table 22. 
+inflating the annual error estimates to have an overall average CV of 20% for
+application within the assessment model.  The age composition data from the ATS sampling are provided in  
+Table \ref{tab:ats_age}).
 
-#### Uncrewed surface vehicle (USV) deployment and data processing  
+<!--
+#### Uncrewed surface vehicle (USV) deployment and data processing
 
 NOAA’s fisheries research vessel
 was unable to perform the planned 2020 acoustic-trawl survey due to the COVID-19 pandemic. 
@@ -873,44 +976,31 @@ conducted during the 2016 EBS survey have confirmed that the USVs and the NOAA s
 produce equivalent measurements of pollock backscatter under survey conditions (De Robertis et al.,
 2019).
 
-The three USVs reached the Bering Sea on July 4 and conducted a survey until August 20. Each vehicle
-covered about one third of the total survey area normally covered by research vessel, with each USV
-proceeding from south to north.  The timing of the survey was within the window of other acoustic
-surveys in the EBS (Fig. \ref{fig:at_timing}). 
-The USVs were equipped with Simrad EK80 mini split-beam 
-echo sounders equipped with 38/200 kHz combi-split transducers which were calibrated before and after 
-the survey The instruments were similar to those used on previous ship-based AT surveys. 
-One important difference is that the USVs were equipped with
-smaller transducers which transmit an 18 degree beam---larger than the 7 degree beam
-emitted from the larger transducers carried by NOAA survey vessels.  
-Given the larger beamwidth, the so-called ‘acoustic dead zone’ differs. 
-This zone refers to a near seafloor area within the beam where fish may go 
-undetected (and this varies with beamwidth angle). 
-To correct for this difference, we applied the method of Ona and Mitson (1996) and found that, given the physical differences from the 
-equipment and the degree to which fish aggregate near the seafloor, the adjustment to the data meant
-a 6.7% increase in total backscatter. 
-
-The ship-based AT surveys use trawls to sample fish aggregations observed acoustically. One 
-drawback of using the USVs is the inability to confirm the species, size, and
-biological characteristics of the acoustic backscatter. The lack of biological
-samples affects the ability to convert the areal measures of acoustic backscatter (sA, m2 nmi-2)
-into pollock biomass. The conversion depends on the species composition and size distribution of 
-the backscattering organisms. Also, biological samples help determine the age composition of the pollock
-that are within the backscatter. Fortunately, midwater fish in the survey area are
-predominately pollock (Fig. \ref{fig:at_pollock_in_sa}). 
-This simplifies the interpretation of acoustic measurements since fish aggregations are most likely to be pollock (e.g. as is assumed in the AVO
-backscatter index derived from the bottom trawl charter vessels (Honkalehto et al., 2011). 
-Nonetheless, retrospective analysis indicates that there is a strong relationship between total
-backscatter and biomass estimates from the research ships (Fig. \ref{fig:at_sa_biom}).
-As a result, linear regressions of these relationships (Fig. \ref{fig:at_sa_biom_regress})
-were used to convert the acoustic backscatter to biomass for the USV data collected in 2020. 
-As in previous surveys, the midwater component (>3m above bottom), and the demersal component ( 0.5 to 3m above bottom) were converted to biomass using
-separate relationships and then combined as demersal community composition is more diverse than in
-midwater (Lauffenburger et al., 2017). 
-A sensitivity analysis in which the biomass in each year was
-predicted based on the trawl samples in other years rather than the trawl observations in that year
-suggests that this conversion does not alter the primary trends in the time series 
-(Fig. \ref{fig:at_usv_biom}).
+The ship-based AT surveys use trawls to sample fish aggregations observed
+acoustically. One drawback of using the USVs is the inability to confirm the
+species, size, and biological characteristics of the acoustic backscatter. The
+lack of biological samples affects the ability to convert the areal measures of
+acoustic backscatter (sA, m2 nmi-2) into pollock biomass. The conversion depends
+on the species composition and size distribution of the backscattering
+organisms. Also, biological samples help determine the age composition of the
+pollock that are within the backscatter. Fortunately, midwater fish in the
+survey area are predominately pollock (Fig. \ref{fig:at_pollock_in_sa}).  This
+simplifies the interpretation of acoustic measurements since fish aggregations
+are most likely to be pollock (e.g. as is assumed in the AVO backscatter index
+derived from the bottom trawl charter vessels (Honkalehto et al., 2011).
+Nonetheless, retrospective analysis indicates that there is a strong
+relationship between total backscatter and biomass estimates from the research
+ships (Fig. \ref{fig:at_sa_biom}).  As a result, linear regressions of these
+relationships (Fig. \ref{fig:at_sa_biom_regress}) were used to convert the
+acoustic backscatter to biomass for the USV data collected in 2020.  As in
+previous surveys, the midwater component (>3m above bottom), and the demersal
+component ( 0.5 to 3m above bottom) were converted to biomass using separate
+relationships and then combined as demersal community composition is more
+diverse than in midwater (Lauffenburger et al., 2017).  A sensitivity analysis
+in which the biomass in each year was predicted based on the trawl samples in
+other years rather than the trawl observations in that year suggests that this
+conversion does not alter the primary trends in the time series (Fig.
+\ref{fig:at_usv_biom}).
 
 Another component of uncertainty for the USV data was the fact that due to time constraints, the
 transect spacing to cover the area of the EBS had to be doubled (this survey design was a
@@ -942,10 +1032,11 @@ data which expanded the survey grid to the area covered by the BTS survey (see a
 was used to enabled visualization of past surveys, and to computing an alternate index extrapolated
 over a larger survey area than that occupied by the survey  (Fig. \ref{fig:at_sa_density}).
 The VAST and design based survey estimates were considered as inputs to the assessment model.
+-->
 
 ## Other time series used in the assessment
 
-### Japanese fishery CPUE index 
+### Japanese fishery CPUE index
 An available time series relating the
 abundance of pollock during the period 1965--1976 was included. This series is
 based on Japanese  fishery catch rates which used the same size class of trawl
@@ -953,15 +1044,26 @@ vessels   as presented in  Low and Ikeda (1980). A coefficient of variation of
 20\% was applied.
 
 ### Biomass index from Acoustic-Vessels-of-Opportunity (AVO)
-The details of how acoustic backscatter data from the two commercial fishing
-vessels chartered for the eastern Bering Sea bottom trawl survey (BTS) were
-used to compute a midwater abundance index for pollock can be found in
-Honkalehto et al. (2011). Since the BTS was canceled this year, the AVO data are
-only available through to 2019 (Table \ref{tab:avo}).
 
-#  Analytic approach
+Acoustic backscatter data (Simrad ES60, 38 kHz) were collected aboard two
+fishing vessels chartered for the AFSC summer 2021 bottom trawl surveys (F/V
+Alaska Knight, F/V Vesteraalen).  These Acoustic Vessels of Opportunity (AVO)
+data were processed according to Honkalehto et al. (2011) to provide an index of
+age-1+ midwater pollock abundance in each year.  
 
-##  General model structure
+The 2021 AVO index of midwater pollock abundance on the eastern Bering Sea shelf
+increased by 38% from 2019 and is the 2nd highest value on record (1.8% less
+than the highest value recorded in 2015) (Table \ref{tab:avo}; note the AVO data
+were unavailable in 2020 since the BTS was canceled).  Spatially, the total
+pollock backscatter observed east of the Pribilof Islands during the summers of
+2010-2012 ranged from 4-9%.  Since 2013 the backscatter from this area ranged
+between 15% and 25%. (Fig. \ref{fig:data_avomap}).  
+
+
+
+# Analytic approach
+
+## General model structure
 
 A statistical age-structured assessment model conceptually outlined in
 Fournier and Archibald (1982) and like Methot’s (1990) stock synthesis model
@@ -996,21 +1098,19 @@ included as a model alternative and adopted for ABC/OFL specifications
 by the SSC. This application also included a spatio-temporal treatment of the
 age composition data which showed minor differences 
 compared to the standard design-based expansion of ages. Using the SSC
-convention for model numbering, we designated it as "Model 16.2". Given that this
-year we present a new data type, we examined the following models:
-
-  * Model 16.2 (identical to 2019 model selected by the SSC but includes updated fishery catch-at-age and catch biomass data)
-
-  * Model 20.0, a model which includes the 2020 USV data extending the time
-  series of ATS biomass estimates
-
-  * Model 20.1, a model which includes the 2020 USV data but applies a
-  spatio-temporal model (VAST) to the backscatter data from 1994-2018 (RV Oscar
-  Dyson) in addition to the USV backscatter data from 2020.
+convention for model numbering they selected "Model 20.0" which had a new data type. 
+Model 20.0 (also referred to as the "base" model---and is identical to the 2020 model 
+selected by the SSC but includes updated fishery catch-at-age and catch biomass data).
+We examined the influence of additional data new to this assessment, but restrict expansion to
+alternative "models" this year (but do examine alternative Tier scenarios). We note that 
+tests of the pollock data for this assessment have been developed using models presented in Li et al. (2021)
+and others but the features (e.g., using an informed fixed-effects model for projecting weight-at-age and
+allowing a covariance matrix for index time series) has restricted adopting a more commonly
+used assessment framework. 
 
 ### Tier 1 considerations
-For the latter set of evaluations (Model 20.0), we examined the factors
-affecting Tier 1 classifications including the reliable pdf of $F_{MSY}$, 
+In the 2020 assessment we examined the factors
+affecting Tier 1 classifications including the required "reliability" of the estimated pdf of $F_{MSY}$, 
 i.e., the influence of assumptions related to the uncertainties on the stock 
 recruitment relationship, body mass-at-age, maturation, and fishery selectivity.
 For a number of years the Tier 1 ABC and OFL specifications for EBS pollock have
@@ -1038,16 +1138,13 @@ relative to the status quo (Model 20.0) configuration:
 
 The first option is intended to reflect that the high value observed of the 1978
 year-class occurred under an estimated low level of spawning biomass (designated Model 20.0a). The
-rationale for excluding this influential value would be that the stock structure
-and environmental conditions may differ now. This could be an aspect of
-non-stationarity in the relationship that is worth considering. Also, it is
-unknown if spawning from other adjacent regions (e.g., the spawning biomass
-that contributed to the Aleutian Basin fishery throughout the 1980s) contributed
-to the success of this year-class. Sensitivity test b) is intended to
-illustrate the role of the prior mean and variance on the steepness estimate.
+rationale for excluding this influential value was be that the stock structure
+and environmental conditions may differ now indicating non-stationarity in the relationship. Results showed that it mattered but was
+relatively minor and seemed unlikely to disqualify the estimates required for Tier 1.
+Sensitivity test b) was intended to illustrate the role of the prior mean and variance on the steepness estimate.
 Finally sensitivities c) and d) were considered as how the SRR may translate an
 implicit assumption under Tier 3 since $F_{35\%}$ is a proxy for $F_{MSY}$ and
-$F_{45\%}$ is closer to the recent mean SPR rate.
+$F_{45\%}$ is closer to the recent mean SPR rate. 
 
 ### Input sample size
 Sample sizes for age-composition data were re-evaluated in 2016 against
@@ -1063,6 +1160,7 @@ these effective sample size weights were estimated following Francis 2011
 
 ## Parameters estimated outside of the assessment model
 ### Natural mortality and maturity at age
+
 The baseline 16.1 (and 16.2) model specification has been to use constant
 natural mortality rates at age (M=0.9, 0.45, and 0.3 for ages 1, 2, and 3+
 respectively (Wespestad and Terry 1984). 
@@ -1137,7 +1235,7 @@ fitting within the ABC).
 
 To explore patterns in size-at-age and fish condition, we applied the extensive
 fishery observer data weight given length. We began by standardizing for length
-over all available years and areas (1991--2019) as follows:
+over all available years and areas (1991--2020) as follows:
  
   1. extract all data where non-zero measurements of pollock length and weight 
 	 were available between the lengths of 35 and 60 cm for the EBS region
@@ -1169,24 +1267,25 @@ However, the between-year variability in mean weights-at-age is relatively high
 (Table \ref{tab:wtage}). The coefficients of variation between years are on the 
 order of 6\% to 9\% (for the ages that are targeted) whereas the sampling variability 
 is generally around 1\% or 2\%. The approach to account for the identified 
-mean weight-at-age having clear year
-and cohort effects was continued (e.g., Fig. \ref{fig:fsh_wtage_comb}).
+mean weight-at-age having clear year and cohort effects was continued (e.g., Fig. \ref{fig:fsh_wtage_comb}).
 Details were provided in appendix 1A of Ianelli et al. (2016). The results
 from this method showed the relative variability between years and cohorts and
 provide estimates (and uncertainty) for `r paste0(thisyr,"--",thisyr+2)`
-(Table \ref{tab:wtage}). 
+(Table \ref{tab:wtage}). How these fishery weights-at-age estimates can be supplemented
+using survey weights-at-age is further illustrated in Fig. \ref{fig:fish_wtage_data_pred}.
 
-In the 2019 fishery, the average weight-at-age for the two most important year
-classes (2012 and 2013) appeared to be average whereas in 2018, those
-year-classes appeared to be below average body weight 
-(Fig. \ref{fig:fsh_wtage_comb}). To examine this more closely, we split the bootstrap results into area-season 
-strata and were able to get an overall picture of the pattern by strata (Fig. \ref{fig:fsh_wtage_strata}) and
-Fig. \ref{fig:fsh_wtage_strata_yr}). This showed that the mean weight-at-age is
+In the 2020 fishery, the average weight-at-age was below average for the 
+2012-2014 year classes. These cohorts have fluctuated around their means
+in recent years (Fig. \ref{fig:fsh_wtage_comb}). To examine this more closely, 
+we split the bootstrap results into area-season 
+strata and were able to get an overall picture of the pattern by strata (Fig. \ref{fig:fsh_wtage_strata}) 
+and Fig. \ref{fig:fsh_wtage_strata_yr}). This showed that the mean weight-at-age is
 higher in the the B-season in the area east of 170$^\circ$W compared to the
 A-season and B-season in the area west 170$^\circ$W.
 
 
 ## Parameters estimated within the assessment model
+
 For the selected model, `r M$npar` parameters were estimated conditioned on data and
 model assumptions. Initial age composition, subsequent recruitment, and stock-
 recruitment parameters account for 79 parameters. This includes vectors
@@ -1214,7 +1313,7 @@ selectivity schedule forms a 10x`r paste0(n," matrix of ",10*n) `
 parameters bringing the total
 fishing mortality parameters to `r n+n*10`. The rationale for including time-
 varying selectivity has recently been supported as a means to improve
-retrospective patterns (Szuwalski, Ianelli, and Punt 2017) and as best
+retrospective patterns (Szuwalski et al. 2017) and as best
 practice (Martell and Stewart, 2013).
 
 For surveys and indices, the treatment of the catchability coefficient, and
@@ -1247,9 +1346,9 @@ that are used to fit the model can be categorized as:
   * Log-normal indices of pollock biomass; bottom trawl surveys assume annual
    estimates of sampling error, as represented in Fig. \ref{fig:bts_biom} along with the 
    covariance matrices (for the density-dependent and VAST index series); for the AT index
-   the annual errors were specified to have a mean of 0.20; while for the AVO
-   data, a value relative to the AT index was estimated and gave a mean of
-   about 0.25).
+   the annual errors were specified to have a mean CV of 0.20; while for the AVO
+   data, a value relative to the AT index was estimated and scaled to have a mean CV of 
+   0.3).
   *	Fishery and survey proportions-at-age estimates (multinomial 
    	with effective sample sizes presented Table \ref{tab:input_n}).
   *	Age 1 index from the AT survey (CV set equal to 30\% as in prior assessments).    
@@ -1259,7 +1358,7 @@ that are used to fit the model can be categorized as:
   *	“Fixed effects” terms accounting for cohort and year sources of variability
      in fishery mean weights-at-age estimated based on available data from 1991-`r lastyr` from the fishery (and 1982-`r thisyr` for the bottom-trawl survey
      data) and externally estimated variance terms as described in 
-     Appendix 1A of Ianelli et al. (2016).
+     Appendix 1A of Ianelli et al. (2016; see Fig. \ref{fig:fish_wtage_data_pred}).  
 
 Work evaluating temperature and predation-dependent effects on the stock-
 recruitment estimates continues (Spencer et al. 2016). This approach modified
@@ -1275,116 +1374,44 @@ pollock recruitment for recent years were also found by Yasumiishi et al.
 ## Model evaluation
 
 A sequential sensitivity of available new data showed that adding the 2020
-fishery  catch-at-age data and the 2020 catch biomass information was
-relatively uninformative  with respect to spawning biomass estimates (Fig.
-\ref{fig:mod_data}).  As the new design-based biomass estimate from the USV data
-were added to the model (named Model 20.0), the biomass estimate changed slightly 
-(Fig. \ref{fig:mod_data}). Subsequently, we were able to apply a VAST model
-configuration to the acoustic backscatter from the survey vessels (prior to
-2020) and from the USV for 2020. Historically the CVs for the ATS data have been
-scaled to have a mean of 20% while allowing for inter-annual variation the CVs.
-An alternative we tested was to simply apply the sampling errors as they are
-computed for the design-based method and for the VAST application. Results from
-this show that the assumption for specified CVs from the design-based method
-had a relatively large impact on the results compared to doing the same thing
-with the VAST index data. The relative trends in survey were less smooth when the 
-original sampling variability was used (Fig. \ref{fig:mod_ats_eval1}). The impact on 
-the spawning biomass resulted in similar trends but definitely narrower error bands compared with
-the base model assumption (CV averaged 20%; Fig. \ref{fig:mod_ats_eval2}). 
-Diagnostics of model fits between the set evaluated are given in Table \ref{tab:mod_fits} and 
-comparisons of management quantities are given in Table \ref{tab:mgt_quants}).
-For setting advice, we selected Model 20.0 as the baseline as we feel the USV
-data extend the time series of historical biomass in way that makes the best use
-of past and new data. The VAST application to the backscatter information 
-(Model 20.1) provided similar trends and has some advantages over Model 20.0
-(e.g., the area included is constant for all years). However, we selected Model
-20.0 because 20.1 is based on backscatter data only. Model 20.1 excludes
-the corrections (which are minor it seems) to species and size composition of
-the fish observed by echo sounders and sampled by trawl gear.
+fishery  catch-at-age data and the 2021 catch biomass information was
+relatively uninformative  with respect to spawning biomass estimates (Fig. \ref{fig:mod_data}).  
+As the new 2021 bottom-trawl survey estimates were added to the model (named Model 20.0), 
+the biomass estimate dropped since the recent biomass estimate was lower than expected (Fig. \ref{fig:mod_data}). 
+Addition of the 2021 length composition and preliminary catch-at-age data
+had a minor impact on biomass and recruitment (Fig. \ref{fig:mod_21_agecomp}). 
+Diagnostics of model fits between the set evaluated are given in Table \ref{tab:mod_fits} 
+and comparisons of management quantities are given in Table \ref{tab:mgt_quants}).
+For setting advice, we selected Model 20.0 with the additional 2021 fishery age composition 
+data. While the data are preliminary, we considered that including them was worthwhile 
+given the relative impact on selectivity. 
 
-The SRR evaluations related to Tier 1 classification showed that dropping the
+In the 2020 assessment, SRR evaluations related to Tier 1 classification showed that dropping the
 influence of the 1978 year-class in the estimation lowered the steepness of the
-curve (Fig. \ref{fig:mod_srr_sq_a}). When the influence of the prior
-distribution was removed, the left-most "data" were all below the curve 
-(Fig. \ref{fig:mod_srr_a_b}). This reiterates how the prior was selected in 
-the past---namely to fit the slope at the origin better. Finally, conditioning the
-SRR to fit the condition of having the "actual" $F_{MSY}$ equal some $F_{MSY}$ 
-proxies (e.g., equal $F_{35\%}$) shows that the resulting curve, while being
-more conservative (shallower initial slopes), fit the observations reasonably 
-(Fig. \ref{fig:mod_srr_sq_c_d}). One conclusion from this exercise could be that
-the SPR proxy for $F_{MSY}$ implies a reasonable "shape" to the SRR. Another is
-that dropping the 1978 year-class influence on the fit could provide some added
-precaution. Finally, as noted in past assessments, fitting the apparent low
-year-classes that occurred during periods of high spawning biomass results in
-very high steepness values near the origin (and misses the data in region of
-lower spawning biomass).
-
-
-
-
-<!-- 
-From this I can say (in phase III) speculatively that, compared to actual historical Fs Fmsy harmonic mean is 
-Likely to create more variability and extreme fluctuations in catch (at higher levels of relative effort...I am a fan of remembering that F_t=E_t q 
-Something about buffers being higher (or lower)...
-Almost nothing decision theoretic
-Bring into question the reliability of the PDF of Fmsy?
-The BTS and ATS sample from distinct overlapping subsets of the water
-column:
-
-the BT covers from bottom to midwater, and AT from midwater to surface.  The
-proportion of fish available to each gear type depends on their vertical
-distribution, which varies in space and time. In the current and past
-assessments, this uncertainty counted as a type of process error (but with
-somewhat subjective approach to specifying the degree of variability allowed).
-A new method under development (Monnahan et al. in prep) that explicitly
-models the vertical distribution of fish in discrete,  spatially-correlated
-depth strata. This model accounts for vertically-overlapping gears and is
-informed by both acoustic and bottom trawl data sets simultaneously.  These
-capabilities were added to the spatio-temporal standardization software VAST
-(Thorson 2019) which provides a convenient analysis platform and allows
-inclusion of temporal smoothing and environmental covariates, among other
-features.  Spatial patterns of pollock density for some selected years are
-shown in Fig. \ref{fig:cole1} and the relative availability to the gear types
-is shown in Fig. \ref{fig:cole2}). As the results become available, a model
-configuration using the combined index will be meshed as a direct alternative
-survey data  series fitting (e.g., by explicitly modeling survey
-availability). 
-
-This new study prompted an evaluation of the degree to which BTS selectivity 
-(and effectively, catchability/availability) is allowed to vary over time. As
-before, the two parameters governing the ascending slope and age at 50\% 
-selected were modeled as 
-random walk processes with a penalty (or prior constraint)
-specified to balance fitting composition and trend data from
-all sources reasonably. 
-Profiling on the selectivity change constraint showed that, as parameterized 
-via logistic parameters, a relatively high process error variance term (low penalty) 
-still indicated that the model was not overfitting  different data components 
-(e.g., the standard deviation of the normalized residuals (SDNR)
-scores are near 1.0 and
-not below (which would indicate over-fitting; Table \ref{tab:mod_prof_fits}.). 
-This provided some objective justification for this specification and is illustrated
-with the availability study (\ref{fig:q_sens}.). The impact of the 
-assumption to allow effective catchability to vary appears to be conservative, with
-more constraining selectivity changes resulting in higher spawning stock 
-biomass estimates (Fig. \ref{fig:q_sens}.). 
---> 
+curve and that when the influence of the prior
+distribution was removed the residual pattern for estimates near the origin was particularly 
+bad (all below the curve). From those results we conclude that the prior specification was
+appropriate because we place priority on fitting estimated recruits near 
+the slope at the origin better. Last year's assessment also showed that 
+conditioning the SRR to fit the condition of having the "actual" $F_{MSY}$ equal some $F_{MSY}$ 
+proxies (e.g., equal $F_{35\%}$) shows that the results 
+were more conservative (shallower initial slopes). 
+A conclusion from these exercises was that the SPR proxy for $F_{MSY}$ implies a 
+reasonable "shape" to the SRR. 
 
 The fit to the early Japanese fishery CPUE data (Low and Ikeda 1980) was
 consistent with the estimated population trends for this period (Fig.
-\ref{fig:mod_cpue_fit}).   The model fits the fishery- independent index from
-the 2006--2019 AVO data well indicating a downward trend since 2015 but stabilizing
-compared to 2018 values (Fig. \ref{fig:mod_avo_fit}). 
-The fits to the bottom-trawl survey biomass (the
-density-dependent corrected series) were reasonable (Fig.
+\ref{fig:mod_cpue_fit}).   The model fits the fishery-independent index from
+the 2006--2021 AVO data well through most of the period but the model predicts lower biomass 
+than the index data indicate (Fig. \ref{fig:mod_avo_fit}). 
+The model fits to the bottom-trawl survey biomass (the
+density-dependent corrected series) were good (Fig.
 \ref{fig:mod_bts_biom}). Similarly, the fits to the  acoustic-trawl survey
-biomass series was consistent with the specified observation uncertainty (Fig.
+biomass series (including the USV data from 2020) was consistent with the specified observation uncertainty (Fig.
 \ref{fig:mod_ats_biom}).
 
-The estimated parameters and standard errors are provided
-[online](https://archive.fisheries.noaa.gov/afsc/refm/stocks/plan_team/2020/EBSPollock_params.pdf) 
-The code for the model (with dimensions
-and links to parameter names) and input files are available on request.
+The estimated parameters and standard errors are provided [online](https://apps-afsc.fisheries.noaa.gov/Plan_Team/2021/EBSPollock_params.pdf).
+The code for the model (with dimensions and links to parameter names) and input files are available on request.
 
 The input sample size (as tuned in 2016 using "Francis Weights") can be
 evaluated visually for consistency with expectations of mean annual age for
@@ -1392,8 +1419,7 @@ the different gear types (Fig. \ref{fig:mod_mean_age}; Francis 2011). The
 estimated selectivity pattern  changes over time and reflects to some degree
 the extent to which the fishery is focused on particularly prominent year-
 classes (Fig. \ref{fig:mod_fsh_sel}). The model fits the fishery age-
-composition data quite well under this form of selectivity (Fig.
-\ref{fig:mod_fsh_age}). 
+composition data quite well under this form of selectivity (Fig. \ref{fig:mod_fsh_age}). 
 
 Bottom-trawl survey selectivity (Fig. \ref{fig:mod_bts_sel}) and fits to the
 pollock biomass index indicate that the model predicts fewer
@@ -1409,8 +1435,7 @@ expectations of 5-year old pollock were much lower than observations (both
 surveys indicated that the 2013 year class was more abundant than the 2012
 year-class).
 
-The fit to the ATS biomass index 
-survey generally falls within the confidence bounds of the survey sampling
+The fit to the ATS biomass index survey generally falls within the confidence bounds of the survey sampling
 distributions (here assumed to have an average CV of 20\%) with a reasonable
 pattern of residuals (Fig. \ref{fig:mod_ats_biom}). The AT age compositions
 consistently track large year classes through the population and the model
@@ -1419,12 +1444,17 @@ fits these patterns reasonably well (Fig. \ref{fig:mod_ats_age}).
 As in past assessments, an evaluation of the multivariate posterior
 distribution  was performed by running a chain of 3 million Monte-Carlo Markov
 chain (MCMC) simulations and saving every 600th iteration (final posterior
-draws totaled 5,000). A pairwise comparison for some key parameters could be
-evaluated (along with their marginal distributions;  Fig.
-\ref{fig:mcmc_pairs}). To compare the point estimates (highest posterior
-density) with the mean of the posterior marginal distribution, overplotting
-the former on the latter for the `r thisyr` spawning biomass estimate were similar
-(Fig. \ref{fig:mcmc_marg}). 
+draws totaled 5,000). We evaluated how selected parameters relate by doing a pairwise 
+(along with their marginal distributions) figure (Fig. 
+\ref{fig:mcmc_pairs}). This illustrates how key parameters relate to management parameters of interest.
+For example, the stock recruitment steepness is negatively correlated to the resulting 
+$B_{MSY} estimate. We also compare the point estimates (highest posterior density) with the mean of the 
+posterior marginal distribution of the `r thisyr` spawning biomass. This showed that the point estimate was
+similar to the mean of the marginal posterior distribution (Fig. \ref{fig:mcmc_marg}). 
+As an additional part of the Tier 1 consideration, we evaluated the posterior
+density of $F_{MSY}$. This indicates that the measure of uncertainty accounting 
+(i.e., the probability density function or PDF) for $F_{MSY}$ seems reasonably approximated 
+by this assessment model (Fig. \ref{fig:mcmc_marg_fmsy}). 
 
 
 ## Time series results
@@ -1480,13 +1510,14 @@ considerable uncertainty due to uncertainty in recruitment
 Model estimates indicate that the 2008, 2012, and 2013 year classes are 
 above average (Fig. \ref{fig:mod_rec}). The stock-recruitment curve as
 fit within the integrated model shows a fair amount of variability both in the
-estimated recruitments and in the uncertainty of the curve (Fig.
-\ref{fig:mod_srr}). Note that the 2015 and 2016 year classes (as age 1 recruits in
-2016 and 2017) are excluded from the stock-recruitment curve estimation.
+estimated recruits and in the uncertainty of the curve (Fig. \ref{fig:mod_srr}). 
+Note that the 2019 and 2020 year classes (as age 1 recruits in
+2020 and 2021) were excluded from the stock-recruitment curve estimation.
 Separate from fitting the stock- recruit relationship within the model,
 examining the estimated recruits-per-spawning biomass shows variability over
 time but seems to lack trend and also is consistent with the Ricker stock-
 recruit relationship used within the model (Fig. \ref{fig:mod_rs}).
+
 
 Environmental factors affecting recruitment are considered important and
 contribute to the variability. Previous studies linked strong Bering Sea
@@ -1510,42 +1541,79 @@ Ianelli et al. (2011) evaluated the consequences of current harvest policies
 in the face of warmer conditions with the link to potentially lower pollock
 recruitment and noted that the current management system is likely to face
 higher chances of ABCs below the historical average catches.
+Also, as part of the evaluation of stationarity given periods of "regimes", 
+we revisited estimated mean recruitment during different periods previously 
+identified as being unique. This show an pattern consistent with the impact of
+warming on recruits with the period from 2000--present having below average
+the current regime (since 1977) average (Fig. \ref{fig:mod_regimes}).
 
 
 ## Retrospective analysis
 Running the assessment model over a grid with progressively fewer years
 included (going back to 20 years, i.e., assuming the data extent ended in
 `r thisyr-20`) results in a fair amount of variability in both spawning biomass and
-recruitment (Fig. \ref{fig:mod_retro}) Although the variability is high, the
-average bias appears to be low with Mohns $\rho$ equal to `r round(rhoMohn10,3)`
- for the 10 year retrospective and `r round(rhoMohn20,3)` if extended  back 20-years.
+recruitment (Fig. \ref{fig:mod_retro}). This year with the lower than expected survey biomass estimate,
+the retrospective pattern degraded considerably with an increased 
+average bias (Mohns $\rho$ equal to `r round(rhoMohn10,3)`
+ for the 10 year retrospective and `r round(rhoMohn20,3)` if extended  back 20-years). 
+
+In response to the SSC's request to evaluate how selectivity is used for ABC and catch advice, 
+we used the retrospective runs to show how the "projected" selectivity compared with subsequent estimates
+which had the benefit of more data. In 2020, the projected selectivity was towards younger fish but in 
+general, the projected selectivity conformed reasonably well with subsequent estimates (Fig. \ref{fig:retro_sel}). 
+We also computed a summary statistic of the mean age of selection (independent of any age-specific stock size) which
+showed that recently the projection was biased towards younger pollock but earlier on, the bias was toward older fish 
+(Fig. \ref{fig:retro_sel_mnage}).
+
+Since selectivity varies over time, and the fact that fishing mortality rates for management advice depends
+on the assumed future selectivity, we evaluate the pattern of $F_{MSY}$ rates given different selectivity assumptions 
+(XXFig and elaboration to come...)
+
 
 
 # Harvest recommendations
 ## Status summary
 
 The estimate of $B_{MSY}$ is `r M$bmsys` kt (with a CV of 
-`r round(100*(M$bmsy.sd/M$bmsy),0)`\%)  which is less than the projected 
+  `r round(100*(M$bmsy.sd/M$bmsy),0)`\%)  which is `r if(M$bmsy<M$nextyrssb) {"less"}else{"more"}`
+than the projected 
 `r nextyr` spawning biomass of `r M$nextyrssbs` kt;  (Table
-\ref{tab:res_summ}).  For `r thisyr`, the Tier 1 levels of yield are 
-`r M$maxabc1s` t from a fishable biomass estimated at around `r M$ABC_biom1s` kt
-(Table \ref{tab:tier1_proj}; about `r round(M$ssb1/M$bmsy*100,0)`\%  of the
+\ref{tab:res_summ}).  For `r thisyr`, the estimates put the stock in Tier 1`r if(M$bmsy<M$curssb) {"a"}else{"b"}`.
+The corresponding maximum permissible ABC would thus be
+`r M$maxabc1s` t with a fishable biomass estimated at around `r M$ABC_biom1s` kt
+(Table \ref{tab:tier1_proj}). For the current year spawning biomass this corresponds to `r round(M$curssb/M$bmsy*100,0)`\%  of the
 $B_{MSY}$ level). A diagnostic (see section below on model details) on the impact 
 of fishing shows that the `r thisyr` spawning stock size is about 
 `r round(100*M$dynb0,0)`\%  of the predicted value had no fishing occurred
- since 1978 (Table \ref{tab:res_summ}). This compares with the `r round(100*M$curssb/M$b100,0)`\% 
-of $B_{100}$\% (based on the SPR expansion using mean recruitment from 1978--`r thisyr -3`) 
-and `r round(100*M$curssb/M$bmsy,0)`\%
-of $B_{MSY}$ (based on the estimated stock-recruitment curve). The latter two
-values are based on expected recruitment from the mean value since 1978 or
-from the estimated stock recruitment relationship.
+ since 1978 (Table \ref{tab:res_summ}). 
 
+Compared to Tier 3 projections, the results indicate that spawning biomass in
+`r nextyr` will be about `r round(100*M$curssb/M$b100,0)`\% 
+of $B_{100}$\% (based on the SPR expansion using mean recruitment from 1978--`r thisyr -2`). 
+This would put the stock in Tier 3`r if(M$curssb>(M$b100*.4)) {"a and above"}else{"b and below"}`
+$B_{40\%}$ and result in a `r paste(thisyr,"ABC of",M$Tier3_ABC1s,"t")`.
 
-Relative to Tier 3 indicators, the model indicates that spawning biomass will
-be above $B_{40\%}$  (`r M$nextyrssbs` kt) in `r nextyr`. 
 The probability that the current stock size is below 20\% of $B_{0}$ (a level important for additional
 management measures related to Steller sea lion recovery) 
 is <0.1\% for `r thisyr+1` and `r nextyr+1`.
+
+
+In response to a request from the SSC, this year we added results from projections based on Tier 2.
+We base the "standard" Tier 2 ABC calculation using the point estimate (the mean of the posterior 
+distribution) of $F_{MSY}$.
+Therefore, for `r nextyr` the Tier 2`r if(M$bmsy<M$curssb) {"a"}else{"b"}`
+ABC would be `r M$Tier2_ABC1s ` t. 
+Since we have estimates of the harmonic mean (from Tier 1 calculations) 
+an alternative Tier 2 estimate using that in place of the arithmetic mean 
+$F_{MSY}$ results in an ABC of `r M$Tier1.5_ABC1s ` t. 
+
+In summary, the criterion for Tier 1 depends on a reliable estimate of 
+$F_{MSY}$ and the uncertainty (the PDF). Tier 2 also requires a reliable estimate of 
+$F_{MSY}$ (without the PDF requirement). Given the seemingly reasonable posterior marginal
+density for $F_{MSY}$, it seems if Tier 1 criterion are unmet, then so would the requirement
+for Tier 2. Adopting Tier 3, while in principle may result in more conservative catch advice, 
+it uses less information available about the stock productivity and requires adopting more
+assumptions.
 
 
 ## Amendment 56 Reference Points
@@ -1577,8 +1645,13 @@ $B_{35\%}$   &=	`r M$b35s` kt female spawning biomass    \\
 
 Assuming the stock-recruit relationship the `r nextyr` spawning biomass is
 estimated to be `r M$ssb1s` t (at the time of spawning, assuming the stock is
-fished at about recent catch levels). This is above the $B_{MSY}$ value of 
-`r M$bmsys`,000 t. Under Amendment 56, this stock has qualified under Tier 1 and
+fished at about recent catch levels). 
+This means that the stock is `r if(M$bmsy>M$nextyrssb) {"below"}else{"above"}`
+the $B_{MSY}$ value of `r M$bmsys`,000 t.
+
+This would put the stock in Tier 3`r if(M$curssb>(M$b100*.4)) {"a and above"}else{"b and below"}`
+`r M$bmsys`,000 t. 
+xxxUnder Amendment 56, this stock has qualified under Tier 1 and
 the harmonic mean value is considered a risk-averse policy since reliable
 estimates of $F_{MSY}$ and its pdf are available (Thompson 1996). The
 exploitation- rate type value that corresponds to the $F_{MSY}$ level was
@@ -1685,7 +1758,7 @@ determine whether a stock is currently in an overfished condition or is
 approaching an overfished condition (for Tier 3 stocks, the MSY level is
 defined as $B_{35\%}$).
 
-## Projections and status determination 
+## Projections and status determination
 
 For the purposes of these projections, we present results based on selecting
 the $F_{40\%}$ harvest rate as the $F_{ABC}$ value and use $F_{35\%}$ as a
@@ -1740,25 +1813,25 @@ specified OFL for the last complete year (`r thisyr-1`). This reverse-engineered
 values ($RE F_{OFL}$) is 0.508.
 
 
-## ABC Recommendation 
+## ABC Recommendation
 
 ABC levels are affected by estimates of $F_{MSY}$ which
 depends principally on the estimated stock-recruitment steepness parameter,
 demographic schedules such as selectivity-at-age, maturity, and growth. The
-current stock size (both spawning and fishable) is estimated to be  at
-above-average levels and projections indicate declines.  Updated data and
+current stock size (both spawning and fishable) is estimated to be  below
+average levels and projections indicate the potential for further declines.  Updated data and
 analysis result in an estimate of `r thisyr` spawning biomass (`r M$curssbs`
 kt) which is about  `r round(100*M$curssb/M$bmsy,0)`\% of $B_{MSY}$ 
 (`r M$bmsys` kt).  This follows a period of increases from
 2008--2017. The extent that the stock will decline further depends  on recruitment, which 
 given the available information, is uncertain.
-Given the same estimated aggregate fishing effort in 2020, the 
+Given the same estimated aggregate fishing effort in 2021, the 
 estimated stock trend is downwards except at low catch levels. Furthermore, 
 the ability to catch roughly the same amount as in `r thisyr` 
 through to 2023 will require more effort (effectively) and will result
 in further declines in spawning biomass.
 
-### Should the ABC be reduced below the maximum permissible ABC? 
+### Should the ABC be reduced below the maximum permissible ABC?
 
 The SSC in its September 2018 minutes recommended that assessment authors and
 Plan Teams use the risk matrix table below when determining whether to
@@ -1834,20 +1907,17 @@ might be relevant include the following (as identified by the work-group):
     from the stock biomass trend, unusual spatial pattern of fishing, changes in
    the percent of TAC taken, changes in the duration of fishery openings.” 
 
-*Assessment considerations*   The EBS pollock assessment model appears to
-track the  stock from year based on retrospective analysis (the pattern lacks
-tendency to over or under estimate the stock trend. The model tracks the
-available data well including  multiple abundance indices. Of minor concern
-(presently) is the fact that the model estimate of declining abundance is
-somewhat less than that suggested by the survey data. The data and model
-appear to be consistent without big surprises relative to the ability to fit
-the information and provide a trade-off between process and observation errors
-(which combined, provide relatively high estimates of uncertainty).
-The lack of two summer surveys in 2020 (and 3 updated biomass indices) might be
-a consideration. However, the addition of the USV data and general consistency
-from the spatial pattern of pollock abundance and what the fishery was catching
-seems consistent. 
- **We therefore rated the assessment-related concern as level 1, normal.**
+*Assessment considerations*   The EBS pollock assessment model has appeared
+to track the  stock from year based on retrospective analysis in previous 
+assessment. This year however, the lower than expected survey observation
+lowered the recent biomass estimates and the retrospective analysis indicated
+a tendency to over estimate the stock trend.
+ The model tracks the available data reasonably well except for the strong 
+ increase in the AVO index relative to 2019.
+The abundance estimate from the NBS was down 
+and relative to population age composition, the pattern in the 2012 and 2013 year-classes
+is unusual.
+ **We therefore rated the assessment-related concern as level 2, substantially increased concern.**
 
 *Population dynamics considerations*  The age structure of EBS pollock  has
 exhibited some peculiarities over time. On the positive side, some strong
@@ -1855,136 +1925,180 @@ year-classes appear to have increased in abundance based on the bottom-trawl
 survey data (e.g., the 1992, 2012 and 2013 year classes). Conversely, the period
 from 2000--2007 had relatively poor year-class strengths which resulted in
 declines in stock below $\it{B_{msy}}$ and reduced TACs due to lower ABC
-values. There also are clear density-dependent effects on growth, in
-particular, the 2012 year class. The stock is estimated to be well above
-$\it{B_{msy}}$ at present, but projections indicate a decline given recent
-catch levels and future trends will depend on pollock survival at egg, larval,
-and juvenile stages which may be compromised given the lack of a cold pool and
-a  considerable redistribution into the northern part of the Bering Sea. 
+values. Presently it appears that the mean recruitment since 2000 has been 
+below average (Fig. \ref{fig:mod_regimes}). 
+There also are clear density-dependent effects on growth, in
+particular, the 2012 year class. The stock is estimated to be  below
+$\it{B_{msy}}$ at present, and projections indicate a reasonable chance that the stock will
+decline further given recent catch levels.
+The extent that the the lack of a cold pool and
+will impact pollock survival at egg, larval,
+and juvenile stages is uncertain.
 Recruitment in the near term could be below average yet projections
 assume average recruitment (with uncertainty).
 Additional age-specific aspects of the spawning population indicates that the
-stock has recovered somewhat from  a low diversity of ages (for both the
+stock has increased from  a low diversity of ages (for both the
 population and the mean age of the spawning stock weighted by spawning output
-Fig. \ref{fig:age_diversity}). **We therefore rated the population-dynamics
-concern as level 1, normal.**
+Fig. \ref{fig:age_diversity}). 
+We also recognize that the stock-recruitment relationship selected for this cannibalistic
+species requires a relatively informative prior distribution in order to 
+have the residuals of the estimates relative to the curve to be less biased nearer
+the slope of the origin. This could be interpreted as being undesirable and having undue 
+influence on the underlying stock productivity (noting that it has been demonstrated
+that the prior leads to increased conservativism).
+
+**We therefore rated the population-dynamics concern as level 2, substantially increased concern.**
 
  *Environmental/Ecosystem considerations*\footnote{Provided by: Elizabeth Siddon, NOAA/AFSC} 
-*Environmental processes* Following two years of physical oceanographic perturbations, the eastern Bering Sea experienced a return to near-normal climatic conditions in 2020. Residual warmth delayed sea ice formation until late 2019. Considerable cooling then allowed for rapid build-up of sea ice, even exceeding median ice extent in parts of February and March 2020. The 2019-2020 daily mean extent was within 1 SD of the long-term mean. However, ice thickness was low, and retreated quickly in spring.
-Summer bottom temperatures and spatial extent of the cold pool were average based on  
-the ROMS hindcast model and observations from the 2020 Dyson cruise. However, summer 
-sea surface temperatures through August were above average in the southeastern
-and northern Bering Sea, similar to those observed in 2019. In fact, both the
-southeastern and northern Bering Sea are experiencing a persistent warm stanza, 
-greater in both magnitude and duration than that of the early 2000s.
-The winters of 2017/2018 and 2018/2019 had strong south winds, which contributed to low sea ice extent in those years. These anomalous winds from the south are hypothesized to have bolstered productivity over the shelf, sustained metabolic demands, and subsidized overwinter survival of the 2018 year class of pollock. The most recent winter (2019/2020) had an average wind speed direction (north/south) near the long-term average. Similarly, based on the OSCURS model, the 2020 springtime drift pattern was mixed, with an early period of eastward drift followed by a period of westward drift that may have retained larvae over the middle shelf.
-These environmental indicators are presented in the new Physical Oceanography Summary 
- section of the 2020 EBS Ecosystem Status Report (Siddon, 2020). 
+
+*Environmental processes* 
+Beginning in approximately 2014, the eastern Bering Sea (EBS) entered a warm phase of unprecedented
+duration. The EBS remains in this warm phase, though to a lesser degree compared to the extreme
+years of 2018 and 2019. Sea ice formation in fall of 2020 was delayed due to residual warmth in the
+system. While the areal extent of sea ice was closer to the pre-2014 levels than at any point in the
+last 7 years, ice thickness differed between the northern (thicker ice) and southern (thinner/no
+ice) shelves due to opposing prevailing winds (see Physical Environment Synthesis in Siddon, 2021).
+The summer 2021 cold pool remained significantly reduced in area, and its southern boundary was
+shifted northwestward. The areal extent of the cold pool has increased since 2018, yet the 2021
+extent was the 4th lowest on record and remains more than one standard deviation below the mean
+(Rohan and Barnett, 2021a). Summer bottom temperatures varied spatially over the shelf. Near-average
+conditions were present over the SEBS, while the NBS had a very warm inner domain (i.e., Norton
+Sound) and a small cold pool over the middle domain to the southwest of St. Lawrence Island (Rohan
+and Barnett, 2021b).
+
+Multiple ecosystem ‘red flags’ occurred in the NBS this year: crab population declines (Richar,
+2021), salmon run failures in the Arctic-Yukon-Kuskokwim region (Liller, 2021), and seabird die-offs
+combined with low colony attendance and poor reproductive success (see Integrated Seabird
+Information in Siddon, 2021). In addition, results from the bottom trawl survey demonstrate a
+substantial drop in total CPUE in the NBS between 2019 and 2021 that reflected large decreases in
+all of the dominant species, including pollock (Mueter and Britt, 2021). Whether a single or suite
+of mechanisms can be identified to explain these coincident events, the common thread in these
+collapses is the marine environment in the NBS. Concerns about the food web dynamics and carrying
+capacity in the NBS have existed since 2018, highlighted by the gray whale Unusual Mortality Event
+and short-tailed shearwater mass mortality event (Siddon and Zador, 2019).
+
+Fish condition, as measured by length-weight residuals, trended downward from 2019 for multiple
+groundfish species, including benthic, pelagic, and apex predators, across both the southern and
+northern portions of the survey area (Rohan and Prohaska, 2021), indicating poor feeding conditions
+across trophic niches. While adult pollock (>25 cm) followed this trend of decreasing condition
+based on length/weight residuals in the southern and northern survey areas, juvenile pollock
+(100-250 mm) showed positive residuals in both regions (Rohan and Prohaska, 2021), indicating
+sufficient foraging conditions existed for juvenile pollock. The information on pollock condition
+based on fishery standardized mean weights-given-length was also relatively low during 2020 and 2021 
+(Fig. \ref{fig:fsh_lw_anom_yr_box}).
 
 Age-0 fish experiencing warm temperatures during late summer followed by relatively cooler
-temperatures in spring of age-1 are thought to have below average survival (Yasumiishi, 2020). 
-Based on this Temperature Change index, the 2016 and 2019 year classes are predicted to have
-below-average recruitment to age-4 in 2020 and 2023. 
-
-*Prey:* The spring bloom over the south inner and middle domains occurred about a week earlier than
-the long-term mean; in comparison, 2017 was among the earliest spring blooms while 2018 was among
-the latest (Nielsen et a., 2020). Chlorophyll concentrations in this region have been below the
-long-term mean since 2016. Depending on the spatial and temporal overlap of productivity, this can
-result in a match or mismatch with favorable feeding conditions for larval pollock. Small copepods
-form the prey base for larval to early juvenile pollock during spring. Late juvenile pollock feed on
-a variety of planktonic crustaceans, including calanoid copepods and euphausiids. Pollock diets
-become more piscivorous with age and cannibalism is commonly observed. No direct measurements of
-zooplankton community composition are available for 2020 due to survey cancellations.  The abundance
-of large copepods during late-summer is correlated with recruitment to age-3 pollock; low abundance
-of large copepods during late-summer 2017 and 2018 indicate poor overwinter survival and recruitment
-to age-3 in 2020 and 2021 (Yasumiishi et al., 2020). In 2019, over the southern middle shelf, small
-copepods were abundant in spring while large copepod abundance was quite low in late-summer (Kimmel
-et al., 2020). This indicates good foraging conditions for larval and juvenile pollock early in the
-year, however, large, lipid-rich copepods may have again limited energy storage for age-0 pollock
-entering their first winter.  Fish condition (as measured by weighted length-weight residuals
-[updated method]) patterns over the southeastern and northern shelves differed for juvenile (100-250
-mm total length) and adult (>250 mm TL) pollock in 2019 (no 2020 survey data available) (Rohan and
-Laman, 2020). Within both regions, juvenile condition was at the long-term mean while adult
-condition was positive. This indicates juvenile fish may not be finding adequate prey resources,
-while adult fish are finding adequate prey (including cannibalism on juvenile pollock). Spatially,
-adult pollock showed negative residuals while juvenile pollock showed positive residuals over the
-inner shelf from 2015-2019 (warm years). 
-
-_Predators:_ Pollock are cannibalistic and rates of
-cannibalism might be expected to increase as the biomass of older, larger fish increases. In 2019,
-over the southern shelf, biomass increased 75% indicating movement of adult fish over the southern
-shelf. In the northern Bering Sea, abundance increased, but biomass decreased, indicating successful
-recruitment over the northern shelf (L. Britt, pers comm). In 2020, with an average cold pool extent
-over the shelf, predation pressure from cannibalism may have been mitigated by this thermal barrier
-as adult pollock tend to avoid the cold bottom waters. Fur seal consumption of adult pollock
-generally increases in years when juvenile pollock are less abundant (Kuhn et al., 2019). However,
-no information on 2020 population trends for fur seals is available. Other potential predators of
-juvenile pollock include jellyfish and chum salmon; no direct measurements of predation pressure
-exist at this time. 
-
-_Competitors:_ While historical recruitment trends between Pacific cod and 
-pollock have mirrored each other, the timeseries appear to decouple between 2008 and 2009. This may
-indicate broad-scale transitions in the southeastern Bering Sea ecosystem (e.g., from pelagic- to
-benthic-dominated production). The mechanisms driving early life history survival versus recruitment
-success of Pacific cod and pollock may differ based on pelagic versus benthic habitat
-associations (e.g., prey availability). The decoupling of abundance timeseries suggests a shift (or
-greater disparity) between drivers of survival in these two populations. The widespread die-off
-event of short-tailed shearwaters slowed in 2020 (Siddon, 2020). Shearwaters are planktivorous birds
-and feed on euphausiids in the Bering Sea in summer. The die-off event is thought to reflect poor
-foraging conditions for birds during summer 2018 as most sampled birds showed signs of emaciation;
-lower mortality in 2020 may reflects (i) better feeding conditions in 2019 or (ii) lower overall
-population levels for shearwaters.
+temperatures in spring of age-1 are thought to have below average survival. Based on this
+Temperature Change index, the 2020 year class is predicted to have below-average recruitment to
+age-4 in 2024 (Yasumiishi, 2021).
 
 
-**Summary for Environmental/Ecosystem considerations**  
+*Prey* 
+The spring bloom over the south inner and middle domains occurred at or slightly later than the
+long-term average. In comparison, at mooring M2, 2017 was among the earliest spring blooms while
+2018 was among the latest (Nielsen et al., 2021). Chlorophyll concentrations in these regions have
+been below the long-term median since 2016, although the south inner region was at the median value
+in 2021 (Nielsen et al., 2021). Depending on the spatial and temporal overlap of productivity, this
+can result in a match or mismatch with favorable feeding conditions for larval pollock.
 
-  -  The eastern Bering Sea returned to near-normal climatic conditions in 2020;
-  -  Sea ice extent exceeded the historical median in parts of February and March 2020;
-  -  Ice thickness was low and retreated quickly in spring 2020;
-  -  The spatial extent of the cold pool was average;
-  -  The eastern Bering Sea is experiencing a persistent warm stanza, greater in both magnitude and duration than that of the early 2000s;
-  -  The 2019 year class experienced unfavorable temperature conditions from age-0 to age-1 and is predicted to have below-average recruitment to age-4 in 2023. 
-  -  Winter 2019/2020 had an average wind speed direction (north/south) near the long-term average;
-  -  The 2020 springtime drift pattern was mixed indicating larvae may have been retained over the southern middle shelf; 
-  -  The spring bloom over the southern shelf occurred about a week earlier than the long-term mean;
-  -  Chlorophyll concentrations over the southern shelf have been below the long-term mean since 2016;
-  -  Low abundance of large copepods during late-summer in 2017-2019 indicate poor overwinter survival and recruitment to age-3 in 2020-2022;
-  -  Condition (weighted length-weight residuals) of juvenile pollock (100-250 mm TL) in 2019 was at the long-term mean indicating moderate foraging conditions;
-  -  Condition of adult pollock (>250 mm TL) in 2019 was above-average indicating good foraging conditions (including cannibalism of juvenile pollock);
-  -  Predation pressure from cannibalism may have been mitigated by the average spatial extent of the cold pool (i.e., thermal barrier);
-  -  The decoupling of abundance timeseries for Pacific cod and pollock suggests a shift in drivers of survival in these two populations and may indicate broad-scale transitions in the ecosystem (e.g., from pelagic- to benthic-dominated production);
-  -  The widespread die-off event of short-tailed shearwaters slowed in 2020 and may reflect better feeding conditions (i.e., euphausiids) over the shelf in 2019.
+Small copepods form the prey base for larval to early juvenile pollock during spring. Late juvenile
+pollock feed on a variety of planktonic crustaceans, including calanoid copepods and euphausiids.
+Pollock diets become more piscivorous with age and cannibalism is commonly observed. In 2021, over
+the southern shelf, the springtime abundance of small copepods was within historical ranges and
+large copepods appeared on-track to be available for age-0 fish later in the year (Kimmel et al.,
+2021). In addition, higher abundances of adult euphausiids were observed which, if persistent
+through summer, would also provide a significant food source to forage fish (Kimmel et al., 2021).
+Over the northern shelf in late summer, similar zooplankton patterns were observed with low
+abundances of small copepods, but slight increases in the abundance of large copepods and
+euphausiids (Kimmel et al., 2021). The annual ration of EBS pollock (Holsman et al., 2021)?
+
+*Predators* 
+Pollock are cannibalistic and rates of cannibalism might be expected to increase as the biomass of
+older, larger fish increases. In 2020, with an average cold pool extent over the shelf, predation
+pressure from cannibalism may have been mitigated by this thermal barrier as adult pollock tend to
+avoid the cold bottom waters. In 2021, a small retracted cold pool likely offered no thermal refuge
+or barrier for juvenile pollock. However, the biomass of pelagic foragers, including adult pollock
+dropped in 2021 to their second lowest value over the time series (Whitehouse, 2021a). With the
+exception of Pacific herring, the 2021 index for all other species and functional groups in the
+pelagic forager guild were below their long term means (Whitehouse, 2021a).
+
+Fur seal consumption of adult pollock generally increases in years when juvenile pollock are less
+abundant (Kuhn et al., 2019). However, no information on population trends for fur seals is
+available since 2019.
+
+Other potential predators of juvenile pollock include jellyfish and chum salmon. Jellyfish abundance
+was high in 2019 (among the top 4 highest years since 1982), but declined to low abundance in 2021
+(Britt, 2021). Chum salmon abundance has been declining precipitously in the Arctic-Yukon-Kuskokwim
+Region since 2017 to their lowest level in the time series in 2021 (Liller, 2021), a trend also
+reflected in the commercial harvest data (Whitehouse, 2021b).
+
+*Competitors* 
+The 2021 Bristol Bay sockeye salmon inshore run was the largest on record since 1963 (Cunningham et
+al., 2021). Juvenile sockeye salmon feed on zooplankton (competitors with age-0 pollock) and age-0
+pollock (competitors with adult pollock) in warm years; adults feed on zooplankton and krill. The
+widespread die-off event of short-tailed shearwaters in 2019 slowed in 2020 (Siddon, 2020), with an
+uptick in die-off numbers in 2021 especially in the northern Bering Sea (see Integrated Seabird
+Information in Siddon, 2021). Shearwaters are planktivorous birds and feed on euphausiids in the
+Bering Sea in summer. The die-off event of 2019 is thought to reflect poor foraging conditions for
+birds during summer 2018 as most sampled birds showed signs of emaciation; the event of 2021 may
+reflect strains on the carrying capacity of the northern Bering Sea region.
+
+
+
+**Summary for Environmental/Ecosystem considerations:**  
+
+  - The eastern Bering Sea has been in a prolonged warm phase since 2014;
+
+  - Extent of sea ice was closer to pre-2014 levels than at any point in the last 7 years,
+
+  - Sea ice thickness differed between the northern (thicker ice) and southern (thinner/no ice)
+    shelves due to opposing prevailing winds;
+
+  - The cold pool was reduced in area and its southern boundary was shifted northwestward;
+
+  - Concerns about the food web dynamics and carrying capacity in the NBS have existed since 2018
+    and may reflect poor feeding conditions in the northern Bering Sea;
+
+  - Condition of adult pollock (as measured by length/weight residuals) trended down across the
+    Bering Sea while juvenile pollock showed positive condition, indicating sufficient foraging
+    conditions existed for juvenile pollock;
+
+  - The 2020 year class experienced unfavorable temperature conditions from age-0 to age-1 and is
+    predicted to have below-average recruitment to age-4 in 2024;
+
+  - Spring bloom timing and chlorophyll concentrations over the southern shelf were average in 2021.
+
+  - Zooplankton composition in spring indicated potentially favorable foraging conditions for age-0
+    pollock through summer, especially over the southern shelf.
+
+  - Predation pressure from cannibalism may have been mitigated by declines in biomass of pelagic
+    foragers, including adult pollock.
+
+  - Predation pressure from jellyfish and chum salmon was also reduced due to relative declines in
+    the abundance of jellyfish and chum salmon over the shelf.
+
+  - Bristol Bay sockeye salmon compete with both juvenile and adult pollock for prey (zooplankton,
+    euphausiids, age-0 pollock), therefore sustained high inshore runs of sockeye salmon may have
+    system-wide impacts on foraging success of pollock.
 
 **We therefore rated the Ecosystem concern as Level 2, substantially increased concern.**
-Some indicators showing adverse signals relevant to the stock but the pattern was inconsistent across indicators.
 
-*Fishery performance* As noted above, the 2020 B-season fishery was
-more dispersed and experienced relatively low catch rates compared to
-recent years. Also, an approach to computing fleet dispersion (the relative
+
+*Fishery performance* As noted above, the 2021 B-season fishery was
+improved over 2020 but there remains concern about small pollock in the catches.
+Also, an approach to computing fleet dispersion (the relative
 distance or spread of the fishery in space)  was developed and indicated that
-while the A-season was intensely concentrated in 2019, in 2020 it was more
-dispersed and this metric also increased for the fleet during the B-season 
-(Fig \ref{fig:fleet_dispersal}).
+while the seasonal dispersion levels was below average indicating that the fishery 
+was less spread out than normal (Fig \ref{fig:fleet_dispersal}).
 
-The pollock fishery faced a number of PSC issues with very high CPUE
-increases for sablefish and for herring (Fig \ref{fig:fsh_psc_cpue}).
-species. Chinook salmon encounters were relatively high again in 2020 as with 2019 and
-overall mortality slightly higher than last year.  Sectors were operating under
-a higher annual threshold in 2020 as compared with 2019 due to the index of
-Chinook salmon abundance from three key western Alaska rivers remaining above
-the specified threshold (it was below the threshold for the 3-River Index in
-2019 resulting in lowered PSC limits). Mortality has reduced slightly in A
-season compared to 2019 but moderately higher in B season. Encounter rates may
-have been higher in 2020 as a result of more salmon returning. The fleet was
-also balancing measures to avoid herring in the A season and increased sablefish
-incidental catch particularly in the B season. 
-In 2020, the overall numbers of chum salmonPSC were slightly lower than recent
-years as the fleet continued to avoid chum salmon bycatch hot spots.  
+The CPUE of PSC species and other bycatch moderated some relative to 2020.
+Sablefish, herring and Chinook salmon bycatch rates (per hour of fishing) decreased
+from 2020 but chum salmon had a marked increase (Fig. \ref{fig:fsh_psc_cpue}).
 
-The fact that the pollock fleet experienced poor fishing conditions
-throughout most of the 2020 B-season, pollock being skinny given their
-length, and the catch comprised of fish unusually small, 
-**We scored fishery performance a value of 2, substantially increased concerns.**
+The mean weight-at-age for the 2020 B-season was near average, but in general pollock were skinny given their
+length, and the fact that in 2020 a significant component of the catch was 2-year old pollock 
+which are rarely found in the catch led us to **conclude that  the fishery 
+performance scored a value of 2, substantially increased concerns.**
 
 These results are summarized as:
 \begin{table}[h]
@@ -1993,14 +2107,14 @@ These results are summarized as:
  \multicolumn{4}{c}{Considerations}  & \\
 Assessment-related & Population dynamics  & Environmental or ecosystem &Fisheries\\
 \hline
-Level 1: No concern                       & Level 1: No concern &
+Level 2: Substantially increased concerns & Level 2: Substantially increased concerns  &
 Level 2: Substantially increased concerns & Level 2: Substantially increased concerns  \\
 \hline
 \end{tabular}
 \end{table}
 
-Having two out of four scores at level 2 suggests that setting an ABC below the
-maximum permissible may be warranted. 
+Having all four scores at level 2 suggests that setting an ABC below the
+maximum permissible is warranted. 
 The SSC recommended against using a table that showed example alternatives to select
 buffers based on that risk level. Thompson (unpublished Sept 2018 plan team
 document) tabulated the magnitude of buffers applied by the Plan Teams for the
@@ -2038,14 +2152,19 @@ making an explicit harvest control rule that achieves the  productivity and
 ecosystem stability given the catches and biomass estimates 
 observed over  the past 30 years. 
 
-Recognizing that the actual catch will be constrained by other factors (the 2
-million t BSAI groundfish catch limit and bycatch avoidance measures), 
-applying the maximum permissible Tier 1a ABC seems clearly risky. Such high
-catches would result in unprecedented variability and removals from the stock
-(and require considerably more capacity and effort). Less variability in catch
- would also result in less spawning stock variability (and reduce risks to the
-fishery should another period of poor recruitments occur).  To more fully
-evaluate these considerations performance indicators as modified from Ianelli
+In recent years when the pollock biomass was estimated to be well above average,
+the catch was constrained by other factors. Specifically, the 2
+million t BSAI groundfish catch limit and bycatch avoidance measures has an
+impact on the potential for large increases in catch. As the stock is presently
+estimated to be below $B_{MSY}$, the maximum permissible ABC under the FMP 
+can become the limiting factor for TAC specification. Unfortunately, this ABC
+can ratchet down quickly because as the stock declines further
+below this target stock size, the ABC fishing mortality rate t is adjusted 
+downwards nearly proportionately. This part of the FMP control rule can create
+high variability in the TAC. Less variability in the catch, accordingly, 
+ would also result in less spawning stock variability and reduce risks to the
+fishery should the period of poor recruitment continue.  
+To more fully evaluate these considerations performance indicators as modified from Ianelli
 et al. (2012) were developed to evaluate some near-term risks given 
 alternative `r nextyr` catch values.  These indicators and rationale for
 including them are summarized in Table \ref{tab:dec_tab_rationale}).   Model
@@ -2059,15 +2178,14 @@ term it appears unlikely that the spawning stock will be below $B_{MSY}$ (rows
 is more likely than not that the spawning biomass will be lower than the
 historical mean (fifth row). The range of catches examined have relatively
 small or no impact on  the age diversity indicators. However, for catch to
-equal the 2020 value, more fishing effort will likely be required
- and there is
-a good chance that the proportion of the stock less than age 6 will be
+equal the 2021 value, more fishing effort will likely be required
+and there is a good chance that the proportion of the stock less than age 6 will be
 greater than the historical average. In terms of catch advice, the results presented in 
 the decision table indicates that catches above 1.0 million t will very likely result in 
 `r nextyr+1` spawning stock estimates being below the long term mean (but above $B_{MSY}$).
 
-Another approach/rationale would be to stabilize effort from the 2020 levels and
-recommend that 2021 fishing mortality is set equal to the 2020 estimate. This
+Another approach/rationale would be to stabilize effort from the 2021 levels and
+recommend that 2022 fishing mortality is set equal to the 2021 estimate. This
 gives an ABC of `r M$abc1constFs ` kt. The Plan Teams and SSC may wish to
 consider this as an added measure of precaution for ABC considerations.
   
@@ -2131,7 +2249,7 @@ food-web models discussed above, examining predators and prey in isolation may
 overly simplify relationships. This table serves to highlight the main
 connections and the status of our understanding or lack thereof.   
 
-## Ecosystem effects on the EBS pollock stock 
+## Ecosystem effects on the EBS pollock stock
 
 The pollock stock condition appears to have benefited substantially from the
 recent conditions in the EBS. The conditions on the shelf during 2008
@@ -2160,7 +2278,7 @@ directly estimated and evaluated (in the model presented here, cannibalism is
 explicitly accounted for in the assumed Ricker stock-recruit relationship).
 
 
-## EBS pollock fishery effects on the ecosystem. 
+## EBS pollock fishery effects on the ecosystem.
 
 Since the pollock fishery is primarily pelagic in nature, the bycatch of non-
 target species is small relative to the magnitude of the fishery  (Table
@@ -2230,9 +2348,9 @@ from the GOA) should be pursued.
 
 # Acknowledgments
 
-We thank the survey staff who always collect samples diligently, especially
-this year when extra effort was required to process data due to unforeseen
-problems with survey cancellations.  The AFSC age-and-growth department is
+We thank the scientifically trained observers and the staff of the Fisheries and Monitoring Division at 
+AFSC for their hard work. The diligence of survey staff who contribute immensely in collecting samples, especially
+given these times is exceptional.  The AFSC age-and-growth department is
 thanked for their continued excellence in promptly processing the samples used
 in this assessment.  Finally, thanks to the many colleagues who provided edits
 and suggestions to improve this document.

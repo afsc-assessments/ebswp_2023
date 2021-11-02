@@ -345,7 +345,7 @@ DATA_SECTION
   init_ivector yrs_fsh_data(1,n_fsh)
   init_ivector yrs_bts_data(1,n_bts)
   init_ivector yrs_eit_data(1,n_eit)
-  !! write_log(n_bts); write_log(yrs_fsh_data);write_log(yrs_bts_data);write_log(yrs_eit_data);
+  !! write_log(ngears);write_log(minind);  write_log(n_bts); write_log(yrs_fsh_data);write_log(yrs_bts_data);write_log(yrs_eit_data);
   init_ivector      sam_fsh(1,n_fsh)
   init_ivector      sam_bts(1,n_bts)
   init_ivector      sam_eit(1,n_eit)
@@ -400,24 +400,13 @@ DATA_SECTION
    write_log(nlbins); 
    write_log(olc_fsh);
    olc_fsh /= sum(olc_fsh);
-   for (j=1;j<=nlbins;j++)
-      lens(j) = double(j)+25;
-      lens(2,5) += 1;
-      lens(3,5) += 1;
-      lens(4,5) += 1;
-      lens(5) += 1;
-      lens(6,16) += 4.5;
-      lens(17,nlbins) += 5;
-      lens(18,nlbins) += 1.0;
-      lens(19,nlbins) += 1.0;
-      lens(20,nlbins) += 1.0;
-      lens(21,nlbins) += 1.0;
-      lens(22,nlbins) += 1.0;
-      lens(23,nlbins) += 1.0;
-      lens(24,nlbins) += 1.0;
+   for (j=0;j<nlbins;j++)
+      lens(j+1) = double(j)+20;
+   write_log(lens);
  END_CALCS
-  init_matrix age_len(1,nages,1,nlbins)
-  !! write_log(age_len);
+  matrix age_len(1,nages,1,nlbins) //deprecated, hardwired so won't break past models...
+  init_matrix age_lenold(1,nages,1,25) //deprecated, hardwired so won't break past models...
+  // P_age2len = Age_Len_Conversion( mu_age, sigma_age, len_bins);
   init_number test
   !! write_log(test);
   !! if(test!=1234567){ cout<<"Failed on data read "<<test<<endl;exit(1);}
@@ -1138,7 +1127,7 @@ PARAMETER_SECTION
   //  e.g., regime(1) = mean(pred_rec(1964,1977));
   // sdreport_vector regime(1,8);
   // Moved to regular vector since this broke during retrospective runs
-  vector regime(1,8);
+  sdreport_vector regime(1,8);
   // Some added stats
   number phizero
 
@@ -1282,6 +1271,7 @@ PARAMETER_SECTION
   number len_like;
   number wt_like;
   vector age_like_offset(1,ngears);
+  number len_like_offset;
   number MN_const // Multinomial constant
   !! MN_const = 1e-3; // Multinomial constant
   vector Priors(1,4);
@@ -1461,6 +1451,7 @@ PRELIMINARY_CALCS_SECTION
   // cout <<ctrl_flag<<endl;
   write_log(ctrl_flag);
   age_like_offset.initialize();
+  len_like_offset.initialize();
 
   //--Caculate offset for multinomials (if used)---------------
   for (int igear =1;igear<=ngears;igear++)
@@ -1492,6 +1483,7 @@ PRELIMINARY_CALCS_SECTION
       }
     }     
   }
+  len_like_offset -= 50. * olc_fsh * log(olc_fsh + MN_const);
   ot_eit(n_eit_r) = sum(oac_eit_data(n_eit_r)(mina_eit,nages));
   // flag to ignore age 1's
   if (std_ot_eit(n_eit_r)/ot_eit(n_eit_r) > 0.4 ) ignore_last_eit_age1 = 1; else ignore_last_eit_age1=0;
@@ -1525,6 +1517,14 @@ PRELIMINARY_CALCS_SECTION
   write_log(oac_cons_like_offset);
 	if (do_pred==2)
 		M = M_matrix;
+
+	Get_Age2length();
+  write_log(lens);
+  write_log(age_len);
+  dvector olc_last(1,nlbins);
+	// Print out length comp given last year's age data
+	olc_last = oac_fsh(n_fsh_r) * age_len;
+  write_log(olc_last);
 
 RUNTIME_SECTION
    maximum_function_evaluations 50,400,900,1800,1900,15000
@@ -2121,12 +2121,12 @@ FUNCTION GetDependentVar
     regime(1) = mean(pred_rec(1964,1977));
     regime(4) = mean(pred_rec(1978,1989));
 
-    if (endyr_r>=2005)
+    if (endyr_r>=2020)
     {
-      regime(2) = mean(pred_rec(1978,2005));
-      regime(5) = mean(pred_rec(1990,2005));
-      regime(7) = mean(pred_rec(2000,2005));
-      regime(8) = mean(pred_rec(1964,2005));
+      regime(2) = mean(pred_rec(1978,2020));
+      regime(5) = mean(pred_rec(1990,2020));
+      regime(7) = mean(pred_rec(2000,2020));
+      regime(8) = mean(pred_rec(1964,2020));
       regime(6) = mean(pred_rec(1990,1999));
       regime(3) = mean(pred_rec(1978,1999));
     }
@@ -2166,7 +2166,7 @@ FUNCTION GetDependentVar
       res.initialize(); 
       sel_fut   = sel_fsh(endyr_r-iyr+1);
       // sel_fut  /=sel_fut(6); // NORMALIZE TO AGE 6
-      sel_fut  /=mean(sel_fut); // NORMALIZE TO mean
+      sel_fut  /= mean(sel_fut); // NORMALIZE TO mean
       if (!mceval_phase()) res = get_msy_wt(); 
       Fmsy2_dec(iyr) = res(4); 
     //   cout <<endyr_r - iyr +1<<" "<<res<<endl;
@@ -3708,7 +3708,8 @@ FUNCTION Multinomial_Likelihood
     }     
     age_like(igear)-=age_like_offset(igear);
   }
-  len_like = sam_fsh(n_fsh_r)*olc_fsh*log(elc_fsh+MN_const);
+  //len_like = sam_fsh(n_fsh_r)*olc_fsh*log(elc_fsh+MN_const);
+  len_like = -50*olc_fsh*log(elc_fsh+MN_const) - len_like_offset ;
 
   // this one allows a concentrated range of ages (last two args are min and max age range)
 FUNCTION dvariable robust_p(dmatrix& obs,dvar_matrix& pred,const dvariable& a, const data_ivector& b, const int amin, const int amax)
@@ -4847,6 +4848,23 @@ FUNCTION write_R
   ofstream report((char*)(adprogram_name + ad_tmp),ios::app);
 
   // Development--just start to get some output into R
+	report <<"recent_selectivities"<<endl;
+    for (int iyr=10;iyr>=1;iyr--)
+    {
+      sel_fut   = sel_fsh(endyr_r-iyr+1);
+      sel_fut  /= mean(sel_fut); // NORMALIZE TO mean
+			report<<endyr_r-iyr+1<<" "<<sel_fut<<endl;
+    }
+    
+	report <<"recent_wtage"<<endl;
+    for (int iyr=10;iyr>=1;iyr--)
+    {
+      wt_fut(3,nages) = wt_pre(endyr_r-iyr+1);
+			report<<endyr_r-iyr+1<<" "<<wt_fut<<endl;
+    }
+    
+  R_report(regime);
+  R_report(regime.sd);
   R_report(H);
   R_report(avg_age_mature);
   report << "h_prior" << endl << Priors(1) << endl;
@@ -5009,6 +5027,8 @@ FUNCTION write_R
   R_report(obs_cope); 
   R_report(obs_cope_std); 
   R_report(pred_cope); 
+  report << "pobs_lf_fsh"<<  endl << endyr_r        <<" "<<olc_fsh    <<endl;
+  report << "phat_lf_fsh"<<  endl << endyr_r        <<" "<<elc_fsh    <<endl;
   report << "pobs_fsh"<<  endl;
   for (i=1;i<=n_fsh_r;i++) 
     report << yrs_fsh_data(i)<< " "<< oac_fsh(i) << endl;
@@ -5119,13 +5139,13 @@ FUNCTION write_R
            // << "1992YC 1992YC.sd 1996YC 1996YC.sd 2000YC 2000YC.sd Fut_2yr_Catch"<<endl;
   dvar_vector  cv_b(1,10);
   dvar_vector  cv_b2(1,10);
-  dvar_vector  gm_b(1,10);
+  dvar_vector  gm_b1(1,10);
   dvar_vector  gm_b2(1,10);
  
   cv_b = elem_div(ABC_biom.sd , ABC_biom); 
   cv_b2= elem_div(ABC_biom2.sd , ABC_biom2); 
  
-  gm_b = exp(log(ABC_biom) -elem_prod(cv_b ,cv_b )/2.); // Eq. 22
+  gm_b1 = exp(log(ABC_biom) -elem_prod(cv_b ,cv_b )/2.); // Eq. 22
   gm_b2= exp(log(ABC_biom2)-elem_prod(cv_b2,cv_b2)/2.); // Eq. 22
  
   dvariable hm_f = exp(lnFmsy2 - lnFmsy2.sd*lnFmsy2.sd /2.); // Eq. 22
@@ -5134,17 +5154,42 @@ FUNCTION write_R
  // get spr rates for ABC and OFL
   SPR_ABC = SPR_OFL * am_f / hm_f;
 
-  dvariable ABC  = gm_b(1)*hm_f*adj_1(1); 
-  dvariable OFL  = gm_b(1)*am_f*adj_1(1); 
-  report <<"T1"<<endl;
-  //  yr ABC OFL SSB 3+Biom CatchFut harmeanF arithmeanF geomB SPRABC SPROFL
-  report << endyr_r+1<<" " << ABC <<" " << OFL <<" "<< future_SSB(1,styr_fut) <<" "<< age_3_plus_biom(endyr_r+1) <<" "<<
-  future_catch(1,styr_fut) <<" " << hm_f  <<" "<< am_f <<" "<< gm_b(1) <<" "<< SPR_ABC <<" "<< SPR_OFL <<endl;
-
+  dvariable ABC  = gm_b1(1)*hm_f*adj_1(1); 
+  dvariable OFL  = gm_b1(1)*am_f*adj_1(1); 
+  report <<"T1"<<endl; //  yr ABC OFL SSB 3+Biom CatchFut harmeanF arithmeanF geomB SPRABC SPROFL Tier2 Tier1.5
+  report << 
+	  endyr_r+1<<" " << 
+		ABC <<" " << 
+		OFL <<" "<< 
+		future_SSB(1,styr_fut) <<" "<< 
+		age_3_plus_biom(endyr_r+1) <<" "<<
+    future_catch(1,styr_fut) <<" " << 
+		hm_f  <<" "<< 
+		am_f <<" "<< 
+		gm_b1(1) <<" "<< 
+		SPR_ABC <<" "<< 
+		SPR_OFL <<" "<<
+    gm_b1(1)  * am_f * adj_1(1) * F40/F35 << " " << 
+    gm_b1(1)  * hm_f * adj_1(1) * F40/F35 << " " << 
+		endl;
   ABC  = gm_b2(1)*hm_f*adj_2(1); 
   OFL  = gm_b2(1)*am_f*adj_2(1); 
-  report << endyr_r+2<<" " << ABC <<" " << OFL <<" "<< future_SSB(1,styr_fut+1) <<" "<< age_3_plus_biom(endyr_r+2)  <<" "<<
-  future_catch(4,styr_fut+1) <<" " << hm_f  <<" "<< am_f <<" "<< gm_b2(1)<<" "<< SPR_ABC <<" "<< SPR_OFL <<endl;
+  report << 
+	  endyr_r+2<<" " << 
+		ABC <<" " << 
+		OFL <<" "<< 
+		future_SSB(1,styr_fut) <<" "<< 
+		age_3_plus_biom(endyr_r+1) <<" "<<
+    future_catch(1,styr_fut) <<" " << 
+		hm_f  <<" "<< 
+		am_f <<" "<< 
+		gm_b1(1) <<" "<< 
+		SPR_ABC <<" "<< 
+		SPR_OFL <<" "<<
+    gm_b2(1)  * am_f * adj_2(1) * F40/F35 << " " <<
+    gm_b2(1)  * hm_f * adj_2(1) * F40/F35 << " " <<
+		endl;
+
 
   R_report(Cat_Fut);
   report <<"YC"<<endl;
@@ -5165,19 +5210,25 @@ FUNCTION write_R
 
 
   for_sd<<
-  "Scen Catch  SSBNext  AdjNext  ABC1  OFL1  SSB2yrs  Adj2yrs  ABC2  OFL2"<<endl;
+  "Scen Catch  SSBNext  AdjNext  ABC1  OFL1  SSB2yrs  Adj2yrs  ABC2  OFL2 T2_ABC1 T2_OFL1 T2_ABC2 T2_OFL2 T1.5_ABC1 T1.5_ABC2"<<endl;
    for (i=1;i<=10;i++)
    {
       for_sd <<  i           << " ";
       for_sd <<  Cat_Fut(i)  << " ";
       for_sd <<  SSB_1(i)    << " ";
       for_sd <<  adj_1(i)    << " ";
-      for_sd <<  gm_b(i)   * hm_f * adj_1(i) << " ";
-      for_sd <<  gm_b(i)   * am_f * adj_1(i) << " ";
+      for_sd <<  gm_b1(i)   * hm_f * adj_1(i) << " ";
+      for_sd <<  gm_b1(i)   * am_f * adj_1(i) << " ";
       for_sd <<  SSB_2(i)                    << " ";
       for_sd <<  adj_2(i)                    << " ";
       for_sd <<  gm_b2(i)  * hm_f * adj_2(i) << " ";
-      for_sd <<  gm_b2(i)  * am_f * adj_2(i) << " "<<endl; 
+      for_sd <<  gm_b2(i)  * am_f * adj_2(i) << " ";
+      for_sd <<  gm_b1(i)   * am_f * adj_1(i) * F40/F35 << " ";
+      for_sd <<  gm_b1(i)   * am_f * adj_1(i) << " "; 
+      for_sd <<  gm_b2(i)  * am_f * adj_1(i) * F40/F35 << " ";
+      for_sd <<  gm_b2(i)  * am_f * adj_1(i) << " ";
+      for_sd <<  gm_b1(i)  * hm_f * adj_1(i) * F40/F35 << " ";
+      for_sd <<  gm_b2(i)  * hm_f * adj_1(i) * F40/F35 << " " <<endl; 
    }
    misc_out<<endl<<"Stock in year "<<endyr_r<< " relative to Bzero (and SD):"<<endl;
    misc_out<< endyr_r<<" "<<Percent_Bzero <<" "<<Percent_Bzero.sd<<endl;
@@ -5199,17 +5250,17 @@ FUNCTION write_R
    if(tweakhi*SSB_1(5) < value(Bmsy))
         adjhi = value((tweakhi*SSB_1(5)/Bmsy - 0.05)/(1.-0.05));
 
-   misc_out << "low:  "<< tweaklo*gm_b(5)   * hm_f * adjlo      << endl;
-   misc_out << "mode: "<< gm_b(5)   * hm_f * adj_1(5)           << endl;
-   misc_out << "high: "<< tweakhi*gm_b(5)   * hm_f * adjhi      << endl;
+   misc_out << "low:  "<< tweaklo*gm_b1(5)   * hm_f * adjlo      << endl;
+   misc_out << "mode: "<< gm_b1(5)   * hm_f * adj_1(5)           << endl;
+   misc_out << "high: "<< tweakhi*gm_b1(5)   * hm_f * adjhi      << endl;
 
    misc_out << "No adjustment below Bmsy..."<<endl;
-   misc_out << "low:  "<< tweaklo*gm_b(5)   * hm_f              << endl;
-   misc_out << "mode: "<< gm_b(5)   * hm_f                      << endl;
-   misc_out << "high: "<< tweakhi*gm_b(5)   * hm_f              << endl;
-   misc_out << "Fut_Cat ABC_biom gm_b "<< endl;
+   misc_out << "low:  "<< tweaklo*gm_b1(5)   * hm_f              << endl;
+   misc_out << "mode: "<< gm_b1(5)   * hm_f                      << endl;
+   misc_out << "high: "<< tweakhi*gm_b1(5)   * hm_f              << endl;
+   misc_out << "Fut_Cat ABC_biom gm_b1 "<< endl;
    for (int icat=1;icat<=10;icat++)
-     misc_out<<Cat_Fut(icat)<< " "<<ABC_biom(icat)<<" "<<gm_b(icat)<<endl;
+     misc_out<<Cat_Fut(icat)<< " "<<ABC_biom(icat)<<" "<<gm_b1(icat)<<endl;
   
   // Change sel_fut and recompute stuff
    misc_out <<" MSYR with younger selectivity (shifted down one age group)"<<endl;
@@ -5479,6 +5530,55 @@ FUNCTION Fit_resid_M
   fff   += sum(resid_M_like);
 
 
+//-----TRANSFORMATION FUNCION AGE->LENGTH--------------------------------------------------
+FUNCTION Get_Age2length
+  // Linf=Linfprior;// Asymptotic length
+  // k_coeff=kprior;
+  // Lo=Loprior;// first length (corresponds to first age-group)
+  // sdage=sdageprior;// coefficient of variation of length-at-age
+ // if some of these are estimated.
+  // L1	25.23382299 k	0.139339914 Linf	68.43045172
+  double Linf    = 68.43045172 ;
+  double k_coeff = 0.139339914 ;
+  double Lo      = 25.23382299 ;
+  double sdage   = .06;
+	dvar_vector mu_age(1,nages);
+  dvar_vector sigma_age(1,nages);
+    int i, j;
+    mu_age(1)=Lo; // first length (modal)
+    for (i=2;i<=nages;i++)
+      mu_age(i) = Linf*(1.-exp(-k_coeff))+exp(-k_coeff)*mu_age(i-1); // the mean length by age group
+    // wt_age_vb(r) = lw_a * pow(mu_age, lw_b);
+    // maturity_vb(r) = 1/(1 + exp(32.93 - 1.45*mu_age(r)));
+  sigma_age = sdage*mu_age; // standard deviation of length-at-age
+  age_len = value(Age_Len_Conversion( mu_age, sigma_age, lens));
+	write_log(sigma_age);
+
+FUNCTION dvar_matrix Age_Len_Conversion(dvar_vector& mu, dvar_vector& sig, dvector& x)
+  //RETURN_ARRAYS_INCREMENT();
+  int i, j;
+  dvariable z1;
+  dvariable z2;
+  int si,ni; si=mu.indexmin(); ni=mu.indexmax();
+  int sj,nj; sj=x.indexmin(); nj=x.indexmax();
+  dvar_matrix pdf(si,ni,sj,nj);
+  double xs;
+  pdf.initialize();
+  for(i=si;i<=ni;i++) //loop over ages
+  {
+    for(j=sj;j<=nj;j++) //loop over length bins
+    {
+      if (j<nj)
+        xs=0.5*(x[sj+1]-x[sj]);  // accounts for variable bin-widths...?
+      z1=((x(j)-xs)-mu(i))/sig(i);
+      z2=((x(j)+xs)-mu(i))/sig(i);
+      pdf(i,j)=cumd_norm(z2)-cumd_norm(z1);
+    }//end nbins
+    pdf(i)/=sum(pdf(i));
+  }//end nage
+  //RETURN_ARRAYS_DECREMENT();
+  return(pdf);
+//--------------------------------------------
 
 FUNCTION Est_Fixed_Effects_wts
   double sigma_coh = (mfexp(log_sd_coh));
@@ -5671,12 +5771,6 @@ FUNCTION double calc_Francis_weights(const dmatrix oac, const dvar_matrix eac, c
 REPORT_SECTION
   // if (last_phase()) Get_Replacement_Yield();
   save_gradients(gradients);
-  if (last_phase())
-    cout << endl<<"Finished last phase: "<<current_phase()<<" ============================================="<<endl<<endl;
-  else
-    cout << endl<<"Changing phases from: "<<current_phase()<<" ============================================="<<endl<<endl;
-  if (ctrl_flag(28)==0 && last_phase())
-  {
     int k;
     i=1;k=i+2;
     all_like(i,k) = surv_like            ;i+=3;
@@ -5693,6 +5787,13 @@ REPORT_SECTION
     sel_like_dev.shift(1);
     rec_like.shift(1);
     Priors.shift(1);
+  if (last_phase())
+    cout << endl<<"Finished last phase: "<<current_phase()<<" ============================================="<<endl<<endl;
+  else
+    cout << endl<<"Changing phases from: "<<current_phase()<<" ============================================="<<endl<<endl;
+	cout << all_like <<endl<<"Length like: "<<len_like<<endl;;
+  if (ctrl_flag(28)==0 && last_phase())
+  {
   report << "N"<<endl;
   report << natage<<endl;
   report << "C"<<endl;

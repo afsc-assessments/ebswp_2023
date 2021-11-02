@@ -1,12 +1,6 @@
----
-output:
-  word_document: default
-  html_document: default
----
+# Appendix on spatio-temporal analysis of NMFS survey data
 
-# Appendix on spatio-temporal analysis of NMFS survey data 
-
-## Overview 
+## Overview
 
 These applications of `VAST` were configured to model 
 NMFS/AFSC bottom trawl survey (BTS) data and for acoustic backscatter data (next section).
@@ -21,28 +15,30 @@ as a step by step documentation of applying the model to these data.
 
 The software versions of dependent programs used to generate VAST estimates were:   
 
-  - Microsoft Open R (3.5.3)    
-  - INLA (18.7.12)    
-  - TMB (1.7.18)    
-  - TMBhelper (1.2.0)    
-  - VAST (3.5.2)    
-  - FishStatsUtils (2.7.0)    
+  - Microsoft Open R (4.0.2)    
+  - INLA (21.2.23)    
+  - TMB (1.7.20)    
+  - TMBhelper (1.3.0)    
+  - VAST (3.6.1)    
+  - FishStatsUtils (2.8.0)    
     
 For the model-based index time series, we used the same VAST model run (and associated results)
 as the 2019 SAFE. We include additional details regarding model settings here, as requested
 during the December 2019 SSC meeting.
 
 ## Spatio-temporal treatment of survey data on pollock density
+
 We fitted records of biomass per unit area from all grid cells and corner stations in the 83-112 
-bottom trawl survey of the EBS, 1982-2019, as well as 83-112 samples available in the NBS in 
-1982, 1985, 1988, 1991, 2010, and 2017-2019. NBS samples prior to 2010 did not follow the 30 
-nautical mile sampling grid that was used in 2010, 2017, and 2019, and the 2018 sampling followed 
+bottom trawl survey of the EBS, 1982-2019, and 2021, as well as 83-112 samples available in the NBS in 
+1985, 1988, 1991, 1994, 2001, 2005, 2006, 2010, 2017-2019, and 2021. 
+NBS samples prior to 2010 did not follow the 30 
+nautical mile sampling grid that was used in 2010, 2017, 2019 and 2021, and the 2018 sampling followed 
 a coarsened grid as well. Assimilating these data therefore required extrapolating into unsampled areas.
 This extrapolation was assisted by including a spatially varying response to cold-pool extent (Thorson, 2019). 
 This spatially varying response was estimated for both linear predictors of the delta-model, and detailed 
 comparison of results for EBS pollock has showed that it has a small but notable effect (O’Leary et al., 2020). 
 For example, the NBS was not sampled between 2010 and 2017, and the cold-pool extent started to decrease 
-substantially around 2014; therefore including this covariate results in estimates that depart somewhat 
+substantially around 2014; therefore, including this covariate results in estimates that depart somewhat 
 from a “Brownian bridge” between 2010 and 2017, and instead suggests that densities in the NBS increased 
 progressively after 2014 when cold-pool-extent declined prior to 2017. 
 
@@ -52,7 +48,7 @@ the entire EBS and NBS in each year, using extrapolation-grids that are availabl
 are used when integrating densities. These extrapolation-grids are defined using 3705 m 
 (2 nmi) X 3705 m (2 nmi) cells;  this results in 36,690 extrapolation-grid cells for the 
 eastern Bering Sea and 15,079 in the northern Bering Sea.  We used bilinear interpolation 
-to interpolate densities from 250 “knots” to these extrapolation-grid cells; knots were 
+to interpolate densities from 750 “knots” to these extrapolation-grid cells; knots were 
 distributed spatially in proportion to the distribution of extrapolation-grid cells (i.e., 
 having an approximately even distribution across space).  We estimated “geometric anisotropy” 
 (the tendency for correlations to decline faster in some cardinal directions than others), and 
@@ -63,12 +59,21 @@ effect for each linear predictor).  However, we did not include any temporal cor
 intercepts, which we treated as fixed effects for each linear predictor and year.  Finally, 
 we used epsilon bias-correction to correct for retransformation bias (Thorson and Kristensen, 2016).  
 
+We checked model fits for evidence of non-convergence by confirming that (1) the derivative of the marginal 
+likelihood with respect to each fixed effect was sufficiently small and (2) that the Hessian matrix 
+was positive definite.  We then checked for evidence of model fit by computing Dunn-Smyth randomized 
+quantile residuals (Dunn and Smyth 1996) and visualizing these using a quantile-quantile plot within the DHARMa R package.  
+We also evaluated the distribution of these residuals over space in each year, and inspected them for evidence of residual 
+spatio-temporal patterns.  
 
-## Spatio-temporal treatment of survey age composition data 
+
+## Spatio-temporal treatment of survey age composition data
 To date, assessments using spatio-temporal indices have kept age-composition data unchanged 
-(i.e., the estimates were based on the original design-based approach). In 2019 we develop a spatio-temporal 
+(i.e., the estimates were based on the original design-based approach). In 2019 we developed a spatio-temporal 
 approach to obtain age composition estimates (O'leary et al. 2020).  The comparison with design-based age 
-composition estimates was similar to the model-based estimates.
+composition estimates was similar to the model-based estimates. For this year, we began to expand this
+work to cover the NBS but the age data for this region are incomplete. Consequently we used the design-based 
+estimates as in prior years (including staton-specific density-dependent corrections).
 
 
 ## Diagnostic plots from BTS work
@@ -85,7 +90,7 @@ Spatially the residual pattern can be evaluated over time. Results for pollock d
 residuals accross or within years is limited for the encounter probability component of the model and 
 for the positive catch rate component (Figures \ref{fig:pearson1} and \ref{fig:pearson2}, respectively).
 
-### Densities and biomass estimates 
+### Densities and biomass estimates
 
 Relative densities over time suggests that the biomass of pollock can reflect
 abundances in the NBS even in years where samples are unavailable (all years
@@ -95,25 +100,11 @@ except 2010, 2017--2019; (Fig. \ref{fig:density}). Index values and error terms
 
 ## Extending VAST to create estimates from acoustic backscatter data
 
-We used acoustic backscatter data collected to half meter from the seafloor from RV Oscar Dyson
-(1994-2018) and the USV in 2020 following the same extrapolation area as for the BTS analyses. We
-briefly highlight key differences with the approach as described above. First, the data were
-acoustic backscatter for each interval summed from half meter from the seafloor to
-near-surface. VAST assumes the catch inputs are in kg/km^2 so an extra conversion back to
-backscatter units is required for the acoustic index. The acoustic transects can have unexpected
-interactions with how the spatial grid is setup, so we used 400 spatial knots but without the
-bilinear interpolation. The extrapolation region included only the EBS BT footprint (i.e., it did
-not include the NBS), and was consistent among years in contrast to the design-based AT index whose
-extent varies by year. We also did not include a cold pool effect, nor any temporal smoothing on the
-spatiotemporal effects.
-
-The diagnostics for the model fit was good (Fig. \ref{fig:sa_quantiles}).  Relative log densities
-for the survey years show the biomass of pollock varied spatially with a peak value in 2016
-(Fig. \ref{fig:at_sa_density}). Index values and estimation errors from the VAST model covered an
-constant (and larger) area compared to the design-based approach which covers the transect
-area. Nonetheless, for the assessment these series are used as trend data which result in quite
-similar values (Fig. \ref{fig:rv_usv_biom}).
-
+In 2020 we presented an initial spatio-temporal model to the acoustic backscatter data
+collected to half meter from the seafloor from RV Oscar Dyson
+(1994-2018) and the USV in 2020 following the same extrapolation area as for the BTS analyses.
+We anticipate updating this for application as an alternative to the standard acoustic survey
+in 2022.
 
 ```{r plots, eval=FALSE  , tidy=TRUE}
 SpatialDeltaGLMM::Plot_data_and_knots(Extrapolation_List=Extrapolation_List, Spatial_List=Spatial_List, 
@@ -151,9 +142,9 @@ SpatialDeltaGLMM:::plot_residuals(Lat_i=Data_Geostat[,'Lat'], Lon_i=Data_Geostat
           Years2Include=Years2Include, Rotate=MapDetails_List[["Rotate"]], Cex=MapDetails_List[["Cex"]], 
           Legend=MapDetails_List[["Legend"]], zone=MapDetails_List[["Zone"]], mar=c(0,0,2,0), oma=c(3.5,3.5,0,0), cex=1.8)
 ```
-![Pearson residuals of the encounter probability component for the combined survey area, 1982-2018. \label{fig:pearson1}](figs/maps--encounter_pearson_resid.png)
+![Pearson residuals of the encounter probability component for the combined survey area, 1982-2019, 2021. \label{fig:pearson1}](figs/maps--encounter_pearson_resid.png)
 
-![Pearson residuals of the positive catch rate component for the combined survey area, 1982-2018. \label{fig:pearson2}](figs/maps--catchrate_pearson_resid.png)
+![Pearson residuals of the positive catch rate component for the combined survey area, 1982-2019, 2021. \label{fig:pearson2}](figs/maps--catchrate_pearson_resid.png)
 
 ```{r densplots, eval=FALSE , tidy=TRUE }
 SpatialDeltaGLMM::PlotResultsOnMap_Fn(plot_set=c(3), MappingDetails=MapDetails_List[["MappingDetails"]], 
@@ -163,7 +154,7 @@ SpatialDeltaGLMM::PlotResultsOnMap_Fn(plot_set=c(3), MappingDetails=MapDetails_L
   Legend=MapDetails_List[["Legend"]], zone=MapDetails_List[["Zone"]], mar=c(0,0,2,0), oma=c(3.5,3.5,0,0), 
   cex=1.8, plot_legend_fig=FALSE)
 ```
-![ Pollock log density maps of the BTS data using the VAST model approach, 1982-2019. \label{fig:density}](figs/Dens.png)
+![ Pollock log density maps of the BTS data using the VAST model approach, 1982-2019,2021. \label{fig:density}](figs/Dens.png)
 
 
 ```{r indexplots, echo=FALSE, results="asis"}
@@ -174,9 +165,19 @@ SpatialDeltaGLMM::PlotResultsOnMap_Fn(plot_set=c(3), MappingDetails=MapDetails_L
 #print(tab, caption.placement = "top", include.rownames = FALSE)
   printfig("vast_idx.pdf",57)
 
- printfig("sa_quantiles.png",61)
- printfig("rv_usv_biom.png",71)
+ #printfig("sa_quantiles.png",61)
+ #printfig("rv_usv_biom.png",71)
 
 ```
 
+## Additional references
 
+Dunn, K.P., and Smyth, G.K. 1996. Randomized quantile residuals. Journal of Computational and Graphical Statistics 5, 1-10.
+
+Hartig, F. 2021. DHARMa: Residual Diagnostics for Hierarchical (Multi-Level / Mixed) Regression Models. R package version 0.4.0. http://florianhartig.github.io/DHARMa/
+
+O’Leary, C.A., Thorson, J.T., Ianelli, J.N. and Kotwicki, S., 2020. Adapting to climate‐driven distribution shifts using model‐based indices and age composition from multiple surveys in the walleye pollock (Gadus chalcogrammus) stock assessment. Fisheries Oceanography, 29(6), pp.541-557.
+
+Thorson, J.T., 2019. Measuring the impact of oceanographic indices on species distribution shifts: The spatially varying effect of cold‐pool extent in the eastern Bering Sea. Limnology and Oceanography, 64(6), pp.2632-2645.
+
+Thorson, J.T., and Kristensen, K., 2016. Implementing a generic method for bias correction in statistical models using random effects, with spatial and population dynamics examples. Fisheries Research, 175, pp.66-74.

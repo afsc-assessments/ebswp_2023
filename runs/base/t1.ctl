@@ -57,7 +57,7 @@
 #use_spr_msy_pen
 0
 #sigma_spr_msy
-0.16
+0.20
 #use_last_eit_ac
 1
 #nyrs_sel_avg
@@ -73,11 +73,11 @@
 #nyrs_future;
 5
 #next_yrs_catch;
-1390
+1200
 #nscen
-22
+8 #22
 #fixed_catch_fut2;
-900
+1100
 #fixed_catch_fut3;
 1000
 #phase_F40;
@@ -121,7 +121,7 @@
 #wt_fut_phase
 6
 #last_age_sel_group_fsh
-6
+4
 #last_age_sel_group_bts
 8
 #last_age_sel_group_eit
@@ -151,7 +151,7 @@
 0.1
 5
 1
-1 # Include 1978 yc in SRR? 0=yes, 1=no
+1 # exclude 1978 yc in SRR? 0=no, 1=yes
 2
 -3
 0
@@ -163,3 +163,14 @@
 1
 #phase_yreff
 1
+#switch_temp_recruitment
+0 
+#phase_temp_recruitment
+6
+#switch_pred_mort
+0 
+#phase_pred_mort
+1 
+#switch_multispecies_fucntional_response
+1
+

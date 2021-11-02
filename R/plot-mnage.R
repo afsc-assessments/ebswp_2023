@@ -54,11 +54,12 @@
 #' @param M List object(s) created by read_admb function
 #' @param xlab the x-label of the figure
 #' @param ylab the y-label of the figure
+#' @param xlim is the year range to plot of the figure
 #' @param ylim is the upper limit of the figure
 #' @return Plot of model estimates of mean age against observed (and implied confidence bounds) 
 #' @export
 #' 
-plot_mnage <- function(M, xlab = "Year", ylab = "Mean age", ylim = NULL )
+plot_mnage <- function(M, xlab = "Year", ylab = "Mean age", xlim=NULL, ylim = NULL )
 {
     xlab <- paste0("\n", xlab)
     ylab <- paste0(ylab, "\n")
@@ -73,6 +74,9 @@ plot_mnage <- function(M, xlab = "Year", ylab = "Mean age", ylim = NULL )
     } else {
         p <- p + ylim(ylim[1], ylim[2])        
     }
+    if (!is.null(xlim))
+        p <- p + xlim(xlim[1], xlim[2])        
+    
     
     if (length(M) == 1)
     {

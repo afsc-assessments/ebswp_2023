@@ -159,7 +159,8 @@ class model_data : public ad_comm{
   data_int nlbins;
   data_vector olc_fsh;
   dvector lens;
-  data_matrix age_len;
+  dmatrix age_len;
+  data_matrix age_lenold;
   data_number test;
   int j;
   int dim_sel_fsh;
@@ -394,7 +395,7 @@ private:
   param_number repl_F;
   param_number repl_yld;
   param_number repl_SSB;
-  param_vector regime;
+  param_stddev_vector regime;
   param_number phizero;
   param_init_bounded_dev_vector log_F_devs;
   param_init_bounded_number sigr;
@@ -512,6 +513,7 @@ private:
   param_number len_like;
   param_number wt_like;
   param_vector age_like_offset;
+  param_number len_like_offset;
   param_number MN_const;
   param_vector Priors;
   param_vector rec_like;
@@ -734,6 +736,8 @@ public:
   void Get_Replacement_Yield(void);
  dvariable get_repl_b(const dvariable& Ftry);
   void Fit_resid_M(void);
+  void Get_Age2length(void);
+ dvar_matrix Age_Len_Conversion(dvar_vector& mu, dvar_vector& sig, dvector& x);
   void Est_Fixed_Effects_wts(void);
  double sdnr(const dvector& obs, const dvar_vector& pred, const dvector& sig);
  dvector rmultinomial(const dvector ptmp, const int n_sam);

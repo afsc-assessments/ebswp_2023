@@ -1,10 +1,12 @@
 EXEC = pm
+PROJ = main
+	PROJDIST = ~/_mymods/afsc-assessments/AMAK/src/
 ifeq ($(SAFE),TRUE)
 	DIST = ../../src/
 else
 	DIST = ../../src/
 endif
-ARGS = -nox -iprint 150 -hbf 1 -binp pm.bar
+ARGS = -nox -iprint 150 
 
 ifdef ComSpec
     RM=del /F /Q
@@ -12,10 +14,11 @@ else
     RM=rm -rf
 endif
 
-all: mpd
+all: mpd $(DIST)$(EXEC).tpl
 $(EXEC): $(DIST)$(EXEC).tpl
 	ln -sf $(DIST)$(EXEC) $@
 	ln -sf $(DIST)$(EXEC).tpl $@.tpl
+	ln -sf $(PROJDIST)$(PROJ) $(PROJ)
 
 $(DIST)$(EXEC).tpl:
 	$(MAKE) --directory=../../src
@@ -29,6 +32,8 @@ mcmc: $(EXEC)
 	./$(EXEC) $(ARGS) -mcmc 3000000 -mcsave 600
 	./$(EXEC) -mceval 
 	
+proj: $(PROJ)
+	./$(PROJ) 
 
 debug: $(EXEC)
 	./$(EXEC) $(ARGS)
@@ -50,5 +55,3 @@ clean:
 	@$(RM) pm.par
 	@$(RM) SIS_out.rep
 	@$(RM) mceval.dat
-
-

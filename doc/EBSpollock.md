@@ -1,6 +1,6 @@
 ---
 title: "Chapter 1: Assessment of the Walleye Pollock Stock \\ in the Eastern Bering Sea"
-date: "07:56 October 21, 2021"
+date: "23:10 November 01, 2021"
 output:
   html_document:
     df_print: paged
@@ -21,54 +21,56 @@ fontfamily: mathpazo
 
 
 \begin{centering}
-  James Ianelli, Ben Fissel, Kirstin Holsman, Alex De Robertis, Taina Honkalehto, \\
-  Stan Kotwicki, Cole Monnahan, Elizabeth Siddon, and James Thorson \\
+  James Ianelli, Ben Fissel, Sarah Stienessen Taina Honkalehto, \\
+  Elizabeth Siddon, and Caitlin Allen-Akselrud \\
 \fontfamily{cmr}
 \fontsize{10}{12}
 \selectfont
   Alaska Fisheries Science Center, National Marine Fisheries Service \\
   National Oceanic and Atmospheric Administration \\ 
-  7600 Sand Point Way NE., Seattle, WA 98115-6349 \\ October 21, 2021 \\ 
+  7600 Sand Point Way NE., Seattle, WA 98115-6349 \\ November 01, 2021 \\ 
 	\end{centering}
 ----
 
 
-#  Executive summary
+# Executive summary
 
 This chapter covers the Eastern Bering Sea (EBS) region—the Aleutian Islands
 region (Chapter 1A) and the Bogoslof Island area (Chapter 1B) are presented
-separately.
+separately. A multi-species stock assessment (e.g., from [2020](https://apps-afsc.fisheries.noaa.gov/refm/docs/2020/EBSmultispp.pdf)).
 
 ### Summary of changes in assessment inputs
 
-Relative to last year’s BSAI SAFE report, the
-following substantive changes have been made in the EBS pollock stock
-assessment. Notably, a number of surveys were cancelled including the
- 2020 NMFS bottom-trawl survey (BTS),
-   the 2020 NMFS acoustic-trawl survey (ATS), and 
-   th 2020 opportunistic acoustic data from vessels (AVO).  
+Relative to last year’s BSAI SAFE report, the following substantive changes have been made in the EBS pollock stock
+assessment. This includes the 2021 NMFS bottom-trawl survey (BTS) covering the EBS and NBS. As before, these
+data were treated with a spatio temporal model for index standardization; however, this year a number of refinements from the 2019 index
+were made which changed the time series used for tuning the assessment.
+The BTS chartered boats also collected acoustic data and the series  was updated this year (AVO).  
 
 #### Changes in the data
 
    1.  Observer data for catch-at-age and average weight-at-age from
-   the 2019 fishery were finalized and included. 
+   the 2020 fishery were finalized and included. 
 
-   2.  Total catch as reported by NMFS Alaska Regional office was updated and included through 2020.
+   2.  Total catch as reported by NMFS Alaska Regional office was updated and included through 2021.
    
-   3.  In summer 2020, the AFSC coordinated a survey conducted by three uncrewed surface vehicles (USVs) using acoustics.
+   3.  In summer 2021, the AFSC conducted the bottom trawl survey in the EBS and extended into the NBS.
+   A VAST model evaluation (including the cold-pool extent) was used as the main index.
+
+   3.  The bottom trawl survey collected acoustic data opportunistically and extend the index from 2006-2019 and again this year.
+
+   3.  Because of indications of smaller-than usual fish apparent in the 2021 fishery, length composition data from this year's fishery, along with 
+  a preliminary estimate of the catch-age composition for this year was used.
 
 ### Changes in the assessment methods
 
-There were some minor changes to data used for the assessment model this year. 
-We continued to refine treatment of survey data via spatial-temporal models
-for  creating an alternative index including the broader region of the
-northern Bering Sea, mainly by improving the documentation. 
+There were some minor changes to data used for the assessment model this year to accommodate requests 
+from the SSC and Plan Team. 
 
 ## Summary of EBS pollock results
-The following table applies for Model 20.0, the model used for last year's assessment but with data from the 
-uncrewed surface vehicles (USVs) included as an extension of the acoustic trawl survey. 
-An alternative table is provided for this model which excludes the USV data from 2020.
-As in past years,  the ABC recommendation reflects the Tier 3 estimate.
+The following table applies for Model 20.0, the model used for last year's assessment 
+An alternative table is provided xxxx.
+As in past years, the ABC recommendation reflects the Tier 3 estimate.
 
 \begin{table}[ht]
 \centering
@@ -76,22 +78,22 @@ As in past years,  the ABC recommendation reflects the Tier 3 estimate.
   \hline
        & \multicolumn{2}{c|}{As estimated or $\mathit{specified}$ } & \multicolumn{2}{c}{As estimated or $\mathit{recommended}$ }  \\
        & \multicolumn{2}{c|}{$\mathit{last}$ year for:}  & \multicolumn{2}{c}{$\mathit{this}$ year for: }               \\
-        Quantity & 2020      &2021   & 2021      &2022 \\ 
+        Quantity & 2021      &2022   & 2022      &2023 \\ 
   \hline
   M            (natural mortality rate, ages 3+)	&	0.3	&	0.3	&	0.3	&	0.3 \\
   Tier         &	1a	&	1a	&	1a	&	1a \\
-  Projected    total (age  3+) biomass (t)     & 9,128,000 t & 8,494,000 t & 8,145,000 t & 7,641,000 t \\
-  Projected    female  spawning  biomass (t)   & 2,991,000 t & 2,674,000 t & 2,602,000  t & 2,406,000  t \\  
-  $B_0$        & 5,777,000 t & 5,777,000 t & 5,792,000  t & 5,792,000  t \\          
-  $B_{msy}$    & 2,148,000 t & 2,148,000 t & 2,257,000  t & 2,257,000  t \\          
-  $F_{OFL}$    & 0.449 & 0.449 & 0.341  & 0.341  \\                  
-  $maxF_{ABC}$ & 0.383 & 0.383 & 0.304  & 0.304  \\                  
-  $F_{ABC}$    & 0.225& 0.225& 0.214 & 0.214 \\                  
-  $OFL$        & 4,085,000 t & 3,385,000 t & 2,594,000  t & 2,366,000  t \\          
-  $maxABC$     & 3,485,000 t & 2,888,000 t & 2,307,000 t & 2,105,000 t \\      
-  $ABC$        & 2,043,000 t & 1,767,000 t & 1,626,000 t & 1,484,000  t \\        
+  Projected    total (age  3+) biomass (t)     & 8,145,000 t & 8,494,000 t & 6,860,000 t & 6,860,000 t \\
+  Projected    female  spawning  biomass (t)   & 2,602,000 t & 2,406,000 t & 1,905,000  t & 1,905,000  t \\  
+  $B_0$        & 5,792,000 t & 5,792,000 t & 5,577,000  t & 5,577,000  t \\          
+  $B_{msy}$    & 2,257,000 t & 2,257,000 t & 2,187,000  t & 2,187,000  t \\          
+  $F_{OFL}$    & 0.341 & 0.341 & 0.345  & 0.345  \\                  
+  $maxF_{ABC}$ & 0.304 & 0.304 & 0.305  & 0.305  \\                  
+  $F_{ABC}$    & 0.214& 0.214& 0.194 & 0.222 \\                  
+  $OFL$        & 2,594,000 t & 2,366,000 t & 1,503,000  t & 1,752,000  t \\          
+  $maxABC$     & 2,307,000 t & 2,105,000 t & 1,331,000 t & 1,552,000 t \\      
+  $ABC$        & 1,626,000 t & 1,484,000 t & 964,000 t & 1,105,000  t \\        
   \hline
-  Status	                              &	2018  & 2019&			2019             &	2020          \\
+  Status	                              &	2019  & 2020&			2020             &	2021          \\
   \hline
   Overfishing	                          &	No	        &	n/a	      &	No	                       &	n/a                 \\
   Overfished	                          &	n/a	        &	No	      &	n/a	                       &	No                  \\
@@ -102,64 +104,98 @@ As in past years,  the ABC recommendation reflects the Tier 3 estimate.
 
 ## Response to SSC and Plan Team comments
 
-### General comments 
+### General comments
 
-The SSC recommended that a detailed review of the support for retaining the EBS Pollock assessment in Tier 1 
-versus reclassifying it as Tier 3 be pursued in the 2020 assessment. 
+_From several SSC comments in the past few years related reviewiing the support for retaining the EBS Pollock assessment in Tier 1 
+versus reclassifying it as Tier 3._
 
-  - _We evaluated factors affecting the Tier classification._     
+  * Consideration of whether the observed sensitivity in the SRR to prior specification should
+constitute an increased risk level specification within the assessment or population dynamics related
+considerations. This could provide a clearer justification for the use of the Tier 3 calculation as
+the basis for harvest specification.     
+
+    - _We evaluated factors affecting the Tier classification in the 2020 assessment and showed that the 
+priors used reflect the SRR curve were conservative and justified based on residual patterns near the origin (as 
+opposed to alternatives that fit data on the descending slope of the Ricker SRR._
+
+
+  * The SSC recommends that if the assessment is considered in the appropriate Tier, buffers should be based on     
+the use of the Risk Table rather than the continued use of Tier 3 calculations for a Tier 1 stock.
+
+    - _We agree in principle, and the second part of applying the risk table approach would be to specify a buffer. 
+  One logical application of the buffer would be to use the ratio of the Tier 3 ABC divided by the Tier 1 value (which would result in a 
+recommended ABC equal to Tier 3)._
+
+  * The SSC also notes that this stock may be a candidate for the infrequently used Tier 2
+classification. This tier uses the SR relationship for stock status and OFL, but uses the ratio of SPR rates for adjustments when the 
+stock is below $B_{MSY}$.
+
+    - _An examination of Tier 2 as an option resulted in a value of 1,181,000 t (or a hybrid of Tier 1 and 2 of 
+1,046,000 t for 2022 ABC values. We note that selecting Tier 2 would require similar reliance on the SRR estimates
+and impact on fishing rate values._         
+
+---
+
 
 **The SSC had a number of recommendations for additional research supporting this assessment:**
 
-The SSC encourages further investigation of the apparent shift between a clear 2012 year-class to mixed 2012-2013 year classes in the data, suggestive of potentially variable ageing bias.   
+**From previous requests:**
 
-  - _The newly available 2019 fishery age data shows a similar relative proportion of these two year classes; this suggests (based on earlier inquiries with the age-determination experts) that this pattern is reasonable._     
+The SSC had encouraged further investigation of the apparent shift between a clear 2012 year-class to mixed 2012-2013 
+year classes in the data, suggestive of potentially variable ageing bias.   
 
-Noting the work in deriving an external estimate of temporal variability in catchability for the bottom trawl survey (relative to the acoustic survey) due to vertical availability, 
+  - _The fishery and survey age data shows a similar relative proportion of these two year classes. This year we present a spatial map of where these
+		year classes have appeared and note that there appears to be some separation in their average locations. This could indicate that the year-classes
+		may have had sufficient separation to minimize spatial overlap and exposure to cannibalism._
+
+The work in deriving an external estimate of temporal variability in catchability for the bottom trawl survey (relative to the acoustic survey) due to vertical availability, 
 the SSC noted that catchability would logically also vary for the acoustic survey. The SSC encourages 
 further work to develop the simultaneous modelling of these two surveys, accounting for vertical and distributional 
 shifts (including into the northern Bering Sea survey area; NBS). When
 sufficiently explored, the SSC looks forward to assessment model configurations that explore the
 use of a time-series from this method.  
 
-  - _Work on this topic stalled as analysts focused their efforts on methods
-  to incorporate the uncrewed surface vessels (USVs) to collect acoustic data._
-
+  - _Work on this topic stalled as analysts focused their efforts on methods to incorporate the uncrewed surface 
+  vessels (USVs) to collect acoustic data in 2020. We anticipate this work to be pursued when the planned 2022 acoustic-trawl survey become available._
 
 The SSC supports ongoing genetic studies to determine the relationship between pollock in the NBS and EBS,  as well as other surrounding regions (AI, GOA).  
 
-  - _A post doctoral researcher has begun this work but
-  progress has been limited due to lab access and other factors related to the pandemic._
-
-The SSC supports the continued use of a formal decision table to illustrate risks of alternative harvest strategies.  
-
-  - _This was included in this year's assessment report._
-
-The SSC supports the GPT’s recommendation to revisit the treatment of all variance parameters 
-in the next assessment, particularly those that are set at fixed values 
-(e.g., the value of 0.2 for the acoustic survey).    
-
-  - _This planned activity is only partially underway. More work is planned on estimating process error parameters._
+  - _Some preliminary results showing the main genetic population components are presented below. Indications are 
+  that there is a high degree of separation of pollock from Japan compared to those sampled off of Alaska. Within
+  Alaskan waters, the Bering Sea samples were relatively distinct from the Aleutian Islands and the Gulf of Alaska._
 
 The SSC also looks forward to estimates of movement and abundance along the US-Russia EEZ 
 boundary based on echosounders fixed to moorings in this area.     
 
   - _The moored sounders have been recovered in September 2020 but the data have yet to be processed._     
 
-**From previous requests:**
-
 Re-examine the geographic subset of data currently used to develop the AVO
 index, specifically to see if including Bristol Bay data improves the
 correlation.    
 
-  -  _Work on this continues but was given lower priority given that the AVO was not part of this year's assessment._     
+  -  _Work on this continues and there are plans to refine the treatment of AVO data relative to the full  acoustic-trawl survey
+		slated for 2022._     
 
-Explore “A” season trends in mean weight-at-length with a GAM or
-similar technique, to determine if the trends are either predominantly
-environmental or predominantly fishery-driven, Regarding $\sigma_R$, explore
-alternative fixed values or estimation methods.
+Given the apparent disappearance of the second and large mode in fishery length compositions as
+the 2020 B-season progressed, exploration of within-season spatial variation in fishery length
+composition would be useful in evaluating whether these larger pollock simply moved out of the area
+of fishing effort, or died as a result of natural or fishing mortality.
 
-  - _Trends in mean weight given length are again presented. The extent that fishery affects this pattern was shown to be related to timing. Further work is needed to establish a mean baseline (in time and space) to try to sort out environmental effects hypotheses. Values of $\sigma_R$ were explored in previous years, no further work was done on this in 2020._           
+  - _Because of this concern, we re-estimated the length-at-age values in order to include the 
+  2021 fishery data (conventionally, aspects of the current-year age structure of fishing is unavailable
+until samples can be returned from NMFS observers and aged). We also constructed a global age-length key
+to supplement age composition information from the 2021 fishery._
+
+From October 2021 (unless covered above): 
+
+The SSC provides a clarification that it is requesting a description of the method used for
+projecting selectivity when calculating the OFL/ABC and looks forward to a retrospective analysis on
+the performance of this projection method relative to the subsequently estimated selectivity in the
+next assessment. This request was motivated by the large change in FOFL observed from the 2019 to
+2020 assessments.
+
+  -  _These estimates are compared from the retrospective runs in addition to a review of how
+   recent selectivity estimates impact $F_{MSY}$ rates._
 
 \pagebreak
 
@@ -173,7 +209,7 @@ concentrations found in the Eastern Bering Sea. Also  known as
 Alaska pollock, this species continues to play important roles ecologically
 and economically.
 
-## Review of Life History 
+## Review of Life History
 In the EBS pollock spawn generally in the period
 March-May and in relatively localized regions during specific periods (Bailey
 2000). Generally spawning begins nearshore north of Unimak Island in March and
@@ -206,22 +242,37 @@ northern part of the shelf region between the 100 and 200 m isobaths
 other areas.
 
 
-## Stock structure 
-Genetic samples were taken from pollock and collections
-have continued from sources including observers and AFSC research surveys. A
-large study using whole genome sequencing is currently underway for samples of
-walleye pollock from Zhemchug Canyon, Japan, Prince William Sound, Bogoslof,
-Shelikof, and the Northern Bering Sea. This project is a collaboration between 
-the Joint Institute for the Study of Atmosphere and Oceans (currently
-CICOES, the Cooperative Institute for Climate, Ocean, and Ecosystem Science)
-and the Alaska Fisheries Science Center Cooperative Research Program. The
-goals of the project include investigating whether genetic stock structure
-exists in walleye pollock, if these patterns are temporally stable, and if
-distributional shifts under climate change are detectable using genomic data.
-Whole genome sequencing is a new approach to the study of pollock stock structure that 
-is expected to yield higher statistical power than previous results using
-microsatellite DNA markers. This planned study should help improve stock
-structure evaluation (last done in Ianelli et al. 2015).
+## Stock structure
+Genetic samples were taken from pollock and collections have continued from sources including
+observers and AFSC research surveys. A large study using whole genome sequencing is currently
+underway for samples of walleye pollock from Zhemchug Canyon, Japan, Prince William Sound, Bogoslof,
+Shelikof, and the Northern Bering Sea. This project is a collaboration between the Joint Institute
+for the Study of Atmosphere and Oceans (currently CICOES, the Cooperative Institute for Climate,
+Ocean, and Ecosystem Science) and the Alaska Fisheries Science Center Cooperative Research Program.
+The goals of the project include investigating whether genetic stock structure exists in walleye
+pollock, if these patterns are temporally stable, and if distributional shifts under climate change
+are detectable using genomic data. Whole genome sequencing is a new approach to the study of pollock
+stock structure that is expected to yield higher statistical power than previous results using
+microsatellite DNA markers. This team \footnote{   Eleni Petrou, Eleanor Bors, Lorenz Hauser, and
+Ingrid Spies } sequenced 617 pollock collected from Japan, the Bering Sea, Chukchi Sea, Aleutian
+Islands, Alaska Peninsula, and Gulf of Alaska using low-coverage whole genome sequencing. They
+identified 5,316,997 single nucleotide polymorphisms (i.e., sites in the genome with genetic
+variation) that were genotyped in more than 70% of samples and had a minor allele frequency of more
+than 0.05. To visualize genetic differences between samples, they conducted principal components
+analysis (PCA) using all samples and found that samples from Japan were highly distinct. A separate PCA was
+run with Japan excluded showed a “three stripe” pattern (Fig. \ref{fig:PCA_genetics}). 
+In other systems, this pattern has been associated with the presence of chromosomal 
+inversions, as homo- and heterokaryotypes for each inversion
+polymorphism form distinct clusters in a PCA. Additional analyses are needed to test 
+and quantify genetic population structure in pollock.
+
+For management purposes, the preliminary conclusions from these genetics results are:
+1) there is stock structure in pollock that appears to be stable through time and 2) Some aspect of stock
+structure is latitudinal---Bering Sea pollock appear distinct from fish collected from the Gulf
+of Alaska and the Aleutian Islands. The results appear strong enough that a GTseq panel could be
+designed in the future to determine stock of origin of walleye pollock, the scale of which may be
+relatively large, such as “Bering Sea” or “GOA”. The scope and funding sources for this project will be planned
+in 2022 with sampling designs developed for implementation as early as 2023.
 
 # Fishery  
 ## Description of the directed fishery 
@@ -273,39 +324,41 @@ relative to the effort (total duration of all tows) the pollock fleet
 the Chinook salmon bycatch rate was relatively flat whereas the encounters with
 sablefish were markedly higher (Fig. \ref{fig:fsh_psc_cpue}). 
 
-
 The catch estimates by sex for the seasons indicate that over time, the number
-of males and females has been fairly equal but in the period 2017-2019
+of males and females has been fairly equal but in the period 2017-2020
 the A-season catch of females has been slightly higher and conversely, in the B-season
 there has been a slightly higher number of males taken (Fig. \ref{fig:catch_sex}). The
-2020 A-season fishery spatial pattern had relatively high concentrations of
-fishing on the shelf north of Unimak Island and extended along the 200m depth
-contour similar to 2019 but with a more dispersed distribution 
-(Fig. \ref{fig:catch_distn_a}). The 2020 A-season nominal catch rates
-were high similar to the good conditions observed in other recent A 
-seasons (Fig. \ref{fig:fsh_cpue}). Beginning in 2017, due to  a regulatory
+2021 A-season fishery spatial pattern had a relatively higher concentrations of
+fishing near the Pribilof Islands and catches near Unimak and east compared to recent years  
+(Fig. \ref{fig:catch_distn_a}). 
+The 2021 A-season nominal catch rates
+were lower than the 2020 peak (for the fleet in aggregate) (Fig. \ref{fig:fsh_cpue}). 
+Beginning in 2017, due to  a regulatory
 change, up to 45\% of the TAC could be taken in the A-season (previously only
 40\% of the TAC could be taken). This conservation measure was made to allow
 greater flexibility to avoid Chinook salmon in the B-season. To date, it
 appears that the pollock fleet as a whole took advantage of  this added
-flexibility (Fig. \ref{fig:prop_a_season}). While an important product from the
-winter fishery is  the sale of pollock roe, production during the B-season is 
-consistently about 10\% of the annual commercial products produced (Fig. \ref{fig:roe}).
+flexibility (Fig. \ref{fig:prop_a_season}). However, this figure indicates that in 2021,
+the proportion of catch in February dropped relative to recent patterns but was made up 
+by the end of April. Pollock roe is an important product coming from the
+winter fishery. The amount produced in the 2021 A-season was the lowest since 2016 and a 
+considerable drop from the previous two years (Fig. \ref{fig:roe}).
 
 
-The fishing in summer-fall 2020 was characterized as having low nominal catch
-rates (Fig. \ref{fig:fsh_cpue}). The number of hours the fleet required to catch
-the same tonnage of pollock was much higher than in recent years. 
+The summer-fall fishing conditions for 2021 improved considerably over 2020 and was 
+about average on nominal catch rates (Fig. \ref{fig:fsh_cpue}). The number of hours 
+the fleet required to catch the same tonnage of pollock was also improved relative to 
+2020.
 
- Catches in the northwestern area continued to increase over the past three years 
- (Fig. \ref{fig:catch_distn_b}). Also, the approach presented in 2019 to compute 
- the fleet dispersion 
+Catches in the northwestern area dropped relative to the previous two years
+(Fig. \ref{fig:catch_distn_b}). 
+Also, the approach presented in 2019 to compute the fleet dispersion 
 (the relative distance or spread of the fishery in space) indicated that 
-the A-season in 2019 and 2020 was relatively more concentrated compared to 
-other years since 2000. Conversely, the B-season indicated the most dispersed
-fishing activity over the same period (Fig \ref{fig:fleet_dispersal}).
+in both seasons the fleet was less disperse than last year and 
+was roughly similar to the recent lower concentration levels 
+compared to other years since 2000 (Fig \ref{fig:fleet_dispersal}).
 
-In addition to logistic issues related to ensuring crew and observer
+XX In addition to logistic issues related to ensuring crew and observer
 safety due to the COVID19 pandemic, there were reports of unusually small 
 pollock in the catch. Consequently, we investigated whether the amount
 of small fish has occurred in the past. The NMFS observer collections, in
@@ -326,10 +379,10 @@ smaller fish predominated in the catch (Fig. \ref{fig:fsh_wt_freq_week}).
 The catch of EBS pollock has averaged 1.21 million t in the period since 1979. 
 The lowest catches occurred in 2009 and 2010
 when the limits were set to 0.81 million t due to stock declines (Table
-\ref{tab:abc_tac}). The recent 5-year average (2016-2020) catch has been 1.365
+\ref{tab:abc_tac}). The recent 5-year average (2017-2021) catch has been xxx1.365
 million t. Pollock catches that are retained or discarded (based on NMFS
 observer estimates) in the Eastern Bering Sea and Aleutian Islands for 
-1991--2020 are shown in Table \ref{tab:catch_disc}. Since 1991, estimates of
+1991--2021 are shown in Table \ref{tab:catch_disc}. Since 1991, estimates of
 discarded pollock have ranged from a high of 9.1\% of total pollock catch in
 1992 to recent lows of around 0.6\%. These low values reflect the
 implementation of the NMFS' Improved Retention /Improved Utilization
@@ -407,9 +460,14 @@ proportion of pollock caught within the SCA varies considerably, presumably
 due to temperature regimes and the relative population age structure.  The
 annual proportion of catch within the SCA varies and has ranged from an annual
 low of 11% in 2010 to high of 60% in 1998--the 2019 annual value was 58% but
-and quite high again in the A-season (68\%; Table \ref{tab:catch_sca}).  The higher
-values in recent years  were likely due to good fishing conditions close to
-the main port.
+and quite high again in the A-season (68\%; Ianelli et al. 2020).
+The higher values in recent years  were likely due to good fishing conditions close to
+the main port. Note that the conversion of many catcher-vessels to shore-based 
+biological sampling with at-sea operations monitored electronically, catch reporting to 
+specific areas will be possible when the position information is fully operational
+and offloads can be easily linked to haul records. Initial investigations on 
+configuring these data for this purpose were promising and should be possible 
+retroactively when the routines for the new database are developed further.
 
 The AFA reduced the capacity of the catcher/processor fleet and permitted the
 formation of cooperatives in each industry sector by the year 2000. Because of
@@ -482,21 +540,29 @@ Additionally, voluntary closure areas were announced throughout
 the B-season 2020 and intended to minimize herring bycatch in areas where
 herring occurred.
 
-
-## Economic conditions as of 2019
+## Economic conditions as of 2020
 
 Alaska pollock is the dominant species in terms of catch in the Bering Sea \&
-Aleutian Island (BSAI) region. In 2019 pollock accounted for 73\% of the
-BSAI's FMP groundfish harvest and 92\% of the total pollock harvest in Alaska.
-Retained catch of pollock increased 2.2\% to 1.41 million t in 2019 (Table \ref{tab:bsaiplck_exv}). BSAI
-pollock first-wholesale value was \$1.55 billion 2019, which was 12\% increase
-from 2018 and above the 2010--2014 average of \$1.26 billion (Table \ref{tab:bsaiplck_wsl}). The higher revenues
-in recent years is the combined effect of strong catch and production levels and
-a steady increase in the average first-wholesale price since 2016. The
-increases in the average  first-wholesale price of pollock products in 2016 and 2017
+Aleutian Island (BSAI) region. In 2020 pollock accounted for 72\% of the
+BSAI's FMP groundfish harvest and 93\% of the total pollock harvest in Alaska.
+Retained catch of pollock decreased 2.9\% to 1.37 million t in 2020 (Table \ref{tab:bsaiplck_exv}).
+The decrease in 2020 catch was despite an increase in the TAC as poor fishing conditions 
+resulted in only 95\% of the TAC being harvested.
+BSAI pollock first-wholesale value was \$1.37 billion 2020, which was a 12\% decrease
+from 2019 and above the 2011--2015 average of \$1.31 billion (Table \ref{tab:bsaiplck_wsl}). 
+The decrease in
+2020 revenues was largely driven by the decrease in catch and corresponding production
+as the average first-wholesale price was stable (Table \ref{tab:bsaiplck_wsl}). The
+increases in the average first-wholesale price of pollock products in 2016 and 2017
 were largely due to increases the price of surimi products while the price increase
 in 2018 was largely due to an increase in the price of fillets. Price increases in 2019 
-were the combined effect of price increases in both fillets and surimi.
+were the combined effect of price increases in both fillets and surimi. In 2020, price 
+increases in fishmeal and minced fish offset decreases in the H\&G, roe and surimi prices
+while fillet prices stable. The primary revenue impact of COVID-19 pandemic was increased 
+demand for retail products which put upward pressure on retail focused products like 
+single-frozen fillets, minced, and surimi. However, smaller average size of fish in
+catch limited the quantity and grades of product forms which generally put downward 
+pressure on prices.
 
 Pollock is targeted exclusively with pelagic trawl gear. The catch of pollock
 in the BSAI was rationalized with the passage of the
@@ -510,16 +576,23 @@ catcher vessels (50\%), at-sea catcher/processors (40\%) and motherships (10\%).
 
 Prior to 2008 pollock catches were high at approximately 1.4 million t in the
 BSAI for an extended period (Table \ref{tab:bsaiplck_exv}). The U.S. accounted
-for over 50\% of the global pollock catch (Table \ref{tab:bsaiplck_glbl}).
+for over 50\% of the global pollock catch.
 Between 2008--2010 conservation reductions in the pollock total allowable catch
 (TAC) trimmed catches to an average 867 kt. The supply reduction
 resulted in price increases for most pollock products, which mitigated the
 short-term revenue loss (Table \ref{tab:bsaiplck_glbl}). Over this same
 period, the pollock catch in Russia increased from an average of 1 million t
 in 2005--2007 to 1.4 million t in 2008--2010 and Russia's share of global catch
-increased to over 50\% and the U.S. share decreased to 35\%. Russia lacks the
-primary processing capacity of the U.S. and much of their catch is exported to
-China and is re-processed as twice-frozen fillets. Around the mid- to late-
+increased to over 50\% and the U.S. share decreased to 35\%. Since 2011 the U.S. 
+has accounted for approximately 44\% of the global pollock catch the majority of
+which comes from the BSAI (Table \ref{tab:bsaiplck_glbl}).
+
+Russia has histoically lacked the
+primary processing capacity of the U.S., with much of their catch being exported to
+China where it is re-processed as twice-frozen fillets. In recent years Russia has pursued
+upgrading its processing capacity of fillets, minced, roe, and surimi which could compete more 
+directly with primary processed products made by the U.S..
+Around the mid- to late-
 2000s, buyers in Europe, an important segment of the fillet market, started to
 source fish products with the MSC sustainability certification, and
 retailers in the U.S. later began to follow suit. Asian markets, an important
@@ -562,27 +635,27 @@ sources of raw materials (see Guenneugues and Ianelli 2013 for a global review
 of surimi resources and market). This contributed to a growth in surimi from
 warm-water fish of southeast Asia. Surimi prices spiked in 2008--2010 and have
 since tapered off as production from warm-water species increased (as has
-pollock). A relatively small fraction of pollock caught in Russian waters is
-processed as surimi. Surimi is consumed globally, but Asian markets dominate
+pollock). Surimi is consumed globally, but Asian markets dominate
 the demand for surimi and demand has remained strong.
 
 The catch of pollock can be broadly divided between the shore-based sector
 where catcher vessels make deliveries to inshore processors, and the at-sea
 sector where catch is processed at-sea by catcher/processors and motherships
 before going directly to the wholesale markets. The retained catch of the
-shore-based sector increased 1\% to 710 kt. The value of these
-deliveries (shore-based ex-vessel value) totaled \$259.8 million in 2019,
-which was up 10\% from the ex-vessel value in 2018 driven mostly by a 7\%
-increase in the ex-vessel price which is above the 2010-2014 average
+shore-based sector decreased 1\% to 725 kt. The value of these
+deliveries (shore-based ex-vessel value) totaled \$233.7 million in 2020,
+which was down 10\% from the ex-vessel value in 2019 driven mostly by a 7\%
+decrease in the ex-vessel price which was just below the 2011-2015 average
 (Table \ref{tab:bsaiplck_exv}). The first-wholesale value of pollock products was
-\$920 million for the at-sea sector and \$630 million for the shore-based
-sector (Table \ref{tab:bsaiplck_wsl}). The higher revenue in recent years is
-combined effect of increased catch levels and price increases of pollock
-products of fillet and surimi products. The
-average price of pollock products in 2019 increased 9\% for the at-sea sector to
-$1.38 and increased 5\% for the shore-based sector to $1.12. Surimi prices increased 
-8\% and fillet prices increased 11\% in 2019. Roe prices decreased 26\% while
-production increased 36\%---the highest level observed in the last decade.
+\$814 million for the at-sea sector and \$552 million for the shore-based
+sector (Table \ref{tab:bsaiplck_wsl}). The
+average price of pollock products in 2020 increased 2\% for the at-sea sector to
+$1.41 and
+decreased 4\% for the shore-based sector to $1.08. Surimi prices decreased 8\%, 
+fillet prices increased 3\%, and roe prices decreased 7\% in 2020. Minced prices 
+increased 11\% and minced production rose 38\% as demand for retail products increased
+as a result of COVID-19. Fishmeal prices rose 43\% with a reduced Peruvian fishmeal 
+supply because of a temporary fishery closure early in the year.
 
 The portfolios of products shore-based and at-sea processors produce are
 similar. In both sectors the primary products processed from pollock are
@@ -590,13 +663,13 @@ fillets, surimi and roe, with each accounting for approximately 40\%, 40\%,
 and 10\% of first-wholesale value (Table \ref{tab:bsaiplck_wsl}). The price of
 products produced at-sea tend to be higher than comparable products produced
 by the shore-based because of the shorter time span between catch, processing and
-freezing. Since 2014 the price of fillets produced at-sea tend to be about
-10\% higher, surimi prices tend to be about 30\% higher and the price of roe
+freezing. Over the past 5 years the price of fillets produced at-sea tend to be about
+7\% higher, surimi prices tend to be about 25\% higher and the price of roe
 about 50\% higher. Average prices for fillets produced at-sea also tend to be
 higher because they produce proportionally more higher-priced fillet types
 (like deep-skin fillets). The at-sea price first wholesale premium averaged
-roughly \$0.21 per pound between 2010--2014 and has increased to an average of
-\$0.27 per pound between 2015--2019.\footnote{The at-sea price
+roughly \$0.20 per pound between 2011--2015 and has increased to an average of
+\$0.28 per pound between 2016--2020.\footnote{The at-sea price
 premium is the difference between the average price of first-wholesale
 products at-sea and the average price of first-wholesale products shore-
 based.}
@@ -606,59 +679,69 @@ based.}
 A variety of different fillets are produced from pollock, with pin-bone-out
 (PBO) and deep-skin fillets typically accounting for approximately 70\% and
 30\% of production in the BSAI, respectively. Deep-skin fillet's share of fillet
-production was 33\% in 2019. Total fillet production increased 11.5\%
-to 187 kt in 2019, and since 2010 has increased with aggregate production and
-catch and was higher than the 2010--2014 average (Table
+production was 34\% in 2020. Total fillet production decreased 20\%
+to 149 kt in 2020, and was below the the 2011--2015 average (Table
 \ref{tab:bsaiplck_wsl}). The average price of fillet products in the BSAI
-increased 11\% to \$1.52 per pound and is below the inflation adjusted average
-price of fillets in 2010--2014 of \$1.69 per pound (2019 dollars).  Media
-reports indicate that fillet prices tended to be
-strong throughout much of 2019. Pollock fillets sourced from Russia
-are the direct competitor to Alaska sourced pollock fillets.
+increased 3\% to \$1.56 per pound and is below the inflation adjusted average
+price of fillets in 2011--2015 of \$1.63 per pound (2020 dollars). Media
+reports indicate that for single-frozen fillets increased retail demand stemming 
+from COVID-19 supported strong prices, however, low double-frozen fillets prices 
+(which have a strong foodservice component) put downward pressure on 
+single-frozen prices. The decrease in fillet volumes was related to smaller fish 
+size in the 2020 catch which are less suited to fillet production and better suited
+for minced which saw significant increases in both volume and value.
+
+Pollock fillets sourced from Russia
+are a competitor to Alaska sourced pollock fillets.
 Fillets were a relatively small portion of Russian primary production
 however, they are increasing their fillet production capacity. Much of the
 Russian catch goes to China for secondary processing into fillets so
 this would do little to increase the overall volume, however, increased
 primary fillet processing in Russia could increase competition with U.S.
-produced single-frozen fillet products. Approximately 30\% of the fillets
+produced single-frozen fillet products. Using data through 2017 approximately 30\% of the fillets
 produced in Alaska are estimated to remain in the domestic market, which
 accounts for roughly 45\% of domestic pollock fillet consumption (AFSC
-2016).\footnote{Additionally, roughly 10\% of the at-sea BSAI production is
+2020).\footnote{Additionally, roughly 10\% of the at-sea BSAI production is
 processed as H\&G which is mostly exported, primarily to China, where is
 reprocessed as fillets and some share of which returns to the U.S.. China also
 processes H\&G from Russia into fillets which are also imported into the
 domestic market. Current data collection does not allow us to estimate the
-share of U.S. returning imports.} The U.S. industry has tried to maintain value by
+share of U.S. returning imports.} The U.S. industry has tried to maintain value
+over the years by
 increasing domestic marketing for fillet based product and creating product
 types that are better suited to the American palette, in addition to increased
-utilization of by-products. Reductions in global pollock supplies in 2020 reported by the
-Groundfish Forum may upward pressure on pollock fillet prices.
+utilization of by-products. 
 
 ### Surimi seafood
 
-Surimi production in 2019 was 192.2 kt, which was down 2.2\%
-and was above the 2010--2014 average. Prices have generally increased since 2013
-and resumed their upward progress in 2019 increasing 8\% to \$1.37 (Table
-\ref{tab:bsaiplck_wsl}). Because surimi and fillets are both made from pollock
+Surimi production in 2020 was 171.7 kt, which was down 11\%
+and was above the 2011--2015 average. Prices have generally increased since 2013
+and although they fell 8\% in 2020 to \$1.26 they remain strong (Table
+\ref{tab:bsaiplck_wsl}). Surimi is primarily a retail product, and demand in 2020
+was strong with the increased focus on retail resulting from COVID-19 pandemic. 
+Furthermore, the supply tropical species used to produce surimi has been tight. The
+smaller-sized fish caught by the U.S. in 2020 is better suited to production of 
+low- to mid-grade surimi which puts downward pressure on surimi prices. Demand for 
+high-grade surimi is high and supplies were tight.
+Because surimi and fillets are both made from pollock
 meat, activity in the fillet market can influence the decision of processors
 to produce surimi as smaller average size of fish can incentivize surimi
-production, particularly if it yields a higher value than fillets. Additionally,
-strong demand for surimi has put upward pressure on prices.
+production, particularly if it yields a higher value than fillets. 
 
 ### Pollock roe
 
 Roe is a high priced product that is the focus of the A season catch destined
-primarily for Asian markets. Roe production in the BSAI tapered off in the
+primarily for Asian markets. Roe production in the BSAI averaged 27 kt in 
+2005--2007 and tapered off in the
 late--2000s and since has generally fluctuated at under or near 20 kt annually.
-Roe production increased to 28 kt in 2019
-Production averaged 27 kt in 2005--2007 and was 20.6 kt in 2018, which was up
-12\% from 2017 (Fig. \ref{fig:roe}). Prices peaked in the mid-2000s and have
+Roe production decreased to 24.7 kt in 2020 and was above the 2011-2015 average
+(Fig. \ref{fig:roe}). Prices peaked in the mid-2000s and have
 followed a decreasing trend over the last decade which continued until 2015,
 after which prices increased to \$2.89 per pound in 2018.
-The Yen to U.S. Dollar exchange rate can influence prices and weakened against 
-the Yen in 2019. The average roe price in the BSAI was down 26\% in
-2019 to \$2.15 per pound, but value rose 1\% with the increase in
-production to \$132.2 million (Table \ref{tab:bsaiplck_wsl}).
+The Yen to U.S. Dollar exchange rate can influence prices and strengthed against 
+the Yen in 2020. The average roe price in the BSAI was down 7\% in
+2020 to \$2.01 per pound, the lowest observed. Value fell 17\% with the decrease in
+production to \$109.1 million (Table \ref{tab:bsaiplck_wsl}).
 
 ### Fish oil
 
@@ -673,8 +756,8 @@ estimates from the shore-based fleet may be
 biased low because some production occurs at secondary processors (fishmeal
 plants) in Alaska. The increased production of oil beginning in 2008 can be
 attributed to the steady trend to add more value per ton of fish landed.
-The oil production index increased 15\% in 2019 and was at levels not seen 
-since before 2015.
+The oil production index decrased 27\% in 2020 and was at levels not seen 
+since before 2012.
 
 # Data
 
@@ -687,13 +770,13 @@ The following lists the data used in this assessment:
 \hline
  Source & Type & Years \\
 \hline
- Fishery & Catch biomass & 1964--2020 \\
- Fishery & Catch age composition & 1964--2019 \\
+ Fishery & Catch biomass & 1964--2021 \\
+ Fishery & Catch age composition & 1964--2020 \\
  Fishery & Japanese trawl CPUE & 1965--1976 \\
- EBS bottom trawl & Area-swept biomass and age-specific proportions & 1982--2019 \\ 
+ EBS bottom trawl & Area-swept biomass and age-specific proportions & 1982--2019, 2020 \\ 
  Acoustic trawl survey & Biomass index and age-specific
  proportions & 1994, 1996, 1997, 1999, 2000, 2002, 2004, 2006--2010, 2012, 2014, 2016, 2018, 2020 \\
- Acoustic vessels of opportunity (AVO) & Biomass index & 2006--2019 \\
+ Acoustic vessels of opportunity (AVO) & Biomass index & 2006--2019, 2021 \\
 \hline
 \end{tabular}
 \end{table}
@@ -713,7 +796,7 @@ through shore-side sampling and at-sea observers. The three strata for the EBS
 were:  i) January–June (all areas, but mainly east of 170$^\circ$W); ii) INPFC area
 51 (east of 170$^\circ$W) from July–December; and iii) INPFC area 52 (west of 170$^\circ$W)
 from July–December. This method was used to derive the age compositions from
-1991--2019 (the period for which all the necessary information is readily
+1991--2020 (the period for which all the necessary information is readily
 available). Prior to 1991, we used the same catch-at-age composition estimates
 as presented in Wespestad et al. (1996).
 
@@ -736,8 +819,20 @@ at age. In 2011 the winter fishery catch consisted primarily of age 5 pollock
 (the 2006 year class) and later in that year age 3 pollock (the 2008 year
 class) were present. In 2012--2016 the 2008 year class was prominent in the
 catches with 2015 showing the first signs of the 2012 year-class as three
-year-olds in the catch (Fig. \ref{fig:catage}; Table \ref{tab:fsh_age}). The
-sampling effort for age determinations, weight-length measurements, and length
+year-olds in the catch (Fig. \ref{fig:catage}; Table \ref{tab:fsh_age}). However,
+by 2017 the 2013 year-class began to be also evident, and surpassed the 2012 
+year-class in dominance and continued through to 2020. In 2020, an unusual 
+presents of age-2 pollock appeared in the catch, along with some from the 
+2014 year-class while the 2012 year-class was a small part of the catch 
+(Fig. \ref{fig:catage}). The unusual pattern of switching adjacent year-classes
+was examined more closely to see if there was a pattern of spatial differences.
+Plotting the locales where the aged fish arose shows some separation with the 2013
+year-class occuring further north (Fig. \ref{fig:fsh_cohort_locales}). This could
+be due to a number of factors including the relative concentrations of the 
+original spawning fish and the relatively warm conditions which may have reduced
+the potential overlap and vulnerability to cannibalism.
+
+The sampling effort for age determinations, weight-length measurements, and length
 frequencies is shown in Tables \ref{tab:fsh_meas}, \ref{tab:lw_meas}, and
 \ref{tab:fsh_n}. Sampling for pollock lengths and ages by area has been shown
 to be relatively proportional to catches (e.g., Fig. 1.8 in Ianelli et al.
@@ -760,12 +855,13 @@ of crab and groundfish in the Eastern Bering Sea since 1979 and since 1982
 using standardized gear and methods. For pollock, this survey has been
 instrumental in providing an abundance index and information on the population
 age structure. This survey is complemented by the acoustic trawl (AT) surveys
-that sample mid-water components of the pollock stock. Between 1991 and 2019
+that sample mid-water components of the pollock stock. Between 1991 and 2021
 the BTS biomass estimates ranged from 2.28 to 8.39 million t 
 (Table \ref{tab:bts_biom}; Fig. \ref{fig:bts_biom}). In the mid-1980s and early
 1990s several years resulted in above-average biomass estimates. The stock
 appeared to be at lower levels during 1996--1999 then increased moderately
-until about 2003 and since then has averaged just over 4 million t. These
+until about 2003 and since then has averaged just over 4 million t (from the 
+standard EBS region using design-based estimators). These
 surveys also provide consistent measurements of environmental conditions, such
 as the sea surface and bottom temperatures. Large-scale zoogeographic shifts in
 the EBS shelf documented during a warming trend in the early 2000s were
@@ -782,15 +878,16 @@ slightly above average) but was highly unusual due to the complete lack of
 than zero degrees. In 2019, the mean bottom temperature was the warmest during
 the period the survey has occurred (since 1982;  Fig. \ref{fig:bts_temp}).  In
 2020 the survey was canceled and detailed data were
-unavailable. The 2020 Ecosystem report (Siddon 2020) contains model
+unavailable (although the 2020 Ecosystem report (Siddon 2020) contains model
 estimates of temperature distributions for the region and indicates that the bottom temperatures 
-and cold pool extent were about average in 2020.
+and cold pool extent were about average). In 2021, the temperatures on bottom were above average
+again with a relatively constricted cold pool extent.
 
 The AFSC has expanded the area covered by the bottom trawl survey over time.
 In 1987 the "standard survey area" comprising 6 main strata was increased 
 farther to the northwest and covered in all subsequent years. These two
 northern strata have varied in estimated pollock abundance.
-In 2019 about 9\% of the pollock biomass was found in these strata compared
+In 2021 about 9\% of the pollock biomass was found in these strata compared
 to a long term average of 5\% (Table \ref{tab:bts_biom}). 
 Importantly, this region is contiguous with the Russian
 border and the NBS region, and measures to increase consideration of those regions
@@ -811,9 +908,12 @@ The BTS abundance-at-age estimates show variability in year-class strengths
 with substantial consistency over time (Fig. \ref{fig:bts_age}). Pollock above
 40 cm in length generally appear to be fully selected and in some years many
 1-year olds occur on or near the bottom (with modal lengths around 10--19 cm).
-Age 2 or 3 pollock (lengths around 20--29 cm and 30--39 cm, respectively) are
-relatively rare in this survey presumably because they are more pelagic as
-juveniles. Observed fluctuations in survey estimates may be attributed to a
+Generally speaking, age 2 or 3 pollock (lengths around 20--29 cm and 30--39 cm, respectively) are
+relatively rare in this survey because they tend to be more pelagic as
+juveniles. In 2021, the relative abundance of these size ranges was more apparent
+and this was unusual compared to the other years (Fig. \ref{fig:bts_lenfreq}).
+
+Observed fluctuations in survey estimates may be attributed to a
 variety of sources including unaccounted-for variability in natural mortality,
 survey catchability, and migrations. As an example, some strong year classes
 appear in the surveys over several ages (e.g., the 1989 year class) while
@@ -860,6 +960,7 @@ Acoustic trawl (AT) surveys The AT surveys are typically conducted every other y
 to estimate the off- bottom component of the pollock stock (compared to the BTS which are conducted
 annually and provide an abundance index of the near-bottom pollock). The number of trawl hauls,
 lengths, and ages sampled from the AT survey are presented in  (Table \ref{tab:bts_abund}).
+
 Estimated pollock biomass (to 0.5m from bottom) for the EBS shelf was above 4 million tons in the
 early years of the time series (prior to 1998  Table \ref{tab:bts_abund} ).   Biomass dipped below 2
 million t in 1991. Since 1994, the years for which AT survey estimates are  available to within 0.5
@@ -867,17 +968,19 @@ m of bottom, the biomass increased and remained between about 3 and 4.5 million 
 (1994–2004). The early 2000s (a relatively ‘warm’ period) were characterized by low  pollock
 recruitment, which was subsequently reflected in lower pollock biomass estimates between 2006 and
 2012 (a ‘cold’ period; Honkalehto and McCarthy 2015). In 2014 and 2016 (another ‘warm’ period) with
-the growth of the strong 2012 year class, AT biomass estimates increased to over 4 million t,
-exceeding levels observed in 1994-2004  (Tables \ref{tab:bts_abund}).
+the growth of the strong 2012 year class, AT biomass estimates increased to over
+4 million t, exceeding levels observed in 1994-2004  (Table \ref{tab:bts_abund}).
 
 Relative estimation errors for the total biomass were derived from a one-dimensional (1D)
 geostatistical method, which accounts for observed spatial structure for sampling along transects 
 (Table 21; Petitgas 1993, Walline 2007, Williamson and Traynor 1996).  As in previous assessments,
 the other sources of error (e.g., target strength, trawl selectivity) were accounted for by
-inflating the annual error estimates to have an overall average CV of 20% for  application within
-the assessment model.  The age composition data from the ATS sampling are provided in  Table 22. 
+inflating the annual error estimates to have an overall average CV of 20% for
+application within the assessment model.  The age composition data from the ATS sampling are provided in  
+Table \ref{tab:ats_age}).
 
-#### Uncrewed surface vehicle (USV) deployment and data processing  
+<!--
+#### Uncrewed surface vehicle (USV) deployment and data processing
 
 NOAA’s fisheries research vessel
 was unable to perform the planned 2020 acoustic-trawl survey due to the COVID-19 pandemic. 
@@ -908,44 +1011,31 @@ conducted during the 2016 EBS survey have confirmed that the USVs and the NOAA s
 produce equivalent measurements of pollock backscatter under survey conditions (De Robertis et al.,
 2019).
 
-The three USVs reached the Bering Sea on July 4 and conducted a survey until August 20. Each vehicle
-covered about one third of the total survey area normally covered by research vessel, with each USV
-proceeding from south to north.  The timing of the survey was within the window of other acoustic
-surveys in the EBS (Fig. \ref{fig:at_timing}). 
-The USVs were equipped with Simrad EK80 mini split-beam 
-echo sounders equipped with 38/200 kHz combi-split transducers which were calibrated before and after 
-the survey The instruments were similar to those used on previous ship-based AT surveys. 
-One important difference is that the USVs were equipped with
-smaller transducers which transmit an 18 degree beam---larger than the 7 degree beam
-emitted from the larger transducers carried by NOAA survey vessels.  
-Given the larger beamwidth, the so-called ‘acoustic dead zone’ differs. 
-This zone refers to a near seafloor area within the beam where fish may go 
-undetected (and this varies with beamwidth angle). 
-To correct for this difference, we applied the method of Ona and Mitson (1996) and found that, given the physical differences from the 
-equipment and the degree to which fish aggregate near the seafloor, the adjustment to the data meant
-a 6.7% increase in total backscatter. 
-
-The ship-based AT surveys use trawls to sample fish aggregations observed acoustically. One 
-drawback of using the USVs is the inability to confirm the species, size, and
-biological characteristics of the acoustic backscatter. The lack of biological
-samples affects the ability to convert the areal measures of acoustic backscatter (sA, m2 nmi-2)
-into pollock biomass. The conversion depends on the species composition and size distribution of 
-the backscattering organisms. Also, biological samples help determine the age composition of the pollock
-that are within the backscatter. Fortunately, midwater fish in the survey area are
-predominately pollock (Fig. \ref{fig:at_pollock_in_sa}). 
-This simplifies the interpretation of acoustic measurements since fish aggregations are most likely to be pollock (e.g. as is assumed in the AVO
-backscatter index derived from the bottom trawl charter vessels (Honkalehto et al., 2011). 
-Nonetheless, retrospective analysis indicates that there is a strong relationship between total
-backscatter and biomass estimates from the research ships (Fig. \ref{fig:at_sa_biom}).
-As a result, linear regressions of these relationships (Fig. \ref{fig:at_sa_biom_regress})
-were used to convert the acoustic backscatter to biomass for the USV data collected in 2020. 
-As in previous surveys, the midwater component (>3m above bottom), and the demersal component ( 0.5 to 3m above bottom) were converted to biomass using
-separate relationships and then combined as demersal community composition is more diverse than in
-midwater (Lauffenburger et al., 2017). 
-A sensitivity analysis in which the biomass in each year was
-predicted based on the trawl samples in other years rather than the trawl observations in that year
-suggests that this conversion does not alter the primary trends in the time series 
-(Fig. \ref{fig:at_usv_biom}).
+The ship-based AT surveys use trawls to sample fish aggregations observed
+acoustically. One drawback of using the USVs is the inability to confirm the
+species, size, and biological characteristics of the acoustic backscatter. The
+lack of biological samples affects the ability to convert the areal measures of
+acoustic backscatter (sA, m2 nmi-2) into pollock biomass. The conversion depends
+on the species composition and size distribution of the backscattering
+organisms. Also, biological samples help determine the age composition of the
+pollock that are within the backscatter. Fortunately, midwater fish in the
+survey area are predominately pollock (Fig. \ref{fig:at_pollock_in_sa}).  This
+simplifies the interpretation of acoustic measurements since fish aggregations
+are most likely to be pollock (e.g. as is assumed in the AVO backscatter index
+derived from the bottom trawl charter vessels (Honkalehto et al., 2011).
+Nonetheless, retrospective analysis indicates that there is a strong
+relationship between total backscatter and biomass estimates from the research
+ships (Fig. \ref{fig:at_sa_biom}).  As a result, linear regressions of these
+relationships (Fig. \ref{fig:at_sa_biom_regress}) were used to convert the
+acoustic backscatter to biomass for the USV data collected in 2020.  As in
+previous surveys, the midwater component (>3m above bottom), and the demersal
+component ( 0.5 to 3m above bottom) were converted to biomass using separate
+relationships and then combined as demersal community composition is more
+diverse than in midwater (Lauffenburger et al., 2017).  A sensitivity analysis
+in which the biomass in each year was predicted based on the trawl samples in
+other years rather than the trawl observations in that year suggests that this
+conversion does not alter the primary trends in the time series (Fig.
+\ref{fig:at_usv_biom}).
 
 Another component of uncertainty for the USV data was the fact that due to time constraints, the
 transect spacing to cover the area of the EBS had to be doubled (this survey design was a
@@ -977,10 +1067,11 @@ data which expanded the survey grid to the area covered by the BTS survey (see a
 was used to enabled visualization of past surveys, and to computing an alternate index extrapolated
 over a larger survey area than that occupied by the survey  (Fig. \ref{fig:at_sa_density}).
 The VAST and design based survey estimates were considered as inputs to the assessment model.
+-->
 
 ## Other time series used in the assessment
 
-### Japanese fishery CPUE index 
+### Japanese fishery CPUE index
 An available time series relating the
 abundance of pollock during the period 1965--1976 was included. This series is
 based on Japanese  fishery catch rates which used the same size class of trawl
@@ -988,19 +1079,30 @@ vessels   as presented in  Low and Ikeda (1980). A coefficient of variation of
 20\% was applied.
 
 ### Biomass index from Acoustic-Vessels-of-Opportunity (AVO)
-The details of how acoustic backscatter data from the two commercial fishing
-vessels chartered for the eastern Bering Sea bottom trawl survey (BTS) were
-used to compute a midwater abundance index for pollock can be found in
-Honkalehto et al. (2011). Since the BTS was canceled this year, the AVO data are
-only available through to 2019 (Table \ref{tab:avo}).
 
-#  Analytic approach
+Acoustic backscatter data (Simrad ES60, 38 kHz) were collected aboard two
+fishing vessels chartered for the AFSC summer 2021 bottom trawl surveys (F/V
+Alaska Knight, F/V Vesteraalen).  These Acoustic Vessels of Opportunity (AVO)
+data were processed according to Honkalehto et al. (2011) to provide an index of
+age-1+ midwater pollock abundance in each year.  
 
-##  General model structure
+The 2021 AVO index of midwater pollock abundance on the eastern Bering Sea shelf
+increased by 38% from 2019 and is the 2nd highest value on record (1.8% less
+than the highest value recorded in 2015) (Table \ref{tab:avo}; note the AVO data
+were unavailable in 2020 since the BTS was canceled).  Spatially, the total
+pollock backscatter observed east of the Pribilof Islands during the summers of
+2010-2012 ranged from 4-9%.  Since 2013 the backscatter from this area ranged
+between 15% and 25%. (Fig. \ref{fig:data_avomap}).  
+
+
+
+# Analytic approach
+
+## General model structure
 
 A statistical age-structured assessment model conceptually outlined in
 Fournier and Archibald (1982) and like Methot’s (1990) stock synthesis model
-was applied over the period 1964--2020. A technical description is 
+was applied over the period 1964--2021. A technical description is 
 presented in the Model Details section attached. The analysis was first 
 introduced in the 1996 SAFE report and compared to the cohort analyses 
 that had been used previously and was later documented in Ianelli and Fournier (1998). 
@@ -1008,7 +1110,7 @@ The model was written in "ADMB"--a library for non-linear estimation and statist
 applications (Fournier et al. 2012). The data updated from last year’s
 analyses include:
 
-  - The 2019 fishery age composition data were added 
+  - The 2020 fishery age composition data were added 
 
   - The catch biomass estimates were updated through to the current year    
 
@@ -1031,21 +1133,19 @@ included as a model alternative and adopted for ABC/OFL specifications
 by the SSC. This application also included a spatio-temporal treatment of the
 age composition data which showed minor differences 
 compared to the standard design-based expansion of ages. Using the SSC
-convention for model numbering, we designated it as "Model 16.2". Given that this
-year we present a new data type, we examined the following models:
-
-  * Model 16.2 (identical to 2019 model selected by the SSC but includes updated fishery catch-at-age and catch biomass data)
-
-  * Model 20.0, a model which includes the 2020 USV data extending the time
-  series of ATS biomass estimates
-
-  * Model 20.1, a model which includes the 2020 USV data but applies a
-  spatio-temporal model (VAST) to the backscatter data from 1994-2018 (RV Oscar
-  Dyson) in addition to the USV backscatter data from 2020.
+convention for model numbering they selected "Model 20.0" which had a new data type. 
+Model 20.0 (also referred to as the "base" model---and is identical to the 2020 model 
+selected by the SSC but includes updated fishery catch-at-age and catch biomass data).
+We examined the influence of additional data new to this assessment, but restrict expansion to
+alternative "models" this year (but do examine alternative Tier scenarios). We note that 
+tests of the pollock data for this assessment have been developed using models presented in Li et al. (2021)
+and others but the features (e.g., using an informed fixed-effects model for projecting weight-at-age and
+allowing a covariance matrix for index time series) has restricted adopting a more commonly
+used assessment framework. 
 
 ### Tier 1 considerations
-For the latter set of evaluations (Model 20.0), we examined the factors
-affecting Tier 1 classifications including the reliable pdf of $F_{MSY}$, 
+In the 2020 assessment we examined the factors
+affecting Tier 1 classifications including the required "reliability" of the estimated pdf of $F_{MSY}$, 
 i.e., the influence of assumptions related to the uncertainties on the stock 
 recruitment relationship, body mass-at-age, maturation, and fishery selectivity.
 For a number of years the Tier 1 ABC and OFL specifications for EBS pollock have
@@ -1073,16 +1173,13 @@ relative to the status quo (Model 20.0) configuration:
 
 The first option is intended to reflect that the high value observed of the 1978
 year-class occurred under an estimated low level of spawning biomass (designated Model 20.0a). The
-rationale for excluding this influential value would be that the stock structure
-and environmental conditions may differ now. This could be an aspect of
-non-stationarity in the relationship that is worth considering. Also, it is
-unknown if spawning from other adjacent regions (e.g., the spawning biomass
-that contributed to the Aleutian Basin fishery throughout the 1980s) contributed
-to the success of this year-class. Sensitivity test b) is intended to
-illustrate the role of the prior mean and variance on the steepness estimate.
+rationale for excluding this influential value was be that the stock structure
+and environmental conditions may differ now indicating non-stationarity in the relationship. Results showed that it mattered but was
+relatively minor and seemed unlikely to disqualify the estimates required for Tier 1.
+Sensitivity test b) was intended to illustrate the role of the prior mean and variance on the steepness estimate.
 Finally sensitivities c) and d) were considered as how the SRR may translate an
 implicit assumption under Tier 3 since $F_{35\%}$ is a proxy for $F_{MSY}$ and
-$F_{45\%}$ is closer to the recent mean SPR rate.
+$F_{45\%}$ is closer to the recent mean SPR rate. 
 
 ### Input sample size
 Sample sizes for age-composition data were re-evaluated in 2016 against
@@ -1098,6 +1195,7 @@ these effective sample size weights were estimated following Francis 2011
 
 ## Parameters estimated outside of the assessment model
 ### Natural mortality and maturity at age
+
 The baseline 16.1 (and 16.2) model specification has been to use constant
 natural mortality rates at age (M=0.9, 0.45, and 0.3 for ages 1, 2, and 3+
 respectively (Wespestad and Terry 1984). 
@@ -1172,7 +1270,7 @@ fitting within the ABC).
 
 To explore patterns in size-at-age and fish condition, we applied the extensive
 fishery observer data weight given length. We began by standardizing for length
-over all available years and areas (1991--2019) as follows:
+over all available years and areas (1991--2020) as follows:
  
   1. extract all data where non-zero measurements of pollock length and weight 
 	 were available between the lengths of 35 and 60 cm for the EBS region
@@ -1204,36 +1302,37 @@ However, the between-year variability in mean weights-at-age is relatively high
 (Table \ref{tab:wtage}). The coefficients of variation between years are on the 
 order of 6\% to 9\% (for the ages that are targeted) whereas the sampling variability 
 is generally around 1\% or 2\%. The approach to account for the identified 
-mean weight-at-age having clear year
-and cohort effects was continued (e.g., Fig. \ref{fig:fsh_wtage_comb}).
+mean weight-at-age having clear year and cohort effects was continued (e.g., Fig. \ref{fig:fsh_wtage_comb}).
 Details were provided in appendix 1A of Ianelli et al. (2016). The results
 from this method showed the relative variability between years and cohorts and
-provide estimates (and uncertainty) for 2020--2022
-(Table \ref{tab:wtage}). 
+provide estimates (and uncertainty) for 2021--2023
+(Table \ref{tab:wtage}). How these fishery weights-at-age estimates can be supplemented
+using survey weights-at-age is further illustrated in Fig. \ref{fig:fish_wtage_data_pred}.
 
-In the 2019 fishery, the average weight-at-age for the two most important year
-classes (2012 and 2013) appeared to be average whereas in 2018, those
-year-classes appeared to be below average body weight 
-(Fig. \ref{fig:fsh_wtage_comb}). To examine this more closely, we split the bootstrap results into area-season 
-strata and were able to get an overall picture of the pattern by strata (Fig. \ref{fig:fsh_wtage_strata}) and
-Fig. \ref{fig:fsh_wtage_strata_yr}). This showed that the mean weight-at-age is
+In the 2020 fishery, the average weight-at-age was below average for the 
+2012-2014 year classes. These cohorts have fluctuated around their means
+in recent years (Fig. \ref{fig:fsh_wtage_comb}). To examine this more closely, 
+we split the bootstrap results into area-season 
+strata and were able to get an overall picture of the pattern by strata (Fig. \ref{fig:fsh_wtage_strata}) 
+and Fig. \ref{fig:fsh_wtage_strata_yr}). This showed that the mean weight-at-age is
 higher in the the B-season in the area east of 170$^\circ$W compared to the
 A-season and B-season in the area west 170$^\circ$W.
 
 
 ## Parameters estimated within the assessment model
-For the selected model, 979 parameters were estimated conditioned on data and
+
+For the selected model, 1112 parameters were estimated conditioned on data and
 model assumptions. Initial age composition, subsequent recruitment, and stock-
 recruitment parameters account for 79 parameters. This includes vectors
 describing the initial age composition (and deviation from the equilibrium
 expectation) in the first year (as ages 2--15 in 1964) and the recruitment mean
-and deviations (at age 1) from 1964--2019 and projected recruitment variability
-(using the variance of past recruitments) for five years (2021--2026). The two-
+and deviations (at age 1) from 1964--2020 and projected recruitment variability
+(using the variance of past recruitments) for five years (2022--2027). The two-
 parameter stock-recruitment curve is included in addition to a term that
 allows the average recruitment before 1964 (that comprises the initial age
 composition in that year) to have a mean value different from subsequent
 years. Note that the stock-recruit relationship is fit only to stock and
-recruitment estimates from 1978 year-class through to the 2018 year-class.
+recruitment estimates from 1978 year-class through to the 2019 year-class.
 
 Fishing mortality is parameterized to be semi-separable with year and age
 (selectivity) components. The age component is allowed to vary over time;
@@ -1243,13 +1342,13 @@ to be equal. This latter specification feature is intended to reduce the
 number of parameters while acknowledging that pollock in this age-range are
 likely to exhibit similar life-history characteristics (i.e., unlikely to
 change their relative availability to the fishery with age). The annual
-components of fishing mortality result in  57 
+components of fishing mortality result in  58 
 parameters and the age-time
-selectivity schedule forms a 10x57 matrix of 570 
+selectivity schedule forms a 10x58 matrix of 580 
 parameters bringing the total
-fishing mortality parameters to 627. The rationale for including time-
+fishing mortality parameters to 638. The rationale for including time-
 varying selectivity has recently been supported as a means to improve
-retrospective patterns (Szuwalski, Ianelli, and Punt 2017) and as best
+retrospective patterns (Szuwalski et al. 2017) and as best
 practice (Martell and Stewart, 2013).
 
 For surveys and indices, the treatment of the catchability coefficient, and
@@ -1282,9 +1381,9 @@ that are used to fit the model can be categorized as:
   * Log-normal indices of pollock biomass; bottom trawl surveys assume annual
    estimates of sampling error, as represented in Fig. \ref{fig:bts_biom} along with the 
    covariance matrices (for the density-dependent and VAST index series); for the AT index
-   the annual errors were specified to have a mean of 0.20; while for the AVO
-   data, a value relative to the AT index was estimated and gave a mean of
-   about 0.25).
+   the annual errors were specified to have a mean CV of 0.20; while for the AVO
+   data, a value relative to the AT index was estimated and scaled to have a mean CV of 
+   0.3).
   *	Fishery and survey proportions-at-age estimates (multinomial 
    	with effective sample sizes presented Table \ref{tab:input_n}).
   *	Age 1 index from the AT survey (CV set equal to 30\% as in prior assessments).    
@@ -1292,9 +1391,9 @@ that are used to fit the model can be categorized as:
   *	Stock-recruitment: penalties/priors involved with fitting a stochastic 
     stock-recruitment relationship within the integrated model.
   *	“Fixed effects” terms accounting for cohort and year sources of variability
-     in fishery mean weights-at-age estimated based on available data from 1991-2019 from the fishery (and 1982-2020 for the bottom-trawl survey
+     in fishery mean weights-at-age estimated based on available data from 1991-2020 from the fishery (and 1982-2021 for the bottom-trawl survey
      data) and externally estimated variance terms as described in 
-     Appendix 1A of Ianelli et al. (2016).
+     Appendix 1A of Ianelli et al. (2016; see Fig. \ref{fig:fish_wtage_data_pred}).  
 
 Work evaluating temperature and predation-dependent effects on the stock-
 recruitment estimates continues (Spencer et al. 2016). This approach modified
@@ -1310,116 +1409,44 @@ pollock recruitment for recent years were also found by Yasumiishi et al.
 ## Model evaluation
 
 A sequential sensitivity of available new data showed that adding the 2020
-fishery  catch-at-age data and the 2020 catch biomass information was
-relatively uninformative  with respect to spawning biomass estimates (Fig.
-\ref{fig:mod_data}).  As the new design-based biomass estimate from the USV data
-were added to the model (named Model 20.0), the biomass estimate changed slightly 
-(Fig. \ref{fig:mod_data}). Subsequently, we were able to apply a VAST model
-configuration to the acoustic backscatter from the survey vessels (prior to
-2020) and from the USV for 2020. Historically the CVs for the ATS data have been
-scaled to have a mean of 20% while allowing for inter-annual variation the CVs.
-An alternative we tested was to simply apply the sampling errors as they are
-computed for the design-based method and for the VAST application. Results from
-this show that the assumption for specified CVs from the design-based method
-had a relatively large impact on the results compared to doing the same thing
-with the VAST index data. The relative trends in survey were less smooth when the 
-original sampling variability was used (Fig. \ref{fig:mod_ats_eval1}). The impact on 
-the spawning biomass resulted in similar trends but definitely narrower error bands compared with
-the base model assumption (CV averaged 20%; Fig. \ref{fig:mod_ats_eval2}). 
-Diagnostics of model fits between the set evaluated are given in Table \ref{tab:mod_fits} and 
-comparisons of management quantities are given in Table \ref{tab:mgt_quants}).
-For setting advice, we selected Model 20.0 as the baseline as we feel the USV
-data extend the time series of historical biomass in way that makes the best use
-of past and new data. The VAST application to the backscatter information 
-(Model 20.1) provided similar trends and has some advantages over Model 20.0
-(e.g., the area included is constant for all years). However, we selected Model
-20.0 because 20.1 is based on backscatter data only. Model 20.1 excludes
-the corrections (which are minor it seems) to species and size composition of
-the fish observed by echo sounders and sampled by trawl gear.
+fishery  catch-at-age data and the 2021 catch biomass information was
+relatively uninformative  with respect to spawning biomass estimates (Fig. \ref{fig:mod_data}).  
+As the new 2021 bottom-trawl survey estimates were added to the model (named Model 20.0), 
+the biomass estimate dropped since the recent biomass estimate was lower than expected (Fig. \ref{fig:mod_data}). 
+Addition of the 2021 length composition and preliminary catch-at-age data
+had a minor impact on biomass and recruitment (Fig. \ref{fig:mod_21_agecomp}). 
+Diagnostics of model fits between the set evaluated are given in Table \ref{tab:mod_fits} 
+and comparisons of management quantities are given in Table \ref{tab:mgt_quants}).
+For setting advice, we selected Model 20.0 with the additional 2021 fishery age composition 
+data. While the data are preliminary, we considered that including them was worthwhile 
+given the relative impact on selectivity. 
 
-The SRR evaluations related to Tier 1 classification showed that dropping the
+In the 2020 assessment, SRR evaluations related to Tier 1 classification showed that dropping the
 influence of the 1978 year-class in the estimation lowered the steepness of the
-curve (Fig. \ref{fig:mod_srr_sq_a}). When the influence of the prior
-distribution was removed, the left-most "data" were all below the curve 
-(Fig. \ref{fig:mod_srr_a_b}). This reiterates how the prior was selected in 
-the past---namely to fit the slope at the origin better. Finally, conditioning the
-SRR to fit the condition of having the "actual" $F_{MSY}$ equal some $F_{MSY}$ 
-proxies (e.g., equal $F_{35\%}$) shows that the resulting curve, while being
-more conservative (shallower initial slopes), fit the observations reasonably 
-(Fig. \ref{fig:mod_srr_sq_c_d}). One conclusion from this exercise could be that
-the SPR proxy for $F_{MSY}$ implies a reasonable "shape" to the SRR. Another is
-that dropping the 1978 year-class influence on the fit could provide some added
-precaution. Finally, as noted in past assessments, fitting the apparent low
-year-classes that occurred during periods of high spawning biomass results in
-very high steepness values near the origin (and misses the data in region of
-lower spawning biomass).
-
-
-
-
-<!-- 
-From this I can say (in phase III) speculatively that, compared to actual historical Fs Fmsy harmonic mean is 
-Likely to create more variability and extreme fluctuations in catch (at higher levels of relative effort...I am a fan of remembering that F_t=E_t q 
-Something about buffers being higher (or lower)...
-Almost nothing decision theoretic
-Bring into question the reliability of the PDF of Fmsy?
-The BTS and ATS sample from distinct overlapping subsets of the water
-column:
-
-the BT covers from bottom to midwater, and AT from midwater to surface.  The
-proportion of fish available to each gear type depends on their vertical
-distribution, which varies in space and time. In the current and past
-assessments, this uncertainty counted as a type of process error (but with
-somewhat subjective approach to specifying the degree of variability allowed).
-A new method under development (Monnahan et al. in prep) that explicitly
-models the vertical distribution of fish in discrete,  spatially-correlated
-depth strata. This model accounts for vertically-overlapping gears and is
-informed by both acoustic and bottom trawl data sets simultaneously.  These
-capabilities were added to the spatio-temporal standardization software VAST
-(Thorson 2019) which provides a convenient analysis platform and allows
-inclusion of temporal smoothing and environmental covariates, among other
-features.  Spatial patterns of pollock density for some selected years are
-shown in Fig. \ref{fig:cole1} and the relative availability to the gear types
-is shown in Fig. \ref{fig:cole2}). As the results become available, a model
-configuration using the combined index will be meshed as a direct alternative
-survey data  series fitting (e.g., by explicitly modeling survey
-availability). 
-
-This new study prompted an evaluation of the degree to which BTS selectivity 
-(and effectively, catchability/availability) is allowed to vary over time. As
-before, the two parameters governing the ascending slope and age at 50\% 
-selected were modeled as 
-random walk processes with a penalty (or prior constraint)
-specified to balance fitting composition and trend data from
-all sources reasonably. 
-Profiling on the selectivity change constraint showed that, as parameterized 
-via logistic parameters, a relatively high process error variance term (low penalty) 
-still indicated that the model was not overfitting  different data components 
-(e.g., the standard deviation of the normalized residuals (SDNR)
-scores are near 1.0 and
-not below (which would indicate over-fitting; Table \ref{tab:mod_prof_fits}.). 
-This provided some objective justification for this specification and is illustrated
-with the availability study (\ref{fig:q_sens}.). The impact of the 
-assumption to allow effective catchability to vary appears to be conservative, with
-more constraining selectivity changes resulting in higher spawning stock 
-biomass estimates (Fig. \ref{fig:q_sens}.). 
---> 
+curve and that when the influence of the prior
+distribution was removed the residual pattern for estimates near the origin was particularly 
+bad (all below the curve). From those results we conclude that the prior specification was
+appropriate because we place priority on fitting estimated recruits near 
+the slope at the origin better. Last year's assessment also showed that 
+conditioning the SRR to fit the condition of having the "actual" $F_{MSY}$ equal some $F_{MSY}$ 
+proxies (e.g., equal $F_{35\%}$) shows that the results 
+were more conservative (shallower initial slopes). 
+A conclusion from these exercises was that the SPR proxy for $F_{MSY}$ implies a 
+reasonable "shape" to the SRR. 
 
 The fit to the early Japanese fishery CPUE data (Low and Ikeda 1980) was
 consistent with the estimated population trends for this period (Fig.
-\ref{fig:mod_cpue_fit}).   The model fits the fishery- independent index from
-the 2006--2019 AVO data well indicating a downward trend since 2015 but stabilizing
-compared to 2018 values (Fig. \ref{fig:mod_avo_fit}). 
-The fits to the bottom-trawl survey biomass (the
-density-dependent corrected series) were reasonable (Fig.
+\ref{fig:mod_cpue_fit}).   The model fits the fishery-independent index from
+the 2006--2021 AVO data well through most of the period but the model predicts lower biomass 
+than the index data indicate (Fig. \ref{fig:mod_avo_fit}). 
+The model fits to the bottom-trawl survey biomass (the
+density-dependent corrected series) were good (Fig.
 \ref{fig:mod_bts_biom}). Similarly, the fits to the  acoustic-trawl survey
-biomass series was consistent with the specified observation uncertainty (Fig.
+biomass series (including the USV data from 2020) was consistent with the specified observation uncertainty (Fig.
 \ref{fig:mod_ats_biom}).
 
-The estimated parameters and standard errors are provided
-[online](https://archive.fisheries.noaa.gov/afsc/refm/stocks/plan_team/2020/EBSPollock_params.pdf) 
-The code for the model (with dimensions
-and links to parameter names) and input files are available on request.
+The estimated parameters and standard errors are provided [online](https://apps-afsc.fisheries.noaa.gov/Plan_Team/2021/EBSPollock_params.pdf).
+The code for the model (with dimensions and links to parameter names) and input files are available on request.
 
 The input sample size (as tuned in 2016 using "Francis Weights") can be
 evaluated visually for consistency with expectations of mean annual age for
@@ -1427,8 +1454,7 @@ the different gear types (Fig. \ref{fig:mod_mean_age}; Francis 2011). The
 estimated selectivity pattern  changes over time and reflects to some degree
 the extent to which the fishery is focused on particularly prominent year-
 classes (Fig. \ref{fig:mod_fsh_sel}). The model fits the fishery age-
-composition data quite well under this form of selectivity (Fig.
-\ref{fig:mod_fsh_age}). 
+composition data quite well under this form of selectivity (Fig. \ref{fig:mod_fsh_age}). 
 
 Bottom-trawl survey selectivity (Fig. \ref{fig:mod_bts_sel}) and fits to the
 pollock biomass index indicate that the model predicts fewer
@@ -1444,8 +1470,7 @@ expectations of 5-year old pollock were much lower than observations (both
 surveys indicated that the 2013 year class was more abundant than the 2012
 year-class).
 
-The fit to the ATS biomass index 
-survey generally falls within the confidence bounds of the survey sampling
+The fit to the ATS biomass index survey generally falls within the confidence bounds of the survey sampling
 distributions (here assumed to have an average CV of 20\%) with a reasonable
 pattern of residuals (Fig. \ref{fig:mod_ats_biom}). The AT age compositions
 consistently track large year classes through the population and the model
@@ -1454,12 +1479,17 @@ fits these patterns reasonably well (Fig. \ref{fig:mod_ats_age}).
 As in past assessments, an evaluation of the multivariate posterior
 distribution  was performed by running a chain of 3 million Monte-Carlo Markov
 chain (MCMC) simulations and saving every 600th iteration (final posterior
-draws totaled 5,000). A pairwise comparison for some key parameters could be
-evaluated (along with their marginal distributions;  Fig.
-\ref{fig:mcmc_pairs}). To compare the point estimates (highest posterior
-density) with the mean of the posterior marginal distribution, overplotting
-the former on the latter for the 2020 spawning biomass estimate were similar
-(Fig. \ref{fig:mcmc_marg}). 
+draws totaled 5,000). We evaluated how selected parameters relate by doing a pairwise 
+(along with their marginal distributions) figure (Fig. 
+\ref{fig:mcmc_pairs}). This illustrates how key parameters relate to management parameters of interest.
+For example, the stock recruitment steepness is negatively correlated to the resulting 
+$B_{MSY} estimate. We also compare the point estimates (highest posterior density) with the mean of the 
+posterior marginal distribution of the 2021 spawning biomass. This showed that the point estimate was
+similar to the mean of the marginal posterior distribution (Fig. \ref{fig:mcmc_marg}). 
+As an additional part of the Tier 1 consideration, we evaluated the posterior
+density of $F_{MSY}$. This indicates that the measure of uncertainty accounting 
+(i.e., the probability density function or PDF) for $F_{MSY}$ seems reasonably approximated 
+by this assessment model (Fig. \ref{fig:mcmc_marg_fmsy}). 
 
 
 ## Time series results
@@ -1471,10 +1501,10 @@ the mid-1980s due to the strong 1978 and relatively strong 1982 and 1984 year
 classes recruiting to the fishable population. The stock is characterized by
 peaks in the mid-1980s, the mid-1990s and again appears to be increasing to
 new highs over 13 million t in 2016 following the low in 2008 of 
-4.7 million t. The estimate for 
-2020 is trending downward and at 
-8.69 million t.
-with 2021 estimated at 8.15 million t.
+4.45 million t. The estimate for 
+2021 is trending downward and at 
+6.84 million t.
+with 2022 estimated at 6.86 million t.
 
 The level of fishing relative to biomass estimates show that the spawning
 exploitation rate (SER, defined as the percent removal of egg production in
@@ -1484,7 +1514,7 @@ mortality for ages 3--8 increased during the period of stock decline. The
 estimate for 2009 through 2019 was below 20\% due to the reductions in TACs
 relative to the maximum permissible ABC values and increases in the spawning
 biomass. The average F (ages 3--8) increased in 2011 to above 0.25 when the TAC
-increased but has dropped since then and in 2020 is estimated at about 17\%.
+increased but has dropped since then and in 2021 is estimated at about 17\%.
 Age specific fishing mortality rates reflect these patterns and show some
 increases in the oldest ages from 2011--2013 but also indicate a decline in
 recent years (Fig. \ref{fig:mod_F}). The estimates of age 3+ pollock
@@ -1504,8 +1534,8 @@ changed over time). Since 1977 the current estimates of fishing mortality
 suggest that during the early period, harvest rates were above $F_{MSY}$ until
 about 1980. Since that time, the levels of fishing mortality have averaged
 about 35\% of the $F_{MSY}$  level (Fig. \ref{fig:mod_phase}). 
-Projections of spawning stock biomass given the 2021 estimate of
-fishing mortality rate given catches equal to the 2020 values shows a 
+Projections of spawning stock biomass given the 2022 estimate of
+fishing mortality rate given catches equal to the 2021 values shows a 
 decline through 2021 and then an increase after; albeit with 
 considerable uncertainty due to uncertainty in recruitment 
 (Fig. \ref{fig:proj_ssb}). 
@@ -1515,13 +1545,14 @@ considerable uncertainty due to uncertainty in recruitment
 Model estimates indicate that the 2008, 2012, and 2013 year classes are 
 above average (Fig. \ref{fig:mod_rec}). The stock-recruitment curve as
 fit within the integrated model shows a fair amount of variability both in the
-estimated recruitments and in the uncertainty of the curve (Fig.
-\ref{fig:mod_srr}). Note that the 2015 and 2016 year classes (as age 1 recruits in
-2016 and 2017) are excluded from the stock-recruitment curve estimation.
+estimated recruits and in the uncertainty of the curve (Fig. \ref{fig:mod_srr}). 
+Note that the 2019 and 2020 year classes (as age 1 recruits in
+2020 and 2021) were excluded from the stock-recruitment curve estimation.
 Separate from fitting the stock- recruit relationship within the model,
 examining the estimated recruits-per-spawning biomass shows variability over
 time but seems to lack trend and also is consistent with the Ricker stock-
 recruit relationship used within the model (Fig. \ref{fig:mod_rs}).
+
 
 Environmental factors affecting recruitment are considered important and
 contribute to the variability. Previous studies linked strong Bering Sea
@@ -1545,42 +1576,79 @@ Ianelli et al. (2011) evaluated the consequences of current harvest policies
 in the face of warmer conditions with the link to potentially lower pollock
 recruitment and noted that the current management system is likely to face
 higher chances of ABCs below the historical average catches.
+Also, as part of the evaluation of stationarity given periods of "regimes", 
+we revisited estimated mean recruitment during different periods previously 
+identified as being unique. This show an pattern consistent with the impact of
+warming on recruits with the period from 2000--present having below average
+the current regime (since 1977) average (Fig. \ref{fig:mod_regimes}).
 
 
 ## Retrospective analysis
 Running the assessment model over a grid with progressively fewer years
 included (going back to 20 years, i.e., assuming the data extent ended in
-2000) results in a fair amount of variability in both spawning biomass and
-recruitment (Fig. \ref{fig:mod_retro}) Although the variability is high, the
-average bias appears to be low with Mohns $\rho$ equal to 0.008
- for the 10 year retrospective and 0.086 if extended  back 20-years.
+2001) results in a fair amount of variability in both spawning biomass and
+recruitment (Fig. \ref{fig:mod_retro}). This year with the lower than expected survey biomass estimate,
+the retrospective pattern degraded considerably with an increased 
+average bias (Mohns $\rho$ equal to 0.216
+ for the 10 year retrospective and 0.132 if extended  back 20-years). 
+
+In response to the SSC's request to evaluate how selectivity is used for ABC and catch advice, 
+we used the retrospective runs to show how the "projected" selectivity compared with subsequent estimates
+which had the benefit of more data. In 2020, the projected selectivity was towards younger fish but in 
+general, the projected selectivity conformed reasonably well with subsequent estimates (Fig. \ref{fig:retro_sel}). 
+We also computed a summary statistic of the mean age of selection (independent of any age-specific stock size) which
+showed that recently the projection was biased towards younger pollock but earlier on, the bias was toward older fish 
+(Fig. \ref{fig:retro_sel_mnage}).
+
+Since selectivity varies over time, and the fact that fishing mortality rates for management advice depends
+on the assumed future selectivity, we evaluate the pattern of $F_{MSY}$ rates given different selectivity assumptions 
+(XXFig and elaboration to come...)
+
 
 
 # Harvest recommendations
 ## Status summary
 
-The estimate of $B_{MSY}$ is 2,257 kt (with a CV of 
-24\%)  which is less than the projected 
-2021 spawning biomass of 2,600 kt;  (Table
-\ref{tab:res_summ}).  For 2020, the Tier 1 levels of yield are 
-2,307,000 t from a fishable biomass estimated at around 7,597 kt
-(Table \ref{tab:tier1_proj}; about 115\%  of the
+The estimate of $B_{MSY}$ is 2,187 kt (with a CV of 
+  26\%)  which is more
+than the projected 
+2022 spawning biomass of 1,900 kt;  (Table
+\ref{tab:res_summ}).  For 2021, the estimates put the stock in Tier 1b.
+The corresponding maximum permissible ABC would thus be
+1,331,000 t with a fishable biomass estimated at around 4,979 kt
+(Table \ref{tab:tier1_proj}). For the current year spawning biomass this corresponds to 83\%  of the
 $B_{MSY}$ level). A diagnostic (see section below on model details) on the impact 
-of fishing shows that the 2020 spawning stock size is about 
-58\%  of the predicted value had no fishing occurred
- since 1978 (Table \ref{tab:res_summ}). This compares with the 48\% 
-of $B_{100}$\% (based on the SPR expansion using mean recruitment from 1978--2017) 
-and 131\%
-of $B_{MSY}$ (based on the estimated stock-recruitment curve). The latter two
-values are based on expected recruitment from the mean value since 1978 or
-from the estimated stock recruitment relationship.
+of fishing shows that the 2021 spawning stock size is about 
+43\%  of the predicted value had no fishing occurred
+ since 1978 (Table \ref{tab:res_summ}). 
 
+Compared to Tier 3 projections, the results indicate that spawning biomass in
+2022 will be about 32\% 
+of $B_{100}$\% (based on the SPR expansion using mean recruitment from 1978--2019). 
+This would put the stock in Tier 3b and below
+$B_{40\%}$ and result in a 2021 ABC of 964,000 t.
 
-Relative to Tier 3 indicators, the model indicates that spawning biomass will
-be above $B_{40\%}$  (2,600 kt) in 2021. 
 The probability that the current stock size is below 20\% of $B_{0}$ (a level important for additional
 management measures related to Steller sea lion recovery) 
-is <0.1\% for 2021 and 2022.
+is <0.1\% for 2022 and 2023.
+
+
+In response to a request from the SSC, this year we added results from projections based on Tier 2.
+We base the "standard" Tier 2 ABC calculation using the point estimate (the mean of the posterior 
+distribution) of $F_{MSY}$.
+Therefore, for 2022 the Tier 2b
+ABC would be 1,181,000 t. 
+Since we have estimates of the harmonic mean (from Tier 1 calculations) 
+an alternative Tier 2 estimate using that in place of the arithmetic mean 
+$F_{MSY}$ results in an ABC of 1,046,000 t. 
+
+In summary, the criterion for Tier 1 depends on a reliable estimate of 
+$F_{MSY}$ and the uncertainty (the PDF). Tier 2 also requires a reliable estimate of 
+$F_{MSY}$ (without the PDF requirement). Given the seemingly reasonable posterior marginal
+density for $F_{MSY}$, it seems if Tier 1 criterion are unmet, then so would the requirement
+for Tier 2. Adopting Tier 3, while in principle may result in more conservative catch advice, 
+it uses less information available about the stock productivity and requires adopting more
+assumptions.
 
 
 ## Amendment 56 Reference Points
@@ -1600,20 +1668,25 @@ estimates from post-1976 spawning events:
 
 \begin{table}[ht]
 \begin{tabular}{lr}
-$B_{MSY}$    &=	2,257 kt female spawning biomass    \\
-$B_{0}$      &=	5,792 kt female spawning biomass    \\
-$B_{100\%}$  &=	6,142 kt female spawning biomass   \\
-$B_{40\%}$   &=	2,457 kt female spawning biomass    \\
-$B_{35\%}$   &=	2,150 kt female spawning biomass    \\
+$B_{MSY}$    &=	2,187 kt female spawning biomass    \\
+$B_{0}$      &=	5,577 kt female spawning biomass    \\
+$B_{100\%}$  &=	5,674 kt female spawning biomass   \\
+$B_{40\%}$   &=	2,270 kt female spawning biomass    \\
+$B_{35\%}$   &=	1,986 kt female spawning biomass    \\
 \end{tabular}
 \end{table}
 
 ## Specification of OFL and Maximum Permissible ABC
 
-Assuming the stock-recruit relationship the 2021 spawning biomass is
-estimated to be 2,602,000 t (at the time of spawning, assuming the stock is
-fished at about recent catch levels). This is above the $B_{MSY}$ value of 
-2,257,000 t. Under Amendment 56, this stock has qualified under Tier 1 and
+Assuming the stock-recruit relationship the 2022 spawning biomass is
+estimated to be 1,905,000 t (at the time of spawning, assuming the stock is
+fished at about recent catch levels). 
+This means that the stock is below
+the $B_{MSY}$ value of 2,187,000 t.
+
+This would put the stock in Tier 3b and below
+2,187,000 t. 
+xxxUnder Amendment 56, this stock has qualified under Tier 1 and
 the harmonic mean value is considered a risk-averse policy since reliable
 estimates of $F_{MSY}$ and its pdf are available (Thompson 1996). The
 exploitation- rate type value that corresponds to the $F_{MSY}$ level was
@@ -1627,8 +1700,8 @@ for Tier 1 maximum permissible ABC (Ianelli et al. 2015). The uncertainty in
 future mean weights-at-age had a relatively large impact as did the
 selectivity estimation.
 
-Since the 2021 female spawning biomass is estimated to be above the $B_{MSY}$ level
-(2,257 kt) and the $B_{40\%}$ value (2,457 kt) in 2021 and if the 2020 catch
+Since the 2022 female spawning biomass is estimated to be above the $B_{MSY}$ level
+(2,187 kt) and the $B_{40\%}$ value (2,270 kt) in 2022 and if the 2021 catch
 is as specified above, then the OFL and maximum permissible ABC values by the
 different Tiers would be:
 
@@ -1638,11 +1711,11 @@ different Tiers would be:
   \hline
 Tier & Year & MaxABC & OFL \\ 
   \hline
-1a & 2021 & 2,307,000 & 2,594,000 \\ 
-  1a & 2022 & 2,105,000 & 2,366,000 \\ 
+1a & 2022 & 1,331,000 & 1,503,000 \\ 
+  1a & 2023 & 1,552,000 & 1,752,000 \\ 
    \hline
-3a & 2021 & 1,626,000 & 1,986,000 \\ 
-  3a & 2022 & 1,484,000 & 1,788,000 \\ 
+3a & 2022 & 964,000 & 1,175,000 \\ 
+  3a & 2023 & 1,105,000 & 1,341,000 \\ 
    \hline
 \end{tabular}
 \end{table}
@@ -1660,11 +1733,11 @@ number of additional assumptions that presume future knowledge about
 stock-recruit uncertainty, the projections in this subsection are based on
 Tier 3.
 
-For each scenario, the projections begin with the vector of 2020 numbers
+For each scenario, the projections begin with the vector of 2021 numbers
 at age estimated in the assessment. This vector is then projected forward to
-the beginning of 2021 using the schedules of natural mortality and
+the beginning of 2022 using the schedules of natural mortality and
 selectivity described in the assessment and the best available estimate of
-total (year- end) catch assumed for 2020. In each subsequent year, the
+total (year- end) catch assumed for 2021. In each subsequent year, the
 fishing mortality rate is prescribed on the basis of the spawning biomass in
 that year and the respective harvest scenario. Annual recruits are simulated
 from an inverse Gaussian distribution whose parameters consist of maximum
@@ -1679,7 +1752,7 @@ rate scenarios.
 Five of the seven standard scenarios will be used in an Environmental
 Assessment prepared in conjunction with the final SAFE. These five scenarios,
 which are designed to provide a range of harvest alternatives that are likely
-to bracket the final TAC for 2021, are as follows (“$maxFABC$” refers to
+to bracket the final TAC for 2022, are as follows (“$maxFABC$” refers to
 the maximum permissible value of FABC under Amendment 56):
 
 \begin{description}
@@ -1689,12 +1762,12 @@ TAC has been constrained by ABC, so this scenario provides a likely upper
 limit on future TACs).
 
 \item[Scenario 2:]   
-In 2021 and 2022 the catch is set equal to 1.35 million t
+In 2022 and 2023 the catch is set equal to 1.35 million t
 and in future years $F$ is set equal to the Tier 3 estimate (Rationale: this 
 has been about equal to the catch level in recent years).
 
 \item[Scenario 3:]   
-In all future years, $F$ is set equal to the 2019 average $F$. (Rationale:
+In all future years, $F$ is set equal to the 2020 average $F$. (Rationale:
 For some stocks, TAC can be well below ABC, and recent average $F$ may provide a
 better indicator of $F_{TAC}$ than $F_{ABC}$.)
 
@@ -1710,15 +1783,15 @@ extreme cases, TAC may be set at a level close to zero.)
 \item[Scenario 6:]   
 In all future years, F is set equal to $F_{OFL}$. (Rationale:  This scenario
 determines whether a stock is overfished. If the stock is expected to be 
-1) below its MSY level in 2020 or 2) below half of its MSY level in 2020 or below
-its MSY level in 2030 under this scenario, then the stock is overfished.)
+1) below its MSY level in 2021 or 2) below half of its MSY level in 2021 or below
+its MSY level in 2031 under this scenario, then the stock is overfished.)
 
 \item[Scenario 7:]   
-In 2021 and 2022, F is set equal to $maxFABC$, and in all subsequent years, F
+In 2022 and 2023, F is set equal to $maxFABC$, and in all subsequent years, F
 is set equal to $F_{OFL}$. (Rationale:  This scenario determines whether a stock is
 approaching an overfished condition. If the stock is 1) below its MSY level in
-2022 or 2) below 1/2 of its MSY level in 2022 and expected to be below its MSY
-level in 2032 under this scenario, then the stock is approaching an
+2023 or 2) below 1/2 of its MSY level in 2023 and expected to be below its MSY
+level in 2033 under this scenario, then the stock is approaching an
 overfished condition).
 
 \end{description}
@@ -1728,12 +1801,12 @@ determine whether a stock is currently in an overfished condition or is
 approaching an overfished condition (for Tier 3 stocks, the MSY level is
 defined as $B_{35\%}$).
 
-## Projections and status determination 
+## Projections and status determination
 
 For the purposes of these projections, we present results based on selecting
 the $F_{40\%}$ harvest rate as the $F_{ABC}$ value and use $F_{35\%}$ as a
 proxy for $F_{MSY}$. Scenarios 1 through 7 were projected 14 years from 
-2020 (Tables 35 through \ref{tab:tier3_SSB} for Model 16.1 and for 16.2--the 
+2021 (Tables 35 through \ref{tab:tier3_SSB} for Model 16.1 and for 16.2--the 
 configuration that uses the NBS VAST data set). Under the
 catch set to Tier 3 ABC estimates, the expected spawning biomass will
 decline until 2020 and stabilize slightly above $B_{40\%}$ (in expectation,
@@ -1745,16 +1818,16 @@ two years is defined to be approaching an overfished condition. Harvest
 scenarios 6 and 7 are used in these determinations as follows:
 
 Is the stock overfished? This depends on the stock’s estimated spawning
-biomass in 2020:
+biomass in 2021:
 
-* If spawning biomass for 2020 is estimated to be below 1/2 $B_{35\%}$ the stock is below its MSST.   
+* If spawning biomass for 2021 is estimated to be below 1/2 $B_{35\%}$ the stock is below its MSST.   
 
-* If spawning biomass for 2020 is estimated to be above $B_{35\%}$, the stock is above its MSST.   
+* If spawning biomass for 2021 is estimated to be above $B_{35\%}$, the stock is above its MSST.   
 
-* If spawning biomass for 2020 is estimated to be above 1/2 $B_{35\%}$ but below $B_{35\%}$,
+* If spawning biomass for 2021 is estimated to be above 1/2 $B_{35\%}$ but below $B_{35\%}$,
  the stock’s status relative to MSST is determined by referring to harvest
  scenario 6 ((Tables \ref{tab:tier3_C} through \ref{tab:tier3_SSB}). If the mean spawning biomass for
- 2030 is below $B_{35\%}$, the stock is below its MSST. Otherwise, the stock is
+ 2031 is below $B_{35\%}$, the stock is below its MSST. Otherwise, the stock is
  above its MSST.
 
 Is the stock approaching an overfished condition?  This is determined by
@@ -1764,44 +1837,44 @@ referring to harvest Scenario 7:
 
 * If the mean spawning biomass for 2018 is above $B_{35\%}$, the stock is not approaching an overfished condition.  
 
-* If the mean spawning biomass for 2022 is above 1/2 $B_{35\%}$ but below $B_{35\%}$, the
+* If the mean spawning biomass for 2023 is above 1/2 $B_{35\%}$ but below $B_{35\%}$, the
   determination depends on the mean spawning biomass for 2028. If the mean
-  spawning biomass for 2032 is below $B_{35\%}$, the stock is approaching an
+  spawning biomass for 2033 is below $B_{35\%}$, the stock is approaching an
   overfished condition. Otherwise, the stock is not approaching an overfished
   condition.
 
 For scenarios 6 and 7, we conclude that pollock is above MSST for the year 
-2020,  and it is expected to be above the "overfished condition" based on
-Scenario 7 (the mean spawning biomass in 2020 is above the $B_{35\%}$
+2021,  and it is expected to be above the "overfished condition" based on
+Scenario 7 (the mean spawning biomass in 2021 is above the $B_{35\%}$
 estimate; (Table \ref{tab:tier3_SSB}). Based on this, the EBS pollock stock is
 being fished below the overfishing level and the stock size is estimated to be
 above, and stay above the overfished level.
 
 To fulfill reporting requirements for the Species Information System, each 
 model was used to reverse-engineer the fishing mortality rate corresponding to the 
-specified OFL for the last complete year (2019). This reverse-engineered $F_{OFL}$ 
+specified OFL for the last complete year (2020). This reverse-engineered $F_{OFL}$ 
 values ($RE F_{OFL}$) is 0.508.
 
 
-## ABC Recommendation 
+## ABC Recommendation
 
 ABC levels are affected by estimates of $F_{MSY}$ which
 depends principally on the estimated stock-recruitment steepness parameter,
 demographic schedules such as selectivity-at-age, maturity, and growth. The
-current stock size (both spawning and fishable) is estimated to be  at
-above-average levels and projections indicate declines.  Updated data and
-analysis result in an estimate of 2020 spawning biomass (2,960
-kt) which is about  131\% of $B_{MSY}$ 
-(2,257 kt).  This follows a period of increases from
+current stock size (both spawning and fishable) is estimated to be  below
+average levels and projections indicate the potential for further declines.  Updated data and
+analysis result in an estimate of 2021 spawning biomass (1,810
+kt) which is about  83\% of $B_{MSY}$ 
+(2,187 kt).  This follows a period of increases from
 2008--2017. The extent that the stock will decline further depends  on recruitment, which 
 given the available information, is uncertain.
-Given the same estimated aggregate fishing effort in 2020, the 
+Given the same estimated aggregate fishing effort in 2021, the 
 estimated stock trend is downwards except at low catch levels. Furthermore, 
-the ability to catch roughly the same amount as in 2020 
+the ability to catch roughly the same amount as in 2021 
 through to 2023 will require more effort (effectively) and will result
 in further declines in spawning biomass.
 
-### Should the ABC be reduced below the maximum permissible ABC? 
+### Should the ABC be reduced below the maximum permissible ABC?
 
 The SSC in its September 2018 minutes recommended that assessment authors and
 Plan Teams use the risk matrix table below when determining whether to
@@ -1877,20 +1950,17 @@ might be relevant include the following (as identified by the work-group):
     from the stock biomass trend, unusual spatial pattern of fishing, changes in
    the percent of TAC taken, changes in the duration of fishery openings.” 
 
-*Assessment considerations*   The EBS pollock assessment model appears to
-track the  stock from year based on retrospective analysis (the pattern lacks
-tendency to over or under estimate the stock trend. The model tracks the
-available data well including  multiple abundance indices. Of minor concern
-(presently) is the fact that the model estimate of declining abundance is
-somewhat less than that suggested by the survey data. The data and model
-appear to be consistent without big surprises relative to the ability to fit
-the information and provide a trade-off between process and observation errors
-(which combined, provide relatively high estimates of uncertainty).
-The lack of two summer surveys in 2020 (and 3 updated biomass indices) might be
-a consideration. However, the addition of the USV data and general consistency
-from the spatial pattern of pollock abundance and what the fishery was catching
-seems consistent. 
- **We therefore rated the assessment-related concern as level 1, normal.**
+*Assessment considerations*   The EBS pollock assessment model has appeared
+to track the  stock from year based on retrospective analysis in previous 
+assessment. This year however, the lower than expected survey observation
+lowered the recent biomass estimates and the retrospective analysis indicated
+a tendency to over estimate the stock trend.
+ The model tracks the available data reasonably well except for the strong 
+ increase in the AVO index relative to 2019.
+The abundance estimate from the NBS was down 
+and relative to population age composition, the pattern in the 2012 and 2013 year-classes
+is unusual.
+ **We therefore rated the assessment-related concern as level 2, substantially increased concern.**
 
 *Population dynamics considerations*  The age structure of EBS pollock  has
 exhibited some peculiarities over time. On the positive side, some strong
@@ -1898,136 +1968,180 @@ year-classes appear to have increased in abundance based on the bottom-trawl
 survey data (e.g., the 1992, 2012 and 2013 year classes). Conversely, the period
 from 2000--2007 had relatively poor year-class strengths which resulted in
 declines in stock below $\it{B_{msy}}$ and reduced TACs due to lower ABC
-values. There also are clear density-dependent effects on growth, in
-particular, the 2012 year class. The stock is estimated to be well above
-$\it{B_{msy}}$ at present, but projections indicate a decline given recent
-catch levels and future trends will depend on pollock survival at egg, larval,
-and juvenile stages which may be compromised given the lack of a cold pool and
-a  considerable redistribution into the northern part of the Bering Sea. 
+values. Presently it appears that the mean recruitment since 2000 has been 
+below average (Fig. \ref{fig:mod_regimes}). 
+There also are clear density-dependent effects on growth, in
+particular, the 2012 year class. The stock is estimated to be  below
+$\it{B_{msy}}$ at present, and projections indicate a reasonable chance that the stock will
+decline further given recent catch levels.
+The extent that the the lack of a cold pool and
+will impact pollock survival at egg, larval,
+and juvenile stages is uncertain.
 Recruitment in the near term could be below average yet projections
 assume average recruitment (with uncertainty).
 Additional age-specific aspects of the spawning population indicates that the
-stock has recovered somewhat from  a low diversity of ages (for both the
+stock has increased from  a low diversity of ages (for both the
 population and the mean age of the spawning stock weighted by spawning output
-Fig. \ref{fig:age_diversity}). **We therefore rated the population-dynamics
-concern as level 1, normal.**
+Fig. \ref{fig:age_diversity}). 
+We also recognize that the stock-recruitment relationship selected for this cannibalistic
+species requires a relatively informative prior distribution in order to 
+have the residuals of the estimates relative to the curve to be less biased nearer
+the slope of the origin. This could be interpreted as being undesirable and having undue 
+influence on the underlying stock productivity (noting that it has been demonstrated
+that the prior leads to increased conservativism).
+
+**We therefore rated the population-dynamics concern as level 2, substantially increased concern.**
 
  *Environmental/Ecosystem considerations*\footnote{Provided by: Elizabeth Siddon, NOAA/AFSC} 
-*Environmental processes* Following two years of physical oceanographic perturbations, the eastern Bering Sea experienced a return to near-normal climatic conditions in 2020. Residual warmth delayed sea ice formation until late 2019. Considerable cooling then allowed for rapid build-up of sea ice, even exceeding median ice extent in parts of February and March 2020. The 2019-2020 daily mean extent was within 1 SD of the long-term mean. However, ice thickness was low, and retreated quickly in spring.
-Summer bottom temperatures and spatial extent of the cold pool were average based on  
-the ROMS hindcast model and observations from the 2020 Dyson cruise. However, summer 
-sea surface temperatures through August were above average in the southeastern
-and northern Bering Sea, similar to those observed in 2019. In fact, both the
-southeastern and northern Bering Sea are experiencing a persistent warm stanza, 
-greater in both magnitude and duration than that of the early 2000s.
-The winters of 2017/2018 and 2018/2019 had strong south winds, which contributed to low sea ice extent in those years. These anomalous winds from the south are hypothesized to have bolstered productivity over the shelf, sustained metabolic demands, and subsidized overwinter survival of the 2018 year class of pollock. The most recent winter (2019/2020) had an average wind speed direction (north/south) near the long-term average. Similarly, based on the OSCURS model, the 2020 springtime drift pattern was mixed, with an early period of eastward drift followed by a period of westward drift that may have retained larvae over the middle shelf.
-These environmental indicators are presented in the new Physical Oceanography Summary 
- section of the 2020 EBS Ecosystem Status Report (Siddon, 2020). 
+
+*Environmental processes* 
+Beginning in approximately 2014, the eastern Bering Sea (EBS) entered a warm phase of unprecedented
+duration. The EBS remains in this warm phase, though to a lesser degree compared to the extreme
+years of 2018 and 2019. Sea ice formation in fall of 2020 was delayed due to residual warmth in the
+system. While the areal extent of sea ice was closer to the pre-2014 levels than at any point in the
+last 7 years, ice thickness differed between the northern (thicker ice) and southern (thinner/no
+ice) shelves due to opposing prevailing winds (see Physical Environment Synthesis in Siddon, 2021).
+The summer 2021 cold pool remained significantly reduced in area, and its southern boundary was
+shifted northwestward. The areal extent of the cold pool has increased since 2018, yet the 2021
+extent was the 4th lowest on record and remains more than one standard deviation below the mean
+(Rohan and Barnett, 2021a). Summer bottom temperatures varied spatially over the shelf. Near-average
+conditions were present over the SEBS, while the NBS had a very warm inner domain (i.e., Norton
+Sound) and a small cold pool over the middle domain to the southwest of St. Lawrence Island (Rohan
+and Barnett, 2021b).
+
+Multiple ecosystem ‘red flags’ occurred in the NBS this year: crab population declines (Richar,
+2021), salmon run failures in the Arctic-Yukon-Kuskokwim region (Liller, 2021), and seabird die-offs
+combined with low colony attendance and poor reproductive success (see Integrated Seabird
+Information in Siddon, 2021). In addition, results from the bottom trawl survey demonstrate a
+substantial drop in total CPUE in the NBS between 2019 and 2021 that reflected large decreases in
+all of the dominant species, including pollock (Mueter and Britt, 2021). Whether a single or suite
+of mechanisms can be identified to explain these coincident events, the common thread in these
+collapses is the marine environment in the NBS. Concerns about the food web dynamics and carrying
+capacity in the NBS have existed since 2018, highlighted by the gray whale Unusual Mortality Event
+and short-tailed shearwater mass mortality event (Siddon and Zador, 2019).
+
+Fish condition, as measured by length-weight residuals, trended downward from 2019 for multiple
+groundfish species, including benthic, pelagic, and apex predators, across both the southern and
+northern portions of the survey area (Rohan and Prohaska, 2021), indicating poor feeding conditions
+across trophic niches. While adult pollock (>25 cm) followed this trend of decreasing condition
+based on length/weight residuals in the southern and northern survey areas, juvenile pollock
+(100-250 mm) showed positive residuals in both regions (Rohan and Prohaska, 2021), indicating
+sufficient foraging conditions existed for juvenile pollock. The information on pollock condition
+based on fishery standardized mean weights-given-length was also relatively low during 2020 and 2021 
+(Fig. \ref{fig:fsh_lw_anom_yr_box}).
 
 Age-0 fish experiencing warm temperatures during late summer followed by relatively cooler
-temperatures in spring of age-1 are thought to have below average survival (Yasumiishi, 2020). 
-Based on this Temperature Change index, the 2016 and 2019 year classes are predicted to have
-below-average recruitment to age-4 in 2020 and 2023. 
-
-*Prey:* The spring bloom over the south inner and middle domains occurred about a week earlier than
-the long-term mean; in comparison, 2017 was among the earliest spring blooms while 2018 was among
-the latest (Nielsen et a., 2020). Chlorophyll concentrations in this region have been below the
-long-term mean since 2016. Depending on the spatial and temporal overlap of productivity, this can
-result in a match or mismatch with favorable feeding conditions for larval pollock. Small copepods
-form the prey base for larval to early juvenile pollock during spring. Late juvenile pollock feed on
-a variety of planktonic crustaceans, including calanoid copepods and euphausiids. Pollock diets
-become more piscivorous with age and cannibalism is commonly observed. No direct measurements of
-zooplankton community composition are available for 2020 due to survey cancellations.  The abundance
-of large copepods during late-summer is correlated with recruitment to age-3 pollock; low abundance
-of large copepods during late-summer 2017 and 2018 indicate poor overwinter survival and recruitment
-to age-3 in 2020 and 2021 (Yasumiishi et al., 2020). In 2019, over the southern middle shelf, small
-copepods were abundant in spring while large copepod abundance was quite low in late-summer (Kimmel
-et al., 2020). This indicates good foraging conditions for larval and juvenile pollock early in the
-year, however, large, lipid-rich copepods may have again limited energy storage for age-0 pollock
-entering their first winter.  Fish condition (as measured by weighted length-weight residuals
-[updated method]) patterns over the southeastern and northern shelves differed for juvenile (100-250
-mm total length) and adult (>250 mm TL) pollock in 2019 (no 2020 survey data available) (Rohan and
-Laman, 2020). Within both regions, juvenile condition was at the long-term mean while adult
-condition was positive. This indicates juvenile fish may not be finding adequate prey resources,
-while adult fish are finding adequate prey (including cannibalism on juvenile pollock). Spatially,
-adult pollock showed negative residuals while juvenile pollock showed positive residuals over the
-inner shelf from 2015-2019 (warm years). 
-
-_Predators:_ Pollock are cannibalistic and rates of
-cannibalism might be expected to increase as the biomass of older, larger fish increases. In 2019,
-over the southern shelf, biomass increased 75% indicating movement of adult fish over the southern
-shelf. In the northern Bering Sea, abundance increased, but biomass decreased, indicating successful
-recruitment over the northern shelf (L. Britt, pers comm). In 2020, with an average cold pool extent
-over the shelf, predation pressure from cannibalism may have been mitigated by this thermal barrier
-as adult pollock tend to avoid the cold bottom waters. Fur seal consumption of adult pollock
-generally increases in years when juvenile pollock are less abundant (Kuhn et al., 2019). However,
-no information on 2020 population trends for fur seals is available. Other potential predators of
-juvenile pollock include jellyfish and chum salmon; no direct measurements of predation pressure
-exist at this time. 
-
-_Competitors:_ While historical recruitment trends between Pacific cod and 
-pollock have mirrored each other, the timeseries appear to decouple between 2008 and 2009. This may
-indicate broad-scale transitions in the southeastern Bering Sea ecosystem (e.g., from pelagic- to
-benthic-dominated production). The mechanisms driving early life history survival versus recruitment
-success of Pacific cod and pollock may differ based on pelagic versus benthic habitat
-associations (e.g., prey availability). The decoupling of abundance timeseries suggests a shift (or
-greater disparity) between drivers of survival in these two populations. The widespread die-off
-event of short-tailed shearwaters slowed in 2020 (Siddon, 2020). Shearwaters are planktivorous birds
-and feed on euphausiids in the Bering Sea in summer. The die-off event is thought to reflect poor
-foraging conditions for birds during summer 2018 as most sampled birds showed signs of emaciation;
-lower mortality in 2020 may reflects (i) better feeding conditions in 2019 or (ii) lower overall
-population levels for shearwaters.
+temperatures in spring of age-1 are thought to have below average survival. Based on this
+Temperature Change index, the 2020 year class is predicted to have below-average recruitment to
+age-4 in 2024 (Yasumiishi, 2021).
 
 
-**Summary for Environmental/Ecosystem considerations**  
+*Prey* 
+The spring bloom over the south inner and middle domains occurred at or slightly later than the
+long-term average. In comparison, at mooring M2, 2017 was among the earliest spring blooms while
+2018 was among the latest (Nielsen et al., 2021). Chlorophyll concentrations in these regions have
+been below the long-term median since 2016, although the south inner region was at the median value
+in 2021 (Nielsen et al., 2021). Depending on the spatial and temporal overlap of productivity, this
+can result in a match or mismatch with favorable feeding conditions for larval pollock.
 
-  -  The eastern Bering Sea returned to near-normal climatic conditions in 2020;
-  -  Sea ice extent exceeded the historical median in parts of February and March 2020;
-  -  Ice thickness was low and retreated quickly in spring 2020;
-  -  The spatial extent of the cold pool was average;
-  -  The eastern Bering Sea is experiencing a persistent warm stanza, greater in both magnitude and duration than that of the early 2000s;
-  -  The 2019 year class experienced unfavorable temperature conditions from age-0 to age-1 and is predicted to have below-average recruitment to age-4 in 2023. 
-  -  Winter 2019/2020 had an average wind speed direction (north/south) near the long-term average;
-  -  The 2020 springtime drift pattern was mixed indicating larvae may have been retained over the southern middle shelf; 
-  -  The spring bloom over the southern shelf occurred about a week earlier than the long-term mean;
-  -  Chlorophyll concentrations over the southern shelf have been below the long-term mean since 2016;
-  -  Low abundance of large copepods during late-summer in 2017-2019 indicate poor overwinter survival and recruitment to age-3 in 2020-2022;
-  -  Condition (weighted length-weight residuals) of juvenile pollock (100-250 mm TL) in 2019 was at the long-term mean indicating moderate foraging conditions;
-  -  Condition of adult pollock (>250 mm TL) in 2019 was above-average indicating good foraging conditions (including cannibalism of juvenile pollock);
-  -  Predation pressure from cannibalism may have been mitigated by the average spatial extent of the cold pool (i.e., thermal barrier);
-  -  The decoupling of abundance timeseries for Pacific cod and pollock suggests a shift in drivers of survival in these two populations and may indicate broad-scale transitions in the ecosystem (e.g., from pelagic- to benthic-dominated production);
-  -  The widespread die-off event of short-tailed shearwaters slowed in 2020 and may reflect better feeding conditions (i.e., euphausiids) over the shelf in 2019.
+Small copepods form the prey base for larval to early juvenile pollock during spring. Late juvenile
+pollock feed on a variety of planktonic crustaceans, including calanoid copepods and euphausiids.
+Pollock diets become more piscivorous with age and cannibalism is commonly observed. In 2021, over
+the southern shelf, the springtime abundance of small copepods was within historical ranges and
+large copepods appeared on-track to be available for age-0 fish later in the year (Kimmel et al.,
+2021). In addition, higher abundances of adult euphausiids were observed which, if persistent
+through summer, would also provide a significant food source to forage fish (Kimmel et al., 2021).
+Over the northern shelf in late summer, similar zooplankton patterns were observed with low
+abundances of small copepods, but slight increases in the abundance of large copepods and
+euphausiids (Kimmel et al., 2021). The annual ration of EBS pollock (Holsman et al., 2021)?
+
+*Predators* 
+Pollock are cannibalistic and rates of cannibalism might be expected to increase as the biomass of
+older, larger fish increases. In 2020, with an average cold pool extent over the shelf, predation
+pressure from cannibalism may have been mitigated by this thermal barrier as adult pollock tend to
+avoid the cold bottom waters. In 2021, a small retracted cold pool likely offered no thermal refuge
+or barrier for juvenile pollock. However, the biomass of pelagic foragers, including adult pollock
+dropped in 2021 to their second lowest value over the time series (Whitehouse, 2021a). With the
+exception of Pacific herring, the 2021 index for all other species and functional groups in the
+pelagic forager guild were below their long term means (Whitehouse, 2021a).
+
+Fur seal consumption of adult pollock generally increases in years when juvenile pollock are less
+abundant (Kuhn et al., 2019). However, no information on population trends for fur seals is
+available since 2019.
+
+Other potential predators of juvenile pollock include jellyfish and chum salmon. Jellyfish abundance
+was high in 2019 (among the top 4 highest years since 1982), but declined to low abundance in 2021
+(Britt, 2021). Chum salmon abundance has been declining precipitously in the Arctic-Yukon-Kuskokwim
+Region since 2017 to their lowest level in the time series in 2021 (Liller, 2021), a trend also
+reflected in the commercial harvest data (Whitehouse, 2021b).
+
+*Competitors* 
+The 2021 Bristol Bay sockeye salmon inshore run was the largest on record since 1963 (Cunningham et
+al., 2021). Juvenile sockeye salmon feed on zooplankton (competitors with age-0 pollock) and age-0
+pollock (competitors with adult pollock) in warm years; adults feed on zooplankton and krill. The
+widespread die-off event of short-tailed shearwaters in 2019 slowed in 2020 (Siddon, 2020), with an
+uptick in die-off numbers in 2021 especially in the northern Bering Sea (see Integrated Seabird
+Information in Siddon, 2021). Shearwaters are planktivorous birds and feed on euphausiids in the
+Bering Sea in summer. The die-off event of 2019 is thought to reflect poor foraging conditions for
+birds during summer 2018 as most sampled birds showed signs of emaciation; the event of 2021 may
+reflect strains on the carrying capacity of the northern Bering Sea region.
+
+
+
+**Summary for Environmental/Ecosystem considerations:**  
+
+  - The eastern Bering Sea has been in a prolonged warm phase since 2014;
+
+  - Extent of sea ice was closer to pre-2014 levels than at any point in the last 7 years,
+
+  - Sea ice thickness differed between the northern (thicker ice) and southern (thinner/no ice)
+    shelves due to opposing prevailing winds;
+
+  - The cold pool was reduced in area and its southern boundary was shifted northwestward;
+
+  - Concerns about the food web dynamics and carrying capacity in the NBS have existed since 2018
+    and may reflect poor feeding conditions in the northern Bering Sea;
+
+  - Condition of adult pollock (as measured by length/weight residuals) trended down across the
+    Bering Sea while juvenile pollock showed positive condition, indicating sufficient foraging
+    conditions existed for juvenile pollock;
+
+  - The 2020 year class experienced unfavorable temperature conditions from age-0 to age-1 and is
+    predicted to have below-average recruitment to age-4 in 2024;
+
+  - Spring bloom timing and chlorophyll concentrations over the southern shelf were average in 2021.
+
+  - Zooplankton composition in spring indicated potentially favorable foraging conditions for age-0
+    pollock through summer, especially over the southern shelf.
+
+  - Predation pressure from cannibalism may have been mitigated by declines in biomass of pelagic
+    foragers, including adult pollock.
+
+  - Predation pressure from jellyfish and chum salmon was also reduced due to relative declines in
+    the abundance of jellyfish and chum salmon over the shelf.
+
+  - Bristol Bay sockeye salmon compete with both juvenile and adult pollock for prey (zooplankton,
+    euphausiids, age-0 pollock), therefore sustained high inshore runs of sockeye salmon may have
+    system-wide impacts on foraging success of pollock.
 
 **We therefore rated the Ecosystem concern as Level 2, substantially increased concern.**
-Some indicators showing adverse signals relevant to the stock but the pattern was inconsistent across indicators.
 
-*Fishery performance* As noted above, the 2020 B-season fishery was
-more dispersed and experienced relatively low catch rates compared to
-recent years. Also, an approach to computing fleet dispersion (the relative
+
+*Fishery performance* As noted above, the 2021 B-season fishery was
+improved over 2020 but there remains concern about small pollock in the catches.
+Also, an approach to computing fleet dispersion (the relative
 distance or spread of the fishery in space)  was developed and indicated that
-while the A-season was intensely concentrated in 2019, in 2020 it was more
-dispersed and this metric also increased for the fleet during the B-season 
-(Fig \ref{fig:fleet_dispersal}).
+while the seasonal dispersion levels was below average indicating that the fishery 
+was less spread out than normal (Fig \ref{fig:fleet_dispersal}).
 
-The pollock fishery faced a number of PSC issues with very high CPUE
-increases for sablefish and for herring (Fig \ref{fig:fsh_psc_cpue}).
-species. Chinook salmon encounters were relatively high again in 2020 as with 2019 and
-overall mortality slightly higher than last year.  Sectors were operating under
-a higher annual threshold in 2020 as compared with 2019 due to the index of
-Chinook salmon abundance from three key western Alaska rivers remaining above
-the specified threshold (it was below the threshold for the 3-River Index in
-2019 resulting in lowered PSC limits). Mortality has reduced slightly in A
-season compared to 2019 but moderately higher in B season. Encounter rates may
-have been higher in 2020 as a result of more salmon returning. The fleet was
-also balancing measures to avoid herring in the A season and increased sablefish
-incidental catch particularly in the B season. 
-In 2020, the overall numbers of chum salmonPSC were slightly lower than recent
-years as the fleet continued to avoid chum salmon bycatch hot spots.  
+The CPUE of PSC species and other bycatch moderated some relative to 2020.
+Sablefish, herring and Chinook salmon bycatch rates (per hour of fishing) decreased
+from 2020 but chum salmon had a marked increase (Fig. \ref{fig:fsh_psc_cpue}).
 
-The fact that the pollock fleet experienced poor fishing conditions
-throughout most of the 2020 B-season, pollock being skinny given their
-length, and the catch comprised of fish unusually small, 
-**We scored fishery performance a value of 2, substantially increased concerns.**
+The mean weight-at-age for the 2020 B-season was near average, but in general pollock were skinny given their
+length, and the fact that in 2020 a significant component of the catch was 2-year old pollock 
+which are rarely found in the catch led us to **conclude that  the fishery 
+performance scored a value of 2, substantially increased concerns.**
 
 These results are summarized as:
 \begin{table}[h]
@@ -2036,28 +2150,28 @@ These results are summarized as:
  \multicolumn{4}{c}{Considerations}  & \\
 Assessment-related & Population dynamics  & Environmental or ecosystem &Fisheries\\
 \hline
-Level 1: No concern                       & Level 1: No concern &
+Level 2: Substantially increased concerns & Level 2: Substantially increased concerns  &
 Level 2: Substantially increased concerns & Level 2: Substantially increased concerns  \\
 \hline
 \end{tabular}
 \end{table}
 
-Having two out of four scores at level 2 suggests that setting an ABC below the
-maximum permissible may be warranted. 
+Having all four scores at level 2 suggests that setting an ABC below the
+maximum permissible is warranted. 
 The SSC recommended against using a table that showed example alternatives to select
 buffers based on that risk level. Thompson (unpublished Sept 2018 plan team
 document) tabulated the magnitude of buffers applied by the Plan Teams for the
 period 2003--2017, and found that the mode of the buffers recommended was
 10--20\%. Using this as a guideline, a buffer of 15\% would give an ABC as
 $0.85 \times \text{ABC}_{max}$ = 
-1,960 
+1,131 
 kt). In the past,
 the SSC has considered factors similar to those presented above  and selected
 an ABC based on Tier 3 estimates. We recommend this added precaution 
 again this year, (i.e., 
-ABC = 1,626 kt) 
+ABC = 964 kt) 
 which implies a
-buffer of  30\%.   The SSC requested
+buffer of  28\%.   The SSC requested
 "an explicit set of concerns that explain the ABC adjustment." In response, we
 direct attention to the decision table \ref{tab:dec_table}) and the fact that the biological basis 
 for the continued stock productivity has most to do with the OY constraint
@@ -2076,41 +2190,45 @@ of the years). The mean spawning biomass over this period has  averaged about
 target", Punt et al. (2013) developed some robust estimators for $B_{MEY}$
 (Maximum Economic Yield) noting that a typical target would be 1.2$\times
 B_{MSY}$. In this case that would make the female spawning biomass target at
-2.708 million t. It therefore  seems worth considering
+2.625 million t. It therefore  seems worth considering
 making an explicit harvest control rule that achieves the  productivity and
 ecosystem stability given the catches and biomass estimates 
 observed over  the past 30 years. 
 
-Recognizing that the actual catch will be constrained by other factors (the 2
-million t BSAI groundfish catch limit and bycatch avoidance measures), 
-applying the maximum permissible Tier 1a ABC seems clearly risky. Such high
-catches would result in unprecedented variability and removals from the stock
-(and require considerably more capacity and effort). Less variability in catch
- would also result in less spawning stock variability (and reduce risks to the
-fishery should another period of poor recruitments occur).  To more fully
-evaluate these considerations performance indicators as modified from Ianelli
+In recent years when the pollock biomass was estimated to be well above average,
+the catch was constrained by other factors. Specifically, the 2
+million t BSAI groundfish catch limit and bycatch avoidance measures has an
+impact on the potential for large increases in catch. As the stock is presently
+estimated to be below $B_{MSY}$, the maximum permissible ABC under the FMP 
+can become the limiting factor for TAC specification. Unfortunately, this ABC
+can ratchet down quickly because as the stock declines further
+below this target stock size, the ABC fishing mortality rate t is adjusted 
+downwards nearly proportionately. This part of the FMP control rule can create
+high variability in the TAC. Less variability in the catch, accordingly, 
+ would also result in less spawning stock variability and reduce risks to the
+fishery should the period of poor recruitment continue.  
+To more fully evaluate these considerations performance indicators as modified from Ianelli
 et al. (2012) were developed to evaluate some near-term risks given 
-alternative 2021 catch values.  These indicators and rationale for
+alternative 2022 catch values.  These indicators and rationale for
 including them are summarized in Table \ref{tab:dec_tab_rationale}).   Model
 16.1 results for these indicators are provided in  Table \ref{tab:dec_table}.
-Each column of this table uses a fixed 2021 catch and assumes the same
-effort  for the four additional projection years (2022--2025).
+Each column of this table uses a fixed 2022 catch and assumes the same
+effort  for the four additional projection years (2023--2026).
  Given this specification , there is a low probability that any of the catches
   shown in the first row would exceed the $F_{MSY}$ level.  Also, in the near
 term it appears unlikely that the spawning stock will be below $B_{MSY}$ (rows
-3 and 4).  Relative to the historical mean spawning biomass, by 2021 it
+3 and 4).  Relative to the historical mean spawning biomass, by 2022 it
 is more likely than not that the spawning biomass will be lower than the
 historical mean (fifth row). The range of catches examined have relatively
 small or no impact on  the age diversity indicators. However, for catch to
-equal the 2020 value, more fishing effort will likely be required
- and there is
-a good chance that the proportion of the stock less than age 6 will be
+equal the 2021 value, more fishing effort will likely be required
+and there is a good chance that the proportion of the stock less than age 6 will be
 greater than the historical average. In terms of catch advice, the results presented in 
 the decision table indicates that catches above 1.0 million t will very likely result in 
-2022 spawning stock estimates being below the long term mean (but above $B_{MSY}$).
+2023 spawning stock estimates being below the long term mean (but above $B_{MSY}$).
 
-Another approach/rationale would be to stabilize effort from the 2020 levels and
-recommend that 2021 fishing mortality is set equal to the 2020 estimate. This
+Another approach/rationale would be to stabilize effort from the 2021 levels and
+recommend that 2022 fishing mortality is set equal to the 2021 estimate. This
 gives an ABC of 1,300,000 kt. The Plan Teams and SSC may wish to
 consider this as an added measure of precaution for ABC considerations.
   
@@ -2174,7 +2292,7 @@ food-web models discussed above, examining predators and prey in isolation may
 overly simplify relationships. This table serves to highlight the main
 connections and the status of our understanding or lack thereof.   
 
-## Ecosystem effects on the EBS pollock stock 
+## Ecosystem effects on the EBS pollock stock
 
 The pollock stock condition appears to have benefited substantially from the
 recent conditions in the EBS. The conditions on the shelf during 2008
@@ -2203,7 +2321,7 @@ directly estimated and evaluated (in the model presented here, cannibalism is
 explicitly accounted for in the assumed Ricker stock-recruit relationship).
 
 
-## EBS pollock fishery effects on the ecosystem. 
+## EBS pollock fishery effects on the ecosystem.
 
 Since the pollock fishery is primarily pelagic in nature, the bycatch of non-
 target species is small relative to the magnitude of the fishery  (Table
@@ -2273,9 +2391,9 @@ from the GOA) should be pursued.
 
 # Acknowledgments
 
-We thank the survey staff who always collect samples diligently, especially
-this year when extra effort was required to process data due to unforeseen
-problems with survey cancellations.  The AFSC age-and-growth department is
+We thank the scientifically trained observers and the staff of the Fisheries and Monitoring Division at 
+AFSC for their hard work. The diligence of survey staff who contribute immensely in collecting samples, especially
+given these times is exceptional.  The AFSC age-and-growth department is
 thanked for their continued excellence in promptly processing the samples used
 in this assessment.  Finally, thanks to the many colleagues who provided edits
 and suggestions to improve this document.
@@ -2306,6 +2424,9 @@ Barbeaux, S.J., Horne, J., Ianelli, J. 2014. A novel approach for estimating loc
 
 Brodeur, R.D.; Wilson, M.T.; Ciannelli, L.; Doyle, M. and Napp, J.M. (2002). Interannual and regional variability in distribution and ecology of juvenile pollock and their prey in frontal structures of the Bering Sea. Deep-Sea Research II. 49: 6051-6067.
 
+Britt, L. 2021. Jellyfishes - Eastern Bering Sea Shelf. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.  
+
+
 Butterworth, D.S., J.N. Ianelli, and R. Hilborn. 2003. A statistical model for stock assessment of southern bluefin tuna with temporal changes in selectivity. Afr. J. mar. Sci. 25: 331-361.
 
 Buckley, T.W., Greig, A., Boldt, J.L., 2009. Describing summer pelagic habitat over the continental shelf in the eastern Bering Sea, 1982–2006. United States Depart- ment of Commerce, NOAA Technical Memorandum. NMFS-AFSC-196. pp. 49.
@@ -2327,6 +2448,8 @@ Cotter, A.J.R., L. Burt, C.G.M Paxton, C. Fernandez, S.T. Buckland, and  J.X Pan
 Cotter, A. J. R., Mesnil, B., and Piet, G. J. 2007. Estimating stock parameters from trawl cpue-at-age series using year-class curves. – ICES Journal of Marine Science, 64: 234–247.
 
 Coyle, K. O., Eisner, L. B., Mueter, F. J., Pinchuk, A. I., Janout, M. A., Cieciel, K. D., … Andrews, A. G. (2011). Climate change in the southeastern Bering Sea: impacts on pollock stocks and implications for the oscillating control hypothesis. Fisheries Oceanography, 20(2), 139–156. doi:10.1111/j.1365-2419.2011.00574.x
+
+Cunningham, C.J., Buck, G., Vega, S., and Head, J. 2021. Temporal Trend in the Annual Inshore Run Size of Bristol Bay Sockeye Salmon (Oncorhynchus nerka). In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.  
 
 De Robertis, A., and K. Williams. 2008. Weight-length relationships in fisheries studies: the standard allometric model should be applied with caution. Trans. Am. Fish. Soc. 137:707-719. 
 
@@ -2422,6 +2545,8 @@ Kastelle, C. R., and Kimura, D. K. 2006. Age validation of walleye pollock (_The
 
 Kimmel, D., Eisner, L., Harpold, C., and Crouser, D. 2020. Current and Historical Trends for Zooplankton in the Bering Sea. In: E.C. Siddon, 2020. Ecosystem Status Report 2020: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.
 
+Kimmel, D., Cormack, B., Crouser, D., Eisner, L., Harpold, C., Murphy, J., Pinchuk, A., Pinger, C., and Suryan, R. 2021. Current and Historical Trends for Zooplankton in the Bering Sea. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+
 Kimura, D.K. 1989. Variability in estimating catch-in-numbers-at-age and its impact on cohort analysis. In R.J. Beamish and G.A. McFarlane (eds.), Effects on ocean variability on recruitment and an evaluation of parameters used in stock assessment models. Can. Spec. Publ. Fish. Aq. Sci. 108:57-66.
 
 Kimura, D.K., J.J. Lyons, S.E. MacLellan, and B.J. Goetz. 1992. Effects of year-class strength on age determination. Aust. J. Mar. Freshwater Res. 43:1221-8.
@@ -2453,6 +2578,10 @@ Lauffenberger, N., De Robertis, A., and Kotwicki, S. 2017. Combining bottom traw
 Lauth, R.R., J.N. Ianelli, and W.W. Wakefield. 2004. Estimating the size selectivity and catching efficiency of a survey bottom trawl for thornyheads, Sebastolobus spp. using a towed video camera sled. Fisheries Research. 70:39-48.
 
 Lehodey, P., I. Senina, and R. Murtugudde. 2008. A spatial ecosystem and populations dynamics model (SEAPODYM) – Modeling of tuna and tuna-like populations. Progress in Oceanography 78: 304–318.
+
+Li, Bai, James N. Ianelli, Kyle W. Shertzer, Patrick D. Lynch, Christopher M. Legault, Erik H. Williams, Richard D. Methot, et al. 2021. “A Comparison of 4 Primary Age-Structured Stock Assessment Models Used in the United States.” Fishery Bulletin 119 (2–3): 149–67. https://doi.org/10.7755/FB.119.2-3.5.
+
+Liller, Z.W. 2021. Adult Salmon Run Failures Throughout the Arctic-Yukon-Kuskokwim Region. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
 
 Livingston, P. A., and Methot, R. D. (1998). Incorporation of predation into a population assessment model of Eastern Bering Sea walleye pollock. In Fishery Stock Assessment Models. NOAA Technical Report 126, NMFS F/NWC-54, Alaska Sea Grant Program, 304 Eielson Building, University of Alaska Fairbanks, Fairbanks, AK 99775. pp. 663-678.
 
@@ -2486,13 +2615,15 @@ Mohn, R. 1999. The retrospective problem in sequential population analysis: An i
 
 Moss, J.H., E.V. Farley, Jr., A.M. Feldmann, and J.N. Ianelli. 2009. Spatial distribution, energetic status, and food habits of eastern Bering Sea age-0 walleye pollock. Transactions of the American Fisheries Society.
 
+Mueter, F., and Britt, L. 2021.  Aggregated Catch-Per-Unit-Effort of Fish and Invertebrates in Bottom Trawl Surveys on the Eastern and Northern Bering Sea Shelf, 1982-2021. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501. 
+
 Mueter, F. J., and M. Litzow. 2008. Sea ice retreat alters the biogeography of the Bering Sea continental shelf. Ecological Applications 18:309–320.
 
 Mueter, F. J., C. Ladd, M. C. Palmer, and B. L. Norcross. 2006. Bottom-up and top-down controls of walleye pollock (_Theragra chalcogramma_) on the Eastern Bering Sea shelf. Progress in Oceanography 68:152-183. 
 
 Mueter, F. J., N.A. Bond, J.N. Ianelli, and A.B. Hollowed. 2011. Expected declines in recruitment of walleye pollock (_Theragra chalcogramma_) in the eastern Bering Sea under future climate change. ICES Journal of Marine Science. 
 
-Nielsen, J.M., Eisner, L., Watson, J., Gann, J.C., Mordy, C.W., Bell, S.W., Harpold, C., Crouser, D.,  and Stabeno, P. (2020). Spring satellite chlorophyll-a concentrations in the Eastern Bering Sea. In: E.C. Siddon, 2020. Ecosystem Status Report 2020: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+Nielsen, J.M., Eisner, L., Watson, J., Gann, J.C., Callahan, M.W., Mordy, C.W., Bell, S.W., and Stabeno, P. 2021. Spring Satellite Chlorophyll-a Concentrations in the Eastern Bering Sea. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
 
 O’Leary, C.A., J.T. Thorson, J.N. Ianelli, and S. Kotwicki. 2020. Adapting to Climate-Driven Distribution Shifts Using Model-Based Indices and Age Composition from Multiple Surveys in the Walleye Pollock (_Gadus Chalcogrammus_) Stock Assessment. Fisheries Oceanography 29 (6): 541–57. https://doi.org/10.1111/fog.12494.
 
@@ -2500,6 +2631,8 @@ O’Leary, C.A., J.T. Thorson, J.N. Ianelli, S. Kotwicki, G.R. Hoff, V.V. Kulik,
 (_submitted_). Estimating spatiotemporal availability of transboundary fishes to fishery-independent surveys. Journal of Applied Ecology
 
 O’Reilly, P.T., M.F. Canino, K.M. Bailey and P. Bentzen. 2004. Inverse relationship between FST and microsatellite polymorphism in the marine fish, walleye pollock (_Theragra chalcogramma_): implications for resolving weak population structure. Molecular Ecology (2004) 13, 1799–1814
+
+Park, Joo-myun, Hae-kun Jung, and Chung-il Lee. 2021. Factors Influencing Dietary Changes of Walleye Pollock , _Gadus Chalcogrammus_ , Inhabiting the East Sea off the Korean Coast.
 
 Parma, A.M. 1993. Retrospective catch-at-age analysis of Pacfic halibut: implications on assessment of harvesting policies. In  Proceedings of the International Symposium on Management Strategies of Exploited Fish Populations. Alaska Sea Grant Rep. No. 93-02. Univ. Alaska Fairbanks.
 
@@ -2519,7 +2652,14 @@ Ressler, P.H., De Robertis, A., Warren, J.D., Smith, J.N., and Kotwicki, S. (201
 
 Restrepo, V.R., G.G. Thompson, P.M Mace, W.L Gabriel, L.L. Low, A.D. MacCall, R.D. Methot, J.E. Powers, B.L. Taylor, P.R. Wade, and J.F. Witzig. 1998. Technical guidance on the use of precautionary approaches to implementing National Standard 1 of the Magnuson-Stevens Fishery Conservation and Management Act. NOAA Tech. Memo. NMFS-F/SPO-31. 54 p.
 
-Rohan, S., and Laman, N., 2020. Eastern and Northern Bering Sea Groundfish Condition. In Siddon, E.C., 2020. Ecosystem Status Report 2020: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+Richar, J. 2021. Eastern Bering Sea Commercial Crab Stock Biomass Indices. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+
+Rohan, S., and Prohaska, B. 2021. Eastern and Northern Bering Sea Groundfish Condition. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+
+Rohan, S., and Barnett, L. 2021a. 2021 Report Card. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.  
+
+Rohan, S., and Barnett, L. 2021b. Physical Environment Synthesis: Cold Pool Extent Maps and Index Time Series. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+
 
 Schnute, J.T. 1994. A general framework for developing sequential fisheries models. Can. J. Fish. Aquat. Sci. 51:1676-1688.
 
@@ -2534,6 +2674,10 @@ Siddon, E. C., Heintz, R. a., & Mueter, F. J. (2013). Conceptual model of energy
 Siddon, E.C., T. Jarvis, R. Heintz, E. Farley, B. Cormack. 2019. "Condition of Age-0 Walleye Pollock and Pacic Cod." In Siddon, E., and Zador, S., 2019. Ecosystem Status Report 2019: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 605 W 4th Ave, Suite 306, Anchorage, AK 99501.  
 
 Siddon, E.C., 2020. Ecosystem Status Report 2020: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+
+Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+
+Siddon, E., and Zador, S., 2019. Ecosystem Status Report 2019: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 605 W 4th Ave, Suite 306, Anchorage, AK 99501.
 
 Smart, T. I., Siddon, E. C., & Duffy-Anderson, J. T. (2013). Vertical distributions of the early life stages of walleye pollock (_Theragra chalcogramma_) in the Southeastern Bering Sea. Deep Sea Research Part II: Topical Studies in Oceanography, 94, 201–210. [link](http://doi.org/10.1016/j.dsr2.2013.03.030).
 
@@ -2595,18 +2739,19 @@ Wespestad, V. G., L. W. Fritz, W. J. Ingraham, and B. A. Megrey. 2000. On relati
 
 Whitehouse, A., G. Lang. 2019."Mean Length of the Fish Community."  In Siddon, E., and Zador, S., 2019. Ecosystem Status Report 2019: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 605 W 4th Ave, Suite 306, Anchorage, AK 99501.
 
+Whitehouse, G.A., 2021a. 2021 Report Card. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.  
+
+Whitehouse, G.A., 2021b. Trends in Alaska Commercial Salmon Catch - Bering Sea. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501. 
+
 Williamson, N., and J. Traynor. 1996. Application of a one-dimensional geostatistical procedure to fisheries acoustic surveys of Alaskan pollock. ICES J. Mar. Sci. 53:423-428.
 
 Winter, A.G., G.L. Swartzman, and L. Ciannelli (2005). Early- to late-summer population growth and prey consumption by age-0 pollock (_Theragra chalcogramma_), in two years of contrasting pollock abundance near the Pribilof Islands, Bering Sea. /Fisheries Oceanography/, Vol. 14, No. 4, pp. 307-320.
 
-
-Yasumiishi, E. 2019. “ Pre- and Post-Winter Temperature Change Index and the Recruitment of Bering Sea Pollock.” In Siddon, E., and Zador, S., 2019. Ecosystem Status Report 2019: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 605 W 4th Ave, Suite 306, Anchorage, AK 99501.  
-
 Yasumiishi, E., Eisner, L., and Kimmel, D. 2020. Large Copepod Abundance (Sample-Based and Modeled) as an Indicator of Pollock Recruitment to Age-3 in the Southeastern Bering Sea. In: E.C. Siddon, 2020. Ecosystem Status Report 2020: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
 
-Yasumiishi, E. M., K. R. Criddle, N. Hillgruber, F. J. Mueter, and J. H. Helle. 2015. Chum salmon (Oncorhynchus keta) growth and temperature indices as indicators of the year–class strength of age-1 walleye pollock (_Gadus chalcogrammus_) in the eastern Bering Sea. Fish. Oceanogr. 24:242-256.
+Yasumiishi, E. M., K. R. Criddle, N. Hillgruber, F. J. Mueter, and J. H. Helle. 2015. Chum salmon (_Oncorhynchus keta_) growth and temperature indices as indicators of the year–class strength of age-1 walleye pollock (_Gadus chalcogrammus_) in the eastern Bering Sea. Fish. Oceanogr. 24:242-256.
 
-Yasumiishi, E., 2020. Temperature Change Index and the Recruitment of Bering Sea Pollock. In: E.C. Siddon, 2020. Ecosystem Status Report 2020: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.   
+Yasumiishi, E., 2021. Pre- and Post-Winter Temperature Change Index and the Recruitment of Bering Sea Pollock. In Siddon, E.C., 2021. Ecosystem Status Report 2021: Eastern Bering Sea, Stock Assessment and Fishery Evaluation Report, North Pacific Fishery Management Council, 1007 West Third, Suite 400, Anchorage, Alaska 99501.  
 
 Zeppelin, T. K. and R.R. Ream. 2006. Foraging habitats based on the diet of female northern fur seals (Callorhinus ursinus) on the Pribilof Islands, Alaska. Journal of Zoology 270(4): 565-576.
 
@@ -2673,10 +2818,11 @@ Year    &   Southeast   &   Northwest   &   Total   &Aleutians  &Donut  Hole&   
 2016    &   1,167,072   &   185,609 &   1,352,681   &   1,257   &       &   1,005   \\
 2017    &   1,178,021   &   181,161 &   1,359,182   &   1,507   &       &   185 \\
 2018    &   1,048,693   &   330,595 &   1,379,287   &   1,860   &       &   14  \\
-2019    &   1,102,049   &   307,177 &   1,409,227   &   1,663   &       &   8   \\
-2020    &   829,704 &   496,080 &   1,325,784   &   2,870   &       &   8   \\
+2019    &   1,102,156   &   307,181 &   1,409,337   &   1,664   &       &   8   \\
+2020    &   859,903 &   506,629 &   1,366,532   &   3,205   &       &   9   \\
+2021    &   1,021,017   &   351,967 &   1,372,984   &   1,594   &       &   50  \\
 \hline                                                  
-Avg.    &   797,950 &   413,862 &   1,211,812   &   24,419  &   697,696 &   28,707  \\
+Avg.    &   803,842 &   412,668 &   1,216,510   &   23,896  &       &       \\
 \hline                                                  
 \end{tabular}
 }
@@ -2737,8 +2883,9 @@ Year    &   Catch   &   Year    &   ABC &   TAC &   Catch   \\
     &       &   2018    &   2,592,000   &    1,364,341  &    1,379,301  \\
     &       &   2019    &   2,163,000   &    1,397,000  &    1,409,235  \\
     &       &   2020    &   2,043,000   &    1,425,000  &    1,325,792  \\
+    &       &   2021    &   1,626,000   &    1,375,000  &    1,339,000  \\
 \hline                                                                                      
-    \multicolumn{3}{c}{1977--2020   mean}           &   1,492,045   &   1,218,468   &   1,201,282   \\
+    \multicolumn{3}{c}{1977--2021   mean}           &   1,492,022   &   1,221,947   &   1,204,343   \\
 \hline                                          
 \end{tabular}
 }
@@ -2798,7 +2945,7 @@ Year    &   Catch   &   Year    &   ABC &   TAC &   Catch   \\
 
 \clearpage
 
-<!-- SCA Catch -->
+<!-- SCA Catch 
 \begin{table}[ht]
 \centering
 \caption{Total EBS shelf pollock catch recorded by observers (rounded to nearest 100 t) by year and season with percentages indicating the proportion of the catch that came from within the Steller sea lion conservation area (SCA), 1998--2019.} 
@@ -2832,6 +2979,7 @@ Year     &    A season      & B-season          & Total             \\
 \hline
 \end{tabular}
 \end{table}
+-->
 
 \clearpage
 
@@ -2870,6 +3018,7 @@ Year    &   Management  \\
 2018    &   In-river estimates of Chinook salmon (three river index) fell below the threshold and therefore a lower PSC limit applies (from a performance standard of 47,491 to 33,318 and a PSC limit from 60,000 to 45,000 Chinook salmon overall). Additionally, squid have been recategorized as an ecosystem component.  \\
 2019    &   Some pollock sectors experienced high bycatch levels for chum and Chinook salmon and also for sablefish.\\
 2020    &   Bycatch rates unusually high again for sablefish. Herring PSC occurred in the A season and triggered area closures that will persist into 2021. Salmon bycatch rates (relative to hours fished) was lower than last year for both chum and Chinook. \\
+2021    &   Bycatch rates for sablefish and herring moderate (but above average). Chinook salmon bycatch rates (relative to hours fished) was lower than last year but there was a marked increase in the rate for chum salmon (2nd highest since 1991). In-river estimates of Chinook salmon (three river index) fell below the threshold and therefore a lower PSC limit applies (from a performance standard of 47,491 to 33,318 and a PSC limit from 60,000 to 45,000 Chinook salmon overall).  \\
 \hline
 \end{tabular}
 \end{table}
@@ -2881,31 +3030,31 @@ Year    &   Management  \\
 \caption{BSAI pollock catch and ex-vessel data showing the total and retained catch (in kt), the 
 number of vessels for all sectors and for trawl catcher vessels including
 ex-vessel value (million US\$), price (US\$ per pound), and catcher vessel shares. 
-Years covered include the 2010-2014 average, and annual from 2015-2019.}
+Years covered include the 2011-2015 average, and annual from 2016-2020.}
 \label{tab:bsaiplck_exv}
 \scalebox{0.93}{
 
 \begin{tabular}{lrrrrrr}
   \hline
- & Avg 10-14 & 2015 & 2016 & 2017 & 2018 & 2019 \\ 
+ & Avg 11-15 & 2016 & 2017 & 2018 & 2019 & 2020 \\ 
   \hline
 All sectors &  &  &  &  &  &  \\ 
-  Catch              & 1,158 & 1,323 & 1,355 & 1,361 & 1,381 & 1,411 \\ 
-  Retained catch    & 1,151 & 1,314 & 1,346 & 1,353 & 1,370 & 1,402 \\ 
-  Vessels \#          & 120.2 & 120   & 122   & 118   & 112   & 114 \\ 
-  Catcher vessels     &       &       &       &       &       &  \\ 
-  Retained catch      & 603   & 687   & 704   & 710   & 718 & 736 \\ 
-  Ex-vessel value     & 211.7 & 227.4 & 209.4 & 205.5 & 236.7 & 259.8 \\ 
-  Ex-vessel price     & 0.159 & 0.154 & 0.139 & 0.137 & 0.156 & 0.167 \\ 
-  CV share of catch   & 0.52  & 0.52  & 0.52  & 0.53  & 0.52 & 0.52 \\ 
-  Vessels \#          & 88    & 87    & 89    & 87    & 85   & 84 \\ 
+  Catch kt & 1261 & 1355 & 1361 & 1381 & 1411 & 1370 \\ 
+  Retained Catch kt & 1252 & 1346 & 1353 & 1370 & 1402 & 1358 \\ 
+  Vessels \# & 120 & 122 & 118 & 112 & 114 & 117 \\ 
+  Catcher Vessels (Trawl) &  &  &  &  &  &  \\ 
+  Retained Catch kt & 656 & 704 & 710 & 718 & 736 & 725 \\ 
+  Ex-vessel Value M \$ & 228.70 & 209.40 & 205.50 & 236.70 & 259.80 & 233.70 \\ 
+  Ex-vessel Price/lb \$ & 0.16 & 0.14 & 0.14 & 0.16 & 0.17 & 0.15 \\ 
+  CV share of Retained Catch & 0.52 & 0.52 & 0.53 & 0.52 & 0.52 & 0.53 \\ 
+  Vessels \# & 87 & 89 & 87 & 85 & 84 & 88 \\ 
    \hline
+\multicolumn{7}{p{6in}}{
+Source: NMFS Alaska Region Blend and Catch-accounting System estimates; 
+and ADF\&G Commercial Operators Annual Reports (COAR). Data compiled and 
+provided by the Alaska Fisheries Information Network (AKFIN). }\\
 \end{tabular}
-}
-\newline
-Source: NMFS Alaska Region Blend and Catch-accounting System estimates; and
-ADF\&G Commercial Operators Annual Reports (COAR). Data compiled and provided by
-the Alaska Fisheries Information Network (AKFIN).
+} \\
 \end{table}
 
 \begin{table}[ht]
@@ -2913,35 +3062,36 @@ the Alaska Fisheries Information Network (AKFIN).
 \caption{BSAI pollock first-wholesale market data including production (kt),
 value (million US\$), price (US\$ per pound) for all products and then
 separately for other categories (head and gut, fillet, surimi, and roe
-production). Years covered include the 2010-2014 average, and annual from 2015-2019.}
+production). Years covered include the 2011-2015 average, and annual from 2016-2020.}
 \label{tab:bsaiplck_wsl}
 \scalebox{0.84}{
 \begin{tabular}{lrrrrrr}
   \hline
-             & Avg 10-14 & 2015 & 2016 & 2017 & 2018 & 2019 \\ 
+ & Avg 11-15 & 2016 & 2017 & 2018 & 2019 & 2020 \\ 
   \hline
-All Products volume  & 468.5 & 520.9 & 534.9 & 523.9 & 532.4 & 557.9 \\ 
-  All Products value & \$1,263  & \$1,275  & \$1,352  & \$1,338  & \$1,383  & \$1,551  \\ 
-  All Products price & \$1.22  & \$1.11  & \$1.15  & \$1.16  & \$1.18  & \$1.26  \\ 
-  At-sea value share & 58\% & 60\% & 60\% & 62\% & 59\% & 59\% \\ 
-  Fillets volume     & 152.2 & 167 & 161.3 & 157 & 167.6 & 186.8 \\ 
-  Fillets value share & 40\% & 39\% & 37\% & 33\% & 36\% & 40\% \\ 
-  Fillets price       & \$1.51  & \$1.36  & \$1.41  & \$1.29  & \$1.37  & \$1.52  \\ 
-  Surimi volume      & 145.6 & 187.7 & 190.8 & 196.7 & 196.5 & 192.2 \\ 
-  Surimi value share & 32\% & 37\% & 37\% & 43\% & 40\% & 38\% \\ 
-  Surimi price       & \$1.25  & \$1.14  & \$1.19  & \$1.33  & \$1.27  & \$1.37  \\ 
-  Roe volume         & 16.9 & 18.8 & 14.3 & 18.4 & 20.6 & 28 \\ 
-  Roe value share    & 10\% & 7\% & 7\% & 9\% & 10\% & 9\% \\ 
-  Roe price          & \$3.38  & \$2.29  & \$2.84  & \$2.88  & \$2.89  & \$2.15  \\ 
-  At-sea price premium  & \$0.21  & \$0.25  & \$0.25  & \$0.37  & \$0.20  & \$0.26  \\ 
+All Products volume kt & 501.8 & 534.9 & 523.9 & 532.4 & 557.9 & 492.7 \\ 
+  All Products value M \$ & \$1,310  & \$1,352  & \$1,338  & \$1,383  & \$1,551  & \$1,366  \\ 
+  All Products price lb \$ & \$1.18  & \$1.15  & \$1.16  & \$1.18  & \$1.26  & \$1.26  \\ 
+  At-sea value share & 59\% & 60\% & 62\% & 59\% & 59\% & 60\% \\ 
+  Fillets volume kt & 164.3 & 161.3 & 157.0 & 167.6 & 186.8 & 149.4 \\ 
+  Fillets value share & 40\% & 37\% & 33\% & 36\% & 40\% & 38\% \\ 
+  Fillets price lb \$ & \$1.45  & \$1.41  & \$1.29  & \$1.37  & \$1.52  & \$1.56  \\ 
+  Surimi volume kt & 163.8 & 190.8 & 196.7 & 196.5 & 192.2 & 171.8 \\ 
+  Surimi value share & 33\% & 37\% & 43\% & 40\% & 38\% & 35\% \\ 
+  Surimi price lb \$ & \$1.19  & \$1.19  & \$1.33  & \$1.27  & \$1.37  & \$1.26  \\ 
+  Roe volume kt & 17.6 & 14.3 & 18.4 & 20.6 & 28.0 & 24.7 \\ 
+  Roe value share & 10\% & 7\% & 9\% & 10\% & 9\% & 8\% \\ 
+  Roe price lb \$ & \$3.26  & \$2.84  & \$2.88  & \$2.89  & \$2.15  & \$2.01  \\ 
+  At-sea price premium (\$/lb) & \$0.20  & \$0.25  & \$0.37  & \$0.20  & \$0.26  & \$0.33  \\ 
    \hline
-\end{tabular}
-}
-\newline
+\multicolumn{7}{p{6in}}{
 Source: NMFS Alaska Region Blend and Catch-accounting System estimates; NMFS    
 Alaska Region At-sea Production Reports; and ADF\&G Commercial Operators Annual
 Reports (COAR). Data compiled and provided by the Alaska Fisheries Information
 Network (AKFIN).
+}//
+\end{tabular}
+}
 \end{table}
 
 
@@ -2954,129 +3104,132 @@ import values (million US\$), and net exports (million US\$).
 Subsequent rows show the breakout of export shares (of U.S. pollock) by
 country (Japan, China and Europe) and the share of U.S. export volume and
 value of fish  (i.e., H\&G and fillets), and other product categories (surimi
-and roe).  Years covered include the 2010-2014 average, and annual from 2015-2019.}
+and roe).  Years covered include the 2011-2015 average, and annual from 2016-2020.}
 \label{tab:bsaiplck_glbl}
-\scalebox{0.83}{
-
-\begin{tabular}{lrrrrrr}
+\scalebox{0.88}{
+\begin{tabular}{llrrrrrr}
   \hline
- & Avg 10-14 & 2015 & 2016 & 2017 & 2018 & 2019 \\ 
+ & & Avg 11-15 & 2016 & 2017 & 2018 & 2019 & 2020 \\ 
   \hline
-Global pollock catch & 3,255 & 3,373 & 3,476 & 3,489 & 3,397 & - \\ 
-  U.S. share    & 42\% & 44\% & 44\% & 44\% & 45\% & - \\ 
-  Russian share & 48\% & 48\% & 50\% & 50\% & 49\% & - \\ 
-  BSAI share    & 36\% & 39\% & 39\% & 39\% & 41\% & - \\ 
-  Export volume & 315.5 & 377.8 & 379.6 & 397.9 & 415.2 & 380.2 \\ 
-  Export value  & \$916  & \$1,038  & \$991  & \$1,008  & \$1,130    & \$1,122    \\ 
-  Export price  & \$1.32  & \$1.25  & \$1.18  & \$1.15  & \$1.23  & \$1.34  \\ 
-  Import value  & \$169  & \$131  & \$91  & \$75  & \$78  & \$123  \\ 
-  Net exports   & \$747  & \$908  & \$899  & \$933  & \$1,051  & \$998  \\ 
-  Japan volume share & 22\% & 25\% & 20\% & 22\% & 22\% & 23\% \\ 
-  Japan value share & 21\% & 26\% & 20\% & 23\% & 26\% & 24\% \\ 
-  China volume share & 14\% & 13\% & 12\% & 15\% & 14\% & 10\% \\ 
-  China value share & 11\% & 10\% & 10\% & 13\% & 10\% & 7\% \\ 
-  Europe volume share & 38\% & 36\% & 35\% & 32\% & 33\% & 35\% \\ 
-  Europe value share & 38\% & 36\% & 35\% & 33\% & 33\% & 37\% \\ 
-  Meat volume share & 51\% & 49\% & 49\% & 49\% & 50\% & 47\% \\ 
-  Meat value share & 49\% & 46\% & 46\% & 47\% & 45\% & 44\% \\ 
-  Surimi volume share & 44\% & 45\% & 47\% & 47\% & 45\% & 46\% \\ 
-  Surimi value share & 37\% & 39\% & 42\% & 42\% & 42\% & 43\% \\ 
-  Roe Volume share & 5\% & 5\% & 4\% & 5\% & 5\% & 7\% \\ 
-  Roe Value share & 14\% & 15\% & 11\% & 11\% & 13\% & 13\% \\ 
+Global Pollock Catch kt &  & 3,270 & 3,476 & 3,489 & 3,397 & 3,496 & - \\ 
+  U.S. Share of Global Catch &  & 42\% & 44\% & 44\% & 45\% & 43\% & - \\ 
+  Russian Share of global catch &  & 48\% & 50\% & 50\% & 49\% & 50\% & - \\ 
+  BSAI share of global &  & 39\% & 39\% & 39\% & 41\% & 40\% & - \\ 
+  Export Volume kt &  & 350.3 & 379.6 & 397.9 & 415.2 & 380.1 & 323.5 \\ 
+  Export Value M US\$ &  & \$990.1  & \$990.5  & \$1,007.5  & \$1,129.1  & \$1,119.9  & \$941.9  \\ 
+  Export Price lb US\$ &  & \$1.28  & \$1.18  & \$1.15  & \$1.23  & \$1.34  & \$1.32  \\ 
+  Import Value M US\$ &  & \$155.6  & \$92.5  & \$76.2  & \$78.7  & \$123.4  & \$100.4  \\ 
+  Net Exports &  & \$834.5  & \$898.0  & \$931.3  & \$1,050.4  & \$996.5  & \$841.5  \\ 
+  Japan & Volume Share & 22\% & 20\% & 22\% & 22\% & 23\% & 19\% \\ 
+   & Value share & 21\% & 20\% & 23\% & 26\% & 24\% & 20\% \\ 
+  China & Volume Share & 13\% & 12\% & 15\% & 14\% & 10\% & 10\% \\ 
+   & Value share & 11\% & 10\% & 13\% & 10\% & 7\% & 6\% \\ 
+  Germany & Volume Share & 38\% & 35\% & 32\% & 33\% & 35\% & 37\% \\ 
+   & Value share & 38\% & 35\% & 33\% & 33\% & 37\% & 39\% \\ 
+  Meat/Fillets & Volume Share & 50\% & 49\% & 49\% & 50\% & 47\% & 46\% \\ 
+   & Value share & 49\% & 46\% & 47\% & 45\% & 44\% & 44\% \\ 
+  Surimi & Volume Share & 44\% & 47\% & 47\% & 45\% & 46\% & 47\% \\ 
+   & Value share & 37\% & 42\% & 42\% & 42\% & 43\% & 42\% \\ 
+  Roe & Volume Share & 5\% & 4\% & 5\% & 5\% & 7\% & 7\% \\ 
+   & Value share & 14\% & 11\% & 11\% & 13\% & 13\% & 14\% \\ 
    \hline
-\end{tabular}
-}
-\newline
-Notes: 2019 data thru June; Exports are from the US and are note specific to the BSAI region. 'Meat' 
+\multicolumn{8}{p{7in}}{
+Notes: Exports are from the US and are note specific to the BSAI region. 'Meat' 
 includes fillets, H\&G, minced and other non-surimi meat based products. Europe refers to Austria, 
 Belgium, Denmark, France, Germany, Greece, Ireland, Italy, Netherlands, Norway, Portugal, Spain, Sweden, 
-Switzerland, and United Kingdom.\\
+Switzerland, and United Kingdom.\newline
 Source: FAO Fisheries \& Aquaculture Dept. Statistics
 \url{http://www.fao.org/fishery/statistics/en}. NOAA Fisheries, Fisheries Statistics
 Division, Foreign Trade Division of the U.S. Census Bureau,
 \url{http://www.st.nmfs.noaa.gov/commercial-fisheries/foreign-trade/index}. U.S. Department
 of Agriculture
 \url{http://www.ers.usda.gov/data-products/agricultural-exchange-rate-data-set.aspx.}
+}
+\end{tabular}
+}
 \end{table}
 
 
 \begin{table}[ht]
   \centering
   \caption{BSAI pollock fish oil production index (tons of oil per 100 tons of
-retained catch); 2010-2014 average, and annual from 2015-2019.}
+retained catch); 2011-2015 average, and annual from 2016-2020.}
   \label{tab:bsaiplck_oil}
   
 \begin{tabular}{lrrrrrr}
   \hline
-Sector      & Avg 10-14 & 2015 & 2016 & 2017 & 2018 & 2019 \\ 
+Sector & Avg 11-15 & 2016 & 2017 & 2018 & 2019 & 2020 \\ 
   \hline
-All Sectors & 1.96 & 1.84 & 2.06 & 1.92 & 1.93 & 2.21 \\ 
-  Shoreside & 2.22 & 1.94 & 2.28 & 2.09 & 2.07 & 2.32 \\ 
-  At Sea    & 1.68 & 1.72 & 1.82 & 1.74 & 1.77 & 2.10 \\ 
+All Sectors & 2.04 & 2.06 & 1.92 & 1.93 & 2.22 & 1.61 \\ 
+  Shoreside & 2.27 & 2.28 & 2.09 & 2.08 & 2.32 & 1.83 \\ 
+  At Sea & 1.78 & 1.82 & 1.74 & 1.77 & 2.10 & 1.36 \\ 
    \hline
-\end{tabular}
-\newline
+\multicolumn{7}{p{4in}}{
 Source: NMFS Alaska Region Blend and Catch-accounting System estimates; NMFS  
 Alaska Region At-sea Production Reports; and ADF\&G Commercial Operators Annual  
 Reports (COAR). Data compiled and provided by the Alaska Fisheries Information  
 Network (AKFIN).
+}\\
+\end{tabular}
 \end{table}
+
 
 \clearpage
 
 <!-- fishery catch-age -->
 \begin{table}[ht]
 \centering
-\caption{Eastern Bering Sea pollock catch at age estimates based on observer data, 1979--2018. Units are in millions of fish.} 
+\caption{Eastern Bering Sea pollock catch at age estimates based on observer data, 1979--2020. Units are in millions of fish.} 
 \label{tab:fsh_age} 
 \scalebox{.8}{
 \begin{tabular}{crrrrrrrrrrrrrrr}
 \hline
 Year & 1     & 2     & 3       & 4       & 5       & 6     & 7     & 8     & 9     & 10    & 11    & 12   & 13   & 14+  & Total \\
 \hline
-1979    &   101.4   &   543 &   719.8   &   420.1   &   392.5   &   215.5   &   56.3    &   25.7    &   35.9    &   27.5    &   17.6    &   7.9 &   3   &   1.1 &   2,567.00    \\
-1980    &   9.8 &   462.2   &   822.9   &   443.3   &   252.1   &   210.9   &   83.7    &   37.6    &   21.7    &   23.9    &   25.4    &   15.9    &   7.7 &   3.7 &   2,421.00    \\
-1981    &   0.6 &   72.2    &   1,012.70    &   637.9   &   227 &   102.9   &   51.7    &   29.6    &   16.1    &   9.3 &   7.5 &   4.6 &   1.5 &   1   &   2,175.00    \\
-1982    &   4.7 &   25.3    &   161.4   &   1,172.20    &   422.3   &   103.7   &   36  &   36  &   21.5    &   9.1 &   5.4 &   3.2 &   1.9 &   1   &   2,004.00    \\
-1983    &   5.1 &   118.6   &   157.8   &   312.9   &   816.8   &   218.2   &   41.4    &   24.7    &   19.8    &   11.1    &   7.6 &   4.9 &   3.5 &   2.1 &   1,745.00    \\
-1984    &   2.1 &   45.8    &   88.6    &   430.4   &   491.4   &   653.6   &   133.7   &   35.5    &   25.1    &   15.6    &   7.1 &   2.5 &   2.9 &   3.7 &   1,938.00    \\
-1985    &   2.6 &   55.2    &   381.2   &   121.7   &   365.7   &   321.5   &   443.2   &   112.5   &   36.6    &   25.8    &   24.8    &   10.7    &   9.4 &   9.1 &   1,920.00    \\
-1986    &   3.1 &   86  &   92.3    &   748.6   &   214.1   &   378.1   &   221.9   &   214.3   &   59.7    &   15.2    &   3.3 &   2.6 &   0.3 &   1.2 &   2,041.00    \\
-1987    &   -   &   19.8    &   111.5   &   77.6    &   413.4   &   138.8   &   122.4   &   90.6    &   247.2   &   54.1    &   38.7    &   21.4    &   28.9    &   14.1    &   1,379.00    \\
-1988    &   -   &   10.7    &   454 &   421.6   &   252.1   &   544.3   &   224.8   &   104.9   &   39.2    &   96.8    &   18.2    &   10.2    &   3.8 &   11.7    &   2,192.00    \\
-1989    &   -   &   4.8 &   55.1    &   149 &   451.1   &   166.7   &   572.2   &   96.3    &   103.8   &   32.4    &   129 &   10.9    &   4   &   8.5 &   1,784.00    \\
-1990    &   1.3 &   33  &   57  &   219.5   &   200.7   &   477.7   &   129.2   &   368.4   &   65.7    &   101.9   &   9   &   60.1    &   8.5 &   13.9    &   1,746.00    \\
-1991    &   0.4 &   113.2   &   44.4    &   88.9    &   151.8   &   181.9   &   509.7   &   81.5    &   292.9   &   29.5    &   143.9   &   18.2    &   88.3    &   71.8    &   1,816.00    \\
-1992    &   2   &   88.2    &   670.8   &   130.3   &   82.9    &   110.2   &   136.2   &   254.8   &   102.7   &   152.5   &   57.9    &   45.4    &   13.7    &   75.5    &   1,923.00    \\
-1993    &   0.1 &   6.9 &   243.6   &   1,144.40    &   108 &   73.9    &   68.5    &   53.1    &   91.6    &   20.5    &   35.2    &   10.9    &   13.5    &   23.3    &   1,894.00    \\
-1994    &   1.2 &   35.6    &   58.6    &   347.4   &   1,067.20    &   180.5   &   57.7    &   18.7    &   12.4    &   20.2    &   9.2 &   10.2    &   7.6 &   12.1    &   1,839.00    \\
-1995    &   -   &   0.4 &   77.1    &   148.5   &   406.8   &   767.1   &   121.9   &   32  &   11.2    &   8.1 &   17.7    &   5.2 &   6.7 &   10.4    &   1,613.00    \\
-1996    &   -   &   16.7    &   51.9    &   82.6    &   161.5   &   362.8   &   481.6   &   186 &   32.6    &   14.1    &   8.4 &   8.7 &   4.5 &   11  &   1,422.00    \\
-1997    &   1.6 &   77.9    &   39.2    &   107.6   &   472.7   &   282.6   &   252.6   &   200.1   &   65.4    &   14  &   5.9 &   5.3 &   3.3 &   14.4    &   1,543.00    \\
-1998    &   0.2 &   42.3    &   85.6    &   70.9    &   154.8   &   697 &   202 &   131 &   107.5   &   29.1    &   6.1 &   6.2 &   2.4 &   9.2 &   1,544.00    \\
-1999    &   0.2 &   9.6 &   294.4   &   224.6   &   102.3   &   159.7   &   470.8   &   130.7   &   56.3    &   34.1    &   3.7 &   2.3 &   0.8 &   2.2 &   1,492.00    \\
-2000    &   -   &   15.3    &   80.3    &   425.8   &   347 &   105.2   &   170.4   &   357.6   &   86  &   29.5    &   22.3    &   5.3 &   1.3 &   1.6 &   1,648.00    \\
-2001    &   -   &   3.1 &   46.9    &   154.7   &   582.6   &   410.5   &   135.9   &   127 &   157.3   &   59  &   34.4    &   16  &   5.4 &   5.7 &   1,738.00    \\
-2002    &   0.9 &   47  &   108.6   &   213.4   &   287.4   &   602.3   &   270.2   &   100.6   &   86.3    &   96.8    &   33.9    &   15.3    &   11  &   4.5 &   1,878.00    \\
-2003    &   -   &   14.1    &   408.6   &   323.5   &   367.2   &   307.1   &   331.2   &   158.8   &   49.5    &   38.4    &   36.1    &   22.7    &   6.8 &   6.7 &   2,071.00    \\
-2004    &   -   &   0.5 &   90.1    &   825.4   &   483.7   &   239 &   168.5   &   155.2   &   63.2    &   15.5    &   18.6    &   26.8    &   8.9 &   14  &   2,109.00    \\
-2005    &   -   &   4.1 &   51.1    &   399.4   &   859.1   &   483.5   &   157.6   &   68.7    &   68.3    &   30.8    &   9.6 &   8.9 &   3   &   5   &   2,149.00    \\
-2006    &   -   &   10  &   83.2    &   293.3   &   615.3   &   592.6   &   283.6   &   109.9   &   49.5    &   40.7    &   17  &   8.3 &   8.4 &   11.6    &   2,123.00    \\
-2007    &   1.6 &   16.9    &   60.5    &   137.5   &   388.6   &   508.7   &   300.1   &   139.5   &   47.6    &   27.4    &   24.2    &   9.5 &   6.1 &   14.2    &   1,683.00    \\
-2008    &   -   &   25.9    &   57.6    &   79.4    &   148.8   &   308.4   &   242 &   149.3   &   82.5    &   21.8    &   18.4    &   14  &   8.9 &   15.7    &   1,173.00    \\
-2009    &   -   &   1.3 &   175.9   &   199.9   &   82.4    &   112.9   &   123.4   &   104 &   65.9    &   40.5    &   23.9    &   7.6 &   8.2 &   12.3    &   958 \\
-2010    &   1   &   27.2    &   30.8    &   557.9   &   220.6   &   55  &   42.5    &   56.6    &   52.9    &   31.8    &   16  &   8.8 &   6.2 &   10.3    &   1,118.00    \\
-2011    &   0.4 &   11.4    &   192.8   &   115.6   &   809.5   &   284.4   &   64.1    &   37.7    &   38.3    &   40.2    &   25.3    &   12.8    &   1.8 &   8.3 &   1,643.00    \\
-2012    &   -   &   23.7    &   117.8   &   943.8   &   173.7   &   433.1   &   139.9   &   37  &   17.6    &   14.7    &   16.2    &   13.8    &   7.8 &   8.9 &   1,948.00    \\
-2013    &   1.7 &   0.8 &   65.3    &   342.1   &   955.5   &   195.2   &   155.9   &   69.1    &   20.1    &   13.3    &   12.5    &   12  &   7.9 &   10.4    &   1,862.00    \\
-2014    &   -   &   39.6    &   31.4    &   168.6   &   397.4   &   752.2   &   210.3   &   86.3    &   29.2    &   9   &   4.6 &   4.7 &   4.5 &   9   &   1,747.00    \\
-2015    &   -   &   15.7    &   633.2   &   194.8   &   229.1   &   385.2   &   509.4   &   88.2    &   43  &   17.2    &   3.2 &   2.2 &   3.3 &   4   &   2,128.00    \\
-2016    &   -   &   0.5 &   91.7    &   1,389.70    &   159.3   &   175.3   &   175.5   &   223.1   &   34.7    &   13.2    &   7.9 &   0.5 &   1.3 &   -   &   2,273.00    \\
-2017    &   -   &   2   &   29.8    &   551.4   &   894.6   &   214.7   &   147.5   &   123.2   &   96.3    &   21.5    &   7.8 &   6.3 &   0.6 &   0.4 &   2,096.00    \\
-2018    &   -   &   1.4 &   13.8    &   114.1   &   1,216.70    &   504 &   105.5   &   82.2    &   60.9    &   26.6    &   4.2 &   1.2 &   0.3 &   1.1 &   2,131.99    \\
-2019    &   0.8 &   11.1    &   13.2    &   17.5    &   156.1   &   915.5   &   420.9   &   95.0    &   53.3    &   52.6    &   9.9 &   3.1 &   0.8 &   0.0 &   1,749.78    \\
+1979	 & 	 101.4 	 & 	 543.0 	 & 	 719.8 	 & 	 420.1 	 & 	 392.5 	 & 	 215.5 	 & 	 56.3 	 & 	 25.7 	 & 	 35.9 	 & 	 27.5 	 & 	 17.6 	 & 	 7.9 	 & 	 3.0 	 & 	 1.1 	&	2,567	\\
+1980	 & 	 9.8 	 & 	 462.2 	 & 	 822.9 	 & 	 443.3 	 & 	 252.1 	 & 	 210.9 	 & 	 83.7 	 & 	 37.6 	 & 	 21.7 	 & 	 23.9 	 & 	 25.4 	 & 	 15.9 	 & 	 7.7 	 & 	 3.7 	&	2,421	\\
+1981	 & 	 0.6 	 & 	 72.2 	 & 	 1,012.7 	 & 	 637.9 	 & 	 227.0 	 & 	 102.9 	 & 	 51.7 	 & 	 29.6 	 & 	 16.1 	 & 	 9.3 	 & 	 7.5 	 & 	 4.6 	 & 	 1.5 	 & 	 1.0 	&	2,175	\\
+1982	 & 	 4.7 	 & 	 25.3 	 & 	 161.4 	 & 	 1,172.2 	 & 	 422.3 	 & 	 103.7 	 & 	 36.0 	 & 	 36.0 	 & 	 21.5 	 & 	 9.1 	 & 	 5.4 	 & 	 3.2 	 & 	 1.9 	 & 	 1.0 	&	2,004	\\
+1983	 & 	 5.1 	 & 	 118.6 	 & 	 157.8 	 & 	 312.9 	 & 	 816.8 	 & 	 218.2 	 & 	 41.4 	 & 	 24.7 	 & 	 19.8 	 & 	 11.1 	 & 	 7.6 	 & 	 4.9 	 & 	 3.5 	 & 	 2.1 	&	1,745	\\
+1984	 & 	 2.1 	 & 	 45.8 	 & 	 88.6 	 & 	 430.4 	 & 	 491.4 	 & 	 653.6 	 & 	 133.7 	 & 	 35.5 	 & 	 25.1 	 & 	 15.6 	 & 	 7.1 	 & 	 2.5 	 & 	 2.9 	 & 	 3.7 	&	1,938	\\
+1985	 & 	 2.6 	 & 	 55.2 	 & 	 381.2 	 & 	 121.7 	 & 	 365.7 	 & 	 321.5 	 & 	 443.2 	 & 	 112.5 	 & 	 36.6 	 & 	 25.8 	 & 	 24.8 	 & 	 10.7 	 & 	 9.4 	 & 	 9.1 	&	1,920	\\
+1986	 & 	 3.1 	 & 	 86.0 	 & 	 92.3 	 & 	 748.6 	 & 	 214.1 	 & 	 378.1 	 & 	 221.9 	 & 	 214.3 	 & 	 59.7 	 & 	 15.2 	 & 	 3.3 	 & 	 2.6 	 & 	 0.3 	 & 	 1.2 	&	2,041	\\
+1987	 & 	 - 	 & 	 19.8 	 & 	 111.5 	 & 	 77.6 	 & 	 413.4 	 & 	 138.8 	 & 	 122.4 	 & 	 90.6 	 & 	 247.2 	 & 	 54.1 	 & 	 38.7 	 & 	 21.4 	 & 	 28.9 	 & 	 14.1 	&	1,379	\\
+1988	 & 	 - 	 & 	 10.7 	 & 	 454.0 	 & 	 421.6 	 & 	 252.1 	 & 	 544.3 	 & 	 224.8 	 & 	 104.9 	 & 	 39.2 	 & 	 96.8 	 & 	 18.2 	 & 	 10.2 	 & 	 3.8 	 & 	 11.7 	&	2,192	\\
+1989	 & 	 - 	 & 	 4.8 	 & 	 55.1 	 & 	 149.0 	 & 	 451.1 	 & 	 166.7 	 & 	 572.2 	 & 	 96.3 	 & 	 103.8 	 & 	 32.4 	 & 	 129.0 	 & 	 10.9 	 & 	 4.0 	 & 	 8.5 	&	1,784	\\
+1990	 & 	 1.3 	 & 	 33.0 	 & 	 57.0 	 & 	 219.5 	 & 	 200.7 	 & 	 477.7 	 & 	 129.2 	 & 	 368.4 	 & 	 65.7 	 & 	 101.9 	 & 	 9.0 	 & 	 60.1 	 & 	 8.5 	 & 	 13.9 	&	1,746	\\
+1991	 & 	 1.0 	 & 	 111.6 	 & 	 43.5 	 & 	 85.1 	 & 	 156.1 	 & 	 184.5 	 & 	 500.5 	 & 	 76.2 	 & 	 289.2 	 & 	 28.0 	 & 	 139.5 	 & 	 18.3 	 & 	 93.6 	 & 	 76.9 	&	1,804	\\
+1992	 & 	 1.1 	 & 	 84.6 	 & 	 675.1 	 & 	 129.9 	 & 	 79.5 	 & 	 108.6 	 & 	 133.6 	 & 	 253.4 	 & 	 102.2 	 & 	 146.9 	 & 	 57.9 	 & 	 46.3 	 & 	 13.4 	 & 	 78.2 	&	1,911	\\
+1993	 & 	 0.1 	 & 	 7.4 	 & 	 260.3 	 & 	 1,145.5 	 & 	 102.9 	 & 	 66.1 	 & 	 66.3 	 & 	 56.4 	 & 	 86.1 	 & 	 21.1 	 & 	 32.7 	 & 	 12.3 	 & 	 13.5 	 & 	 22.9 	&	1,893	\\
+1994	 & 	 0.7 	 & 	 30.2 	 & 	 55.1 	 & 	 360.8 	 & 	 1,058.6 	 & 	 175.5 	 & 	 53.5 	 & 	 19.1 	 & 	 13.1 	 & 	 20.1 	 & 	 9.7 	 & 	 9.4 	 & 	 7.5 	 & 	 12.3 	&	1,826	\\
+1995	 & 	 - 	 & 	 0.5 	 & 	 72.8 	 & 	 146.6 	 & 	 395.1 	 & 	 760.3 	 & 	 136.1 	 & 	 34.5 	 & 	 12.3 	 & 	 7.5 	 & 	 17.5 	 & 	 5.0 	 & 	 5.8 	 & 	 10.6 	&	1,605	\\
+1996	 & 	 - 	 & 	 21.6 	 & 	 48.0 	 & 	 71.7 	 & 	 160.8 	 & 	 361.5 	 & 	 481.2 	 & 	 184.5 	 & 	 33.6 	 & 	 13.4 	 & 	 7.9 	 & 	 8.8 	 & 	 4.3 	 & 	 11.1 	&	1,409	\\
+1997	 & 	 1.0 	 & 	 77.6 	 & 	 40.3 	 & 	 118.9 	 & 	 454.7 	 & 	 288.7 	 & 	 256.1 	 & 	 198.4 	 & 	 64.0 	 & 	 13.3 	 & 	 6.0 	 & 	 4.6 	 & 	 2.9 	 & 	 13.9 	&	1,540	\\
+1998	 & 	 0.3 	 & 	 42.0 	 & 	 84.4 	 & 	 70.4 	 & 	 153.2 	 & 	 702.1 	 & 	 199.4 	 & 	 131.6 	 & 	 110.6 	 & 	 27.8 	 & 	 6.1 	 & 	 5.6 	 & 	 2.6 	 & 	 7.0 	&	1,543	\\
+1999	 & 	 0.2 	 & 	 10.3 	 & 	 298.4 	 & 	 224.8 	 & 	 102.9 	 & 	 156.9 	 & 	 469.3 	 & 	 130.9 	 & 	 56.4 	 & 	 33.1 	 & 	 4.0 	 & 	 2.2 	 & 	 0.9 	 & 	 2.5 	&	1,493	\\
+2000	 & 	 - 	 & 	 16.1 	 & 	 82.4 	 & 	 428.1 	 & 	 346.2 	 & 	 106.6 	 & 	 168.2 	 & 	 357.4 	 & 	 84.8 	 & 	 29.7 	 & 	 22.0 	 & 	 5.2 	 & 	 1.4 	 & 	 1.6 	&	1,650	\\
+2001	 & 	 - 	 & 	 3.2 	 & 	 42.7 	 & 	 154.3 	 & 	 580.5 	 & 	 414.6 	 & 	 137.0 	 & 	 128.9 	 & 	 157.1 	 & 	 57.8 	 & 	 33.6 	 & 	 16.2 	 & 	 5.5 	 & 	 5.0 	&	1,736	\\
+2002	 & 	 0.8 	 & 	 47.0 	 & 	 107.9 	 & 	 217.6 	 & 	 287.3 	 & 	 605.7 	 & 	 267.7 	 & 	 98.4 	 & 	 85.8 	 & 	 93.8 	 & 	 34.6 	 & 	 14.4 	 & 	 11.0 	 & 	 4.8 	&	1,877	\\
+2003	 & 	 - 	 & 	 14.5 	 & 	 411.4 	 & 	 323.8 	 & 	 360.0 	 & 	 301.2 	 & 	 337.3 	 & 	 158.4 	 & 	 49.4 	 & 	 39.2 	 & 	 35.7 	 & 	 22.9 	 & 	 6.6 	 & 	 6.8 	&	2,067	\\
+2004	 & 	 - 	 & 	 0.5 	 & 	 89.5 	 & 	 830.3 	 & 	 480.2 	 & 	 236.6 	 & 	 169.1 	 & 	 156.1 	 & 	 64.9 	 & 	 16.1 	 & 	 17.0 	 & 	 25.2 	 & 	 9.4 	 & 	 12.8 	&	2,108	\\
+2005	 & 	 - 	 & 	 4.8 	 & 	 52.1 	 & 	 392.5 	 & 	 862.9 	 & 	 484.1 	 & 	 159.3 	 & 	 68.0 	 & 	 66.6 	 & 	 30.1 	 & 	 10.0 	 & 	 9.1 	 & 	 3.2 	 & 	 5.9 	&	2,149	\\
+2006	 & 	 - 	 & 	 9.9 	 & 	 84.1 	 & 	 295.5 	 & 	 619.0 	 & 	 597.0 	 & 	 278.3 	 & 	 107.2 	 & 	 48.0 	 & 	 38.3 	 & 	 17.7 	 & 	 8.2 	 & 	 8.3 	 & 	 12.5 	&	2,124	\\
+2007	 & 	 1.7 	 & 	 15.7 	 & 	 59.1 	 & 	 139.0 	 & 	 389.0 	 & 	 511.5 	 & 	 300.5 	 & 	 136.9 	 & 	 47.6 	 & 	 27.5 	 & 	 21.8 	 & 	 8.9 	 & 	 6.5 	 & 	 14.2 	&	1,680	\\
+2008	 & 	 - 	 & 	 25.2 	 & 	 58.8 	 & 	 79.1 	 & 	 146.9 	 & 	 309.4 	 & 	 242.0 	 & 	 148.6 	 & 	 84.2 	 & 	 22.2 	 & 	 17.5 	 & 	 14.4 	 & 	 8.6 	 & 	 15.4 	&	1,172	\\
+2009	 & 	 - 	 & 	 1.3 	 & 	 175.3 	 & 	 200.4 	 & 	 82.5 	 & 	 114.3 	 & 	 124.2 	 & 	 104.2 	 & 	 66.6 	 & 	 40.2 	 & 	 23.5 	 & 	 7.6 	 & 	 7.5 	 & 	 11.4 	&	959	\\
+2010	 & 	 1.1 	 & 	 26.4 	 & 	 31.8 	 & 	 558.8 	 & 	 220.3 	 & 	 54.7 	 & 	 43.0 	 & 	 57.6 	 & 	 51.7 	 & 	 31.8 	 & 	 15.9 	 & 	 8.6 	 & 	 6.0 	 & 	 9.5 	&	1,117	\\
+2011	 & 	 0.4 	 & 	 10.3 	 & 	 193.1 	 & 	 115.3 	 & 	 808.4 	 & 	 284.4 	 & 	 63.5 	 & 	 37.5 	 & 	 38.5 	 & 	 41.4 	 & 	 25.8 	 & 	 12.5 	 & 	 1.8 	 & 	 8.3 	&	1,641	\\
+2012	 & 	 - 	 & 	 22.2 	 & 	 116.6 	 & 	 945.8 	 & 	 172.6 	 & 	 432.1 	 & 	 141.4 	 & 	 36.6 	 & 	 17.4 	 & 	 14.6 	 & 	 15.9 	 & 	 13.5 	 & 	 7.4 	 & 	 9.5 	&	1,946	\\
+2013	 & 	 1.8 	 & 	 1.0 	 & 	 63.9 	 & 	 342.1 	 & 	 954.9 	 & 	 194.2 	 & 	 156.4 	 & 	 69.9 	 & 	 20.7 	 & 	 12.7 	 & 	 12.7 	 & 	 10.8 	 & 	 7.8 	 & 	 10.5 	&	1,859	\\
+2014	 & 	 - 	 & 	 39.2 	 & 	 31.0 	 & 	 167.6 	 & 	 398.9 	 & 	 751.0 	 & 	 210.0 	 & 	 86.1 	 & 	 29.8 	 & 	 9.0 	 & 	 4.5 	 & 	 4.5 	 & 	 4.6 	 & 	 8.8 	&	1,745	\\
+2015	 & 	 - 	 & 	 15.5 	 & 	 631.8 	 & 	 196.2 	 & 	 228.3 	 & 	 383.9 	 & 	 509.6 	 & 	 88.7 	 & 	 42.1 	 & 	 17.6 	 & 	 2.9 	 & 	 2.1 	 & 	 3.1 	 & 	 3.9 	&	2,126	\\
+2016	 & 	 - 	 & 	 0.5 	 & 	 90.5 	 & 	 1,388.9 	 & 	 159.7 	 & 	 174.3 	 & 	 174.6 	 & 	 224.5 	 & 	 34.0 	 & 	 13.8 	 & 	 8.0 	 & 	 0.5 	 & 	 1.2 	 & 	 1.7 	&	2,272	\\
+2017	 & 	 - 	 & 	 2.2 	 & 	 28.1 	 & 	 548.5 	 & 	 898.1 	 & 	 215.3 	 & 	 147.4 	 & 	 122.0 	 & 	 97.2 	 & 	 21.7 	 & 	 7.2 	 & 	 5.6 	 & 	 0.5 	 & 	 0.4 	&	2,094	\\
+2018	 & 	 - 	 & 	 1.3 	 & 	 13.8 	 & 	 114.9 	 & 	 1,214.9 	 & 	 506.1 	 & 	 104.7 	 & 	 81.9 	 & 	 60.6 	 & 	 25.9 	 & 	 4.3 	 & 	 1.1 	 & 	 0.4 	 & 	 1.1 	&	2,131	\\
+2019	 & 	 0.7 	 & 	 10.9 	 & 	 12.3 	 & 	 18.3 	 & 	 157.4 	 & 	 915.9 	 & 	 422.0 	 & 	 93.1 	 & 	 52.1 	 & 	 52.9 	 & 	 10.0 	 & 	 2.9 	 & 	 0.8 	 & 	 - 	&	1,749	\\
+2020	 & 	 3.7 	 & 	 245.9 	 & 	 85.6 	 & 	 99.2 	 & 	 134.1 	 & 	 548.5 	 & 	 598.3 	 & 	 126.6 	 & 	 53.0 	 & 	 37.8 	 & 	 27.0 	 & 	 6.9 	 & 	 1.7 	 & 	 1.2 	&	1,970	\\
 \hline                                                                                                                          
-Avg.    &   6.5 &   52.2    &   196.6   &   364.6   &   404.4   &   339.8   &   209.1   &   113.0   &   65.1    &   33.8    &   22.6    &   11.4    &   7.8 &   11.1    &   1,834.75    \\
+Mean	 & 	 6.3 	 & 	 56.6 	 & 	 194.1 	 & 	 358.7 	 & 	 396.8 	 & 	 344.7 	 & 	 218.3 	 & 	 113.1 	 & 	 64.6 	 & 	 33.5 	 & 	 22.4 	 & 	 11.2 	 & 	 7.7 	 & 	 11.0 	 & 	 1,836 	\\
 
 \hline
 \end{tabular}
@@ -3087,7 +3240,7 @@ Avg.    &   6.5 &   52.2    &   196.6   &   364.6   &   404.4   &   339.8   &   
 
 \begin{table}[ht]
 \centering
-\caption{Numbers of pollock NMFS observer samples measured for fishery catch length frequency (by sex and strata), 1977--2019.} 
+\caption{Numbers of pollock NMFS observer samples measured for fishery catch length frequency (by sex and strata), 1977--2020.} 
 \label{tab:fsh_meas} 
 \begin{tabular}{crrrrrrr}
 \hline
@@ -3107,35 +3260,38 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 1985    &   119,384 &   109,230 &   96,684  &   97,841  &   284,850 &   256,091 &   964,080 \\
 1986    &   186,505 &   189,497 &   135,444 &   123,413 &   164,546 &   131,322 &   930,727 \\
 1987    &   373,163 &   399,072 &   14,170  &   21,162  &   24,038  &   22,117  &   853,722 \\
-1991    &   160,491 &   148,236 &   166,117 &   150,261 &   141,085 &   139,852 &   906,042 \\
-1992    &   158,405 &   153,866 &   163,045 &   164,227 &   101,036 &   102,667 &   843,244 \\
-1993    &   143,296 &   133,711 &   148,299 &   140,402 &   27,262  &   28,522  &   621,490 \\
-1994    &   139,332 &   147,204 &   159,341 &   153,526 &   28,015  &   27,953  &   655,370 \\
-1995    &   131,287 &   128,389 &   179,312 &   154,520 &   16,170  &   16,356  &   626,032 \\
-1996    &   149,111 &   140,981 &   200,482 &   156,804 &   18,165  &   18,348  &   683,890 \\
-1997    &   124,953 &   104,115 &   116,448 &   107,630 &   60,192  &   53,191  &   566,527 \\
-1998    &   136,605 &   110,620 &   208,659 &   178,012 &   32,819  &   40,307  &   707,019 \\
-1999    &   36,258  &   32,630  &   38,840  &   35,695  &   16,282  &   18,339  &   178,044 \\
-2000    &   64,575  &   58,162  &   63,832  &   41,120  &   40,868  &   39,134  &   307,689 \\
-2001    &   79,333  &   75,633  &   54,119  &   51,268  &   44,295  &   45,836  &   350,483 \\
-2002    &   71,776  &   69,743  &   65,432  &   64,373  &   37,701  &   39,322  &   348,347 \\
-2003    &   74,995  &   77,612  &   49,469  &   53,053  &   51,799  &   53,463  &   360,390 \\
-2004    &   75,426  &   76,018  &   63,204  &   62,005  &   47,289  &   44,246  &   368,188 \\
-2005    &   76,627  &   69,543  &   43,205  &   33,886  &   68,878  &   63,088  &   355,225 \\
-2006    &   72,353  &   63,108  &   28,799  &   22,363  &   75,180  &   65,209  &   327,010 \\
-2007    &   62,827  &   60,522  &   32,945  &   25,518  &   75,128  &   69,116  &   326,054 \\
-2008    &   46,125  &   51,027  &   20,493  &   23,503  &   61,149  &   64,598  &   266,894 \\
-2009    &   46,051  &   44,080  &   19,877  &   18,579  &   50,451  &   53,344  &   232,379 \\
-2010    &   39,495  &   41,054  &   19,194  &   20,591  &   40,449  &   41,323  &   202,106 \\
-2011    &   58,822  &   62,617  &   60,254  &   65,057  &   51,137  &   48,084  &   345,971 \\
-2012    &   53,641  &   57,966  &   45,044  &   46,940  &   50,167  &   53,224  &   306,982 \\
-2013    &   52,303  &   62,336  &   37,434  &   44,709  &   49,484  &   49,903  &   296,168 \\
-2014    &   55,954  &   58,097  &   46,568  &   51,950  &   46,643  &   46,202  &   305,414 \\
-2015    &   55,646  &   56,507  &   45,074  &   41,218  &   46,237  &   43,084  &   287,766 \\
-2016    &   57,478  &   59,000  &   10,264  &   9,016   &   72,973  &   69,669  &   278,400 \\
-2017    &   55,965  &   64,728  &   15,871  &   14,136  &   70,285  &   66,026  &   287,011 \\
-2018    &   57,156  &   64,639  &   35,811  &   32,842  &   56,243  &   49,671  &   296,362 \\
-2019    &   57,156  &   64,639  &   35,811  &   32,842  &   56,243  &   49,671  &   296,362 \\
+-       &   --      &   --      &   --      &   --      &   --      &   --      &   --     \\
+1991	&	 143,625 	 & 	 165,393 	 & 	 122,241 	 & 	 162,352 	 & 	 132,539 	 & 	 184,394 	 & 	 910,544 	 \\ 
+1992	&	 148,024 	 & 	 163,971 	 & 	 94,701 	 & 	 110,798 	 & 	 152,003 	 & 	 175,282 	 & 	 844,779 	 \\ 
+1993	&	 126,635 	 & 	 150,315 	 & 	 26,057 	 & 	 29,863 	 & 	 137,384 	 & 	 151,361 	 & 	 621,615 	 \\ 
+1994	&	 146,067 	 & 	 140,351 	 & 	 26,380 	 & 	 29,727 	 & 	 148,497 	 & 	 164,389 	 & 	 655,411 	 \\ 
+1995	&	 125,847 	 & 	 133,438 	 & 	 16,327 	 & 	 16,203 	 & 	 150,323 	 & 	 183,514 	 & 	 625,652 	 \\ 
+1996	&	 139,905 	 & 	 149,616 	 & 	 18,288 	 & 	 18,341 	 & 	 149,814 	 & 	 207,452 	 & 	 683,416 	 \\ 
+1997	&	 102,619 	 & 	 126,426 	 & 	 51,498 	 & 	 61,974 	 & 	 106,001 	 & 	 118,224 	 & 	 566,742 	 \\ 
+1998	&	 109,119 	 & 	 138,144 	 & 	 39,475 	 & 	 33,529 	 & 	 174,676 	 & 	 211,900 	 & 	 706,843 	 \\ 
+1999	&	 32,407 	 & 	 36,480 	 & 	 18,321 	 & 	 16,316 	 & 	 35,084 	 & 	 39,426 	 & 	 178,034 	 \\ 
+2000	&	 58,030 	 & 	 64,634 	 & 	 39,105 	 & 	 40,922 	 & 	 41,027 	 & 	 63,968 	 & 	 307,686 	 \\ 
+2001	&	 75,491 	 & 	 79,509 	 & 	 45,766 	 & 	 44,414 	 & 	 51,179 	 & 	 54,312 	 & 	 350,671 	 \\ 
+2002	&	 69,467 	 & 	 72,083 	 & 	 39,285 	 & 	 37,760 	 & 	 64,243 	 & 	 65,564 	 & 	 348,402 	 \\ 
+2003	&	 77,533 	 & 	 75,073 	 & 	 53,435 	 & 	 51,838 	 & 	 52,899 	 & 	 49,535 	 & 	 360,313 	 \\ 
+2004	&	 75,811 	 & 	 75,619 	 & 	 44,220 	 & 	 47,403 	 & 	 61,957 	 & 	 63,234 	 & 	 368,244 	 \\ 
+2005	&	 68,665 	 & 	 75,962 	 & 	 63,022 	 & 	 68,976 	 & 	 33,917 	 & 	 43,326 	 & 	 353,868 	 \\ 
+2006	&	 63,349 	 & 	 72,602 	 & 	 67,219 	 & 	 78,082 	 & 	 27,939 	 & 	 35,416 	 & 	 344,607 	 \\ 
+2007	&	 63,969 	 & 	 66,622 	 & 	 70,504 	 & 	 77,557 	 & 	 29,558 	 & 	 38,221 	 & 	 346,431 	 \\ 
+2008	&	 46,296 	 & 	 51,382 	 & 	 60,678 	 & 	 65,070 	 & 	 20,462 	 & 	 23,555 	 & 	 267,443 	 \\ 
+2009	&	 41,540 	 & 	 43,538 	 & 	 47,926 	 & 	 45,695 	 & 	 16,148 	 & 	 17,355 	 & 	 212,202 	 \\ 
+2010	&	 39,495 	 & 	 41,054 	 & 	 40,449 	 & 	 41,323 	 & 	 19,194 	 & 	 20,591 	 & 	 202,106 	 \\ 
+2011	&	 58,481 	 & 	 62,318 	 & 	 50,927 	 & 	 48,237 	 & 	 60,208 	 & 	 65,107 	 & 	 345,278 	 \\ 
+2012	&	 53,557 	 & 	 57,985 	 & 	 49,968 	 & 	 53,448 	 & 	 45,024 	 & 	 46,962 	 & 	 306,944 	 \\ 
+2013	&	 51,984 	 & 	 62,170 	 & 	 49,161 	 & 	 49,781 	 & 	 37,307 	 & 	 44,835 	 & 	 295,238 	 \\ 
+2014	&	 55,954 	 & 	 58,097 	 & 	 46,642 	 & 	 46,204 	 & 	 46,568 	 & 	 51,950 	 & 	 305,415 	 \\ 
+2015	&	 55,646 	 & 	 56,507 	 & 	 45,117 	 & 	 41,266 	 & 	 46,853 	 & 	 43,757 	 & 	 289,146 	 \\ 
+2016	&	 57,478 	 & 	 59,000 	 & 	 10,264 	 & 	 9,016 	 & 	 72,973 	 & 	 69,669 	 & 	 278,400 	 \\ 
+2017	&	 55,965 	 & 	 64,728 	 & 	 15,871 	 & 	 14,136 	 & 	 70,285 	 & 	 66,026 	 & 	 287,011 	 \\ 
+2018	&	 57,156 	 & 	 64,639 	 & 	 35,811 	 & 	 32,842 	 & 	 56,243 	 & 	 49,671 	 & 	 296,362 	 \\ 
+2019	&	 49,191 	 & 	 64,730 	 & 	 34,955 	 & 	 27,993 	 & 	 59,416 	 & 	 55,450 	 & 	 291,735 	 \\ 
+2020	&	 60,018 	 & 	 65,805 	 & 	 53,985 	 & 	 49,865 	 & 	 53,160 	 & 	 48,851 	 & 	 331,684 	 \\ 
+2021	&	 59,580 	 & 	 75,688 	 & 	 14,590 	 & 	 12,416 	 & 	 16,816 	 & 	 13,441 	 & 	 192,531 	 \\ 
 \hline
 \end{tabular}
 \end{table}
@@ -3144,7 +3300,7 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 
 \begin{table}[ht]
 \centering
-\caption{Number of EBS pollock measured for weight and length by sex and strata as collected by the NMFS observer program, 1977-2019}
+\caption{Number of EBS pollock measured for weight and length by sex and strata as collected by the NMFS observer program, 1977-2020}
 \label{tab:lw_meas} 
 \begin{tabular}{crrrrrrr}
 \hline
@@ -3164,42 +3320,44 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 1985    &   520 &   499 &   46  &   55  &   426 &   488 &   2,034   \\
 1986    &   689 &   794 &   518 &   501 &   286 &   286 &   3,074   \\
 1987    &   1,351   &   1,466   &   25  &   33  &   72  &   63  &   3,010   \\
-1991    &   2,712   &   2,781   &   2,339   &   2,496   &   1,065   &   1,169   &   12,562  \\
-1992    &   1,517   &   1,582   &   1,911   &   1,970   &   588 &   566 &   8,134   \\
-1993    &   1,201   &   1,270   &   1,448   &   1,406   &   435 &   450 &   6,210   \\
-1994    &   1,552   &   1,630   &   1,569   &   1,577   &   162 &   171 &   6,661   \\
-1995    &   1,215   &   1,259   &   1,320   &   1,343   &   223 &   232 &   5,592   \\
-1996    &   2,094   &   2,135   &   1,409   &   1,384   &   1   &   1   &   7,024   \\
-1997    &   628 &   627 &   616 &   665 &   511 &   523 &   3,570   \\
-1998    &   1,852   &   1,946   &   959 &   923 &   327 &   350 &   6,357   \\
-1999    &   5,318   &   4,798   &   7,797   &   7,054   &   3,532   &   3,768   &   32,267  \\
-2000    &   11,346  &   12,457  &   7,736   &   7,991   &   7,800   &   12,463  &   59,793  \\
-2001    &   14,411  &   14,965  &   9,064   &   8,803   &   10,460  &   10,871  &   68,574  \\
-2002    &   13,564  &   14,098  &   7,648   &   7,213   &   13,004  &   12,988  &   68,515  \\
-2003    &   15,535  &   14,857  &   10,272  &   10,031  &   10,111  &   9,437   &   70,243  \\
-2004    &   7,924   &   7,742   &   4,318   &   4,617   &   6,868   &   6,850   &   38,319  \\
-2005    &   7,039   &   7,428   &   6,426   &   6,947   &   4,114   &   5,139   &   37,093  \\
-2006    &   6,566   &   7,381   &   6,442   &   7,406   &   3,045   &   4,006   &   34,846  \\
-2007    &   6,640   &   6,695   &   7,081   &   7,798   &   3,202   &   4,305   &   35,721  \\
-2008    &   4,501   &   4,865   &   5,855   &   6,264   &   2,236   &   2,624   &   26,345  \\
-2009    &   4,033   &   4,382   &   4,655   &   4,511   &   1,723   &   1,934   &   21,238  \\
-2010    &   4,258   &   4,536   &   3,883   &   4,125   &   2,012   &   2,261   &   21,075  \\
-2011    &   5,845   &   6,388   &   4,954   &   4,647   &   5,929   &   6,456   &   34,219  \\
-2012    &   5,494   &   5,979   &   4,923   &   5,346   &   4,507   &   4,774   &   31,023  \\
-2013    &   5,689   &   6,525   &   4,844   &   4,920   &   3,599   &   4,313   &   29,890  \\
-2014    &   5,675   &   5,871   &   4,785   &   4,652   &   4,753   &   5,180   &   30,916  \\
-2015    &   5,310   &   5,323   &   4,648   &   4,194   &   4,365   &   4,064   &   27,904  \\
-2016    &   5,312   &   5,725   &   1,077   &   909 &   6,872   &   6,635   &   26,530  \\
-2017    &   5,238   &   6,047   &   1,586   &   1,343   &   6,575   &   6,254   &   27,043  \\
-2018    &   5,583   &   6,174   &   3,430   &   3,172   &   5,506   &   4,850   &   28,715  \\
-2019    &   6,098   &   4,520   &   2,953   &   3,594   &   5,501   &   5,822   &   28,488  \\
+-       &   --      &   --      &   --      &   --      &   --      &   --      &   --     \\
+1991	 & 	 2,893 	 & 	 2,791 	 & 	 1,209 	 & 	 1,116 	 & 	 2,536 	 & 	 2,408 	 & 	 12,953 	\\
+1992	 & 	 1,605 	 & 	 1,537 	 & 	 556 	 & 	 600 	 & 	 2,003 	 & 	 1,940 	 & 	 8,241 	\\
+1993	 & 	 1,278 	 & 	 1,205 	 & 	 451 	 & 	 437 	 & 	 1,412 	 & 	 1,459 	 & 	 6,242 	\\
+1994	 & 	 1,638 	 & 	 1,553 	 & 	 174 	 & 	 166 	 & 	 1,591 	 & 	 1,584 	 & 	 6,706 	\\
+1995	 & 	 1,258 	 & 	 1,220 	 & 	 232 	 & 	 223 	 & 	 1,352 	 & 	 1,331 	 & 	 5,616 	\\
+1996	 & 	 2,165 	 & 	 2,117 	 & 	 -   	 & 	 -   	 & 	 1,393 	 & 	 1,421 	 & 	 7,096 	\\
+1997	 & 	 629 	 & 	 630 	 & 	 552 	 & 	 536 	 & 	 674 	 & 	 620 	 & 	 3,641 	\\
+1998	 & 	 1,958 	 & 	 1,865 	 & 	 357 	 & 	 335 	 & 	 936 	 & 	 982 	 & 	 6,433 	\\
+1999	 & 	 4,813 	 & 	 5,337 	 & 	 3,767 	 & 	 3,546 	 & 	 7,182 	 & 	 7,954 	 & 	 32,599 	\\
+2000	 & 	 11,346 	 & 	 12,457 	 & 	 7,736 	 & 	 7,991 	 & 	 7,800 	 & 	 12,463 	 & 	 59,793 	\\
+2001	 & 	 14,411 	 & 	 14,965 	 & 	 9,064 	 & 	 8,803 	 & 	 10,460 	 & 	 10,871 	 & 	 68,574 	\\
+2002	 & 	 13,564 	 & 	 14,098 	 & 	 7,648 	 & 	 7,213 	 & 	 13,004 	 & 	 12,988 	 & 	 68,515 	\\
+2003	 & 	 15,535 	 & 	 14,857 	 & 	 10,272 	 & 	 10,031 	 & 	 10,111 	 & 	 9,437 	 & 	 70,243 	\\
+2004	 & 	 7,924 	 & 	 7,742 	 & 	 4,318 	 & 	 4,617 	 & 	 6,868 	 & 	 6,850 	 & 	 38,319 	\\
+2005	 & 	 7,039 	 & 	 7,428 	 & 	 6,426 	 & 	 6,947 	 & 	 4,114 	 & 	 5,139 	 & 	 37,093 	\\
+2006	 & 	 6,566 	 & 	 7,381 	 & 	 6,442 	 & 	 7,406 	 & 	 3,045 	 & 	 4,006 	 & 	 34,846 	\\
+2007	 & 	 6,640 	 & 	 6,695 	 & 	 7,081 	 & 	 7,798 	 & 	 3,202 	 & 	 4,305 	 & 	 35,721 	\\
+2008	 & 	 4,501 	 & 	 4,865 	 & 	 5,855 	 & 	 6,264 	 & 	 2,236 	 & 	 2,624 	 & 	 26,345 	\\
+2009	 & 	 4,033 	 & 	 4,382 	 & 	 4,655 	 & 	 4,511 	 & 	 1,723 	 & 	 1,934 	 & 	 21,238 	\\
+2010	 & 	 4,258 	 & 	 4,536 	 & 	 3,883 	 & 	 4,125 	 & 	 2,012 	 & 	 2,261 	 & 	 21,075 	\\
+2011	 & 	 5,845 	 & 	 6,388 	 & 	 4,954 	 & 	 4,647 	 & 	 5,929 	 & 	 6,456 	 & 	 34,219 	\\
+2012	 & 	 5,494 	 & 	 5,979 	 & 	 4,923 	 & 	 5,346 	 & 	 4,507 	 & 	 4,774 	 & 	 31,023 	\\
+2013	 & 	 5,689 	 & 	 6,525 	 & 	 4,844 	 & 	 4,920 	 & 	 3,599 	 & 	 4,313 	 & 	 29,890 	\\
+2014	 & 	 5,675 	 & 	 5,871 	 & 	 4,785 	 & 	 4,652 	 & 	 4,753 	 & 	 5,180 	 & 	 30,916 	\\
+2015	 & 	 5,310 	 & 	 5,323 	 & 	 4,648 	 & 	 4,194 	 & 	 4,365 	 & 	 4,064 	 & 	 27,904 	\\
+2016	 & 	 5,312 	 & 	 5,725 	 & 	 1,077 	 & 	 909 	 & 	 6,872 	 & 	 6,635 	 & 	 26,530 	\\
+2017	 & 	 5,238 	 & 	 6,047 	 & 	 1,586 	 & 	 1,343 	 & 	 6,575 	 & 	 6,254 	 & 	 27,043 	\\
+2018	 & 	 5,583 	 & 	 6,174 	 & 	 3,430 	 & 	 3,172 	 & 	 5,506 	 & 	 4,850 	 & 	 28,715 	\\
+2019	 & 	 4,513 	 & 	 6,086 	 & 	 3,594 	 & 	 2,953 	 & 	 5,809 	 & 	 5,499 	 & 	 28,454 	\\
+2020	 & 	 6,116 	 & 	 6,846 	 & 	 5,325 	 & 	 4,815 	 & 	 5,376 	 & 	 4,900 	 & 	 33,378 	\\
 \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[ht]
 \centering
-\caption{Numbers of pollock fishery samples used for age determination estimates by sex and strata, 1977--2019, as sampled by the NMFS observer program.} 
+\caption{Numbers of pollock fishery samples used for age determination estimates by sex and strata, 1977--2020, as sampled by the NMFS observer program.} 
 \label{tab:fsh_n} 
 \begin{tabular}{crrrrrrr}
 \hline
@@ -3217,35 +3375,37 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 1985 & 520   & 499   & 46  & 55  & 426   & 488   & 2,034  \\
 1986 & 689   & 794   & 518 & 501 & 286   & 286   & 3,074  \\
 1987 & 1,351 & 1,466 & 25  & 33  & 72    & 63    & 3,010  \\
-1991 & 420   & 423   & 272 & 265 & 320   & 341   & 2,041  \\
-1992 & 392   & 392   & 371 & 386 & 178   & 177   & 1,896  \\
-1993 & 444   & 473   & 503 & 493 & 124   & 122   & 2,159  \\
-1994 & 201   & 202   & 570 & 573 & 131   & 141   & 1,818  \\
-1995 & 298   & 316   & 436 & 417 & 123   & 131   & 1,721  \\
-1996 & 468   & 449   & 442 & 433 & 1     & 1     & 1,794  \\
-1997 & 433   & 436   & 284 & 311 & 326   & 326   & 2,116  \\
-1998 & 592   & 659   & 307 & 307 & 216   & 232   & 2,313  \\
-1999 & 540   & 500   & 730 & 727 & 306   & 298   & 3,100  \\
-2000    &   629 &   667 &   293 &   254 &   596 &   847 &   3,286   \\
-2001    &   563 &   603 &   205 &   178 &   697 &   736 &   2,982   \\
-2002    &   672 &   663 &   247 &   202 &   890 &   839 &   3,513   \\
-2003    &   653 &   588 &   274 &   262 &   701 &   671 &   3,149   \\
-2004    &   547 &   561 &   221 &   245 &   698 &   600 &   2,872   \\
-2005    &   599 &   617 &   420 &   422 &   490 &   614 &   3,162   \\
-2006    &   528 &   609 &   507 &   568 &   367 &   459 &   3,038   \\
-2007    &   627 &   642 &   552 &   568 &   485 &   594 &   3,468   \\
-2008    &   513 &   497 &   538 &   650 &   342 &   368 &   2,908   \\
-2009    &   404 &   484 &   440 &   432 &   240 &   299 &   2,299   \\
-2010    &   545 &   624 &   413 &   466 &   418 &   505 &   2,971   \\
-2011    &   581 &   808 &   404 &   396 &   582 &   660 &   3,431   \\
-2012    &   517 &   571 &   485 &   579 &   480 &   533 &   3,165   \\
-2013    &   666 &   703 &   525 &   568 &   401 &   518 &   3,381   \\
-2014    &   609 &   629 &   413 &   407 &   475 &   553 &   3,086   \\
-2015    &   653 &   642 &   511 &   493 &   508 &   513 &   3,320   \\
-2016    &   488 &   599 &   157 &   125 &   929 &   969 &   3,267   \\
-2017    &   604 &   778 &   179 &   163 &   777 &   753 &   3,254   \\
-2018    &   569 &   662 &   366 &   358 &   621 &   591 &   3,167   \\
-2019    &   778 &   552 &   332 &   387 &   531 &   558 &   3,138   \\
+-       &   --      &   --      &   --      &   --      &   --      &   --      &   --     \\
+1991	 & 	 439 	 & 	 431 	 & 	 367 	 & 	 349 	 & 	 263 	 & 	 289 	 & 	 2,138 	\\
+1992	 & 	 399 	 & 	 396 	 & 	 178 	 & 	 180 	 & 	 391 	 & 	 375 	 & 	 1,919 	\\
+1993	 & 	 476 	 & 	 445 	 & 	 122 	 & 	 124 	 & 	 496 	 & 	 507 	 & 	 2,170 	\\
+1994	 & 	 201 	 & 	 200 	 & 	 142 	 & 	 132 	 & 	 574 	 & 	 571 	 & 	 1,820 	\\
+1995	 & 	 313 	 & 	 299 	 & 	 131 	 & 	 123 	 & 	 420 	 & 	 439 	 & 	 1,725 	\\
+1996	 & 	 465 	 & 	 479 	 & 	 -   	 & 	 -   	 & 	 436 	 & 	 443 	 & 	 1,823 	\\
+1997	 & 	 437 	 & 	 434 	 & 	 343 	 & 	 341 	 & 	 313 	 & 	 286 	 & 	 2,154 	\\
+1998	 & 	 663 	 & 	 595 	 & 	 237 	 & 	 222 	 & 	 311 	 & 	 316 	 & 	 2,344 	\\
+1999	 & 	 506 	 & 	 541 	 & 	 298 	 & 	 308 	 & 	 748 	 & 	 750 	 & 	 3,151 	\\
+2000	 & 	 629 	 & 	 667 	 & 	 293 	 & 	 254 	 & 	 596 	 & 	 847 	 & 	 3,286 	\\
+2001	 & 	 563 	 & 	 603 	 & 	 205 	 & 	 178 	 & 	 697 	 & 	 736 	 & 	 2,982 	\\
+2002	 & 	 672 	 & 	 663 	 & 	 247 	 & 	 202 	 & 	 890 	 & 	 839 	 & 	 3,513 	\\
+2003	 & 	 653 	 & 	 588 	 & 	 274 	 & 	 262 	 & 	 701 	 & 	 671 	 & 	 3,149 	\\
+2004	 & 	 547 	 & 	 561 	 & 	 221 	 & 	 245 	 & 	 698 	 & 	 600 	 & 	 2,872 	\\
+2005	 & 	 599 	 & 	 617 	 & 	 420 	 & 	 422 	 & 	 490 	 & 	 614 	 & 	 3,162 	\\
+2006	 & 	 528 	 & 	 609 	 & 	 507 	 & 	 568 	 & 	 367 	 & 	 459 	 & 	 3,038 	\\
+2007	 & 	 627 	 & 	 642 	 & 	 552 	 & 	 568 	 & 	 485 	 & 	 594 	 & 	 3,468 	\\
+2008	 & 	 513 	 & 	 497 	 & 	 538 	 & 	 650 	 & 	 342 	 & 	 368 	 & 	 2,908 	\\
+2009	 & 	 404 	 & 	 484 	 & 	 440 	 & 	 432 	 & 	 240 	 & 	 299 	 & 	 2,299 	\\
+2010	 & 	 545 	 & 	 624 	 & 	 413 	 & 	 466 	 & 	 418 	 & 	 505 	 & 	 2,971 	\\
+2011	 & 	 581 	 & 	 808 	 & 	 404 	 & 	 396 	 & 	 582 	 & 	 660 	 & 	 3,431 	\\
+2012	 & 	 517 	 & 	 571 	 & 	 485 	 & 	 579 	 & 	 480 	 & 	 533 	 & 	 3,165 	\\
+2013	 & 	 666 	 & 	 703 	 & 	 525 	 & 	 568 	 & 	 401 	 & 	 518 	 & 	 3,381 	\\
+2014	 & 	 609 	 & 	 629 	 & 	 413 	 & 	 407 	 & 	 475 	 & 	 553 	 & 	 3,086 	\\
+2015	 & 	 653 	 & 	 642 	 & 	 511 	 & 	 493 	 & 	 508 	 & 	 513 	 & 	 3,320 	\\
+2016	 & 	 488 	 & 	 599 	 & 	 157 	 & 	 125 	 & 	 929 	 & 	 969 	 & 	 3,267 	\\
+2017	 & 	 604 	 & 	 778 	 & 	 179 	 & 	 163 	 & 	 777 	 & 	 753 	 & 	 3,254 	\\
+2018	 & 	 569 	 & 	 662 	 & 	 366 	 & 	 358 	 & 	 621 	 & 	 591 	 & 	 3,167 	\\
+2019	 & 	 552 	 & 	 778 	 & 	 387 	 & 	 332 	 & 	 558 	 & 	 531 	 & 	 3,138 	\\
+2020	 & 	 757 	 & 	 899 	 & 	 405 	 & 	 420 	 & 	 450 	 & 	 408 	 & 	 3,339 	\\
 \hline
 \end{tabular}
 \end{table}
@@ -3255,7 +3415,7 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 
 \begin{table}[ht]
 \centering
-\caption{NMFS total pollock research catch by year in t, 1964--2019.}
+\caption{NMFS total pollock research catch by year in t, 1964--2020.}
 \label{tab:res_catch}
 \begin{tabular}{crrrrr}
 \hline
@@ -3290,7 +3450,7 @@ Year & Bering Sea & Year & Bering Sea & Year & Bering Sea \\
 
 \begin{table}[ht]
 \centering
-\caption{Survey biomass estimates (age 1+, t) of Eastern Bering Sea pollock based on  design-based area-swept expansion methods from NMFS bottom trawl surveys 1982--2019.}
+\caption{Survey biomass estimates (age 1+, t) of Eastern Bering Sea pollock based on  design-based area-swept expansion methods from NMFS bottom trawl surveys 1982--2021.}
 \label{tab:bts_biom}
 \begin{tabular}{crrrr}
 \hline
@@ -3302,41 +3462,47 @@ Year & Strata 1-6              & Strata 8-9  &   Total           & \%NW \\
 1984	&	 4,542,405 	&	 -   	&	 4,542,405 	&	 -   	\\
 1985	&	 4,560,122 	&	 637,881 	&	 5,198,003 	&	12\%	\\
 1986	&	 4,835,722 	&	 -   	&	 4,835,722 	&	 -   	\\
-1987	&	 5,111,645 	&	 386,788 	&	 5,498,433 	&	7\%	\\
-1988	&	 7,003,983 	&	 179,980 	&	 7,183,963 	&	3\%	\\
-1989	&	 5,906,477 	&	 643,938 	&	 6,550,415 	&	10\%	\\
-1990	&	 7,107,218 	&	 189,435 	&	 7,296,653 	&	3\%	\\
-1991	&	 5,067,092 	&	 62,446 	&	 5,129,538 	&	1\%	\\
-1992	&	 4,316,660 	&	 209,493 	&	 4,526,153 	&	5\%	\\
-1993	&	 5,196,453 	&	 98,363 	&	 5,294,816 	&	2\%	\\
-1994	&	 4,977,639 	&	 49,686 	&	 5,027,325 	&	1\%	\\
-1995	&	 5,409,297 	&	 68,541 	&	 5,477,838 	&	1\%	\\
-1996	&	 2,981,680 	&	 143,573 	&	 3,125,253 	&	5\%	\\
-1997	&	 2,868,734 	&	 693,429 	&	 3,562,163 	&	19\%	\\
-1998	&	 2,137,049 	&	 550,706 	&	 2,687,755 	&	20\%	\\
-1999	&	 3,598,688 	&	 199,786 	&	 3,798,474 	&	5\%	\\
-2000	&	 4,985,064 	&	 118,565 	&	 5,103,629 	&	2\%	\\
-2001	&	 4,145,746 	&	 51,108 	&	 4,196,854 	&	1\%	\\
-2002	&	 4,755,668 	&	 197,770 	&	 4,953,438 	&	4\%	\\
-2003	&	 8,106,358 	&	 285,902 	&	 8,392,261 	&	3\%	\\
-2004	&	 3,744,501 	&	 118,473 	&	 3,862,974 	&	3\%	\\
-2005	&	 4,731,068 	&	 137,548 	&	 4,868,616 	&	3\%	\\
-2006	&	 2,845,553 	&	 199,827 	&	 3,045,380 	&	7\%	\\
-2007	&	 4,158,234 	&	 179,986 	&	 4,338,220 	&	4\%	\\
-2008	&	 2,834,093 	&	 189,174 	&	 3,023,267 	&	6\%	\\
-2009	&	 2,231,225 	&	 51,185 	&	 2,282,410 	&	2\%	\\
-2010	&	 3,550,981 	&	 186,898 	&	 3,737,878 	&	5\%	\\
-2011	&	 2,945,641 	&	 166,672 	&	 3,112,312 	&	5\%	\\
-2012	&	 3,281,223 	&	 206,005 	&	 3,487,229 	&	6\%	\\
-2013	&	 4,297,970 	&	 277,433 	&	 4,575,403 	&	6\%	\\
-2014	&	 6,552,849 	&	 877,104 	&	 7,429,952 	&	12\%	\\
-2015	&	 5,944,325 	&	 450,034 	&	 6,394,359 	&	7\%	\\
-2016	&	 4,698,430 	&	 211,650 	&	 4,910,080 	&	4\%	\\
-2017	&	 4,688,500 	&	 125,873 	&	 4,814,373 	&	3\%	\\
-2018	&	 3,015,612 	&	 97,185 	&	 3,112,797 	&	3\%	\\
-2019  &  4,973,872	&  484,494  &  5,458,366  & 9\% \\
-\hline
-Average	&	 4,489,986	&	 245,123	&	 4,735,108 &	5\%	\\
+1982 &    2,858,400 &    54,469    &    2,912,869 &    2\%  \\
+1983 &    5,921,380 &    -    &    5,921,380 &    -    \\
+1984 &    4,542,405 &    -    &    4,542,405 &    -    \\
+1985 &    4,560,122 &    637,881   &    5,198,003 &    12\% \\
+1986 &    4,835,722 &    -    &    4,835,722 &    -    \\
+1987 &    5,111,645 &    386,788   &    5,498,433 &    7\%  \\
+1988 &    7,003,983 &    179,980   &    7,183,963 &    3\%  \\
+1989 &    5,906,477 &    643,938   &    6,550,415 &    10\% \\
+1990 &    7,107,218 &    189,435   &    7,296,653 &    3\%  \\
+1991 &    5,067,092 &    62,446    &    5,129,538 &    1\%  \\
+1992 &    4,316,660 &    209,493   &    4,526,153 &    5\%  \\
+1993 &    5,196,453 &    98,363    &    5,294,816 &    2\%  \\
+1994 &    4,977,639 &    49,686    &    5,027,325 &    1\%  \\
+1995 &    5,409,297 &    68,541    &    5,477,838 &    1\%  \\
+1996 &    2,981,680 &    143,573   &    3,125,253 &    5\%  \\
+1997 &    2,868,734 &    693,429   &    3,562,163 &    19\% \\
+1998 &    2,137,049 &    550,706   &    2,687,755 &    20\% \\
+1999 &    3,598,688 &    199,786   &    3,798,474 &    5\%  \\
+2000 &    4,985,064 &    118,565   &    5,103,629 &    2\%  \\
+2001 &    4,145,746 &    51,108    &    4,196,854 &    1\%  \\
+2002 &    4,755,668 &    197,770   &    4,953,438 &    4\%  \\
+2003 &    8,106,358 &    285,902   &    8,392,261 &    3\%  \\
+2004 &    3,744,501 &    118,473   &    3,862,974 &    3\%  \\
+2005 &    4,731,068 &    137,548   &    4,868,616 &    3\%  \\
+2006 &    2,845,553 &    199,827   &    3,045,380 &    7\%  \\
+2007 &    4,158,234 &    179,986   &    4,338,220 &    4\%  \\
+2008 &    2,834,093 &    189,174   &    3,023,267 &    6\%  \\
+2009 &    2,231,225 &    51,185    &    2,282,410 &    2\%  \\
+2010 &    3,550,981 &    186,898   &    3,737,878 &    5\%  \\
+2011 &    2,945,641 &    166,672   &    3,112,312 &    5\%  \\
+2012 &    3,281,223 &    206,005   &    3,487,229 &    6\%  \\
+2013 &    4,297,970 &    277,433   &    4,575,403 &    6\%  \\
+2014 &    6,552,849 &    877,104   &    7,429,952 &    12\% \\
+2015 &    5,944,325 &    450,034   &    6,394,359 &    7\%  \\
+2016 &    4,698,430 &    211,650   &    4,910,080 &    4\%  \\
+2017 &    4,688,500 &    125,873   &    4,814,373 &    3\%  \\
+2018 &    3,015,612 &    97,185    &    3,112,797 &    3\%  \\
+2019 &    4,973,872 &    484,494   &    5,458,366 &    9\%  \\
+2021 &    2,697,644 &    336,673   &    3,034,317 &    11\% \\
+\hline                                            
+Average   &    4,450,903 &    253,280   &    4,684,699 &    5\%  \\
 \hline
 \end{tabular}
 \end{table}
@@ -3345,7 +3511,7 @@ Average	&	 4,489,986	&	 245,123	&	 4,735,108 &	5\%	\\
 
 \begin{table}[ht]
 \centering
-\caption{Sampling effort for pollock in the EBS from the NMFS bottom trawl survey 1982--2019.}
+\caption{Sampling effort for pollock in the EBS from the NMFS bottom trawl survey 1982--2021.}
 \label{tab:bts_n}
 \begin{tabular}{crrrrrrrr}
 \hline
@@ -3373,6 +3539,8 @@ Year & Number of & Lengths & Aged &  & Year & Number of & Lengths & Aged \\
      &     &        &       &  & 2017 & 376 & 47,873 & 1,623 \\
      &     &        &       &  & 2018 & 376 & 48,673 & 1,486 \\
      &     &        &       &  & 2019 & 376 & 42,382 & 1,519 \\
+     &     &        &       &  & --   & --  & --     &    -- \\
+     &     &        &       &  & 2021 & 376 & 53,545 & 1,528 \\
 \hline
 \end{tabular}
 \end{table}
@@ -3388,46 +3556,48 @@ Year & Number of & Lengths & Aged &  & Year & Number of & Lengths & Aged \\
 \hline
 Year & 1     & 2     & 3     & 4     & 5     & 6     & 7     & 8     & 9     & 10    & 11    & 12  & 13  & 14  & 15  & Total  \\ 
 \hline
-1982	 & 1,235	 & 2,944	 & 3,310	 & 4,340	 & 1,489	 & 203	 & 140	 & 67	 & 42	 & 26	 & 16	 & 10	 & 3	 & 1	 & 1	 & 13,827	\\
-1983	 & 4,798	 & 734	 & 1,656	 & 2,980	 & 6,689	 & 2,042	 & 371	 & 198	 & 89	 & 77	 & 58	 & 20	 & 8	 & 7	 & 3	 & 19,731	\\
-1984	 & 435	 & 363	 & 538	 & 1,535	 & 1,905	 & 4,451	 & 853	 & 189	 & 88	 & 31	 & 21	 & 8	 & 5	 & 6	 & 3	 & 10,431	\\
-1985	 & 5,340	 & 430	 & 1,492	 & 692	 & 2,653	 & 2,011	 & 1,501	 & 298	 & 79	 & 64	 & 23	 & 8	 & 9	 & 1	 & 	 & 14,600	\\
-1986	 & 2,774	 & 678	 & 533	 & 1,875	 & 1,135	 & 1,890	 & 1,653	 & 1,501	 & 471	 & 72	 & 33	 & 15	 & 1	 & 4	 & 1	 & 12,636	\\
-1987	 & 379	 & 759	 & 1,032	 & 780	 & 4,741	 & 1,297	 & 1,202	 & 479	 & 1,521	 & 237	 & 71	 & 28	 & 5	 & 2	 & 2	 & 12,535	\\
-1988	 & 1,455	 & 809	 & 1,898	 & 3,582	 & 1,562	 & 5,048	 & 1,497	 & 1,133	 & 647	 & 1,536	 & 145	 & 87	 & 18	 & 24	 & 12	 & 19,453	\\
-1989	 & 972	 & 304	 & 467	 & 1,564	 & 3,884	 & 875	 & 3,474	 & 534	 & 663	 & 258	 & 812	 & 142	 & 124	 & 63	 & 87	 & 14,223	\\
-1990	 & 2,076	 & 395	 & 142	 & 894	 & 1,808	 & 6,076	 & 1,221	 & 3,008	 & 304	 & 537	 & 82	 & 770	 & 67	 & 50	 & 68	 & 17,498	\\
-1991	 & 3,025	 & 899	 & 326	 & 103	 & 629	 & 591	 & 1,964	 & 740	 & 1,594	 & 417	 & 563	 & 116	 & 349	 & 49	 & 44	 & 11,408	\\
-1992	 & 1,566	 & 444	 & 2,303	 & 375	 & 409	 & 681	 & 616	 & 896	 & 401	 & 770	 & 272	 & 338	 & 146	 & 116	 & 92	 & 9,424	\\
-1993	 & 2,553	 & 382	 & 835	 & 3,752	 & 818	 & 657	 & 340	 & 467	 & 634	 & 390	 & 343	 & 251	 & 197	 & 109	 & 130	 & 11,856	\\
-1994	 & 1,667	 & 752	 & 580	 & 1,622	 & 4,394	 & 770	 & 200	 & 173	 & 193	 & 364	 & 222	 & 310	 & 117	 & 113	 & 187	 & 11,663	\\
-1995	 & 2,231	 & 206	 & 385	 & 1,940	 & 2,615	 & 4,293	 & 1,824	 & 481	 & 294	 & 184	 & 346	 & 139	 & 256	 & 101	 & 145	 & 15,439	\\
-1996	 & 1,488	 & 318	 & 126	 & 253	 & 897	 & 1,311	 & 1,213	 & 415	 & 103	 & 111	 & 75	 & 141	 & 46	 & 83	 & 110	 & 6,691	\\
-1997	 & 2,502	 & 361	 & 84	 & 100	 & 1,459	 & 992	 & 731	 & 923	 & 160	 & 82	 & 62	 & 67	 & 111	 & 36	 & 123	 & 7,793	\\
-1998	 & 678	 & 614	 & 300	 & 176	 & 303	 & 1,740	 & 500	 & 353	 & 284	 & 71	 & 33	 & 12	 & 26	 & 30	 & 70	 & 5,190	\\
-1999	 & 1,123	 & 1,038	 & 966	 & 1,041	 & 589	 & 1,031	 & 2,554	 & 680	 & 322	 & 301	 & 110	 & 47	 & 19	 & 27	 & 93	 & 9,939	\\
-2000	 & 1,105	 & 422	 & 532	 & 1,811	 & 1,792	 & 915	 & 765	 & 2,492	 & 975	 & 512	 & 217	 & 146	 & 45	 & 20	 & 86	 & 11,835	\\
-2001	 & 1,812	 & 1,051	 & 569	 & 542	 & 1,369	 & 1,432	 & 615	 & 305	 & 908	 & 651	 & 249	 & 199	 & 79	 & 28	 & 76	 & 9,885	\\
-2002	 & 788	 & 400	 & 812	 & 1,164	 & 1,206	 & 1,585	 & 825	 & 404	 & 552	 & 1,036	 & 516	 & 228	 & 135	 & 40	 & 43	 & 9,734	\\
-2003	 & 535	 & 150	 & 969	 & 1,680	 & 2,021	 & 1,862	 & 2,495	 & 1,411	 & 646	 & 839	 & 1,714	 & 740	 & 278	 & 146	 & 105	 & 15,591	\\
-2004	 & 389	 & 249	 & 160	 & 1,305	 & 1,301	 & 999	 & 588	 & 636	 & 314	 & 196	 & 195	 & 352	 & 150	 & 36	 & 28	 & 6,897	\\
-2005	 & 353	 & 119	 & 226	 & 1,042	 & 2,940	 & 1,981	 & 1,035	 & 470	 & 357	 & 262	 & 70	 & 148	 & 241	 & 92	 & 95	 & 9,431	\\
-2006	 & 862	 & 66	 & 69	 & 279	 & 910	 & 1,218	 & 799	 & 387	 & 221	 & 190	 & 91	 & 57	 & 82	 & 110	 & 109	 & 5,450	\\
-2007	 & 1,945	 & 66	 & 165	 & 463	 & 1,436	 & 1,691	 & 1,231	 & 887	 & 377	 & 168	 & 157	 & 137	 & 62	 & 78	 & 151	 & 9,014	\\
-2008	 & 525	 & 117	 & 96	 & 183	 & 516	 & 1,036	 & 820	 & 582	 & 371	 & 148	 & 124	 & 95	 & 43	 & 24	 & 149	 & 4,829	\\
-2009	 & 791	 & 220	 & 462	 & 499	 & 289	 & 417	 & 558	 & 435	 & 316	 & 152	 & 101	 & 33	 & 33	 & 17	 & 69	 & 4,391	\\
-2010	 & 471	 & 91	 & 244	 & 2,822	 & 1,288	 & 403	 & 343	 & 364	 & 383	 & 263	 & 227	 & 82	 & 50	 & 29	 & 62	 & 7,121	\\
-2011	 & 1,128	 & 114	 & 212	 & 340	 & 1,779	 & 872	 & 252	 & 141	 & 221	 & 221	 & 185	 & 142	 & 60	 & 28	 & 76	 & 5,770	\\
-2012	 & 1,145	 & 207	 & 362	 & 2,940	 & 729	 & 1,192	 & 406	 & 162	 & 122	 & 167	 & 139	 & 122	 & 102	 & 36	 & 65	 & 7,895	\\
-2013	 & 1,189	 & 116	 & 223	 & 903	 & 4,639	 & 1,099	 & 695	 & 245	 & 83	 & 76	 & 100	 & 75	 & 70	 & 38	 & 50	 & 9,602	\\
-2014	 & 2,121	 & 581	 & 222	 & 236	 & 1,306	 & 5,343	 & 2,840	 & 644	 & 358	 & 133	 & 51	 & 73	 & 74	 & 34	 & 92	 & 14,108	\\
-2015	 & 1,056	 & 670	 & 2,161	 & 538	 & 1,083	 & 2,043	 & 4,110	 & 1,221	 & 295	 & 141	 & 18	 & 17	 & 29	 & 18	 & 36	 & 13,435	\\
-2016	 & 703	 & 412	 & 653	 & 3,280	 & 1,331	 & 886	 & 1,245	 & 1,828	 & 358	 & 140	 & 45	 & 11	 & 11	 & 4	 & 7	 & 10,915	\\
-2017	 & 574	 & 242	 & 451	 & 2,346	 & 2,834	 & 1,231	 & 844	 & 758	 & 893	 & 256	 & 91	 & 33	 & 5	 & 2	 & 7	 & 10,565	\\
-2018	 & 864	 & 373	 & 167	 & 353	 & 2,571	 & 1,452	 & 492	 & 361	 & 366	 & 281	 & 89	 & 14	 & 2	 & 	 & 6	 & 7,391	\\
-2019	 & 1,449	 & 388	 & 333	 & 363	 & 1,111	 & 4,294	 & 1,774	 & 418	 & 298	 & 171	 & 98	 & 43	 & 16	 & 3	 & 1	 & 10,761	\\
+1982	&	 1,287 	 & 	 3,059 	 & 	 3,362 	 & 	 4,377 	 & 	 1,505 	 & 	 206 	 & 	 143 	 & 	 68 	 & 	 43 	 & 	 27 	 & 	 17 	 & 	 10 	 & 	 4 	 & 	 1 	 & 	 1 	&	14,112	 \\ 
+1983	&	 4,798 	 & 	 734 	 & 	 1,656 	 & 	 2,980 	 & 	 6,690 	 & 	 2,042 	 & 	 371 	 & 	 198 	 & 	 89 	 & 	 77 	 & 	 58 	 & 	 20 	 & 	 8 	 & 	 7 	 & 	 3 	&	19,731	 \\ 
+1984	&	 435 	 & 	 363 	 & 	 538 	 & 	 1,535 	 & 	 1,905 	 & 	 4,451 	 & 	 853 	 & 	 189 	 & 	 88 	 & 	 31 	 & 	 21 	 & 	 8 	 & 	 5 	 & 	 6 	 & 	 3 	&	10,431	 \\ 
+1985	&	 6,078 	 & 	 997 	 & 	 3,845 	 & 	 1,222 	 & 	 4,031 	 & 	 2,455 	 & 	 1,679 	 & 	 331 	 & 	 84 	 & 	 70 	 & 	 24 	 & 	 8 	 & 	 9 	 & 	 1 	 & 	 0 	&	20,832	 \\ 
+1986	&	 2,774 	 & 	 678 	 & 	 533 	 & 	 1,875 	 & 	 1,135 	 & 	 1,889 	 & 	 1,653 	 & 	 1,501 	 & 	 471 	 & 	 72 	 & 	 33 	 & 	 15 	 & 	 1 	 & 	 4 	 & 	 1 	&	12,636	 \\ 
+1987	&	 440 	 & 	 793 	 & 	 1,083 	 & 	 817 	 & 	 4,956 	 & 	 1,371 	 & 	 1,313 	 & 	 519 	 & 	 1,640 	 & 	 253 	 & 	 74 	 & 	 29 	 & 	 5 	 & 	 3 	 & 	 2 	&	13,299	 \\ 
+1988	&	 1,635 	 & 	 838 	 & 	 1,952 	 & 	 3,692 	 & 	 1,606 	 & 	 5,209 	 & 	 1,544 	 & 	 1,169 	 & 	 674 	 & 	 1,596 	 & 	 151 	 & 	 90 	 & 	 18 	 & 	 24 	 & 	 13 	&	20,210	 \\ 
+1989	&	 1,051 	 & 	 347 	 & 	 672 	 & 	 2,218 	 & 	 4,981 	 & 	 989 	 & 	 3,761 	 & 	 571 	 & 	 687 	 & 	 267 	 & 	 837 	 & 	 145 	 & 	 128 	 & 	 64 	 & 	 90 	&	16,808	 \\ 
+1990	&	 2,371 	 & 	 403 	 & 	 145 	 & 	 925 	 & 	 1,847 	 & 	 6,193 	 & 	 1,243 	 & 	 3,058 	 & 	 310 	 & 	 549 	 & 	 85 	 & 	 790 	 & 	 69 	 & 	 51 	 & 	 69 	&	18,106	 \\ 
+1991	&	 3,184 	 & 	 913 	 & 	 333 	 & 	 106 	 & 	 643 	 & 	 600 	 & 	 1,986 	 & 	 747 	 & 	 1,606 	 & 	 420 	 & 	 568 	 & 	 117 	 & 	 353 	 & 	 50 	 & 	 45 	&	11,671	 \\ 
+1992	&	 1,619 	 & 	 454 	 & 	 2,362 	 & 	 398 	 & 	 445 	 & 	 745 	 & 	 655 	 & 	 939 	 & 	 418 	 & 	 798 	 & 	 280 	 & 	 349 	 & 	 150 	 & 	 118 	 & 	 94 	&	9,824	 \\ 
+1993	&	 2,613 	 & 	 402 	 & 	 910 	 & 	 3,844 	 & 	 833 	 & 	 667 	 & 	 345 	 & 	 474 	 & 	 643 	 & 	 396 	 & 	 347 	 & 	 253 	 & 	 199 	 & 	 110 	 & 	 132 	&	12,168	 \\ 
+1994	&	 1,694 	 & 	 755 	 & 	 585 	 & 	 1,631 	 & 	 4,413 	 & 	 774 	 & 	 202 	 & 	 175 	 & 	 196 	 & 	 369 	 & 	 225 	 & 	 314 	 & 	 119 	 & 	 114 	 & 	 190 	&	11,755	 \\ 
+1995	&	 2,239 	 & 	 218 	 & 	 427 	 & 	 1,995 	 & 	 2,654 	 & 	 4,323 	 & 	 1,835 	 & 	 483 	 & 	 296 	 & 	 185 	 & 	 349 	 & 	 140 	 & 	 258 	 & 	 102 	 & 	 147 	&	15,651	 \\ 
+1996	&	 1,585 	 & 	 378 	 & 	 175 	 & 	 348 	 & 	 964 	 & 	 1,363 	 & 	 1,244 	 & 	 424 	 & 	 106 	 & 	 113 	 & 	 76 	 & 	 144 	 & 	 47 	 & 	 85 	 & 	 113 	&	7,165	 \\ 
+1997	&	 2,536 	 & 	 393 	 & 	 202 	 & 	 259 	 & 	 3,109 	 & 	 1,383 	 & 	 828 	 & 	 997 	 & 	 169 	 & 	 85 	 & 	 64 	 & 	 70 	 & 	 115 	 & 	 37 	 & 	 128 	&	10,374	 \\ 
+1998	&	 737 	 & 	 643 	 & 	 336 	 & 	 240 	 & 	 468 	 & 	 2,674 	 & 	 680 	 & 	 429 	 & 	 332 	 & 	 83 	 & 	 37 	 & 	 13 	 & 	 29 	 & 	 31 	 & 	 74 	&	6,806	 \\ 
+1999	&	 1,137 	 & 	 1,043 	 & 	 968 	 & 	 1,050 	 & 	 599 	 & 	 1,069 	 & 	 2,691 	 & 	 725 	 & 	 350 	 & 	 326 	 & 	 119 	 & 	 50 	 & 	 20 	 & 	 29 	 & 	 98 	&	10,275	 \\ 
+2000	&	 1,142 	 & 	 427 	 & 	 535 	 & 	 1,825 	 & 	 1,814 	 & 	 932 	 & 	 783 	 & 	 2,564 	 & 	 999 	 & 	 523 	 & 	 221 	 & 	 150 	 & 	 46 	 & 	 20 	 & 	 88 	&	12,070	 \\ 
+2001	&	 1,832 	 & 	 1,057 	 & 	 572 	 & 	 546 	 & 	 1,381 	 & 	 1,444 	 & 	 621 	 & 	 308 	 & 	 918 	 & 	 659 	 & 	 252 	 & 	 201 	 & 	 80 	 & 	 29 	 & 	 77 	&	9,977	 \\ 
+2002	&	 817 	 & 	 416 	 & 	 855 	 & 	 1,231 	 & 	 1,281 	 & 	 1,662 	 & 	 863 	 & 	 418 	 & 	 565 	 & 	 1,061 	 & 	 529 	 & 	 234 	 & 	 138 	 & 	 42 	 & 	 45 	&	10,155	 \\ 
+2003	&	 559 	 & 	 171 	 & 	 1,045 	 & 	 1,752 	 & 	 2,078 	 & 	 1,908 	 & 	 2,555 	 & 	 1,445 	 & 	 660 	 & 	 861 	 & 	 1,752 	 & 	 758 	 & 	 286 	 & 	 148 	 & 	 108 	&	16,085	 \\ 
+2004	&	 406 	 & 	 287 	 & 	 182 	 & 	 1,372 	 & 	 1,338 	 & 	 1,018 	 & 	 598 	 & 	 648 	 & 	 321 	 & 	 200 	 & 	 200 	 & 	 361 	 & 	 154 	 & 	 37 	 & 	 29 	&	7,150	 \\ 
+2005	&	 397 	 & 	 152 	 & 	 247 	 & 	 1,073 	 & 	 3,008 	 & 	 2,023 	 & 	 1,055 	 & 	 479 	 & 	 364 	 & 	 268 	 & 	 72 	 & 	 152 	 & 	 248 	 & 	 96 	 & 	 99 	&	9,735	 \\ 
+2006	&	 878 	 & 	 81 	 & 	 125 	 & 	 408 	 & 	 1,023 	 & 	 1,299 	 & 	 831 	 & 	 400 	 & 	 228 	 & 	 197 	 & 	 95 	 & 	 59 	 & 	 85 	 & 	 114 	 & 	 113 	&	5,935	 \\ 
+2007	&	 2,359 	 & 	 67 	 & 	 170 	 & 	 483 	 & 	 1,511 	 & 	 1,768 	 & 	 1,275 	 & 	 920 	 & 	 388 	 & 	 174 	 & 	 161 	 & 	 140 	 & 	 64 	 & 	 80 	 & 	 155 	&	9,716	 \\ 
+2008	&	 529 	 & 	 129 	 & 	 108 	 & 	 199 	 & 	 564 	 & 	 1,134 	 & 	 889 	 & 	 618 	 & 	 392 	 & 	 154 	 & 	 128 	 & 	 98 	 & 	 44 	 & 	 24 	 & 	 153 	&	5,165	 \\ 
+2009	&	 800 	 & 	 221 	 & 	 463 	 & 	 500 	 & 	 290 	 & 	 420 	 & 	 569 	 & 	 446 	 & 	 323 	 & 	 157 	 & 	 103 	 & 	 34 	 & 	 34 	 & 	 18 	 & 	 72 	&	4,448	 \\ 
+2010	&	 511 	 & 	 145 	 & 	 278 	 & 	 2,985 	 & 	 1,337 	 & 	 417 	 & 	 359 	 & 	 380 	 & 	 399 	 & 	 272 	 & 	 234 	 & 	 85 	 & 	 51 	 & 	 29 	 & 	 63 	&	7,544	 \\ 
+2011	&	 1,160 	 & 	 125 	 & 	 272 	 & 	 372 	 & 	 1,859 	 & 	 910 	 & 	 267 	 & 	 151 	 & 	 237 	 & 	 236 	 & 	 197 	 & 	 151 	 & 	 64 	 & 	 30 	 & 	 80 	&	6,111	 \\ 
+2012	&	 1,187 	 & 	 242 	 & 	 455 	 & 	 3,256 	 & 	 761 	 & 	 1,228 	 & 	 421 	 & 	 168 	 & 	 127 	 & 	 176 	 & 	 144 	 & 	 127 	 & 	 106 	 & 	 38 	 & 	 67 	&	8,504	 \\ 
+2013	&	 1,234 	 & 	 133 	 & 	 256 	 & 	 1,008 	 & 	 5,011 	 & 	 1,162 	 & 	 725 	 & 	 254 	 & 	 86 	 & 	 78 	 & 	 102 	 & 	 77 	 & 	 71 	 & 	 39 	 & 	 52 	&	10,290	 \\ 
+2014	&	 2,261 	 & 	 613 	 & 	 281 	 & 	 369 	 & 	 1,705 	 & 	 6,257 	 & 	 3,255 	 & 	 693 	 & 	 381 	 & 	 139 	 & 	 53 	 & 	 75 	 & 	 76 	 & 	 36 	 & 	 94 	&	16,289	 \\ 
+2015	&	 1,205 	 & 	 828 	 & 	 2,332 	 & 	 586 	 & 	 1,222 	 & 	 2,276 	 & 	 4,434 	 & 	 1,293 	 & 	 306 	 & 	 147 	 & 	 19 	 & 	 18 	 & 	 31 	 & 	 18 	 & 	 39 	&	14,753	 \\ 
+2016	&	 769 	 & 	 483 	 & 	 695 	 & 	 3,330 	 & 	 1,365 	 & 	 922 	 & 	 1,301 	 & 	 1,919 	 & 	 377 	 & 	 148 	 & 	 49 	 & 	 12 	 & 	 12 	 & 	 4 	 & 	 8 	&	11,395	 \\ 
+2017	&	 616 	 & 	 332 	 & 	 511 	 & 	 2,374 	 & 	 2,869 	 & 	 1,250 	 & 	 862 	 & 	 775 	 & 	 920 	 & 	 264 	 & 	 95 	 & 	 34 	 & 	 5 	 & 	 3 	 & 	 8 	&	10,916	 \\ 
+2018	&	 1,087 	 & 	 481 	 & 	 193 	 & 	 369 	 & 	 2,622 	 & 	 1,482 	 & 	 503 	 & 	 368 	 & 	 375 	 & 	 289 	 & 	 92 	 & 	 15 	 & 	 2 	 & 	 0 	 & 	 6 	&	7,885	 \\ 
+2019	&	 1,571 	 & 	 584 	 & 	 398 	 & 	 432 	 & 	 1,284 	 & 	 4,722 	 & 	 1,910 	 & 	 446 	 & 	 316 	 & 	 181 	 & 	 103 	 & 	 45 	 & 	 17 	 & 	 3 	 & 	 1 	&	12,015	 \\ 
+2020	&	--	&	--	&	--	&	--	&	--	&	--	&	--	&	--	&	--	&	--	&	--	&	--	&	--	&	--	&	--	&	--	\\
+2021	&	 821 	 & 	 569 	 & 	 1,253 	 & 	 678 	 & 	 611 	 & 	 383 	 & 	 991 	 & 	 1,269 	 & 	 261 	 & 	 91 	 & 	 63 	 & 	 38 	 & 	 8 	 & 	 5 	 & 	 2 	&	7,042	\\
 \hline																																	
-Avg	& 1,476	 & 486	 & 686	 & 1,334	 & 1,853	 & 1,787	 & 1,173	 & 702	 & 429	 & 303	 & 204	 & 138	 & 81	 & 42	 & 65	 & 10,697	\\
+Avg	&	1,547	&	537	&	803	&	1,401	&	1,993	&	1,872	&	1,233	&	743	&	440	&	307	&	206	&	139	&	81	&	42	&	66	&	11,411	\\
 \hline																																	
 \end{tabular}
 }
@@ -3437,53 +3607,55 @@ Avg	& 1,476	 & 486	 & 686	 & 1,334	 & 1,853	 & 1,787	 & 1,173	 & 702	 & 429	 & 3
 
 \begin{table}[ht]
 \centering
-\caption{Mean EBS pollock body mass (kg) at age as observed in the summer NMFS bottom trawl survey, 1982--2019.}
+\caption{Mean EBS pollock body mass (kg) at age as observed in the summer NMFS bottom trawl survey, 1982--2021.}
 \label{tab:wt_bts}
 \scalebox{0.8}{
 \begin{tabular}{crrrrrrrrrrrrrrr}
 \hline
 \normalsize  Year & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15+  \\
 \hline
-1982    & 0.032 & 0.075 & 0.167 & 0.349 & 0.429 & 0.666 & 1.023 & 1.124 & 1.202 & 1.378 & 1.588 & 1.626 & 1.881 & 1.802 & 2.668 \\
-1983    & 0.017 & 0.141 & 0.240 & 0.360 & 0.493 & 0.578 & 0.727 & 1.074 & 1.126 & 1.020 & 1.121 & 1.130 & 1.558 & 1.115 & 1.936 \\
-1984    & 0.014 & 0.072 & 0.264 & 0.359 & 0.483 & 0.617 & 0.757 & 1.018 & 1.220 & 1.407 & 1.528 & 1.689 & 1.345 & 1.468 & 2.079 \\
-1985    & 0.014 & 0.104 & 0.264 & 0.410 & 0.514 & 0.649 & 0.784 & 0.926 & 1.428 & 1.132 & 1.298 & 1.727 & 1.629 & 1.614 & 2.570 \\
-1986    & 0.012 & 0.102 & 0.183 & 0.356 & 0.462 & 0.638 & 0.718 & 0.851 & 1.012 & 1.291 & 1.322 & 1.149 & 2.295 & 2.165 & 2.422 \\
-1987    & 0.017 & 0.110 & 0.262 & 0.354 & 0.432 & 0.525 & 0.705 & 0.795 & 0.896 & 1.005 & 1.198 & 1.400 & 1.740 & 2.020 & 2.275 \\
-1988    & 0.018 & 0.108 & 0.296 & 0.355 & 0.457 & 0.521 & 0.601 & 0.754 & 0.851 & 1.002 & 1.203 & 1.216 & 1.712 & 0.952 & 1.802 \\
-1989    & 0.016 & 0.092 & 0.168 & 0.385 & 0.455 & 0.529 & 0.629 & 0.673 & 0.927 & 0.924 & 1.046 & 1.078 & 1.124 & 1.187 & 1.284 \\
-1990    & 0.013 & 0.102 & 0.153 & 0.378 & 0.505 & 0.572 & 0.612 & 0.723 & 0.794 & 1.049 & 1.079 & 1.137 & 1.081 & 1.287 & 1.386 \\
-1991    & 0.019 & 0.108 & 0.157 & 0.354 & 0.486 & 0.579 & 0.695 & 0.740 & 0.873 & 0.911 & 1.093 & 1.201 & 1.266 & 1.425 & 1.924 \\
-1992    & 0.014 & 0.113 & 0.285 & 0.371 & 0.512 & 0.625 & 0.780 & 0.841 & 0.900 & 0.990 & 1.107 & 1.260 & 1.393 & 1.350 & 1.391 \\
-1993    & 0.012 & 0.072 & 0.314 & 0.456 & 0.503 & 0.553 & 0.663 & 0.796 & 0.977 & 1.029 & 1.153 & 1.257 & 1.392 & 1.550 & 1.699 \\
-1994    & 0.015 & 0.086 & 0.223 & 0.474 & 0.573 & 0.635 & 0.716 & 0.976 & 1.172 & 1.128 & 1.200 & 1.331 & 1.433 & 1.521 & 1.698 \\
-1995    & 0.013 & 0.088 & 0.145 & 0.380 & 0.486 & 0.628 & 0.654 & 0.801 & 0.939 & 1.172 & 1.136 & 1.308 & 1.353 & 1.434 & 1.683 \\
-1996    & 0.017 & 0.081 & 0.142 & 0.340 & 0.506 & 0.597 & 0.733 & 0.815 & 0.972 & 1.059 & 1.299 & 1.393 & 1.437 & 1.548 & 1.659 \\
-1997    & 0.016 & 0.053 & 0.181 & 0.363 & 0.439 & 0.591 & 0.707 & 0.806 & 0.974 & 1.023 & 1.163 & 1.311 & 1.289 & 1.474 & 1.598 \\
-1998    & 0.016 & 0.070 & 0.173 & 0.334 & 0.474 & 0.523 & 0.698 & 0.837 & 0.925 & 0.997 & 1.081 & 1.359 & 1.357 & 1.750 & 1.804 \\
-1999    & 0.014 & 0.080 & 0.210 & 0.356 & 0.422 & 0.560 & 0.635 & 0.776 & 0.985 & 1.014 & 1.116 & 1.202 & 1.624 & 1.757 & 1.924 \\
-2000    & 0.010 & 0.063 & 0.228 & 0.376 & 0.456 & 0.530 & 0.650 & 0.709 & 0.782 & 0.956 & 1.160 & 1.212 & 1.342 & 1.500 & 1.868 \\
-2001    & 0.016 & 0.069 & 0.169 & 0.374 & 0.505 & 0.601 & 0.674 & 0.771 & 0.857 & 0.911 & 1.099 & 1.207 & 1.412 & 1.396 & 1.688 \\
-2002    & 0.011 & 0.097 & 0.252 & 0.390 & 0.536 & 0.650 & 0.678 & 0.808 & 0.891 & 0.928 & 0.939 & 1.097 & 1.189 & 1.370 & 1.835 \\
-2003    & 0.021 & 0.106 & 0.334 & 0.437 & 0.567 & 0.671 & 0.729 & 0.833 & 0.889 & 0.957 & 0.967 & 1.021 & 1.029 & 1.132 & 1.184 \\
-2004    & 0.019 & 0.099 & 0.297 & 0.481 & 0.556 & 0.680 & 0.756 & 0.791 & 0.942 & 0.951 & 1.038 & 1.048 & 1.123 & 1.343 & 1.438 \\
-2005    & 0.018 & 0.079 & 0.220 & 0.404 & 0.528 & 0.605 & 0.702 & 0.801 & 0.874 & 0.913 & 1.014 & 1.064 & 1.098 & 1.193 & 1.321 \\
-2006    & 0.009 & 0.081 & 0.156 & 0.387 & 0.524 & 0.612 & 0.723 & 0.811 & 0.914 & 1.045 & 1.100 & 1.184 & 1.279 & 1.257 & 1.375 \\
-2007    & 0.012 & 0.095 & 0.276 & 0.427 & 0.547 & 0.671 & 0.777 & 0.846 & 0.926 & 1.078 & 1.126 & 1.110 & 1.328 & 1.301 & 1.423 \\
-2008    & 0.014 & 0.054 & 0.232 & 0.413 & 0.522 & 0.643 & 0.762 & 0.867 & 0.934 & 1.071 & 1.222 & 1.206 & 1.379 & 1.544 & 1.577 \\
-2009    & 0.010 & 0.113 & 0.223 & 0.408 & 0.551 & 0.675 & 0.840 & 0.914 & 0.960 & 1.173 & 1.170 & 1.440 & 1.449 & 1.546 & 1.784 \\
-2010    & 0.018 & 0.078 & 0.237 & 0.404 & 0.546 & 0.678 & 0.899 & 0.984 & 1.021 & 1.124 & 1.157 & 1.274 & 1.457 & 1.559 & 1.966 \\
-2011    & 0.015 & 0.112 & 0.229 & 0.429 & 0.551 & 0.646 & 0.802 & 1.004 & 1.105 & 1.152 & 1.249 & 1.306 & 1.431 & 1.463 & 1.671 \\
-2012    & 0.013 & 0.080 & 0.205 & 0.362 & 0.535 & 0.669 & 0.805 & 0.948 & 1.211 & 1.239 & 1.296 & 1.343 & 1.440 & 1.658 & 1.913 \\
-2013    & 0.017 & 0.069 & 0.222 & 0.421 & 0.495 & 0.624 & 0.834 & 0.978 & 1.093 & 1.225 & 1.297 & 1.343 & 1.468 & 1.609 & 1.730 \\
-2014    & 0.016 & 0.100 & 0.212 & 0.367 & 0.489 & 0.610 & 0.667 & 0.905 & 0.996 & 1.126 & 1.327 & 1.332 & 1.382 & 1.497 & 1.664 \\
-2015    & 0.019 & 0.093 & 0.287 & 0.387 & 0.518 & 0.601 & 0.727 & 0.814 & 1.048 & 1.081 & 1.329 & 1.585 & 1.366 & 1.579 & 1.773 \\
-2016    & 0.023 & 0.083 & 0.234 & 0.435 & 0.512 & 0.607 & 0.695 & 0.777 & 0.842 & 0.922 & 1.079 & 1.096 & 1.395 & 1.708 & 1.839 \\
-2017    & 0.022 & 0.098 & 0.200 & 0.397 & 0.529 & 0.598 & 0.691 & 0.743 & 0.824 & 0.830 & 0.960 & 0.856 & 1.336 & 1.506 & 1.701 \\
-2018    & 0.020 & 0.073 & 0.204 & 0.375 & 0.501 & 0.614 & 0.706 & 0.752 & 0.843 & 0.883 & 0.965 & 0.963 & 1.133 & 1.175 & 1.218 \\
-2019    & 0.016 & 0.089 & 0.234 & 0.435 & 0.546 & 0.639 & 0.711 & 0.792 & 0.844 & 0.926 & 0.898 & 0.978 & 0.948 & 1.401 & 1.854 \\
+1982 & 0.031 & 0.074 & 0.167 & 0.350 & 0.432 & 0.670 & 1.021 & 1.126 & 1.199 & 1.378 & 1.590 & 1.627 & 1.893 & 1.816 & 2.664 \\
+1983 & 0.013 & 0.133 & 0.241 & 0.361 & 0.493 & 0.576 & 0.722 & 1.069 & 1.118 & 1.011 & 1.112 & 1.120 & 1.551 & 1.102 & 1.911 \\
+1984 & 0.014 & 0.063 & 0.264 & 0.359 & 0.483 & 0.618 & 0.759 & 1.016 & 1.214 & 1.401 & 1.517 & 1.679 & 1.331 & 1.453 & 2.068 \\
+1985 & 0.014 & 0.100 & 0.232 & 0.396 & 0.487 & 0.624 & 0.769 & 0.896 & 1.411 & 1.114 & 1.278 & 1.717 & 1.617 & 1.607 & 2.562 \\
+1986 & 0.013 & 0.083 & 0.184 & 0.355 & 0.460 & 0.636 & 0.715 & 0.845 & 1.004 & 1.277 & 1.309 & 1.128 & 2.286 & 2.160 & 2.886 \\
+1987 & 0.018 & 0.111 & 0.264 & 0.354 & 0.433 & 0.524 & 0.700 & 0.785 & 0.881 & 0.981 & 1.168 & 1.382 & 1.713 & 1.997 & 2.254 \\
+1988 & 0.019 & 0.092 & 0.294 & 0.354 & 0.455 & 0.518 & 0.596 & 0.748 & 0.846 & 0.993 & 1.190 & 1.207 & 1.701 & 0.930 & 1.784 \\
+1989 & 0.015 & 0.089 & 0.174 & 0.369 & 0.439 & 0.522 & 0.622 & 0.665 & 0.917 & 0.916 & 1.036 & 1.071 & 1.116 & 1.177 & 1.261 \\
+1990 & 0.014 & 0.100 & 0.155 & 0.377 & 0.503 & 0.570 & 0.608 & 0.717 & 0.784 & 1.041 & 1.071 & 1.120 & 1.057 & 1.266 & 1.356 \\
+1991 & 0.019 & 0.110 & 0.156 & 0.354 & 0.485 & 0.578 & 0.693 & 0.739 & 0.870 & 0.908 & 1.084 & 1.187 & 1.254 & 1.405 & 1.908 \\
+1992 & 0.015 & 0.108 & 0.286 & 0.376 & 0.512 & 0.622 & 0.773 & 0.834 & 0.890 & 0.983 & 1.099 & 1.246 & 1.375 & 1.339 & 1.373 \\
+1993 & 0.011 & 0.065 & 0.310 & 0.453 & 0.500 & 0.551 & 0.660 & 0.794 & 0.976 & 1.028 & 1.151 & 1.253 & 1.387 & 1.541 & 1.690 \\
+1994 & 0.017 & 0.077 & 0.223 & 0.474 & 0.572 & 0.634 & 0.713 & 0.971 & 1.165 & 1.122 & 1.194 & 1.323 & 1.421 & 1.507 & 1.679 \\
+1995 & 0.015 & 0.065 & 0.144 & 0.379 & 0.487 & 0.628 & 0.654 & 0.798 & 0.932 & 1.160 & 1.120 & 1.288 & 1.333 & 1.416 & 1.665 \\
+1996 & 0.017 & 0.078 & 0.150 & 0.316 & 0.498 & 0.594 & 0.732 & 0.814 & 0.971 & 1.055 & 1.290 & 1.385 & 1.423 & 1.539 & 1.639 \\
+1997 & 0.016 & 0.059 & 0.228 & 0.337 & 0.404 & 0.544 & 0.691 & 0.790 & 0.967 & 1.023 & 1.160 & 1.303 & 1.273 & 1.464 & 1.581 \\
+1998 & 0.016 & 0.070 & 0.177 & 0.344 & 0.476 & 0.518 & 0.674 & 0.814 & 0.898 & 0.966 & 1.055 & 1.352 & 1.339 & 1.741 & 1.801 \\
+1999 & 0.015 & 0.075 & 0.210 & 0.356 & 0.424 & 0.561 & 0.634 & 0.770 & 0.973 & 0.999 & 1.098 & 1.181 & 1.607 & 1.737 & 1.910 \\
+2000 & 0.011 & 0.061 & 0.229 & 0.375 & 0.454 & 0.527 & 0.648 & 0.707 & 0.777 & 0.948 & 1.142 & 1.194 & 1.311 & 1.470 & 1.853 \\
+2001 & 0.015 & 0.071 & 0.172 & 0.374 & 0.504 & 0.600 & 0.671 & 0.767 & 0.854 & 0.906 & 1.092 & 1.198 & 1.402 & 1.388 & 1.672 \\
+2002 & 0.013 & 0.086 & 0.251 & 0.391 & 0.534 & 0.647 & 0.673 & 0.804 & 0.887 & 0.923 & 0.932 & 1.086 & 1.179 & 1.362 & 1.839 \\
+2003 & 0.023 & 0.094 & 0.333 & 0.437 & 0.567 & 0.673 & 0.732 & 0.837 & 0.892 & 0.960 & 0.970 & 1.023 & 1.029 & 1.129 & 1.178 \\
+2004 & 0.020 & 0.096 & 0.291 & 0.477 & 0.555 & 0.680 & 0.756 & 0.790 & 0.940 & 0.949 & 1.034 & 1.042 & 1.115 & 1.326 & 1.419 \\
+2005 & 0.019 & 0.077 & 0.215 & 0.402 & 0.526 & 0.602 & 0.700 & 0.801 & 0.873 & 0.912 & 1.015 & 1.064 & 1.098 & 1.191 & 1.322 \\
+2006 & 0.010 & 0.085 & 0.178 & 0.365 & 0.514 & 0.606 & 0.720 & 0.809 & 0.909 & 1.044 & 1.098 & 1.181 & 1.274 & 1.255 & 1.366 \\
+2007 & 0.013 & 0.096 & 0.280 & 0.428 & 0.546 & 0.669 & 0.774 & 0.841 & 0.923 & 1.078 & 1.123 & 1.108 & 1.326 & 1.298 & 1.422 \\
+2008 & 0.014 & 0.057 & 0.229 & 0.413 & 0.522 & 0.641 & 0.756 & 0.860 & 0.923 & 1.066 & 1.217 & 1.198 & 1.370 & 1.537 & 1.565 \\
+2009 & 0.011 & 0.108 & 0.223 & 0.408 & 0.551 & 0.676 & 0.840 & 0.913 & 0.959 & 1.168 & 1.165 & 1.434 & 1.437 & 1.538 & 1.769 \\
+2010 & 0.019 & 0.079 & 0.240 & 0.402 & 0.544 & 0.675 & 0.896 & 0.978 & 1.016 & 1.114 & 1.146 & 1.261 & 1.434 & 1.538 & 1.946 \\
+2011 & 0.014 & 0.106 & 0.230 & 0.425 & 0.549 & 0.645 & 0.802 & 1.004 & 1.104 & 1.151 & 1.249 & 1.305 & 1.426 & 1.463 & 1.658 \\
+2012 & 0.013 & 0.082 & 0.202 & 0.358 & 0.534 & 0.670 & 0.807 & 0.951 & 1.208 & 1.235 & 1.292 & 1.337 & 1.430 & 1.649 & 1.884 \\
+2013 & 0.017 & 0.071 & 0.224 & 0.417 & 0.491 & 0.619 & 0.831 & 0.976 & 1.087 & 1.220 & 1.291 & 1.339 & 1.456 & 1.596 & 1.716 \\
+2014 & 0.016 & 0.098 & 0.221 & 0.357 & 0.475 & 0.603 & 0.657 & 0.893 & 0.982 & 1.116 & 1.305 & 1.319 & 1.372 & 1.478 & 1.641 \\
+2015 & 0.019 & 0.092 & 0.285 & 0.390 & 0.519 & 0.597 & 0.720 & 0.807 & 1.045 & 1.078 & 1.332 & 1.588 & 1.371 & 1.579 & 1.790 \\
+2016 & 0.023 & 0.085 & 0.229 & 0.436 & 0.513 & 0.608 & 0.696 & 0.779 & 0.844 & 0.926 & 1.094 & 1.110 & 1.396 & 1.705 & 1.839 \\
+2017 & 0.022 & 0.097 & 0.193 & 0.398 & 0.530 & 0.598 & 0.690 & 0.741 & 0.824 & 0.829 & 0.962 & 0.857 & 1.343 & 1.519 & 1.705 \\
+2018 & 0.020 & 0.073 & 0.201 & 0.373 & 0.498 & 0.608 & 0.700 & 0.748 & 0.841 & 0.881 & 0.966 & 0.969 & 1.145 & 2.002 & 1.297 \\
+2019 & 0.018 & 0.107 & 0.233 & 0.431 & 0.541 & 0.634 & 0.707 & 0.787 & 0.842 & 0.927 & 0.900 & 0.981 & 0.950 & 1.383 & 1.858 \\
+2020 & --    & --    & --    & --    & --    & --    & --    & --    & --    & --    & --    & --    & --    & --    & --    \\
+2021 & 0.019 & 0.100 & 0.209 & 0.370 & 0.488 & 0.614 & 0.705 & 0.769 & 0.891 & 1.032 & 0.976 & 1.084 & 1.340 & 1.228 & 2.048 \\
 \hline
-Avg & 0.016 & 0.089 & 0.223 & 0.391 & 0.504 & 0.611 & 0.728 & 0.847 & 0.973 & 1.053 & 1.161 & 1.248 & 1.392 & 1.478 & 1.753 \\
+Avg	&	0.016	&	0.086	&	0.224	&	0.387	&	0.500	&	0.607	&	0.724	&	0.842	&	0.967	&	1.047	&	1.154	&	1.241	&	1.383	&	1.490	&	1.756	\\
 \hline
 \end{tabular}
 }
@@ -3493,53 +3665,54 @@ Avg & 0.016 & 0.089 & 0.223 & 0.391 & 0.504 & 0.611 & 0.728 & 0.847 & 0.973 & 1.
 
 \begin{table}[ht]
 \centering
-\caption{Biomass (age 1+) of Eastern Bering Sea pollock as estimated by surveys 1979--2019 (millions of t). Note that the bottom-trawl survey data only represent biomass from the survey strata (1--6) areas in 1982--1984, and 1986. For all other years the estimates include strata 8--9. DDC indicates the values obtained from the Kotwicki et al. Density-Dependence Correction method and the VAST columns are for the standard survey area including the Northern Bering Sea (NBS) extension. BTS=Bottom trawl survey, DB=Design-based, CPE=cold pool extent, ATS=Acoustic trawl survey.} 
+\caption{Biomass (age 1+) of Eastern Bering Sea pollock as estimated by surveys 1979--2020 (millions of t). Note that the bottom-trawl survey data only represent biomass from the survey strata (1--6) areas in 1982--1984, and 1986. For all other years the estimates include strata 8--9. DDC indicates the values obtained from the Kotwicki et al. Density-Dependence Correction method and the VAST columns are for the standard survey area including the Northern Bering Sea (NBS) extension. BTS=Bottom trawl survey, DB=Design-based, CPE=cold pool extent, ATS=Acoustic trawl survey.} 
 \label{tab:bts_abund}
 \scalebox{0.9}{
 \begin{tabular}{rrrrrrr}
   \hline
-Year & DB.BTS & DDC & VAST.NBS & VAST.NBS.CPE & ATS & VAST.ATS \\ 
+Year & DB.BTS & DDC & VAST.NBS & VAST.NBS.CPE & X..ATS.. & X..VAST.ATS. \\ 
   \hline
-1982 & 2,912 & 4,069 & 3,916 & 3,946 & NA & NA \\ 
-  1983 & 5,921 & 8,409 & 10,303 & 9,398 & NA & NA \\ 
-  1984 & 4,542 & 6,408 & 7,791 & 6,886 & NA & NA \\ 
-  1985 & 5,198 & 7,189 & 9,070 & 7,993 & NA & NA \\ 
-  1986 & 4,835 & 6,825 & 7,658 & 7,276 & NA & NA \\ 
-  1987 & 5,498 & 7,892 & 7,967 & 7,694 & NA & NA \\ 
-  1988 & 7,183 & 11,088 & 11,561 & 11,784 & NA & NA \\ 
-  1989 & 6,550 & 9,795 & 10,450 & 10,745 & NA & NA \\ 
-  1990 & 7,296 & 11,899 & 12,964 & 11,815 & NA & NA \\ 
-  1991 & 5,129 & 7,389 & 7,772 & 7,476 & NA & NA \\ 
-  1992 & 4,526 & 6,210 & 7,121 & 6,628 & NA & NA \\ 
-  1993 & 5,294 & 7,089 & 8,319 & 7,967 & NA & NA \\ 
-  1994 & 5,027 & 7,100 & 7,952 & 7,513 & 3,629 & 3,703 \\ 
-  1995 & 5,477 & 9,107 & 7,885 & 7,258 & NA & NA \\ 
-  1996 & 3,125 & 4,079 & 4,387 & 4,268 & 2,945 & 2,870 \\ 
-  1997 & 3,562 & 5,019 & 5,108 & 4,849 & 3,591 & 3,525 \\ 
-  1998 & 2,687 & 3,509 & 3,731 & 3,586 & NA & NA \\ 
-  1999 & 3,798 & 5,454 & 5,532 & 5,932 & 4,141 & 3,665 \\ 
-  2000 & 5,103 & 7,355 & 8,255 & 7,747 & 3,626 & 3,292 \\ 
-  2001 & 4,196 & 5,439 & 6,282 & 6,168 & NA & NA \\ 
-  2002 & 4,953 & 6,770 & 7,392 & 6,878 & 4,306 & 4,477 \\ 
-  2003 & 8,392 & 13,508 & 12,305 & 12,159 & NA & NA \\ 
-  2004 & 3,862 & 5,105 & 5,866 & 5,866 & 4,010 & 3,611 \\ 
-  2005 & 4,868 & 6,696 & 7,608 & 7,272 & NA & NA \\ 
-  2006 & 3,045 & 3,886 & 4,582 & 4,251 & 1,873 & 1,727 \\ 
-  2007 & 4,338 & 6,145 & 7,653 & 6,835 & NA & NA \\ 
-  2008 & 3,023 & 3,994 & 4,751 & 4,830 & 2,278 & 2,072 \\ 
-  2009 & 2,282 & 2,989 & 3,617 & 2,888 & 1,406 & 1,428 \\ 
-  2010 & 3,737 & 5,131 & 5,829 & 5,328 & 1,325 & 1,377 \\ 
-  2011 & 3,112 & 3,948 & 4,533 & 4,485 & 2,642 & 2,585 \\ 
-  2012 & 3,487 & 4,613 & 5,186 & 5,076 & 2,296 & 2,375 \\ 
-  2013 & 4,575 & 6,114 & 6,668 & 6,475 & NA & NA \\ 
-  2014 & 7,429 & 10,331 & 12,172 & 12,007 & 4,730 & 5,122 \\ 
-  2015 & 6,394 & 8,587 & 10,589 & 10,857 & NA & NA \\ 
-  2016 & 4,910 & 6,607 & 9,128 & 9,539 & 4,829 & 5,381 \\ 
-  2017 & 4,814 & 6,256 & 9,011 & 8,968 & NA & NA \\ 
-  2018 & 3,112 & 4,187 & 5,826 & 5,823 & 2,499 & 2,819 \\ 
-  2019 & 5,458 & 7,380 & 9,732 & 9,511 & NA & NA \\ 
-  2020 & NA & NA & NA & NA & 3,605 & 3,694 \\ 
-  Avg. & 4,728 & 6,673 & 7,539 & 7,263 & 3,161 & 3,161 \\ 
+1982 & 2912.869455 & 4226.403296 & 3915.904395 & 3880.879391 & NA & 1,000 \\ 
+  1983 & 5921.380162 & 8779.603433 &  9619.51391 & 9455.252411 & NA & NA \\ 
+  1984 &  4542.40499 & 6604.242856 & 6537.907633 & 6481.412169 & NA & NA \\ 
+  1985 & 5198.003082 & 8114.642557 & 7929.455977 & 7899.690308 & NA & NA \\ 
+  1986 & 4835.722134 & 6999.423049 &  7207.34909 & 7360.062937 & NA & NA \\ 
+  1987 &  5498.43345 & 8231.923468 & 7933.248892 & 7759.086406 & NA & NA \\ 
+  1988 &  7183.96271 & 11133.57785 & 11712.36634 & 11838.42404 & NA & NA \\ 
+  1989 &  6550.41487 & 9987.537525 & 10116.78891 & 9891.825965 & NA & NA \\ 
+  1990 &  7296.65294 & 12026.37084 & 11775.79043 & 11678.28818 & NA & NA \\ 
+  1991 &  5129.53761 & 7144.335077 & 7445.939041 & 7311.751188 & NA & NA \\ 
+  1992 &  4526.15325 & 6387.230571 &  6546.82727 & 6634.564186 & NA & NA \\ 
+  1993 &  5294.81627 & 7189.322148 & 8330.213541 & 8137.694986 & NA & NA \\ 
+  1994 &  5027.32531 & 7234.458652 & 6959.987106 & 7054.243688 & 3,629 & 3,703 \\ 
+  1995 &  5477.83781 & 9261.075929 & 6657.562427 & 6728.178686 & NA & NA \\ 
+  1996 &  3125.25308 & 4140.253405 & 4113.466192 & 4025.393284 & 2,945 & 2,870 \\ 
+  1997 &  3562.16312 & 5102.935742 & 4414.859954 & 4392.148461 & 3,591 & 3,525 \\ 
+  1998 &  2687.75527 & 3604.599101 & 3563.405049 & 3503.520778 & NA & NA \\ 
+  1999 &  3798.47408 & 5518.336526 & 5488.042837 & 5838.933216 & 4,141 & 3,665 \\ 
+  2000 &  5103.62901 & 7756.099826 & 7219.948299 & 7195.173222 & 3,626 & 3,292 \\ 
+  2001 &   4196.8539 & 5573.217142 & 6191.685117 & 6137.448528 & NA & NA \\ 
+  2002 &  4953.43827 & 6418.072006 & 6892.098683 & 6789.873584 & 4,306 & 4,477 \\ 
+  2003 &  8392.26085 & 13998.74887 & 11613.10076 & 11413.02574 & NA & NA \\ 
+  2004 &  3862.97416 & 4598.548714 & 5815.078718 & 5755.996482 & 4,010 & 3,611 \\ 
+  2005 &  4868.61563 & 6914.633558 & 7036.702328 & 6837.731694 & NA & NA \\ 
+  2006 &  3045.38011 & 3987.247256 & 4143.654481 & 4181.738405 & 1,873 & 1,727 \\ 
+  2007 &   4338.2199 & 6401.685955 & 6793.668859 & 6819.598264 & NA & NA \\ 
+  2008 &  3023.26726 & 4127.200599 & 4257.538164 & 4361.866417 & 2,278 & 2,072 \\ 
+  2009 &   2282.4096 & 3239.432588 &  2842.00693 & 2853.736716 & 1,406 & 1,428 \\ 
+  2010 &  3737.87833 &  4870.44703 & 5183.430935 & 5236.769749 & 1,325 & 1,377 \\ 
+  2011 &  3112.31219 & 4028.750029 &  4653.98603 &  4541.40547 & 2,642 & 2,585 \\ 
+  2012 &  3487.22858 & 4426.627979 & 4929.875783 & 5219.581451 & 2,296 & 2,375 \\ 
+  2013 &  4575.40288 & 6209.667886 & 6742.014728 & 6794.755186 & NA & NA \\ 
+  2014 &  7429.95248 &  10390.4542 & 12009.91737 & 11834.32116 & 4,730 & 5,122 \\ 
+  2015 &   6394.3586 & 8596.056228 & 11418.06273 & 11283.48856 & NA & NA \\ 
+  2016 &  4910.07982 & 6198.804241 & 8970.639986 &  8913.87471 & 4,829 & 5,381 \\ 
+  2017 &  4814.37236 & 6331.597092 & 8971.577227 & 8987.916429 & NA & NA \\ 
+  2018 &  3112.79666 & 4225.837659 &  5409.05301 & 5321.043635 & 2,499 & 2,819 \\ 
+  2019 &  5458.36564 & 7420.861072 & 9387.064302 & 9213.093028 & NA & NA \\ 
+  2020 &          -- &          -- &          -- &          -- & 3,605 & 3,694 \\ 
+  2021 &  3034.31691 & 3643.929872 & 4857.441772 &  4744.82686 & NA & NA \\ 
+  Avg. & 4684.699301 & 6693.440816 & 7066.850646 & 7033.554245 & 3,161 & 3,161 \\ 
    \hline
 \end{tabular}
 }
@@ -3549,7 +3722,7 @@ Year & DB.BTS & DDC & VAST.NBS & VAST.NBS.CPE & ATS & VAST.ATS \\
 
 \begin{table}[ht]  
 \centering  
-\caption{Biomass (age 1+) of Eastern Bering Sea pollock as estimated by surveys 1979--2019 (millions of t). Note that the bottom-trawl survey data only represent biomass from the survey strata (1--6) areas in 1982--1984, and 1986. For all other years the estimates include strata 8--9. DDC indicates the values obtained from the Kotwicki et al. Density-Dependence Correction method and the VAST columns are for the standard survey area including the Northern Bering Sea (NBS) extension. BTS=Bottom trawl survey, DB=Design-based, CPE=cold pool extent, ATS=Acoustic trawl survey.}
+\caption{Biomass (age 1+) of Eastern Bering Sea pollock as estimated by surveys 1979--2020 (millions of t). Note that the bottom-trawl survey data only represent biomass from the survey strata (1--6) areas in 1982--1984, and 1986. For all other years the estimates include strata 8--9. DDC indicates the values obtained from the Kotwicki et al. Density-Dependence Correction method and the VAST columns are for the standard survey area including the Northern Bering Sea (NBS) extension. BTS=Bottom trawl survey, DB=Design-based, CPE=cold pool extent, ATS=Acoustic trawl survey.}
 \label{tab:bts_abund}
 \begin{tabular}{crrrrr}
 \hline
@@ -3648,7 +3821,7 @@ Year  & E  & W  & US  & RU      & E      & W      & US     & RU       & E     & 
 
 \begin{table}[ht]
 \centering
-\caption{Mid-water pollock biomass (near surface down to 0.5m from the bottom) by area as estimated from summer acoustic-trawl surveys on the U.S. EEZ portion of the Bering Sea shelf, 1994--2018 (Honkalehto et al. 2015). CVs for biomass estimates were assumed to average 20 percent with the 1994-2018 inter-annual variability arising from the 1-dimensional variance estimation method. Note the last column reflects biomass index values based on a VAST model application applied to acoustic backscatter was rescaled to have the same mean as the total biomass to 0.5m.}
+\caption{Mid-water pollock biomass (near surface down to 0.5m from the bottom) by area as estimated from summer acoustic-trawl surveys on the U.S. EEZ portion of the Bering Sea shelf}
 \label{tab:ats_biom}
 \scalebox{1}{
 \begin{tabular}{ccrrrrrr}
@@ -3730,21 +3903,22 @@ Median	&	639	&	1,780	&	1,230	&	1,295	&	783	&	398	&	308	&	142	&	79	&	161	&	8,266	
 \hline
 Year	&	AT	scaled	biomass	index	&	AVO	index	&	$CV_{AVO}$	\\
 \hline											
-2006	&	1.8729	(4\%)	&	0.555	9\%	&	25\%	\\		
-2007	&	2.2779	(4\%)	&	0.638	14\%	&	37\%	\\		
-2008	&	1.4056	(8\%)	&	0.316	20\%	&	56\%	\\		
-2009	&	1.3248	(9\%)	&	0.285	42\%	&	116\%	\\		
-2010	&	2.6423	(6\%)	&	0.679	13\%	&	35\%	\\		
-2011	&	$-no\,	survey-$	&	0.543	11\%	&	29\%	\\		
-2012	&	2.2958	(4\%)	&	0.661	9\%	&	26\%	\\		
-2013	&	$-no\,	survey-$	&	0.694	6\%	&	16\%	\\		
-2014	&	4.7300	(5\%)	&	0.897	5\%	&	13\%	\\		
-2015	&	$-no\,	survey-$	&	0.953	5\%	&	13\%	\\		
-2016	&	4.8290	(2\%)	&	0.776	5\%	&	13\%	\\		
-2017	&	$-no\,	survey-$	&	0.73	5\%	&	13\%	\\		
-2018	&	2.4994	(2\%)	&	0.672	5\%	&	14\%	\\		
-2019	&	$-no\,	survey-$	&	0.68	5\%	&	13\%	\\		
-2020	&	&	-NA-	&	13\%	\\					
+2006	&	1.8729		&	0.555	5\%	&	28\%	\\
+2007	&	2.2779		&	0.638	9\%	&	47\%	\\
+2008	&	1.4056		&	0.316	6\%	&	35\%	\\
+2009	&	1.3248		&	0.285	12\%	&	65\%	\\
+2010	&	2.6423		&	0.679	9\%	&	46\%	\\
+2011	&	$-no\,	survey-$	&	0.543	6\%	&	31\%	\\
+2012	&	2.2958		&	0.661	6\%	&	34\%	\\
+2013	&	$-no\,	survey-$	&	0.694	4\%	&	21\%	\\
+2014	&	4.7300		&	0.897	4\%	&	23\%	\\
+2015	&	$-no\,	survey-$	&	0.953	5\%	&	25\%	\\
+2016	&	4.8290		&	0.776	4\%	&	20\%	\\
+2017	&	$-no\,	survey-$	&	0.730	3\%	&	18\%	\\
+2018	&	2.4994		&	0.672	3\%	&	18\%	\\
+2019	&	$-no\,	survey-$	&	0.680	3\%	&	17\%	\\
+2020	&	3.6200		&			&		\\
+2021	&	$-no\,	survey-$	&	0.936	4\%	&	23\%	\\
 \hline											
 \end{tabular}
 \end{table}
@@ -3759,54 +3933,56 @@ Year	&	AT	scaled	biomass	index	&	AVO	index	&	$CV_{AVO}$	\\
 <!-- sample size -->
 \begin{table}[ht]
 \centering
-\caption{Pollock sample sizes assumed for the age-composition data likelihoods from the fishery, bottom-trawl survey, and AT surveys, 1964--2020. Note fishery sample size for 1964--1977 was fixed at 10.}
+\caption{Pollock sample sizes assumed for the age-composition data likelihoods from the fishery, bottom-trawl survey, and AT surveys, 1964--2021. Note fishery sample size for 1964--1977 was fixed at 10.}
 \label{tab:input_n}
 \begin{tabular}{rrrr}
   \hline
 Year & Fishery & BTS & ATS \\
   \hline
-1978 & 39 & 0 &  \\
-  1979 & 39 & 0 &  \\
-  1980 & 39 & 0 &  \\
-  1981 & 39 & 0 &  \\
-  1982 & 39 & 105 &  \\
-  1983 & 39 & 126 &  \\
-  1984 & 39 & 118 &  \\
-  1985 & 39 & 125 &  \\
-  1986 & 39 & 88 &  \\
-  1987 & 39 & 105 &  \\
-  1988 & 39 & 76 &  \\
-  1989 & 39 & 80 &  \\
-  1990 & 39 & 82 &  \\
-  1991 & 401 & 71 &  \\
-  1992 & 453 & 82 &  \\
-  1993 & 569 & 90 &  \\
-  1994 & 338 & 74 & 43 \\
-  1995 & 572 & 75 &  \\
-  1996 & 254 & 90 & 32 \\
-  1997 & 582 & 78 & 49 \\
-  1998 & 426 & 82 &  \\
-  1999 & 519 & 90 & 67 \\
-  2000 & 526 & 101 & 70 \\
-  2001 & 390 & 107 &  \\
-  2002 & 513 & 110 & 72 \\
-  2003 & 453 & 107 &  \\
-  2004 & 457 & 108 & 51 \\
-  2005 & 482 & 109 &  \\
-  2006 & 469 & 102 & 47 \\
-  2007 & 529 & 97 & 39 \\
-  2008 & 464 & 82 & 35 \\
-  2009 & 362 & 87 & 26 \\
-  2010 & 602 & 90 & 34 \\
-  2011 & 561 & 113 &  \\
-  2012 & 541 & 116 & 44 \\
-  2013 & 625 & 120 &  \\
-  2014 & 513 & 137 & 79 \\
-  2015 & 668 & 151 &  \\
-  2016 & 588 & 115 & 61 \\
-  2017 & 587 & 105 &  \\
-  2018 & 545 & 100 & 50 \\
-  2019 & 500 & 100 &  \\
+1978    &   39  &       &   \\  
+1979    &   39  &       &   \\  
+1980    &   39  &       &   \\  
+1981    &   39  &       &   \\  
+1982    &   39  &   105 &   \\  
+1983    &   39  &   126 &   \\  
+1984    &   39  &   118 &   \\  
+1985    &   39  &   125 &   \\  
+1986    &   39  &   88  &   \\  
+1987    &   39  &   105 &   \\  
+1988    &   39  &   76  &   \\  
+1989    &   39  &   80  &   \\  
+1990    &   39  &   82  &   \\  
+1991    &   129 &   71  &   \\  
+1992    &   125 &   82  &   \\  
+1993    &   106 &   90  &   \\  
+1994    &   149 &   74  &   43  \\
+1995    &   92  &   75  &   \\  
+1996    &   107 &   90  &   32  \\
+1997    &   116 &   78  &   49  \\
+1998    &   197 &   82  &   \\  
+1999    &   386 &   90  &   67  \\
+2000    &   613 &   101 &   70  \\
+2001    &   640 &   107 &   \\  
+2002    &   667 &   110 &   72  \\
+2003    &   657 &   107 &   \\  
+2004    &   602 &   108 &   51  \\
+2005    &   651 &   109 &   \\  
+2006    &   653 &   102 &   47  \\
+2007    &   716 &   97  &   39  \\
+2008    &   563 &   82  &   35  \\
+2009    &   471 &   87  &   26  \\
+2010    &   593 &   90  &   34  \\
+2011    &   715 &   113 &   \\  
+2012    &   598 &   116 &   44  \\
+2013    &   694 &   120 &   \\  
+2014    &   631 &   137 &   79  \\
+2015    &   683 &   151 &   \\  
+2016    &   689 &   115 &   61  \\
+2017    &   676 &   105 &   \\  
+2018    &   611 &   100 &   50  \\
+2019    &   620 &   100 &   \\  
+2020    &   623 &       &   \\  
+2021    &   100 &   100         \\
    \hline
 \end{tabular}
 \end{table}
@@ -3824,40 +4000,41 @@ Year & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
   \hline
 1964- &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\ 
   1990 & 0.007 & 0.17 & 0.303 & 0.447 & 0.589 & 0.722 & 0.84 & 0.942 & 1.029 & 1.102 & 1.163 & 1.212 & 1.253 & 1.286 & 1.312 \\ 
-  1991 & 0.007 & 0.15 & 0.277 & 0.476 & 0.604 & 0.728 & 0.839 & 0.873 & 1.014 & 1.127 & 1.129 & 1.251 & 1.24 & 1.308 & 1.249 \\ 
-  1992 & 0.007 & 0.179 & 0.394 & 0.462 & 0.647 & 0.701 & 0.812 & 0.982 & 1.031 & 1.21 & 1.226 & 1.272 & 1.199 & 1.34 & 1.43 \\ 
-  1993 & 0.007 & 0.331 & 0.497 & 0.61 & 0.65 & 0.754 & 0.904 & 1.04 & 1.211 & 1.232 & 1.391 & 1.538 & 1.61 & 1.646 & 1.584 \\ 
-  1994 & 0.007 & 0.233 & 0.405 & 0.651 & 0.729 & 0.747 & 0.707 & 1.057 & 1.395 & 1.347 & 1.347 & 1.391 & 1.394 & 1.301 & 1.341 \\ 
-  1995 & 0.007 & 0.153 & 0.377 & 0.498 & 0.735 & 0.84 & 0.856 & 0.986 & 1.22 & 1.315 & 1.388 & 1.477 & 1.39 & 1.537 & 1.341 \\ 
-  1996 & 0.007 & 0.293 & 0.368 & 0.427 & 0.679 & 0.794 & 0.949 & 0.953 & 1.02 & 1.096 & 1.362 & 1.5 & 1.52 & 1.71 & 1.598 \\ 
-  1997 & 0.007 & 0.187 & 0.443 & 0.471 & 0.559 & 0.747 & 0.893 & 1.072 & 1.091 & 1.243 & 1.346 & 1.443 & 1.668 & 1.423 & 1.383 \\ 
-  1998 & 0.007 & 0.191 & 0.368 & 0.589 & 0.627 & 0.621 & 0.775 & 1.029 & 1.169 & 1.253 & 1.327 & 1.452 & 1.414 & 1.523 & 1.537 \\ 
-  1999 & 0.007 & 0.188 & 0.405 & 0.507 & 0.643 & 0.701 & 0.728 & 0.891 & 1.037 & 1.25 & 1.248 & 1.431 & 1.485 & 1.585 & 1.236 \\ 
-  2000 & 0.007 & 0.218 & 0.353 & 0.526 & 0.629 & 0.731 & 0.782 & 0.806 & 0.966 & 1.007 & 1.242 & 1.321 & 1.418 & 1.551 & 1.644 \\ 
-  2001 & 0.006 & 0.227 & 0.327 & 0.503 & 0.669 & 0.788 & 0.958 & 0.987 & 1.063 & 1.115 & 1.314 & 1.435 & 1.563 & 1.433 & 1.645 \\ 
-  2002 & 0.007 & 0.231 & 0.386 & 0.509 & 0.666 & 0.795 & 0.91 & 1.03 & 1.104 & 1.095 & 1.288 & 1.448 & 1.597 & 1.343 & 1.683 \\ 
-  2003 & 0.006 & 0.276 & 0.489 & 0.547 & 0.649 & 0.767 & 0.862 & 0.953 & 1.081 & 1.2 & 1.2 & 1.206 & 1.361 & 1.377 & 1.699 \\ 
-  2004 & 0.007 & 0.135 & 0.409 & 0.583 & 0.64 & 0.758 & 0.889 & 0.924 & 1.035 & 1.162 & 1.11 & 1.16 & 1.333 & 1.281 & 1.213 \\ 
-  2005 & 0.007 & 0.283 & 0.346 & 0.508 & 0.642 & 0.741 & 0.882 & 0.954 & 1.062 & 1.096 & 1.225 & 1.276 & 1.251 & 1.174 & 1.373 \\ 
-  2006 & 0.007 & 0.174 & 0.305 & 0.447 & 0.606 & 0.755 & 0.853 & 0.952 & 1.065 & 1.114 & 1.219 & 1.234 & 1.282 & 1.399 & 1.462 \\ 
-  2007 & 0.007 & 0.155 & 0.346 & 0.506 & 0.641 & 0.781 & 0.962 & 1.098 & 1.182 & 1.275 & 1.304 & 1.477 & 1.5 & 1.738 & 1.52 \\ 
-  2008 & 0.007 & 0.208 & 0.33 & 0.52 & 0.652 & 0.774 & 0.903 & 1.049 & 1.119 & 1.282 & 1.421 & 1.524 & 1.553 & 1.921 & 1.66 \\ 
-  2009 & 0.007 & 0.136 & 0.34 & 0.526 & 0.704 & 0.879 & 1.002 & 1.125 & 1.399 & 1.49 & 1.563 & 1.614 & 1.814 & 1.996 & 2.23 \\ 
-  2010 & 0.05 & 0.175 & 0.383 & 0.489 & 0.664 & 0.915 & 1.119 & 1.261 & 1.371 & 1.587 & 1.659 & 1.924 & 1.923 & 2.079 & 2.316 \\ 
-  2011 & 0.031 & 0.205 & 0.29 & 0.509 & 0.665 & 0.808 & 0.976 & 1.225 & 1.346 & 1.518 & 1.585 & 1.621 & 2.176 & 1.754 & 2.287 \\ 
-  2012 & 0.029 & 0.142 & 0.27 & 0.41 & 0.643 & 0.824 & 0.974 & 1.172 & 1.306 & 1.519 & 1.614 & 1.644 & 1.717 & 2.04 & 2.086 \\ 
-  2013 & 0.095 & 0.144 & 0.289 & 0.442 & 0.564 & 0.782 & 1.131 & 1.284 & 1.426 & 1.692 & 1.834 & 1.806 & 1.96 & 2.187 & 2.207 \\ 
-  2014 & 0.014 & 0.193 & 0.316 & 0.455 & 0.617 & 0.751 & 0.894 & 1.154 & 1.31 & 1.37 & 1.692 & 1.815 & 1.733 & 1.658 & 2.236 \\ 
-  2015 & 0.025 & 0.181 & 0.404 & 0.461 & 0.57 & 0.69 & 0.786 & 0.888 & 1.146 & 1.203 & 1.355 & 1.914 & 1.45 & 1.617 & 2.627 \\ 
-  2016 & 0.025 & 0.181 & 0.407 & 0.531 & 0.557 & 0.648 & 0.732 & 0.801 & 0.943 & 1.044 & 1.206 & 1.592 & 1.729 & 1.816 & 1.908 \\ 
-  2017 & 0.025 & 0.191 & 0.404 & 0.498 & 0.651 & 0.694 & 0.75 & 0.827 & 0.893 & 0.911 & 1.018 & 1.084 & 1.667 & 1.797 & 1.878 \\ 
-  2018 & 0.025 & 0.186 & 0.38 & 0.466 & 0.573 & 0.734 & 0.81 & 0.855 & 0.904 & 1.045 & 0.983 & 1.388 & 1.531 & 1.721 & 1.846 \\ 
-  2019 & 0.025 & 0.186 & 0.416 & 0.567 & 0.642 & 0.76 & 0.879 & 0.961 & 1.008 & 1.064 & 1.044 & 1.218 & 0.73 & 1.468 & 1.635 \\ 
-  2020 & 0.025 & 0.186 & 0.364 & 0.494 & 0.638 & 0.738 & 0.85 & 0.995 & 1.03 & 1.078 & 1.165 & 1.246 & 1.395 & 1.566 & 1.693 \\ 
-  2021 & - & - & 0.364 & 0.496 & 0.679 & 0.827 & 0.914 & 1.021 & 1.145 & 1.176 & 1.21 & 1.281 & 1.349 & 1.486 & 1.644 \\ 
-  2022 & - & - & 0.364 & 0.496 & 0.632 & 0.817 & 0.962 & 1.044 & 1.144 & 1.26 & 1.283 & 1.308 & 1.37 & 1.429 & 1.559 \\ 
-  Mean & 0.007 & 0.175 & 0.312 & 0.454 & 0.593 & 0.723 & 0.841 & 0.944 & 1.035 & 1.111 & 1.172 & 1.226 & 1.263 & 1.301 & 1.323 \\ 
-  CV & - & - & 18\% & 12\% & 8\% & 8\% & 12\% & 13\% & 15\% & 16\% & 17\% & 18\% & 21\% & 20\% & 28\% \\ 
+  1991 & 0.007 & 0.15 & 0.288 & 0.485 & 0.606 & 0.729 & 0.844 & 0.883 & 1.016 & 1.124 & 1.141 & 1.232 & 1.222 & 1.295 & 1.252 \\ 
+  1992 & 0.007 & 0.179 & 0.397 & 0.465 & 0.651 & 0.714 & 0.819 & 0.986 & 1.03 & 1.2 & 1.237 & 1.269 & 1.193 & 1.357 & 1.431 \\ 
+  1993 & 0.007 & 0.331 & 0.495 & 0.612 & 0.652 & 0.775 & 0.934 & 1.062 & 1.198 & 1.24 & 1.423 & 1.54 & 1.576 & 1.609 & 1.508 \\ 
+  1994 & 0.007 & 0.233 & 0.4 & 0.652 & 0.732 & 0.746 & 0.727 & 1.07 & 1.38 & 1.325 & 1.335 & 1.409 & 1.397 & 1.278 & 1.37 \\ 
+  1995 & 0.007 & 0.153 & 0.386 & 0.505 & 0.729 & 0.843 & 0.847 & 0.97 & 1.232 & 1.296 & 1.401 & 1.402 & 1.392 & 1.095 & 1.306 \\ 
+  1996 & 0.007 & 0.293 & 0.336 & 0.445 & 0.684 & 0.797 & 0.948 & 0.956 & 1.025 & 1.1 & 1.418 & 1.489 & 1.521 & 1.702 & 1.602 \\ 
+  1997 & 0.007 & 0.187 & 0.327 & 0.477 & 0.559 & 0.748 & 0.889 & 1.074 & 1.095 & 1.236 & 1.287 & 1.4 & 1.561 & 1.363 & 1.338 \\ 
+  1998 & 0.007 & 0.191 & 0.369 & 0.589 & 0.618 & 0.622 & 0.78 & 1.04 & 1.169 & 1.276 & 1.316 & 1.428 & 1.448 & 1.437 & 1.528 \\ 
+  1999 & 0.007 & 0.188 & 0.404 & 0.507 & 0.643 & 0.702 & 0.729 & 0.894 & 1.038 & 1.253 & 1.224 & 1.422 & 0.995 & 0.616 & 1.239 \\ 
+  2000 & 0.007 & 0.218 & 0.353 & 0.526 & 0.63 & 0.732 & 0.78 & 0.807 & 0.968 & 1.015 & 1.253 & 1.286 & 1.108 & 1.084 & 1.359 \\ 
+  2001 & 0.006 & 0.227 & 0.329 & 0.505 & 0.668 & 0.786 & 0.964 & 0.986 & 1.061 & 1.133 & 1.32 & 1.411 & 1.568 & 1.472 & 1.495 \\ 
+  2002 & 0.007 & 0.231 & 0.385 & 0.51 & 0.667 & 0.799 & 0.911 & 1.026 & 1.113 & 1.102 & 1.284 & 1.442 & 1.579 & 1.29 & 1.568 \\ 
+  2003 & 0.006 & 0.276 & 0.489 & 0.549 & 0.652 & 0.769 & 0.863 & 0.953 & 1.086 & 1.202 & 1.212 & 1.194 & 1.374 & 1.355 & 1.709 \\ 
+  2004 & 0.007 & 0.135 & 0.408 & 0.584 & 0.641 & 0.76 & 0.888 & 0.924 & 1.036 & 1.176 & 1.127 & 1.167 & 1.31 & 1.254 & 1.185 \\ 
+  2005 & 0.007 & 0.283 & 0.351 & 0.508 & 0.641 & 0.742 & 0.88 & 0.96 & 1.062 & 1.074 & 1.216 & 1.268 & 1.217 & 1.075 & 1.342 \\ 
+  2006 & 0.007 & 0.174 & 0.306 & 0.448 & 0.606 & 0.755 & 0.858 & 0.959 & 1.06 & 1.117 & 1.19 & 1.218 & 1.28 & 1.384 & 1.417 \\ 
+  2007 & 0.007 & 0.155 & 0.349 & 0.507 & 0.642 & 0.783 & 0.961 & 1.1 & 1.192 & 1.266 & 1.327 & 1.488 & 1.444 & 1.729 & 1.512 \\ 
+  2008 & 0.007 & 0.208 & 0.328 & 0.519 & 0.653 & 0.774 & 0.9 & 1.054 & 1.117 & 1.289 & 1.452 & 1.528 & 1.56 & 1.874 & 1.645 \\ 
+  2009 & 0.007 & 0.136 & 0.34 & 0.525 & 0.705 & 0.879 & 0.999 & 1.13 & 1.398 & 1.479 & 1.558 & 1.576 & 1.807 & 2.026 & 2.222 \\ 
+  2010 & 0.05 & 0.175 & 0.381 & 0.49 & 0.668 & 0.909 & 1.114 & 1.277 & 1.374 & 1.586 & 1.679 & 1.923 & 1.948 & 2.077 & 2.271 \\ 
+  2011 & 0.031 & 0.205 & 0.29 & 0.508 & 0.666 & 0.809 & 0.971 & 1.224 & 1.342 & 1.513 & 1.582 & 1.623 & 2.08 & 1.707 & 2.242 \\ 
+  2012 & 0.029 & 0.142 & 0.271 & 0.409 & 0.643 & 0.824 & 0.974 & 1.17 & 1.303 & 1.509 & 1.599 & 1.637 & 1.68 & 2.031 & 2.062 \\ 
+  2013 & 0.095 & 0.144 & 0.29 & 0.442 & 0.564 & 0.781 & 1.13 & 1.281 & 1.44 & 1.685 & 1.827 & 1.786 & 1.934 & 2.159 & 2.182 \\ 
+  2014 & 0.014 & 0.193 & 0.319 & 0.454 & 0.617 & 0.751 & 0.894 & 1.156 & 1.307 & 1.386 & 1.669 & 1.773 & 1.704 & 1.623 & 2.215 \\ 
+  2015 & 0.025 & 0.181 & 0.404 & 0.462 & 0.571 & 0.69 & 0.786 & 0.887 & 1.141 & 1.195 & 1.315 & 1.671 & 1.389 & 1.559 & 2.6 \\ 
+  2016 & 0.025 & 0.181 & 0.409 & 0.531 & 0.557 & 0.646 & 0.732 & 0.8 & 0.941 & 1.043 & 1.178 & 0.788 & 0.911 & 1.684 & 1.429 \\ 
+  2017 & 0.025 & 0.191 & 0.408 & 0.499 & 0.65 & 0.694 & 0.752 & 0.827 & 0.894 & 0.911 & 1.028 & 0.961 & 0.312 & 0.701 & 0.688 \\ 
+  2018 & 0.025 & 0.186 & 0.377 & 0.467 & 0.573 & 0.734 & 0.809 & 0.853 & 0.906 & 1.039 & 0.936 & 1.11 & 0.568 & 1.454 & 1.13 \\ 
+  2019 & 0.025 & 0.186 & 0.422 & 0.565 & 0.643 & 0.759 & 0.878 & 0.962 & 1.007 & 1.065 & 1.035 & 1.182 & 0.754 & 1.454 & 1.593 \\ 
+  2020 & 0.025 & 0.186 & 0.387 & 0.522 & 0.632 & 0.716 & 0.799 & 0.955 & 1.006 & 1.04 & 1.189 & 1.072 & 1.208 & 0.961 & 1.593 \\ 
+  2021 & 0.025 & 0.186 & 0.343 & 0.508 & 0.618 & 0.765 & 0.844 & 0.943 & 1.062 & 1.06 & 1.101 & 1.173 & 1.243 & 1.406 & 1.502 \\ 
+  2022 & - & - & 0.359 & 0.491 & 0.642 & 0.766 & 0.875 & 0.945 & 1.025 & 1.141 & 1.139 & 1.155 & 1.221 & 1.278 & 1.404 \\ 
+  2023 & - & - & 0.359 & 0.491 & 0.625 & 0.771 & 0.887 & 0.987 & 1.046 & 1.116 & 1.221 & 1.209 & 1.216 & 1.274 & 1.324 \\ 
+  Mean & 0.007 & 0.177 & 0.315 & 0.461 & 0.598 & 0.724 & 0.839 & 0.95 & 1.045 & 1.118 & 1.179 & 1.231 & 1.265 & 1.299 & 1.322 \\ 
+  CV & - & - & 17\% & 11\% & 7\% & 8\% & 12\% & 13\% & 14\% & 16\% & 17\% & 20\% & 30\% & 28\% & 31\% \\ 
    \hline
 \end{tabular}
 }
@@ -3866,11 +4043,7 @@ Year & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
 
 
 ```
-## Error in round(x$cope_like, 2): non-numeric argument to mathematical function
-```
-
-```
-## Error in `align<-.xtable`(`*tmp*`, value = switch(1 + is.null(align), : "align" must have length equal to 17 ( ncol(x) + 1 )
+## Error in `align<-.xtable`(`*tmp*`, value = switch(1 + is.null(align), : "align" must have length equal to 6 ( ncol(x) + 1 )
 ```
 
 \begin{table}[ht]
@@ -3883,40 +4056,41 @@ Year & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
   \hline
 1964- &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\ 
   1990 & 0.007 & 0.17 & 0.303 & 0.447 & 0.589 & 0.722 & 0.84 & 0.942 & 1.029 & 1.102 & 1.163 & 1.212 & 1.253 & 1.286 & 1.312 \\ 
-  1991 & 0.007 & 0.15 & 0.277 & 0.476 & 0.604 & 0.728 & 0.839 & 0.873 & 1.014 & 1.127 & 1.129 & 1.251 & 1.24 & 1.308 & 1.249 \\ 
-  1992 & 0.007 & 0.179 & 0.394 & 0.462 & 0.647 & 0.701 & 0.812 & 0.982 & 1.031 & 1.21 & 1.226 & 1.272 & 1.199 & 1.34 & 1.43 \\ 
-  1993 & 0.007 & 0.331 & 0.497 & 0.61 & 0.65 & 0.754 & 0.904 & 1.04 & 1.211 & 1.232 & 1.391 & 1.538 & 1.61 & 1.646 & 1.584 \\ 
-  1994 & 0.007 & 0.233 & 0.405 & 0.651 & 0.729 & 0.747 & 0.707 & 1.057 & 1.395 & 1.347 & 1.347 & 1.391 & 1.394 & 1.301 & 1.341 \\ 
-  1995 & 0.007 & 0.153 & 0.377 & 0.498 & 0.735 & 0.84 & 0.856 & 0.986 & 1.22 & 1.315 & 1.388 & 1.477 & 1.39 & 1.537 & 1.341 \\ 
-  1996 & 0.007 & 0.293 & 0.368 & 0.427 & 0.679 & 0.794 & 0.949 & 0.953 & 1.02 & 1.096 & 1.362 & 1.5 & 1.52 & 1.71 & 1.598 \\ 
-  1997 & 0.007 & 0.187 & 0.443 & 0.471 & 0.559 & 0.747 & 0.893 & 1.072 & 1.091 & 1.243 & 1.346 & 1.443 & 1.668 & 1.423 & 1.383 \\ 
-  1998 & 0.007 & 0.191 & 0.368 & 0.589 & 0.627 & 0.621 & 0.775 & 1.029 & 1.169 & 1.253 & 1.327 & 1.452 & 1.414 & 1.523 & 1.537 \\ 
-  1999 & 0.007 & 0.188 & 0.405 & 0.507 & 0.643 & 0.701 & 0.728 & 0.891 & 1.037 & 1.25 & 1.248 & 1.431 & 1.485 & 1.585 & 1.236 \\ 
-  2000 & 0.007 & 0.218 & 0.353 & 0.526 & 0.629 & 0.731 & 0.782 & 0.806 & 0.966 & 1.007 & 1.242 & 1.321 & 1.418 & 1.551 & 1.644 \\ 
-  2001 & 0.006 & 0.227 & 0.327 & 0.503 & 0.669 & 0.788 & 0.958 & 0.987 & 1.063 & 1.115 & 1.314 & 1.435 & 1.563 & 1.433 & 1.645 \\ 
-  2002 & 0.007 & 0.231 & 0.386 & 0.509 & 0.666 & 0.795 & 0.91 & 1.03 & 1.104 & 1.095 & 1.288 & 1.448 & 1.597 & 1.343 & 1.683 \\ 
-  2003 & 0.006 & 0.276 & 0.489 & 0.547 & 0.649 & 0.767 & 0.862 & 0.953 & 1.081 & 1.2 & 1.2 & 1.206 & 1.361 & 1.377 & 1.699 \\ 
-  2004 & 0.007 & 0.135 & 0.409 & 0.583 & 0.64 & 0.758 & 0.889 & 0.924 & 1.035 & 1.162 & 1.11 & 1.16 & 1.333 & 1.281 & 1.213 \\ 
-  2005 & 0.007 & 0.283 & 0.346 & 0.508 & 0.642 & 0.741 & 0.882 & 0.954 & 1.062 & 1.096 & 1.225 & 1.276 & 1.251 & 1.174 & 1.373 \\ 
-  2006 & 0.007 & 0.174 & 0.305 & 0.447 & 0.606 & 0.755 & 0.853 & 0.952 & 1.065 & 1.114 & 1.219 & 1.234 & 1.282 & 1.399 & 1.462 \\ 
-  2007 & 0.007 & 0.155 & 0.346 & 0.506 & 0.641 & 0.781 & 0.962 & 1.098 & 1.182 & 1.275 & 1.304 & 1.477 & 1.5 & 1.738 & 1.52 \\ 
-  2008 & 0.007 & 0.208 & 0.33 & 0.52 & 0.652 & 0.774 & 0.903 & 1.049 & 1.119 & 1.282 & 1.421 & 1.524 & 1.553 & 1.921 & 1.66 \\ 
-  2009 & 0.007 & 0.136 & 0.34 & 0.526 & 0.704 & 0.879 & 1.002 & 1.125 & 1.399 & 1.49 & 1.563 & 1.614 & 1.814 & 1.996 & 2.23 \\ 
-  2010 & 0.05 & 0.175 & 0.383 & 0.489 & 0.664 & 0.915 & 1.119 & 1.261 & 1.371 & 1.587 & 1.659 & 1.924 & 1.923 & 2.079 & 2.316 \\ 
-  2011 & 0.031 & 0.205 & 0.29 & 0.509 & 0.665 & 0.808 & 0.976 & 1.225 & 1.346 & 1.518 & 1.585 & 1.621 & 2.176 & 1.754 & 2.287 \\ 
-  2012 & 0.029 & 0.142 & 0.27 & 0.41 & 0.643 & 0.824 & 0.974 & 1.172 & 1.306 & 1.519 & 1.614 & 1.644 & 1.717 & 2.04 & 2.086 \\ 
-  2013 & 0.095 & 0.144 & 0.289 & 0.442 & 0.564 & 0.782 & 1.131 & 1.284 & 1.426 & 1.692 & 1.834 & 1.806 & 1.96 & 2.187 & 2.207 \\ 
-  2014 & 0.014 & 0.193 & 0.316 & 0.455 & 0.617 & 0.751 & 0.894 & 1.154 & 1.31 & 1.37 & 1.692 & 1.815 & 1.733 & 1.658 & 2.236 \\ 
-  2015 & 0.025 & 0.181 & 0.404 & 0.461 & 0.57 & 0.69 & 0.786 & 0.888 & 1.146 & 1.203 & 1.355 & 1.914 & 1.45 & 1.617 & 2.627 \\ 
-  2016 & 0.025 & 0.181 & 0.407 & 0.531 & 0.557 & 0.648 & 0.732 & 0.801 & 0.943 & 1.044 & 1.206 & 1.592 & 1.729 & 1.816 & 1.908 \\ 
-  2017 & 0.025 & 0.191 & 0.404 & 0.498 & 0.651 & 0.694 & 0.75 & 0.827 & 0.893 & 0.911 & 1.018 & 1.084 & 1.667 & 1.797 & 1.878 \\ 
-  2018 & 0.025 & 0.186 & 0.38 & 0.466 & 0.573 & 0.734 & 0.81 & 0.855 & 0.904 & 1.045 & 0.983 & 1.388 & 1.531 & 1.721 & 1.846 \\ 
-  2019 & 0.025 & 0.186 & 0.416 & 0.567 & 0.642 & 0.76 & 0.879 & 0.961 & 1.008 & 1.064 & 1.044 & 1.218 & 0.73 & 1.468 & 1.635 \\ 
-  2020 & 0.025 & 0.186 & 0.364 & 0.494 & 0.638 & 0.738 & 0.85 & 0.995 & 1.03 & 1.078 & 1.165 & 1.246 & 1.395 & 1.566 & 1.693 \\ 
-  2021 & - & - & 0.364 & 0.496 & 0.679 & 0.827 & 0.914 & 1.021 & 1.145 & 1.176 & 1.21 & 1.281 & 1.349 & 1.486 & 1.644 \\ 
-  2022 & - & - & 0.364 & 0.496 & 0.632 & 0.817 & 0.962 & 1.044 & 1.144 & 1.26 & 1.283 & 1.308 & 1.37 & 1.429 & 1.559 \\ 
-  Mean & 0.007 & 0.175 & 0.312 & 0.454 & 0.593 & 0.723 & 0.841 & 0.944 & 1.035 & 1.111 & 1.172 & 1.226 & 1.263 & 1.301 & 1.323 \\ 
-  CV & - & - & 18\% & 12\% & 8\% & 8\% & 12\% & 13\% & 15\% & 16\% & 17\% & 18\% & 21\% & 20\% & 28\% \\ 
+  1991 & 0.007 & 0.15 & 0.288 & 0.485 & 0.606 & 0.729 & 0.844 & 0.883 & 1.016 & 1.124 & 1.141 & 1.232 & 1.222 & 1.295 & 1.252 \\ 
+  1992 & 0.007 & 0.179 & 0.397 & 0.465 & 0.651 & 0.714 & 0.819 & 0.986 & 1.03 & 1.2 & 1.237 & 1.269 & 1.193 & 1.357 & 1.431 \\ 
+  1993 & 0.007 & 0.331 & 0.495 & 0.612 & 0.652 & 0.775 & 0.934 & 1.062 & 1.198 & 1.24 & 1.423 & 1.54 & 1.576 & 1.609 & 1.508 \\ 
+  1994 & 0.007 & 0.233 & 0.4 & 0.652 & 0.732 & 0.746 & 0.727 & 1.07 & 1.38 & 1.325 & 1.335 & 1.409 & 1.397 & 1.278 & 1.37 \\ 
+  1995 & 0.007 & 0.153 & 0.386 & 0.505 & 0.729 & 0.843 & 0.847 & 0.97 & 1.232 & 1.296 & 1.401 & 1.402 & 1.392 & 1.095 & 1.306 \\ 
+  1996 & 0.007 & 0.293 & 0.336 & 0.445 & 0.684 & 0.797 & 0.948 & 0.956 & 1.025 & 1.1 & 1.418 & 1.489 & 1.521 & 1.702 & 1.602 \\ 
+  1997 & 0.007 & 0.187 & 0.327 & 0.477 & 0.559 & 0.748 & 0.889 & 1.074 & 1.095 & 1.236 & 1.287 & 1.4 & 1.561 & 1.363 & 1.338 \\ 
+  1998 & 0.007 & 0.191 & 0.369 & 0.589 & 0.618 & 0.622 & 0.78 & 1.04 & 1.169 & 1.276 & 1.316 & 1.428 & 1.448 & 1.437 & 1.528 \\ 
+  1999 & 0.007 & 0.188 & 0.404 & 0.507 & 0.643 & 0.702 & 0.729 & 0.894 & 1.038 & 1.253 & 1.224 & 1.422 & 0.995 & 0.616 & 1.239 \\ 
+  2000 & 0.007 & 0.218 & 0.353 & 0.526 & 0.63 & 0.732 & 0.78 & 0.807 & 0.968 & 1.015 & 1.253 & 1.286 & 1.108 & 1.084 & 1.359 \\ 
+  2001 & 0.006 & 0.227 & 0.329 & 0.505 & 0.668 & 0.786 & 0.964 & 0.986 & 1.061 & 1.133 & 1.32 & 1.411 & 1.568 & 1.472 & 1.495 \\ 
+  2002 & 0.007 & 0.231 & 0.385 & 0.51 & 0.667 & 0.799 & 0.911 & 1.026 & 1.113 & 1.102 & 1.284 & 1.442 & 1.579 & 1.29 & 1.568 \\ 
+  2003 & 0.006 & 0.276 & 0.489 & 0.549 & 0.652 & 0.769 & 0.863 & 0.953 & 1.086 & 1.202 & 1.212 & 1.194 & 1.374 & 1.355 & 1.709 \\ 
+  2004 & 0.007 & 0.135 & 0.408 & 0.584 & 0.641 & 0.76 & 0.888 & 0.924 & 1.036 & 1.176 & 1.127 & 1.167 & 1.31 & 1.254 & 1.185 \\ 
+  2005 & 0.007 & 0.283 & 0.351 & 0.508 & 0.641 & 0.742 & 0.88 & 0.96 & 1.062 & 1.074 & 1.216 & 1.268 & 1.217 & 1.075 & 1.342 \\ 
+  2006 & 0.007 & 0.174 & 0.306 & 0.448 & 0.606 & 0.755 & 0.858 & 0.959 & 1.06 & 1.117 & 1.19 & 1.218 & 1.28 & 1.384 & 1.417 \\ 
+  2007 & 0.007 & 0.155 & 0.349 & 0.507 & 0.642 & 0.783 & 0.961 & 1.1 & 1.192 & 1.266 & 1.327 & 1.488 & 1.444 & 1.729 & 1.512 \\ 
+  2008 & 0.007 & 0.208 & 0.328 & 0.519 & 0.653 & 0.774 & 0.9 & 1.054 & 1.117 & 1.289 & 1.452 & 1.528 & 1.56 & 1.874 & 1.645 \\ 
+  2009 & 0.007 & 0.136 & 0.34 & 0.525 & 0.705 & 0.879 & 0.999 & 1.13 & 1.398 & 1.479 & 1.558 & 1.576 & 1.807 & 2.026 & 2.222 \\ 
+  2010 & 0.05 & 0.175 & 0.381 & 0.49 & 0.668 & 0.909 & 1.114 & 1.277 & 1.374 & 1.586 & 1.679 & 1.923 & 1.948 & 2.077 & 2.271 \\ 
+  2011 & 0.031 & 0.205 & 0.29 & 0.508 & 0.666 & 0.809 & 0.971 & 1.224 & 1.342 & 1.513 & 1.582 & 1.623 & 2.08 & 1.707 & 2.242 \\ 
+  2012 & 0.029 & 0.142 & 0.271 & 0.409 & 0.643 & 0.824 & 0.974 & 1.17 & 1.303 & 1.509 & 1.599 & 1.637 & 1.68 & 2.031 & 2.062 \\ 
+  2013 & 0.095 & 0.144 & 0.29 & 0.442 & 0.564 & 0.781 & 1.13 & 1.281 & 1.44 & 1.685 & 1.827 & 1.786 & 1.934 & 2.159 & 2.182 \\ 
+  2014 & 0.014 & 0.193 & 0.319 & 0.454 & 0.617 & 0.751 & 0.894 & 1.156 & 1.307 & 1.386 & 1.669 & 1.773 & 1.704 & 1.623 & 2.215 \\ 
+  2015 & 0.025 & 0.181 & 0.404 & 0.462 & 0.571 & 0.69 & 0.786 & 0.887 & 1.141 & 1.195 & 1.315 & 1.671 & 1.389 & 1.559 & 2.6 \\ 
+  2016 & 0.025 & 0.181 & 0.409 & 0.531 & 0.557 & 0.646 & 0.732 & 0.8 & 0.941 & 1.043 & 1.178 & 0.788 & 0.911 & 1.684 & 1.429 \\ 
+  2017 & 0.025 & 0.191 & 0.408 & 0.499 & 0.65 & 0.694 & 0.752 & 0.827 & 0.894 & 0.911 & 1.028 & 0.961 & 0.312 & 0.701 & 0.688 \\ 
+  2018 & 0.025 & 0.186 & 0.377 & 0.467 & 0.573 & 0.734 & 0.809 & 0.853 & 0.906 & 1.039 & 0.936 & 1.11 & 0.568 & 1.454 & 1.13 \\ 
+  2019 & 0.025 & 0.186 & 0.422 & 0.565 & 0.643 & 0.759 & 0.878 & 0.962 & 1.007 & 1.065 & 1.035 & 1.182 & 0.754 & 1.454 & 1.593 \\ 
+  2020 & 0.025 & 0.186 & 0.387 & 0.522 & 0.632 & 0.716 & 0.799 & 0.955 & 1.006 & 1.04 & 1.189 & 1.072 & 1.208 & 0.961 & 1.593 \\ 
+  2021 & 0.025 & 0.186 & 0.343 & 0.508 & 0.618 & 0.765 & 0.844 & 0.943 & 1.062 & 1.06 & 1.101 & 1.173 & 1.243 & 1.406 & 1.502 \\ 
+  2022 & - & - & 0.359 & 0.491 & 0.642 & 0.766 & 0.875 & 0.945 & 1.025 & 1.141 & 1.139 & 1.155 & 1.221 & 1.278 & 1.404 \\ 
+  2023 & - & - & 0.359 & 0.491 & 0.625 & 0.771 & 0.887 & 0.987 & 1.046 & 1.116 & 1.221 & 1.209 & 1.216 & 1.274 & 1.324 \\ 
+  Mean & 0.007 & 0.177 & 0.315 & 0.461 & 0.598 & 0.724 & 0.839 & 0.95 & 1.045 & 1.118 & 1.179 & 1.231 & 1.265 & 1.299 & 1.322 \\ 
+  CV & - & - & 17\% & 11\% & 7\% & 8\% & 12\% & 13\% & 14\% & 16\% & 17\% & 20\% & 30\% & 28\% & 31\% \\ 
    \hline
 \end{tabular}
 \end{table}
@@ -3928,91 +4102,88 @@ Year & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
 \label{tab:mgt_quants}
 \begin{tabular}{lrrrr}
   \hline
-Component & 16.2 last year & 20.0 USV & 20.1 USVast & 20.0a base \\ 
+Component & Last year & base & with 2021 LF & With 2021 LF and catch-age \\ 
   \hline
-${B}_{2021}$ & 3,000 & 2,600 & 2,800 & 2,600 \\ 
-  $CV_{B_{2021}}$ & 0.12 & 0.13 & 0.15 & 0.13 \\ 
-  $B_{MSY}$ & 2,148 & 2,154 & 2,174 & 2,257 \\ 
-  $CV_{B_{MSY}}$ & 0.24 & 0.22 & 0.22 & 0.24 \\ 
-  ${B}_{2021}/B_{MSY}$ & 139\% & 121\% & 131\% & 115\% \\ 
-  $B_0$ & 5,777 & 5,611 & 5,665 & 5,792 \\ 
-  $B_{35\%}$ & 2,190 & 2,149 & 2,172 & 2,150 \\ 
-  SPR rate at $F_{MSY}$ & 27\% & 28\% & 28\% & 30\% \\ 
-  Steepness & 0.66 & 0.67 & 0.67 & 0.64 \\ 
-  Est. $B_{2020} / B_{2020,no fishing}$ & 0.64 & 0.6 & 0.63 & 0.58 \\ 
-  $B_{2020} / B_{MSY}$ & 161\% & 138\% & 148\% & 131\% \\ 
+${B}_{2022}$ & 2,600 & 1,900 & 1,900 & 1,900 \\ 
+  $CV_{B_{2022}}$ & 0.13 & 0.16 & 0.16 & 0.16 \\ 
+  $B_{MSY}$ & 2,257 & 2,186 & 2,174 & 2,187 \\ 
+  $CV_{B_{MSY}}$ & 0.24 & 0.26 & 0.26 & 0.26 \\ 
+  ${B}_{2022}/B_{MSY}$ & 115\% & 88\% & 86\% & 87\% \\ 
+  $B_0$ & 5,792 & 5,578 & 5,544 & 5,577 \\ 
+  $B_{35\%}$ & 2,150 & 1,995 & 1,986 & 1,986 \\ 
+  SPR rate at $F_{MSY}$ & 30\% & 31\% & 31\% & 31\% \\ 
+  Steepness & 0.64 & 0.63 & 0.63 & 0.63 \\ 
+  Est. $B_{2020} / B_{2020,no fishing}$ & 0.58 & 0.44 & 0.42 & 0.43 \\ 
+  $B_{2020} / B_{MSY}$ & 131\% & 86\% & 82\% & 83\% \\ 
    \hline
 \end{tabular}
 \end{table}
 
 \clearpage
 
+
+```
+## Error in data.frame(..., check.names = FALSE): arguments imply differing number of rows: 59, 58
+```
+
+```
+## Error in names(t3) <- c("Year", "Current", "CV", "2019", "CV", "2018", : 'names' attribute [15] must be the same length as the vector [7]
+```
+
+```
+## Error in t3[, i + 1] * 100: non-numeric argument to binary operator
+```
+
 \begin{table}[ht]
 \centering
 \caption{Estimates of begin-year age 3 and older biomass (thousands of tons) and coefficients of variation (CV) for the current assessment compared to 2012--2019 assessments for EBS pollock.} 
 \label{tab:biom_3plus}
 \scalebox{0.75}{
-\begin{tabular}{rrrrrrrrrrrrrrr}
+\begin{tabular}{rrrrrrr}
   \hline
-Year & Current & CV & 2019 & CV & 2018 & CV & 2017 & CV & 2016 & CV & 2015 & CV & 2014 & CV \\ 
+Year & DB.BTS & DDC & VAST.NBS & VAST.NBS.CPE & X..ATS.. & X..VAST.ATS. \\ 
   \hline
-1964 & 1,855 & 22 & 1,866 & 22 & 1,744 & 22 & 1,779 & 22 & 1,834 & 22 & 1,869 & 24 & 1,622 & 21 \\ 
-  1965 & 2,256 & 20 & 2,270 & 20 & 2,124 & 20 & 2,165 & 20 & 2,229 & 20 & 2,324 & 22 & 2,076 & 19 \\ 
-  1966 & 2,419 & 19 & 2,433 & 19 & 2,277 & 19 & 2,326 & 19 & 2,404 & 19 & 2,563 & 22 & 2,186 & 19 \\ 
-  1967 & 3,679 & 17 & 3,695 & 17 & 3,504 & 17 & 3,566 & 17 & 3,667 & 17 & 3,888 & 19 & 3,397 & 16 \\ 
-  1968 & 4,201 & 17 & 4,217 & 17 & 4,011 & 17 & 4,082 & 17 & 4,198 & 17 & 4,495 & 18 & 3,870 & 16 \\ 
-  1969 & 5,297 & 15 & 5,316 & 15 & 5,105 & 16 & 5,174 & 15 & 5,294 & 15 & 5,690 & 16 & 5,220 & 15 \\ 
-  1970 & 5,937 & 14 & 5,957 & 14 & 5,757 & 15 & 5,820 & 14 & 5,936 & 14 & 6,424 & 15 & 6,252 & 15 \\ 
-  1971 & 6,367 & 13 & 6,390 & 13 & 6,209 & 13 & 6,260 & 13 & 6,360 & 13 & 6,858 & 14 & 6,945 & 13 \\ 
-  1972 & 6,038 & 12 & 6,063 & 12 & 5,902 & 12 & 5,940 & 12 & 6,024 & 12 & 6,431 & 13 & 6,353 & 13 \\ 
-  1973 & 4,855 & 13 & 4,880 & 13 & 4,729 & 13 & 4,765 & 13 & 4,845 & 13 & 5,161 & 14 & 4,748 & 16 \\ 
-  1974 & 3,594 & 16 & 3,619 & 16 & 3,474 & 16 & 3,510 & 16 & 3,589 & 16 & 3,846 & 17 & 3,348 & 19 \\ 
-  1975 & 3,710 & 12 & 3,740 & 12 & 3,585 & 12 & 3,611 & 12 & 3,679 & 12 & 3,868 & 13 & 3,554 & 13 \\ 
-  1976 & 3,670 & 10 & 3,708 & 10 & 3,515 & 10 & 3,538 & 10 & 3,608 & 10 & 3,872 & 11 & 3,609 & 10 \\ 
-  1977 & 3,646 & 9 & 3,690 & 9 & 3,426 & 8 & 3,446 & 8 & 3,535 & 8 & 3,939 & 10 & 3,642 & 9 \\ 
-  1978 & 3,564 & 8 & 3,607 & 8 & 3,250 & 8 & 3,273 & 8 & 3,375 & 8 & 3,888 & 9 & 3,556 & 9 \\ 
-  1979 & 3,557 & 8 & 3,595 & 8 & 3,087 & 8 & 3,116 & 8 & 3,239 & 8 & 3,859 & 9 & 3,426 & 8 \\ 
-  1980 & 4,537 & 6 & 4,578 & 6 & 3,856 & 6 & 3,896 & 6 & 4,068 & 6 & 4,887 & 8 & 4,372 & 7 \\ 
-  1981 & 8,422 & 4 & 8,451 & 4 & 7,314 & 5 & 7,453 & 5 & 7,813 & 4 & 9,054 & 6 & 8,527 & 5 \\ 
-  1982 & 9,542 & 4 & 9,569 & 4 & 8,448 & 5 & 8,645 & 5 & 9,056 & 4 & 10,289 & 5 & 9,766 & 5 \\ 
-  1983 & 10,807 & 4 & 10,832 & 4 & 9,556 & 4 & 9,849 & 4 & 10,240 & 4 & 11,383 & 5 & 10,911 & 4 \\ 
-  1984 & 10,622 & 4 & 10,645 & 4 & 9,428 & 4 & 9,731 & 4 & 10,033 & 4 & 11,040 & 5 & 10,601 & 4 \\ 
-  1985 & 12,566 & 3 & 12,592 & 3 & 11,615 & 4 & 11,887 & 4 & 12,237 & 3 & 12,951 & 4 & 12,838 & 4 \\ 
-  1986 & 11,766 & 3 & 11,790 & 3 & 11,039 & 3 & 11,278 & 4 & 11,531 & 3 & 12,019 & 4 & 12,036 & 4 \\ 
-  1987 & 12,114 & 2 & 12,143 & 2 & 11,734 & 3 & 11,922 & 3 & 12,143 & 3 & 12,334 & 4 & 12,615 & 3 \\ 
-  1988 & 11,217 & 2 & 11,245 & 2 & 11,125 & 3 & 11,291 & 3 & 11,497 & 3 & 11,536 & 4 & 11,906 & 3 \\ 
-  1989 & 9,344 & 2 & 9,370 & 2 & 9,422 & 3 & 9,568 & 3 & 9,755 & 3 & 9,700 & 4 & 10,128 & 3 \\ 
-  1990 & 7,406 & 3 & 7,431 & 3 & 7,536 & 3 & 7,671 & 3 & 7,812 & 3 & 7,701 & 4 & 8,101 & 3 \\ 
-  1991 & 5,818 & 3 & 5,841 & 3 & 5,920 & 4 & 6,054 & 4 & 6,183 & 4 & 6,063 & 5 & 6,331 & 4 \\ 
-  1992 & 9,252 & 2 & 9,286 & 2 & 9,065 & 3 & 9,276 & 3 & 9,476 & 3 & 9,472 & 3 & 9,704 & 3 \\ 
-  1993 & 11,552 & 2 & 11,599 & 2 & 11,181 & 2 & 11,427 & 2 & 11,627 & 2 & 11,712 & 3 & 11,840 & 3 \\ 
-  1994 & 11,296 & 2 & 11,342 & 2 & 10,957 & 2 & 11,188 & 2 & 11,313 & 2 & 11,418 & 3 & 11,402 & 3 \\ 
-  1995 & 12,886 & 2 & 12,926 & 2 & 12,508 & 2 & 12,757 & 2 & 13,000 & 2 & 13,177 & 3 & 13,135 & 3 \\ 
-  1996 & 11,257 & 2 & 11,292 & 2 & 10,751 & 2 & 10,979 & 2 & 11,239 & 2 & 11,358 & 3 & 11,235 & 3 \\ 
-  1997 & 10,042 & 3 & 10,074 & 3 & 9,395 & 2 & 9,603 & 2 & 9,837 & 2 & 9,940 & 3 & 9,816 & 3 \\ 
-  1998 & 9,712 & 2 & 9,738 & 2 & 9,422 & 2 & 9,609 & 2 & 9,908 & 2 & 9,990 & 3 & 9,906 & 3 \\ 
-  1999 & 10,652 & 2 & 10,673 & 2 & 10,390 & 2 & 10,561 & 2 & 10,751 & 2 & 10,853 & 3 & 10,799 & 3 \\ 
-  2000 & 9,796 & 2 & 9,821 & 2 & 9,582 & 2 & 9,735 & 2 & 9,955 & 2 & 10,068 & 3 & 10,031 & 3 \\ 
-  2001 & 9,527 & 2 & 9,559 & 2 & 9,335 & 2 & 9,479 & 2 & 9,702 & 2 & 9,854 & 3 & 9,818 & 3 \\ 
-  2002 & 9,829 & 2 & 9,877 & 2 & 9,698 & 2 & 9,811 & 2 & 10,025 & 2 & 10,276 & 3 & 10,221 & 3 \\ 
-  2003 & 11,779 & 2 & 11,816 & 2 & 11,657 & 2 & 11,750 & 2 & 12,080 & 2 & 12,365 & 3 & 12,278 & 2 \\ 
-  2004 & 11,087 & 2 & 11,121 & 2 & 10,999 & 2 & 11,073 & 2 & 11,401 & 2 & 11,591 & 3 & 11,493 & 2 \\ 
-  2005 & 9,271 & 2 & 9,302 & 2 & 9,197 & 2 & 9,272 & 2 & 9,598 & 2 & 9,705 & 3 & 9,601 & 3 \\ 
-  2006 & 7,108 & 2 & 7,135 & 2 & 7,035 & 2 & 7,110 & 2 & 7,390 & 2 & 7,446 & 3 & 7,343 & 3 \\ 
-  2007 & 5,753 & 3 & 5,782 & 3 & 5,683 & 3 & 5,762 & 3 & 6,046 & 3 & 6,045 & 4 & 5,932 & 4 \\ 
-  2008 & 4,699 & 3 & 4,733 & 3 & 4,651 & 3 & 4,726 & 3 & 4,945 & 3 & 4,849 & 4 & 4,721 & 4 \\ 
-  2009 & 5,883 & 3 & 5,941 & 3 & 5,837 & 3 & 5,943 & 3 & 6,374 & 3 & 6,331 & 5 & 6,068 & 4 \\ 
-  2010 & 6,272 & 3 & 6,356 & 3 & 6,185 & 3 & 6,327 & 3 & 6,657 & 3 & 6,680 & 5 & 5,936 & 5 \\ 
-  2011 & 9,001 & 3 & 9,176 & 3 & 8,788 & 3 & 9,107 & 3 & 9,637 & 3 & 10,053 & 7 & 8,895 & 6 \\ 
-  2012 & 9,111 & 3 & 9,248 & 3 & 8,722 & 3 & 9,051 & 4 & 9,626 & 4 & 10,164 & 8 & 8,822 & 7 \\ 
-  2013 & 9,130 & 4 & 9,225 & 4 & 8,547 & 4 & 8,873 & 4 & 9,504 & 5 & 10,337 & 9 & 9,540 & 8 \\ 
-  2014 & 8,622 & 4 & 8,624 & 4 & 7,855 & 4 & 8,143 & 5 & 8,947 & 6 & 9,805 & 10 & 8,960 & 9 \\ 
-  2015 & 12,073 & 5 & 11,801 & 5 & 11,345 & 6 & 11,913 & 8 & 12,407 & 10 & 10,970 & 11 & 9,203 & 9 \\ 
-  2016 & 15,486 & 7 & 14,558 & 6 & 13,293 & 7 & 13,549 & 10 & 13,495 & 12 & 11,292 & 12 & NA & NA \\ 
-  2017 & 13,794 & 7 & 12,963 & 7 & 11,785 & 8 & 12,049 & 11 & 13,033 & 13 & NA & NA & NA & NA \\ 
-  2018 & 10,964 & 8 & 10,484 & 8 & 10,202 & 9 & 10,965 & 11 & NA & NA & NA & NA & NA & NA \\ 
-  2019 & 9,892 & 10 & 9,864 & 9 & 9,110 & 10 & NA & NA & NA & NA & NA & NA & NA & NA \\ 
-  2020 & 8,693 & 10 & 9,128 & 10 & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA \\ 
+1982 & 2912.869455 & 4226.403296 & 3915.904395 & 3880.879391 & NA & 1,000 \\ 
+  1983 & 5921.380162 & 8779.603433 &  9619.51391 & 9455.252411 & NA & NA \\ 
+  1984 &  4542.40499 & 6604.242856 & 6537.907633 & 6481.412169 & NA & NA \\ 
+  1985 & 5198.003082 & 8114.642557 & 7929.455977 & 7899.690308 & NA & NA \\ 
+  1986 & 4835.722134 & 6999.423049 &  7207.34909 & 7360.062937 & NA & NA \\ 
+  1987 &  5498.43345 & 8231.923468 & 7933.248892 & 7759.086406 & NA & NA \\ 
+  1988 &  7183.96271 & 11133.57785 & 11712.36634 & 11838.42404 & NA & NA \\ 
+  1989 &  6550.41487 & 9987.537525 & 10116.78891 & 9891.825965 & NA & NA \\ 
+  1990 &  7296.65294 & 12026.37084 & 11775.79043 & 11678.28818 & NA & NA \\ 
+  1991 &  5129.53761 & 7144.335077 & 7445.939041 & 7311.751188 & NA & NA \\ 
+  1992 &  4526.15325 & 6387.230571 &  6546.82727 & 6634.564186 & NA & NA \\ 
+  1993 &  5294.81627 & 7189.322148 & 8330.213541 & 8137.694986 & NA & NA \\ 
+  1994 &  5027.32531 & 7234.458652 & 6959.987106 & 7054.243688 & 3,629 & 3,703 \\ 
+  1995 &  5477.83781 & 9261.075929 & 6657.562427 & 6728.178686 & NA & NA \\ 
+  1996 &  3125.25308 & 4140.253405 & 4113.466192 & 4025.393284 & 2,945 & 2,870 \\ 
+  1997 &  3562.16312 & 5102.935742 & 4414.859954 & 4392.148461 & 3,591 & 3,525 \\ 
+  1998 &  2687.75527 & 3604.599101 & 3563.405049 & 3503.520778 & NA & NA \\ 
+  1999 &  3798.47408 & 5518.336526 & 5488.042837 & 5838.933216 & 4,141 & 3,665 \\ 
+  2000 &  5103.62901 & 7756.099826 & 7219.948299 & 7195.173222 & 3,626 & 3,292 \\ 
+  2001 &   4196.8539 & 5573.217142 & 6191.685117 & 6137.448528 & NA & NA \\ 
+  2002 &  4953.43827 & 6418.072006 & 6892.098683 & 6789.873584 & 4,306 & 4,477 \\ 
+  2003 &  8392.26085 & 13998.74887 & 11613.10076 & 11413.02574 & NA & NA \\ 
+  2004 &  3862.97416 & 4598.548714 & 5815.078718 & 5755.996482 & 4,010 & 3,611 \\ 
+  2005 &  4868.61563 & 6914.633558 & 7036.702328 & 6837.731694 & NA & NA \\ 
+  2006 &  3045.38011 & 3987.247256 & 4143.654481 & 4181.738405 & 1,873 & 1,727 \\ 
+  2007 &   4338.2199 & 6401.685955 & 6793.668859 & 6819.598264 & NA & NA \\ 
+  2008 &  3023.26726 & 4127.200599 & 4257.538164 & 4361.866417 & 2,278 & 2,072 \\ 
+  2009 &   2282.4096 & 3239.432588 &  2842.00693 & 2853.736716 & 1,406 & 1,428 \\ 
+  2010 &  3737.87833 &  4870.44703 & 5183.430935 & 5236.769749 & 1,325 & 1,377 \\ 
+  2011 &  3112.31219 & 4028.750029 &  4653.98603 &  4541.40547 & 2,642 & 2,585 \\ 
+  2012 &  3487.22858 & 4426.627979 & 4929.875783 & 5219.581451 & 2,296 & 2,375 \\ 
+  2013 &  4575.40288 & 6209.667886 & 6742.014728 & 6794.755186 & NA & NA \\ 
+  2014 &  7429.95248 &  10390.4542 & 12009.91737 & 11834.32116 & 4,730 & 5,122 \\ 
+  2015 &   6394.3586 & 8596.056228 & 11418.06273 & 11283.48856 & NA & NA \\ 
+  2016 &  4910.07982 & 6198.804241 & 8970.639986 &  8913.87471 & 4,829 & 5,381 \\ 
+  2017 &  4814.37236 & 6331.597092 & 8971.577227 & 8987.916429 & NA & NA \\ 
+  2018 &  3112.79666 & 4225.837659 &  5409.05301 & 5321.043635 & 2,499 & 2,819 \\ 
+  2019 &  5458.36564 & 7420.861072 & 9387.064302 & 9213.093028 & NA & NA \\ 
+  2020 &          -- &          -- &          -- &          -- & 3,605 & 3,694 \\ 
+  2021 &  3034.31691 & 3643.929872 & 4857.441772 &  4744.82686 & NA & NA \\ 
+  Avg. & 4684.699301 & 6693.440816 & 7066.850646 & 7033.554245 & 3,161 & 3,161 \\ 
    \hline
 \end{tabular}
 }
@@ -4028,63 +4199,64 @@ Year & Current & CV & 2019 & CV & 2018 & CV & 2017 & CV & 2016 & CV & 2015 & CV 
   \hline
 Year & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10+ \\ 
   \hline
-1964 & 6.55 & 3.57 & 2.26 & 0.49 & 0.21 & 0.41 & 0.19 & 0.06 & 0.04 & 0.23 \\ 
-  1965 & 21.54 & 2.66 & 2.25 & 1.60 & 0.31 & 0.13 & 0.26 & 0.12 & 0.04 & 0.17 \\ 
-  1966 & 15.34 & 8.74 & 1.67 & 1.58 & 1.01 & 0.19 & 0.08 & 0.17 & 0.08 & 0.14 \\ 
-  1967 & 25.83 & 6.22 & 5.49 & 1.17 & 1.01 & 0.64 & 0.13 & 0.05 & 0.11 & 0.14 \\ 
-  1968 & 22.26 & 10.46 & 3.86 & 3.59 & 0.69 & 0.59 & 0.38 & 0.07 & 0.03 & 0.15 \\ 
-  1969 & 26.22 & 9.01 & 6.46 & 2.52 & 2.10 & 0.40 & 0.35 & 0.23 & 0.04 & 0.11 \\ 
-  1970 & 23.56 & 10.60 & 5.54 & 4.10 & 1.49 & 1.25 & 0.24 & 0.21 & 0.13 & 0.09 \\ 
-  1971 & 14.52 & 9.49 & 6.38 & 3.31 & 2.35 & 0.84 & 0.70 & 0.13 & 0.11 & 0.12 \\ 
-  1972 & 11.89 & 5.83 & 5.57 & 3.58 & 1.75 & 1.18 & 0.42 & 0.35 & 0.06 & 0.10 \\ 
-  1973 & 27.24 & 4.78 & 3.31 & 2.91 & 1.75 & 0.84 & 0.57 & 0.20 & 0.16 & 0.07 \\ 
-  1974 & 20.28 & 10.96 & 2.64 & 1.61 & 1.31 & 0.78 & 0.37 & 0.25 & 0.08 & 0.09 \\ 
-  1975 & 17.71 & 8.17 & 5.85 & 1.14 & 0.69 & 0.56 & 0.33 & 0.16 & 0.10 & 0.07 \\ 
-  1976 & 14.14 & 7.16 & 4.63 & 2.67 & 0.53 & 0.32 & 0.26 & 0.16 & 0.07 & 0.08 \\ 
-  1977 & 15.44 & 5.72 & 4.15 & 2.33 & 1.27 & 0.26 & 0.16 & 0.13 & 0.08 & 0.07 \\ 
-  1978 & 27.34 & 6.26 & 3.36 & 2.30 & 1.21 & 0.65 & 0.13 & 0.08 & 0.07 & 0.07 \\ 
-  1979 & 63.87 & 11.09 & 3.71 & 1.88 & 1.20 & 0.60 & 0.32 & 0.07 & 0.04 & 0.07 \\ 
-  1980 & 25.91 & 25.92 & 6.73 & 2.19 & 1.02 & 0.59 & 0.29 & 0.16 & 0.03 & 0.05 \\ 
-  1981 & 32.60 & 10.52 & 16.10 & 4.29 & 1.23 & 0.52 & 0.30 & 0.15 & 0.08 & 0.04 \\ 
-  1982 & 17.26 & 13.24 & 6.61 & 11.02 & 2.62 & 0.69 & 0.30 & 0.17 & 0.08 & 0.07 \\ 
-  1983 & 49.59 & 7.02 & 8.38 & 4.72 & 7.22 & 1.61 & 0.43 & 0.18 & 0.10 & 0.09 \\ 
-  1984 & 13.49 & 20.15 & 4.44 & 6.03 & 3.19 & 4.62 & 1.01 & 0.27 & 0.11 & 0.12 \\ 
-  1985 & 32.16 & 5.48 & 12.78 & 3.20 & 4.13 & 2.02 & 2.90 & 0.63 & 0.17 & 0.15 \\ 
-  1986 & 12.21 & 13.07 & 3.48 & 9.16 & 2.20 & 2.71 & 1.24 & 1.79 & 0.39 & 0.20 \\ 
-  1987 & 6.70 & 4.96 & 8.29 & 2.49 & 6.28 & 1.45 & 1.71 & 0.77 & 1.13 & 0.37 \\ 
-  1988 & 5.63 & 2.72 & 3.15 & 5.99 & 1.75 & 4.28 & 0.96 & 1.12 & 0.50 & 0.97 \\ 
-  1989 & 11.66 & 2.29 & 1.73 & 2.21 & 4.11 & 1.14 & 2.70 & 0.58 & 0.69 & 0.91 \\ 
-  1990 & 49.83 & 4.74 & 1.45 & 1.23 & 1.49 & 2.65 & 0.71 & 1.60 & 0.35 & 1.00 \\ 
-  1991 & 26.04 & 20.26 & 3.01 & 1.04 & 0.80 & 0.86 & 1.51 & 0.39 & 0.87 & 0.76 \\ 
-  1992 & 22.12 & 10.59 & 12.84 & 2.17 & 0.70 & 0.49 & 0.49 & 0.77 & 0.21 & 0.82 \\ 
-  1993 & 46.16 & 8.99 & 6.69 & 8.93 & 1.47 & 0.44 & 0.26 & 0.23 & 0.34 & 0.43 \\ 
-  1994 & 15.29 & 18.76 & 5.72 & 4.76 & 5.66 & 0.97 & 0.26 & 0.13 & 0.12 & 0.40 \\ 
-  1995 & 10.48 & 6.22 & 11.94 & 4.18 & 3.24 & 3.30 & 0.58 & 0.15 & 0.08 & 0.30 \\ 
-  1996 & 22.83 & 4.26 & 3.96 & 8.77 & 2.97 & 2.05 & 1.79 & 0.33 & 0.08 & 0.22 \\ 
-  1997 & 30.87 & 9.28 & 2.70 & 2.89 & 6.37 & 2.03 & 1.18 & 0.88 & 0.16 & 0.17 \\ 
-  1998 & 15.14 & 12.55 & 5.87 & 1.97 & 2.06 & 4.32 & 1.26 & 0.65 & 0.47 & 0.16 \\ 
-  1999 & 16.36 & 6.15 & 7.97 & 4.26 & 1.39 & 1.39 & 2.61 & 0.76 & 0.37 & 0.34 \\ 
-  2000 & 25.39 & 6.65 & 3.91 & 5.68 & 2.97 & 0.94 & 0.90 & 1.55 & 0.45 & 0.43 \\ 
-  2001 & 35.12 & 10.32 & 4.23 & 2.83 & 3.84 & 1.90 & 0.60 & 0.52 & 0.86 & 0.52 \\ 
-  2002 & 23.39 & 14.28 & 6.57 & 3.08 & 1.95 & 2.33 & 1.05 & 0.33 & 0.29 & 0.79 \\ 
-  2003 & 14.29 & 9.51 & 9.08 & 4.76 & 2.10 & 1.19 & 1.19 & 0.54 & 0.17 & 0.60 \\ 
-  2004 & 6.55 & 5.81 & 6.05 & 6.41 & 3.23 & 1.24 & 0.62 & 0.59 & 0.27 & 0.42 \\ 
-  2005 & 4.66 & 2.66 & 3.70 & 4.39 & 4.03 & 1.96 & 0.70 & 0.32 & 0.31 & 0.39 \\ 
-  2006 & 11.69 & 1.89 & 1.69 & 2.68 & 2.90 & 2.23 & 1.05 & 0.38 & 0.18 & 0.40 \\ 
-  2007 & 25.26 & 4.75 & 1.20 & 1.20 & 1.74 & 1.63 & 1.12 & 0.54 & 0.20 & 0.32 \\ 
-  2008 & 14.11 & 10.27 & 3.02 & 0.85 & 0.77 & 0.97 & 0.79 & 0.56 & 0.28 & 0.28 \\ 
-  2009 & 53.12 & 5.74 & 6.53 & 2.18 & 0.56 & 0.44 & 0.46 & 0.38 & 0.28 & 0.28 \\ 
-  2010 & 23.88 & 21.60 & 3.65 & 4.69 & 1.44 & 0.34 & 0.22 & 0.23 & 0.20 & 0.29 \\ 
-  2011 & 14.91 & 9.71 & 13.75 & 2.67 & 3.00 & 0.87 & 0.20 & 0.13 & 0.13 & 0.26 \\ 
-  2012 & 13.27 & 6.06 & 6.18 & 10.01 & 1.85 & 1.50 & 0.42 & 0.10 & 0.06 & 0.19 \\ 
-  2013 & 57.24 & 5.40 & 3.86 & 4.48 & 6.61 & 1.20 & 0.72 & 0.20 & 0.05 & 0.13 \\ 
-  2014 & 57.25 & 23.27 & 3.44 & 2.80 & 3.02 & 4.05 & 0.72 & 0.38 & 0.10 & 0.08 \\ 
-  2015 & 13.28 & 23.28 & 14.82 & 2.50 & 1.92 & 1.89 & 2.33 & 0.38 & 0.20 & 0.10 \\ 
-  2016 & 6.40 & 5.40 & 14.83 & 10.46 & 1.67 & 1.22 & 1.07 & 1.26 & 0.20 & 0.15 \\ 
-  2017 & 9.69 & 2.60 & 3.44 & 10.88 & 6.57 & 1.09 & 0.75 & 0.64 & 0.73 & 0.21 \\ 
-  2018 & 18.42 & 3.94 & 1.66 & 2.53 & 7.57 & 4.07 & 0.64 & 0.44 & 0.38 & 0.56 \\ 
-  2019 & 19.13 & 7.49 & 2.51 & 1.22 & 1.79 & 4.61 & 2.55 & 0.39 & 0.26 & 0.59 \\ 
-  2020 & 18.18 & 7.78 & 4.77 & 1.85 & 0.88 & 1.18 & 2.65 & 1.51 & 0.22 & 0.52 \\ 
+1964 & 6.39 & 3.29 & 2.07 & 0.44 & 0.19 & 0.36 & 0.16 & 0.05 & 0.03 & 0.20 \\ 
+  1965 & 20.82 & 2.59 & 2.07 & 1.46 & 0.27 & 0.11 & 0.22 & 0.10 & 0.03 & 0.15 \\ 
+  1966 & 15.12 & 8.45 & 1.63 & 1.45 & 0.89 & 0.17 & 0.07 & 0.14 & 0.06 & 0.12 \\ 
+  1967 & 25.57 & 6.13 & 5.31 & 1.14 & 0.91 & 0.56 & 0.11 & 0.05 & 0.09 & 0.11 \\ 
+  1968 & 22.25 & 10.36 & 3.80 & 3.45 & 0.65 & 0.52 & 0.32 & 0.06 & 0.03 & 0.12 \\ 
+  1969 & 26.24 & 9.01 & 6.39 & 2.47 & 1.98 & 0.38 & 0.30 & 0.19 & 0.04 & 0.08 \\ 
+  1970 & 23.60 & 10.61 & 5.54 & 4.04 & 1.44 & 1.16 & 0.22 & 0.18 & 0.11 & 0.07 \\ 
+  1971 & 14.60 & 9.51 & 6.38 & 3.30 & 2.30 & 0.79 & 0.64 & 0.12 & 0.09 & 0.09 \\ 
+  1972 & 11.95 & 5.86 & 5.57 & 3.57 & 1.72 & 1.13 & 0.39 & 0.31 & 0.05 & 0.07 \\ 
+  1973 & 27.00 & 4.80 & 3.32 & 2.89 & 1.73 & 0.81 & 0.53 & 0.18 & 0.13 & 0.05 \\ 
+  1974 & 19.92 & 10.87 & 2.64 & 1.60 & 1.29 & 0.75 & 0.35 & 0.23 & 0.07 & 0.07 \\ 
+  1975 & 17.10 & 8.03 & 5.77 & 1.13 & 0.68 & 0.54 & 0.31 & 0.15 & 0.09 & 0.05 \\ 
+  1976 & 13.33 & 6.91 & 4.53 & 2.59 & 0.51 & 0.31 & 0.25 & 0.15 & 0.07 & 0.06 \\ 
+  1977 & 13.96 & 5.40 & 3.99 & 2.25 & 1.21 & 0.24 & 0.15 & 0.12 & 0.07 & 0.05 \\ 
+  1978 & 25.15 & 5.66 & 3.15 & 2.18 & 1.14 & 0.60 & 0.12 & 0.08 & 0.06 & 0.06 \\ 
+  1979 & 58.23 & 10.20 & 3.33 & 1.73 & 1.11 & 0.55 & 0.29 & 0.06 & 0.04 & 0.05 \\ 
+  1980 & 24.94 & 23.62 & 6.16 & 1.92 & 0.90 & 0.52 & 0.26 & 0.14 & 0.03 & 0.04 \\ 
+  1981 & 29.34 & 10.12 & 14.63 & 3.86 & 1.03 & 0.44 & 0.25 & 0.12 & 0.06 & 0.03 \\ 
+  1982 & 17.28 & 11.92 & 6.36 & 9.93 & 2.30 & 0.55 & 0.23 & 0.13 & 0.06 & 0.05 \\ 
+  1983 & 50.39 & 7.02 & 7.53 & 4.52 & 6.42 & 1.37 & 0.32 & 0.14 & 0.08 & 0.06 \\ 
+  1984 & 13.30 & 20.48 & 4.44 & 5.41 & 3.04 & 4.03 & 0.83 & 0.19 & 0.08 & 0.08 \\ 
+  1985 & 32.32 & 5.41 & 12.98 & 3.19 & 3.68 & 1.90 & 2.46 & 0.50 & 0.12 & 0.09 \\ 
+  1986 & 13.49 & 13.14 & 3.43 & 9.30 & 2.19 & 2.38 & 1.14 & 1.47 & 0.30 & 0.12 \\ 
+  1987 & 7.17 & 5.48 & 8.33 & 2.46 & 6.36 & 1.44 & 1.46 & 0.69 & 0.90 & 0.25 \\ 
+  1988 & 5.43 & 2.91 & 3.48 & 6.01 & 1.73 & 4.33 & 0.94 & 0.95 & 0.44 & 0.72 \\ 
+  1989 & 11.04 & 2.21 & 1.85 & 2.43 & 4.13 & 1.12 & 2.73 & 0.56 & 0.57 & 0.69 \\ 
+  1990 & 47.93 & 4.49 & 1.40 & 1.31 & 1.65 & 2.67 & 0.70 & 1.60 & 0.34 & 0.76 \\ 
+  1991 & 25.16 & 19.48 & 2.84 & 0.99 & 0.85 & 0.97 & 1.51 & 0.37 & 0.86 & 0.60 \\ 
+  1992 & 22.00 & 10.23 & 12.35 & 2.03 & 0.66 & 0.51 & 0.55 & 0.76 & 0.20 & 0.74 \\ 
+  1993 & 44.53 & 8.94 & 6.47 & 8.57 & 1.33 & 0.39 & 0.26 & 0.24 & 0.32 & 0.41 \\ 
+  1994 & 15.02 & 18.10 & 5.68 & 4.61 & 5.45 & 0.85 & 0.23 & 0.13 & 0.12 & 0.37 \\ 
+  1995 & 10.38 & 6.11 & 11.51 & 4.14 & 3.13 & 3.17 & 0.50 & 0.12 & 0.07 & 0.27 \\ 
+  1996 & 22.06 & 4.22 & 3.88 & 8.42 & 2.94 & 1.99 & 1.70 & 0.27 & 0.07 & 0.19 \\ 
+  1997 & 30.16 & 8.97 & 2.68 & 2.83 & 6.10 & 2.00 & 1.14 & 0.82 & 0.13 & 0.14 \\ 
+  1998 & 14.79 & 12.26 & 5.69 & 1.95 & 2.01 & 4.14 & 1.22 & 0.60 & 0.41 & 0.14 \\ 
+  1999 & 15.88 & 6.01 & 7.79 & 4.12 & 1.37 & 1.36 & 2.49 & 0.72 & 0.33 & 0.29 \\ 
+  2000 & 24.75 & 6.46 & 3.82 & 5.54 & 2.86 & 0.93 & 0.87 & 1.45 & 0.43 & 0.36 \\ 
+  2001 & 34.43 & 10.06 & 4.11 & 2.76 & 3.74 & 1.83 & 0.59 & 0.51 & 0.78 & 0.45 \\ 
+  2002 & 22.93 & 14.00 & 6.40 & 3.00 & 1.91 & 2.26 & 0.99 & 0.32 & 0.27 & 0.69 \\ 
+  2003 & 14.08 & 9.32 & 8.90 & 4.64 & 2.03 & 1.16 & 1.14 & 0.50 & 0.16 & 0.52 \\ 
+  2004 & 6.40 & 5.72 & 5.93 & 6.26 & 3.15 & 1.20 & 0.60 & 0.54 & 0.24 & 0.36 \\ 
+  2005 & 4.49 & 2.60 & 3.64 & 4.30 & 3.92 & 1.90 & 0.67 & 0.30 & 0.27 & 0.33 \\ 
+  2006 & 11.39 & 1.83 & 1.66 & 2.64 & 2.84 & 2.14 & 1.00 & 0.36 & 0.17 & 0.34 \\ 
+  2007 & 24.20 & 4.63 & 1.16 & 1.17 & 1.71 & 1.58 & 1.05 & 0.50 & 0.18 & 0.27 \\ 
+  2008 & 12.78 & 9.84 & 2.94 & 0.82 & 0.75 & 0.94 & 0.75 & 0.51 & 0.25 & 0.23 \\ 
+  2009 & 47.16 & 5.20 & 6.26 & 2.12 & 0.53 & 0.42 & 0.44 & 0.35 & 0.25 & 0.24 \\ 
+  2010 & 21.14 & 19.18 & 3.31 & 4.49 & 1.39 & 0.32 & 0.21 & 0.22 & 0.18 & 0.24 \\ 
+  2011 & 12.80 & 8.59 & 12.21 & 2.42 & 2.84 & 0.84 & 0.18 & 0.12 & 0.11 & 0.22 \\ 
+  2012 & 11.11 & 5.20 & 5.47 & 8.87 & 1.67 & 1.39 & 0.39 & 0.09 & 0.05 & 0.15 \\ 
+  2013 & 43.37 & 4.52 & 3.31 & 3.95 & 5.76 & 1.07 & 0.63 & 0.18 & 0.04 & 0.10 \\ 
+  2014 & 45.77 & 17.63 & 2.87 & 2.40 & 2.63 & 3.42 & 0.63 & 0.32 & 0.08 & 0.06 \\ 
+  2015 & 14.62 & 18.61 & 11.22 & 2.09 & 1.62 & 1.60 & 1.87 & 0.31 & 0.15 & 0.07 \\ 
+  2016 & 6.52 & 5.95 & 11.85 & 7.79 & 1.37 & 1.00 & 0.86 & 0.91 & 0.15 & 0.10 \\ 
+  2017 & 8.33 & 2.65 & 3.79 & 8.67 & 4.57 & 0.85 & 0.59 & 0.48 & 0.46 & 0.13 \\ 
+  2018 & 13.98 & 3.39 & 1.69 & 2.78 & 5.93 & 2.57 & 0.46 & 0.31 & 0.26 & 0.30 \\ 
+  2019 & 31.06 & 5.68 & 2.16 & 1.24 & 1.96 & 3.38 & 1.43 & 0.26 & 0.17 & 0.31 \\ 
+  2020 & 19.90 & 12.63 & 3.61 & 1.58 & 0.89 & 1.30 & 1.70 & 0.68 & 0.13 & 0.25 \\ 
+  2021 & 20.22 & 8.09 & 7.88 & 2.60 & 1.09 & 0.55 & 0.53 & 0.75 & 0.35 & 0.17 \\ 
    \hline
 \end{tabular}
 }
@@ -4101,63 +4273,64 @@ Year & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10+ \\
   \hline
 Year & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10+ \\ 
   \hline
-1964 & 8.92 & 38.20 & 85.68 & 62.30 & 27.19 & 52.54 & 22.93 & 7.07 & 4.31 & 25.14 \\ 
-  1965 & 28.90 & 29.34 & 98.81 & 213.20 & 39.65 & 16.42 & 30.74 & 13.49 & 4.23 & 18.53 \\ 
-  1966 & 20.66 & 101.43 & 79.25 & 192.05 & 119.27 & 21.99 & 9.27 & 17.62 & 7.85 & 13.81 \\ 
-  1967 & 64.51 & 139.37 & 555.25 & 211.85 & 182.48 & 114.09 & 21.92 & 9.48 & 18.45 & 23.48 \\ 
-  1968 & 63.70 & 262.37 & 395.92 & 654.37 & 121.93 & 101.83 & 64.71 & 12.57 & 5.51 & 24.85 \\ 
-  1969 & 90.36 & 254.95 & 807.63 & 441.33 & 360.80 & 68.23 & 58.91 & 39.36 & 7.79 & 19.25 \\ 
-  1970 & 139.66 & 486.42 & 933.12 & 800.39 & 316.31 & 265.02 & 53.55 & 50.29 & 33.25 & 23.29 \\ 
-  1971 & 120.73 & 614.44 & 1338.81 & 830.32 & 664.55 & 232.72 & 197.75 & 42.50 & 37.42 & 41.50 \\ 
-  1972 & 88.69 & 509.46 & 1427.34 & 1063.69 & 535.87 & 361.40 & 129.88 & 120.58 & 22.86 & 39.03 \\ 
-  1973 & 180.12 & 521.14 & 995.52 & 994.69 & 615.34 & 295.48 & 199.41 & 76.73 & 63.19 & 28.70 \\ 
-  1974 & 116.77 & 1452.45 & 958.76 & 592.46 & 487.00 & 287.40 & 137.30 & 98.87 & 35.06 & 38.10 \\ 
-  1975 & 67.65 & 743.23 & 1967.33 & 374.35 & 222.34 & 178.97 & 105.83 & 52.65 & 36.36 & 24.55 \\ 
-  1976 & 38.80 & 528.14 & 1292.01 & 828.99 & 159.87 & 96.00 & 77.76 & 46.76 & 23.47 & 24.40 \\ 
-  1977 & 30.10 & 367.82 & 902.80 & 610.62 & 347.77 & 69.16 & 42.32 & 34.62 & 21.94 & 20.34 \\ 
-  1978 & 43.42 & 359.82 & 712.47 & 598.19 & 344.96 & 182.66 & 37.07 & 22.95 & 20.21 & 22.34 \\ 
-  1979 & 80.16 & 434.33 & 648.39 & 443.02 & 347.05 & 177.20 & 94.35 & 19.16 & 12.68 & 20.86 \\ 
-  1980 & 22.01 & 541.92 & 812.47 & 464.36 & 269.30 & 164.91 & 80.87 & 43.57 & 9.23 & 14.64 \\ 
-  1981 & 15.68 & 117.83 & 1061.86 & 658.86 & 253.31 & 109.36 & 62.20 & 31.30 & 17.70 & 9.16 \\ 
-  1982 & 4.57 & 84.57 & 215.44 & 1099.73 & 381.87 & 101.35 & 42.89 & 25.04 & 13.04 & 10.73 \\ 
-  1983 & 9.34 & 40.96 & 204.68 & 349.50 & 851.86 & 212.96 & 55.61 & 23.70 & 14.16 & 13.14 \\ 
-  1984 & 2.11 & 96.16 & 110.42 & 391.22 & 403.62 & 618.53 & 135.53 & 35.68 & 15.58 & 17.35 \\ 
-  1985 & 4.20 & 26.63 & 352.52 & 193.54 & 409.92 & 299.07 & 413.02 & 89.11 & 23.47 & 21.21 \\ 
-  1986 & 1.24 & 56.30 & 94.44 & 594.29 & 205.99 & 353.89 & 175.60 & 234.71 & 52.88 & 26.38 \\ 
-  1987 & 0.42 & 14.39 & 183.33 & 108.94 & 435.95 & 140.58 & 164.28 & 86.65 & 123.91 & 38.74 \\ 
-  1988 & 0.40 & 9.84 & 152.54 & 376.38 & 190.28 & 544.35 & 146.77 & 161.06 & 71.13 & 130.84 \\ 
-  1989 & 0.69 & 7.69 & 55.72 & 165.32 & 467.08 & 155.83 & 470.75 & 93.95 & 100.94 & 127.48 \\ 
-  1990 & 3.54 & 21.62 & 44.88 & 128.72 & 293.33 & 524.53 & 164.96 & 375.55 & 78.52 & 202.20 \\ 
-  1991 & 1.69 & 94.43 & 61.99 & 76.92 & 124.63 & 164.84 & 408.41 & 87.10 & 245.11 & 212.55 \\ 
-  1992 & 1.74 & 71.51 & 683.36 & 165.32 & 98.65 & 120.62 & 164.00 & 274.01 & 83.86 & 314.05 \\ 
-  1993 & 1.98 & 20.06 & 231.18 & 1118.55 & 142.05 & 76.22 & 67.60 & 58.44 & 90.32 & 105.01 \\ 
-  1994 & 0.47 & 32.49 & 69.90 & 339.94 & 1041.43 & 164.92 & 52.89 & 26.70 & 22.78 & 75.41 \\ 
-  1995 & 0.28 & 9.76 & 89.47 & 144.11 & 409.85 & 777.48 & 116.27 & 29.05 & 14.27 & 53.13 \\ 
-  1996 & 0.69 & 14.56 & 48.11 & 142.31 & 195.47 & 391.95 & 519.93 & 99.54 & 22.16 & 51.39 \\ 
-  1997 & 0.93 & 59.09 & 40.72 & 99.04 & 466.45 & 287.60 & 262.17 & 215.97 & 46.85 & 43.65 \\ 
-  1998 & 0.36 & 42.93 & 100.52 & 76.11 & 154.89 & 689.01 & 206.48 & 136.61 & 110.64 & 36.38 \\ 
-  1999 & 0.29 & 11.66 & 266.49 & 219.59 & 103.75 & 157.95 & 456.77 & 127.75 & 60.79 & 55.93 \\ 
-  2000 & 0.45 & 11.66 & 81.65 & 421.80 & 349.34 & 114.55 & 166.77 & 340.84 & 83.40 & 71.46 \\ 
-  2001 & 0.67 & 15.89 & 62.58 & 168.48 & 609.22 & 421.00 & 131.98 & 112.99 & 171.25 & 97.95 \\ 
-  2002 & 0.51 & 32.82 & 124.52 & 215.31 & 297.42 & 628.62 & 282.69 & 88.66 & 70.71 & 167.38 \\ 
-  2003 & 0.31 & 16.99 & 373.61 & 346.95 & 367.81 & 306.60 & 346.18 & 153.70 & 43.66 & 129.79 \\ 
-  2004 & 0.12 & 7.72 & 111.42 & 833.60 & 506.46 & 255.38 & 161.72 & 149.28 & 61.03 & 83.32 \\ 
-  2005 & 0.08 & 3.67 & 65.07 & 405.01 & 888.02 & 471.73 & 158.97 & 68.97 & 62.48 & 69.63 \\ 
-  2006 & 0.23 & 3.82 & 65.65 & 288.54 & 609.78 & 633.76 & 284.60 & 100.78 & 43.81 & 90.04 \\ 
-  2007 & 0.49 & 10.85 & 48.31 & 135.89 & 377.95 & 492.05 & 317.75 & 140.91 & 49.68 & 76.53 \\ 
-  2008 & 0.26 & 21.26 & 69.88 & 84.91 & 155.22 & 306.43 & 238.94 & 159.37 & 76.85 & 71.84 \\ 
-  2009 & 0.88 & 7.77 & 167.15 & 210.13 & 90.90 & 118.95 & 123.96 & 101.62 & 72.00 & 76.39 \\ 
-  2010 & 0.32 & 25.27 & 39.22 & 562.43 & 225.32 & 61.57 & 47.16 & 55.66 & 46.82 & 66.28 \\ 
-  2011 & 0.26 & 14.51 & 203.59 & 147.50 & 851.10 & 271.10 & 59.06 & 37.70 & 36.90 & 75.93 \\ 
-  2012 & 0.23 & 10.61 & 113.90 & 946.87 & 197.32 & 462.61 & 127.39 & 29.25 & 18.39 & 56.58 \\ 
-  2013 & 0.85 & 6.61 & 65.53 & 352.24 & 987.63 & 195.78 & 178.47 & 58.87 & 13.33 & 35.97 \\ 
-  2014 & 0.77 & 28.49 & 52.07 & 181.60 & 404.54 & 788.08 & 183.53 & 95.63 & 24.82 & 22.26 \\ 
-  2015 & 0.19 & 20.52 & 602.87 & 208.91 & 238.05 & 385.18 & 548.10 & 91.04 & 50.58 & 25.83 \\ 
-  2016 & 0.06 & 3.00 & 122.42 & 1377.07 & 178.98 & 179.59 & 175.95 & 243.77 & 37.62 & 27.88 \\ 
-  2017 & 0.09 & 1.41 & 26.81 & 575.59 & 933.66 & 196.08 & 138.23 & 116.10 & 122.52 & 34.54 \\ 
-  2018 & 0.14 & 1.90 & 10.03 & 100.71 & 1160.57 & 542.65 & 100.17 & 70.17 & 55.04 & 71.48 \\ 
-  2019 & 0.16 & 4.49 & 14.47 & 29.39 & 169.45 & 901.27 & 441.84 & 74.41 & 44.42 & 81.88 \\ 
-  2020 & 0.20 & 6.27 & 36.87 & 59.41 & 109.69 & 268.95 & 600.68 & 340.99 & 49.57 & 114.44 \\ 
+1964 & 8.98 & 37.12 & 84.20 & 62.62 & 27.41 & 52.85 & 23.06 & 7.13 & 4.37 & 25.10 \\ 
+  1965 & 28.78 & 29.87 & 97.35 & 217.90 & 39.32 & 16.09 & 30.15 & 13.24 & 4.18 & 18.15 \\ 
+  1966 & 20.87 & 101.61 & 81.26 & 196.77 & 118.95 & 21.27 & 8.86 & 16.88 & 7.54 & 13.32 \\ 
+  1967 & 65.34 & 141.37 & 558.64 & 224.17 & 182.64 & 110.87 & 20.65 & 8.84 & 17.26 & 22.21 \\ 
+  1968 & 64.48 & 263.54 & 398.79 & 675.01 & 124.88 & 96.93 & 59.93 & 11.34 & 4.96 & 22.76 \\ 
+  1969 & 91.68 & 258.16 & 812.80 & 459.44 & 362.19 & 67.69 & 54.48 & 35.87 & 6.97 & 17.22 \\ 
+  1970 & 142.52 & 494.05 & 945.75 & 819.39 & 322.00 & 259.07 & 52.24 & 46.13 & 30.02 & 20.01 \\ 
+  1971 & 124.11 & 626.30 & 1358.16 & 848.59 & 674.45 & 230.29 & 190.40 & 40.87 & 33.67 & 34.43 \\ 
+  1972 & 91.05 & 521.48 & 1449.44 & 1081.05 & 545.43 & 357.64 & 126.34 & 114.17 & 21.47 & 31.71 \\ 
+  1973 & 182.68 & 534.03 & 1016.79 & 1008.79 & 622.96 & 295.20 & 193.68 & 73.85 & 58.76 & 23.07 \\ 
+  1974 & 117.52 & 1471.87 & 980.16 & 602.28 & 491.18 & 285.67 & 133.89 & 95.46 & 33.30 & 32.23 \\ 
+  1975 & 67.19 & 751.29 & 1990.41 & 379.49 & 223.66 & 177.20 & 103.21 & 51.20 & 35.10 & 20.48 \\ 
+  1976 & 37.93 & 530.41 & 1304.75 & 833.56 & 160.85 & 95.67 & 76.19 & 45.58 & 23.18 & 21.54 \\ 
+  1977 & 28.70 & 366.87 & 908.58 & 613.89 & 348.48 & 69.31 & 42.03 & 33.86 & 22.06 & 18.41 \\ 
+  1978 & 43.15 & 351.72 & 714.82 & 600.27 & 348.63 & 182.16 & 37.06 & 22.72 & 20.56 & 20.86 \\ 
+  1979 & 81.76 & 434.28 & 641.96 & 444.94 & 350.02 & 179.22 & 93.93 & 19.07 & 13.01 & 19.57 \\ 
+  1980 & 24.81 & 542.42 & 817.97 & 460.73 & 271.05 & 167.12 & 80.79 & 42.81 & 9.43 & 13.39 \\ 
+  1981 & 17.34 & 124.85 & 1063.39 & 665.32 & 250.53 & 109.78 & 61.46 & 30.51 & 17.68 & 8.22 \\ 
+  1982 & 5.83 & 84.07 & 224.88 & 1097.37 & 386.61 & 100.01 & 41.55 & 24.00 & 12.86 & 9.87 \\ 
+  1983 & 12.42 & 44.60 & 199.74 & 361.37 & 844.41 & 221.54 & 51.92 & 22.16 & 13.69 & 11.90 \\ 
+  1984 & 2.79 & 104.36 & 115.55 & 382.43 & 410.60 & 623.02 & 135.76 & 31.93 & 14.63 & 15.31 \\ 
+  1985 & 5.86 & 28.24 & 368.02 & 201.43 & 402.15 & 316.45 & 405.39 & 84.13 & 21.21 & 18.21 \\ 
+  1986 & 1.96 & 60.92 & 96.11 & 615.13 & 213.01 & 354.82 & 180.78 & 221.41 & 51.30 & 21.98 \\ 
+  1987 & 0.65 & 16.88 & 187.39 & 108.20 & 444.75 & 145.87 & 161.03 & 87.33 & 122.22 & 33.40 \\ 
+  1988 & 0.57 & 11.24 & 172.25 & 378.73 & 187.44 & 558.16 & 157.67 & 151.74 & 71.86 & 117.15 \\ 
+  1989 & 0.97 & 7.80 & 65.27 & 177.63 & 457.07 & 155.47 & 493.34 & 96.79 & 93.40 & 115.68 \\ 
+  1990 & 5.18 & 21.50 & 53.62 & 143.71 & 298.07 & 546.97 & 165.68 & 383.94 & 77.04 & 173.90 \\ 
+  1991 & 2.61 & 95.76 & 86.08 & 88.05 & 138.71 & 202.03 & 423.74 & 95.67 & 230.44 & 166.42 \\ 
+  1992 & 2.69 & 63.34 & 677.59 & 202.23 & 110.86 & 135.51 & 194.74 & 281.19 & 71.59 & 267.90 \\ 
+  1993 & 3.39 & 28.70 & 212.66 & 1051.99 & 160.15 & 78.13 & 75.02 & 67.97 & 90.55 & 109.09 \\ 
+  1994 & 0.83 & 42.04 & 80.65 & 336.45 & 1012.11 & 155.52 & 52.11 & 30.23 & 27.07 & 82.24 \\ 
+  1995 & 0.49 & 14.85 & 119.59 & 146.59 & 387.35 & 766.11 & 114.07 & 28.87 & 16.56 & 59.35 \\ 
+  1996 & 1.00 & 14.42 & 52.04 & 168.27 & 209.94 & 395.66 & 515.93 & 81.76 & 18.32 & 45.87 \\ 
+  1997 & 1.25 & 38.52 & 45.20 & 96.77 & 435.40 & 303.89 & 278.97 & 233.81 & 37.45 & 35.55 \\ 
+  1998 & 0.47 & 37.53 & 110.76 & 79.65 & 153.07 & 680.48 & 211.09 & 140.57 & 105.49 & 32.57 \\ 
+  1999 & 0.36 & 11.53 & 266.43 & 220.23 & 106.31 & 157.05 & 457.49 & 130.12 & 60.06 & 52.52 \\ 
+  2000 & 0.53 & 11.27 & 81.43 & 424.35 & 346.58 & 115.05 & 165.61 & 344.92 & 83.97 & 66.21 \\ 
+  2001 & 0.74 & 14.10 & 55.23 & 164.93 & 603.24 & 422.64 & 135.46 & 118.31 & 169.35 & 93.45 \\ 
+  2002 & 0.54 & 32.97 & 119.94 & 218.43 & 296.49 & 629.74 & 277.93 & 90.86 & 72.88 & 159.52 \\ 
+  2003 & 0.33 & 16.34 & 387.09 & 342.68 & 362.50 & 303.57 & 351.05 & 153.81 & 45.07 & 117.72 \\ 
+  2004 & 0.12 & 7.29 & 107.86 & 844.33 & 501.96 & 251.67 & 167.28 & 151.49 & 60.84 & 73.86 \\ 
+  2005 & 0.08 & 3.54 & 63.79 & 400.33 & 893.96 & 480.01 & 161.59 & 69.57 & 62.14 & 62.37 \\ 
+  2006 & 0.23 & 3.74 & 69.12 & 292.11 & 615.43 & 632.05 & 282.46 & 100.56 & 43.48 & 81.74 \\ 
+  2007 & 0.49 & 10.69 & 49.15 & 136.80 & 379.58 & 496.67 & 312.99 & 138.17 & 48.62 & 69.68 \\ 
+  2008 & 0.26 & 20.97 & 69.68 & 83.90 & 153.03 & 310.11 & 239.03 & 156.32 & 75.95 & 67.36 \\ 
+  2009 & 0.86 & 7.16 & 169.84 & 209.63 & 89.74 & 120.91 & 126.43 & 101.32 & 69.63 & 72.12 \\ 
+  2010 & 0.32 & 23.77 & 39.71 & 563.04 & 224.92 & 61.65 & 48.08 & 56.00 & 45.24 & 60.93 \\ 
+  2011 & 0.26 & 13.32 & 202.00 & 141.16 & 850.03 & 275.09 & 58.96 & 37.51 & 36.31 & 70.81 \\ 
+  2012 & 0.23 & 10.09 & 113.28 & 951.49 & 194.19 & 465.53 & 129.16 & 29.42 & 18.00 & 51.07 \\ 
+  2013 & 0.84 & 6.62 & 64.04 & 352.94 & 988.09 & 194.27 & 179.55 & 60.16 & 13.46 & 32.22 \\ 
+  2014 & 0.86 & 28.70 & 49.85 & 179.14 & 406.09 & 784.82 & 187.09 & 95.21 & 25.37 & 20.00 \\ 
+  2015 & 0.32 & 23.06 & 604.67 & 209.68 & 239.70 & 384.45 & 554.16 & 93.48 & 51.56 & 24.22 \\ 
+  2016 & 0.11 & 5.54 & 118.72 & 1407.26 & 186.09 & 180.00 & 178.35 & 255.99 & 39.40 & 26.34 \\ 
+  2017 & 0.15 & 3.27 & 32.05 & 577.55 & 965.78 & 201.12 & 141.03 & 121.59 & 124.25 & 33.03 \\ 
+  2018 & 0.22 & 5.33 & 12.76 & 110.57 & 1193.87 & 551.68 & 101.07 & 73.79 & 57.41 & 63.71 \\ 
+  2019 & 0.57 & 19.16 & 19.47 & 33.25 & 175.98 & 940.65 & 449.70 & 74.16 & 45.75 & 71.90 \\ 
+  2020 & 0.61 & 219.54 & 82.76 & 94.63 & 131.53 & 517.76 & 599.68 & 182.51 & 47.65 & 85.98 \\ 
+  2021 & 0.85 & 155.84 & 709.21 & 373.35 & 250.38 & 226.51 & 194.21 & 239.89 & 110.40 & 67.56 \\ 
    \hline
 \end{tabular}
 }
@@ -4167,70 +4340,71 @@ Year & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10+ \\
 
 \begin{table}[ht]
 \centering
-\caption{Estimated EBS pollock age 3+ biomass, female spawning biomass, and age 1 recruitment for 1964--2020. Biomass units are thousands of t, age-1 recruitment is in millions of pollock.} 
+\caption{Estimated EBS pollock age 3+ biomass, female spawning biomass, and age 1 recruitment for 1964--`r thisyr`. Biomass units are thousands of t, age-1 recruitment is in millions of pollock.} 
 \label{tab:biom_ssb_rec}
 \scalebox{0.8}{
 \begin{tabular}{rrrrrrr}
   \hline
 Year & SSB & CV.SSB & Recruitment & CV.Rec... & Age.3..Biomass & CV.. \\ 
   \hline
-1964 & 553 & 27 & 6,554 & 38 & 1,855 & 22 \\ 
-  1965 & 655 & 23 & 21,536 & 25 & 2,256 & 20 \\ 
-  1966 & 761 & 22 & 15,341 & 32 & 2,419 & 20 \\ 
-  1967 & 954 & 19 & 25,831 & 26 & 3,679 & 17 \\ 
-  1968 & 1,178 & 19 & 22,257 & 28 & 4,201 & 17 \\ 
-  1969 & 1,436 & 18 & 26,220 & 26 & 5,297 & 16 \\ 
-  1970 & 1,669 & 18 & 23,559 & 27 & 5,937 & 15 \\ 
-  1971 & 1,757 & 17 & 14,515 & 33 & 6,367 & 13 \\ 
-  1972 & 1,663 & 17 & 11,893 & 33 & 6,038 & 13 \\ 
-  1973 & 1,396 & 18 & 27,239 & 19 & 4,855 & 14 \\ 
-  1974 & 1,040 & 21 & 20,278 & 19 & 3,594 & 16 \\ 
-  1975 & 886 & 20 & 17,710 & 18 & 3,710 & 12 \\ 
-  1976 & 903 & 16 & 14,137 & 17 & 3,670 & 10 \\ 
-  1977 & 949 & 13 & 15,435 & 14 & 3,646 & 9 \\ 
-  1978 & 977 & 12 & 27,339 & 10 & 3,564 & 9 \\ 
-  1979 & 975 & 11 & 63,868 & 6 & 3,557 & 8 \\ 
-  1980 & 1,126 & 9 & 25,906 & 9 & 4,537 & 7 \\ 
-  1981 & 1,820 & 6 & 32,595 & 8 & 8,422 & 5 \\ 
-  1982 & 2,712 & 5 & 17,262 & 10 & 9,542 & 5 \\ 
-  1983 & 3,341 & 5 & 49,586 & 6 & 10,807 & 5 \\ 
-  1984 & 3,601 & 5 & 13,493 & 10 & 10,622 & 5 \\ 
-  1985 & 3,866 & 5 & 32,162 & 6 & 12,566 & 4 \\ 
-  1986 & 4,057 & 4 & 12,208 & 10 & 11,766 & 4 \\ 
-  1987 & 4,123 & 4 & 6,697 & 10 & 12,114 & 3 \\ 
-  1988 & 4,032 & 3 & 5,634 & 10 & 11,217 & 3 \\ 
-  1989 & 3,552 & 3 & 11,662 & 7 & 9,344 & 3 \\ 
-  1990 & 2,810 & 3 & 49,829 & 3 & 7,406 & 3 \\ 
-  1991 & 2,075 & 4 & 26,038 & 5 & 5,818 & 3 \\ 
-  1992 & 2,213 & 3 & 22,119 & 6 & 9,252 & 3 \\ 
-  1993 & 3,123 & 3 & 46,156 & 4 & 11,552 & 3 \\ 
-  1994 & 3,472 & 3 & 15,289 & 6 & 11,296 & 3 \\ 
-  1995 & 3,669 & 3 & 10,478 & 7 & 12,886 & 3 \\ 
-  1996 & 3,688 & 3 & 22,828 & 5 & 11,257 & 3 \\ 
-  1997 & 3,521 & 3 & 30,874 & 4 & 10,042 & 3 \\ 
-  1998 & 3,206 & 3 & 15,135 & 6 & 9,712 & 3 \\ 
-  1999 & 3,230 & 3 & 16,358 & 5 & 10,652 & 3 \\ 
-  2000 & 3,245 & 3 & 25,388 & 4 & 9,796 & 3 \\ 
-  2001 & 3,261 & 3 & 35,124 & 4 & 9,527 & 3 \\ 
-  2002 & 3,064 & 3 & 23,389 & 4 & 9,829 & 3 \\ 
-  2003 & 3,215 & 3 & 14,286 & 5 & 11,779 & 2 \\ 
-  2004 & 3,311 & 3 & 6,546 & 7 & 11,087 & 2 \\ 
-  2005 & 3,039 & 3 & 4,656 & 8 & 9,271 & 3 \\ 
-  2006 & 2,494 & 3 & 11,694 & 6 & 7,108 & 3 \\ 
-  2007 & 2,071 & 3 & 25,255 & 4 & 5,753 & 3 \\ 
-  2008 & 1,546 & 4 & 14,108 & 6 & 4,699 & 3 \\ 
-  2009 & 1,636 & 4 & 53,119 & 4 & 5,883 & 3 \\ 
-  2010 & 1,885 & 4 & 23,884 & 6 & 6,272 & 3 \\ 
-  2011 & 2,296 & 4 & 14,913 & 8 & 9,001 & 3 \\ 
-  2012 & 2,693 & 4 & 13,270 & 9 & 9,111 & 4 \\ 
-  2013 & 3,044 & 4 & 57,241 & 8 & 9,130 & 4 \\ 
-  2014 & 2,978 & 5 & 57,254 & 9 & 8,622 & 5 \\ 
-  2015 & 3,100 & 6 & 13,282 & 16 & 12,073 & 6 \\ 
-  2016 & 3,975 & 7 & 6,396 & 24 & 15,486 & 7 \\ 
-  2017 & 4,495 & 8 & 9,690 & 25 & 13,794 & 8 \\ 
-  2018 & 4,033 & 9 & 18,415 & 19 & 10,964 & 9 \\ 
-  2019 & 3,637 & 11 & 19,131 & 22 & 9,892 & 10 \\ 
-  2020 & 2,961 & 12 & 18,177 & 22 & 8,693 & 11 \\ 
+1964 & 488 & 27 & 6,385 & 37 & 1,658 & 22 \\ 
+  1965 & 578 & 23 & 20,821 & 25 & 2,021 & 20 \\ 
+  1966 & 674 & 22 & 15,120 & 31 & 2,188 & 20 \\ 
+  1967 & 861 & 20 & 25,569 & 26 & 3,415 & 17 \\ 
+  1968 & 1,080 & 20 & 22,250 & 28 & 3,942 & 18 \\ 
+  1969 & 1,338 & 19 & 26,241 & 26 & 5,045 & 16 \\ 
+  1970 & 1,576 & 18 & 23,602 & 27 & 5,713 & 15 \\ 
+  1971 & 1,675 & 18 & 14,596 & 32 & 6,174 & 13 \\ 
+  1972 & 1,593 & 17 & 11,950 & 33 & 5,874 & 13 \\ 
+  1973 & 1,337 & 19 & 27,004 & 19 & 4,719 & 14 \\ 
+  1974 & 991 & 22 & 19,921 & 19 & 3,482 & 16 \\ 
+  1975 & 843 & 20 & 17,100 & 18 & 3,593 & 12 \\ 
+  1976 & 857 & 16 & 13,328 & 17 & 3,535 & 10 \\ 
+  1977 & 893 & 13 & 13,963 & 15 & 3,473 & 9 \\ 
+  1978 & 904 & 12 & 25,148 & 10 & 3,336 & 9 \\ 
+  1979 & 874 & 11 & 58,225 & 6 & 3,226 & 8 \\ 
+  1980 & 981 & 10 & 24,939 & 9 & 4,047 & 7 \\ 
+  1981 & 1,584 & 7 & 29,340 & 9 & 7,503 & 5 \\ 
+  1982 & 2,377 & 6 & 17,283 & 11 & 8,549 & 5 \\ 
+  1983 & 2,935 & 6 & 50,389 & 6 & 9,619 & 5 \\ 
+  1984 & 3,167 & 6 & 13,304 & 12 & 9,519 & 5 \\ 
+  1985 & 3,460 & 5 & 32,320 & 7 & 11,658 & 4 \\ 
+  1986 & 3,714 & 5 & 13,491 & 11 & 10,995 & 4 \\ 
+  1987 & 3,841 & 4 & 7,169 & 13 & 11,495 & 4 \\ 
+  1988 & 3,819 & 4 & 5,433 & 14 & 10,824 & 3 \\ 
+  1989 & 3,410 & 4 & 11,037 & 10 & 9,099 & 3 \\ 
+  1990 & 2,719 & 4 & 47,929 & 4 & 7,228 & 4 \\ 
+  1991 & 2,023 & 5 & 25,162 & 6 & 5,703 & 4 \\ 
+  1992 & 2,137 & 4 & 22,004 & 6 & 8,950 & 3 \\ 
+  1993 & 2,990 & 3 & 44,533 & 4 & 11,093 & 3 \\ 
+  1994 & 3,322 & 3 & 15,018 & 6 & 10,878 & 3 \\ 
+  1995 & 3,516 & 3 & 10,378 & 7 & 12,483 & 3 \\ 
+  1996 & 3,562 & 3 & 22,063 & 4 & 10,862 & 3 \\ 
+  1997 & 3,320 & 3 & 30,156 & 4 & 9,347 & 3 \\ 
+  1998 & 3,054 & 3 & 14,785 & 5 & 9,313 & 3 \\ 
+  1999 & 3,079 & 3 & 15,884 & 5 & 10,235 & 3 \\ 
+  2000 & 3,098 & 3 & 24,748 & 4 & 9,416 & 3 \\ 
+  2001 & 3,108 & 3 & 34,429 & 3 & 9,142 & 3 \\ 
+  2002 & 2,919 & 3 & 22,926 & 4 & 9,440 & 3 \\ 
+  2003 & 3,078 & 3 & 14,079 & 5 & 11,387 & 2 \\ 
+  2004 & 3,178 & 3 & 6,400 & 6 & 10,721 & 2 \\ 
+  2005 & 2,907 & 3 & 4,494 & 8 & 8,950 & 2 \\ 
+  2006 & 2,378 & 3 & 11,385 & 5 & 6,829 & 3 \\ 
+  2007 & 1,959 & 3 & 24,198 & 4 & 5,487 & 3 \\ 
+  2008 & 1,447 & 3 & 12,784 & 6 & 4,448 & 3 \\ 
+  2009 & 1,524 & 3 & 47,164 & 4 & 5,555 & 3 \\ 
+  2010 & 1,752 & 3 & 21,135 & 5 & 5,845 & 3 \\ 
+  2011 & 2,090 & 3 & 12,798 & 6 & 8,171 & 3 \\ 
+  2012 & 2,391 & 3 & 11,110 & 7 & 8,129 & 3 \\ 
+  2013 & 2,637 & 4 & 43,370 & 4 & 7,969 & 3 \\ 
+  2014 & 2,503 & 4 & 45,770 & 5 & 7,332 & 4 \\ 
+  2015 & 2,457 & 4 & 14,624 & 9 & 9,537 & 3 \\ 
+  2016 & 3,007 & 4 & 6,518 & 16 & 11,991 & 4 \\ 
+  2017 & 3,342 & 4 & 8,331 & 19 & 10,807 & 4 \\ 
+  2018 & 2,937 & 5 & 13,977 & 21 & 8,396 & 5 \\ 
+  2019 & 2,589 & 7 & 31,055 & 18 & 7,438 & 7 \\ 
+  2020 & 1,935 & 9 & 19,901 & 21 & 6,134 & 10 \\ 
+  2021 & 1,806 & 12 & 20,216 & 22 & 6,835 & 12 \\ 
    \hline
 \end{tabular}
 }
@@ -4243,19 +4417,19 @@ Year & SSB & CV.SSB & Recruitment & CV.Rec... & Age.3..Biomass & CV.. \\
 \label{tab:res_summ}
 \begin{tabular}{lll}
   \hline
-Component & 16.2 last year & 20.0 USV \\ 
+Component & base & with 2021 LF \\ 
   \hline
-${B}_{2021}$ & 3,000 & 2,600 \\ 
-  $CV_{B_{2021}}$ & 0.12 & 0.13 \\ 
-  $B_{MSY}$ & 2,148 & 2,154 \\ 
-  $CV_{B_{MSY}}$ & 0.24 & 0.22 \\ 
-  ${B}_{2021}/B_{MSY}$ & 139\% & 121\% \\ 
-  $B_0$ & 5,777 & 5,611 \\ 
-  $B_{35\%}$ & 2,190 & 2,149 \\ 
-  SPR rate at $F_{MSY}$ & 27\% & 28\% \\ 
-  Steepness & 0.66 & 0.67 \\ 
-  Est. $B_{2020} / B_{2020,no fishing}$ & 0.64 & 0.6 \\ 
-  $B_{2020} / B_{MSY}$ & 161\% & 138\% \\ 
+${B}_{2022}$ & 1,900 & 1,900 \\ 
+  $CV_{B_{2022}}$ & 0.16 & 0.16 \\ 
+  $B_{MSY}$ & 2,186 & 2,174 \\ 
+  $CV_{B_{MSY}}$ & 0.26 & 0.26 \\ 
+  ${B}_{2022}/B_{MSY}$ & 88\% & 86\% \\ 
+  $B_0$ & 5,578 & 5,544 \\ 
+  $B_{35\%}$ & 1,995 & 1,986 \\ 
+  SPR rate at $F_{MSY}$ & 31\% & 31\% \\ 
+  Steepness & 0.63 & 0.63 \\ 
+  Est. $B_{2020} / B_{2020,no fishing}$ & 0.44 & 0.42 \\ 
+  $B_{2020} / B_{MSY}$ & 86\% & 82\% \\ 
    \hline
 \end{tabular}
 \end{table}
@@ -4267,16 +4441,16 @@ ${B}_{2021}$ & 3,000 & 2,600 \\
 \label{tab:tier1_proj}
 \begin{tabular}{lrr}
   \hline
-Component & 16.2 last year & 20.0 USV \\ 
+Component & base & with 2021 LF \\ 
   \hline
-2021 fishable biomass (GM) & 9,094,000 & 7,609,000 \\ 
-  Equilibrium fishable biomass at MSY & 5,749,000 & 6,503,000 \\ 
-  MSY R (HM) & 0.383 & 0.339 \\ 
-  2021 Tier 1 ABC & 3,485,000 & 2,582,000 \\ 
-  2021 Tier 1 $F_{OFL}$ & 0.449 & 0.381 \\ 
-  2021 Tier 1 OFL & 4,085,000 & 2,896,000 \\ 
-  MSY R (HM) & 0.326 & 0.288 \\ 
-  Recommended ABC & 1,767,000 & 1,788,000 \\ 
+2022 fishable biomass (GM) & 5,122,000 & 4,884,000 \\ 
+  Equilibrium fishable biomass at MSY & 6,244,000 & 6,186,000 \\ 
+  MSY R (HM) & 0.305 & 0.306 \\ 
+  2022 Tier 1 ABC & 1,386,000 & 1,282,000 \\ 
+  2022 Tier 1 $F_{OFL}$ & 0.345 & 0.345 \\ 
+  2022 Tier 1 OFL & 1,564,000 & 1,447,000 \\ 
+  MSY R (HM) & 0.259 & 0.26 \\ 
+  Recommended ABC & 1,038,000 & 964,000 \\ 
    \hline
 \end{tabular}
 \end{table}
@@ -4285,216 +4459,216 @@ Component & 16.2 last year & 20.0 USV \\
 
 \begin{table}[ht]
 \centering
-\caption{For the configuration named 20.0a base, Tier 3 projections of EBS pollock catch for the 7 scenarios.} 
+\caption{For the configuration named With 2021 LF and catch-age, Tier 3 projections of EBS pollock catch for the 7 scenarios.} 
 \label{tab:tier3_C}
 \scalebox{0.85}{
 \begin{tabular}{rrrrrrrr}
   \hline
 Catch & Scenario.1 & Scenario.2 & Scenario.3 & Scenario.4 & Scenario.5 & Scenario.6 & Scenario.7 \\ 
   \hline
-2020 & 1,400 & 1,400 & 1,400 & 1,400 & 1,400 & 1,400 & 1,400 \\ 
-  2021 & 1,625 & 1,300 & 1,404 & 760 & 0 & 1,986 & 1,625 \\ 
-  2022 & 1,342 & 1,300 & 1,292 & 779 & 0 & 1,447 & 1,342 \\ 
-  2023 & 1,274 & 1,399 & 1,263 & 816 & 0 & 1,353 & 1,543 \\ 
-  2024 & 1,317 & 1,365 & 1,292 & 866 & 0 & 1,418 & 1,482 \\ 
-  2025 & 1,451 & 1,468 & 1,395 & 950 & 0 & 1,573 & 1,594 \\ 
-  2026 & 1,539 & 1,542 & 1,470 & 1,019 & 0 & 1,658 & 1,665 \\ 
-  2027 & 1,578 & 1,579 & 1,509 & 1,062 & 0 & 1,689 & 1,691 \\ 
-  2028 & 1,600 & 1,601 & 1,536 & 1,092 & 0 & 1,703 & 1,704 \\ 
-  2029 & 1,604 & 1,600 & 1,547 & 1,110 & 0 & 1,700 & 1,700 \\ 
-  2030 & 1,588 & 1,587 & 1,534 & 1,110 & 0 & 1,678 & 1,678 \\ 
-  2031 & 1,580 & 1,583 & 1,529 & 1,111 & 0 & 1,668 & 1,668 \\ 
-  2032 & 1,571 & 1,572 & 1,522 & 1,110 & 0 & 1,659 & 1,659 \\ 
-  2033 & 1,570 & 1,568 & 1,521 & 1,111 & 0 & 1,659 & 1,659 \\ 
+2021 & 1,375 & 1,375 & 1,375 & 1,375 & 1,375 & 1,375 & 1,375 \\ 
+  2022 & 963 & 1,300 & 1,565 & 507 & 0 & 1,175 & 963 \\ 
+  2023 & 1,250 & 1,300 & 1,637 & 670 & 0 & 1,404 & 1,250 \\ 
+  2024 & 1,352 & 1,200 & 1,613 & 794 & 0 & 1,458 & 1,634 \\ 
+  2025 & 1,332 & 1,273 & 1,566 & 852 & 0 & 1,431 & 1,489 \\ 
+  2026 & 1,372 & 1,350 & 1,592 & 907 & 0 & 1,473 & 1,492 \\ 
+  2027 & 1,414 & 1,405 & 1,619 & 952 & 0 & 1,512 & 1,517 \\ 
+  2028 & 1,437 & 1,434 & 1,634 & 982 & 0 & 1,531 & 1,532 \\ 
+  2029 & 1,445 & 1,443 & 1,639 & 999 & 0 & 1,532 & 1,532 \\ 
+  2030 & 1,444 & 1,443 & 1,637 & 1,010 & 0 & 1,527 & 1,527 \\ 
+  2031 & 1,437 & 1,436 & 1,620 & 1,013 & 0 & 1,515 & 1,515 \\ 
+  2032 & 1,423 & 1,423 & 1,608 & 1,010 & 0 & 1,499 & 1,499 \\ 
+  2033 & 1,419 & 1,419 & 1,605 & 1,010 & 0 & 1,497 & 1,497 \\ 
+  2034 & 1,418 & 1,418 & 1,606 & 1,009 & 0 & 1,496 & 1,496 \\ 
    \hline
 \end{tabular}
 }
 \end{table}
 \begin{table}[ht]
 \centering
-\caption{For the configuration named 20.0a base, Tier 3 projections of EBS pollock ABC for the 7 scenarios. Note: scenario 2 results for 2021 and 2022 are conditioned on catches in that scenario listed in Table \ref{tab:tier3_C}).} 
+\caption{For the configuration named With 2021 LF and catch-age, Tier 3 projections of EBS pollock ABC for the 7 scenarios. Note: scenario 2 results for `r thisyr+1` and `r thisyr+2 are conditioned on catches in that scenario listed in Table \ref{tab:tier3_C}).} 
 \label{tab:tier3_ABC}
 \scalebox{0.85}{
 \begin{tabular}{rrrrrrrr}
   \hline
 ABC & Scenario.1 & Scenario.2 & Scenario.3 & Scenario.4 & Scenario.5 & Scenario.6 & Scenario.7 \\ 
   \hline
-2020 & 1,992 & 1,992 & 1,724 & 939 & 0 & 2,425 & 2,425 \\ 
-  2021 & 1,625 & 1,625 & 1,404 & 760 & 0 & 1,986 & 1,986 \\ 
-  2022 & 1,342 & 1,483 & 1,292 & 779 & 0 & 1,447 & 1,622 \\ 
-  2023 & 1,274 & 1,399 & 1,263 & 816 & 0 & 1,353 & 1,543 \\ 
-  2024 & 1,317 & 1,365 & 1,292 & 866 & 0 & 1,418 & 1,482 \\ 
-  2025 & 1,451 & 1,470 & 1,395 & 950 & 0 & 1,573 & 1,594 \\ 
-  2026 & 1,539 & 1,547 & 1,470 & 1,019 & 0 & 1,658 & 1,665 \\ 
-  2027 & 1,578 & 1,584 & 1,509 & 1,062 & 0 & 1,689 & 1,691 \\ 
-  2028 & 1,600 & 1,604 & 1,536 & 1,092 & 0 & 1,703 & 1,704 \\ 
-  2029 & 1,604 & 1,608 & 1,547 & 1,110 & 0 & 1,700 & 1,700 \\ 
-  2030 & 1,588 & 1,592 & 1,534 & 1,110 & 0 & 1,678 & 1,678 \\ 
-  2031 & 1,580 & 1,583 & 1,529 & 1,111 & 0 & 1,668 & 1,668 \\ 
-  2032 & 1,571 & 1,573 & 1,522 & 1,110 & 0 & 1,659 & 1,659 \\ 
-  2033 & 1,570 & 1,571 & 1,521 & 1,111 & 0 & 1,659 & 1,659 \\ 
+2021 & 942 & 942 & 1,589 & 525 & 0 & 1,145 & 1,145 \\ 
+  2022 & 963 & 963 & 1,565 & 507 & 0 & 1,175 & 1,175 \\ 
+  2023 & 1,250 & 1,104 & 1,637 & 670 & 0 & 1,404 & 1,513 \\ 
+  2024 & 1,352 & 1,200 & 1,613 & 794 & 0 & 1,458 & 1,634 \\ 
+  2025 & 1,332 & 1,273 & 1,566 & 852 & 0 & 1,431 & 1,489 \\ 
+  2026 & 1,372 & 1,350 & 1,592 & 907 & 0 & 1,473 & 1,492 \\ 
+  2027 & 1,414 & 1,405 & 1,619 & 952 & 0 & 1,512 & 1,517 \\ 
+  2028 & 1,437 & 1,434 & 1,634 & 982 & 0 & 1,531 & 1,532 \\ 
+  2029 & 1,445 & 1,444 & 1,639 & 999 & 0 & 1,532 & 1,532 \\ 
+  2030 & 1,444 & 1,444 & 1,637 & 1,010 & 0 & 1,527 & 1,527 \\ 
+  2031 & 1,437 & 1,437 & 1,620 & 1,013 & 0 & 1,515 & 1,515 \\ 
+  2032 & 1,423 & 1,423 & 1,608 & 1,010 & 0 & 1,499 & 1,499 \\ 
+  2033 & 1,419 & 1,419 & 1,605 & 1,010 & 0 & 1,497 & 1,497 \\ 
+  2034 & 1,418 & 1,418 & 1,606 & 1,009 & 0 & 1,496 & 1,496 \\ 
    \hline
 \end{tabular}
 }
 \end{table}
 \begin{table}[ht]
 \centering
-\caption{For the configuration named 20.0a base, Tier 3 projections of EBS pollock fishing mortality for the 7 scenarios.} 
+\caption{For the configuration named With 2021 LF and catch-age, Tier 3 projections of EBS pollock fishing mortality for the 7 scenarios.} 
 \label{tab:tier3_F}
 \scalebox{0.85}{
 \begin{tabular}{rrrrrrrr}
   \hline
 F & Scenario.1 & Scenario.2 & Scenario.3 & Scenario.4 & Scenario.5 & Scenario.6 & Scenario.7 \\ 
   \hline
-2020 & 0.182 & 0.182 & 0.182 & 0.182 & 0.182 & 0.182 & 0.182 \\ 
-  2021 & 0.274 & 0.211 & 0.231 & 0.117 & 0.000 & 0.348 & 0.274 \\ 
-  2022 & 0.252 & 0.227 & 0.231 & 0.117 & 0.000 & 0.298 & 0.252 \\ 
-  2023 & 0.244 & 0.255 & 0.231 & 0.117 & 0.000 & 0.288 & 0.307 \\ 
-  2024 & 0.244 & 0.248 & 0.231 & 0.117 & 0.000 & 0.291 & 0.297 \\ 
-  2025 & 0.246 & 0.247 & 0.231 & 0.117 & 0.000 & 0.296 & 0.299 \\ 
-  2026 & 0.249 & 0.249 & 0.231 & 0.117 & 0.000 & 0.300 & 0.301 \\ 
-  2027 & 0.250 & 0.250 & 0.231 & 0.117 & 0.000 & 0.302 & 0.302 \\ 
-  2028 & 0.250 & 0.250 & 0.231 & 0.117 & 0.000 & 0.301 & 0.301 \\ 
-  2029 & 0.249 & 0.249 & 0.231 & 0.117 & 0.000 & 0.299 & 0.300 \\ 
-  2030 & 0.249 & 0.249 & 0.231 & 0.117 & 0.000 & 0.299 & 0.300 \\ 
-  2031 & 0.249 & 0.249 & 0.231 & 0.117 & 0.000 & 0.299 & 0.299 \\ 
-  2032 & 0.249 & 0.249 & 0.231 & 0.117 & 0.000 & 0.298 & 0.298 \\ 
-  2033 & 0.249 & 0.248 & 0.231 & 0.117 & 0.000 & 0.298 & 0.298 \\ 
+2021 & 0.371 & 0.371 & 0.371 & 0.371 & 0.371 & 0.371 & 0.371 \\ 
+  2022 & 0.252 & 0.356 & 0.445 & 0.125 & 0.000 & 0.316 & 0.252 \\ 
+  2023 & 0.276 & 0.313 & 0.445 & 0.125 & 0.000 & 0.332 & 0.276 \\ 
+  2024 & 0.279 & 0.265 & 0.445 & 0.125 & 0.000 & 0.332 & 0.350 \\ 
+  2025 & 0.272 & 0.267 & 0.445 & 0.125 & 0.000 & 0.325 & 0.331 \\ 
+  2026 & 0.270 & 0.268 & 0.445 & 0.125 & 0.000 & 0.325 & 0.326 \\ 
+  2027 & 0.271 & 0.270 & 0.445 & 0.125 & 0.000 & 0.326 & 0.327 \\ 
+  2028 & 0.271 & 0.271 & 0.445 & 0.125 & 0.000 & 0.327 & 0.328 \\ 
+  2029 & 0.271 & 0.271 & 0.445 & 0.125 & 0.000 & 0.326 & 0.326 \\ 
+  2030 & 0.270 & 0.270 & 0.445 & 0.125 & 0.000 & 0.325 & 0.325 \\ 
+  2031 & 0.271 & 0.271 & 0.445 & 0.125 & 0.000 & 0.325 & 0.325 \\ 
+  2032 & 0.270 & 0.270 & 0.445 & 0.125 & 0.000 & 0.324 & 0.324 \\ 
+  2033 & 0.270 & 0.270 & 0.445 & 0.125 & 0.000 & 0.323 & 0.323 \\ 
+  2034 & 0.269 & 0.269 & 0.445 & 0.125 & 0.000 & 0.323 & 0.323 \\ 
    \hline
 \end{tabular}
 }
 \end{table}
 \begin{table}[ht]
 \centering
-\caption{For the configuration named 20.0a base, Tier 3 projections of EBS pollock spawning biomass (kt) for the 7 scenarios.} 
+\caption{For the configuration named With 2021 LF and catch-age, Tier 3 projections of EBS pollock spawning biomass (kt) for the 7 scenarios.} 
 \label{tab:tier3_SSB}
 \scalebox{0.85}{
 \begin{tabular}{rrrrrrrr}
   \hline
 SSB & Scenario.1 & Scenario.2 & Scenario.3 & Scenario.4 & Scenario.5 & Scenario.6 & Scenario.7 \\ 
   \hline
-2020 & 2,956 & 2,956 & 2,956 & 2,956 & 2,956 & 2,956 & 2,956 \\ 
-  2021 & 2,568 & 2,614 & 2,599 & 2,684 & 2,774 & 2,515 & 2,568 \\ 
-  2022 & 2,287 & 2,420 & 2,380 & 2,698 & 3,088 & 2,132 & 2,287 \\ 
-  2023 & 2,241 & 2,350 & 2,336 & 2,807 & 3,460 & 2,071 & 2,205 \\ 
-  2024 & 2,335 & 2,384 & 2,420 & 3,000 & 3,896 & 2,155 & 2,208 \\ 
-  2025 & 2,455 & 2,479 & 2,543 & 3,215 & 4,344 & 2,257 & 2,278 \\ 
-  2026 & 2,525 & 2,538 & 2,624 & 3,378 & 4,728 & 2,305 & 2,314 \\ 
-  2027 & 2,570 & 2,579 & 2,684 & 3,505 & 5,059 & 2,335 & 2,338 \\ 
-  2028 & 2,588 & 2,595 & 2,714 & 3,589 & 5,320 & 2,342 & 2,344 \\ 
-  2029 & 2,580 & 2,586 & 2,713 & 3,627 & 5,506 & 2,329 & 2,329 \\ 
-  2030 & 2,567 & 2,573 & 2,703 & 3,645 & 5,649 & 2,314 & 2,314 \\ 
-  2031 & 2,555 & 2,560 & 2,693 & 3,653 & 5,762 & 2,303 & 2,303 \\ 
-  2032 & 2,553 & 2,556 & 2,691 & 3,663 & 5,855 & 2,302 & 2,302 \\ 
-  2033 & 2,564 & 2,567 & 2,701 & 3,680 & 5,934 & 2,314 & 2,314 \\ 
+2021 & 1,795 & 1,795 & 1,795 & 1,795 & 1,795 & 1,795 & 1,795 \\ 
+  2022 & 1,954 & 1,911 & 1,875 & 2,009 & 2,064 & 1,927 & 1,954 \\ 
+  2023 & 2,129 & 1,986 & 1,832 & 2,388 & 2,674 & 2,023 & 2,129 \\ 
+  2024 & 2,190 & 2,067 & 1,775 & 2,668 & 3,227 & 2,035 & 2,151 \\ 
+  2025 & 2,241 & 2,187 & 1,773 & 2,884 & 3,717 & 2,063 & 2,106 \\ 
+  2026 & 2,305 & 2,282 & 1,801 & 3,064 & 4,150 & 2,109 & 2,124 \\ 
+  2027 & 2,348 & 2,337 & 1,820 & 3,197 & 4,514 & 2,135 & 2,140 \\ 
+  2028 & 2,376 & 2,371 & 1,836 & 3,289 & 4,794 & 2,152 & 2,154 \\ 
+  2029 & 2,387 & 2,385 & 1,839 & 3,347 & 5,012 & 2,156 & 2,157 \\ 
+  2030 & 2,376 & 2,375 & 1,823 & 3,373 & 5,173 & 2,142 & 2,143 \\ 
+  2031 & 2,366 & 2,366 & 1,811 & 3,385 & 5,298 & 2,132 & 2,132 \\ 
+  2032 & 2,352 & 2,352 & 1,798 & 3,385 & 5,389 & 2,119 & 2,119 \\ 
+  2033 & 2,350 & 2,350 & 1,797 & 3,388 & 5,462 & 2,119 & 2,119 \\ 
+  2034 & 2,359 & 2,359 & 1,806 & 3,399 & 5,521 & 2,129 & 2,129 \\ 
    \hline
 \end{tabular}
 }
 \end{table}
 \begin{table}[ht]
 \centering
-\caption{For the configuration named 20.0 USV, Tier 3 projections of EBS pollock catch for the 7 scenarios.} 
+\caption{For the configuration named with 2021 LF, Tier 3 projections of EBS pollock catch for the 7 scenarios.} 
 \label{tab:tier3_C}
 \scalebox{0.85}{
 \begin{tabular}{rrrrrrrr}
   \hline
 Catch & Scenario.1 & Scenario.2 & Scenario.3 & Scenario.4 & Scenario.5 & Scenario.6 & Scenario.7 \\ 
   \hline
-2020 & 1,400 & 1,400 & 1,400 & 1,400 & 1,400 & 1,400 & 1,400 \\ 
-  2021 & 1,788 & 1,300 & 1,278 & 783 & 0 & 2,187 & 1,788 \\ 
-  2022 & 1,285 & 1,300 & 1,133 & 761 & 0 & 1,385 & 1,285 \\ 
-  2023 & 1,267 & 1,442 & 1,138 & 805 & 0 & 1,351 & 1,580 \\ 
-  2024 & 1,310 & 1,369 & 1,169 & 854 & 0 & 1,413 & 1,478 \\ 
-  2025 & 1,451 & 1,469 & 1,266 & 937 & 0 & 1,582 & 1,599 \\ 
-  2026 & 1,567 & 1,568 & 1,364 & 1,020 & 0 & 1,696 & 1,700 \\ 
-  2027 & 1,613 & 1,611 & 1,416 & 1,071 & 0 & 1,730 & 1,731 \\ 
-  2028 & 1,635 & 1,635 & 1,450 & 1,107 & 0 & 1,742 & 1,742 \\ 
-  2029 & 1,648 & 1,642 & 1,473 & 1,133 & 0 & 1,749 & 1,749 \\ 
-  2030 & 1,632 & 1,628 & 1,466 & 1,137 & 0 & 1,724 & 1,724 \\ 
-  2031 & 1,617 & 1,619 & 1,459 & 1,137 & 0 & 1,708 & 1,708 \\ 
-  2032 & 1,610 & 1,614 & 1,455 & 1,138 & 0 & 1,702 & 1,702 \\ 
-  2033 & 1,601 & 1,600 & 1,448 & 1,134 & 0 & 1,693 & 1,693 \\ 
+2021 & 1,375 & 1,375 & 1,375 & 1,375 & 1,375 & 1,375 & 1,375 \\ 
+  2022 & 963 & 1,300 & 1,565 & 507 & 0 & 1,175 & 963 \\ 
+  2023 & 1,250 & 1,300 & 1,637 & 670 & 0 & 1,404 & 1,250 \\ 
+  2024 & 1,352 & 1,200 & 1,613 & 794 & 0 & 1,458 & 1,634 \\ 
+  2025 & 1,332 & 1,273 & 1,566 & 852 & 0 & 1,431 & 1,489 \\ 
+  2026 & 1,372 & 1,350 & 1,592 & 907 & 0 & 1,473 & 1,492 \\ 
+  2027 & 1,414 & 1,405 & 1,619 & 952 & 0 & 1,512 & 1,517 \\ 
+  2028 & 1,437 & 1,434 & 1,634 & 982 & 0 & 1,531 & 1,532 \\ 
+  2029 & 1,445 & 1,443 & 1,639 & 999 & 0 & 1,532 & 1,532 \\ 
+  2030 & 1,444 & 1,443 & 1,637 & 1,010 & 0 & 1,527 & 1,527 \\ 
+  2031 & 1,437 & 1,436 & 1,620 & 1,013 & 0 & 1,515 & 1,515 \\ 
+  2032 & 1,423 & 1,423 & 1,608 & 1,010 & 0 & 1,499 & 1,499 \\ 
+  2033 & 1,419 & 1,419 & 1,605 & 1,010 & 0 & 1,497 & 1,497 \\ 
+  2034 & 1,418 & 1,418 & 1,606 & 1,009 & 0 & 1,496 & 1,496 \\ 
    \hline
 \end{tabular}
 }
 \end{table}
 \begin{table}[ht]
 \centering
-\caption{For the configuration named 20.0 USV, Tier 3 projections of EBS pollock ABC for the 7 scenarios. Note: scenario 2 results for 2021 and 2022 are conditioned on catches in that scenario listed in Table \ref{tab:tier3_C}).} 
+\caption{For the configuration named with 2021 LF, Tier 3 projections of EBS pollock ABC for the 7 scenarios. Note: scenario 2 results for `r thisyr+1` and `r thisyr+2 are conditioned on catches in that scenario listed in Table \ref{tab:tier3_C}).} 
 \label{tab:tier3_ABC}
 \scalebox{0.85}{
 \begin{tabular}{rrrrrrrr}
   \hline
 ABC & Scenario.1 & Scenario.2 & Scenario.3 & Scenario.4 & Scenario.5 & Scenario.6 & Scenario.7 \\ 
   \hline
-2020 & 2,316 & 2,316 & 1,661 & 1,021 & 0 & 2,878 & 2,878 \\ 
-  2021 & 1,788 & 1,788 & 1,278 & 783 & 0 & 2,187 & 2,187 \\ 
-  2022 & 1,285 & 1,517 & 1,133 & 761 & 0 & 1,385 & 1,599 \\ 
-  2023 & 1,267 & 1,442 & 1,138 & 805 & 0 & 1,351 & 1,580 \\ 
-  2024 & 1,310 & 1,369 & 1,169 & 854 & 0 & 1,413 & 1,478 \\ 
-  2025 & 1,451 & 1,471 & 1,266 & 937 & 0 & 1,582 & 1,599 \\ 
-  2026 & 1,567 & 1,574 & 1,364 & 1,020 & 0 & 1,696 & 1,700 \\ 
-  2027 & 1,613 & 1,619 & 1,416 & 1,071 & 0 & 1,730 & 1,731 \\ 
-  2028 & 1,635 & 1,641 & 1,450 & 1,107 & 0 & 1,742 & 1,742 \\ 
-  2029 & 1,648 & 1,653 & 1,473 & 1,133 & 0 & 1,749 & 1,749 \\ 
-  2030 & 1,632 & 1,638 & 1,466 & 1,137 & 0 & 1,724 & 1,724 \\ 
-  2031 & 1,617 & 1,624 & 1,459 & 1,137 & 0 & 1,708 & 1,708 \\ 
-  2032 & 1,610 & 1,615 & 1,455 & 1,138 & 0 & 1,702 & 1,702 \\ 
-  2033 & 1,601 & 1,604 & 1,448 & 1,134 & 0 & 1,693 & 1,693 \\ 
+2021 & 942 & 942 & 1,589 & 525 & 0 & 1,145 & 1,145 \\ 
+  2022 & 963 & 963 & 1,565 & 507 & 0 & 1,175 & 1,175 \\ 
+  2023 & 1,250 & 1,104 & 1,637 & 670 & 0 & 1,404 & 1,513 \\ 
+  2024 & 1,352 & 1,200 & 1,613 & 794 & 0 & 1,458 & 1,634 \\ 
+  2025 & 1,332 & 1,273 & 1,566 & 852 & 0 & 1,431 & 1,489 \\ 
+  2026 & 1,372 & 1,350 & 1,592 & 907 & 0 & 1,473 & 1,492 \\ 
+  2027 & 1,414 & 1,405 & 1,619 & 952 & 0 & 1,512 & 1,517 \\ 
+  2028 & 1,437 & 1,434 & 1,634 & 982 & 0 & 1,531 & 1,532 \\ 
+  2029 & 1,445 & 1,444 & 1,639 & 999 & 0 & 1,532 & 1,532 \\ 
+  2030 & 1,444 & 1,444 & 1,637 & 1,010 & 0 & 1,527 & 1,527 \\ 
+  2031 & 1,437 & 1,437 & 1,620 & 1,013 & 0 & 1,515 & 1,515 \\ 
+  2032 & 1,423 & 1,423 & 1,608 & 1,010 & 0 & 1,499 & 1,499 \\ 
+  2033 & 1,419 & 1,419 & 1,605 & 1,010 & 0 & 1,497 & 1,497 \\ 
+  2034 & 1,418 & 1,418 & 1,606 & 1,009 & 0 & 1,496 & 1,496 \\ 
    \hline
 \end{tabular}
 }
 \end{table}
 \begin{table}[ht]
 \centering
-\caption{For the configuration named 20.0 USV, Tier 3 projections of EBS pollock fishing mortality for the 7 scenarios.} 
+\caption{For the configuration named with 2021 LF, Tier 3 projections of EBS pollock fishing mortality for the 7 scenarios.} 
 \label{tab:tier3_F}
 \scalebox{0.85}{
 \begin{tabular}{rrrrrrrr}
   \hline
 F & Scenario.1 & Scenario.2 & Scenario.3 & Scenario.4 & Scenario.5 & Scenario.6 & Scenario.7 \\ 
   \hline
-2020 & 0.197 & 0.197 & 0.197 & 0.197 & 0.197 & 0.197 & 0.197 \\ 
-  2021 & 0.361 & 0.246 & 0.241 & 0.139 & 0.000 & 0.470 & 0.361 \\ 
-  2022 & 0.317 & 0.284 & 0.241 & 0.139 & 0.000 & 0.390 & 0.317 \\ 
-  2023 & 0.316 & 0.333 & 0.241 & 0.139 & 0.000 & 0.387 & 0.414 \\ 
-  2024 & 0.319 & 0.324 & 0.241 & 0.139 & 0.000 & 0.398 & 0.405 \\ 
-  2025 & 0.323 & 0.325 & 0.241 & 0.139 & 0.000 & 0.407 & 0.409 \\ 
-  2026 & 0.327 & 0.327 & 0.241 & 0.139 & 0.000 & 0.413 & 0.414 \\ 
-  2027 & 0.329 & 0.329 & 0.241 & 0.139 & 0.000 & 0.416 & 0.416 \\ 
-  2028 & 0.329 & 0.329 & 0.241 & 0.139 & 0.000 & 0.415 & 0.415 \\ 
-  2029 & 0.328 & 0.327 & 0.241 & 0.139 & 0.000 & 0.413 & 0.413 \\ 
-  2030 & 0.328 & 0.327 & 0.241 & 0.139 & 0.000 & 0.412 & 0.412 \\ 
-  2031 & 0.327 & 0.327 & 0.241 & 0.139 & 0.000 & 0.411 & 0.411 \\ 
-  2032 & 0.327 & 0.327 & 0.241 & 0.139 & 0.000 & 0.411 & 0.411 \\ 
-  2033 & 0.327 & 0.326 & 0.241 & 0.139 & 0.000 & 0.410 & 0.410 \\ 
+2021 & 0.371 & 0.371 & 0.371 & 0.371 & 0.371 & 0.371 & 0.371 \\ 
+  2022 & 0.252 & 0.356 & 0.445 & 0.125 & 0.000 & 0.316 & 0.252 \\ 
+  2023 & 0.276 & 0.313 & 0.445 & 0.125 & 0.000 & 0.332 & 0.276 \\ 
+  2024 & 0.279 & 0.265 & 0.445 & 0.125 & 0.000 & 0.332 & 0.350 \\ 
+  2025 & 0.272 & 0.267 & 0.445 & 0.125 & 0.000 & 0.325 & 0.331 \\ 
+  2026 & 0.270 & 0.268 & 0.445 & 0.125 & 0.000 & 0.325 & 0.326 \\ 
+  2027 & 0.271 & 0.270 & 0.445 & 0.125 & 0.000 & 0.326 & 0.327 \\ 
+  2028 & 0.271 & 0.271 & 0.445 & 0.125 & 0.000 & 0.327 & 0.328 \\ 
+  2029 & 0.271 & 0.271 & 0.445 & 0.125 & 0.000 & 0.326 & 0.326 \\ 
+  2030 & 0.270 & 0.270 & 0.445 & 0.125 & 0.000 & 0.325 & 0.325 \\ 
+  2031 & 0.271 & 0.271 & 0.445 & 0.125 & 0.000 & 0.325 & 0.325 \\ 
+  2032 & 0.270 & 0.270 & 0.445 & 0.125 & 0.000 & 0.324 & 0.324 \\ 
+  2033 & 0.270 & 0.270 & 0.445 & 0.125 & 0.000 & 0.323 & 0.323 \\ 
+  2034 & 0.269 & 0.269 & 0.445 & 0.125 & 0.000 & 0.323 & 0.323 \\ 
    \hline
 \end{tabular}
 }
 \end{table}
 \begin{table}[ht]
 \centering
-\caption{For the configuration named 20.0 USV, Tier 3 projections of EBS pollock spawning biomass (kt) for the 7 scenarios.} 
+\caption{For the configuration named with 2021 LF, Tier 3 projections of EBS pollock spawning biomass (kt) for the 7 scenarios.} 
 \label{tab:tier3_SSB}
 \scalebox{0.85}{
 \begin{tabular}{rrrrrrrr}
   \hline
 SSB & Scenario.1 & Scenario.2 & Scenario.3 & Scenario.4 & Scenario.5 & Scenario.6 & Scenario.7 \\ 
   \hline
-2020 & 2,856 & 2,856 & 2,856 & 2,856 & 2,856 & 2,856 & 2,856 \\ 
-  2021 & 2,449 & 2,524 & 2,527 & 2,595 & 2,692 & 2,382 & 2,449 \\ 
-  2022 & 2,167 & 2,355 & 2,386 & 2,628 & 3,027 & 1,998 & 2,167 \\ 
-  2023 & 2,173 & 2,301 & 2,414 & 2,763 & 3,413 & 1,993 & 2,127 \\ 
-  2024 & 2,292 & 2,342 & 2,548 & 2,975 & 3,856 & 2,104 & 2,147 \\ 
-  2025 & 2,434 & 2,454 & 2,714 & 3,204 & 4,307 & 2,227 & 2,241 \\ 
-  2026 & 2,514 & 2,524 & 2,828 & 3,377 & 4,692 & 2,284 & 2,288 \\ 
-  2027 & 2,560 & 2,568 & 2,909 & 3,508 & 5,024 & 2,313 & 2,315 \\ 
-  2028 & 2,578 & 2,585 & 2,952 & 3,593 & 5,287 & 2,321 & 2,321 \\ 
-  2029 & 2,569 & 2,576 & 2,959 & 3,631 & 5,475 & 2,307 & 2,307 \\ 
-  2030 & 2,552 & 2,559 & 2,950 & 3,644 & 5,619 & 2,289 & 2,289 \\ 
-  2031 & 2,538 & 2,545 & 2,939 & 3,649 & 5,733 & 2,276 & 2,276 \\ 
-  2032 & 2,535 & 2,540 & 2,937 & 3,655 & 5,826 & 2,275 & 2,275 \\ 
-  2033 & 2,545 & 2,548 & 2,945 & 3,668 & 5,905 & 2,287 & 2,287 \\ 
+2021 & 1,795 & 1,795 & 1,795 & 1,795 & 1,795 & 1,795 & 1,795 \\ 
+  2022 & 1,954 & 1,911 & 1,875 & 2,009 & 2,064 & 1,927 & 1,954 \\ 
+  2023 & 2,129 & 1,986 & 1,832 & 2,388 & 2,674 & 2,023 & 2,129 \\ 
+  2024 & 2,190 & 2,067 & 1,775 & 2,668 & 3,227 & 2,035 & 2,151 \\ 
+  2025 & 2,241 & 2,187 & 1,773 & 2,884 & 3,717 & 2,063 & 2,106 \\ 
+  2026 & 2,305 & 2,282 & 1,801 & 3,064 & 4,150 & 2,109 & 2,124 \\ 
+  2027 & 2,348 & 2,337 & 1,820 & 3,197 & 4,514 & 2,135 & 2,140 \\ 
+  2028 & 2,376 & 2,371 & 1,836 & 3,289 & 4,794 & 2,152 & 2,154 \\ 
+  2029 & 2,387 & 2,385 & 1,839 & 3,347 & 5,012 & 2,156 & 2,157 \\ 
+  2030 & 2,376 & 2,375 & 1,823 & 3,373 & 5,173 & 2,142 & 2,143 \\ 
+  2031 & 2,366 & 2,366 & 1,811 & 3,385 & 5,298 & 2,132 & 2,132 \\ 
+  2032 & 2,352 & 2,352 & 1,798 & 3,385 & 5,389 & 2,119 & 2,119 \\ 
+  2033 & 2,350 & 2,350 & 1,797 & 3,388 & 5,462 & 2,119 & 2,119 \\ 
+  2034 & 2,359 & 2,359 & 1,806 & 3,399 & 5,521 & 2,129 & 2,129 \\ 
    \hline
 \end{tabular}
 }
@@ -4505,7 +4679,7 @@ SSB & Scenario.1 & Scenario.2 & Scenario.3 & Scenario.4 & Scenario.5 & Scenario.
 
 \begin{table}[ht]
 \centering
-\caption{Bycatch estimates (t) of other target species caught in the BSAI directed pollock fishery, 1997--2020 based on then NMFS Alaska Regional Office reports from observers (2020 data are preliminary).} 
+\caption{Bycatch estimates (t) of other target species caught in the BSAI directed pollock fishery, 1997--`r thisyr` based on then NMFS Alaska Regional Office reports from observers (2020 data are preliminary).} 
 \label{tab:fmpbycatch}
 \scalebox{0.85}{
 \begin{tabular}{rrrrrrrrrrr}
@@ -4548,7 +4722,7 @@ SSB & Scenario.1 & Scenario.2 & Scenario.3 & Scenario.4 & Scenario.5 & Scenario.
 \end{table}
 \begin{table}[ht]
 \centering
-\caption{Bycatch estimates (t) of pollock caught in the other non-pollock EBS directed fisheries, 1997--2020 based on then NMFS Alaska Regional Office reports from observers.} 
+\caption{Bycatch estimates (t) of pollock caught in the other non-pollock EBS directed fisheries, 1997--`r thisyr` based on then NMFS Alaska Regional Office reports from observers.} 
 \label{tab:pollbycatch}
 \scalebox{0.9}{
 \begin{tabular}{rrrrrrrr}
@@ -4591,7 +4765,7 @@ SSB & Scenario.1 & Scenario.2 & Scenario.3 & Scenario.4 & Scenario.5 & Scenario.
 \end{table}
 \begin{table}[ht]
 \centering
-\caption{Bycatch estimates (t) of non-target species caught in the BSAI directed pollock fishery, 2003--2020, based on observer data as processed through the catch accounting system (NMFS Regional Office, Juneau, Alaska).} 
+\caption{Bycatch estimates (t) of non-target species caught in the BSAI directed pollock fishery, 2003--`r thisyr`, based on observer data as processed through the catch accounting system (NMFS Regional Office, Juneau, Alaska).} 
 \label{tab:nontargbycatch}
 \scalebox{0.9}{
 \begin{tabular}{rrrrrrrrrrr}
@@ -4622,7 +4796,7 @@ SSB & Scenario.1 & Scenario.2 & Scenario.3 & Scenario.4 & Scenario.5 & Scenario.
 \end{table}
 \begin{table}[ht]
 \centering
-\caption{Bycatch estimates of prohibited species caught in the BSAI directed pollock fishery, 1997--2020 based on the AKFIN (NMFS Regional Office) reports from observers. Herring and halibut units are in t, all others represent numbers of individuals caught. Data for 2020 are preliminary.} 
+\caption{Bycatch estimates of prohibited species caught in the BSAI directed pollock fishery, 1997--`r thisyr` based on the AKFIN (NMFS Regional Office) reports from observers. Herring and halibut units are in t, all others represent numbers of individuals caught. Data for 2020 are preliminary.} 
 \label{tab:pscbycatch}
 \scalebox{0.8}{
 \begin{tabular}{rrrrrrrrrrrr}
@@ -4719,27 +4893,27 @@ Fishery effects on age-at-maturity and fecundity            & Maturity study (go
 \toprule
 Term & Description                                                                                                                              & Rationale                                                                                                                                                                                                                \\
 \midrule
-$P\left[F_{2021}>F_{MSY}\right]$  & Probability that the fishing mortality in 2021 exceeds $F_{MSY}$                 & OFL definition is based on $F_{MSY}$ \\
+$P\left[F_{2022}>F_{MSY}\right]$  & Probability that the fishing mortality in 2022 exceeds $F_{MSY}$                 & OFL definition is based on $F_{MSY}$ \\
 \midrule
-$P\left[B_{2022 }<B_{MSY}\right]$  & Probability that the spawning biomass in 2022 is less than $B_{MSY}$             & $B_{MSY}$ is a reference point target and biomass in 2021 provides an indication of the impact of 2021 fishing                                                                                   \\
+$P\left[B_{2023 }<B_{MSY}\right]$  & Probability that the spawning biomass in 2023 is less than $B_{MSY}$             & $B_{MSY}$ is a reference point target and biomass in 2021 provides an indication of the impact of 2022 fishing                                                                                   \\
 \midrule
-$P\left[B_{2023 }<B_{MSY}\right]$  & Probability that the spawning biomass in 2023 is less than $B_{MSY}$ & $B_{MSY}$ is a reference point target and biomass in 2023 provides an indication of the impact of fishing in 2021 and 2022                                                                       \\
+$P\left[B_{2024 }<B_{MSY}\right]$  & Probability that the spawning biomass in 2024 is less than $B_{MSY}$ & $B_{MSY}$ is a reference point target and biomass in 2023 provides an indication of the impact of fishing in 2022 and 2023                                                                       \\
 \midrule
-$P\left[B_{2023 }<\bar{B}\right]$  & Probability that the spawning biomass in 2022 is less than the 1978--2020 mean    & To provide some perspective of what the stock condition might be relative to historical estimates after fishing in 2021.                                                                    \\
+$P\left[B_{2024 }<\bar{B}\right]$  & Probability that the spawning biomass in 2023 is less than the 1978--2021 mean    & To provide some perspective of what the stock condition might be relative to historical estimates after fishing in 2022.                                                                    \\
 \midrule
-$P\left[B_{2025 }<\bar{B}\right]$  & Probability that the spawning biomass in 2025 is less than the long term mean & To provide some perspective of what the stock condition might be relative to historical estimates after fishing in 2021.                                                                    \\
+$P\left[B_{2026 }<\bar{B}\right]$  & Probability that the spawning biomass in 2026 is less than the long term mean & To provide some perspective of what the stock condition might be relative to historical estimates after fishing in 2022.                                                                    \\
 \midrule
-$P\left[B_{2025 }<B_{2021 }\right]$  & Probability that the spawning biomass in 2025 is less than that estimated for 2021 & To provide a medium term expectation of stock status relative to 2021 levels                                                                                                                \\
+$P\left[B_{2026 }<B_{2022 }\right]$  & Probability that the spawning biomass in 2026 is less than that estimated for 2022 & To provide a medium term expectation of stock status relative to 2022 levels                                                                                                                \\
 \midrule
-$P\left[B_{2023 }<B_{20\%}\right]$  & Probability that the spawning biomass in 2023 is less than $B_{20\%}$            & $B_{20\%}$ had been selected as a Steller Sea Lion lower limit for allowing directed fishing                                                                                                    \\
+$P\left[B_{2024 }<B_{20\%}\right]$  & Probability that the spawning biomass in 2024 is less than $B_{20\%}$            & $B_{20\%}$ had been selected as a Steller Sea Lion lower limit for allowing directed fishing                                                                                                    \\
 \midrule
-$P\left[p_{a_5,2023 }>\bar{p}_{a_5}\right]$   & Probability that in 2023 the proportion of age 1--5 pollock in the population exceeds the long-term mean & To provide some relative indication of the age composition of the population relative to the long term mean.                                                                     \\
+$P\left[p_{a_5,2024 }>\bar{p}_{a_5}\right]$   & Probability that in 2024 the proportion of age 1--5 pollock in the population exceeds the long-term mean & To provide some relative indication of the age composition of the population relative to the long term mean.                                                                     \\
 \midrule
-$P\left[D_{2022 }<D_{1994}\right]$   & Probability that the diversity of ages represented in the spawning biomass (by weight) in 2022 is less than the value estimated for 1994 & To provide a relative index on the abundance of different age classes in the 2022 population relative to 1994 (a year identified as having low age composition diversity)                 \\
+$P\left[D_{2023 }<D_{1994}\right]$   & Probability that the diversity of ages represented in the spawning biomass (by weight) in 2023 is less than the value estimated for 1994 & To provide a relative index on the abundance of different age classes in the 2023 population relative to 1994 (a year identified as having low age composition diversity)                 \\
 \midrule
-$P\left[D_{2025 }<D_{1994}\right]$   & Probability that the diversity of ages represented in the spawning biomass (by weight) in 2025 is less than the value estimated for 1994 & To provide a medium-term relative index on the abundance of different age classes in the population relative to 1994 (a year identified as having low age composition diversity)          \\
+$P\left[D_{2026 }<D_{1994}\right]$   & Probability that the diversity of ages represented in the spawning biomass (by weight) in 2026 is less than the value estimated for 1994 & To provide a medium-term relative index on the abundance of different age classes in the population relative to 1994 (a year identified as having low age composition diversity)          \\
 \midrule
-$P\left[E_{2021}>E_{2020}\right]$   & Probability that the theoretical fishing effort in 2021 will be greater than that estimated in 2020.     & To provide the relative effort that is expected (and hence some idea of costs).                                                                                                                     \\
+$P\left[E_{2022}>E_{2021}\right]$   & Probability that the theoretical fishing effort in 2022 will be greater than that estimated in 2021.     & To provide the relative effort that is expected (and hence some idea of costs).                                                                                                                     \\
 \bottomrule
 \end{tabular}
 }
@@ -4749,24 +4923,24 @@ $P\left[E_{2021}>E_{2020}\right]$   & Probability that the theoretical fishing e
 
 \begin{table}[ht]
 \centering
-\caption{Outcomes of decision (expressed as chances out of 100) given different 2021 catches (first row, in kt). Note that for the 2018 and later year-classes average values were assumed. Constant Fs based on the 2021 catches were used for subsequent years. } 
+\caption{Outcomes of decision (expressed as chances out of 100) given different 2022 catches (first row, in kt). Note that for the 2019 and later year-classes average values were assumed. Constant Fs based on the 2022 catches were used for subsequent years. } 
 \label{tab:dec_table}
 \scalebox{1}{
 \begin{tabular}{rrrrrrrrr}
   \hline
- & 10 & 850 & 1000 & 1150 & 1350 & 1300 & 1450 & 1600 \\ 
+ & 10 & 850 & 1000 & 1150 & 1375 & 1300 & 1450 & 1600 \\ 
   \hline
-$P\left[F_{2021}>F_{MSY}\right]$ & 0 & 1 & 5 & 13 & 29 & 25 & 36 & 47 \\ 
-  $P\left[B_{2022}<B_{MSY}\right]$  & 14 & 28 & 32 & 35 & 41 & 39 & 44 & 48 \\ 
-  $P\left[B_{2023}<B_{MSY}\right]$  & 8 & 23 & 27 & 32 & 39 & 37 & 43 & 49 \\ 
-  $P\left[B_{2022}<\bar{B}\right]$  & 34 & 84 & 89 & 93 & 96 & 96 & 97 & 98 \\ 
-  $P\left[B_{2025}<\bar{B}\right]$  & 4 & 28 & 35 & 41 & 50 & 48 & 54 & 60 \\ 
-  $P\left[B_{2025}<B_{2021}\right]$  & 3 & 19 & 23 & 28 & 34 & 33 & 38 & 42 \\ 
-  $P\left[B_{2023}<B_{20\%}\right]$ & 0 & 1 & 1 & 1 & 2 & 2 & 2 & 3 \\ 
-  $P\left[p_{a_5,2023}>\bar{p}_{a_5}\right]$  & 20 & 66 & 72 & 76 & 81 & 80 & 83 & 85 \\ 
-  $P\left[D_{2022}<D_{1994}\right]$   & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
-  $P\left[D_{2025}<D_{1994}\right]$   & 0 & 4 & 5 & 8 & 12 & 11 & 14 & 19 \\ 
-  $P\left[E_{2021}>E_{2020}\right]$   & 0 & 4 & 22 & 47 & 74 & 69 & 82 & 90 \\ 
+$P\left[F_{2022}>F_{MSY}\right]$ & 0 & 22 & 39 & 54 & 69 & 65 & 73 & 79 \\ 
+  $P\left[B_{2023}<B_{MSY}\right]$  & 27 & 50 & 55 & 60 & 67 & 65 & 70 & 75 \\ 
+  $P\left[B_{2024}<B_{MSY}\right]$  & 13 & 40 & 47 & 54 & 64 & 61 & 68 & 74 \\ 
+  $P\left[B_{2023}<\bar{B}\right]$  & 50 & 91 & 94 & 96 & 98 & 98 & 99 & 99 \\ 
+  $P\left[B_{2026}<\bar{B}\right]$  & 3 & 42 & 52 & 60 & 72 & 68 & 76 & 82 \\ 
+  $P\left[B_{2026}<B_{2021}\right]$  & 1 & 13 & 18 & 24 & 33 & 30 & 36 & 42 \\ 
+  $P\left[B_{2024}<B_{20\%}\right]$ & 1 & 3 & 4 & 5 & 8 & 7 & 9 & 11 \\ 
+  $P\left[p_{a_5,2024}>\bar{p}_{a_5}\right]$  & 10 & 70 & 76 & 80 & 85 & 84 & 86 & 88 \\ 
+  $P\left[D_{2023}<D_{1994}\right]$   & 1 & 5 & 6 & 8 & 11 & 10 & 12 & 16 \\ 
+  $P\left[D_{2026}<D_{1994}\right]$   & 0 & 8 & 13 & 20 & 32 & 28 & 37 & 48 \\ 
+  $P\left[E_{2022}>E_{2021}\right]$   & 0 & 0 & 1 & 10 & 40 & 29 & 50 & 68 \\ 
    \hline
 \end{tabular}
 }
@@ -4780,88 +4954,70 @@ $P\left[F_{2021}>F_{MSY}\right]$ & 0 & 1 & 5 & 13 & 29 & 25 & 36 & 47 \\
 # Figures
 
 
+![Principal Component Analysis of walleye pollock genetics. The color of each point indicates the sampling location and region shown in the map at top (Chukchi samples are further north).\label{fig:PCA_genetics}](figs/PCA_genetics.png)   
+ 
 ![Pollock catch estimates (t) from the Eastern Bering Sea by season and region. The A-season is defined as from Jan-May and B-season from June-October.\label{fig:catch}](figs/catch.pdf)   
  
-![Nominal catch divided by effort (hours towed) for some bycatch species and pollock for the EBS pollock fleet (sectors combined), 2000-2020.\label{fig:fsh_psc_cpue}](figs/fsh_psc_cpue.png)   
+![Nominal catch divided by effort (hours towed) for some bycatch species and pollock for the EBS pollock fleet (sectors combined), 2000-2021.\label{fig:fsh_psc_cpue}](figs/fsh_psc_cpue.png)   
  
 ![Estimate of EBS pollock catch numbers by sex for the A season (January-May) and B seasons (June-October) and total.\label{fig:catch_sex}](figs/catch_sex.pdf)   
  
-![EBS pollock catch distribution during A-season, 2018--2020. Column height is proportional to total catch.\label{fig:catch_distn_a}](figs/catch_distn_a.png)   
+![EBS pollock catch distribution during A-season, 2019--2021. Column height is proportional to total catch.\label{fig:catch_distn_a}](figs/catch_distn_a.png)   
  
-![A-season (top) and B-season (bottom) EBS fleet-wide nominal pollock catch (kg) per hour of fishing recorded by NMFS scientific observers along with the catch divided by effort (hours) by season since 2000 (middle panel).\label{fig:fsh_cpue}](figs/fsh_cpue.png)   
+![A-season (top) and B-season (bottom) EBS fleet-wide nominal pollock catch (kg) per hour of fishing recorded by NMFS scientific observers along with the catch divided by effort (hours) by season since 2000 (middle panel).\label{fig:fsh_cpue}](figs/fsh_cpue.pdf)   
  
-![Proportion of the annual EBS pollock TAC by month during the A-season, 2000--2020. The higher value observed since 2017 was due to Amendment 110 of the FMP to allow greater flexibility to avoid Chinook salmon.\label{fig:prop_a_season}](figs/catchp.png)   
+![Proportion of the annual EBS pollock TAC by month during the A-season, 2000--2021. The higher value observed since 2017 was due to Amendment 110 of the FMP to allow greater flexibility to avoid Chinook salmon.\label{fig:prop_a_season}](figs/catchp.png)   
  
-![EBS pollock roe production in A and B seasons , 2000-2020.\label{fig:roe}](figs/roe.pdf)   
+![EBS pollock roe production in A and B seasons , 2000-2021.\label{fig:roe}](figs/roe.pdf)   
  
-![EBS pollock catch distribution during B-season, 2018--2020. Column height is proportional to total catch. Note that directed fishery for pollock generally is finished prior to October; the labels are indicative full-year catches.\label{fig:catch_distn_b}](figs/catch_distn_b.png)   
+![EBS pollock catch distribution during B-season, 2019--2021. Column height is proportional to total catch. Note that directed fishery for pollock generally is finished prior to October; the labels are indicative full-year catches.\label{fig:catch_distn_b}](figs/catch_distn_b.png)   
  
-![Estimated mean daily distance between operations, 2000-2020.\label{fig:fleet_dispersal}](figs/fleet_dispersal.png)   
+![Estimated mean daily distance between operations, 2000-2021.\label{fig:fleet_dispersal}](figs/fleet_dispersal.png)   
  
-![Pollock fishery data showing the weight-frequency (50 g increments) by year and season.\label{fig:fsh_wt_freq}](figs/fsh_wt_freq.png)   
+![Pollock fishery data showing the frequency of mean pollock weight within a tow (in 50 g increments) by year and season.\label{fig:fsh_wt_freq}](figs/fsh_wt_freq.png)   
  
-![Pollock fishery data showing the weight-frequency (50 g increments) by recent years and weeks of the B-season.\label{fig:fsh_wt_freq_week}](figs/fsh_wt_freq_week.png)   
+![Pollock fishery data showing the frequency of mean pollock weight within a tow (in 50 g increments) by recent years and weeks of the B-season.\label{fig:fsh_wt_freq_week}](figs/fsh_wt_freq_week.png)   
+ 
+![Fishery catch-at-length (cm) by the pollock fishery, 1992-2021.\label{fig:fsh_lenfreq}](figs/fsh_lenfreq.pdf)   
+ 
+![EBS pollock fishery estimated catch-at-age data (in number) for 1992--2020. Age 10 represents pollock age 10 and older. The 2012 year-class is shaded in orange.\label{fig:catage}](figs/catage.png)   
+ 
+![Pollock age sample locales (small dots) for two recent cohorts representing the 2012 and 2013 year-classes (from data through 2020). The large dots represent simple mean latitude and longitude of the samples.\label{fig:fsh_cohort_locales}](figs/fsh_cohort_locales.pdf)   
  
 
 \clearpage
 
 
-![EBS pollock fishery estimated catch-at-age data (in number) for 1992--2019. Age 10 represents pollock age 10 and older. The 2012 year-class is shaded in orange.\label{fig:catage}](figs/catage.png)   
+![Bottom-trawl survey biomass estimates with error bars representing 95% credible interval (for design-based and VAST model-based methods) for EBS pollock.\label{fig:bts_biom}](figs/bts_biom.png)   
  
-![Bottom-trawl survey biomass estimates with error bars representing 1 standard deviation (for design-based and density-dependent correction method) for EBS pollock.\label{fig:bts_biom}](figs/bts_biom.pdf)   
+![Bottom and surface temperatures for the Bering Sea from the NMFS summer bottom-trawl surveys (1982--2019, 2021). Dashed lines represent mean values.\label{fig:bts_temp}](figs/bts_temp.pdf)   
  
-![Bottom and surface temperatures for the Bering Sea from the NMFS summer bottom-trawl surveys (1982--2019). Dashed lines represent mean values.\label{fig:bts_temp}](figs/bts_temp.pdf)   
+![EBS pollock CPUE (shades = relative kg/hectare) and bottom temperature isotherms in degrees C; from the bottom trawl survey data 2011--2019 and 2021.\label{fig:bts_temp_cpue}](figs/bts_temp_cpue.pdf)   
  
-![EBS pollock CPUE (shades = relative kg/hectare) and bottom temperature isotherms in degrees C; from the bottom trawl survey data 2011--2019.\label{fig:bts_temp_cpue}](figs/bts_temp_cpue.pdf)   
+![Bottom trawl survey pollock catch in kg per hectare for 2019 and 2021 (top and bottom)compared to the average station density (middle). Height of vertical lines are proportional to station-specific pollock densities by weight (kg per hectare) with constant scales for all years (red stars indicate tows where pollock were absent from the catch).\label{fig:bts_3d}](figs/bts_3d.png)   
  
-![Bottom trawl survey pollock catch in kg per hectare for 2017 - 2019. Height of vertical lines are proportional to station-specific pollock densities by weight (kg per hectare) with constant scales for all years (red stars indicate tows where pollock were absent from the catch).\label{fig:bts_3d}](figs/bts_3d.png)   
+![Pollock abundance levels by age and year as estimated directly from the NMFS bottom-trawl surveys (1990--2019,2021). The 2012 year-class is shaded differently.\label{fig:bts_age}](figs/bts_age_comp.png)   
  
-![Pollock abundance levels by age and year as estimated directly from the NMFS bottom-trawl surveys (1990--2019). The 2006,2008, and 2012 year-classes are shaded differently.\label{fig:bts_age}](figs/bts_age_comp.png)   
+![Pollock abundance levels by size and year as estimated directly from the NMFS bottom-trawl surveys (1990--2019, 2021).\label{fig:bts_lenfreq}](figs/bts_lenfreq.pdf)   
  
-![Timing of Acoustic surveys used in the time series.  The 2020 USV survey is shown in red.\label{fig:at_timing}](figs/at_timing.png)   
- 
-![Pollock dominate the catch in historical midwater AT surveys (top panel) and during the summer pollock fishery (bottom panel) in the EBS.  Jellyfish, which are very weak acoustic scatterers compared to fishes with a swimbladder have been excluded from the  survey catch summaries.\label{fig:at_pollock_in_sa}](figs/at_pollock_in_sa.png)   
- 
-![Acoustic backscatter in historical acoustic-trawl surveys compared with the biomass resulting from the survey.  Both indicies have been normalized to have a mean of 1 over the period 1994-2018 so that they can be directly compared.\label{fig:at_sa_biom}](figs/at_sa_biom.png)   
- 
-![Scatterplots of total backscatter and pollock biomass for acoustic-trawl surveys from 1994-2018.  Results for >3m above the seafloor are shown in the left panel and results for the 0.5 to 3m above the seafloor are shown in the right panel.\label{fig:at_sa_biom_regress}](figs/at_sa_biom_regress.png)   
- 
-![Time series of observed biomass (i.e. ‘survey biomass’) and biomass estimated by dropping all trawl data in that year and predicting survey biomass based on trawl sampling in the other years of the time series (‘converted biomass’).  In 2020, no trawling was conducted, and the biomass estimate was predicted based on the average relationships established in previous years (see previous figure).  The average discrepancy  between the predicted and converted biomass is 5.4% (range 0.1 to 11%).\label{fig:at_usv_biom}](figs/at_usv_biom.png)   
- 
-![An evaluation of the impact on historical pollock ATS biomass estimates if alternate transects were dropped (and uncertainty increases as depicted by vertical error bars) compared to the actual (full) number of survey transects.\label{fig:at_transect_spacing}](figs/at_transect_spacing.png)   
- 
-![Acoustic-trawl survey pollock biomass time series.  Error bars correspond to the relative estimation error (i.e. CV) estimated with a 1-D geostatistical technique. The 2020 survey was conducted with USVs, and has larger errors associated with the estimate that incorporate the effects of  reduced sampling effort (i.e. 40 nmi spaced transects rather than 20 nmi transects), and the method used to convert backscatter to biomass conversion.\label{fig:at_biom}](figs/at_biom.png)   
- 
-![Map of backscatter measurements during the 2020 USV acoustic survey.  The size and color of each point represents the mean acoustic backscatter attributed to pollock in a 0.5 nmi transect segment.\label{fig:at_sa_map}](figs/at_sa_map.png)   
- 
-![Proportion of pollock backscatter above and below 3m above bottom observed in acoustic-trawl surveys.\label{fig:at_sa_prop}](figs/at_sa_prop.png)   
- 
-![Predicted log-backscatter (arbitrary units) from the VAST model fitted to the AT data, where the 2020 data are from the USV.\label{fig:at_sa_density}](figs/at_sa_density.pdf)   
+![Maps of acoustic vessel-of-opportunity (AVO) index data 2006-2021. Grid cell size and shading is proportional to pollock backscatter.\label{fig:data_avomap}](figs/avo_map_yr.pdf)   
  
 
-![EBS pollock fishery body mass (given length) anomaly (standardized by overall mean body mass at each length) by month based on some over 700 thousand fish measurements from 1991--2019.\label{fig:fsh_lw_month}](figs/fsh_lw_month.png)   
+![EBS pollock fishery body mass (given length) anomaly (standardized by overall mean body mass at each length) by month based on some over 700 thousand fish measurements from 1991--2021.\label{fig:fsh_lw_month}](figs/fsh_lw_month.png)   
  
-![EBS pollock body mass (given length) anomaly (standardized by overall mean body mass at each length) by year, 1991--2020.\label{fig:fsh_lw_anom_yr_box}](figs/fsh_lw_anom_yr_box.pdf)   
+![EBS pollock fishery body mass (given length) anomaly (standardized by overall mean body mass at each length) by year and season/area strata, 1991--2021.\label{fig:fsh_lw_anom_str_yr_box}](figs/fsh_lw_anom_str_yr_box.pdf)   
  
-![EBS pollock fishery body mass (given length) anomaly (standardized by overall mean body mass at each length) by year and season/area strata, 1991--2020.\label{fig:fsh_lw_anom_str_yr_box}](figs/fsh_lw_anom_str_yr_box.pdf)   
+![EBS pollock body mass (given length) anomaly (standardized by overall mean body mass at each length) by year, 1991--2021.\label{fig:fsh_lw_anom_yr_box}](figs/fsh_lw_anom_yr_box.pdf)   
  
-![Recent fishery average weight-at-age anomaly (relative to mean) by strata for ages 3--10, 2015--2019. Vertical shape reflects uncertainty in the data (wider shapes being more precise), colors are consistent with cohorts.\label{fig:fsh_wtage_comb}](figs/fsh_wtage_comb.pdf)   
+![Recent fishery average weight-at-age anomaly (relative to mean) by strata for ages 3--10, 2016--2020. Vertical shape reflects uncertainty in the data (wider shapes being more precise), colors are consistent with cohorts.\label{fig:fsh_wtage_comb}](figs/fsh_wtage_comb.pdf)   
  
-![Fishery average weight-at-age anomaly (relative to mean) across strata and combined for all ages (3--10), and available years (1991--2019). Vertical shape reflects uncertainty in the data (wider shapes being more precise), colors are consistent with cohorts.\label{fig:fsh_wtage_strata}](figs/fsh_wtage_strata.pdf)   
+![Data input and model predictions for the weight-at-age random-effects model fit separately to obtain variance estimates for cohort and year effect contributions to changes in incremental growth from one age to the next. Shadings reflect the anomaly from the mean while the numbers are the weight-at-age in kg.\label{fig:fish_wtage_data_pred}](figs/fish_wtage_data_pred.pdf)   
  
-![Recent fishery average weight-at-age anomaly (relative to mean) by strata for ages 3--10, 2014--2019. Vertical shape reflects uncertainty in the data (wider shapes being more precise), colors are consistent with cohorts.\label{fig:fsh_wtage_strata_yr}](figs/fsh_wtage_strata_yr.pdf)   
+![Fishery average weight-at-age anomaly (relative to mean) across strata and combined for all ages (3--10), and available years (1991--2020). Vertical shape reflects uncertainty in the data (wider shapes being more precise), colors are consistent with cohorts.\label{fig:fsh_wtage_strata}](figs/fsh_wtage_strata.pdf)   
  
-![Model runs comparing last year's assessment with the impact of sequentially adding new data (first 2020 catch and 2019 fishery catch-at-age, then the 2020 USV data point, and then replacing that with a VAST treatment of the acoustic survey backscatter.\label{fig:mod_data}](figs/mod_data.pdf)   
+![Recent fishery average weight-at-age anomaly (relative to mean) by strata for ages 3--10, 2014--2020. Vertical shape reflects uncertainty in the data (wider shapes being more precise), colors are consistent with cohorts.\label{fig:fsh_wtage_strata_yr}](figs/fsh_wtage_strata_yr.pdf)   
  
-![Model fits to different treatment and assumptions about index CPUE for the ATS time series where VAST CV20% and DB CV20% mean that the CVs for the index values between 1994 and 2018 each average 20% for the design-based and VAST treatments, respectively. The other cases use the sampling error and variance estimates arising from the methods.\label{fig:mod_ats_eval1}](figs/mod_ats_eval1.pdf)   
- 
-![Pollock spawning biomass estimates sensitivity to assumptions about index CPUE for the ATS time series where VAST CV20% and DB CV20% mean that the CVs for the index values between 1994 and 2018 each average 20% for the design-based and VAST treatments, respectively.  The other cases use the sampling error and variance estimates arising from the methods.\label{fig:mod_ats_eval2}](figs/mod_ats_eval2.pdf)   
- 
-![Stock-recruitment estimates (shaded represents uncertainty in SRR) and age-1 EBS pollock estimates labeled by year-classes for Model 20.0 and with the influence of the 1978 year-class removed.\label{fig:mod_srr_sq_a}](figs/mod_srr_sq_a.pdf)   
- 
-![Stock-recruitment estimates (shaded represents uncertainty in SRR) and age-1 EBS pollock estimates labeled by year-classes comparing a result with a diffuse prior on SRR steepness.\label{fig:mod_srr_a_b}](figs/mod_srr_a_b.pdf)   
- 
-![Stock-recruitment estimates (shaded represents uncertainty in SRR) and age-1 EBS pollock estimates labeled by year-classes comparing implied SRR under models conditioned that FMSY equals different SPR rates.\label{fig:mod_srr_sq_c_d}](figs/mod_srr_sq_c_d.pdf)   
+![Model runs comparing last year's assessment with the impact of sequentially adding new data (first 2021 catch and 2020 fishery catch-at-age, then the 2021 bottom trawl survey data point, and finally the AVO data based on acoustic backscatter.\label{fig:mod_data}](figs/mod_data.pdf)   
  
 ![EBS pollock model fit to the alternative ATS biomass indices, 1994--2020.\label{fig:mod_ats_biom}](figs/mod_ats_biom.pdf)   
  
@@ -4869,23 +5025,25 @@ $P\left[F_{2021}>F_{MSY}\right]$ & 0 & 1 & 5 & 13 & 29 & 25 & 36 & 47 \\
  
 ![Model results of predicted and observed AVO index. Error bars represent assumed 95\% confidence bounds of the input series.\label{fig:mod_avo_fit}](figs/mod_avo_fit.pdf)   
  
-![EBS pollock model fit to the BTS survey data (density dependence corrected estimates), 1982--2019. Units are relative biomass.\label{fig:mod_bts_biom}](figs/mod_bts_biom.pdf)   
+![EBS pollock model fit to the BTS survey data (density dependence corrected estimates), 1982--2019, 2021. Units are relative biomass.\label{fig:mod_bts_biom}](figs/mod_bts_biom.pdf)   
  
 ![EBS pollock model fits to observed mean age for the Acoustic trawl survey (top), the bottom trawl survey (middle) and fishery (bottom)\label{fig:mod_mean_age}](figs/mod_mean_age.pdf)   
  
 ![Selectivity at age estimates for the EBS pollock fishery; note that the values for the terminal year is used for ABC and OFL projections.\label{fig:mod_fsh_sel}](figs/mod_fsh_sel.pdf)   
  
-![Model fit (dots) to the EBS pollock fishery proportion-at-age data (columns; 1964--2019). The 2019 data are new to this year's assessment. Colors coincide with cohorts progressing through time.\label{fig:mod_fsh_age}](figs/mod_fsh_age.pdf)   
+![Model fit (dots) to the EBS pollock fishery proportion-at-age data (columns; 1964--2020). The 2020 data are new to this year's assessment. Colors coincide with cohorts progressing through time.\label{fig:mod_fsh_age}](figs/mod_fsh_age.pdf)   
  
-![Model estimates of bottom-trawl survey selectivity, 1982--2019.\label{fig:mod_bts_sel}](figs/mod_bts_sel.pdf)   
+![Model estimates of bottom-trawl survey selectivity, 1982--2021.\label{fig:mod_bts_sel}](figs/mod_bts_sel.pdf)   
  
 ![Model fit (dots) to the bottom trawl survey proportion-at-age composition data (columns) for EBS pollock. Colors correspond to cohorts over time.\label{fig:mod_bts_age}](figs/mod_bts_age.pdf)   
  
 ![Model fit (dots) to the acoustic-trawl survey proportion-at-age composition data (columns) for EBS pollock. Colors correspond to cohorts over time (for years with consecutive surveys).\label{fig:mod_ats_age}](figs/mod_ats_age.pdf)   
  
-![Pairwise plot of selected EBS pollock parameters and output from 3 million MCMC iterations thinned such that 5 thousand draws were saved as an approximation to the multivariate posterior distribution. Note that the figures on the diagonal represent the marginal posterior distributions. Key: lnR0 is the parameter that scales the stock-recruit relationship, B_Bmsy is estimated $B_{2018}/B_{MSY}$, DynB0 is the ratio of spawning biomass estimated for in 2018 over the value estimated that would occur if there had been no fishing, B19 is the spawning biomass in 2019, and B_Bmean is $B_{2019}/\bar{B}$.\label{fig:mcmc_pairs}](figs/mcmc_pairs.pdf)   
+![Pairwise plot of selected EBS pollock parameters and output from 3 million MCMC iterations thinned such that 5 thousand draws were saved as an approximation to the multivariate posterior distribution. Note that the figures on the diagonal represent the marginal posterior distributions. Key: lnR0 is the parameter that scales the stock-recruit relationship, B_Bmsy is estimated $B_{2021}/B_{MSY}$, DynB0 is the ratio of spawning biomass estimated for in 2021 over the value estimated that would occur if there had been no fishing, B2021 is the spawning biomass in 2021, and B_Bmean is $B_{2021}/\bar{B}$.\label{fig:mcmc_pairs}](figs/mcmc_pairs.pdf)   
  
-![Integrated marginal posterior density (based on MCMC results) for the 2019 EBS pollock female spawning biomass compared to the point estimate (dashed red line). The mean of the posterior is shown in green (under the dashed line).\label{fig:mcmc_marg}](figs/mcmc_marg.pdf)   
+![Integrated marginal posterior density (based on MCMC results) for the 2021 EBS pollock female spawning biomass compared to the point estimate (dashed red line).\label{fig:mcmc_marg}](figs/mcmc_marg.pdf)   
+ 
+![Integrated marginal posterior density (based on MCMC results) for the $F_{MSY}$ for EBS pollock and different central tendency values..\label{fig:mcmc_marg_fmsy}](figs/mcmc_marg_fmsy.pdf)   
  
 ![Estimated spawning exploitation rate (defined as the percent removal of egg production in a given spawning year).\label{fig:mod_ser}](figs/mod_ser.pdf)   
  
@@ -4895,19 +5053,25 @@ $P\left[F_{2021}>F_{MSY}\right]$ & 0 & 1 & 5 & 13 & 29 & 25 & 36 & 47 \\
  
 ![Estimated spawning biomass relative to annually estimated $F_{MSY}$ values and fishing mortality rates for EBS pollock. Most recent two years are shaded in yellow\label{fig:mod_phase}](figs/mod_phase.pdf)   
  
-![The estimated EBS pollock spawning stock biomass for model 20.0 with projections equal to the estimated fishing mortality from 2020.\label{fig:proj_ssb}](figs/proj_ssb.pdf)   
+![The estimated EBS pollock spawning stock biomass for model 20.0 with projections equal to the estimated fishing mortality from 2021.\label{fig:proj_ssb}](figs/proj_ssb.pdf)   
  
-![Recruitment estimates (age-1 recruits) for EBS pollock for all years since 1964 (1963--2019 year classes) for Model 20.0. Error bars reflect 90\% credible intervals based on model estimates of uncertainty.\label{fig:mod_rec}](figs/mod_rec.pdf)   
+![Recruitment estimates (age-1 recruits) for EBS pollock for all years since 1964 (1963--2020 year classes) for Model 20.0. Error bars reflect 90\% credible intervals based on model estimates of uncertainty.\label{fig:mod_rec}](figs/mod_rec.pdf)   
  
 ![Stock-recruitment estimates (shaded represents structural uncertainty) and age-1 EBS pollock estimates labeled by year-classes\label{fig:mod_srr}](figs/mod_srr.pdf)   
  
 ![EBS pollock productivity as measured by logged recruits per spawning biomass, log(R\/S), as a function of spawning biomass with a linear fit (bottom) and over time, 1964--2018 (top).\label{fig:mod_rs}](figs/mod_rs.pdf)   
  
+![Mean recruitment estimates (age-1) for EBS pollock for different periods with error bars representing 95\% credible intervals.\label{fig:mod_regimes}](figs/mod_regimes.pdf)   
+ 
 ![Retrospective patterns for EBS pollock spawning biomass showing the point estimates relative to the terminal year (top panel) and approximate confidence bounds on absolute scale (+2 standard deviations).\label{fig:mod_retro}](figs/mod_retro.pdf)   
+ 
+![Retrospective pattern for estimated EBS pollock fishery selectivity (dots) compared to the projected selectivity from the year prior (solid line).\label{fig:retro_sel}](figs/retro_sel.pdf)   
+ 
+![Retrospective pattern for the mean selected age (ages 1-8) based on estimated EBS pollock fishery selectivity compared to the projected selectivity from the year prior.\label{fig:retro_sel_mnage}](figs/retro_sel_mnage.pdf)   
  
 ![Projected EBS Tier 3 pollock yield (top) and female spawning biomass (bottom) relative to the long-term expected values under $F_{35\%}$ and $F_{40\%}$ (horizontal lines).  $B_{40\%}$  is computed from average recruitment from 1978--2017. Future harvest rates follow the guidelines specified under Tier 3 Scenario 1.\label{fig:tier3_proj}](figs/tier3_proj.pdf)   
  
-![For the mature component of the EBS pollock stock, time series of estimated average age and diversity of ages (using the Shannon-Wiener H statistic), 1980–2018.\label{fig:age_diversity}](figs/age_diversity.pdf)   
+![For the mature component of the EBS pollock stock, time series of estimated average age and diversity of ages (using the Shannon-Wiener H statistic), 1980–2021.\label{fig:age_diversity}](figs/age_diversity.pdf)   
  
 
 \clearpage
@@ -4987,7 +5151,7 @@ walk process as in Dorn et al. (2000):
     \beta_t^\mu  -  \beta_{t+1}^\mu     &\sim \mathcal{N}(0,\,\sigma_{\beta^\mu}^{2}) 
 \end{align}
 
-The parameters to be estimated in this part of the model are thus for t=1982 through to 2020. 
+The parameters to be estimated in this part of the model are thus for t=1982 through to 2021. 
 The variance terms for these process error parameters were specified to be 0.04.
 
 In this assessment, the random-walk deviation penalty was optionally shifted
@@ -5304,9 +5468,9 @@ The approach we use to solve for $F_{MSY}$ and related quantities (e.g., $B_{MSY
 within a general integrated model context was shown in Ianelli et al. (2001).
 In 2007 this was modified to include uncertainty in weight-at-age as an
 explicit part of the uncertainty for $F_{MSY}$ calculations. This involved
-estimating a vector of parameters ($w_{ta}^{future}$) on current (2020) and future mean weights
+estimating a vector of parameters ($w_{ta}^{future}$) on current (2021) and future mean weights
 for each age $i$,  $i$= (1, 2,…,15), given actual observed mean and variances in
-weight-at-age over the period 1991-2019. The values of based on available data
+weight-at-age over the period 1991-2020. The values of based on available data
 and (if this option is selected) estimates the parameters subject to the
 natural constraint:
     $$w_{ta}^{future} \sim \mathcal{N}(\bar{w_{a}},\,\sigma_{w_a}^{2})$$ 
@@ -5329,7 +5493,7 @@ are $\upsilon_t$ and $\psi_t$.
 
 ## Tier 1 projections
 
-Tier 1 projections were calculated two ways. First, for 2021 and 2022 ABC and
+Tier 1 projections were calculated two ways. First, for 2022 and 2023 ABC and
 $OFL$ levels, the harmonic mean $F_{MSY}$ value was computed and the analogous
 harvest rate ($\bar{u_{HM}}$) applied to the estimated geometric mean fishable biomass at
 $B_{MSY}$ :
@@ -5357,10 +5521,9 @@ assessment model would be required.
 \pagebreak
 
 
+# Appendix on spatio-temporal analysis of NMFS survey data
 
-# Appendix on spatio-temporal analysis of NMFS survey data 
-
-## Overview 
+## Overview
 
 These applications of `VAST` were configured to model 
 NMFS/AFSC bottom trawl survey (BTS) data and for acoustic backscatter data (next section).
@@ -5375,28 +5538,30 @@ as a step by step documentation of applying the model to these data.
 
 The software versions of dependent programs used to generate VAST estimates were:   
 
-  - Microsoft Open R (3.5.3)    
-  - INLA (18.7.12)    
-  - TMB (1.7.18)    
-  - TMBhelper (1.2.0)    
-  - VAST (3.5.2)    
-  - FishStatsUtils (2.7.0)    
+  - Microsoft Open R (4.0.2)    
+  - INLA (21.2.23)    
+  - TMB (1.7.20)    
+  - TMBhelper (1.3.0)    
+  - VAST (3.6.1)    
+  - FishStatsUtils (2.8.0)    
     
 For the model-based index time series, we used the same VAST model run (and associated results)
 as the 2019 SAFE. We include additional details regarding model settings here, as requested
 during the December 2019 SSC meeting.
 
 ## Spatio-temporal treatment of survey data on pollock density
+
 We fitted records of biomass per unit area from all grid cells and corner stations in the 83-112 
-bottom trawl survey of the EBS, 1982-2019, as well as 83-112 samples available in the NBS in 
-1982, 1985, 1988, 1991, 2010, and 2017-2019. NBS samples prior to 2010 did not follow the 30 
-nautical mile sampling grid that was used in 2010, 2017, and 2019, and the 2018 sampling followed 
+bottom trawl survey of the EBS, 1982-2019, and 2021, as well as 83-112 samples available in the NBS in 
+1985, 1988, 1991, 1994, 2001, 2005, 2006, 2010, 2017-2019, and 2021. 
+NBS samples prior to 2010 did not follow the 30 
+nautical mile sampling grid that was used in 2010, 2017, 2019 and 2021, and the 2018 sampling followed 
 a coarsened grid as well. Assimilating these data therefore required extrapolating into unsampled areas.
 This extrapolation was assisted by including a spatially varying response to cold-pool extent (Thorson, 2019). 
 This spatially varying response was estimated for both linear predictors of the delta-model, and detailed 
 comparison of results for EBS pollock has showed that it has a small but notable effect (O’Leary et al., 2020). 
 For example, the NBS was not sampled between 2010 and 2017, and the cold-pool extent started to decrease 
-substantially around 2014; therefore including this covariate results in estimates that depart somewhat 
+substantially around 2014; therefore, including this covariate results in estimates that depart somewhat 
 from a “Brownian bridge” between 2010 and 2017, and instead suggests that densities in the NBS increased 
 progressively after 2014 when cold-pool-extent declined prior to 2017. 
 
@@ -5406,7 +5571,7 @@ the entire EBS and NBS in each year, using extrapolation-grids that are availabl
 are used when integrating densities. These extrapolation-grids are defined using 3705 m 
 (2 nmi) X 3705 m (2 nmi) cells;  this results in 36,690 extrapolation-grid cells for the 
 eastern Bering Sea and 15,079 in the northern Bering Sea.  We used bilinear interpolation 
-to interpolate densities from 250 “knots” to these extrapolation-grid cells; knots were 
+to interpolate densities from 750 “knots” to these extrapolation-grid cells; knots were 
 distributed spatially in proportion to the distribution of extrapolation-grid cells (i.e., 
 having an approximately even distribution across space).  We estimated “geometric anisotropy” 
 (the tendency for correlations to decline faster in some cardinal directions than others), and 
@@ -5417,12 +5582,21 @@ effect for each linear predictor).  However, we did not include any temporal cor
 intercepts, which we treated as fixed effects for each linear predictor and year.  Finally, 
 we used epsilon bias-correction to correct for retransformation bias (Thorson and Kristensen, 2016).  
 
+We checked model fits for evidence of non-convergence by confirming that (1) the derivative of the marginal 
+likelihood with respect to each fixed effect was sufficiently small and (2) that the Hessian matrix 
+was positive definite.  We then checked for evidence of model fit by computing Dunn-Smyth randomized 
+quantile residuals (Dunn and Smyth 1996) and visualizing these using a quantile-quantile plot within the DHARMa R package.  
+We also evaluated the distribution of these residuals over space in each year, and inspected them for evidence of residual 
+spatio-temporal patterns.  
 
-## Spatio-temporal treatment of survey age composition data 
+
+## Spatio-temporal treatment of survey age composition data
 To date, assessments using spatio-temporal indices have kept age-composition data unchanged 
-(i.e., the estimates were based on the original design-based approach). In 2019 we develop a spatio-temporal 
+(i.e., the estimates were based on the original design-based approach). In 2019 we developed a spatio-temporal 
 approach to obtain age composition estimates (O'leary et al. 2020).  The comparison with design-based age 
-composition estimates was similar to the model-based estimates.
+composition estimates was similar to the model-based estimates. For this year, we began to expand this
+work to cover the NBS but the age data for this region are incomplete. Consequently we used the design-based 
+estimates as in prior years (including staton-specific density-dependent corrections).
 
 
 ## Diagnostic plots from BTS work
@@ -5439,7 +5613,7 @@ Spatially the residual pattern can be evaluated over time. Results for pollock d
 residuals accross or within years is limited for the encounter probability component of the model and 
 for the positive catch rate component (Figures \ref{fig:pearson1} and \ref{fig:pearson2}, respectively).
 
-### Densities and biomass estimates 
+### Densities and biomass estimates
 
 Relative densities over time suggests that the biomass of pollock can reflect
 abundances in the NBS even in years where samples are unavailable (all years
@@ -5449,25 +5623,11 @@ except 2010, 2017--2019; (Fig. \ref{fig:density}). Index values and error terms
 
 ## Extending VAST to create estimates from acoustic backscatter data
 
-We used acoustic backscatter data collected to half meter from the seafloor from RV Oscar Dyson
-(1994-2018) and the USV in 2020 following the same extrapolation area as for the BTS analyses. We
-briefly highlight key differences with the approach as described above. First, the data were
-acoustic backscatter for each interval summed from half meter from the seafloor to
-near-surface. VAST assumes the catch inputs are in kg/km^2 so an extra conversion back to
-backscatter units is required for the acoustic index. The acoustic transects can have unexpected
-interactions with how the spatial grid is setup, so we used 400 spatial knots but without the
-bilinear interpolation. The extrapolation region included only the EBS BT footprint (i.e., it did
-not include the NBS), and was consistent among years in contrast to the design-based AT index whose
-extent varies by year. We also did not include a cold pool effect, nor any temporal smoothing on the
-spatiotemporal effects.
-
-The diagnostics for the model fit was good (Fig. \ref{fig:sa_quantiles}).  Relative log densities
-for the survey years show the biomass of pollock varied spatially with a peak value in 2016
-(Fig. \ref{fig:at_sa_density}). Index values and estimation errors from the VAST model covered an
-constant (and larger) area compared to the design-based approach which covers the transect
-area. Nonetheless, for the assessment these series are used as trend data which result in quite
-similar values (Fig. \ref{fig:rv_usv_biom}).
-
+In 2020 we presented an initial spatio-temporal model to the acoustic backscatter data
+collected to half meter from the seafloor from RV Oscar Dyson
+(1994-2018) and the USV in 2020 following the same extrapolation area as for the BTS analyses.
+We anticipate updating this for application as an alternative to the standard acoustic survey
+in 2022.
 
 
 
@@ -5484,99 +5644,32 @@ similar values (Fig. \ref{fig:rv_usv_biom}).
 
 
 
-![Pearson residuals of the encounter probability component for the combined survey area, 1982-2018. \label{fig:pearson1}](figs/maps--encounter_pearson_resid.png)
+![Pearson residuals of the encounter probability component for the combined survey area, 1982-2019, 2021. \label{fig:pearson1}](figs/maps--encounter_pearson_resid.png)
 
-![Pearson residuals of the positive catch rate component for the combined survey area, 1982-2018. \label{fig:pearson2}](figs/maps--catchrate_pearson_resid.png)
-
-
-![ Pollock log density maps of the BTS data using the VAST model approach, 1982-2019. \label{fig:density}](figs/Dens.png)
+![Pearson residuals of the positive catch rate component for the combined survey area, 1982-2019, 2021. \label{fig:pearson2}](figs/maps--catchrate_pearson_resid.png)
 
 
+![ Pollock log density maps of the BTS data using the VAST model approach, 1982-2019,2021. \label{fig:density}](figs/Dens.png)
 
-![Pollock index values for the standard survey region, the NBS, and combined based on the VAST application to density-dependent corrected CPUE values from the BTS data, 1982--2019. The different lines are smoothed trends for with and without including the cold-pool extent as a covariate.\label{fig:vast_idx}](figs/vast_idx.pdf)   
- 
-![VAST diagnostics for the AT models using simulation residuals based on the DHARMa package.\label{fig:sa_quantiles}](figs/sa_quantiles.png)   
- 
-![Predicted annual sum of pollock backscatter (RV+USV backscatter as analyzed from the VAST application) compared to the design-based biomass estimates (RV+USV biomass), 1994-2020.\label{fig:rv_usv_biom}](figs/rv_usv_biom.png)   
+
+
+![Pollock index values for the standard survey region, the NBS, and combined based on the VAST application to density-dependent corrected CPUE values from the BTS data, 1982--2019, 2021. The different lines are smoothed trends for with and without including the cold-pool extent as a covariate.\label{fig:vast_idx}](figs/vast_idx.pdf)   
  
 
+## Additional references
 
-\pagebreak
+Dunn, K.P., and Smyth, G.K. 1996. Randomized quantile residuals. Journal of Computational and Graphical Statistics 5, 1-10.
 
-<!--
+Hartig, F. 2021. DHARMa: Residual Diagnostics for Hierarchical (Multi-Level / Mixed) Regression Models. R package version 0.4.0. http://florianhartig.github.io/DHARMa/
 
-\clearpage
+O’Leary, C.A., Thorson, J.T., Ianelli, J.N. and Kotwicki, S., 2020. Adapting to climate‐driven distribution shifts using model‐based indices and age composition from multiple surveys in the walleye pollock (Gadus chalcogrammus) stock assessment. Fisheries Oceanography, 29(6), pp.541-557.
 
-# Summary tables for alternative models and/or Tiers
+Thorson, J.T., 2019. Measuring the impact of oceanographic indices on species distribution shifts: The spatially varying effect of cold‐pool extent in the eastern Bering Sea. Limnology and Oceanography, 64(6), pp.2632-2645.
 
-## Tier 3, Model 16.1 VAST 
-\begin{table}[ht]
-\centering
-\begin{tabular}{lrr|rr}
-  \hline
-       & \multicolumn{2}{c|}{As estimated or $\mathit{specified}$ } & \multicolumn{2}{c}{As estimated or $\mathit{recommended}$ }  \\
-       & \multicolumn{2}{c|}{$\mathit{last}$ year for:}  & \multicolumn{2}{c}{$\mathit{this}$ year for: }               \\
-        Quantity & 2020      &2021   & 2021      &2022 \\ 
-  \hline
-  M            (natural mortality rate, ages 3+)  & 0.3 & 0.3 & 0.3 & 0.3 \\
-  Tier         &  3a  & 3a  & 3a  & 3a \\
-  Projected    total (age  3+) biomass (t)     & 9,128,000 t & 8,494,000 t & 8,145,000 t & 7,641,000 t \\
-  Projected    female  spawning  biomass (t)   & 2,991,000 t & 2,674,000 t & 2,602,000  t     & 2,406,000  t \\  
-  $B_{100}$        & 5,777,000 t & 5,777,000 t & 6,142,000  t           & 6,142,000  t \\          
-  $B_{msy}$    & 2,148,000 t & 2,148,000 t & 2,150,000  t           & 2,150,000  t \\          
-  $F_{OFL}$    & 0.449    & 0.449    & 0.261   & 0.258  \\                  
-  $maxF_{ABC}$ & 0.383    & 0.383    & 0.214   & 0.214  \\                  
-  $F_{ABC}$    & 0.225   & 0.225   & 0.214   & 0.214   \\                  
-  $OFL$        & 4,085,000 t & 3,385,000 t & 1,986,000  t         & 1,788,000  t \\          
-  $maxABC$     & 3,485,000 t & 2,888,000 t & 1,626,000 t        & 1,484,000 t \\      
-  $ABC$        & 2,043,000 t & 1,767,000 t & 1,626,000 t               & 1,484,000  t \\        
-  \hline
-  Status                                & 2018  & 2019&     2019             &  2020          \\
-  \hline
-  Overfishing                           & No          & n/a       & No                         &  n/a                 \\
-  Overfished                            & n/a         & No        & n/a                        &  No                  \\
-  Approaching overfished                & n/a         & No        & n/a                        &  No                  \\
-  \hline
-\end{tabular}
-\end{table}
-
-
-## Tier 1, Model 16.1 SRR conditioned so Fmsy=F35 
-\begin{table}[ht]
-\centering
-\begin{tabular}{lrr|rr}
-  \hline
-       & \multicolumn{2}{c|}{As estimated or $\mathit{specified}$ } & \multicolumn{2}{c}{As estimated or $\mathit{recommended}$ }  \\
-       & \multicolumn{2}{c|}{$\mathit{last}$ year for:}  & \multicolumn{2}{c}{$\mathit{this}$ year for: }               \\
-        Quantity & 2020      &2021   & 2021      &2022 \\ 
-  \hline
-  M            (natural mortality rate, ages 3+)  & 0.3 & 0.3 & 0.3 & 0.3 \\
-  Tier         &  1a  & 1a  & 1a  & 1a \\
-  Projected    total (age  3+) biomass (t)     & 9,128,000 t & 8,494,000 t & 8,153,000 t & 7,647,000 t \\
-  Projected    female  spawning  biomass (t)   & 2,991,000 t & 2,674,000 t & 2,606,000  t     & 2,408,000  t \\  
-  $B_0$        & 5,777,000 t & 5,777,000 t & 5,792,000  t             & 5,611,000  t \\          
-  $B_{msy}$    & 2,148,000 t & 2,148,000 t & 2,257,000  t           & 2,154,000  t \\          
-  $F_{OFL}$    & 0.449    & 0.449    & 0.341    & 0.341  \\                  
-  $maxF_{ABC}$ & 0.383    & 0.383    & 0.304      & 0.304  \\                  
-  $F_{ABC}$    & 0.225   & 0.225   & 0.214                & 0.219 \\                  
-  $OFL$        & 4,085,000 t & 3,385,000 t & 2,594,000  t               & 2,641,000  t \\          
-  $maxABC$     & 3,485,000 t & 2,888,000 t & 2,307,000 t           & 2,355,000 t \\      
-  $ABC$        & 2,043,000 t & 1,767,000 t & 1,626,000 t               & 1,517,000  t \\        
-  \hline
-  Status                                & 2018  & 2019&     2019             &  2020          \\
-  \hline
-  Overfishing                           & No          & n/a       & No                         &  n/a                 \\
-  Overfished                            & n/a         & No        & n/a                        &  No                  \\
-  Approaching overfished                & n/a         & No        & n/a                        &  No                  \\
-  \hline
-\end{tabular}
-\end{table}
--->
-
+Thorson, J.T., and Kristensen, K., 2016. Implementing a generic method for bias correction in statistical models using random effects, with spatial and population dynamics examples. Fisheries Research, 175, pp.66-74.
 \pagebreak
 
 # List of contents, tables and figures
-
 
  \tableofcontents
 

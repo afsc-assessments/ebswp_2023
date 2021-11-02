@@ -1,17 +1,30 @@
 # Summary
 ## Tasks and todo list 2021
+
+Added in fishery length and age compositions for 2021...new. results for legnth alone in "l21" length and catch age
+in c21.
     
     [x] Update Paul's temperature series
     [x] Run 2020 model with and without "ce" climate effects (in directories withce and withoutce)
     [x] Run 2020 model with M-matrix no CE
     [x] Run 2020 model with M-matrix with CE
     [x] Add in copepod index for age 3   
-    [ ] Wt-age from coh and yr effect model
-    [ ] Catch age from 
-    [ ] Cov matrix from survey
-    [ ] Srv biomass NBS+EBS vast runs
+    [x] Wt-age from coh and yr effect model
+    [x] Catch age from sampler
+    [x] Cov matrix from survey
+    [x] Srv biomass NBS+EBS vast runs
     [ ] Srv wt-age vast runs
-    [ ] AVO index
+    [x] AVO index
+    [ ] AVO index alternative CVs
+    [ ] Code for Tier 2             
+
+## Models 
+   1. 2020 base
+   2. 2021 update
+   3. CABA runs
+   4. As 2. but with CPE
+   5. As 4 but alternative CVs for AVO
+
 
 
 ## Tasks and todo list 2020

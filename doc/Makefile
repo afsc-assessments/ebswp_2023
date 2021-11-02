@@ -7,7 +7,6 @@ endif
 all: EBSpollock 
 
 R_OPTS=--no-save --no-restore --no-init-file --no-site-file
-R_OPTS=--vanilla
 #PANDOC_OPTS=-V geometry:margin=1in --to latex --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output text.tex --template ms.tex --highlight-style tango --pdf-engine=xelatex
 #PANDOC_OPTS=-V geometry:margin=1in --template ms.tex --highlight-style tango --latex-engine=xelatex
 #PANDOC_OPTS=-V geometry:margin=1in --highlight-style tango --latex-engine=xelatex #--template ms.tex 

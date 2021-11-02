@@ -3,18 +3,17 @@ if(domcmc){
   #.plotMCMCpairs(tt)
   library(GGally)
   mc <- data.frame(read.table(paste0(.MODELDIR[thismod],"mcmc/mceval.rep")))
+  mclen <- length(mc[,1])
   #mc <- data.frame(read.table("mceval.rep"))
   #mc <- mc[,c(1:11,37)]
-  names(mc) <- c("ObjFun","Steepness","lnR0","Fmsyr","SPR_msy","SER_msy","B0","Bmsy","B100","B20","B21","B/mean(B)","B22/B20%","DynB0","q") #,"x","y")
+  names(mc) <- c("ObjFun","Steepness","lnR0","Fmsyr","SPR_msy","SER_msy","B0","Bmsy","B100","B20","B2021","B/mean(B)","B22/B20%","DynB0","q") #,"x","y")
   dim(mc)
-  1/mean(1/mc$Fmsyr)
   mc$Chain=1
   mc$Iteration=1:length(mc$Chain)
   mct <- mc %>% filter(lnR0<11,Bmsy>500,Bmsy<6000)
-  hist(mct$Bmsy)
 
-  p1 <- mct %>% select(Steepness,lnR0,DynB0,B20,Bmsy,Fmsyr) %>% 
-       ggpairs(aes(fill="lemonchiffon",alpha=.5),lower = list(continuous = wrap("points", alpha = 0.3,size=0.1)) ) +  theme_classic() #.THEME
+  p1 <- mct %>% select(Steepness,lnR0,DynB0,B2021,Bmsy,Fmsyr) %>% 
+       ggpairs(aes(fill="lemonchiffon",alpha=.5),upper=NULL,lower = list(continuous = wrap("points", alpha = 0.1,size=0.1)) ) +  theme_classic() #.THEME
   p1
   ggsave("figs/mcmc_pairs.pdf",plot=p1,width=7,height=7,units="in")
   #head(mc)
@@ -25,12 +24,32 @@ if(domcmc){
   # table of Means and CVs
   #for (i in 2:17) print(c(names(mc)[i],round(median(mc[,i]),3), round(mean(mc[,i]),3), paste0(round(100*sqrt(var(mc[,i]))/mean(mc[,i]),0),"%") ))
   #ggplot(mc.t,aes(x=Iteration,y=value)) + geom_line() + .THEME + facet_wrap(~Parameter,scales="free")
-  p1 <- mc %>% select(B20) %>% ggplot(aes(B20))+ geom_density(fill="lemonchiffon",alpha=.5 ) + theme_few() + 
-            xlab("2020 Female spawning biomass") + 
+
+  p1 <- mc %>% select(B2021) %>% 
+       ggplot(aes(B2021))+ geom_density(fill="lemonchiffon",alpha=.5 ) + theme_few() + 
+            xlab(paste(thisyr,"Female spawning biomass")) + 
             geom_vline(xintercept=M$SSB[dim(M$SSB)[1],2],col="grey") +
-            geom_vline(xintercept=mean(mc$B19),size=2,col="red",linetype="dashed") 
+            geom_vline(xintercept=mean(mc$B2021),size=1,col="red",linetype="dashed") 
   p1
   ggsave("figs/mcmc_marg.pdf",plot=p1,width=7,height=4,units="in")
+# Fmsyr 
+Fmsy2= M$fit$est[M$fit$names=="Fmsy2"]
+  p1 <- mc %>% select(Fmsyr) %>% ggplot(aes(Fmsyr))+ geom_density(fill="lemonchiffon",alpha=.5 ) + theme_few() + 
+            xlab("Fmsy rate") + xlim(c(0,.9)) +
+             geom_vline(aes(xintercept=median( mc$Fmsyr ), color="median"), linetype="dotted", size=1) +
+             geom_vline(aes(xintercept=mean( mc$Fmsyr ),   color="mean"), linetype="dashed", size=1) +
+             geom_vline(aes(xintercept=mean( mclen/sum(1/mc$Fmsyr) ), color="harmonic_mean"), linetype="solid", size=1) +
+             scale_color_manual(name = "Statistics", values = c(median = "blue", mean = "red", harmonic_mean="darkgreen"))+
+             scale_linetype_manual( name="Statistics",values = c(median = "dotted", mean = "dashed", harmonic_mean="solid"))
+             p1
+  ggsave("figs/mcmc_marg_fmsy.pdf",plot=p1,width=7,height=4,units="in")
+            #geom_vline(xintercept=median(mc$Fmsyr),size=1,col="darkgreen",linetype=4)  +
+            geom_vline(xintercept=Fmsy2,col="grey", ) +
+            #geom_vline(xintercept=mean(mc$Fmsyr),size=1,col="blue",linetype="dotted")  +
+            #geom_vline(xintercept=mclen/sum(1/mc$Fmsyr) ,size=1,col="red",linetype="dashed") ;p1
+  # Get P B2021 < 20% Bzero
+  mc %>% filter(B2021<(.2*M$Bzero)) %>% summarise(n()/mclen*100)
+  prob_less_50_Bmsy <- mc %>% filter((B2021/Bmsy)<.5) %>% summarise(n()/mclen*100)
   #head(mc.t)
   #q  
 }

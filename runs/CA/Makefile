@@ -14,7 +14,7 @@ else
     RM=rm -rf
 endif
 
-all: mpd
+all: mpd $(DIST)$(EXEC).tpl
 $(EXEC): $(DIST)$(EXEC).tpl
 	ln -sf $(DIST)$(EXEC) $@
 	ln -sf $(DIST)$(EXEC).tpl $@.tpl

@@ -1,5 +1,6 @@
 library("googledrive")
 library("tidyverse")
+library("ggmap")
 dls2010<-drive_ls("https://drive.google.com/drive/folders/1uVxPaHHGFbgLgvfl_ucFSRHjiar7UHnr")
 dls2019<-drive_ls("https://drive.google.com/drive/folders/1ZkZFh4mJ0-DvvixzS8bJ9f0wYKJ8JBg-")
 for (i in 1:dim(dls2010)[1]){

@@ -1,6 +1,5 @@
 if(doproj)
 {
-
   .projdir <- paste0(.MODELDIR[thismod],"proj/")
   system(paste0("cd ",.projdir,"; main "))
   bf <- data.frame(read.table(paste0(.projdir,"bigfile.out"),header=TRUE,as.is=TRUE))

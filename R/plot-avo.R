@@ -62,7 +62,7 @@ plot_avo <- function(M, xlab = "Year", ylab = "Acoustic return (Sa from AVO) ", 
         p <- p + geom_line(aes(x = year, y = pre, colour = Model),size=2) + geom_point(aes(x=year, y=obs),size=2) + 
             geom_errorbar(aes(x = year, ymax = ub, ymin = lb),width=0.5)
     }
-    p <- p +scale_x_continuous(breaks=seq(2006,2020,1)) 
+    p <- p +scale_x_continuous(breaks=seq(2006,2022,1)) 
     #if(!.OVERLAY) 
     #p <- p + facet_wrap(~Model) + guides(colour=FALSE)
     return(p + .THEME)
