@@ -12,13 +12,14 @@ R_OPTS=--no-save --no-restore --no-init-file --no-site-file
 #PANDOC_OPTS=-V geometry:margin=1in --highlight-style tango --latex-engine=xelatex #--template ms.tex 
 #PANDOC_OPTS=-V geometry:margin=1in --highlight-style tango  --latex-engine=xelatex --template my.tex 
 #PANDOC_OPTS=-V geometry:margin=1in --latex-engine=xelatex --template my.tex 
-PANDOC_OPTS=-V geometry:margin=1in --pdf-engine=xelatex --template my.tex 
+PANDOC_OPTS=-V geometry:margin=1in --template preamble.tex #--pdf-engine=xelatex #--template my.tex 
+	#--pdf-engine=xelatex 
 
 test: test.Rmd 
 #	cp pm.R pm.Rmd
 	R ${R_OPTS} -e 'library(knitr); knit("test.Rmd");'
 	pandoc test.md -o test.pdf ${PANDOC_OPTS}
-	open test.pdf
+	#open test.pdf
 	
 avo: avo.Rmd
 #	cp pm.R pm.Rmd
@@ -73,9 +74,10 @@ model: model.Rmd
 	#open model.pdf
 
 EBSpollock: EBSpollock.Rmd 
-	R ${R_OPTS} -e 'knitr::knit("EBSpollock.Rmd");'
-	#R ${R_OPTS} -e 'library(knitr); knit("EBSpollock.Rmd");'
+	#R ${R_OPTS} -e 'library(rmarkdown);render("EBSpollock.Rmd");'
+	R ${R_OPTS} -e 'library(knitr); knit("EBSpollock.Rmd");'
 	pandoc EBSpollock.md -o EBSpollock.pdf ${PANDOC_OPTS}
+	say "done now"
 
 clean:
 	$(RM) pm.md 

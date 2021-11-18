@@ -52,4 +52,18 @@ Fmsy2= M$fit$est[M$fit$names=="Fmsy2"]
   prob_less_50_Bmsy <- mc %>% filter((B2021/Bmsy)<.5) %>% summarise(n()/mclen*100)
   #head(mc.t)
   #q  
+  mcppl <- read_csv(paste0(.MODELDIR[thismod],"mcmc/mceval_ppl.csv"),col_names=FALSE)
+  head(mcppl)
+  names(mcppl) <- c("Index","Pd","draw","Year","Obs","Exp","Sim","VarObs")
+  idx="ATS"
+  idx="AVO"
+  idx=c("ATS","AVO")
+  obs <- mcppl %>% filter(Index==idx,draw==1) %>% transmute(Year,Obs,type="Obs")
+  tmpdf <- mcppl %>% filter(Index==idx) %>% select(Year,Exp,Sim) %>% sample_frac(.5) #%>% pivot_longer(cols=2:3,names_to="type",values_to="Biomass") 
+  ggplot(data=tmpdf) + geom_point(aes(x=jitter(Year),y=Sim),color="grey",alpha=.2) + 
+  geom_point(aes(x=jitter(Year,.3),y=Exp),color="yellow",alpha=.2,size=.8) + theme_few() + ylab("Index") +xlab("Year") +
+  geom_line(data=obs,aes(x=Year,y=Obs))
+
+  dd.g <- pivot_longer(dd,cols=2:20,names_to="Assessment",values_to="Biomass")
+
 }

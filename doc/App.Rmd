@@ -76,8 +76,8 @@ work to cover the NBS but the age data for this region are incomplete. Consequen
 estimates as in prior years (including staton-specific density-dependent corrections).
 
 
+<!--  
 ## Diagnostic plots from BTS work
-
 ### Encounter-probability component
 One can check to ensure that observed encounter frequencies for either low or high
 probability samples are within the 95% predictive interval for predicted
@@ -90,11 +90,12 @@ Spatially the residual pattern can be evaluated over time. Results for pollock d
 residuals accross or within years is limited for the encounter probability component of the model and 
 for the positive catch rate component (Figures \ref{fig:pearson1} and \ref{fig:pearson2}, respectively).
 
+-->
 ### Densities and biomass estimates
 
 Relative densities over time suggests that the biomass of pollock can reflect
 abundances in the NBS even in years where samples are unavailable (all years
-except 2010, 2017--2019; (Fig. \ref{fig:density}). Index values and error terms
+except 2010, 2017--2019 and 2021; (Fig. \ref{fig:density}). Index values and error terms
 (based on diagonal of covariance matrix over time) are shown in Figure \ref{fig:vast_idx}
 
 
@@ -107,52 +108,52 @@ We anticipate updating this for application as an alternative to the standard ac
 in 2022.
 
 ```{r plots, eval=FALSE  , tidy=TRUE}
-SpatialDeltaGLMM::Plot_data_and_knots(Extrapolation_List=Extrapolation_List, Spatial_List=Spatial_List, 
-           Data_Geostat=Data_Geostat, PlotDir=DateFile )
-       Region="Other"
-MapDetails_List <- SpatialDeltaGLMM::MapDetails_Fn( "Region"=Region, "NN_Extrap"=Spatial_List$PolygonList$NN_Extrap, 
+#SpatialDeltaGLMM::Plot_data_and_knots(Extrapolation_List=Extrapolation_List, Spatial_List=Spatial_List, 
+#           Data_Geostat=Data_Geostat, PlotDir=DateFile )
+#       Region="Other"
+#MapDetails_List <- SpatialDeltaGLMM::MapDetails_Fn( "Region"=Region, "NN_Extrap"=Spatial_List$PolygonList$NN_Extrap, 
                    "Extrapolation_List"=Extrapolation_List )
 # Decide which years to plot                                                   
-Year_Set        <- seq(min(Data_Geostat[,'Year']),max(Data_Geostat[,'Year']))
-Years2Include   <- which( Year_Set %in% sort(unique(Data_Geostat[,'Year'])))
+#Year_Set        <- seq(min(Data_Geostat[,'Year']),max(Data_Geostat[,'Year']))
+#Years2Include   <- which( Year_Set %in% sort(unique(Data_Geostat[,'Year'])))
 ```
 
 ```{r encplots, eval=FALSE  , tidy=TRUE}
-Enc_prob  <- SpatialDeltaGLMM::Check_encounter_prob( Report=Report, Data_Geostat=Data_Geostat, DirName=DateFile)
-Q         <- SpatialDeltaGLMM::QQ_Fn( TmbData=TmbData, Report=Report, FileName_PP=paste0(DateFile,"Posterior_Predictive.jpg"), FileName_Phist=paste0(DateFile,"Posterior_Predictive-Histogram.jpg"), FileName_QQ=paste0(DateFile,"Q-Q_plot.jpg"), FileName_Qhist=paste0(DateFile,"Q-Q_hist.jpg")) 
+#Enc_prob  <- SpatialDeltaGLMM::Check_encounter_prob( Report=Report, Data_Geostat=Data_Geostat, DirName=DateFile)
+#Q         <- SpatialDeltaGLMM::QQ_Fn( TmbData=TmbData, Report=Report, FileName_PP=paste0(DateFile,"Posterior_Predictive.jpg"), FileName_Phist=paste0(DateFile,"Posterior_Predictive-Histogram.jpg"), FileName_QQ=paste0(DateFile,"Q-Q_plot.jpg"), FileName_Qhist=paste0(DateFile,"Q-Q_hist.jpg")) 
 ```
 
-![ Observed encounter rates and predicted probabilities for pollock in the combined survey area. \label{fig:encounter}](figs/Diag--Encounter_prob.png)
+<!-- ![ Observed encounter rates and predicted probabilities for pollock in the combined survey area. \label{fig:encounter}](figs/Diag--Encounter_prob.png) -->
 
 
-![ Plot indicating distribution of quantiles for "positive catch rate" component. \label{fig:eq1}](figs/Q-Q_hist.jpg)
+<!-- ![ Plot indicating distribution of quantiles for "positive catch rate" component. \label{fig:eq1}](figs/Q-Q_hist.jpg) -->
 
 ```{r vastage, eval=FALSE  , tidy=TRUE}
- printfig("vastage.png",17)
+# printfig("vastage.png",17)
 ```
 
-![ Quantile-quantile plot of residuals for "positive catch rate" component. \label{fig:qq2}](figs/Q-Q_plot.jpg)
+<!-- ![ Quantile-quantile plot of residuals for "positive catch rate" component. \label{fig:qq2}](figs/Q-Q_plot.jpg) -->
 
 
 ```{r pearson, eval=FALSE, tidy=TRUE}
-SpatialDeltaGLMM:::plot_residuals(Lat_i=Data_Geostat[,'Lat'], Lon_i=Data_Geostat[,'Lon'], TmbData=TmbData, 
-          Report=Report, Q=Q, savedir=DateFile, MappingDetails=MapDetails_List[["MappingDetails"]], 
-          PlotDF=MapDetails_List[["PlotDF"]], MapSizeRatio=MapDetails_List[["MapSizeRatio"]], 
-          Xlim=MapDetails_List[["Xlim"]], Ylim=MapDetails_List[["Ylim"]], FileName=DateFile, Year_Set=Year_Set, 
-          Years2Include=Years2Include, Rotate=MapDetails_List[["Rotate"]], Cex=MapDetails_List[["Cex"]], 
-          Legend=MapDetails_List[["Legend"]], zone=MapDetails_List[["Zone"]], mar=c(0,0,2,0), oma=c(3.5,3.5,0,0), cex=1.8)
+#SpatialDeltaGLMM:::plot_residuals(Lat_i=Data_Geostat[,'Lat'], Lon_i=Data_Geostat[,'Lon'], TmbData=TmbData, 
+#          Report=Report, Q=Q, savedir=DateFile, MappingDetails=MapDetails_List[["MappingDetails"]], 
+#          PlotDF=MapDetails_List[["PlotDF"]], MapSizeRatio=MapDetails_List[["MapSizeRatio"]], 
+#          Xlim=MapDetails_List[["Xlim"]], Ylim=MapDetails_List[["Ylim"]], FileName=DateFile, Year_Set=Year_Set, 
+#          Years2Include=Years2Include, Rotate=MapDetails_List[["Rotate"]], Cex=MapDetails_List[["Cex"]], 
+#          Legend=MapDetails_List[["Legend"]], zone=MapDetails_List[["Zone"]], mar=c(0,0,2,0), oma=c(3.5,3.5,0,0), cex=1.8)
 ```
-![Pearson residuals of the encounter probability component for the combined survey area, 1982-2019, 2021. \label{fig:pearson1}](figs/maps--encounter_pearson_resid.png)
+<!-- ![Pearson residuals of the encounter probability component for the combined survey area, 1982-2019, 2021. \label{fig:pearson1}](figs/maps--encounter_pearson_resid.png) -->
 
-![Pearson residuals of the positive catch rate component for the combined survey area, 1982-2019, 2021. \label{fig:pearson2}](figs/maps--catchrate_pearson_resid.png)
+<!-- ![Pearson residuals of the positive catch rate component for the combined survey area, 1982-2019, 2021. \label{fig:pearson2}](figs/maps--catchrate_pearson_resid.png) -->
 
 ```{r densplots, eval=FALSE , tidy=TRUE }
-SpatialDeltaGLMM::PlotResultsOnMap_Fn(plot_set=c(3), MappingDetails=MapDetails_List[["MappingDetails"]], 
-  Report=Report, Sdreport=Opt$SD, PlotDF=MapDetails_List[["PlotDF"]], MapSizeRatio=MapDetails_List[["MapSizeRatio"]], 
-  Xlim=MapDetails_List[["Xlim"]], Ylim=MapDetails_List[["Ylim"]], FileName=DateFile, Year_Set=Year_Set, 
-  Years2Include=Years2Include, Rotate=MapDetails_List[["Rotate"]], Cex=MapDetails_List[["Cex"]], 
-  Legend=MapDetails_List[["Legend"]], zone=MapDetails_List[["Zone"]], mar=c(0,0,2,0), oma=c(3.5,3.5,0,0), 
-  cex=1.8, plot_legend_fig=FALSE)
+#SpatialDeltaGLMM::PlotResultsOnMap_Fn(plot_set=c(3), MappingDetails=MapDetails_List[["MappingDetails"]], 
+  #Report=Report, Sdreport=Opt$SD, PlotDF=MapDetails_List[["PlotDF"]], MapSizeRatio=MapDetails_List[["MapSizeRatio"]], 
+  #Xlim=MapDetails_List[["Xlim"]], Ylim=MapDetails_List[["Ylim"]], FileName=DateFile, Year_Set=Year_Set, 
+  #Years2Include=Years2Include, Rotate=MapDetails_List[["Rotate"]], Cex=MapDetails_List[["Cex"]], 
+  #Legend=MapDetails_List[["Legend"]], zone=MapDetails_List[["Zone"]], mar=c(0,0,2,0), oma=c(3.5,3.5,0,0), 
+  #cex=1.8, plot_legend_fig=FALSE)
 ```
 ![ Pollock log density maps of the BTS data using the VAST model approach, 1982-2019,2021. \label{fig:density}](figs/Dens.png)
 

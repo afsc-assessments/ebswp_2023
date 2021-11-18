@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 \begin{table}[ht]
 \centering
 \caption{`r tabcap[13]`}
@@ -6,26 +11,25 @@
 \hline
 Year & Bering Sea & Year & Bering Sea & Year & Bering Sea \\
 \hline
-1964 & 0          & 1982 & 682        & 2000 & 313        \\
-1965 & 18         & 1983 & 508        & 2001 & 241        \\
-1966 & 17         & 1984 & 208        & 2002 & 440        \\
-1967 & 21         & 1985 & 435        & 2003 & 285        \\
-1968 & 7          & 1986 & 163        & 2004 & 363        \\
-1969 & 14         & 1987 & 174        & 2005 & 87         \\
-1970 & 9          & 1988 & 467        & 2006 & 251        \\
-1971 & 16         & 1989 & 393        & 2007 & 333        \\
-1972 & 11         & 1990 & 369        & 2008 & 168        \\
-1973 & 69         & 1991 & 465        & 2009 & 156        \\
-1974 & 83         & 1992 & 156        & 2010 & 226        \\
-1975 & 197        & 1993 & 221        & 2011 & 1322       \\
-1976 & 122        & 1994 & 267        & 2012 & 219        \\
-1977 & 35         & 1995 & 249        & 2013 & 183        \\
-1978 & 94         & 1996 & 206        & 2014 & 308        \\
-1979 & 458        & 1997 & 262        & 2015 & 256        \\
-1980 & 139        & 1998 & 121        & 2016 & 198       \\
-1981 & 466        & 1999 & 299        & 2017 & 226       \\
-     &            &      &            & 2018 & 177       \\
-     &            &      &            & 2019 & 230       \\
+1964 &    0    &    1983 &    508  &    2002 &    440  \\
+1965 &    18   &    1984 &    208  &    2003 &    285  \\
+1966 &    17   &    1985 &    435  &    2004 &    363  \\
+1967 &    21   &    1986 &    163  &    2005 &    87   \\
+1968 &    7    &    1987 &    174  &    2006 &    251  \\
+1969 &    14   &    1988 &    467  &    2007 &    333  \\
+1970 &    9    &    1989 &    393  &    2008 &    168  \\
+1971 &    16   &    1990 &    369  &    2009 &    156  \\
+1972 &    11   &    1991 &    465  &    2010 &    226  \\
+1973 &    69   &    1992 &    156  &    2011 &    1322 \\
+1974 &    83   &    1993 &    221  &    2012 &    219  \\
+1975 &    197  &    1994 &    267  &    2013 &    183  \\
+1976 &    122  &    1995 &    249  &    2014 &    308  \\
+1977 &    35   &    1996 &    206  &    2015 &    256  \\
+1978 &    94   &    1997 &    262  &    2016 &    198  \\
+1979 &    458  &    1998 &    121  &    2017 &     363      \\
+1980 &    139  &    1999 &    299  &    2018 &     269      \\
+1981 &    466  &    2000 &    313  &    2019 &     338      \\
+1982 &    682  &    2001 &    241  &    2020 &     76  \\
 \hline
 \end{tabular}
 \end{table}
@@ -249,16 +253,20 @@ Avg	&	0.016	&	0.086	&	0.224	&	0.387	&	0.500	&	0.607	&	0.724	&	0.842	&	0.967	&	1.
 \clearpage
 
 ```{r indices,results="asis",echo=FALSE}
-biom <- read.csv("data/Indices.csv",header=T,as.is=TRUE,na.strings=" ")
+#biom <- read.csv("data/Indices.csv",header=T,as.is=TRUE,na.strings=" ")
+biom <- read_csv("data/Indices.csv",guess_max=1000)
+#,col_types = cols(.default = "d"))
 
-t3  <- biom
-for (i in 2:length(t3[1,])) {
-      t3[,i]   <- formatC(t3[,i], format="d", big.mark=",",digits=0) 
-}
+#t3  <- biom
+#for (i in 2:length(t3[1,])) {
+#      t3[,i]   <- formatC(t3[,i], format="d", big.mark=",",digits=0) 
+#}
 cap <- tabcap[14]
 lab <- paste0("tab:",tablab[14])
-tab <- xtable(t3, caption = cap, label=lab,digits=0, auto=TRUE, align=rep("r",(length(t3[1,])+1)) )
-print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.90)
+#tab <- xtable(t3, caption=cap, label=lab, digits=0, auto=TRUE, align=rep("r",(length(t3[1,])+1)) )
+#print(tabindices,  format.args = list(big.mark = list("",","), decimal.mark = "."), include.rownames=FALSE )
+tabindices <- xtable(biom, caption=cap, label=lab, digits = 0, align=rep("r",(length(biom[1,])+1)) )
+print(tabindices, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.90)
 ```
 
 <!--
@@ -388,7 +396,7 @@ Year	&	Date	&	(nmi)$^2$	&	SCA	&	E170-SCA	&	W170	&	0.5m total	  &	VAST ($sA$) \\
 2014	&	12	Jun	-	13	Aug	&	94,361	&	0.561	&	1.462	&	2.707	&	4.73	&	5.122	\\
 2016	&	12	Jun	-	17	Aug	&	100,674	&	0.540	&	1.267	&	3.022	&	4.829	&	5.381	\\
 2018	&	12	Jun	-	22	Aug	&	92,283	&	0.231	&	0.513	&	1.755	&	2.499	&	2.819	\\
-2020	&	4	Jul	-	20	Aug	  &	102320	&	-	    &	0.462	&	-	    &	3.605 &	3.695	\\
+2020	&	4	Jul	-	20	Aug	  &	102,320	&	-	    &	0.462	&	-	    &	3.605 &	3.695	\\
 \hline
 \end{tabular}
 }

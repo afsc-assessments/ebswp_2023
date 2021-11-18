@@ -60,11 +60,11 @@ ggsave("figs/catch.pdf",plot=p1,width=7.5,height=4.5,units="in")
       #lower = list(continuous = "points", geom_smooth(),combo = "dot_no_facet") 
 }
 #---Compare selectivity for base w/ vast
-df <- data.frame(sel=modlst[[2]]$sel_fut,Age=1:15,Model="base")
-df <- rbind(df,data.frame(sel=modlst[[4]]$sel_fut,Age=1:15,Model="With 2021"))
-#df %>% group_by(Model) %>% summarize(mean(sel))
-p1 <- df %>% ggplot(aes(x=Age,y=sel,color=Model)) + geom_line(size=1.5) + theme_few() + ylab("Selectivity") + scale_x_continuous(breaks=1:15)
-ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
+#df <- data.frame(sel=modlst[[2]]$sel_fut,Age=1:15,Model="base")
+#df <- rbind(df,data.frame(sel=modlst[[4]]$sel_fut,Age=1:15,Model="With 2021"))
+##df %>% group_by(Model) %>% summarize(mean(sel))
+#p1 <- df %>% ggplot(aes(x=Age,y=sel,color=Model)) + geom_line(size=1.5) + theme_few() + ylab("Selectivity") + scale_x_continuous(breaks=1:15)
+#ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
 #---Age diversity
   df <- data.frame(Year=M$Yr,Age=M$H,Measure="Population Age\n diversity")
   df <- rbind(df,data.frame(Year=M$Yr,Age=M$avg_age_mature,Measure="SSB Age\n diversity"))
@@ -74,13 +74,17 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
   #p1 <- plot_recruitment(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
   #p1 <- plot_ssb(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
   #p1 <- plot_bts(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
-  p1 <- plot_Nage_3(modlst[c(1,2)],xlim=c(2000.5,2023.5));p1
+  #p1 <- plot_Nage_3(modlst[c(1,2)],xlim=c(2000.5,2023.5));p1
   p1 <- plot_recruitment(modlst[c(2:4)],xlim=c(2000.5,2021.5));p1
   p2 <- plot_ssb(modlst[c(2:4)],xlim=c(2008.5,2021.5),breaks=seq(2008,2021,by=2),alpha=.2); p2
-  p2 <- plot_ssb(modlst[c(1:2)],xlim=c(2008.5,2020.5),breaks=seq(2008,2021,by=2),alpha=.2); p2
+  # Comparing base with 2 vast configurations
+  p3 <- p1/p2; p3
+  ggsave("figs/mod_21_agecomp.pdf",plot=p3,width=8,height=5.0,units="in")
+
   # Comparing base with 2 vast configurations
   p3 <- p1/p2; p3
   ggsave("figs/mod_eval0a.pdf",plot=p3,width=8,height=5.0,units="in")
+
   # Comparing base with 2 vast configurations
   #p1 <- plot_recruitment(modlst[c(2,4,5)],xlim=c(2010.8,2019.5));p1
   p1 <- plot_bts(modlst[c(thismod)],xlim=c(1981.5,2021.5),ylim=c(0,20000)) ;p1
@@ -92,8 +96,8 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
   #plot_bts(modlst,xlim=c(1981.5,2019.5),ylim=c(0,35000)) 
   #ggsave("figs/mod_eval0a.pdf",plot=p1,width=6,height=4,units="in")
   p1 <- plot_bts(modlst[1:2],xlim=c(2010,2021.5),ylim=c(0,15000)) ;p1
-  plot_bts(modlst[c(3)],xlim=c(1982,2019.5),ylim=c(0,15000)) 
-  plot_bts(modlst[c(2)],xlim=c(1982,2019.5),ylim=c(0,15000)) 
+#  plot_bts(modlst[c(3)],xlim=c(1982,2019.5),ylim=c(0,15000)) 
+##  plot_bts(modlst[c(2)],xlim=c(1982,2019.5),ylim=c(0,15000)) 
   ggsave("figs/mod_bts_bridge.pdf",plot=p1,width=8,height=4,units="in")
   #M$maxabc2s
   #M$sel_fut
@@ -101,11 +105,11 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
   #M$sel_fsh
   #sel
   #M<- modlst[[thismod]]
-  #yr=c(M$Yr,2022);sel<-rbind(M$sel_fsh,M$sel_fut)
+  yr=c(M$Yr,2022);sel<-rbind(M$sel_fsh,M$sel_fut)
   #yr;
   sel
   p1 <- plot_sel(Year=yr,sel=sel,scale=3);
-  #p1
+  p1
   #p1 <- plot_sel();p1 
   #dtmp <- p1$data %>% filter(Year==2022)
   #p1 <- p1 + geom_density_ridges(data=dtmp, stat="identity",fill="gold",alpha=.02) ;p1
@@ -119,7 +123,7 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
   ggsave("figs/mod_bts_sel.pdf",plot=p1,width=4,height=8,units="in")
  # p1 <- plot_mnage(modlst[c(2,3)]) 
   #p1 <- plot_mnage(modlst[thismod]) ;p1
-  p1 <- plot_mnage(modlst[2]) ;p1 # Note used model 1 for figure...because of kludge for age compos
+  p1 <- plot_mnage(modlst[thismod]) ;p1 # Note used model 1 for figure...because of kludge for age compos
   ggsave("figs/mod_mean_age.pdf",plot=p1,width=5.8,height=8,units="in")
   p1 <- plot_bts(modlst[thismod]) ; p1
   ggsave("figs/mod_bts_biom.pdf",plot=p1,width=5.2,height=3.7,units="in")
@@ -130,17 +134,17 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
 
 #  p1 <- p1+ geom_vline(xintercept=2006.5,color="grey",size=1)
   #p1 <- p1+scale_y_log10()
-  p1 <- plot_ats(modlst[c(4)]) +theme_few(base_size=11) ;p1
+  p1 <- plot_ats(modlst[c(thismod)]) +theme_few(base_size=11) ;p1
   ggsave("figs/mod_ats_biom.pdf",plot=p1,width=9.2,height=3.7,units="in"); 
-  p1 <- plot_avo(modlst[c(4)]) ;p1
-  ggsave("figs/mod_avo_fit.pdf",plot=p1,width=5.2,height=3.7,units="in")
+  p1 <- plot_avo(modlst[c(thismod)]) ;p1
+  ggsave("figs/mod_avo_fit.pdf",plot=p1,width=9.2,height=4.7,units="in")
   #p1 <- plot_cope(modlst[[2]]) ;p1
   p1 <- plot_cpue(modlst[[thismod]]) 
   ggsave("figs/mod_cpue_fit.pdf",plot=p1,width=5.2,height=3.7,units="in")
   p1 <- plot_recruitment(modlst[thismod],xlim=c(1963.5,2021.5),fill="yellow");p1
   ggsave("figs/mod_rec.pdf",plot=p1,width=9,height=4,units="in")
 
-  p1 <- plot_srr(modlst[c(4)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000));p1
+  p1 <- plot_srr(modlst[c(thismod)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000));p1
   ggsave("figs/mod_srr_sq_a.pdf",plot=p1,width=9,height=4,units="in")
 
   srr_dir  = c("../runs/sr0/","../runs/sr1/", "../runs/sr2/","../runs/sr3/")
@@ -166,23 +170,26 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
   p1 <- plot_srr(modlst[c(3,5)],alpha=.2,xlim=c(0,5200),ylim=c(0,80000));p1
   p1 <- plot_srr(modlst[c(3,6)],alpha=.2,xlim=c(0,5200),ylim=c(0,80000));p1
   p1 <- plot_srr(modlst[c(3,5,6)],alpha=.2,xlim=c(0,5200),ylim=c(0,80000));p1
+
+  p1 <- plot_srr(srrlst[c(1)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000),
   #Save status quo (sq) and c and d for comparisons
   ggsave("figs/mod_srr_sq_c_d.pdf",plot=p1,width=9,height=4,units="in")
   #names(modlst) modlst[[3]]$abc1s modlst[[4]]$abc1s modlst[[3]]$maxabc1s
   #p1 <- p1 + theme_few(base_size=16) p1
-  p1 <- plot_srr(modlst[4],alpha=.2,xlim=c(0,5200),ylim=c(0,80000),ebar=TRUE);p1
-  ggsave("figs/mod_srr.pdf",plot=p1,width=9.4,height=5.9,units="in")
+  p1 <- plot_srr(modlst[thismod],alpha=.2,xlim=c(0,4100),ylim=c(0,61000),
+    yrsin=c(1977,1979:2019),sizeout=2,sizein=3);p1
+  ggsave("figs/mod_srr.pdf",plot=p1,width=7.4,height=4.9,units="in")
   #p1 <- plot_srr(modlst[c(2,4)],alpha=.2,xlim=c(0,5200),ylim=c(0,75000))
   #ggsave("figs/bholt_ricker.pdf",plot=p1,width=7.4,height=3.9,units="in")
   af_title <- paste(thisyr,"Assessment")
   pdf("../doc/figs/mod_bts_age.pdf",width=6,height=8)
-  plot_agefit(modlst[[2]],case_label=af_title,gear="bts",type="survey")
-  plot_agefit(modlst[[4]],case_label=af_title,gear="bts",type="survey",styr=1982,ageplus=10)
+  #plot_agefit(modlst[[thismod]],case_label=af_title,gear="bts",type="survey")
+  plot_agefit(modlst[[thismod]],case_label=af_title,gear="bts",type="survey",styr=1982,ageplus=10)
   dev.off()
   pdf("../doc/figs/mod_fsh_age.pdf",width=6,height=8)
-  plot_agefit(modlst[[2]],case_label=af_title,gear="fsh",type="fishery",styr=1992)
-  plot_agefit(modlst[[4]],case_label=af_title,gear="fsh",type="fishery",styr=1992,ageplus=10)
-  plot_agefit(M,case_label=af_title,gear="fsh",type="fishery")
+#  plot_agefit(modlst[[2]],case_label=af_title,gear="fsh",type="fishery",styr=1992)
+  plot_agefit(modlst[[thismod]],case_label=af_title,gear="fsh",type="fishery",styr=1992,ageplus=10)
+  #plot_agefit(M,case_label=af_title,gear="fsh",type="fishery")
   dev.off()
 
   #---Data influence------------
@@ -320,6 +327,7 @@ p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb)) + geom_ribbon(fill="salmon",a
 
   p1 <- plot_ser(modlst[thismod],xlim=c(1964,thisyr+1),alpha=.7) + scale_x_continuous(breaks=seq(1965,thisyr+1,5))  
   ggsave("figs/mod_ser.pdf",plot=p1,width=9.2,height=7.0,units="in")
+  p1
 
   #---fishing mortality mod_F.pdf-----------------------------------------------------------------
   df <-data.frame(Year=M$Yr,M$F); names(df) <- c("Year",1:15); df.g <- gather(df,age,F,2:16,-Year)
@@ -345,6 +353,7 @@ p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb)) + geom_ribbon(fill="salmon",a
     p1
   ggsave("figs/mod_hist.pdf",plot=p1,width=9.2,height=4.0,units="in")
 
+#----------------------------------------------------------
   # Extract Fmsy for different selectivity years
   idx=grep("msy2_dec",M$fit$name)
   fdf <- data.frame(year=rep(2012:2021,2),
@@ -353,9 +362,45 @@ p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb)) + geom_ribbon(fill="salmon",a
   std = M$fit$std[idx])
   unique(fdf$Source)
 
-  fdf %>% ggplot(aes(x=ifelse(Source=="Fmsy2_decwt",year-.1,year+.1),y=est,ymax=est+2*std,ymin=est-2*std,color=Source)) + 
-          geom_errorbar() + geom_point(size=5) + theme_few(base_size=12) + xlab("Year selected for MSY calculation") +
-          ylab("Fmsy")
+p1<-  fdf %>% filter(Source!="Fmsy2_decwt") %>%
+    ggplot(aes(x=year+.1,y=est,ymax=est+2*std,ymin=est-2*std))+ 
+          geom_errorbar() + geom_point(size=5,color="purple") + theme_few(base_size=12) + xlab("Year selected for MSY calculation") +
+          ylab("Fmsy");p1
+  ggsave("figs/fmsy_sel_hist.pdf",plot=p1,width=5.2,height=4.0,units="in")
+
+  ##
+  sel <- M$sel_fsh
+  seldf=NULL
+  yrs <- (thisyr-10):(thisyr)
+     lrow<-dim(sel)[1]
+      seldf<-rbind(seldf, data.frame(yrs,rep(thisyr,11),sel[(lrow-10):lrow,])) %>% rbind(c("proj",thisyr,M$sel_fut))
+      #assign(mn,read_rep(rn))
+  names(seldf) <- c("Year","Assessment",1:15)
+  seldfm <- seldf %>%  pivot_longer(cols=3:17,names_to="age",values_to="Selectivity") %>%
+                  mutate(
+                    age=as.numeric(age),
+                    Selectivity=as.numeric(Selectivity),
+                    Assessment=as.numeric(Assessment),
+                    case = ifelse(Year=="proj","Proj.","Est."),
+                    Year=as.numeric(ifelse(Year=="proj",Assessment+1,Year))
+                    )
+  glimpse(seldfm)
+ assdf <- seldfm %>% filter(Year>Assessment) %>% mutate(age=as.factor(age),Year=as.factor(Year)) 
+ yrdf  <- seldfm %>% filter(Year<=Assessment,Year>thisyr-10) %>%mutate(age=as.factor(age),Year=as.factor(Year)) 
+p1<- seldfm %>% filter(age<9,Year>thisyr-10)%>% group_by(Year,Assessment,case) %>% 
+ summarise(mnage=sum(Selectivity*age)/sum(Selectivity)) %>%
+ ggplot(aes(x=Year,y=mnage,shape=case,color=case)) + geom_point(size=2) + 
+ theme_few() + ylim(c(0,10)) + ylab( "Mean age selected")+
+      scale_x_continuous(breaks=seq(2010,2022,by=2))  
+p1
+p1 <-    ggplot(assdf,aes(x=age,y=Selectivity,color=case,group=Year)) + 
+          geom_point(size=.5) + geom_line() + theme_few() +
+          facet_grid(Year~.) + geom_point(data=yrdf,size=.5) + facet_grid(Year~.) 
+p1
+  ggsave("figs/retro_sel.pdf",plot=p1,width=5.2,height=9.0,units="in")
+  #plot_recruitment(retouts,xlim=c(1990,2017),rel=T,legend=FALSE,alpha=.2)
+
+
   # Plot of regimes on base model
 
 regime=c("1964-77", "1978-present", "1978-99", "1978-89", "1990-present", "1990-99", "2000-present", "1964-present")
@@ -371,10 +416,7 @@ hlr <- M$regime[2]
   dev.off()
   
   #----Read in retro results-----------------
-  j='16.2'
   i=0
-  #thismod=2
-  #read_rep("../runs/16.0/retro/r_1.rep")
   retouts <- list()
   for (i in 0:20) {
       rn=paste0(.MODELDIR[thismod],"retro/r_",i,".rep")
@@ -382,11 +424,11 @@ hlr <- M$regime[2]
       assign(mn,read_rep(rn))
       retouts[[mn]] <- (get(mn))
     }
-  p1 <- plot_ssb(retouts,xlim=c(thisyr-20,thisyr),legend=F);p1
-  p2 <- plot_ssb_rel(retouts,xlim=c(thisyr-20,thisyr),ylim=c(0.5,1.5),legend=F,alpha=.2)
+  p1 <- plot_ssb(retouts,xlim=c(1990,thisyr),legend=F,breaks=seq(1990,2022,5));p1
+  p2 <- plot_ssb_rel(retouts,xlim=c(1990,thisyr),ylim=c(0.5,1.5),legend=F,alpha=.2)
   p3 <- p1/p2
   print(p3)
-  ggsave("figs/mod_retro20.pdf",plot=p3,width=7.2,height=9.0,units="in")
+  ggsave("figs/mod_retro.pdf",plot=p3,width=7.2,height=9.0,units="in")
   p1 <- plot_R_rel(retouts,xlim=c(thisyr-10,thisyr),legend=F,rel=FALSE);p1
   p2 <- plot_R_rel(retouts,xlim=c(thisyr-10,thisyr),ylim=c(0.,3.5),legend=FALSE,alpha=.2);p2 <- p2+ylim(0,4); p2
   p3 <- p1/p2
@@ -395,9 +437,11 @@ hlr <- M$regime[2]
   p2 <- plot_R_rel(retouts,xlim=c(thisyr-20,thisyr),ylim=c(0.,3.5),legend=FALSE,alpha=.2);p2 <- p2+ylim(0,4); p2
   p3 <- p1/p2
   ggsave("figs/mod_retroR20.pdf",plot=p3,width=7.2,height=9.0,units="in")
+  p3
   ###
   # Get sel_fut from retrospectives and compare
   i=2
+  getwd()
   seldf<-NULL
   for (i in 0:10) {
       mn=paste0("r_",i)
@@ -427,16 +471,17 @@ hlr <- M$regime[2]
 p1<- seldfm %>% filter(age<9,Year>thisyr-10)%>% group_by(Year,Assessment,case) %>% 
  summarise(mnage=sum(Selectivity*age)/sum(Selectivity)) %>%
  ggplot(aes(x=Year,y=mnage,shape=case,color=case)) + geom_point(size=2) + 
- theme_few() + ylim(c(0,10)) + ylab( "Mean age selected")+
+ theme_few() + ylim(c(4,8)) + ylab( "Mean age selected")+
       scale_x_continuous(breaks=seq(2010,2022,by=2))  
-  ggsave("figs/retro_sel_mnage.pdf",plot=p1,width=7.2,height=5.7,units="in")
-
-s=c(.0,.0,1)
-sum(c(1,2,3)*s) /sum(s)
+      p1
+  ggsave("figs/retro_sel_mnage.pdf",plot=p1,width=5.2,height=4.0,units="in")
+  assdf %>% print(n=Inf)
+  yrdf %>% filter(Assessment==2021) %>%inner_join(assdf,join_by Year)
+  %>% print(n=Inf)
 
 p1 <-    ggplot(assdf,aes(x=age,y=Selectivity,color=case,group=Year)) + 
-          geom_point(size=.5) + geom_line() + theme_few() +
-          facet_grid(Year~.) + geom_point(data=yrdf,size=.5) + facet_grid(Year~.) 
+          geom_point(size=.8) + geom_line() + theme_few() +
+          facet_grid(Year~.) + geom_point(data=yrdf,size=1) + facet_grid(Year~.) 
 p1
   ggsave("figs/retro_sel.pdf",plot=p1,width=5.2,height=9.0,units="in")
   #plot_recruitment(retouts,xlim=c(1990,2017),rel=T,legend=FALSE,alpha=.2)
@@ -483,28 +528,16 @@ pivot_wider(names_from=c(Subarea),values_from=catch) %>% xtable() %>%  print(n=I
   #df <- data.table(Year=M$SSB[,1],SSB=2*M$SSB[,2],Catch=M$obs_catch,U=M$obs_catch/(2*M$SSB[,2]))
   #ggplot(df,aes(x=Year,y=U)) + geom_line(size=2,color="red") + .THEME + xlim(c(1990,2020)) + ylab("Catch / spawning biomass")
   #--------phase plane figure-------------------
+  source("../R/do-phase.R")
+  
 
-  #df2 <- rbind(data.frame(Year= M$SSB[,1], SSB=M$SSB[,2], lb=M$SSB[,4], ub=M$SSB[,5]),
-#    ), lb = M$future_SSB[4,2:6] -2*M$future_SSB.sd[4,2:6], ub = M$future_SSB[4,2:6] +2*M$future_SSB.sd[4,2:6]))
+#Look at SER
 
-  df <- read_table(paste0(.MODELDIR[thismod],"F40_t.rep")) #,header=TRUE)
-  pt <- df %>% filter(Year>thisyr) %>% transmute(F.Fmsy=meanF/Fmsy,Bmsy=Bmsy,Year=substr(as.character(Year),3,4))  
-  df <- df %>%filter(Year<=thisyr,Year>1977)  %>%transmute(F.Fmsy=meanF/Fmsy,B.Bmsy=SSB/Bmsy,Bmsy=Bmsy,Year=substr(as.character(Year),3,4))   
-  df2 <- data.frame(SSB=M$future_SSB[1,2:3])
-  df2
-  pt
-  pt2 <- cbind(df2,pt) 
-  pt2  <- pt2 %>% transmute(F.Fmsy,B.Bmsy=SSB/Bmsy,Bmsy,Year)
-  head(df)
-         #mutate(F.Fmsy=meanF/Fmsy,B.Bmsy=SSB/Bmsy,Year=substr(as.character(Year),3,4)) %>% 
-  ggplot(df,aes(x=B.Bmsy,y=F.Fmsy,label=Year)) + 
-         geom_text(aes(color=as.factor(Year)),size=4,col="blue")+ .THEME + xlim(c(0,2.0))+ ylim(c(0,1.1)) + xlab("B/Bmsy") + ylab("F/Fmsy") +
-         geom_label(data=pt2,size=2,fill="yellow",color="red",alpha=.4) +
-         geom_line(data=pt2,color="red",alpha=.4) +
-         geom_hline(size=.5,yintercept=1) + geom_vline(size=0.5,linetype="dashed",xintercept=.2) + geom_vline(size=.5,xintercept=1) + geom_path(size=.4) + 
-          guides(size=FALSE,fill=FALSE,alpha=FALSE,col=FALSE) 
-         p1
-  ggsave("figs/mod_phase.pdf",plot=p1,width=7.2,height=5.7,units="in")
+  idx
+  idx=grep("SER_Fmsy",M$fit$name)
+  est = M$fit$est[idx]
+  std = M$fit$std[idx]
+  std/est
 
 #---Catch grid and future effort consequences---------------------------------------------------
   dc <-data.frame(Catch=M$future_catch,scen=c(seq(.5,1.5,.05),2),"catch"); 
@@ -542,6 +575,43 @@ pivot_wider(names_from=c(Subarea),values_from=catch) %>% xtable() %>%  print(n=I
       p1
   ggsave("figs/vast_idx.pdf",plot=p1,width=9.4,height=5,units="in")
 
+# Look at some of the retros and mcmc runs 
+# mcmc first 
+srdf <-read.table(paste0(.MODELDIR[thismod],"/mcmc/mcSRR.rep"))
+srsm <- sample(1:5000,2000)
+names(srdf) <- c("draw","stock","recruits")
+srdf<-srdf %>% filter(draw %in% srsm) %>% mutate(stock=as.numeric(stock),recruits=as.numeric(recruits),draw=as.factor(draw)) #%>%
+srdf %>% ggplot(aes(x=stock,y=recruits,group=draw)) + geom_line(size=.1,alpha=.4,color="coral") + theme_few() +
+xlim(c(0,6000)) + ylim(c(0,50000))
+srsm
+
+# retros maybe
+  fmdf<-NULL
+  i=2
+  for (i in 0:10) {
+      mn=paste0("r_Fmort_",i)
+      #seldf<-rbind(seldf,
+      read_table(mn)
+     yrs <- (thisyr-i-10):(thisyr-i)
+     lrow<-dim(sel)[1]
+      seldf<-rbind(seldf, data.frame(yrs,rep(thisyr-i,11),sel[(lrow-10):lrow,])) %>% rbind(c("proj",thisyr-i,get(mn)$sel_fut))
+      #assign(mn,read_rep(rn))
+      #retouts[[mn]] <- (get(mn))
+    #seldf <- rbind()
+  }
+  names(seldf) <- c("Year","Assessment",1:15)
+  seldfm <- seldf %>%  pivot_longer(cols=3:17,names_to="age",values_to="Selectivity") %>%
+                  mutate(
+                    age=as.numeric(age),
+                    Selectivity=as.numeric(Selectivity),
+                    Assessment=as.numeric(Assessment),
+                    case = ifelse(Year=="proj","Proj.","Est."),
+                    Year=as.numeric(ifelse(Year=="proj",Assessment+1,Year))
+                    )
+  glimpse(seldf)
+  glimpse(seldfm)
+
+
 #dd <- df.g %>% filter(var=="SSB")
 #dc <- df.g %>% filter(var=="catch")
 #df.g%>% filter(var=="catch") %>% ggplot(aes(x=year,y=scen,fill=val,col=var)) + .THEME + geom_contour(aes(z=val),size=2) + 
@@ -575,6 +645,60 @@ pivot_wider(names_from=c(Subarea),values_from=catch) %>% xtable() %>%  print(n=I
 #             annotate("text", label = "Age 6 F (x10)" , x = 2017, y = 1.2, size = 5, colour = "black") + scale_y_continuous(breaks=seq(0,10,1)) 
 #   ggsave("figs/mod_F",plot=p1,width=9.2,height=7.0,units="in")
 }
+###Stuff to look at raw survey wt-age data-----------------------------------------------------
+radf <- read_csv("data/raceage.csv",col_names=FALSE)
+names(radf) <- c("haul","Region","x","date", "lat","lon","spp", "len","sex","wt","age","xx")
+radf <- radf%>%select(date,lat,lon,len,sex,wt,age) %>% mutate(date=lubridate::dmy(date),year=year(date),len=len/10,sex=ifelse(sex==1,"Male",ifelse(sex==2,"Female","U")))
+radf %>% filter(year>1999,wt>0,age>0,age<15) %>% group_by(year,age) %>% summarise(wt=mean(wt)) %>%
+ggplot(aes(y=wt,x=age,col=as.factor(year))) + geom_point(alpha=.6) + theme_few()
+radf %>% filter(year>1999,wt>0,age>0,age<15) %>% group_by(year,age) %>% summarise(len=mean(len)) %>%
+ggplot(aes(y=len,x=gage,col=as.factor(year))) + geom_point(alpha=.6) + theme_few()
+
+radf %>% filter(year>1999,wt>0,age>0,age<15) %>% group_by(year,age) %>% summarise(len=mean(len)) %>% filter(age==6) %>% 
+ggplot(aes(y=len,x=year,)) + geom_line(size=2) + theme_few()
+
+radf %>% filter(age>0,age<15) %>% group_by(year,age) %>% summarise(len=mean(len),wt=mean(wt)) %>% filter(age==6) %>% 
+ggplot(aes(y=len,x=year,)) + geom_line(size=2) + theme_few()
+# LW for selected weird years
+radf %>% filter(year %in% c(2000,2010),wt>0,len<70) %>% 
+ggplot(aes(y=wt,x=len,color=as.factor(year))) + geom_point(alpha=.2) + theme_few()
+
+radf %>% filter(year >=2000,wt>0,len<70) %>% group_by(year,len) %>% summarise(wt=mean(wt)) %>%
+ggplot(aes(y=wt,x=len,color=as.factor(year))) + geom_line(size=.2) + theme_few()
+radf %>% filter(year %in% c(2000,2010,2021),wt>0,len<70) %>% group_by(year,len) %>% summarise(wt=mean(wt)) %>%
+ggplot(aes(y=wt,x=len,color=as.factor(year))) + geom_line(size=2) + theme_few()
+radf %>% filter(year %in% c(2000,2010),wt>0,len<70) %>% group_by(year,len) %>% summarise(wt=mean(wt)) %>%
+ggplot(aes(y=wt,x=len,color=as.factor(year))) + geom_line(size=2) + theme_few()
+
+
+# See if same thing happening w fishery data
+fadf <- read_csv("../data/fishery/sampler/imported/akfin_age.csv")
+adf <- fadf %>% filter(NMFS_AREA<540) %>%
+      transmute(
+        #haul   = ifelse((HAUL_JOIN==""),PORT_JOIN,HAUL_JOIN),
+        haul   = HAUL_OFFLOAD,
+        month  = month(HAUL_OFFLOAD_DATE),
+        seas   = ifelse(month>5, 2, 1), 
+        strata = ifelse(seas==1, 1, ifelse(NMFS_AREA>519, 2, 3)), 
+        lat    = (LATDD_START+LATDD_END)/2,
+        lon    = (LONDD_START+LONDD_END)/2,
+        sex    = ifelse(SEX=="F",1,2) ,
+        len    = LNGTH , age = ifelse(AGE==0,-9,AGE),
+        wt = ifelse(is.na(WEIGHT) | WEIGHT==0,-9,WEIGHT) , 
+        age=ifelse(is.na(age),-9,age ) ,
+        year=YEAR
+        ) %>% mutate( haul = as.integer(as.factor(haul)) )
+adf
+
+
+adf %>% mutate(date=lubridate::ymd(paste(year,month,01,sep="-"))) #%>% select(date,lat,lon,sex,len,wt,age,year) %>%mutate(source="Fishery") %>% rbind(radf %>% select(date,lat,lon,sex,len,wt,age,year)%>%mutate(source="Survey") )
+cadf <- adf %>% mutate(date=lubridate::ymd(paste(year,month,01,sep="-")),wt=wt*1000) %>% select(date,lat,lon,sex,len,wt,age,year) %>%mutate(source="Fishery") %>% rbind(radf %>% select(date,lat,lon,sex,len,wt,age,year)%>%mutate(source="Survey") )
+cadf %>% filter(year>1999,wt>0,age>0,age<15,month(date)>5) %>% group_by(source,year,age) %>% summarise(wt=mean(wt),len=mean(len)) %>% filter(age==6) %>% 
+ggplot(aes(y=len,x=year,color=source)) + geom_line(size=2) + theme_few()
+cadf %>% filter(year>1990,wt>0,age>0,age<15,month(date)>5) %>% group_by(source,year,age) %>% summarise(wt=mean(wt),len=mean(len)) %>% filter(age==6) %>% 
+ggplot(aes(y=wt,x=year,color=source)) + geom_line(size=1) + geom_point(size=2) + theme_few()
+cadf %>% filter(year>1990,wt>0,age>0,age<15,month(date)>5) %>% group_by(source,year,age) %>% summarise(n=n(),wt=mean(wt),len=mean(len)) %>% filter(age==6) %>% 
+ggplot(aes(y=n,x=year,color=source)) + geom_line(size=1) + geom_point(size=2) + theme_few()
 
 library(ggplot2)
 library(maps)

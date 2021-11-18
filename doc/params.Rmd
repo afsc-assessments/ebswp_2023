@@ -1,10 +1,37 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+  output: 
+  bookdown::pdf_document2:
+    highlight: zenburn
+    latex_engine: xelatex
+    fig_caption: yes
+    number_sections: false
+    toc: false
+    includes:
+      in_header: "paramble.tex"
+    keep_tex: yes
+fontsize: 11pt
+header-includes:
+  
+geometry: margin=1in
+---
 # Parameter estimates for the EBS pollock reference model 
-Includes paraemter set from Model 20.0a, uses VAST full time series including Northern Bering Sea segment and the USV data for 2020 converted
-to biomass (extending the ATS data) and with the stock-recruitment relationship that ignores the influence of the 1978 year class.
+Includes parameter set from Model 20.0c, uses VAST full time series (from bottome trawl survey) including Northern Bering Sea segment and the USV data for 2020 converted
+to biomass (extending the ATS data) and with the stock-recruitment relationship that ignores the influence of the 1978 year class. This includes preliminary
+size and age composition from the 2021 fishery.
 
 \fontsize{7}{9}
 ```{r eval = TRUE, include=TRUE,echo=FALSE, comment=NA }
-opts_chunk$set(fig.width = 12, fig.height = 8, echo = FALSE, warning = FALSE, message = FALSE)
-ts <- readLines("../runs/base/pm.std")
+#opts_chunk$set(fig.width = 12, fig.height = 8, echo = FALSE, warning = FALSE, message = FALSE)
+ts <- readLines("../runs/c21/pm.std")
+for (i in 1:length(ts)) cat(ts[i], "\n")
+```
+
+# Main data file
+\fontsize{3}{4}
+```{r eval = TRUE, include=TRUE,echo=FALSE, comment=NA }
+ts <- readLines("../runs/dat/pm_2021_w21catchage.dat")
 for (i in 1:length(ts)) cat(ts[i], "\n")
 ```

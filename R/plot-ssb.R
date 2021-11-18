@@ -39,7 +39,7 @@
 #' @export
 #' 
 plot_ssb <- function(M, xlab = "Year", ylab = "Female spawning biomass (kt)", 
-    ylim = NULL, xlim=NULL,breaks=seq(1990,2018,2), alpha = 0.1,legend=TRUE,
+    ylim = NULL, xlim=NULL,breaks=seq(1990,2022,2), alpha = 0.1,legend=TRUE,
     order=NULL) {
     xlab <- paste0("\n", xlab)
     ylab <- paste0(ylab, "\n")

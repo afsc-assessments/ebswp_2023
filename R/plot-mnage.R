@@ -14,7 +14,7 @@
     for (i in 1:n)
     {
         A <- M[[i]]
-        df <- data.frame(year = A$EffN_fsh)
+        df <- data.frame(year = A$EffN_fsh[,1])
         df$Model <- names(M)[i]
         df$type <- "Fishery"
         df$year <- A$EffN_fsh[,1]
@@ -24,7 +24,7 @@
         df$ub   <- A$EffN_fsh[,8]
         mdf     <- rbind(mdf, df)
 
-        df <- data.frame(year = A$EffN_bts)
+        df <- data.frame(year = A$EffN_bts[,1])
         df$Model <- names(M)[i]
         df$type <- "Bottom trawl survey"
         df$year <- A$EffN_bts[,1]
@@ -34,14 +34,15 @@
         df$ub   <- A$EffN_bts[,8]
         mdf     <- rbind(mdf, df)
 
-        df <- data.frame(year = A$EffN_ats)
+        # NOTE excluded the last year as downweighted (non-existent for sail drone data)
+        df <- data.frame(year = A$EffN_ats[1:16,1])
         df$Model <- names(M)[i]
         df$type <- "Acoustic trawl survey"
-        df$year <- A$EffN_ats[,1]
-        df$obs  <- A$EffN_ats[,4]
-        df$pre  <- A$EffN_ats[,5]
-        df$lb   <- A$EffN_ats[,7]
-        df$ub   <- A$EffN_ats[,8]
+        df$year <- A$EffN_ats[1:16,1]
+        df$obs  <- A$EffN_ats[1:16,4]
+        df$pre  <- A$EffN_ats[1:16,5]
+        df$lb   <- A$EffN_ats[1:16,7]
+        df$ub   <- A$EffN_ats[1:16,8]
         mdf     <- rbind(mdf, df)
     }
     return(mdf)

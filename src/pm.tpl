@@ -1543,7 +1543,7 @@ PROCEDURE_SECTION
     Get_Cons_at_Age();
   GetDependentVar();  // Includes MSY, F40% computations
   Evaluate_Objective_Function();
-  if (do_fmort)
+  if (do_fmort || (ctrl_flag(28)>0))
     Profile_F();
   if (mceval_phase()) 
     write_eval();
@@ -2344,7 +2344,7 @@ FUNCTION Future_projections_fixed_F
     }
     future_SSB(k,endyr_fut)    = elem_prod(elem_prod(natage_future(k,endyr_fut),pow(S_future(endyr_fut),yrfrac)), p_mature) * wt_ssb(endyr_r);
     
-    Fcur_Fmsy(k)   = F_future(k,styr_fut,6)/Fmsy;
+    Fcur_Fmsy(k)   = mean(F_future(k,styr_fut))/mean(sel_fut*Fmsy);
     Bcur_Bmsy(k)   = future_SSB(k,styr_fut+1)/Bmsy;
     Bcur_Bmean(k)  = future_SSB(k,styr_fut+1)/MeanSSB;
     Bcur2_Bmsy(k)  = future_SSB(k,styr_fut+2)/Bmsy;
@@ -2357,7 +2357,7 @@ FUNCTION Future_projections_fixed_F
     ptmp           = elem_prod(elem_prod(natage_future(k,endyr_fut),wt_ssb(endyr_r)),p_mature)+0.0001;
     ptmp          /= sum(ptmp);
     MatAgeDiv2(k)  = mfexp(-ptmp*log(ptmp))/(H(1994));
-    RelEffort(k)   = F_future(k,styr_fut,6)/F(endyr_r,6) ; // Effort relative to endyr   
+    RelEffort(k)   = mean(F_future(k,styr_fut))/mean(F(endyr_r)) ; // Effort relative to endyr   
     LTA1_5(k)      = sum(natage_future(k,endyr_fut)(1,5))/sum(natage_future(k,endyr_fut)(6,nages));                                                   // long term average age 1_5
     LTA1_5R(k)     = LTA1_5(k)/(sumtmp1/sumtmp2);
   }   //End of loop over F's
@@ -3636,6 +3636,8 @@ FUNCTION Surv_Likelihood
   // if (phase_cope>0 & current_phase()>=phase_cope)
   if (last_phase())
   {
+    if (phase_cope>0)
+		{
     // Compute q for this age1 index...
     int ntmp = n_cope - (yrs_cope(n_cope)+3-endyr_r);
     dvariable qtmp = mfexp(mean(log(obs_cope(1,ntmp))-log(pred_cope(1,ntmp))));
@@ -3643,8 +3645,6 @@ FUNCTION Surv_Likelihood
       pred_cope(i) = obs_cope(i)/qtmp;
     pred_cope *= qtmp;
 
-    if (phase_cope>0)
-		{
       // dvar_vector cope_dev = obs_cope-pred_cope;
       for (i=1;i<=n_cope;i++)
         cope_like += square(log(obs_cope(i))-log(pred_cope(i)))/ (2.*lvar_cope(i)) ;
@@ -3998,15 +3998,8 @@ FUNCTION write_eval
       write_mceval_pred_avo(fff);  
       write_mceval_pred_avo(pred_avo);
       write_mceval_pred_avo <<endl;
-      
-      
-                                
 
-
-
-      
-
-
+      Profile_F();
 
       // eval<< "Obj_Fun steep q AvgRec SER_endyr SSBendyr_B40 1989_YC 1992_YC 1996_YC 2000YC MSYR Bmsy3+ Fmsy F35 SER_Fmsy SER_Endyr SBF40 Bcur_Bmsy Cur_Sp F40Catch Steepness Q CC1_1 CC1_2 CC1_3 CC2_1 CC2_2 CC2_3"<<endl;
       // eval <<" Future ssb"<<endl;
@@ -4750,6 +4743,7 @@ FUNCTION dvar_matrix compute_selectivity(const int nsel,const int stsel, dvariab
 
   RETURN_ARRAYS_DECREMENT();
   return(log_sel);
+
 FUNCTION dvariable SolveF2(const dvar_vector& N_tmp, double  TACin)
   RETURN_ARRAYS_INCREMENT();
   dvariable dd = 10.;
@@ -4777,6 +4771,7 @@ FUNCTION dvariable SolveF2(const dvar_vector& N_tmp, double  TACin)
   RETURN_ARRAYS_DECREMENT();
   //cout << TACin <<" "<< cc <<endl;
   return(ftmp);
+
 FUNCTION Profile_F
  /* NOTE THis will need to be conditional on SrType too
   Function calculates used in calculating MSY and MSYL for a designated component of the
@@ -4787,22 +4782,37 @@ FUNCTION Profile_F
   dvariable Btmp;
   dvariable F1;
   dvariable yld1;
-  cout <<"sel_fut"<<endl;
-  cout <<sel_fut<<endl;
-  cout <<natmort<<endl;
-  cout <<p_mature<<endl;
-  cout <<wt_ssb(endyr_r)     <<endl;
-  cout <<sigmarsq_out<<endl;
-  cout <<"Fmsy, MSY, Steepness, Rzero, Bzero, PhiZero, Alpha, Beta, SPB0, SPRBF40"<<endl;
-  cout << Fmsy<<" "<<MSY<<" "<<steepness<<" "<<Rzero<<" "<<Bzero<<" "<<phizero<<" "<<alpha<<" "<<beta<<" "<<SB0/meanrec<<" "<<SBF40/meanrec<<endl;;
-  cout <<endl<<endl<<"Iter  F  Stock  Yld  Recruit"<<endl;
+  if (do_fmort){
+    cout <<"sel_fut"<<endl;
+    cout <<sel_fut<<endl;
+    cout <<natmort<<endl;
+    cout <<p_mature<<endl;
+    cout <<wt_ssb(endyr_r)     <<endl;
+    cout <<sigmarsq_out<<endl;
+    cout <<"Fmsy, MSY, Steepness, Rzero, Bzero, PhiZero, Alpha, Beta, SPB0, SPRBF40"<<endl;
+    cout << Fmsy<<" "<<MSY<<" "<<steepness<<" "<<Rzero<<" "<<Bzero<<" "<<phizero<<" "<<alpha<<" "<<beta<<" "<<SB0/meanrec<<" "<<SBF40/meanrec<<endl;;
+    cout <<endl<<endl<<"Iter  F  Stock  Yld  Recruit"<<endl;
+	}
+	else
+		if (count_mcsave==1){
+      write_mcFmort<<"Iter  F  Stock  Yld  Recruit"<<endl;
+      write_mcSRR<<"Draw Stock  Recruit"<<endl;
+		}
   for (int ii=1;ii<=500;ii++)
   {
     F1    = double(ii)/100;
     yld1   = get_yield(F1,Stmp,Rtmp,Btmp);
-    cout <<ii<<" " <<F1<<" "<< Stmp <<" "<<yld1<<" "<<Rtmp<<" "<<" "<< endl; 
+    if (do_fmort)
+      cout <<ii<<" " <<F1<<" "<< Stmp <<" "<<yld1<<" "<<Rtmp<<" "<<" "<< endl; 
+		else
+      write_mcFmort <<ii<<" " <<F1<<" "<< Stmp <<" "<<yld1<<" "<<Rtmp<<" "<<" "<< endl; 
   } 
- exit(1);
+  if (do_fmort)
+    exit(1);
+
+  for (int ii=1;ii<=20;ii++)
+    write_mcSRR << count_mcsave<<" "<<SRR_SSB(ii) <<" "<< rechat(ii) << endl; 
+
 FUNCTION double mn_age(const dvar_vector& pobs)
   int lb1 = pobs.indexmin();
   int ub1 = pobs.indexmax();
@@ -5156,7 +5166,7 @@ FUNCTION write_R
 
   dvariable ABC  = gm_b1(1)*hm_f*adj_1(1); 
   dvariable OFL  = gm_b1(1)*am_f*adj_1(1); 
-  report <<"T1"<<endl; //  yr ABC OFL SSB 3+Biom CatchFut harmeanF arithmeanF geomB SPRABC SPROFL Tier2 Tier1.5
+  report <<"T1"<<endl; //  yr ABC OFL SSB 3+Biom CatchFut harmeanF arithmeanF geomB SPRABC SPROFL Tier2 Tier1.5 AdjFABC AdjFOFL
   report << 
 	  endyr_r+1<<" " << 
 		ABC <<" " << 
@@ -5171,6 +5181,8 @@ FUNCTION write_R
 		SPR_OFL <<" "<<
     gm_b1(1)  * am_f * adj_1(1) * F40/F35 << " " << 
     gm_b1(1)  * hm_f * adj_1(1) * F40/F35 << " " << 
+    hm_f * adj_1(1) << " " << 
+    am_f * adj_1(1) << " " << 
 		endl;
   ABC  = gm_b2(1)*hm_f*adj_2(1); 
   OFL  = gm_b2(1)*am_f*adj_2(1); 
@@ -5178,16 +5190,18 @@ FUNCTION write_R
 	  endyr_r+2<<" " << 
 		ABC <<" " << 
 		OFL <<" "<< 
-		future_SSB(1,styr_fut) <<" "<< 
-		age_3_plus_biom(endyr_r+1) <<" "<<
-    future_catch(1,styr_fut) <<" " << 
+		future_SSB(1,styr_fut+1) <<" "<< 
+		age_3_plus_biom(endyr_r+2) <<" "<<
+    future_catch(1,styr_fut+1) <<" " << 
 		hm_f  <<" "<< 
 		am_f <<" "<< 
-		gm_b1(1) <<" "<< 
+		gm_b2(1) <<" "<< 
 		SPR_ABC <<" "<< 
 		SPR_OFL <<" "<<
     gm_b2(1)  * am_f * adj_2(1) * F40/F35 << " " <<
     gm_b2(1)  * hm_f * adj_2(1) * F40/F35 << " " <<
+    hm_f * adj_2(1) << " " << 
+    am_f * adj_2(1) << " " << 
 		endl;
 
 
@@ -6283,6 +6297,14 @@ GLOBALS_SECTION
   ofstream for_sd("extra_sd.rep");
   #undef for_sd
   #define for_sd(object) for_sd << #object "\n" << object << endl;
+
+  ofstream write_mcFmort("mcFmort.rep");
+  #undef write_mcFmort
+  #define write_mcFmort(object) write_mcFmort << " " << object ;
+
+  ofstream write_mcSRR("mcSRR.rep");
+  #undef write_mcSRR
+  #define write_mcSRR(object) write_mcSRR << " " << object ;
 
   ofstream write_mceval("mceval.rep");
   #undef write_mceval

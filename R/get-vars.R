@@ -58,7 +58,7 @@ get_vars <- function(M){
 	B$b35  <- .35*B$b100; B$b35s  <- format(B$b35,big.mark=",",scientific=F,digits=0)
 
 	pdf     <- as.data.frame(M$T1)
-	names(pdf) <- c("Year","ABC","OFL", "SSB","age3plus","CatchFut","harmeanF","arithmeanF","geomB","SPRABC","SPROFL","Tier2","Tier1.5")
+	names(pdf)   <- c("Year","ABC","OFL", "SSB","age3plus","CatchFut","harmeanF","arithmeanF","geomB","SPRABC","SPROFL","Tier2","Tier1.5","Fabc","Fofl")
 	B$arithmeanF <-  round(pdf$arithmeanF[1],3)
 	B$harmeanF   <-  round(pdf$harmeanF[1],3)
 	B$maxFabc    <-  B$harmeanF
@@ -72,14 +72,18 @@ get_vars <- function(M){
 	B$ssb2s      <-  format(round(1e3*pdf$SSB[2],-3),big.mark=",",scientific=F,digits=0)
 	B$ABC_biom1  <-  pdf$geomB[1];  B$ABC_biom1s  <- format(round(B$ABC_biom1,0),big.mark=",",scientific=F,digits=0)
 	B$ABC_biom2  <-  pdf$geomB[2];  B$ABC_biom2s  <- format(round(B$ABC_biom2,0),big.mark=",",scientific=F,digits=0)
+	B$FABC1      <-  pdf$Fabc[1];  B$FABC1s       <- format(round(B$FABC1,3),big.mark=",",scientific=F,digits=3)
+	B$FABC2      <-  pdf$Fabc[2];  B$FABC2s       <- format(round(B$FABC2,3),big.mark=",",scientific=F,digits=3)
+	B$FOFL1      <-  pdf$Fofl[1];  B$FOFL1s       <- format(round(B$FOFL1,3),big.mark=",",scientific=F,digits=3)
+	B$FOFL2      <-  pdf$Fofl[2];  B$FOFL2s       <- format(round(B$FOFL2,3),big.mark=",",scientific=F,digits=3)
 
-	B$Tier2_ABC1 <-  pdf$Tier2[1]
-	B$Tier2_ABC2 <-  pdf$Tier2[2]
+	B$Tier2_ABC1   <-  pdf$Tier2[1]
+	B$Tier2_ABC2   <-  pdf$Tier2[2]
 	B$Tier1.5_ABC1 <-  pdf$Tier1.5[1]
 	B$Tier1.5_ABC2 <-  pdf$Tier1.5[2]
 
-	B$Tier2_ABC1s <-  format(round(1e3*B$Tier2_ABC1,-3),big.mark=",",scientific=F,digits=0)
-	B$Tier2_ABC2s <-  format(round(1e3*B$Tier2_ABC2,-3),big.mark=",",scientific=F,digits=0)
+	B$Tier2_ABC1s   <-  format(round(1e3*B$Tier2_ABC1,-3),big.mark=",",scientific=F,digits=0)
+	B$Tier2_ABC2s   <-  format(round(1e3*B$Tier2_ABC2,-3),big.mark=",",scientific=F,digits=0)
 	B$Tier1.5_ABC1s <-  format(round(1e3*B$Tier1.5_ABC1,-3),big.mark=",",scientific=F,digits=0)
 	B$Tier1.5_ABC2s <-  format(round(1e3*B$Tier1.5_ABC2,-3),big.mark=",",scientific=F,digits=0)
 
@@ -114,22 +118,25 @@ get_vars <- function(M){
 		B$abc1constF <- M$future_catch[12,1]
 		B$abc2constF <- M$future_catch[12,2]
 	} else{
-		B$abc1constF <- M$future_catch[5,1]
-		B$abc2constF <- M$future_catch[5,2]
+		B$abc1constF <- M$future_catch[4,1]
+		B$abc2constF <- M$future_catch[4,2]
   }
 
 	# Set recommended ABC here--Tier 3
-	B$abc1       <- (B$Tier3_ABC1)
-	B$abc2       <- (B$Tier3_ABC2)
+	#B$abc1       <- (B$Tier3_ABC1)
+	#B$abc2       <- (B$Tier3_ABC2)
+	B$abc1       <- (B$Tier2_ABC1)
+	B$abc2       <- (B$Tier2_ABC2)
 
 	B$abc1constFs<- format(round(1e3*B$abc1constF,-3),big.mark=",",scientific=F,digits=0)
 	B$abc2constFs<- format(round(1e3*B$abc2constF,-3),big.mark=",",scientific=F,digits=0)
 
 	B$abc1s      <- format(round(1e3*B$abc1,-3),big.mark=",",scientific=F,digits=0)
 	B$abc2s      <- format(round(1e3*B$abc2,-3),big.mark=",",scientific=F,digits=0)
-	B$fabc1      <- round(B$Tier3_ABC1 /B$ABC_biom1,3)
-	B$fabc2      <- round(B$Tier3_ABC2 /B$ABC_biom2,3)
-	B$fabc1s     <- B$Tier3_ABC1 /B$ABC_biom1
+	B$fabc1      <- round(B$Tier2_ABC1 /B$ABC_biom1,3)
+	B$fabc2      <- round(B$Tier2_ABC2 /B$ABC_biom2,3)
+	B$fabc1s     <- B$Tier2_ABC1 /B$ABC_biom1
+	
 	# Decision table stuff
 	ord <- c(8,2:4,1,5:7)
   B$catch_dec_tab <- M$dec_tab_catch[ord]
@@ -145,7 +152,14 @@ get_vars <- function(M){
   B$pmatdiv2      <- pnorm(1, M$MatAgeDiv2[ord]  ,  M$MatAgeDiv2.sd[ord] )
   B$prel_effort   <- 1-pnorm(1, M$RelEffort[ord]   ,  M$RelEffort.sd[ord]  )
   B$plta1_5       <- 1-pnorm(1, M$LTA1_5[ord]      ,  M$LTA1_5.sd[ord]    )
-
+  B$bmsystatus   <- ifelse(B$bmsy<B$ssb1,"above","below")
+	B$b40status    <- ifelse(B$b40 <B$ssb1,"above","below")
+	B$tier1ab1     <- ifelse(B$bmsy<B$ssb1,"1a","1b")
+	B$tier1ab2     <- ifelse(B$bmsy<B$ssb2,"1a","1b")
+	B$tier2ab1     <- ifelse(B$bmsy<B$ssb1,"2a","2b")
+	B$tier2ab2     <- ifelse(B$bmsy<B$ssb2,"2a","2b")
+	B$tier3ab1     <- ifelse(B$b40 <B$ssb1,"3a","3b")
+	B$tier3ab2     <- ifelse(B$b40 <B$ssb2,"3a","3b")
 
   return(B)
 }
