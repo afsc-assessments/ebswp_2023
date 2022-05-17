@@ -1,0 +1,12 @@
+# read in the observed values
+obs_catch <- read.table('obs_catch.txt', header=T)
+obs_cpue <- read.table('obs_cpue.txt', header=T)
+obs_avo <- read.table('obs_avo.txt', header=T)
+obs_fac <- read.table('obs_fac.txt', header=T)
+obs_sac <- read.table('obs_sac.txt', header=T)
+obs_eit_ac <- read.table('obs_eit_ac.txt', header=T)
+obs_fsh_wt <- read.table('obs_fsh_wt.txt', header=T)
+obs_srv_wt <- read.table('obs_srv_wt.txt', header=T)
+obs_srv_biomass <- read.table('obs_srv_biomass.txt', header=T)
+obs_eit_biomass <- read.table('obs_eit_biomass.txt', header=T)
+obs_eit_a1 <- read.table('obs_eit_a1.txt', header=T)
