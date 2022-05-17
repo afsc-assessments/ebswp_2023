@@ -16,10 +16,10 @@ plot_agefit <- function( x, case_label="2021 assessment",gear="bts",type="survey
   }
   if (gear=="ats"){
     fage <- 2
-    ages <- c(fage,length(x$pobs_eit[1,-1]) ) #age range
-    obs.data  <- x$pobs_eit[,c(-1,-2)]
-    pred.data <- x$phat_eit[,c(-1,-2)]
-    years     <- x$pobs_eit[,1]
+    ages <- c(fage,length(x$pobs_ats[1,-1]) ) #age range
+    obs.data  <- x$pobs_ats[,c(-1,-2)]
+    pred.data <- x$phat_ats[,c(-1,-2)]
+    years     <- x$pobs_ats[,1]
     #obs.data
   }
   if (!is.null(styr)){

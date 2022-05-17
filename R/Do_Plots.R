@@ -137,6 +137,7 @@ ggsave("figs/catch.pdf",plot=p1,width=7.5,height=4.5,units="in")
   p1 <- plot_ats(modlst[c(thismod)]) +theme_few(base_size=11) ;p1
   ggsave("figs/mod_ats_biom.pdf",plot=p1,width=9.2,height=3.7,units="in"); 
   p1 <- plot_avo(modlst[c(thismod)]) ;p1
+  p1 <- plot_avo(modlst[c(2)]) ;p1
   ggsave("figs/mod_avo_fit.pdf",plot=p1,width=9.2,height=4.7,units="in")
   #p1 <- plot_cope(modlst[[2]]) ;p1
   p1 <- plot_cpue(modlst[[thismod]]) 
@@ -186,9 +187,13 @@ ggsave("figs/catch.pdf",plot=p1,width=7.5,height=4.5,units="in")
   #plot_agefit(modlst[[thismod]],case_label=af_title,gear="bts",type="survey")
   plot_agefit(modlst[[thismod]],case_label=af_title,gear="bts",type="survey",styr=1982,ageplus=10)
   dev.off()
+  plot_agefit(modlst[[thismod]],case_label=af_title,gear="ats",type="survey",styr=2001)
+  plot_agefit(modlst[[1]],case_label=af_title,gear="ats",type="survey",styr=2001)
+  plot_agefit(modlst[[2]],case_label=af_title,gear="ats",type="survey",styr=2001)
   pdf("../doc/figs/mod_fsh_age.pdf",width=6,height=8)
 #  plot_agefit(modlst[[2]],case_label=af_title,gear="fsh",type="fishery",styr=1992)
   plot_agefit(modlst[[thismod]],case_label=af_title,gear="fsh",type="fishery",styr=1992,ageplus=10)
+  plot_agefit(modlst[[2]],case_label=af_title,gear="fsh",type="fishery",styr=1992,ageplus=10)
   #plot_agefit(M,case_label=af_title,gear="fsh",type="fishery")
   dev.off()
 

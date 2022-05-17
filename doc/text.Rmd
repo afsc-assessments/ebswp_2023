@@ -1693,6 +1693,7 @@ df <- data.table(Tier=c(M$tier1ab1,
 tab <- xtable(df, digits = c(0,0,0,0,0),big.mark=",",align="ccrrr" )
 print(tab,floating=FALSE,include.rownames=F,big.mark=",",hline.after=c(-1,0,2,4,nrow(tab)))
 ```
+Note that the values presented for 2023 assumed a catch of 1,200,000 t in 2022.
 
 ## Standard Harvest Scenarios and Projection Methodology
 
@@ -2021,14 +2022,18 @@ abundances of small copepods, but slight increases in the abundance of large cop
 euphausiids (Kimmel et al., 2021). The annual ration of EBS pollock (Holsman et al., 2021) has also increased
 in recent years under warmer conditions.
 
-*Predators* Pollock are cannibalistic and rates of cannibalism might be expected to increase as the biomass of
-older, larger fish increases. In 2020, with an average cold pool extent over the shelf, predation
-pressure from cannibalism may have been mitigated by this thermal barrier as adult pollock tend to
-avoid the cold bottom waters. In 2021, a small retracted cold pool likely offered no thermal refuge
-or barrier for juvenile pollock. However, the biomass of pelagic foragers, including adult pollock
-dropped in 2021 to their second lowest value over the time series (Whitehouse, 2021a). With the
-exception of Pacific herring, the 2021 index for all other species and functional groups in the
-pelagic forager guild were below their long term means (Whitehouse, 2021a).
+*Predators* Pollock are cannibalistic and rates of cannibalism might be
+expected to increase as the biomass of older, larger fish increases. In 2020,
+with an average cold pool extent over the shelf, predation pressure from
+cannibalism may have been mitigated by this thermal barrier as adult pollock
+tend to avoid the cold bottom waters. In 2021, a small retracted cold pool
+likely offered no thermal refuge or barrier for juvenile pollock. However, the
+biomass of pelagic foragers, including adult pollock dropped in 2021 to their
+second lowest value over the time series (Whitehouse, 2021a). While all other
+species and functional groups within the pelagic forager guild were below
+their long term means, Pacific herring was above their long term mean
+(Whitehouse, 2021a); as plankton eaters, they are competitors with pollock for
+zooplankton prey.
 
 Fur seal consumption of adult pollock generally increases in years when juvenile pollock are less
 abundant (Kuhn et al., 2019). However, no information on population trends for fur seals is
@@ -2040,16 +2045,22 @@ was high in 2019 (among the top 4 highest years since 1982), but declined to low
 Region since 2017 to their lowest level in the time series in 2021 (Liller, 2021), a trend also
 reflected in the commercial harvest data (Whitehouse, 2021b).
 
-*Competitors* 
-The 2021 Bristol Bay sockeye salmon inshore run was the largest on record since 1963 (Cunningham et
-al., 2021). Juvenile sockeye salmon feed on zooplankton (competitors with age-0 pollock) and age-0
-pollock (competitors with adult pollock) in warm years; adults feed on zooplankton and krill. The
-widespread die-off event of short-tailed shearwaters in 2019 slowed in 2020 (Siddon, 2020), with an
-uptick in die-off numbers in 2021 especially in the northern Bering Sea (see Integrated Seabird
-Information in Siddon, 2021). Shearwaters are planktivorous birds and feed on euphausiids in the
-Bering Sea in summer. The die-off event of 2019 is thought to reflect poor foraging conditions for
-birds during summer 2018 as most sampled birds showed signs of emaciation; the event of 2021 may
-reflect strains on the carrying capacity of the northern Bering Sea region.
+*Competitors* The 2021 Bristol Bay sockeye salmon inshore run was the largest
+on record since 1963 (Cunningham et al., 2021). Juvenile sockeye salmon feed
+on zooplankton (competitors with age-0 pollock) and age-0 pollock (competitors
+with adult pollock) in warm years; adults feed on zooplankton and krill. The
+widespread die-off event of short-tailed shearwaters in 2019 slowed in 2020
+(Siddon, 2020), with an uptick in die-off numbers in 2021 especially in the
+northern Bering Sea (see Integrated Seabird Information in Siddon, 2021).
+Shearwaters are planktivorous birds and feed on euphausiids in the Bering Sea
+in summer. The die-off event of 2019 is thought to reflect poor foraging
+conditions for birds during summer 2018 as most sampled birds showed signs of
+emaciation; the event of 2021 may reflect strains on the carrying capacity of
+the northern Bering Sea region. With the exception of Pacific herring, the
+2021 index for all other species and functional groups in the pelagic forager
+guild were below their long term means (Whitehouse, 2021a).
+
+
 
 **Summary for Environmental/Ecosystem considerations:**  
 
@@ -2301,7 +2312,7 @@ target species is small relative to the magnitude of the fishery  (Table
 \ref{tab:nontargbycatch}). Jellyfish represent the largest component of the
 bycatch of non-target species and had averaged around 5--6 kt per year but
 more than doubled in 2014, then dropping again in 2015. The 2018 value was
-relatively high again. The data on non-target species shows a high degree of
+high, dropped and then was again high in 2021. The data on non-target species shows a high degree of
 inter-annual variability, which reflects the spatial variability of the
 fishery and high observation error. This variability may reduce the ability to
 detect significant trends for bycatch species.
@@ -2309,8 +2320,8 @@ detect significant trends for bycatch species.
 The catch of other target species in the pollock fishery (defined as any trawl
  set where the catch represents more than 80\% of the catch) represents less
 than 1% of the total pollock catch. Incidental catch of Pacific cod has varied
-but in the past three years it is about half of the 2011 and 2012 levels
-(Table \ref{tab:fmpbycatch}).  There has been a marked in increase in the
+but after a period of low catch levels it increased to over 9,000 t in 2020
+(Table \ref{tab:fmpbycatch}).  There has been a marked increase in the
 incidental catch of Pacific ocean perch, sablefish, and Atka mackerel and a
 decrease in flatfish species. Proportionately, the incidental catch decreased
 since the overall levels of pollock catch have increased since 2008. In fact,
@@ -2320,12 +2331,10 @@ bycatch of target species in the pollock fishery (Table
 
 The number of non-Chinook salmon (nearly all made up of chum salmon) taken
 incidentally has steadily increased since 2014 with the 2017 number in excess of
-465 thousand fish but the 2018 level was back down again, to a value slightly more than
-the 2003--2017 average of 227 thousand fish; Table \ref{tab:pscbycatch}. Chinook
-salmon bycatch has also increased steadily since 2012 with the 2017 counts at
-just below 30,000 (which was 18% below the 2003--2017 mean value). In 2018-2020
-the bycatch  dropped back down to 13.5 thousand fish  (Table
-\ref{tab:pscbycatch}).  Ianelli and Stram (2014) provided estimates of the
+465 thousand fish, then was below 300 thousand, then increased a little and was high in
+2021 at over 530 thousand (Table \ref{tab:pscbycatch}). Chinook
+salmon bycatch has varied but has mostly been below 30,000 fish since the high
+in 2007 (Table \ref{tab:pscbycatch}).  Ianelli and Stram (2014) provided estimates of the
 bycatch impact on Chinook salmon runs to the coastal west Alaska region and
 found that the peak bycatch levels exceeded 7% of the total run return. Since
 2011, the impact has been estimated to be below 2%. Updated estimates  given

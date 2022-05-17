@@ -869,25 +869,17 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 df <- NULL
 mod_scen <- c(2:4)
 for (ii in mod_scen) {
-    x       <- modlst[[ii]]
-    abcbiom <- paste0(x$ABC_biom1s,",000");         
-    names(abcbiom)    <- paste0(nextyr," fishable biomass (GM)")
-    msybiom           <- paste0(x$bmsyrs,",000");         
-    names(msybiom)    <- paste0("Equilibrium fishable biomass at MSY")
-    msyr        <- round(x$harmeanF,3);  
-    names(msyr) <- ("MSY R (HM)")
-    tier1abc        <- x$maxabc1s;  
-    names(tier1abc) <- paste(nextyr,"Tier 1 ABC")
-    fofl            <- x$arithmeanF;         
-    names(fofl)     <- paste(nextyr,"Tier 1 $F_{OFL}$")
-    ofl        <- x$ofl1s;         
-    names(ofl) <- paste(nextyr,"Tier 1 OFL")
-    fabc        <- round(0.85*x$harmeanF,3);  
-    names(fabc) <- ("MSY R (HM)")
-    recabc         <- x$abc1s;  
-    names(recabc)  <- "Recommended ABC"
-    v      <- c(abcbiom,msybiom,msyr,tier1abc,fofl,ofl,fabc,recabc)
-    df     <- cbind(df, v)
+    x              <- modlst[[ii]]; 
+    abcbiom        <- paste0(x$ABC_biom1s,",000");         
+    names(abcbiom) <- paste0(nextyr," fishable biomass (GM)")
+    msybiom        <- paste0(x$bmsyrs,",000");         names(msybiom)    <- paste0("Equilibrium fishable biomass at MSY")
+    msyr           <- round(x$harmeanF,3);  names(msyr) <- ("MSY R (HM)")
+    tier1abc       <- x$maxabc1s;  names(tier1abc) <- paste(nextyr,"Tier 1 ABC")
+    fofl           <- x$arithmeanF;         names(fofl)     <- paste(nextyr,"Tier 1 $F_{OFL}$")
+    ofl            <- x$ofl1s;         names(ofl) <- paste(nextyr,"Tier 1 OFL")
+    recabc         <- x$abc1s;  names(recabc)  <- "Recommended ABC"
+    v              <- c(abcbiom,msybiom,msyr,tier1abc,fofl,ofl,recabc)
+    df             <- cbind(df, v)
 }
 df <- data.frame(rownames(df), df, row.names = NULL)
 names(df) <- c("Component",mod_names[mod_scen])

@@ -46,11 +46,11 @@ get_vars <- function(M){
 	B$yc2012 <- (M$R[M$R[,1]==2013,2]); B$yc2012s <- format(round(B$yc2012,-2),big.mark=",",scientific=F)
 	B$yc2013 <- (M$R[M$R[,1]==2014,2]); B$yc2013s <- format(round(B$yc2013,-2),big.mark=",",scientific=F)
 	B$rmse_bts <- mean((log(M$ob_bts)-log(M$eb_bts))^2)^.5
-	B$rmse_ats <- mean((log(M$ob_eit)-log(M$eb_eit))^2)^.5
+	B$rmse_ats <- mean((log(M$ob_ats)-log(M$eb_ats))^2)^.5
 	B$rmse_avo <- mean((log(M$obs_avo)-log(M$pred_avo))^2)^.5
 	B$rmse_cpue<- mean((log(M$obs_cpue)-log(M$pred_cpue))^2)^.5
 	B$sdnr_bts <- M$sdnr_bts
-	B$sdnr_ats <- M$sdnr_eit
+	B$sdnr_ats <- M$sdnr_ats
 	B$sdnr_avo <- M$sdnr_avo
 
 	B$msyr <- M$fit$est[M$fit$names=="Fmsy2"]
@@ -58,7 +58,7 @@ get_vars <- function(M){
 	B$b35  <- .35*B$b100; B$b35s  <- format(B$b35,big.mark=",",scientific=F,digits=0)
 
 	pdf     <- as.data.frame(M$T1)
-	names(pdf)   <- c("Year","ABC","OFL", "SSB","age3plus","CatchFut","harmeanF","arithmeanF","geomB","SPRABC","SPROFL","Tier2","Tier1.5","Fabc","Fofl")
+	names(pdf)   <- c("Year","ABC","OFL", "SSB","age3plus","CatchFut","harmeanF","arithmeanF","geomB","SPRABC","SPROFL","Tier2","Tier1.5","Fabc","Fofl","Adj","Fmsyr")
 	B$arithmeanF <-  round(pdf$arithmeanF[1],3)
 	B$harmeanF   <-  round(pdf$harmeanF[1],3)
 	B$maxFabc    <-  B$harmeanF
@@ -70,12 +70,14 @@ get_vars <- function(M){
 	B$ssb2       <-  pdf$SSB[2]
 	B$ssb1s      <-  format(round(1e3*pdf$SSB[1],-3),big.mark=",",scientific=F,digits=0)
 	B$ssb2s      <-  format(round(1e3*pdf$SSB[2],-3),big.mark=",",scientific=F,digits=0)
-	B$ABC_biom1  <-  pdf$geomB[1];  B$ABC_biom1s  <- format(round(B$ABC_biom1,0),big.mark=",",scientific=F,digits=0)
-	B$ABC_biom2  <-  pdf$geomB[2];  B$ABC_biom2s  <- format(round(B$ABC_biom2,0),big.mark=",",scientific=F,digits=0)
-	B$FABC1      <-  pdf$Fabc[1];  B$FABC1s       <- format(round(B$FABC1,3),big.mark=",",scientific=F,digits=3)
-	B$FABC2      <-  pdf$Fabc[2];  B$FABC2s       <- format(round(B$FABC2,3),big.mark=",",scientific=F,digits=3)
-	B$FOFL1      <-  pdf$Fofl[1];  B$FOFL1s       <- format(round(B$FOFL1,3),big.mark=",",scientific=F,digits=3)
-	B$FOFL2      <-  pdf$Fofl[2];  B$FOFL2s       <- format(round(B$FOFL2,3),big.mark=",",scientific=F,digits=3)
+	B$ABC_biom1  <-  pdf$geomB[1]; B$ABC_biom1s  <- format(round(B$ABC_biom1,0),big.mark=",",scientific=F,digits=0)
+	B$ABC_biom2  <-  pdf$geomB[2]; B$ABC_biom2s  <- format(round(B$ABC_biom2,0),big.mark=",",scientific=F,digits=0)
+	B$FABC1      <-  pdf$Fabc[1];  B$FABC1s      <- format(round(B$FABC1,3),big.mark=",",scientific=F,digits=3)
+	B$FABC2      <-  pdf$Fabc[2];  B$FABC2s      <- format(round(B$FABC2,3),big.mark=",",scientific=F,digits=3)
+	B$FOFL1      <-  pdf$Fofl[1];  B$FOFL1s      <- format(round(B$FOFL1,3),big.mark=",",scientific=F,digits=3)
+	B$FOFL2      <-  pdf$Fofl[2];  B$FOFL2s      <- format(round(B$FOFL2,3),big.mark=",",scientific=F,digits=3)
+	B$Adj1       <-  pdf$Adj[1];   B$Adj1s       <- format(round(B$Adj1,3),big.mark=",",scientific=F,digits=3)
+	B$Adj2       <-  pdf$Adj[2];   B$Adj2s       <- format(round(B$Adj2,3),big.mark=",",scientific=F,digits=3)
 
 	B$Tier2_ABC1   <-  pdf$Tier2[1]
 	B$Tier2_ABC2   <-  pdf$Tier2[2]

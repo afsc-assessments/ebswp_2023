@@ -19,7 +19,7 @@ geometry: margin=1in
 \pagenumbering{gobble}
 
 ```{r global_options, include=FALSE}
-doplots       <<- FALSE
+    doplots       <<- FALSE
 do_data_plots <<- FALSE
 domcmc        <<- FALSE
 doproj        <<- FALSE

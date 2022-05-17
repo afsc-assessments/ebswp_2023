@@ -1,0 +1,10 @@
+# switch to use temperature in the recruitment function (1=yes)
+0 #1
+# phase for temperature parameters in the recruitment functon (ignored if switch is 0)
+6
+# switch to do the predation mortality (1=yes)
+0 # 1
+# phase for estimation of the spatial predation (ignored if switch is 0)
+1 
+# switch to do the multispecies fucntional response (1=yes, otherwise do separate single species functional responses)
+1
