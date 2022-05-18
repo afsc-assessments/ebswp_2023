@@ -68,6 +68,7 @@ gradient.*
 *_in.dat
 # Added for MCMC runs
 adaptation.csv
+*ppl*.csv
 unbounded.csv
 init.pin
 variance
