@@ -1,40 +1,40 @@
 get_vars <- function(M){
   B <- list()
   A <- read.table("data/intro_table.dat",header = TRUE)
-  A$a1 <- format(A[1,4] ,big.mark               = ",",scientific=F,digits=0)
-  A$a2 <- format(A[2,4] ,big.mark               = ",",scientific=F,digits=0)
-  A$b1 <- format(A[1,5] ,big.mark               = ",",scientific=F,digits=0)
-  A$b2 <- format(A[2,5] ,big.mark               = ",",scientific=F,digits=0)
-  A$c1 <- format(A[1,6] ,big.mark               = ",",scientific=F,digits=0)
-  A$c2 <- format(A[2,6] ,big.mark               = ",",scientific=F,digits=0)
-  A$d1 <- format(A[1,7] ,big.mark               = ",",scientific=F,digits=0)
-  A$d2 <- format(A[2,7] ,big.mark               = ",",scientific=F,digits=0)
-  A$e1 <- format(A[1,11] ,big.mark              = ",",scientific=F,digits=0)
-  A$e2 <- format(A[2,11] ,big.mark              = ",",scientific=F,digits=0)
-  A$f1 <- format(A[1,12] ,big.mark              = ",",scientific=F,digits=0)
-  A$f2 <- format(A[2,12] ,big.mark              = ",",scientific=F,digits=0)
-  A$g1 <- format(A[1,13] ,big.mark              = ",",scientific=F,digits=0)
-  A$g2 <- format(A[2,13] ,big.mark              = ",",scientific=F,digits=0)
+  A$a1 <- format(A[1,4] ,big.mark               = ",",scientific=F,digits=1)
+  A$a2 <- format(A[2,4] ,big.mark               = ",",scientific=F,digits=1)
+  A$b1 <- format(A[1,5] ,big.mark               = ",",scientific=F,digits=1)
+  A$b2 <- format(A[2,5] ,big.mark               = ",",scientific=F,digits=1)
+  A$c1 <- format(A[1,6] ,big.mark               = ",",scientific=F,digits=1)
+  A$c2 <- format(A[2,6] ,big.mark               = ",",scientific=F,digits=1)
+  A$d1 <- format(A[1,7] ,big.mark               = ",",scientific=F,digits=1)
+  A$d2 <- format(A[2,7] ,big.mark               = ",",scientific=F,digits=1)
+  A$e1 <- format(A[1,11] ,big.mark              = ",",scientific=F,digits=1)
+  A$e2 <- format(A[2,11] ,big.mark              = ",",scientific=F,digits=1)
+  A$f1 <- format(A[1,12] ,big.mark              = ",",scientific=F,digits=1)
+  A$f2 <- format(A[2,12] ,big.mark              = ",",scientific=F,digits=1)
+  A$g1 <- format(A[1,13] ,big.mark              = ",",scientific=F,digits=1)
+  A$g2 <- format(A[2,13] ,big.mark              = ",",scientific=F,digits=1)
 	B$it <- A #format(A[1,2],  big.mark=",",scientific=F,digits=0)
 	B$npar <- M$fit$nopar
 	# String versions of these values
 	B$age3plus<-M$fit$est[M$fit$names=="age_3_plus_biom"][1:length(M$R[,1])]  
 	B$age3plus.sd<-M$fit$std[M$fit$names=="age_3_plus_biom"][1:length(M$R[,1])]  
 	B$age3plus.cv<- M$age3plus.sd/M$age3plus 
-	B$bmsy    <- M$fit$est[M$fit$names=="Bmsy"];       B$bmsys      <- format(B$bmsy,big.mark=",",scientific=F,digits=0)
-	B$bmsyr   <- M$fit$est[M$fit$names=="Bmsy2"];      B$bmsyrs      <- format(B$bmsyr,big.mark=",",scientific=F,digits=0)
+	B$bmsy    <- M$fit$est[M$fit$names=="Bmsy"];       B$bmsys      <- format(B$bmsy,big.mark=",",scientific=F,digits=1)
+	B$bmsyr   <- M$fit$est[M$fit$names=="Bmsy2"];      B$bmsyrs      <- format(B$bmsyr,big.mark=",",scientific=F,digits=1)
 	B$bmsy.sd <- M$fit$std[M$fit$names=="Bmsy"]; 
 	B$bmsy.cv <- B$bmsy.sd/B$bmsy 
 	B$sprmsy  <- M$fit$est[M$fit$names=="SPR_OFL"]; 
 	B$sprmsy.sd <- M$fit$std[M$fit$names=="SPR_OFL"]; 
 	B$sprmsy.cv <- B$sprmsy.sd/B$sprmsy 
 	B$steep   <- M$fit$est[M$fit$names=="steepness"];  
-	B$b0      <- M$fit$est[M$fit$names=="Bzero"];      B$b0s        <- format(B$b0,  big.mark=",",scientific=F,digits=0)
-	B$b100    <- M$fit$est[M$fit$names=="SB100"];      B$b100s      <- format(B$b100,big.mark=",",scientific=F,digits=0)
+	B$b0      <- M$fit$est[M$fit$names=="Bzero"];      B$b0s        <- format(B$b0,  big.mark=",",scientific=F,digits=1)
+	B$b100    <- M$fit$est[M$fit$names=="SB100"];      B$b100s      <- format(B$b100,big.mark=",",scientific=F,digits=1)
 	B$dynb0   <- M$fit$est[M$fit$names=="B_Bnofsh"];   B$dynb0s     <- format(B$dynb0,big.mark=",",scientific=F,digits=2)
-	B$repl_yld<- M$repl_yld;                           B$repl_ylds  <- format(round(B$repl_yld,-1),big.mark=",",scientific=F,digits=0)
-	B$curssb   <- M$SSB[length(M$SSB[,1]),2];          B$curssbs    <- format(round(B$curssb,-1),big.mark=",",scientific=F,digits=0)
-	B$curssb.sd<- M$SSB[length(M$SSB[,1]),3];          B$curssb.sds <- format(round(B$curssb.sd,-1),big.mark=",",scientific=F,digits=0)
+	B$repl_yld<- M$repl_yld;                           B$repl_ylds  <- format(round(B$repl_yld,-1),big.mark=",",scientific=F,digits=1)
+	B$curssb   <- M$SSB[length(M$SSB[,1]),2];          B$curssbs    <- format(round(B$curssb,-1),big.mark=",",scientific=F,digits=1)
+	B$curssb.sd<- M$SSB[length(M$SSB[,1]),3];          B$curssb.sds <- format(round(B$curssb.sd,-1),big.mark=",",scientific=F,digits=1)
 	B$curssb.cv <- B$curssb.sd/B$curssb
 	B$nextyrssb<- as.numeric(M$future_SSB[1,2]);      B$nextyrssbs <- format(round(B$nextyrssb,-2) ,big.mark=",",scientific=F)
 	B$nextyrssb.sd <- as.numeric(M$future_SSB.sd[1,2])
@@ -45,17 +45,17 @@ get_vars <- function(M){
 	B$yc2008 <- (M$R[M$R[,1]==2009,2]); B$yc2008s <- format(round(B$yc2008,-2),big.mark=",",scientific=F)
 	B$yc2012 <- (M$R[M$R[,1]==2013,2]); B$yc2012s <- format(round(B$yc2012,-2),big.mark=",",scientific=F)
 	B$yc2013 <- (M$R[M$R[,1]==2014,2]); B$yc2013s <- format(round(B$yc2013,-2),big.mark=",",scientific=F)
-	B$rmse_bts <- mean((log(M$ob_bts)-log(M$eb_bts))^2)^.5
-	B$rmse_ats <- mean((log(M$ob_ats)-log(M$eb_ats))^2)^.5
-	B$rmse_avo <- mean((log(M$obs_avo)-log(M$pred_avo))^2)^.5
-	B$rmse_cpue<- mean((log(M$obs_cpue)-log(M$pred_cpue))^2)^.5
+	B$rmse_bts <- -999 #mean((log(M$ob_bts)-log(M$eb_bts))^2)^.5
+	B$rmse_ats <- -999 #mean((log(M$ob_ats)-log(M$eb_ats))^2)^.5
+	B$rmse_avo <- -999 #mean((log(M$obs_avo)-log(M$pred_avo))^2)^.5
+	B$rmse_cpue<- -999 #mean((log(M$obs_cpue)-log(M$pred_cpue))^2)^.5
 	B$sdnr_bts <- M$sdnr_bts
 	B$sdnr_ats <- M$sdnr_ats
 	B$sdnr_avo <- M$sdnr_avo
 
 	B$msyr <- M$fit$est[M$fit$names=="Fmsy2"]
-	B$b40  <- .40*B$b100; B$b40s  <- format(B$b40,big.mark=",",scientific=F,digits=0)
-	B$b35  <- .35*B$b100; B$b35s  <- format(B$b35,big.mark=",",scientific=F,digits=0)
+	B$b40  <- .40*B$b100; B$b40s  <- format(B$b40,big.mark=",",scientific=F,digits=1)
+	B$b35  <- .35*B$b100; B$b35s  <- format(B$b35,big.mark=",",scientific=F,digits=1)
 
 	pdf     <- as.data.frame(M$T1)
 	names(pdf)   <- c("Year","ABC","OFL", "SSB","age3plus","CatchFut","harmeanF","arithmeanF","geomB","SPRABC","SPROFL","Tier2","Tier1.5","Fabc","Fofl","Adj","Fmsyr")
@@ -63,15 +63,15 @@ get_vars <- function(M){
 	B$harmeanF   <-  round(pdf$harmeanF[1],3)
 	B$maxFabc    <-  B$harmeanF
 	B$age3plus1  <-  pdf$age3plus[1]
-	B$age3plus1s <-  format(round(1e3*pdf$age3plus[1],-3),big.mark=",",scientific=F,digits=0)
+	B$age3plus1s <-  format(round(1e3*pdf$age3plus[1],-3),big.mark=",",scientific=F,digits=1)
 	B$age3plus2  <-  pdf$age3plus[2]
-	B$age3plus2s <-  format(round(1e3*pdf$age3plus[2],-3),big.mark=",",scientific=F,digits=0)
+	B$age3plus2s <-  format(round(1e3*pdf$age3plus[2],-3),big.mark=",",scientific=F,digits=1)
 	B$ssb1       <-  pdf$SSB[1]
 	B$ssb2       <-  pdf$SSB[2]
-	B$ssb1s      <-  format(round(1e3*pdf$SSB[1],-3),big.mark=",",scientific=F,digits=0)
-	B$ssb2s      <-  format(round(1e3*pdf$SSB[2],-3),big.mark=",",scientific=F,digits=0)
-	B$ABC_biom1  <-  pdf$geomB[1]; B$ABC_biom1s  <- format(round(B$ABC_biom1,0),big.mark=",",scientific=F,digits=0)
-	B$ABC_biom2  <-  pdf$geomB[2]; B$ABC_biom2s  <- format(round(B$ABC_biom2,0),big.mark=",",scientific=F,digits=0)
+	B$ssb1s      <-  format(round(1e3*pdf$SSB[1],-3),big.mark=",",scientific=F,digits=1)
+	B$ssb2s      <-  format(round(1e3*pdf$SSB[2],-3),big.mark=",",scientific=F,digits=1)
+	B$ABC_biom1  <-  pdf$geomB[1]; B$ABC_biom1s  <- format(round(B$ABC_biom1,0),big.mark=",",scientific=F,digits=1)
+	B$ABC_biom2  <-  pdf$geomB[2]; B$ABC_biom2s  <- format(round(B$ABC_biom2,0),big.mark=",",scientific=F,digits=1)
 	B$FABC1      <-  pdf$Fabc[1];  B$FABC1s      <- format(round(B$FABC1,3),big.mark=",",scientific=F,digits=3)
 	B$FABC2      <-  pdf$Fabc[2];  B$FABC2s      <- format(round(B$FABC2,3),big.mark=",",scientific=F,digits=3)
 	B$FOFL1      <-  pdf$Fofl[1];  B$FOFL1s      <- format(round(B$FOFL1,3),big.mark=",",scientific=F,digits=3)
@@ -84,32 +84,32 @@ get_vars <- function(M){
 	B$Tier1.5_ABC1 <-  pdf$Tier1.5[1]
 	B$Tier1.5_ABC2 <-  pdf$Tier1.5[2]
 
-	B$Tier2_ABC1s   <-  format(round(1e3*B$Tier2_ABC1,-3),big.mark=",",scientific=F,digits=0)
-	B$Tier2_ABC2s   <-  format(round(1e3*B$Tier2_ABC2,-3),big.mark=",",scientific=F,digits=0)
-	B$Tier1.5_ABC1s <-  format(round(1e3*B$Tier1.5_ABC1,-3),big.mark=",",scientific=F,digits=0)
-	B$Tier1.5_ABC2s <-  format(round(1e3*B$Tier1.5_ABC2,-3),big.mark=",",scientific=F,digits=0)
+	B$Tier2_ABC1s   <-  format(round(1e3*B$Tier2_ABC1,-3),big.mark=",",scientific=F,digits=1)
+	B$Tier2_ABC2s   <-  format(round(1e3*B$Tier2_ABC2,-3),big.mark=",",scientific=F,digits=1)
+	B$Tier1.5_ABC1s <-  format(round(1e3*B$Tier1.5_ABC1,-3),big.mark=",",scientific=F,digits=1)
+	B$Tier1.5_ABC2s <-  format(round(1e3*B$Tier1.5_ABC2,-3),big.mark=",",scientific=F,digits=1)
 
 	B$maxabc1    <-  pdf$ABC[1]
 	B$maxabc2    <-  pdf$ABC[2]
-	B$maxabc1s   <-  format(round(1e3*pdf$ABC[1],-3),big.mark=",",scientific=F,digits=0)
-	B$maxabc2s   <-  format(round(1e3*pdf$ABC[2],-3),big.mark=",",scientific=F,digits=0)
+	B$maxabc1s   <-  format(round(1e3*pdf$ABC[1],-3),big.mark=",",scientific=F,digits=1)
+	B$maxabc2s   <-  format(round(1e3*pdf$ABC[2],-3),big.mark=",",scientific=F,digits=1)
 	B$ofl1       <-  pdf$OFL[1]
 	B$ofl2       <-  pdf$OFL[2]
-	B$ofl1s      <-  format(round(1e3*pdf$OFL[1],-3),big.mark=",",scientific=F,digits=0)
-	B$ofl2s      <-  format(round(1e3*pdf$OFL[2],-3),big.mark=",",scientific=F,digits=0)
+	B$ofl1s      <-  format(round(1e3*pdf$OFL[1],-3),big.mark=",",scientific=F,digits=1)
+	B$ofl2s      <-  format(round(1e3*pdf$OFL[2],-3),big.mark=",",scientific=F,digits=1)
 	#B$bfs        <- read.csv("../doc/data/proj.csv",header=T)
 	B$bfs        <- read.table(proj_file,header=TRUE)
 	B$Tier3_ABC1 <- B$bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(ABC),0))
-	B$Tier3_ABC1s<- format(round(1e3*B$Tier3_ABC1,-3),big.mark=",",scientific=F,digits=0)
+	B$Tier3_ABC1s<- format(round(1e3*B$Tier3_ABC1,-3),big.mark=",",scientific=F,digits=1)
 	B$Tier3_OFL1 <- B$bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(OFL),0))
-	B$Tier3_OFL1s<- format(round(1e3*B$Tier3_OFL1,-3),big.mark=",",scientific=F,digits=0)
+	B$Tier3_OFL1s<- format(round(1e3*B$Tier3_OFL1,-3),big.mark=",",scientific=F,digits=1)
 	B$Tier3_SSB1 <- B$bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(SSB),0))
 	B$Tier3_fabc1<- B$Tier3_ABC1 / B$ABC_biom1
 	B$Tier3_fofl1<- B$Tier3_OFL1 / B$ABC_biom1
 	B$Tier3_ABC2 <- B$bfs %>% filter(Alt==2,Yr==1+nextyr) %>% summarize(round(mean(ABC),0))
-	B$Tier3_ABC2s<- format(round(1e3*B$Tier3_ABC2,-3),big.mark=",",scientific=F,digits=0)
+	B$Tier3_ABC2s<- format(round(1e3*B$Tier3_ABC2,-3),big.mark=",",scientific=F,digits=1)
 	B$Tier3_OFL2 <- B$bfs %>% filter(Alt==2,Yr==1+nextyr) %>% summarize(round(mean(OFL),0))
-	B$Tier3_OFL2s<- format(round(1e3*B$Tier3_OFL2,-3),big.mark=",",scientific=F,digits=0)
+	B$Tier3_OFL2s<- format(round(1e3*B$Tier3_OFL2,-3),big.mark=",",scientific=F,digits=1)
 	B$Tier3_SSB2 <- B$bfs %>% filter(Alt==2,Yr==1+nextyr) %>% summarize(round(mean(SSB),0))
 	B$Tier3_fabc2<- B$Tier3_ABC2 /B$ABC_biom2
 	B$Tier3_fofl2<- B$Tier3_OFL2 /B$ABC_biom2
@@ -130,11 +130,11 @@ get_vars <- function(M){
 	B$abc1       <- (B$Tier2_ABC1)
 	B$abc2       <- (B$Tier2_ABC2)
 
-	B$abc1constFs<- format(round(1e3*B$abc1constF,-3),big.mark=",",scientific=F,digits=0)
-	B$abc2constFs<- format(round(1e3*B$abc2constF,-3),big.mark=",",scientific=F,digits=0)
+	B$abc1constFs<- format(round(1e3*B$abc1constF,-3),big.mark=",",scientific=F,digits=1)
+	B$abc2constFs<- format(round(1e3*B$abc2constF,-3),big.mark=",",scientific=F,digits=1)
 
-	B$abc1s      <- format(round(1e3*B$abc1,-3),big.mark=",",scientific=F,digits=0)
-	B$abc2s      <- format(round(1e3*B$abc2,-3),big.mark=",",scientific=F,digits=0)
+	B$abc1s      <- format(round(1e3*B$abc1,-3),big.mark=",",scientific=F,digits=1)
+	B$abc2s      <- format(round(1e3*B$abc2,-3),big.mark=",",scientific=F,digits=1)
 	B$fabc1      <- round(B$Tier2_ABC1 /B$ABC_biom1,3)
 	B$fabc2      <- round(B$Tier2_ABC2 /B$ABC_biom2,3)
 	B$fabc1s     <- B$Tier2_ABC1 /B$ABC_biom1

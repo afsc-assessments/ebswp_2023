@@ -75,8 +75,11 @@ ggsave("figs/catch.pdf",plot=p1,width=7.5,height=4.5,units="in")
   #p1 <- plot_ssb(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
   #p1 <- plot_bts(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
   #p1 <- plot_Nage_3(modlst[c(1,2)],xlim=c(2000.5,2023.5));p1
-  p1 <- plot_recruitment(modlst[c(2:4)],xlim=c(2000.5,2021.5));p1
-  p2 <- plot_ssb(modlst[c(2:4)],xlim=c(2008.5,2021.5),breaks=seq(2008,2021,by=2),alpha=.2); p2
+  p1 <- plot_recruitment(modlst[c(1,2,5,7)],xlim=c(2000.5,2021.5));p1
+  p2 <- plot_ssb(modlst[c(1:7)],xlim=c(2008.5,2021.5),breaks=seq(2008,2021,by=2),alpha=.2); p2
+  p2 <- plot_ssb(modlst[c(1,4)],xlim=c(2008.5,2021.5),breaks=seq(2008,2021,by=2),alpha=.2); p2
+  p2 <- plot_ssb(modlst[c(1,5)],xlim=c(2008.5,2021.5),breaks=seq(2008,2021,by=2),alpha=.2); p2
+  p2 <- plot_ssb(modlst[c(3,7)],xlim=c(2008.5,2021.5),breaks=seq(2008,2021,by=2),alpha=.2); p2
   # Comparing base with 2 vast configurations
   p3 <- p1/p2; p3
   ggsave("figs/mod_21_agecomp.pdf",plot=p3,width=8,height=5.0,units="in")

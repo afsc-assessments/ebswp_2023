@@ -2,9 +2,9 @@
 # Figures
 
 ```{r fshfigs}
-printfig("PCA_genetics.png",85)
-printfig("catch.pdf",1)
-printfig("fsh_psc_cpue.png",67)
+ printfig("PCA_genetics.png",85)
+ printfig("catch.pdf",1)
+ printfig("fsh_psc_cpue.png",67)
  printfig("catch_sex.pdf",2)
  printfig("catch_distn_a.png",3)
  printfig("fsh_cpue.pdf",4)

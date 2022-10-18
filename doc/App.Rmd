@@ -14,66 +14,83 @@ individual features (see references section below). What follows is intended
 as a step by step documentation of applying the model to these data.
 
 The software versions of dependent programs used to generate VAST estimates were:   
+  - Microsoft R Open (4.0.2)
+  - INLA (21.11.22)
+  - TMB (1.9.0)
+  - TMBhelper (1.4.0) 
+  - VAST (3.9.0)
+  - FishStatsUtils (2.11.0) 
 
-  - Microsoft Open R (4.0.2)    
-  - INLA (21.2.23)    
-  - TMB (1.7.20)    
-  - TMBhelper (1.3.0)    
-  - VAST (3.6.1)    
-  - FishStatsUtils (2.8.0)    
-    
 For the model-based index time series, we used the same VAST model run (and associated results)
 as the 2019 SAFE. We include additional details regarding model settings here, as requested
 during the December 2019 SSC meeting.
 
 ## Spatio-temporal treatment of survey data on pollock density
 
-We fitted records of biomass per unit area from all grid cells and corner stations in the 83-112 
-bottom trawl survey of the EBS, 1982-2019, and 2021, as well as 83-112 samples available in the NBS in 
-1985, 1988, 1991, 1994, 2001, 2005, 2006, 2010, 2017-2019, and 2021. 
-NBS samples prior to 2010 did not follow the 30 
-nautical mile sampling grid that was used in 2010, 2017, 2019 and 2021, and the 2018 sampling followed 
-a coarsened grid as well. Assimilating these data therefore required extrapolating into unsampled areas.
-This extrapolation was assisted by including a spatially varying response to cold-pool extent (Thorson, 2019). 
-This spatially varying response was estimated for both linear predictors of the delta-model, and detailed 
-comparison of results for EBS pollock has showed that it has a small but notable effect (O’Leary et al., 2020). 
-For example, the NBS was not sampled between 2010 and 2017, and the cold-pool extent started to decrease 
-substantially around 2014; therefore, including this covariate results in estimates that depart somewhat 
-from a “Brownian bridge” between 2010 and 2017, and instead suggests that densities in the NBS increased 
-progressively after 2014 when cold-pool-extent declined prior to 2017. 
+For model-based indices in the Bering Sea, we fitted observations of numerical abundance or biomass
+per unit area (where the use of abundance or biomass varied by stock at the request of assessors)
+from all grid cells and corner stations in the 83-112 bottom trawl survey of the EBS, 1982-2022,
+including exploratory northern extension samples in 2001, 2005, and 2006, as well as 83-112 samples
+available in the NBS in 1982, 1985, 1988, 1991, 2010, and 2017-2021. NBS samples collected prior to
+2010 and in 2018 did not follow the 20 nautical mile sampling grid that was used in 2010, 2017,
+2019, 2021 and 2022 surveys. Assimilating these data therefore required extrapolating into
+unsampled areas. This extrapolation was facilitated by including a spatially varying response to
+cold-pool extent (Thorson 2019). This spatially varying response was estimated for both linear
+predictors of the delta-model, and detailed comparison of results for EBS pollock has shown that it
+has a small but notable effect on these indices and resulting stock assessment outputs (O’Leary et
+al. 2020). For example, the NBS was not sampled between 2010 and 2017, and the cold-pool extent
+started to decrease substantially around 2014; therefore including this covariate results in
+estimates that depart somewhat from a “Brownian bridge” between 2010 and 2017, and instead
+indicates that population densities of walleye pollock in the NBS increased progressively after
+2014 when cold-pool-extent declined prior to 2017. Rather than using the cold-pool covariate for
+yellowfin sole, we instead used the mean bottom temperature within the outer and middle domain
+strata from an interpolated temperature product. All environmental data used as covariates were
+computed within the R package coldpool (https://github.com/afsc-gap-products/coldpool; Rohan et
+al., in review). 
 
-Specifically, we used a Poisson-link delta-model (Thorson, 2018) involving two linear predictors, 
-and a gamma distribution for the distribution of positive catch rates. We extrapolated density to 
-the entire EBS and NBS in each year, using extrapolation-grids that are available within _FishStatsUtils_ 
-are used when integrating densities. These extrapolation-grids are defined using 3705 m 
-(2 nmi) X 3705 m (2 nmi) cells;  this results in 36,690 extrapolation-grid cells for the 
-eastern Bering Sea and 15,079 in the northern Bering Sea.  We used bilinear interpolation 
-to interpolate densities from 750 “knots” to these extrapolation-grid cells; knots were 
-distributed spatially in proportion to the distribution of extrapolation-grid cells (i.e., 
-having an approximately even distribution across space).  We estimated “geometric anisotropy” 
-(the tendency for correlations to decline faster in some cardinal directions than others), and 
-including a spatial and spatio-temporal term for both linear predictors.  To improve interpolation 
-of density “hotspots” between unsampled years, we specified that the spatio-temporal term was 
-autocorrelated across years (where the magnitude of autocorrelation was estimated as a fixed 
-effect for each linear predictor).  However, we did not include any temporal correlation for 
-intercepts, which we treated as fixed effects for each linear predictor and year.  Finally, 
-we used epsilon bias-correction to correct for retransformation bias (Thorson and Kristensen, 2016).  
+We used a Poisson-link delta-model (Thorson 2018) involving two linear predictors, and a gamma
+distribution to model positive catch rates. We extrapolated population density to the entire EBS
+and NBS in each year, using extrapolation grids that are available within FishStatsUtils, which we
+note were updated since 2021 assessment cycle based on new shapefiles developed by J. Conner
+(https://github.com/James-Thorson-NOAA/FishStatsUtils). These extrapolation grids are defined using
+3705 m (2 nmi) × 3705 m (2 nmi) cells; this results in 36,690 extrapolation-grid cells for the
+eastern Bering Sea and 15,079 in the northern Bering Sea. We used bilinear interpolation to
+interpolate densities from 750 “knots” to these extrapolation grid cells; knots were approximately
+evenly distributed over space, in proportion to the dimensions of the extrapolation grid. We
+estimated geometric anisotropy (how spatial autocorrelation declines with differing rates over
+distance in some cardinal directions than others), and included a spatial and spatio-temporal term
+for both linear predictors. To facilitate interpolation of density between unsampled years, we
+specified that the spatio-temporal fields were structured over time as an AR(1) process (where the
+magnitude of autocorrelation was estimated as a fixed effect for each linear predictor). However,
+we did not include any temporal correlation for intercepts, which we treated as fixed effects for
+each linear predictor and year. Finally, we used epsilon bias-correction to correct for
+retransformation bias (Thorson and Kristensen 2016). 
 
-We checked model fits for evidence of non-convergence by confirming that (1) the derivative of the marginal 
-likelihood with respect to each fixed effect was sufficiently small and (2) that the Hessian matrix 
-was positive definite.  We then checked for evidence of model fit by computing Dunn-Smyth randomized 
-quantile residuals (Dunn and Smyth 1996) and visualizing these using a quantile-quantile plot within the DHARMa R package.  
-We also evaluated the distribution of these residuals over space in each year, and inspected them for evidence of residual 
-spatio-temporal patterns.  
-
+We checked model fits for evidence of non-convergence by confirming that (1) the derivative of the
+marginal likelihood with respect to each fixed effect was sufficiently small and (2) that the
+Hessian matrix was positive definite.  We then checked for evidence of model fit by computing
+Dunn-Smyth randomized quantile residuals (Dunn and Smyth 1996) and visualizing these using a
+quantile-quantile plot within the DHARMa R package.  We also evaluated the distribution of these
+residuals over space in each year, and inspected them for evidence of residual spatio-temporal
+patterns.  
 
 ## Spatio-temporal treatment of survey age composition data
-To date, assessments using spatio-temporal indices have kept age-composition data unchanged 
-(i.e., the estimates were based on the original design-based approach). In 2019 we developed a spatio-temporal 
-approach to obtain age composition estimates (O'leary et al. 2020).  The comparison with design-based age 
-composition estimates was similar to the model-based estimates. For this year, we began to expand this
-work to cover the NBS but the age data for this region are incomplete. Consequently we used the design-based 
-estimates as in prior years (including staton-specific density-dependent corrections).
+
+For model-based estimation of age
+   compositions in the Bering Sea, we fitted observations of numerical abundance-at-age at each
+   sampling location. This was made possible by applying a year-specific, region-specific (EBS and
+   NBS) age-length key to records of numerical abundance and length-composition. We computed these
+   estimates in VAST, assuming a Poisson-link delta-model (Thorson 2018) involving two linear
+   predictors, and a gamma distribution to model positive catch rates. We did not include any
+   density covariates in estimation of age composition for consistency with models used in the
+   previous assessment, and due to computational limitations. We used the same extrapolation grid
+   as implemented for abundance indices, but here we modeled spatial and spatiotemporal fields with
+   a mesh with coarser spatial resolution than the index model, here using 50 “knots”. This
+   reduction in the spatial resolution of the model, relative to that used abundance indices, was
+   necessary due to the increased computational load of fitting multiple age categories and using
+   epsilon bias-correction. We implemented the same diagnostics to check convergence and model fit
+   as those used for abundance indices.  
+
 
 
 <!--  
@@ -173,11 +190,16 @@ in 2022.
 
 ## Additional references
 
+
+References
+
 Dunn, K.P., and Smyth, G.K. 1996. Randomized quantile residuals. Journal of Computational and Graphical Statistics 5, 1-10.
 
 Hartig, F. 2021. DHARMa: Residual Diagnostics for Hierarchical (Multi-Level / Mixed) Regression Models. R package version 0.4.0. http://florianhartig.github.io/DHARMa/
 
 O’Leary, C.A., Thorson, J.T., Ianelli, J.N. and Kotwicki, S., 2020. Adapting to climate‐driven distribution shifts using model‐based indices and age composition from multiple surveys in the walleye pollock (Gadus chalcogrammus) stock assessment. Fisheries Oceanography, 29(6), pp.541-557.
+
+Rohan, SK, Barnett, LAK & N Charriere. Evaluating approaches to estimating mean temperatures and cold pool area from AFSC bottom trawl surveys of the eastern Bering Sea. In review. NOAA Technical Memorandum.
 
 Thorson, J.T., 2019. Measuring the impact of oceanographic indices on species distribution shifts: The spatially varying effect of cold‐pool extent in the eastern Bering Sea. Limnology and Oceanography, 64(6), pp.2632-2645.
 

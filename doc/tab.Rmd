@@ -875,7 +875,7 @@ for (ii in mod_scen) {
     msybiom        <- paste0(x$bmsyrs,",000");         names(msybiom)    <- paste0("Equilibrium fishable biomass at MSY")
     msyr           <- round(x$harmeanF,3);  names(msyr) <- ("MSY R (HM)")
     tier1abc       <- x$maxabc1s;  names(tier1abc) <- paste(nextyr,"Tier 1 ABC")
-    fofl           <- x$arithmeanF;         names(fofl)     <- paste(nextyr,"Tier 1 $F_{OFL}$")
+    fofl           <- x$arithmeanF;         names(fofl)     <- paste(nextyr,"Tier 1 $F_{OFL}$ unadjusted")
     ofl            <- x$ofl1s;         names(ofl) <- paste(nextyr,"Tier 1 OFL")
     recabc         <- x$abc1s;  names(recabc)  <- "Recommended ABC"
     v              <- c(abcbiom,msybiom,msyr,tier1abc,fofl,ofl,recabc)

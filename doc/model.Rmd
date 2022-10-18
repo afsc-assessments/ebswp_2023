@@ -403,8 +403,8 @@ requirement of the Tier 1 categorization.
 Subsequently, this method was refined to account for current-year survey data and both 
 cohort and year effects.  The model for this is:
 \begin{align}
-\hat{w}_{ta} &= \bar w_a e^\upsilon_t & a=1, \, t \ge 1964 \\
-\hat{w}_{ta} &= \hat{w}_{t-1,a-1} + \Delta_a e^\psi_t & a > 1, \, t > 1964 \\
+\hat{w}_{ta} &= \bar w_a e^{\upsilon_t} & a=1, \, t \ge 1964 \\
+\hat{w}_{ta} &= \hat{w}_{t-1,a-1} + \Delta_a e^{\psi_t} & a > 1, \, t > 1964 \\
 \Delta_a     &= \bar w_{a+1} - \bar w_a & a<A  \\
 \bar w_a     &= \alpha \left\{L_1+ \left(L_2-L_1\right)\left(\frac{1-K^{a-1}}{1-K^{A-1}}\right)\right\}^3  \\
 \end{align}
