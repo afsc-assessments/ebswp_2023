@@ -1,2 +1,109 @@
 \clearpage
 # Figures
+
+```{r fshfigs}
+ printfig("PCA_genetics.png",85)
+ printfig("catch.pdf",1)
+ printfig("fsh_psc_cpue.png",67)
+ printfig("catch_sex.pdf",2)
+ printfig("catch_distn_a.png",3)
+ printfig("fsh_cpue.pdf",4)
+ printfig("catchp.png",5)
+ printfig("roe.pdf",8)
+ printfig("catch_distn_b.png",6)
+ #printfig("cpue_bseason.png",7)
+ printfig("fleet_dispersal.png",9)
+ printfig("fsh_wt_freq.png",72)
+ printfig("fsh_wt_freq_week.png",73)
+ printfig("fsh_lenfreq.pdf",82)
+
+ printfig("catage.png",10)
+ printfig("fsh_cohort_locales.pdf",84)
+
+``` 
+
+\clearpage
+
+```{r  survfigs}
+ i <- 11
+ printfig("bts_biom.png",i);i <- i + 1
+ printfig("bts_temp.pdf",i);i <- i + 1
+ printfig("bts_temp_cpue.pdf",i);i <- i + 1
+ printfig("bts_3d.png",i);i <- i + 1
+ printfig("bts_age_comp.png",i);i <- i + 1
+ printfig("bts_lenfreq.pdf",83);
+ printfig("at_age.png",74);
+ 
+ printfig("avo_map_yr.pdf",16);
+
+ #printfig("at_timing.png",74); 
+ #printfig("at_pollock_in_sa.png",75); 
+ #printfig("at_sa_biom.png",76); 
+ #printfig("at_sa_biom_regress.png",77); 
+ #printfig("at_usv_biom.png",78); 
+ #printfig("at_transect_spacing.png",66)
+ #printfig("at_biom.png",79); 
+ #printfig("at_sa_map.png",80); 
+ #printfig("at_sa_prop.png",81); 
+
+ #printfig("sa_v_biom.png",i); i <- i + 1
+ #printfig("ats_usv.jpg",18)
+ # printfig("at_sa_density.pdf",62)
+ #printfig("vast_idx.pdf",57)
+ #17 figs...
+```
+
+```{r finfigs}
+ printfig("fsh_lw_month.png",23)
+ printfig("fsh_lw_anom_str_yr_box.pdf",24)
+ printfig("fsh_lw_anom_yr_box.pdf",25)
+ printfig("fsh_wtage_comb.pdf",20)
+ printfig("fish_wtage_data_pred.pdf",88)
+ printfig("fsh_wtage_strata.pdf",21)
+ printfig("fsh_wtage_strata_yr.pdf",22)
+ 
+ printfig("mod_data.pdf",30)
+ printfig("mod_21_agecomp.pdf",91)
+ 
+ #21printfig("mod_cpue_fit.pdf",38)
+ #21printfig("mod_avo_fit.pdf",39)
+ #21printfig("mod_bts_biom.pdf",33)
+ #21printfig("mod_ats_biom.pdf",34)
+ #21printfig("mod_mean_age.pdf",35)
+ #21printfig("mod_fsh_sel.pdf",36)
+ #21printfig("mod_fsh_age.pdf",37)
+ #21printfig("mod_bts_sel.pdf",40)
+ #21printfig("mod_bts_age.pdf",41)
+ #21printfig("mod_ats_age.pdf",43)
+ #21printfig("mcmc_pairs.pdf",55)
+ #21printfig("mcmc_marg.pdf",56)
+ #21printfig("mcmc_marg_fmsy.pdf",87)
+ #21printfig("acoustic_ppl.png",93)
+
+ printfig("mod_retro.pdf",52)
+ printfig("retro_sel.pdf",89)
+ printfig("retro_sel_mnage.pdf",90)
+ printfig("fmsy_sel",92)
+
+ printfig("mod_ser.pdf",44)
+ printfig("mod_F.pdf",45)
+ printfig("mod_hist.pdf",46)
+ #printfig("N_comp.png",59)
+ #printfig("cum_N_wt.png",60)
+ printfig("mod_phase.pdf",47)
+ printfig("proj_ssb.pdf",65)
+ printfig("mod_rec.pdf",48)
+ printfig("mod_srr.pdf",49)
+ printfig("mod_rs.pdf",50)
+ printfig("mod_regimes.pdf",86)
+
+
+ printfig("tier3_proj.pdf",53)
+ printfig("age_diversity.pdf",51)
+ #printfig("sa_density.pdf",61)
+ #printfig("sel_comp_vast.pdf",61)
+ #printfig("poll_cod_rec.png",62)
+```
+
+\clearpage
+

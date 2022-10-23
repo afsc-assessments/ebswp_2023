@@ -5,6 +5,8 @@ output:
   bookdown::pdf_document2:
     highlight: zenburn
     latex_engine: xelatex
+    includes:
+      in_header: "preamble.tex"
     fig_caption: yes
     number_sections: false
     toc: false
@@ -52,6 +54,7 @@ clean_cache(clean = TRUE)
 ```{r child = 'text.Rmd'}
 ```
 
+
 ```{r child = 'ref.Rmd'}
 ```
 
@@ -59,10 +62,12 @@ clean_cache(clean = TRUE)
 
 ```{r child = 'tab.Rmd'}
 ```
+\pagebreak
 
 ```{r child = 'figs.Rmd'}
 ```
 
+\pagebreak
 ```{r child = 'model.Rmd'}
 ```
 
@@ -70,13 +75,3 @@ clean_cache(clean = TRUE)
 
 ```{r child = 'App.Rmd'}
 ```
-
-\pagebreak
-
-# List of contents, tables and figures
-
-\tableofcontents
-
-\listoftables
-
-\listoffigures
