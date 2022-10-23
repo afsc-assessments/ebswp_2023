@@ -1,3 +1,5 @@
+
+od <- getwd()
 setwd("~/_mymods/ebswp/doc")
 rm(list=ls())
 #install.packages("ggridges")
@@ -70,11 +72,14 @@ printfig <<- function(tmp,i){ cat(paste0("\n![",figcap[fnum==i],"\\label{fig:",f
 
 tc  <- (read_csv("../doc/data/table_captions.csv"))
 tabcap <- tc$cap; tablab <- tc$label
-# tap <- data_frame(t=c(1,2),c=c(1,2))
 printtab <<- function(tmp,i){tab <- xtable(tmp, digits=0, auto=TRUE,caption = tabcap[i], label = paste0("tab:",tablab[i])); print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}) } 
 reftab <<- function(i){ cat(paste0("tab:",tablab[i])) }  
+
+# tap <- data_frame(t=c(1,2),c=c(1,2))
 #print(tablab)
 
 #source("../R/Do_Plots.R")
 #source("../R/Do_MCMC.R")
 #source("../R/Do_Proj.R")
+
+setwd(od)

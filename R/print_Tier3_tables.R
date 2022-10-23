@@ -2,20 +2,21 @@ print_Tier3_tables <- function(mod_number,run=FALSE) {
   .projdir <- paste0(.MODELDIR[mod_number],"proj/")
   if (run) system(paste0("cd ",.projdir,"; main "))
 
-  bf <- data.frame(read.table(paste0(.projdir,"bigfile.out"),header=TRUE,as.is=TRUE))
+  bf <- data.frame(read_csv(paste0(.projdir,"spm_detail.csv")))
+ # ,header=TRUE,as.is=TRUE))
   # Stock Alt Sim Yr  SSB Rec Tot_biom SPR_Implied F Ntot Catch ABC OFL AvgAge AvgAgeTot SexRatio FABC FOFL
-  bfsum <- bf %>% select(Alt,Yr,SSB,F,ABC ,Catch) %>% group_by(Alt,Yr) %>% summarise(Catch=mean(Catch),SSB=mean(SSB),F=mean(F),ABC=mean(ABC))
+  bfsum <- bf %>% select(Alternative,Yr,SSB,F,ABC ,Catch) %>% group_by(Alternative,Yr) %>% summarise(Catch=mean(Catch),SSB=mean(SSB),F=mean(F),ABC=mean(ABC))
 
-  tC <- bfsum %>% select(Alt,Yr,Catch) %>% spread(Alt,Catch) 
+  tC <- bfsum %>% select(Alternative,Yr,Catch) %>% spread(Alternative,Catch) 
   names(tC) <- c("Catch","Scenario 1","Scenario 2","Scenario 3","Scenario 4","Scenario 5","Scenario 6","Scenario 7")
 
-  tB <- bfsum %>% select(Alt,Yr,SSB) %>% spread(Alt,SSB) 
+  tB <- bfsum %>% select(Alternative,Yr,SSB) %>% spread(Alternative,SSB) 
   names(tB) <- c("SSB","Scenario 1","Scenario 2","Scenario 3","Scenario 4","Scenario 5","Scenario 6","Scenario 7")
 
-  tF <- bfsum %>% select(Alt,Yr,F) %>% spread(Alt,F) 
+  tF <- bfsum %>% select(Alternative,Yr,F) %>% spread(Alternative,F) 
   names(tF) <- c("F","Scenario 1","Scenario 2","Scenario 3","Scenario 4","Scenario 5","Scenario 6","Scenario 7")
   
-  tA <- bfsum %>% select(Alt,Yr,ABC) %>% spread(Alt,ABC) 
+  tA <- bfsum %>% select(Alternative,Yr,ABC) %>% spread(Alternative,ABC) 
   names(tA) <- c("ABC","Scenario 1","Scenario 2","Scenario 3","Scenario 4","Scenario 5","Scenario 6","Scenario 7")
 
   tab <- (data.frame(tC))

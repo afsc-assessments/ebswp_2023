@@ -5,7 +5,12 @@ install.packages("GGally")
 library(MBESS)
 library(GGally)
 #c1 <- as.matrix(read.table("dat/cov_biom.dat",header=F,as.is=T))
-c1 <- as.matrix(read.table("stan_cov_21.dat",header=F,as.is=T))
+#c1 <- as.matrix(read.table("cov22_orig.dat",header=F,as.is=T))
+#c1 <- as.matrix(read.csv("stan_cov_matrix_2022_db.csv",header=F,as.is=T))
+#c1 <- as.matrix(read.table("stan22.dat",header=F,as.is=T))
+c1 <- as.matrix(read.table("stan_2022_cov.dat",header=F,as.is=T))
+#c1 <- as.matrix(read.table("stan_cov_21.dat",header=F,as.is=T))
+#c1 <- as.matrix(read.table("stan_cov_21.dat",header=F,as.is=T))
 #c1 <- as.matrix(read.csv("varcov.csv",header=F,as.is=T))
 #c1 <- as.matrix(read.table("dat/cov_biom.dat",header=F,as.is=T))
 #c1 <- as.matrix(read.table("dat/rescaled_cov_2018.dat",header=F,as.is=T))
@@ -16,13 +21,17 @@ c1 <- as.matrix(read.table("stan_cov_21.dat",header=F,as.is=T))
 #c1 <- as.matrix(read.table("cov_biom19.dat",header=F,as.is=T))
 c1
 d1 <- sqrt(diag(c1))
-d2 <- as.vector(d1/1000)
+#d2 <- as.vector(d1/1e6) #kg
+d2 <- as.vector(d1/1e3)
+#d2 <- as.vector(d1)
 c2 <- cov2cor(c1)
 c3 <- sweep(sweep(c2, 1L, d2, "*"), 2L, d2, "*")
 all.equal(c3,c1)
 ?write.table
+q
+c3[1:4,1:4 ]
 
-write.table(c3,file="rescaled_cov_2021.dat",row.names=F,col.names=F)
+write.table(c3,file="cov_2022.dat",row.names=F,col.names=F)
 ##########################
 
  set up a model with recruitment set to 1, to generate yield per recruit and spawning biomass per recruit (spr).  That just uses selectivity, 

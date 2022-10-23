@@ -765,7 +765,7 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 ```{r mgt_quants, results = "asis"}
 # Mgt quants by model
 df <- NULL
-mod_scen <- 1:nmods
+mod_scen <- c(1,4,5,7)
 for (ii in mod_scen) {
     x      <- modlst[[ii]]
     ssb    <- x$nextyrssbs;         names(ssb)    <- paste0("${B}_{", nextyr ,"}$")
@@ -784,7 +784,7 @@ for (ii in mod_scen) {
 }
 df <- data.frame(rownames(df), df, row.names = NULL)
 names(df) <- c("Component",mod_names[mod_scen])
-tab <- xtable(df, caption = tabcap[27], label = "tab:mgt_quants", digits = 3,align="llrrrr")
+tab <- xtable(df, caption = tabcap[27], label = "tab:mgt_quants", digits = 3,align=paste0("ll",strrep("r",length(mod_scen))))
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
 ```
 

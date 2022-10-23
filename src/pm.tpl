@@ -73,18 +73,18 @@ DATA_SECTION
   init_number age1_sigma_ats   // Input sigma for EIT age 1 data
   int mina_ats 
   int mina_bts
- LOCAL_CALCS
-  mina_bts=2;
-  if (use_age1_ats ) mina_ats =2; else mina_ats =1;
-  write_log(DoCovBTS);
-  write_log(SrType);
-  write_log(Do_Combined);
-  write_log(use_age_err);
-  write_log(use_age1_ats );
-  write_log(age1_sigma_ats );
-  write_log(mina_ats );
-  cout<<" Minimum age for EIT is: "<<mina_ats <<endl;// exit(1);
- END_CALCS
+  LOCAL_CALCS
+   mina_bts=2;
+   if (use_age1_ats ) mina_ats =2; else mina_ats =1;
+   write_log(DoCovBTS);
+   write_log(SrType);
+   write_log(Do_Combined);
+   write_log(use_age_err);
+   write_log(use_age1_ats );
+   write_log(age1_sigma_ats );
+   write_log(mina_ats );
+   cout<<" Minimum age for EIT is: "<<mina_ats <<endl;// exit(1);
+  END_CALCS
   init_int use_endyr_len   // Flag (2008 assmnt) added to use fishery length frequency in terminal year
   init_int use_popwts_ssb  // Flag (2007 assmnt) to switch spawning wt-age
   init_number natmortprior
@@ -5431,7 +5431,7 @@ FUNCTION write_R
     }
     F40_out.close();
    ofstream SelGrid("selgrid.rep");
-    SelGrid << "KE_Year MSY Bmsy avgAgeMSY avgWtMSY F40 Fmsy FmsySPR"<<endl;
+    SelGrid << "KE_Year MSY Bmsy avgAgeMSY avgWtMSY F40 Fmsy FmsySPR implied_SPR"<<endl;
    for (i=1;i<=5;i++)
    {
      sel_fut = 0.0;

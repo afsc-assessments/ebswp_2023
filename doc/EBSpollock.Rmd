@@ -8,14 +8,11 @@ output:
     fig_caption: yes
     number_sections: false
     toc: false
-    includes:
-      in_header: "preamble.tex"
     keep_tex: yes
 fontsize: 11pt
 header-includes:
 geometry: margin=1in
 ---
-  
 \pagenumbering{gobble}
 
 ```{r global_options, include=FALSE}
@@ -23,7 +20,7 @@ geometry: margin=1in
 do_data_plots <<- FALSE
 domcmc        <<- FALSE
 doproj        <<- FALSE
-source("../pm_21.R")
+source("../pm_22.R")
 library(knitr)
 opts_chunk$set(fig.width = 6, fig.height = 8, echo = FALSE, warning = FALSE, message = FALSE, cache=FALSE,results="asis",knitr.duplicate.label = "allow")
 clean_cache(clean = TRUE)
@@ -39,7 +36,7 @@ clean_cache(clean = TRUE)
 
 ```{=tex}
 \begin{centering}
-  James Ianelli, Ben Fissel, Sarah Stienessen, Taina Honkalehto, \\
+  James Ianelli, Sarah Stienessen, Taina Honkalehto, \\
   Elizabeth Siddon, and Caitlin Allen-Akselrud \\
 ----
     \\

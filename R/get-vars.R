@@ -98,7 +98,7 @@ get_vars <- function(M){
 	B$ofl1s      <-  format(round(1e3*pdf$OFL[1],-3),big.mark=",",scientific=F,digits=1)
 	B$ofl2s      <-  format(round(1e3*pdf$OFL[2],-3),big.mark=",",scientific=F,digits=1)
 	#B$bfs        <- read.csv("../doc/data/proj.csv",header=T)
-	B$bfs        <- read.table(proj_file,header=TRUE)
+	B$bfs        <- read_csv(proj_file) |> mutate(Alt=Alternative)
 	B$Tier3_ABC1 <- B$bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(ABC),0))
 	B$Tier3_ABC1s<- format(round(1e3*B$Tier3_ABC1,-3),big.mark=",",scientific=F,digits=1)
 	B$Tier3_OFL1 <- B$bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(OFL),0))

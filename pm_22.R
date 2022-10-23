@@ -4,9 +4,9 @@ rm(list=ls())
 source("../R/prelims.R")
 library(doParallel)
 library(patchwork)
-thisyr    = 2021
-lastyr    = thisyr-1
-nextyr    = thisyr+1
+thisyr    <<- 2022
+lastyr    <<- thisyr-1
+nextyr    <<- thisyr+1
 
 # The model specs
 .THEME    = theme_few(base_size = 11, base_family = "")
@@ -21,10 +21,18 @@ nextyr    = thisyr+1
 #.MODELDIR = c( "../runs/2020/","../runs/last_year/","../runs/2020Lavo/")
 #.MODELDIR = c( "../runs/2020/","../runs/last_year/","../runs/sr1/")
 #mod_names <- c("16.2","16.2 last year","20.0 USV","20.1 USVast","20.0a base")
-mod_names <- c("Last year","20.0a","20.0b","20.0c",)
-mod_names <- c("Last year","fitavo")
+mod_names <- c("Last year","02","03","04","05","06","07")
+#mod_names <- c("Last year","fitavo")
 #.MODELDIR <- c( "../runs/2020base/","../runs/base/","../runs/l21/","../runs/c21/")
-.MODELDIR <- c( "../runs/l21/","../runs/fitavo/")
+#.MODELDIR <- c( "../runs/l21/","../runs/fitavo/")
+.MODELDIR <- c( 
+  "../runs/01/",
+  "../runs/02/",
+  "../runs/03/",
+  "../runs/04/",
+  "../runs/05/",
+  "../runs/06/",
+  "../runs/07/")
 
 #mod_names <- c("base","diagonal Covar")
 #mod_names <- c("base","With CE","CEATTLE_M","CEATTLE_M_CE","Copepod index")
@@ -39,13 +47,15 @@ system.time( modlst <- mclapply(fn, read_admb,mc.cores=nmods) )
 #modlst[[2]] <- read_admb(fn[1])
 names(modlst) <- mod_names
 # The model picked
-thismod <- 1 # the selected model
+thismod <- 7 # the selected model
 #add_stuff<-function(idx){ proj_file<- paste0(.MODELDIR[idx],"proj/bigfile.out") #modlst[[idx]] <- c(modlst[[idx]],get_vars(modlst[[idx]])) return( c(modlst[[i]],get_vars(modlst[[i]])) ) }
 #system.time( modlst<-mclapply(1:nmods,add_stuff,mc.cores=nmods) )
 #system.time( 
 i=2
+nmods
 for (i in 1:nmods) {
-  proj_file<- paste0(.MODELDIR[i],"proj/bigfile.out")
+  proj_file<- paste0(.MODELDIR[1],"proj/spm_detail.csv")
+  print(i)
   # fixed to a single
   #proj_file<- "../runs/base/proj/bigfile.out"
   modlst[[i]] <- c(modlst[[i]],get_vars(modlst[[i]])) 
@@ -53,7 +63,7 @@ for (i in 1:nmods) {
 M        <- modlst[[thismod]]
 names(M)
 P        <- modlst[[1]] # Last year's model (P=previous)
-Alt      <- modlst[[2]] # Last year's model (P=previous)
+Alt      <- modlst[[7]] # Last year's model (P=previous)
 #M$future_catch[12,1]
 #M$future_catch[5,1]
 #M$abc1s
@@ -79,3 +89,4 @@ reftab <<- function(i){ cat(paste0("tab:",tablab[i])) }
 #source("../R/Do_Plots.R")
 #source("../R/Do_MCMC.R")
 #source("../R/Do_Proj.R")
+

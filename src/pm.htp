@@ -352,7 +352,7 @@ public:
     return (initial_params::current_phase
       >=initial_params::max_number_phases);
   }
-  static prevariable current_feval(void)
+  static prevariable& current_feval(void)
   {
     return *objective_function_value::pobjfun;
   }
