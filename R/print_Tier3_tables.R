@@ -38,7 +38,7 @@ print_Tier3_tables <- function(mod_number,run=FALSE) {
   cap <- paste0("For the configuration named ",mod_names[mod_number],", ",tabcap[42])
   for (i in 2:length(tab[1,]) ) 
     tab[,i] <- formatC(as.numeric(tab[,i]), format="f",digits=3) 
-  tab <- xtable(tab, caption = cap, label=paste0("tab:",tablab[42]), digits=3, align=rep("r",(length(tab[1,])+1)) )
+  tab <- xtable(tab, caption = cap, label=paste0("tab:",tablab[42]), digits=c(0, rep(3,(length(tab[1,])))), auto=TRUE, align=rep("r",(length(tab[1,])+1)) )
   print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.85)
 
   tab <- (data.frame(tB))

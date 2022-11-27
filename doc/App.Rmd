@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Appendix on spatio-temporal analysis of NMFS survey data
 
 ## Overview
@@ -115,7 +120,7 @@ abundances in the NBS even in years where samples are unavailable (all years
 except 2010, 2017--2019 and 2021; (Fig. \ref{fig:density}). Index values and error terms
 (based on diagonal of covariance matrix over time) are shown in Figure \ref{fig:vast_idx}
 
-
+<!-- 
 ## Extending VAST to create estimates from acoustic backscatter data
 
 In 2020 we presented an initial spatio-temporal model to the acoustic backscatter data
@@ -123,14 +128,15 @@ collected to half meter from the seafloor from RV Oscar Dyson
 (1994-2018) and the USV in 2020 following the same extrapolation area as for the BTS analyses.
 We anticipate updating this for application as an alternative to the standard acoustic survey
 in 2022.
+ -->
 
-```{r plots, eval=FALSE  , tidy=TRUE}
+ ```{r plots, eval=FALSE  , tidy=TRUE}
 #SpatialDeltaGLMM::Plot_data_and_knots(Extrapolation_List=Extrapolation_List, Spatial_List=Spatial_List, 
 #           Data_Geostat=Data_Geostat, PlotDir=DateFile )
 #       Region="Other"
 #MapDetails_List <- SpatialDeltaGLMM::MapDetails_Fn( "Region"=Region, "NN_Extrap"=Spatial_List$PolygonList$NN_Extrap, 
                    "Extrapolation_List"=Extrapolation_List )
-# Decide which years to plot                                                   
+# Decide which years to plot
 #Year_Set        <- seq(min(Data_Geostat[,'Year']),max(Data_Geostat[,'Year']))
 #Years2Include   <- which( Year_Set %in% sort(unique(Data_Geostat[,'Year'])))
 ```
@@ -172,7 +178,7 @@ in 2022.
   #Legend=MapDetails_List[["Legend"]], zone=MapDetails_List[["Zone"]], mar=c(0,0,2,0), oma=c(3.5,3.5,0,0), 
   #cex=1.8, plot_legend_fig=FALSE)
 ```
-![ Pollock log density maps of the BTS data using the VAST model approach, 1982-2019,2021. \label{fig:density}](figs/Dens.png)
+![ Pollock log density maps of the BTS data using the VAST model approach, 1982-2019,2021-2022. \label{fig:density}](figs/Dens.png)
 
 
 ```{r indexplots, echo=FALSE, results="asis"}

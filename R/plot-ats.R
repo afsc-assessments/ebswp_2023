@@ -14,24 +14,24 @@
     for (i in 1:n)
     {
         A <- M[[i]]
-        df <- data.frame(year = A$yr_eit)
+        df <- data.frame(year = A$yr_ats)
         df$Model <- names(M)[i]
         if (biomass)
         {
-          df$obs  <- A$ob_eit
-          df$pre  <- A$eb_eit
-          df$lb   <- A$ob_eit/exp(2.*sqrt(log(1+(A$sd_ob_eit)^2/(A$ob_eit)^2)))
-          df$ub   <- A$ob_eit*exp(2.*sqrt(log(1+(A$sd_ob_eit)^2/(A$ob_eit)^2)))
-          #df$lb   <- A$ob_eit-1.96*A$sd_ob_eit
-          #df$ub   <- A$ob_eit+1.96*A$sd_ob_eit
+          df$obs  <- A$ob_ats
+          df$pre  <- A$eb_ats
+          df$lb   <- A$ob_ats/exp(2.*sqrt(log(1+(A$sd_ob_ats)^2/(A$ob_ats)^2)))
+          df$ub   <- A$ob_ats*exp(2.*sqrt(log(1+(A$sd_ob_ats)^2/(A$ob_ats)^2)))
+          #df$lb   <- A$ob_ats-1.96*A$sd_ob_ats
+          #df$ub   <- A$ob_ats+1.96*A$sd_ob_ats
         }
         else{
-          df$obs  <- A$ot_eit
-          df$pre  <- A$et_eit
-          df$lb   <- A$ot_eit/exp(2.*sqrt(log(1+(A$sd_ot_eit)^2/(A$ot_eit)^2)))
-          df$ub   <- A$ot_eit*exp(2.*sqrt(log(1+(A$sd_ot_eit)^2/(A$ot_eit)^2)))
-          #df$lb   <- A$ot_eit-1.96*A$sd_ot_eit
-          #df$ub   <- A$ot_eit+1.96*A$sd_ot_eit
+          df$obs  <- A$ot_ats
+          df$pre  <- A$et_ats
+          df$lb   <- A$ot_ats/exp(2.*sqrt(log(1+(A$sd_ot_ats)^2/(A$ot_ats)^2)))
+          df$ub   <- A$ot_ats*exp(2.*sqrt(log(1+(A$sd_ot_ats)^2/(A$ot_ats)^2)))
+          #df$lb   <- A$ot_ats-1.96*A$sd_ot_ats
+          #df$ub   <- A$ot_ats+1.96*A$sd_ot_ats
         }
         mdf     <- rbind(mdf, df)
     }

@@ -45,10 +45,11 @@ get_vars <- function(M){
 	B$yc2008 <- (M$R[M$R[,1]==2009,2]); B$yc2008s <- format(round(B$yc2008,-2),big.mark=",",scientific=F)
 	B$yc2012 <- (M$R[M$R[,1]==2013,2]); B$yc2012s <- format(round(B$yc2012,-2),big.mark=",",scientific=F)
 	B$yc2013 <- (M$R[M$R[,1]==2014,2]); B$yc2013s <- format(round(B$yc2013,-2),big.mark=",",scientific=F)
-	B$rmse_bts <- -999 #mean((log(M$ob_bts)-log(M$eb_bts))^2)^.5
-	B$rmse_ats <- -999 #mean((log(M$ob_ats)-log(M$eb_ats))^2)^.5
-	B$rmse_avo <- -999 #mean((log(M$obs_avo)-log(M$pred_avo))^2)^.5
-	B$rmse_cpue<- -999 #mean((log(M$obs_cpue)-log(M$pred_cpue))^2)^.5
+	B$yc2018 <- (M$R[M$R[,1]==2019,2]); B$yc2018s <- format(round(B$yc2018,-2),big.mark=",",scientific=F)
+	B$rmse_bts <- mean((log(M$ob_bts)-log(M$eb_bts))^2)^.5
+	B$rmse_ats <- mean((log(M$ob_ats)-log(M$eb_ats))^2)^.5
+	B$rmse_avo <- mean((log(M$obs_avo)-log(M$pred_avo))^2)^.5
+	B$rmse_cpue<- mean((log(M$obs_cpue)-log(M$pred_cpue))^2)^.5
 	B$sdnr_bts <- M$sdnr_bts
 	B$sdnr_ats <- M$sdnr_ats
 	B$sdnr_avo <- M$sdnr_avo
@@ -125,10 +126,10 @@ get_vars <- function(M){
   }
 
 	# Set recommended ABC here--Tier 3
-	#B$abc1       <- (B$Tier3_ABC1)
-	#B$abc2       <- (B$Tier3_ABC2)
-	B$abc1       <- (B$Tier2_ABC1)
-	B$abc2       <- (B$Tier2_ABC2)
+	B$abc1       <- (B$Tier3_ABC1)
+	B$abc2       <- (B$Tier3_ABC2)
+	#B$abc1       <- (B$Tier2_ABC1)
+	#B$abc2       <- (B$Tier2_ABC2)
 
 	B$abc1constFs<- format(round(1e3*B$abc1constF,-3),big.mark=",",scientific=F,digits=1)
 	B$abc2constFs<- format(round(1e3*B$abc2constF,-3),big.mark=",",scientific=F,digits=1)
@@ -140,7 +141,7 @@ get_vars <- function(M){
 	B$fabc1s     <- B$Tier2_ABC1 /B$ABC_biom1
 	
 	# Decision table stuff
-	ord <- c(8,2:4,1,5:7)
+	ord <- c(8,2:3,1,4:7)
   B$catch_dec_tab <- M$dec_tab_catch[ord]
   B$pfcur_fmsy    <- 1- pnorm(1,M$Fcur_Fmsy[ord] ,    M$Fcur_Fmsy.sd[ord]  )
   B$pbcur_bmsy    <- pnorm(1, M$Bcur_Bmsy[ord]   ,  M$Bcur_Bmsy.sd[ord]   )

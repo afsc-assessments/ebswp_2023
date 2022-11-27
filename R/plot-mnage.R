@@ -35,14 +35,15 @@
         mdf     <- rbind(mdf, df)
 
         # NOTE excluded the last year as downweighted (non-existent for sail drone data)
-        df <- data.frame(year = A$EffN_ats[1:16,1])
+				atsyrs=c(1:16,18)
+        df <- data.frame(year = A$EffN_ats[atsyrs,1])
         df$Model <- names(M)[i]
         df$type <- "Acoustic trawl survey"
-        df$year <- A$EffN_ats[1:16,1]
-        df$obs  <- A$EffN_ats[1:16,4]
-        df$pre  <- A$EffN_ats[1:16,5]
-        df$lb   <- A$EffN_ats[1:16,7]
-        df$ub   <- A$EffN_ats[1:16,8]
+        df$year <- A$EffN_ats[atsyrs,1]
+        df$obs  <- A$EffN_ats[atsyrs,4]
+        df$pre  <- A$EffN_ats[atsyrs,5]
+        df$lb   <- A$EffN_ats[atsyrs,7]
+        df$ub   <- A$EffN_ats[atsyrs,8]
         mdf     <- rbind(mdf, df)
     }
     return(mdf)

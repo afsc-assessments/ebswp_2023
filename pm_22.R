@@ -13,32 +13,28 @@ nextyr    <<- thisyr+1
 .OVERLAY  = TRUE
 
 # Read report file and create gmacs report object (a list):
-#mod_names <- c("No AVO","Model 16.1","VAST","Low AVO", "High AVO")
-#.MODELDIR = c( "../runs/CA/","../runs/last_year/","../runs/usv/","../runs/sr1/")
-#mod_names <- c("2020","last year","Low AVO")
-#mod_names <- c("16.2","16.2 last year","20.0 USV","20.1 USVast","20.1a Ignore 1978 YC", "20.0c Fmsy=F35","20.0d Fmsy=F45","20.1b Diffuse SRR prior")
-#.MODELDIR = c( "../runs/2020/","../runs/last_year/","../runs/usv/","../runs/usv_vast/","../runs/sr0/","../runs/sr1/","../runs/sr3/","../runs/sr2/")
-#.MODELDIR = c( "../runs/2020/","../runs/last_year/","../runs/2020Lavo/")
-#.MODELDIR = c( "../runs/2020/","../runs/last_year/","../runs/sr1/")
-#mod_names <- c("16.2","16.2 last year","20.0 USV","20.1 USVast","20.0a base")
-mod_names <- c("Last year","02","03","04","05","06","07")
-#mod_names <- c("Last year","fitavo")
-#.MODELDIR <- c( "../runs/2020base/","../runs/base/","../runs/l21/","../runs/c21/")
-#.MODELDIR <- c( "../runs/l21/","../runs/fitavo/")
+mod_names <- c("Last year",
+  "Catch 2022",
+  "Fish ages",
+  "Fish wts",
+  "BTS index",
+  "BTS ages",
+  "ATS index+",
+  "Base",
+  "Est M", 
+  "Wt comp")
 .MODELDIR <- c( 
+  "../runs/c21/",
   "../runs/01/",
   "../runs/02/",
   "../runs/03/",
   "../runs/04/",
   "../runs/05/",
   "../runs/06/",
-  "../runs/07/")
+  "../runs/07/",
+  "../runs/08/",
+  "../runs/09/")
 
-#mod_names <- c("base","diagonal Covar")
-#mod_names <- c("base","With CE","CEATTLE_M","CEATTLE_M_CE","Copepod index")
-#.MODELDIR <- c( "../runs/withoutce/","../runs/withce/","../runs/Mmatrix/","../runs/Mmatrixce/","../runs/cope/")
-#.MODELDIR <- c( "../runs/withoutce/","../runs/withce/","../runs/Mmatrix/","../runs/Mmatrixce/","../runs/cope/","../runs/copece/","../runs/copeceMmat/")
-#mod_names <- c("base","With CE","CEATTLE_M","CEATTLE_M_CE","Copepod index","Copepod + CE","Copepod + CE + CE_M")
 fn        <- paste0(.MODELDIR, "pm");fn
 #fn
 nmods <- length(mod_names)
@@ -47,26 +43,37 @@ system.time( modlst <- mclapply(fn, read_admb,mc.cores=nmods) )
 #modlst[[2]] <- read_admb(fn[1])
 names(modlst) <- mod_names
 # The model picked
-thismod <- 7 # the selected model
+thismod <- 8 # the selected model
 #add_stuff<-function(idx){ proj_file<- paste0(.MODELDIR[idx],"proj/bigfile.out") #modlst[[idx]] <- c(modlst[[idx]],get_vars(modlst[[idx]])) return( c(modlst[[i]],get_vars(modlst[[i]])) ) }
 #system.time( modlst<-mclapply(1:nmods,add_stuff,mc.cores=nmods) )
 #system.time( 
-i=2
+i=8
 nmods
 for (i in 1:nmods) {
-  proj_file<- paste0(.MODELDIR[1],"proj/spm_detail.csv")
+  proj_file<- paste0(.MODELDIR[i],"proj/spm_detail.csv")
   print(i)
   # fixed to a single
   #proj_file<- "../runs/base/proj/bigfile.out"
   modlst[[i]] <- c(modlst[[i]],get_vars(modlst[[i]])) 
 } 
+
+#===Need this lines because last year's Tier was different
+modlst[[1]]$abc1       <- (modlst[[1]]$Tier2_ABC1)
+modlst[[1]]$abc2       <- (modlst[[1]]$Tier2_ABC2)
+modlst[[1]]$abc1s      <- format(round(1e3*modlst[[1]]$abc1,-3),big.mark=",",scientific=F,digits=1)
+modlst[[1]]$abc2s      <- format(round(1e3*modlst[[1]]$abc2,-3),big.mark=",",scientific=F,digits=1)
+
+proj_file<- paste0(.MODELDIR[8],"proj/spm_detail_full.csv")
+bfs        <- read_csv(proj_file) |> mutate(Alt=Alternative)
+Tier3_abc_full <<-  bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(ABC),0))
+Tier3_abc_fulls <<- format(round(1e3*Tier3_abc_full,-3),big.mark=",",scientific=F,digits=1)
+
 M        <- modlst[[thismod]]
 names(M)
 P        <- modlst[[1]] # Last year's model (P=previous)
-Alt      <- modlst[[7]] # Last year's model (P=previous)
+Alt      <- modlst[[9]] # Last year's model (P=previous)
 #M$future_catch[12,1]
 #M$future_catch[5,1]
-#M$abc1s
 
 #
 rhodf      <- read.csv("../doc/data/mohnrho.csv",header=T)

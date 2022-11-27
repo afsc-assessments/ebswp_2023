@@ -379,9 +379,9 @@ private:
   param_init_bounded_number steepness;
   param_init_number log_q_cpue;
   param_init_number log_q_avo;
-  param_number q_avo;
-  param_number q_bts;
-  param_number q_ats;
+  param_stddev_number q_avo;
+  param_stddev_number q_bts;
+  param_stddev_number q_ats;
   param_number q_cpue;
   param_init_bounded_vector log_initdevs;
   param_init_bounded_vector log_rec_devs;
@@ -591,6 +591,7 @@ private:
   param_stddev_matrix future_SSB;
   param_stddev_vector Age3_Abund;
   param_vector age_1_7_biomass;
+  param_vector NLL;
   param_number prior_function_value;
   param_number likelihood_function_value;
   objective_function_value fff;

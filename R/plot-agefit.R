@@ -39,9 +39,9 @@ plot_agefit <- function( x, case_label="2021 assessment",gear="bts",type="survey
   ages.list <- ages[1]:ages[2]
   nages <- length(ages.list)
   
-  mtmp <- c(ceiling(nyears/3),3)
-  par(mfcol=mtmp,oma=c(3.5,4.5,3.5,1),mar=c(0,0,0,0))
-  cohort.color <- rainbow(mtmp[1]+2)[-c(1:2)]   #use hideous rainbow colors because they loop more gracefully than rich.colors
+  mfcol <- c(ceiling(nyears/3),3)
+  par(mfcol=mfcol,oma=c(3.5,4.5,3.5,1),mar=c(0,0,0,0))
+  cohort.color <- rainbow(mfcol[1]+2)[-c(1:2)]   #use hideous rainbow colors because they loop more gracefully than rich.colors
   ncolors <- length(cohort.color)
   
   #axis(2,las=1,at=c(0,0.5),col=subtle.color,col.axis=subtle.color,lwd=0.5) 
@@ -53,15 +53,17 @@ plot_agefit <- function( x, case_label="2021 assessment",gear="bts",type="survey
     x <- barplot(obs.data[yr,],space=0.2,ylim=ylim,las=1,names.arg=names.arg, cex.names=0.5, xaxs="i",yaxs="i",border=subtle.color,
                  col=cohort.color[1:nages],axes=F,ylab="",xlab="")
     cohort.color <- c(cohort.color[ncolors],cohort.color[-1*ncolors])  #loop around colors
-    if (yr %% mtmp[1] == 0) {
+    if (yr %% mfcol[1] == 0) {
       axis(side=1,at=x,lab=ages.list, line=-0.1,col.axis=subtle.color, col=subtle.color,lwd=0,lwd.ticks=0)  #just use for the labels, to allow more control than names.arg
     }
-    if (yr <= mtmp[1]) {
+    if (yr <= mfcol[1]) {
       axis(2,las=1,at=c(0,0.2,0.4),col=subtle.color,col.axis=subtle.color,lwd=0.5)
     }
     par(new=T)
     par(xpd=NA)
-    plot(x=x,y=pred.data[yr,],ylim=ylim, xlim=par("usr")[1:2], las=1,xaxs="i",yaxs="i",bg="white",col="brown",typ="b",lty=1,pch=19,cex=0.8,axes=F,ylab="",xlab="")
+    plot(x=x,y=pred.data[yr,],ylim=ylim, xlim=par("usr")[1:2], 
+      las=1,xaxs="i",yaxs="i",bg="white",col="brown",typ="b",lty=1,
+      pch=19,cex=0.8,axes=F,ylab="",xlab="")
     box(col=subtle.color,lwd=0.5)
     x.pos <- par("usr")[1] + 0.85*diff(par("usr")[1:2])   #par("usr") spits out the current coordinates of the plot window
     y.pos <- par("usr")[3] + 0.75*diff(par("usr")[3:4])   #par("usr") spits out the current coordinates of the plot window

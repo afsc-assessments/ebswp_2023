@@ -1,6 +1,9 @@
-\clearpage
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Tables {#tables}
-
 \renewcommand\thetable{\arabic{table}} 
 \setcounter{table}{0}  
 
@@ -8,61 +11,48 @@
 \centering
 \caption{`r tabcap[1]` }
 \label{tab:`r tablab[1]`}
-\scalebox{0.95}{
-\begin{tabular}{crrrrrr}
+\scalebox{0.81}{
+\begin{tabular}{lrrrrrrrrr}
 \hline
-& \multicolumn{3}{c}{Eastern Bering Sea  }             &             &               & \\
-Year    &   Southeast   &   Northwest   &   Total   &Aleutians  &Donut  Hole&   Bogoslof    I.      \\
-\hline                                                  
-1979    &   368,848 &   566,866 &   935,714 &   9,446   &       &       \\
-1980    &   437,253 &   521,027 &   958,280 &   58,157  &       &       \\
-1981    &   714,584 &   258,918 &   973,502 &   55,517  &       &       \\
-1982    &   713,912 &   242,052 &   955,964 &   57,753  &       &       \\
-1983    &   687,504 &   293,946 &   981,450 &   59,021  &       &       \\
-1984    &   442,733 &   649,322 &   1,092,055   &   77,595  &   181,200 &       \\
-1985    &   604,465 &   535,211 &   1,139,676   &   58,147  &   363,400 &       \\
-1986    &   594,997 &   546,996 &   1,141,993   &   45,439  &   1,039,800   &       \\
-1987    &   529,461 &   329,955 &   859,416 &   28,471  &   1,326,300   &   377,436 \\
-1988    &   931,812 &   296,909 &   1,228,721   &   41,203  &   1,395,900   &   87,813  \\
-1989    &   904,201 &   325,399 &   1,229,600   &   10,569  &   1,447,600   &   36,073  \\
-1990    &   640,511 &   814,682 &   1,455,193   &   79,025  &   917,400 &   151,672 \\
-1991    &   653,555 &   542,109 &   1,195,664   &   98,604  &   293,400 &   316,038 \\
-1992    &   830,559 &   559,741 &   1,390,299   &   52,352  &   10,000  &   241 \\
-1993    &   1,094,429   &   232,173 &   1,326,602   &   57,132  &   1,957   &   886 \\
-1994    &   1,152,575   &   176,777 &   1,329,352   &   58,659  &       &   556 \\
-1995    &   1,172,306   &   91,941  &   1,264,247   &   64,925  &       &   334 \\
-1996    &   1,086,843   &   105,939 &   1,192,781   &   29,062  &       &   499 \\
-1997    &   819,889 &   304,544 &   1,124,433   &   25,940  &       &   163 \\
-1998    &   969,644 &   132,515 &   1,102,159   &   23,798  &       &   8   \\
-1999    &   782,983 &   206,698 &   989,680 &   1,010   &       &   29  \\
-2000    &   839,177 &   293,532 &   1,132,710   &   1,244   &       &   29  \\
-2001    &   961,977 &   425,220 &   1,387,197   &   825 &       &   258 \\
-2002    &   1,160,334   &   320,442 &   1,480,776   &   1,177   &       &   1,042   \\
-2003    &   933,191 &   557,588 &   1,490,779   &   1,649   &       &   24  \\
-2004    &   1,090,008   &   390,544 &   1,480,552   &   1,158   &       &   0   \\
-2005    &   802,154 &   680,868 &   1,483,022   &   1,621   &       &   0   \\
-2006    &   827,207 &   660,824 &   1,488,031   &   1,745   &       &   0   \\
-2007    &   728,249 &   626,253 &   1,354,502   &   2,519   &       &   0   \\
-2008    &   482,698 &   507,880 &   990,578 &   1,278   &       &   9   \\
-2009    &   358,252 &   452,532 &   810,784 &   1,662   &       &   73  \\
-2010    &   255,114 &   555,072 &   810,186 &   1,289   &       &   176 \\
-2011    &   747,891 &   451,150 &   1,199,041   &   1,208   &       &   173 \\
-2012    &   618,872 &   586,350 &   1,205,222   &   975 &       &   71  \\
-2013    &   695,673 &   575,098 &   1,270,770   &   2,964   &       &   57  \\
-2014    &   858,243 &   439,180 &   1,297,422   &   2,375   &       &   427 \\
-2015    &   696,253 &   625,331 &   1,321,584   &   913 &       &   733 \\
-2016    &   1,167,072   &   185,609 &   1,352,681   &   1,257   &       &   1,005   \\
-2017    &   1,178,021   &   181,161 &   1,359,182   &   1,507   &       &   185 \\
-2018    &   1,048,693   &   330,595 &   1,379,287   &   1,860   &       &   14  \\
-2019    &   1,102,156   &   307,181 &   1,409,337   &   1,664   &       &   8   \\
-2020    &   859,903 &   506,629 &   1,366,532   &   3,205   &       &   9   \\
-2021    &   1,021,017   &   351,967 &   1,372,984   &   1,594   &       &   50  \\
-\hline                                                  
-Avg.    &   803,842 &   412,668 &   1,216,510   &   23,896  &       &       \\
-\hline                                                  
+Year & Northwest A & Northwest  B & Southeast A & Southeast B & NW      & SE        & A       & B       & Total     \\
+\hline
+1991 & 12,191       & 529,897      & 297,202      & 356,353      & 542,088 & 653,555   & 309,393 & 886,250 & 1,195,643 \\
+1992 & 101,597      & 458,143      & 454,947      & 375,612      & 559,740 & 830,559   & 556,544 & 833,755 & 1,390,299 \\
+1993 & 93,013       & 139,160      & 475,143      & 619,287      & 232,173 & 1,094,430 & 568,156 & 758,447 & 1,326,603 \\
+1994 & 11,026       & 165,751      & 586,105      & 566,470      & 176,777 & 1,152,575 & 597,131 & 732,221 & 1,329,352 \\
+1995 & 3,631        & 88,310       & 600,499      & 571,807      & 91,941  & 1,172,306 & 604,130 & 660,117 & 1,264,247 \\
+1996 & 1,804        & 104,135      & 549,297      & 537,545      & 105,939 & 1,086,842 & 551,101 & 641,680 & 1,192,781 \\
+1997 & 2,363        & 302,180      & 557,106      & 262,784      & 304,543 & 819,890   & 559,469 & 564,964 & 1,124,433 \\
+1998 & 1,508        & 131,007      & 476,214      & 410,353      & 132,515 & 886,567   & 477,722 & 541,360 & 1,019,082 \\
+1999 & 4,139        & 202,558      & 414,030      & 368,953      & 206,697 & 782,983   & 418,169 & 571,511 & 989,680   \\
+2000 & 19,363       & 274,170      & 439,023      & 400,154      & 293,533 & 839,177   & 458,386 & 674,324 & 1,132,710 \\
+2001 & 108,013      & 317,207      & 444,565      & 517,412      & 425,220 & 961,977   & 552,578 & 834,619 & 1,387,197 \\
+2002 & 36,693       & 283,747      & 561,061      & 599,272      & 320,440 & 1,160,333 & 597,754 & 883,019 & 1,480,773 \\
+2003 & 151,465      & 406,123      & 446,152      & 487,039      & 557,588 & 933,191   & 597,617 & 893,162 & 1,490,779 \\
+2004 & 50,661       & 339,883      & 556,469      & 533,538      & 390,544 & 1,090,007 & 607,130 & 873,421 & 1,480,551 \\
+2005 & 120,320      & 560,548      & 476,970      & 325,184      & 680,868 & 802,154   & 597,290 & 885,732 & 1,483,022 \\
+2006 & 18,789       & 642,034      & 585,507      & 241,700      & 660,823 & 827,207   & 604,296 & 883,734 & 1,488,030 \\
+2007 & 62,504       & 563,748      & 505,306      & 222,943      & 626,252 & 728,249   & 567,810 & 786,691 & 1,354,501 \\
+2008 & 44,801       & 463,079      & 358,936      & 123,762      & 507,880 & 482,698   & 403,737 & 586,841 & 990,578   \\
+2009 & 81,575       & 370,957      & 247,944      & 110,307      & 452,532 & 358,251   & 329,519 & 481,264 & 810,783   \\
+2010 & 199,011      & 356,061      & 124,670      & 130,443      & 555,072 & 255,113   & 323,681 & 486,504 & 810,185   \\
+2011 & 102,252      & 348,897      & 401,755      & 346,128      & 451,149 & 747,883   & 504,007 & 695,025 & 1,199,032 \\
+2012 & 104,926      & 481,418      & 380,373      & 238,497      & 586,344 & 618,870   & 485,299 & 719,915 & 1,205,214 \\
+2013 & 94,763       & 480,331      & 415,014      & 280,652      & 575,094 & 695,666   & 509,777 & 760,983 & 1,270,760 \\
+2014 & 50,465       & 388,712      & 469,973      & 388,267      & 439,177 & 858,240   & 520,438 & 776,979 & 1,297,417 \\
+2015 & 258,574      & 366,752      & 267,095      & 429,153      & 625,326 & 696,248   & 525,669 & 795,905 & 1,321,574 \\
+2016 & 81,531       & 104,078      & 458,044      & 709,028      & 185,609 & 1,167,072 & 539,575 & 813,106 & 1,352,681 \\
+2017 & 37,730       & 143,430      & 544,028      & 633,993      & 181,160 & 1,178,021 & 581,758 & 777,423 & 1,359,181 \\
+2018 & 3,842        & 326,753      & 598,533      & 450,160      & 330,595 & 1,048,693 & 602,375 & 776,913 & 1,379,288 \\
+2019 & 2,649        & 304,532      & 614,949      & 487,217      & 307,181 & 1,102,166 & 617,598 & 791,749 & 1,409,347 \\
+2020 & 85,717       & 421,102      & 560,438      & 299,978      & 506,819 & 860,416   & 646,155 & 721,080 & 1,367,235 \\
+2021 & 56,779       & 295,470      & 554,774      & 469,234      & 352,249 & 1,024,008 & 611,553 & 764,704 & 1,376,257 \\
+2022 & 9,019        & 196,249      & 487,216      & 405,200      & 205,268 & 892,416   & 496,235 & 601,449 & 1,097,684 \\
+\hline
 \end{tabular}
 }
 \end{table}
+
 
 \clearpage
 
@@ -70,7 +60,7 @@ Avg.    &   803,842 &   412,668 &   1,216,510   &   23,896  &       &       \\
 \centering
 \caption{`r tabcap[2]`}
 \label{`r paste0("tab:",tablab[2])`}
-\scalebox{0.95}{
+\scalebox{0.90}{
 \begin{tabular}{rrrrrrr}
 \hline
 Year	&	Catch	&	Year	&	OFL	&	ABC	&	TAC	&	Catch	\\
@@ -120,65 +110,60 @@ Year	&	Catch	&	Year	&	OFL	&	ABC	&	TAC	&	Catch	\\
 	&		&	2019	&	3,914,000	&	2,163,000	&	1,397,000	&	1,409,235	\\
 	&		&	2020	&	4,085,000	&	2,043,000	&	1,425,000	&	1,325,792	\\
 	&		&	2021	&	2,594,000	&	1,626,000	&	1,375,000	&	1,339,000	\\
+	&		&	2022	&	1,469,000	&	1,111,000	&	1,111,000	&	1,100,000	\\
 \hline													
-	\multicolumn{3}{c}{1977--2021	mean}			&	2,471,333	&	1,495,022	&	1,221,947	&	1,204,343	\\
+	\multicolumn{3}{c}{1977--2022	mean}			&	2,439,000	&	1,486,674	&	1,219,535	&	1,202,075	\\
 \hline													
-\end{tabular}
+\end{tabular}													
 }
 \end{table}
 
 \clearpage
 
 <!-- Retained and discarded pollock -->
-\begin{table}[ht]
+\begin{table}[]
 \centering
 \caption{`r tabcap[5]`}
 \label{tab:`r tablab[5]`}
-\scalebox{0.75}{
-\begin{tabular}{crrrrr|rrrrr}
-\hline
-                  & \multicolumn{5}{c|}{Discarded pollock }                                     & \multicolumn{5}{c}{Total (retained plus discard) }     \\
-                  & Aleut. Is. & Bog.     & NW            & SE            & Total           & Aleut. Is. & Bog. & NW      & SE        & Total     \\
+\begin{tabular}{lrrrrrr}
 \hline 
-\hline                                                                                                      
-    &   \multicolumn{5}{c|}{Discarded   pollock }   &   \multicolumn{5}{c}{Total    (retained   plus    discard)    }   \\                                                          
-    &   Aleut.  Is. &   Bog.    &   NW  &   SE  &   Total   &   Aleut.  Is. &   Bog.    &   NW  &   SE  &   Total   \\          
-\hline                                                                                                      
-1991    &   5,231   (5\%)   &   20,327  (6\%)   &   48,257  (9\%)   &   66,792  (10\%)  &   140,607 (9\%)   &   98,604  &   316,038 &   542,109 &   653,555 &   1,610,306   \\
-1992    &   2,986   (6\%)   &   240 (100\%) &   57,581  (10\%)  &   71,194  (9\%)   &   132,002 (9\%)   &   52,362  &   241 &   559,750 &   830,559 &   1,442,912   \\
-1993    &   1,740   (3\%)   &   308 (35\%)  &   26,107  (11\%)  &   83,986  (8\%)   &   112,141 (8\%)   &   57,138  &   886 &   232,180 &   1,094,429   &   1,384,633   \\
-1994    &   1,373   (2\%)   &   11  (2\%)   &   16,084  (9\%)   &   88,098  (8\%)   &   105,566 (8\%)   &   58,659  &   556 &   176,777 &   1,152,575   &   1,388,567   \\
-1995    &   1,380   (2\%)   &   267 (80\%)  &   9,715   (11\%)  &   87,492  (7\%)   &   98,855  (7\%)   &   64,925  &   334 &   91,941  &   1,172,306   &   1,329,506   \\
-1996    &   994 (3\%)   &   7   (1\%)   &   4,838   (5\%)   &   71,368  (7\%)   &   77,208  (6\%)   &   29,062  &   499 &   105,939 &   1,086,843   &   1,222,342   \\
-1997    &   618 (2\%)   &   13  (8\%)   &   22,557  (7\%)   &   71,032  (9\%)   &   94,220  (8\%)   &   25,940  &   163 &   304,544 &   819,889 &   1,150,536   \\
-1998    &   162 (1\%)   &   3   (39\%)  &   1,581   (1\%)   &   14,291  (1\%)   &   16,037  (1\%)   &   22,054  &   8   &   132,515 &   969,644 &   1,124,221   \\
-1999    &   480 (48\%)  &   11  (39\%)  &   1,912   (1\%)   &   26,912  (3\%)   &   29,315  (3\%)   &   1,010   &   29  &   206,698 &   782,983 &   990,719 \\
-2000    &    790    (64\%)  &    20     (67\%)  &    1,942  (1\%)   &   19,678  (2\%)   &   22,429  (2\%)   &   1,244   &    10     &   293,532 &   819,499 &   1,133,984   \\
-2001    &    380    (46\%)  &    28     (11\%)  &    2,450  (1\%)   &   14,874  (2\%)   &   17,732  (1\%)   &    825    &    231    &   425,220 &   947,103 &   1,388,280   \\
-2002    &    779    (66\%)  &    12     (1\%)   &    1,441  (tr)    &   19,430  (2\%)   &   21,661  (1\%)   &   1,177   &   1,031   &   320,442 &   1,140,904   &   1,482,995   \\
-2003    &    468    (28\%)  &    19     (79\%)  &    2,959  (1\%)   &   13,795  (1\%)   &   17,242  (1\%)   &   1,649   &    5  &   557,588 &   919,397 &   1,492,452   \\
-2004    &    287    (25\%)  &    0  (100\%) &    2,781  (1\%)   &   20,380  (2\%)   &   23,448  (2\%)   &   1,158   &    -      &   390,544 &   1,069,628   &   1,481,710   \\
-2005    &    324    (20\%)  &    0  (89\%)  &    2,586  (tr)    &   14,838  (2\%)   &   17,747  (1\%)   &   1,621   &    0  &   680,868 &   787,316 &   1,484,643   \\
-2006    &    311    (18\%)  &    0  (50\%)  &    3,677  (1\%)   &   11,877  (1\%)   &   15,865  (1\%)   &   1,745   &    0  &   660,824 &   815,330 &   1,489,776   \\
-2007    &    425    (17\%)  &    -      (\%)    &    3,769  (1\%)   &   12,334  (2\%)   &   16,529  (1\%)   &   2,519   &    0  &   626,253 &   715,915 &   1,357,021   \\
-2008    &    81     (6\%)   &    0  (\%)    &    1,643  (tr)    &   5,968   (1\%)   &   7,692   (1\%)   &   1,278   &    9  &   507,880 &   476,730 &   991,865 \\
-2009    &    395    (24\%)  &    6  (8\%)   &    1,936  (tr)    &   4,014   (1\%)   &   6,351   (1\%)   &   1,662   &    67     &   452,532 &   354,238 &   812,520 \\
-2010    &    146    (12\%)  &    53     (30\%)  &    1,270  (tr)    &   2,490   (1\%)   &   3,959   (tr)    &   1,289   &    124    &   555,072 &   252,623 &   811,651 \\
-2011    &    75     (6\%)   &    23     (13\%)  &    1,377  (tr)    &   3,446   (tr)    &   4,919   (tr)    &   1,208   &    150    &   451,150 &   744,445 &   1,200,421   \\
-2012    &    95     (10\%)  &    0  (\%)    &    1,191  (tr)    &   4,080   (1\%)   &   5,366   (tr)    &    975    &    71     &   586,350 &   614,792 &   1,206,268   \\
-2013    &    107    (4\%)   &    0  (1\%)   &    1,226  (tr)    &   4,085   (1\%)   &   5,418   (tr)    &   2,964   &    56     &   575,098 &   691,588 &   1,273,791   \\
-2014    &    138    (6\%)   &    54     (13\%)  &    1,787  (tr)    &   12,556  (1\%)   &   14,534  (1\%)   &   2,375   &    373    &   439,180 &   845,687 &   1,300,224   \\
-2015    &    19     (2\%)   &    138    (19\%)  &    2,419  (tr)    &   7,056   (1\%)   &   9,632   (1\%)   &    913    &    595    &   625,331 &   689,197 &   1,323,230   \\
-2016    &    59     (5\%)   &    7  (1\%)   &    1,035  (1\%)   &   8,124   (1\%)   &   9,226   (1\%)   &   1,257   &   997 &   185,609 &   1,158,948   &   1,354,942   \\
-2017    &    18     (1\%)   &    1  (1\%)   &    1,356  (1\%)   &   6,848   (1\%)   &   8,224   (1\%)   &   1,507   &    184    &   181,161 &   1,171,173   &   1,360,874   \\
-2018    &    216    (12\%)  &    2  (1\%)   &    2,005  (1\%)   &   9,170   (1\%)   &   11,393  (1\%)   &   1,860   &    11     &   330,595 &   1,039,523   &   1,381,161   \\
-2019    &    65     (4\%)   &    0  (1\%)   &    1,979  (1\%)   &   7,118   (1\%)   &   9,162   (1\%)   &   1,663   &    8  &   307,177 &   1,094,931   &   1,410,897   \\
-2020    &    231    (8\%)    &    2  (28\%)   &    2,467  (0\%)    &   9,138   (1\%)    &   11,838  (1\%)    &   2,828   &    6  &   496,080 &   820,566 &   1,328,620   \\
-\hline
+Year & NW Discarded & SE Discarded & NW Retained & SE Retained & Total     & Discarded  \% \\
+\hline 
+1991 & 48,257       & 66,792       & 493,852      & 586,763      & 1,195,664 & 9.6\%       \\
+1992 & 57,578       & 71,194       & 502,163      & 759,365      & 1,390,299 & 9.3\%       \\
+1993 & 26,100       & 83,986       & 206,073      & 1,010,443    & 1,326,602 & 8.3\%       \\
+1994 & 16,084       & 88,098       & 160,693      & 1,064,476    & 1,329,352 & 7.8\%       \\
+1995 & 9,715        & 87,492       & 82,226       & 1,084,814    & 1,264,247 & 7.7\%       \\
+1996 & 4,838        & 71,368       & 101,100      & 1,015,474    & 1,192,781 & 6.4\%       \\
+1997 & 22,557       & 71,032       & 281,986      & 748,858      & 1,124,433 & 8.3\%       \\
+1998 & 1,581        & 14,291       & 130,934      & 957,098      & 1,103,903 & 1.4\%       \\
+1999 & 1,912        & 26,912       & 204,786      & 756,071      & 989,680   & 2.9\%       \\
+2000 & 1,942        & 19,678       & 291,591      & 819,499      & 1,132,710 & 1.9\%       \\
+2001 & 2,450        & 14,874       & 422,770      & 947,103      & 1,387,197 & 1.2\%       \\
+2002 & 1,441        & 19,430       & 319,002      & 1,140,904    & 1,480,776 & 1.4\%       \\
+2003 & 2,959        & 13,795       & 554,629      & 919,397      & 1,490,779 & 1.1\%       \\
+2004 & 2,781        & 20,380       & 387,763      & 1,069,628    & 1,480,552 & 1.6\%       \\
+2005 & 2,586        & 14,838       & 678,282      & 787,316      & 1,483,022 & 1.2\%       \\
+2006 & 3,677        & 11,877       & 657,147      & 815,330      & 1,488,031 & 1.0\%       \\
+2007 & 3,769        & 12,334       & 622,484      & 715,915      & 1,354,502 & 1.2\%       \\
+2008 & 1,643        & 5,968        & 506,237      & 476,730      & 990,578   & 0.8\%       \\
+2009 & 1,936        & 4,014        & 450,596      & 354,238      & 810,784   & 0.7\%       \\
+2010 & 1,270        & 2,490        & 553,802      & 252,623      & 810,186   & 0.5\%       \\
+2011 & 1,376        & 3,444        & 449,773      & 744,438      & 1,199,031 & 0.4\%       \\
+2012 & 1,190        & 4,080        & 585,154      & 614,791      & 1,205,214 & 0.4\%       \\
+2013 & 1,225        & 4,084        & 573,869      & 691,582      & 1,270,760 & 0.4\%       \\
+2014 & 1,786        & 12,556       & 437,391      & 845,684      & 1,297,417 & 1.1\%       \\
+2015 & 2,418        & 7,055        & 622,907      & 689,193      & 1,321,574 & 0.7\%       \\
+2016 & 1,036        & 8,124        & 184,574      & 1,158,948    & 1,352,681 & 0.7\%       \\
+2017 & 1,356        & 6,848        & 179,803      & 1,171,173    & 1,359,181 & 0.6\%       \\
+2018 & 2,005        & 9,170        & 328,590      & 1,039,523    & 1,379,288 & 0.8\%       \\
+2019 & 1,979        & 7,126        & 305,202      & 1,095,040    & 1,409,346 & 0.6\%       \\
+2020 & 2,450        & 9,364        & 504,370      & 851,053      & 1,367,236 & 0.9\%       \\
+2021 & 1,534        & 12,379       & 350,715      & 1,011,629    & 1,376,258 & 1.0\%       \\
+2022 & 3,341        & 8,956        & 201,927      & 883,461      & 1,097,684 & 1.1\%      \\
+\hline 
 \end{tabular}
-}
 \end{table}
-
 \clearpage
 
 <!-- SCA Catch 
@@ -224,6 +209,7 @@ Year     &    A season      & B-season          & Total             \\
 \centering
 \caption{`r tabcap[4]`} 
 \label{tab:`r tablab[4]`} 
+\scalebox{.9}{
 \begin{tabular}{p{0.5in}p{5.5in}}
 \hline
 Year    &   Management  \\
@@ -255,160 +241,11 @@ Year    &   Management  \\
 2019    &   Some pollock sectors experienced high bycatch levels for chum and Chinook salmon and also for sablefish.\\
 2020    &   Bycatch rates unusually high again for sablefish. Herring PSC occurred in the A season and triggered area closures that will persist into 2021. Salmon bycatch rates (relative to hours fished) was lower than last year for both chum and Chinook. \\
 2021    &   Bycatch rates for sablefish and herring moderate (but above average). Chinook salmon bycatch rates (relative to hours fished) was lower than last year but there was a marked increase in the rate for chum salmon (2nd highest since 1991). In-river estimates of Chinook salmon (three river index) fell below the threshold and therefore a lower PSC limit applies (from a performance standard of 47,491 to 33,318 and a PSC limit from 60,000 to 45,000 Chinook salmon overall).  \\
+2022    &   Chum and Chinook salmon bycatch dropped by more than half of the 2021 levels while the rate (salmon per ton of pollock) were about 59\% of the 2021 rates.  \\
 \hline
 \end{tabular}
-\end{table}
-
-\clearpage
-
-\begin{table}[ht]
-\centering
-\caption{BSAI pollock catch and ex-vessel data showing the total and retained catch (in kt), the 
-number of vessels for all sectors and for trawl catcher vessels including
-ex-vessel value (million US\$), price (US\$ per pound), and catcher vessel shares. 
-Years covered include the 2011-2015 average, and annual from 2016-2020.}
-\label{tab:bsaiplck_exv}
-\scalebox{0.93}{
-
-\begin{tabular}{lrrrrrr}
-  \hline
- & Avg 11-15 & 2016 & 2017 & 2018 & 2019 & 2020 \\ 
-  \hline
-All sectors &  &  &  &  &  &  \\ 
-  Catch kt & 1261 & 1355 & 1361 & 1381 & 1411 & 1370 \\ 
-  Retained Catch kt & 1252 & 1346 & 1353 & 1370 & 1402 & 1358 \\ 
-  Vessels \# & 120 & 122 & 118 & 112 & 114 & 117 \\ 
-  Catcher Vessels (Trawl) &  &  &  &  &  &  \\ 
-  Retained Catch kt & 656 & 704 & 710 & 718 & 736 & 725 \\ 
-  Ex-vessel Value M \$ & 228.70 & 209.40 & 205.50 & 236.70 & 259.80 & 233.70 \\ 
-  Ex-vessel Price/lb \$ & 0.16 & 0.14 & 0.14 & 0.16 & 0.17 & 0.15 \\ 
-  CV share of Retained Catch & 0.52 & 0.52 & 0.53 & 0.52 & 0.52 & 0.53 \\ 
-  Vessels \# & 87 & 89 & 87 & 85 & 84 & 88 \\ 
-   \hline
-\multicolumn{7}{p{6in}}{
-Source: NMFS Alaska Region Blend and Catch-accounting System estimates; 
-and ADF\&G Commercial Operators Annual Reports (COAR). Data compiled and 
-provided by the Alaska Fisheries Information Network (AKFIN). }\\
-\end{tabular}
-} \\
-\end{table}
-
-\begin{table}[ht]
-\centering
-\caption{BSAI pollock first-wholesale market data including production (kt),
-value (million US\$), price (US\$ per pound) for all products and then
-separately for other categories (head and gut, fillet, surimi, and roe
-production). Years covered include the 2011-2015 average, and annual from 2016-2020.}
-\label{tab:bsaiplck_wsl}
-\scalebox{0.84}{
-\begin{tabular}{lrrrrrr}
-  \hline
- & Avg 11-15 & 2016 & 2017 & 2018 & 2019 & 2020 \\ 
-  \hline
-All Products volume kt & 501.8 & 534.9 & 523.9 & 532.4 & 557.9 & 492.7 \\ 
-  All Products value M \$ & \$1,310  & \$1,352  & \$1,338  & \$1,383  & \$1,551  & \$1,366  \\ 
-  All Products price lb \$ & \$1.18  & \$1.15  & \$1.16  & \$1.18  & \$1.26  & \$1.26  \\ 
-  At-sea value share & 59\% & 60\% & 62\% & 59\% & 59\% & 60\% \\ 
-  Fillets volume kt & 164.3 & 161.3 & 157.0 & 167.6 & 186.8 & 149.4 \\ 
-  Fillets value share & 40\% & 37\% & 33\% & 36\% & 40\% & 38\% \\ 
-  Fillets price lb \$ & \$1.45  & \$1.41  & \$1.29  & \$1.37  & \$1.52  & \$1.56  \\ 
-  Surimi volume kt & 163.8 & 190.8 & 196.7 & 196.5 & 192.2 & 171.8 \\ 
-  Surimi value share & 33\% & 37\% & 43\% & 40\% & 38\% & 35\% \\ 
-  Surimi price lb \$ & \$1.19  & \$1.19  & \$1.33  & \$1.27  & \$1.37  & \$1.26  \\ 
-  Roe volume kt & 17.6 & 14.3 & 18.4 & 20.6 & 28.0 & 24.7 \\ 
-  Roe value share & 10\% & 7\% & 9\% & 10\% & 9\% & 8\% \\ 
-  Roe price lb \$ & \$3.26  & \$2.84  & \$2.88  & \$2.89  & \$2.15  & \$2.01  \\ 
-  At-sea price premium (\$/lb) & \$0.20  & \$0.25  & \$0.37  & \$0.20  & \$0.26  & \$0.33  \\ 
-   \hline
-\multicolumn{7}{p{6in}}{
-Source: NMFS Alaska Region Blend and Catch-accounting System estimates; NMFS    
-Alaska Region At-sea Production Reports; and ADF\&G Commercial Operators Annual
-Reports (COAR). Data compiled and provided by the Alaska Fisheries Information
-Network (AKFIN).
-}//
-\end{tabular}
 }
 \end{table}
-
-
-\begin{table}[ht]
-\centering
-\caption{Alaska pollock U.S. trade and global market data showing global
-production (in kt) and the U.S. and Russian shares followed by  U.S. export
-volumes (kt), values (million US\$), export prices (US\$ per pound), 
-import values (million US\$), and net exports (million US\$).
-Subsequent rows show the breakout of export shares (of U.S. pollock) by
-country (Japan, China and Europe) and the share of U.S. export volume and
-value of fish  (i.e., H\&G and fillets), and other product categories (surimi
-and roe).  Years covered include the 2011-2015 average, and annual from 2016-2020.}
-\label{tab:bsaiplck_glbl}
-\scalebox{0.88}{
-\begin{tabular}{llrrrrrr}
-  \hline
- & & Avg 11-15 & 2016 & 2017 & 2018 & 2019 & 2020 \\ 
-  \hline
-Global Pollock Catch kt &  & 3,270 & 3,476 & 3,489 & 3,397 & 3,496 & - \\ 
-  U.S. Share of Global Catch &  & 42\% & 44\% & 44\% & 45\% & 43\% & - \\ 
-  Russian Share of global catch &  & 48\% & 50\% & 50\% & 49\% & 50\% & - \\ 
-  BSAI share of global &  & 39\% & 39\% & 39\% & 41\% & 40\% & - \\ 
-  Export Volume kt &  & 350.3 & 379.6 & 397.9 & 415.2 & 380.1 & 323.5 \\ 
-  Export Value M US\$ &  & \$990.1  & \$990.5  & \$1,007.5  & \$1,129.1  & \$1,119.9  & \$941.9  \\ 
-  Export Price lb US\$ &  & \$1.28  & \$1.18  & \$1.15  & \$1.23  & \$1.34  & \$1.32  \\ 
-  Import Value M US\$ &  & \$155.6  & \$92.5  & \$76.2  & \$78.7  & \$123.4  & \$100.4  \\ 
-  Net Exports &  & \$834.5  & \$898.0  & \$931.3  & \$1,050.4  & \$996.5  & \$841.5  \\ 
-  Japan & Volume Share & 22\% & 20\% & 22\% & 22\% & 23\% & 19\% \\ 
-   & Value share & 21\% & 20\% & 23\% & 26\% & 24\% & 20\% \\ 
-  China & Volume Share & 13\% & 12\% & 15\% & 14\% & 10\% & 10\% \\ 
-   & Value share & 11\% & 10\% & 13\% & 10\% & 7\% & 6\% \\ 
-  Germany & Volume Share & 38\% & 35\% & 32\% & 33\% & 35\% & 37\% \\ 
-   & Value share & 38\% & 35\% & 33\% & 33\% & 37\% & 39\% \\ 
-  Meat/Fillets & Volume Share & 50\% & 49\% & 49\% & 50\% & 47\% & 46\% \\ 
-   & Value share & 49\% & 46\% & 47\% & 45\% & 44\% & 44\% \\ 
-  Surimi & Volume Share & 44\% & 47\% & 47\% & 45\% & 46\% & 47\% \\ 
-   & Value share & 37\% & 42\% & 42\% & 42\% & 43\% & 42\% \\ 
-  Roe & Volume Share & 5\% & 4\% & 5\% & 5\% & 7\% & 7\% \\ 
-   & Value share & 14\% & 11\% & 11\% & 13\% & 13\% & 14\% \\ 
-   \hline
-\multicolumn{8}{p{7in}}{
-Notes: Exports are from the US and are note specific to the BSAI region. 'Meat' 
-includes fillets, H\&G, minced and other non-surimi meat based products. Europe refers to Austria, 
-Belgium, Denmark, France, Germany, Greece, Ireland, Italy, Netherlands, Norway, Portugal, Spain, Sweden, 
-Switzerland, and United Kingdom.\newline
-Source: FAO Fisheries \& Aquaculture Dept. Statistics
-\url{http://www.fao.org/fishery/statistics/en}. NOAA Fisheries, Fisheries Statistics
-Division, Foreign Trade Division of the U.S. Census Bureau,
-\url{http://www.st.nmfs.noaa.gov/commercial-fisheries/foreign-trade/index}. U.S. Department
-of Agriculture
-\url{http://www.ers.usda.gov/data-products/agricultural-exchange-rate-data-set.aspx.}
-}
-\end{tabular}
-}
-\end{table}
-
-
-\begin{table}[ht]
-  \centering
-  \caption{BSAI pollock fish oil production index (tons of oil per 100 tons of
-retained catch); 2011-2015 average, and annual from 2016-2020.}
-  \label{tab:bsaiplck_oil}
-  
-\begin{tabular}{lrrrrrr}
-  \hline
-Sector & Avg 11-15 & 2016 & 2017 & 2018 & 2019 & 2020 \\ 
-  \hline
-All Sectors & 2.04 & 2.06 & 1.92 & 1.93 & 2.22 & 1.61 \\ 
-  Shoreside & 2.27 & 2.28 & 2.09 & 2.08 & 2.32 & 1.83 \\ 
-  At Sea & 1.78 & 1.82 & 1.74 & 1.77 & 2.10 & 1.36 \\ 
-   \hline
-\multicolumn{7}{p{4in}}{
-Source: NMFS Alaska Region Blend and Catch-accounting System estimates; NMFS  
-Alaska Region At-sea Production Reports; and ADF\&G Commercial Operators Annual  
-Reports (COAR). Data compiled and provided by the Alaska Fisheries Information  
-Network (AKFIN).
-}\\
-\end{tabular}
-\end{table}
-
 
 \clearpage
 
@@ -464,8 +301,9 @@ Year & 1     & 2     & 3       & 4       & 5       & 6     & 7     & 8     & 9  
 2018	 & 	 - 	 & 	 1.3 	 & 	 13.8 	 & 	 114.9 	 & 	 1,214.9 	 & 	 506.1 	 & 	 104.7 	 & 	 81.9 	 & 	 60.6 	 & 	 25.9 	 & 	 4.3 	 & 	 1.1 	 & 	 0.4 	 & 	 1.1 	&	2,131	\\
 2019	 & 	 0.7 	 & 	 10.9 	 & 	 12.3 	 & 	 18.3 	 & 	 157.4 	 & 	 915.9 	 & 	 422.0 	 & 	 93.1 	 & 	 52.1 	 & 	 52.9 	 & 	 10.0 	 & 	 2.9 	 & 	 0.8 	 & 	 - 	&	1,749	\\
 2020	 & 	 3.7 	 & 	 245.9 	 & 	 85.6 	 & 	 99.2 	 & 	 134.1 	 & 	 548.5 	 & 	 598.3 	 & 	 126.6 	 & 	 53.0 	 & 	 37.8 	 & 	 27.0 	 & 	 6.9 	 & 	 1.7 	 & 	 1.2 	&	1,970	\\
-\hline                                                                                                                          
-Mean	 & 	 6.3 	 & 	 56.6 	 & 	 194.1 	 & 	 358.7 	 & 	 396.8 	 & 	 344.7 	 & 	 218.3 	 & 	 113.1 	 & 	 64.6 	 & 	 33.5 	 & 	 22.4 	 & 	 11.2 	 & 	 7.7 	 & 	 11.0 	 & 	 1,836 	\\
+2021	&	-	&	111.3	&	1295.7	&	144.0	&	110.0	&	107.1	&	309.3	&	295.8	&	72.1	&	26.5	&	16.1	&	8.5	&	2.0	&	0.4	&	2,499	\\
+\hline																															
+Mean	&	6	&	58	&	220	&	354	&	390	&	339	&	220	&	117	&	65	&	33	&	22	&	11	&	8	&	11	&	1,851	\\
 
 \hline
 \end{tabular}
@@ -587,6 +425,8 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 2018	 & 	 5,583 	 & 	 6,174 	 & 	 3,430 	 & 	 3,172 	 & 	 5,506 	 & 	 4,850 	 & 	 28,715 	\\
 2019	 & 	 4,513 	 & 	 6,086 	 & 	 3,594 	 & 	 2,953 	 & 	 5,809 	 & 	 5,499 	 & 	 28,454 	\\
 2020	 & 	 6,116 	 & 	 6,846 	 & 	 5,325 	 & 	 4,815 	 & 	 5,376 	 & 	 4,900 	 & 	 33,378 	\\
+2021	 & 	 5,852 	 & 	 7,368 	 & 	 6,247 	 & 	 5,468 	 & 	 2,886 	 & 	 2,698 	 & 	 30,519 \\
+2022	 &   4,862 	 &   5,817 	 &   2,240 	 &   1,858 	 &   531 	 &   506 	 &   15,814 \\
 \hline
 \end{tabular}
 \end{table}
@@ -642,6 +482,7 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 2018	 & 	 569 	 & 	 662 	 & 	 366 	 & 	 358 	 & 	 621 	 & 	 591 	 & 	 3,167 	\\
 2019	 & 	 552 	 & 	 778 	 & 	 387 	 & 	 332 	 & 	 558 	 & 	 531 	 & 	 3,138 	\\
 2020	 & 	 757 	 & 	 899 	 & 	 405 	 & 	 420 	 & 	 450 	 & 	 408 	 & 	 3,339 	\\
+2021	 &   760 	 &   910 	 &   588 	 &   542 	 &   270 	 &   256 	 &   3,326  \\
 \hline
 \end{tabular}
 \end{table}
@@ -659,6 +500,7 @@ Year    &   Males   &   Females &   Males   &   Females &   Males   &   Females 
 \centering
 \caption{Pollock sample sizes assumed for the age-composition data likelihoods from the fishery, bottom-trawl survey, and AT surveys, 1964--`r thisyr`. Note fishery sample size for 1964--1977 was fixed at 10.}
 \label{tab:input_n}
+\scalebox{.85}{
 \begin{tabular}{rrrr}
   \hline
 Year & Fishery & BTS & ATS \\
@@ -704,11 +546,13 @@ Year & Fishery & BTS & ATS \\
 2016    &   689 &   115 &   61  \\
 2017    &   676 &   105 &   \\  
 2018    &   611 &   100 &   50  \\
-2019    &   620 &   100 &   \\  
+2019    &   620 &   107 &   \\  
 2020    &   623 &       &   \\  
-2021    &   100 &   100         \\
-   \hline
+2021    &   620 &   100 &     \\
+2022    &   600 &   100 & 25  \\
+\hline
 \end{tabular}
+}
 \end{table}
 
 \clearpage
@@ -731,7 +575,10 @@ df <- rbind(df, cvw)
 cap <- tabcap[24]
 lab <- paste0("tab:",tablab[24])
 tab <- xtable(df, caption = cap, label=lab, ,digits=3)
-print(tab, scalebox=0.7, caption.placement = "top",align=rep("r",(length(df[1,])+1)), digits=3,include.rownames = FALSE, sanitize.text.function = function(x){x})
+hlines <- c(-1,0,nrow(tab)-2,nrow(tab))
+print(tab, scalebox=0.7, 
+	hline.after=hlines,
+	caption.placement = "top",align=rep("r",(length(df[1,])+1)), digits=3,include.rownames = FALSE, sanitize.text.function = function(x){x})
 
 ```
 \clearpage
@@ -755,9 +602,15 @@ print(tab, scalebox=0.7, caption.placement = "top",align=rep("r",(length(df[1,])
 
 # Fit to data------------------- 
 
-df <- tab_fit(modlst)
-tab <- xtable(df, caption = "Goodness of fit to primary data used for assessment model parameter estimation for different model configurations, EBS pollock.", label = "tab:mod_fits", digits = 3,align=paste0("ll",paste0(rep("r",nmods),collapse="")))
-print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
+df <- tab_fit(modlst[c(1,8,9,10)])
+tab <- xtable(df, caption = "Goodness-of-fit measures to primary data for different assessment model configurations. 
+RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, 
+Eff. N=effective sample size for composition data)", 
+label = "tab:mod_fits", digits = 2,align=paste0("ll",paste0(rep("r",length(df)-1),collapse="")))
+hlines <- c(-1, 0, 4,7,10,17, nrow(tab)-2,nrow(tab))
+print(tab, caption.placement = "top",
+hline.after=hlines, 
+include.rownames = FALSE, sanitize.text.function = function(x){x})
 
 ```
 
@@ -765,7 +618,7 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 ```{r mgt_quants, results = "asis"}
 # Mgt quants by model
 df <- NULL
-mod_scen <- c(1,4,5,7)
+mod_scen <- c(8,9,10)
 for (ii in mod_scen) {
     x      <- modlst[[ii]]
     ssb    <- x$nextyrssbs;         names(ssb)    <- paste0("${B}_{", nextyr ,"}$")
@@ -793,9 +646,11 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 ```{r biom_3plus,results="asis",echo=FALSE}
 cap <- tabcap[32]
 biom <- read.csv("data/Age3plus.csv",header=T,as.is=TRUE)
+#dim(biom);(M$age3plus);biom[,2:13];biom[,1]
+
 #biom <- read.csv("data/Age3history.csv",header=T,as.is=TRUE)
 t3  <- cbind(biom[,1],M$age3plus ,M$age3plus.sd/M$age3plus ,biom[,2:13])
-names(t3) <- c("Year","Current","CV","2020","CV","2019","CV","2018","CV","2017","CV","2016","CV", "2015","CV")#,"2014","CV")
+names(t3) <- c("Year","Current","CV","2021","CV","2020","CV","2019","CV","2018","CV","2017","CV","2016","CV" ) #,"2014","CV")
 
 for (i in seq(2,length(t3[1,]), 2 ) ){
       t3[,i]   <- formatC(t3[,i], format="d", big.mark=",",digits=0) 
@@ -803,7 +658,7 @@ for (i in seq(2,length(t3[1,]), 2 ) ){
 }
 
 tab <- xtable(t3, caption = cap, label=paste0("tab:",tablab[32]),digits=0, auto=TRUE, align=rep("r",(length(t3[1,])+1)) )
-print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.75)
+print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.72)
 ```
 \clearpage
 
@@ -812,7 +667,7 @@ tmp <- cbind(M$Yr,M$N[,1:9]/1000,rowSums(M$N[,10:15])/1000)
 colnames(tmp) <- c("Year",1:9,"10+")
 tab <- xtable(tmp, digits=2, auto=TRUE,caption = "Estimated billions of EBS pollock at age (columns 2--11) from the current assessment model." , 
               label = "tab:est_n")
-print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=0.8)
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=0.7)
 ```
 
 \clearpage
@@ -822,7 +677,7 @@ tmp <- cbind(M$Yr,M$C[,1:9],rowSums(M$C[,10:15]))
 colnames(tmp) <- c("Year",1:9,"10+")
 tab <- xtable(tmp, digits=2, auto=TRUE,caption = "Estimated millions of EBS pollock caught at age (columns 2--11) from the current assessment model." ,
               label = "tab:est_catage")
-print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=0.8)
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=0.7)
 ```
 
 \clearpage
@@ -833,14 +688,14 @@ tmp <- data.frame(Year=M$SSB[,1], SSB=M$SSB[,2], "CV SSB"=round(100*M$SSB[,3]/M$
 for (i in c(2,4,6) )
   tmp[,i]   <- formatC(tmp[,i], format="d", digits=0, big.mark=",") 
 tab <- xtable(tmp, caption = tabcap[31], label = paste0("tab:",tablab[31]),digits=0,auto=TRUE,align=rep("r",(length(tmp[1,])+1)))
-print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.80)
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.70)
 ```
 \clearpage
 
 ```{r res_summ, results = "asis"}
 # Mgt quants by final
 df <- NULL
-mod_scen <-c(2:4) 
+mod_scen <- c(8,9,10)
 for (ii in mod_scen) {
     x       <- modlst[[ii]]
     ssb    <- x$nextyrssbs;         names(ssb)            <- paste0("${B}_{", nextyr ,"}$")
@@ -859,7 +714,8 @@ for (ii in mod_scen) {
  }
 df <- data.frame(rownames(df), df, row.names = NULL)
 names(df) <- c("Component",mod_names[mod_scen])
-tab <- xtable(df, caption = "Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t.", label = "tab:res_summ", digits = 3)
+ tab <- xtable(df, caption = "Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t.", label = "tab:res_summ", digits = 3,align=paste0("ll",strrep("r",length(mod_scen))) )
+#tab <- xtable(df, caption = tabcap[28], digits = 3,align=paste0("ll",strrep("r",length(mod_scen))) )
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
 ```
 
@@ -867,7 +723,7 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 ```{r tier1proj, results = "asis"}
 # Tier 1 projections
 df <- NULL
-mod_scen <- c(2:4)
+ mod_scen <- c(8,9,10)
 for (ii in mod_scen) {
     x              <- modlst[[ii]]; 
     abcbiom        <- paste0(x$ABC_biom1s,",000");         
@@ -890,6 +746,7 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 \clearpage
 
 ```{r projtab, results = "asis"}
+# See "print_tier3_tables in R folder
 # 40,tier3_C,"Tier 3 projections of EBS pollock catch for the 7 scenarios.
 # 41,tier3_ABC,"Tier 3 projections of EBS pollock ABC (given catches in Table \ref{tab:tier3_C}) for the 7 scenarios.
 # 42,tier3_F,"Tier 3 projections of EBS pollock fishing mortality for the 7 scenarios. 
@@ -942,17 +799,17 @@ $P\left[E_{`r nextyr`}>E_{`r thisyr`}\right]$   & Probability that the theoretic
 \clearpage
 
 ```{r dectable,results="asis",echo=FALSE}
-rn <- c("$P\\left[F_{2022}>F_{MSY}\\right]$",
-"$P\\left[B_{2023}<B_{MSY}\\right]$ ",
+rn <- c("$P\\left[F_{2023}>F_{MSY}\\right]$",
 "$P\\left[B_{2024}<B_{MSY}\\right]$ ",
-"$P\\left[B_{2023}<\\bar{B}\\right]$ ",
-"$P\\left[B_{2026}<\\bar{B}\\right]$ ",
-"$P\\left[B_{2026}<B_{2021}\\right]$ ",
-"$P\\left[B_{2024}<B_{20\\%}\\right]$",
+"$P\\left[B_{2025}<B_{MSY}\\right]$ ",
+"$P\\left[B_{2024}<\\bar{B}\\right]$ ",
+"$P\\left[B_{2027}<\\bar{B}\\right]$ ",
+"$P\\left[B_{2027}<B_{2023}\\right]$ ",
+"$P\\left[B_{2025}<B_{20\\%}\\right]$",
 "$P\\left[p_{a_5,2024}>\\bar{p}_{a_5}\\right]$ ",
-"$P\\left[D_{2023}<D_{1994}\\right]$  ",
-"$P\\left[D_{2026}<D_{1994}\\right]$  ",
-"$P\\left[E_{2022}>E_{2021}\\right]$  ")
+"$P\\left[D_{2024}<D_{1994}\\right]$  ",
+"$P\\left[D_{2027}<D_{1994}\\right]$  ",
+"$P\\left[E_{2023}>E_{2022}\\right]$  ")
   m <- rbind(
   round(M$pfcur_fmsy*100,1)  ,
   round(M$pbcur_bmsy*100,1)  ,
@@ -968,7 +825,7 @@ rn <- c("$P\\left[F_{2022}>F_{MSY}\\right]$",
   colnames(m) <- round(M$catch_dec_tab,0)
   rownames(m) <- rn
   # cap<-"\\label{tab:dec_table} "
-  cap<-paste("Outcomes of decision (expressed as chances out of 100) given different",1+thisyr,"catches (first row, in kt). Note that for the 2019 and later year-classes average values were assumed. Constant Fs based on the",1+thisyr, "catches were used for subsequent years. ")
+  cap<-paste("Outcomes of decision (expressed as chances out of 100) given different",1+thisyr,"catches (first row, in kt). Note that for the ",thisyr-2,"and later year-classes average values were assumed. Constant Fs based on the",1+thisyr, "catches were used for subsequent years. ")
   ## kable(m,caption=cap,format="pandoc")
   tab <- xtable(m, caption = cap, label="tab:dec_table",digits=0, auto=TRUE, align=rep("r",(length(m[1,])+1)) )
   print(tab, caption.placement = "top",include.rownames = TRUE, sanitize.text.function = function(x){x}, scalebox=1)
@@ -988,23 +845,28 @@ tab <- xtable(byc, caption = cap, label=paste0("tab:",tablab[37]),digits=2, auto
 print(tab, caption.placement = "top",include.rownames = FALSE, rotate.colnames = TRUE,sanitize.text.function = function(x){x}, 
        scalebox=.85)
 
-byc <- read_csv("../data/fishery/pollock_catch.csv")[,c(1,16,19,22,27,28)]
-names(byc)<-c("Year","target","gear","NMFS_area","Catch","wt")
-ntmp<-unique(byc$target)
-poll <- ntmp[c(2,4)]
-rsole <- ntmp[c(3)]
-yfsole <- ntmp[c(14)]
-oflat  <- ntmp[c(6,7,9,15,16,17,18)]
-ospp   <- ntmp[c(5,8,12,13)]
+#byc <- read_csv("../data/fishery/pollock_catch.csv")[,c(1,16,19,22,27,28)]
+byc <- read_csv("../data/fishery/pollock_catch.csv")[,c(1,6,9,4,10,11)]
 
-byc<-byc %>% filter(target!="No retained catch") %>% 
-  mutate(target=ifelse(target %in% poll,"Pollock",
+names(byc)<-c("Year","target","gear","NMFS_area","Catch","wed")
+byc <- byc %>%filter(NMFS_area<540)
+
+ntmp<-unique(byc$target)
+poll <- ntmp[c(1,5)]
+pcod <- ntmp[c(2)]
+rsole <- ntmp[c(6)]
+yfsole <- ntmp[c(13)]
+oflat  <- ntmp[c(3,7,9,15,16,17,18)]
+ospp   <- ntmp[c(4,8,11,12,14)]
+
+byc<-byc %>% filter(!target %in% poll)%>%
+  mutate(target=
+    ifelse(target %in% pcod, "Pacific cod",
     ifelse(target %in% rsole, "Rock sole",
     ifelse(target %in% yfsole,"Yellowfin sole",
     ifelse(target %in% ospp,"Other Species",
     ifelse(target %in% oflat,"Other flatfish",target)))))) %>%
   group_by(Year,target) %>% summarise(Catch=sum(Catch)) 
-#tmp %>% ggplot(aes(x=Year,y=Catch,color=target)) + geom_line() + theme_few()
 byc <-byc %>% pivot_wider(names_from=target,values_from=Catch)
 byc <-data.frame(byc)
 
@@ -1024,18 +886,76 @@ cap <- tabcap[36]
 tab <- xtable(byc, caption = cap, label=paste0("tab:",tablab[36]),digits=2, auto=TRUE, align=rep("r",(length(byc[1,])+1)) )
 print(tab, caption.placement = "top",include.rownames = FALSE, rotate.colnames = TRUE,sanitize.text.function = function(x){x}, 
        scalebox=.90, format.args = list( decimal.mark = "."))
-
-byc <- read.csv("data/byc_PSC.csv",header=T,as.is=TRUE)
-for (i in 2:length(byc[1,]) ) 
-  byc[,i] <- formatC(byc[,i], format="d", big.mark=",") 
-cap <- tabcap[39]
-tab <- xtable(byc, caption = cap, label=paste0("tab:",tablab[39]),digits=0, auto=TRUE, align=rep("r",(length(byc[1,])+1)) )
-print(tab, caption.placement = "top",include.rownames = FALSE, rotate.colnames = TRUE,sanitize.text.function = function(x){x}, 
-       scalebox=.80)
 ```
 
+```{r byc_psc,results="asis",echo=FALSE}
+#byc <- read.csv("data/byc_PSC.csv",header=T)
+#for (i in 2:length(byc[1,]) ) 
+  #byc[,i] <- formatC(byc[,i], format="d", big.mark=",") 
+#cap <- tabcap[39]
+#tab <- xtable(byc, caption = cap, label=paste0("tab:",tablab[36]),digits=2, auto=TRUE, align=rep("r",(length(byc[1,])+1)) )
+#print(tab, caption.placement = "top",include.rownames = FALSE, rotate.colnames = TRUE,sanitize.text.function = function(x){x}, 
+       #scalebox=.90, format.args = list( decimal.mark = "."))
+
+
+
+#byc <- read.csv("data/byc_PSC.csv",header=T,as.is=TRUE)
+#for (i in 2:length(byc[1,]) ) 
+  #byc[,i] <- formatC(byc[,i], format="d", big.mark=",") 
+#cap <- tabcap[39]
+#tab <- xtable(byc, caption = cap, label=paste0("tab:",tablab[39]),digits=0, auto=TRUE, align=rep("r",(length(byc[1,])+1)) )
+#print(tab, caption.placement = "top",include.rownames = FALSE, rotate.colnames = TRUE,sanitize.text.function = function(x){x}, 
+       #scalebox=.80)
+```
+
+\begin{table}[ht]
+\centering
+\caption{Bycatch estimates of prohibited species caught in the BSAI directed pollock fishery, 1997--2022 based on the AKFIN (NMFS Regional Office) reports from observers. Herring and halibut units are in t, all others represent numbers of individuals caught. Data for 2022 are preliminary.} 
+\label{tab:nontargbycatch}
+\scalebox{0.9}{
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+\begin{sideways} Year \end{sideways} & \begin{sideways} Bairdi.Tanner.Crab \end{sideways} & \begin{sideways} Chinook.Salmon \end{sideways} & \begin{sideways} Halibut \end{sideways} & \begin{sideways} Halibut.mort \end{sideways} & \begin{sideways} Herring \end{sideways} & \begin{sideways} Non.Chinook.Salmon \end{sideways} & \begin{sideways} Snow.Crab \end{sideways} & \begin{sideways} Red.King.Crab \end{sideways} & \begin{sideways} Blue.King.Crab \end{sideways} & \begin{sideways} Golden..King.Crab \end{sideways} \\ 
+  \hline
+1991 & 1,397,836 & 36,348 & 2,155 & NA & 3,158 & 28,657 & 4,378,007 & 17,777 & NA & NA \\ 
+  1992 & 1,500,764 & 33,672 & 2,220 & NA & 646 & 40,186 & 4,569,662 & 43,873 & NA & NA \\ 
+  1993 & 1,649,086 & 36,615 & 1,326 & NA & 527 & 241,971 & 738,250 & 58,139 & NA & NA \\ 
+  1994 & 371,213 & 31,880 & 963 & 688 & 1,626 & 91,764 & 811,733 & 42,360 & NA & NA \\ 
+  1995 & 153,992 & 13,403 & 491 & 397 & 904 & 17,754 & 206,651 & 4,644 & NA & NA \\ 
+  1996 & 89,415 & 55,467 & 382 & 320 & 1,241 & 77,173 & 63,398 & 5,933 & NA & NA \\ 
+  1997 & 17,046 & 44,312 & 257 & 200 & 1,134 & 65,414 & 216,152 & 137 & NA & NA \\ 
+  1998 & 57,036 & 51,244 & 352 & 278 & 800 & 60,676 & 123,400 & 14,286 & NA & NA \\ 
+  1999 & 2,397 & 10,381 & 153 & 124 & 799 & 44,610 & 15,829 & 90 & NA & NA \\ 
+  2000 & 1,484 & 4,242 & 110 & 90 & 482 & 56,866 & 6,480 & 0 & NA & NA \\ 
+  2001 & 5,060 & 30,933 & 242 & 199 & 225 & 53,901 & 5,653 & 105 & NA & NA \\ 
+  2002 & 2,112 & 32,381 & 165 & 137 & 108 & 77,167 & 2,697 & 16 & NA & NA \\ 
+  2003 & 732 & 43,095 & 88 & 74 & 967 & 179,987 & 608 & 52 & 8 & NA \\ 
+  2004 & 1,091 & 48,799 & 96 & 81 & 1,095 & 441,188 & 640 & 26 & 4 & 1 \\ 
+  2005 & 601 & 66,208 & 119 & 100 & 593 & 703,076 & 2,016 & 0 & NA & 1 \\ 
+  2006 & 1,288 & 80,915 & 132 & 111 & 433 & 305,793 & 2,567 & 288 & NA & 3 \\ 
+  2007 & 1,465 & 116,329 & 312 & 269 & 351 & 86,380 & 3,033 & 7 & NA & 3 \\ 
+  2008 & 9,025 & 20,602 & 373 & 311 & 127 & 15,119 & 8,894 & 670 & 8 & 33 \\ 
+  2009 & 6,155 & 12,284 & 541 & 436 & 64 & 45,960 & 7,312 & 1,136 & 19 & NA \\ 
+  2010 & 12,787 & 9,833 & 335 & 267 & 348 & 13,728 & 9,444 & 1,122 & 28 & NA \\ 
+  2011 & 10,973 & 25,499 & 459 & 378 & 376 & 193,754 & 6,493 & 577 & 25 & NA \\ 
+  2012 & 5,620 & 11,343 & 462 & 388 & 2,352 & 22,297 & 6,189 & 343 & NA & NA \\ 
+  2013 & 12,426 & 13,091 & 333 & 271 & 958 & 125,525 & 8,605 & 507 & 34 & 107 \\ 
+  2014 & 12,521 & 15,135 & 239 & 199 & 159 & 219,837 & 19,454 & 368 & NA & NA \\ 
+  2015 & 8,872 & 18,329 & 152 & 130 & 1,487 & 237,776 & 8,339 & 0 & NA & NA \\ 
+  2016 & 2,295 & 22,204 & 121 & 102 & 1,431 & 343,208 & 1,166 & 439 & NA & 26 \\ 
+  2017 & 7,269 & 30,078 & 97 & 88 & 963 & 467,750 & 3,406 & 202 & 0 & 67 \\ 
+  2018 & 2,249 & 13,726 & 75 & 61 & 473 & 295,818 & 5,142 & 565 & 0 & 53 \\ 
+  2019 & 3,146 & 25,038 & 133 & 112 & 1,101 & 348,631 & 6,228 & 453 & 99 & 445 \\ 
+  2020 & 10,745 & 32,204 & 128 & 102 & 3,861 & 343,625 & 40,004 & 479 & 1 & 521 \\ 
+  2021 & 8,417 & 13,852 & 144 & 131 & 1,708 & 546,472 & 4,668 & 52 & 0 & 115 \\ 
+  2022 & 4,758 & 6,414 & 169 & 155 & 1,716 & 242,357 & 1,952 & 310 & 58 & 88 \\ 
+   \hline
+\end{tabular}
+}
+\end{table}
 
 \clearpage
+
 
 \begin{table}[ht]
 \centering

@@ -2,7 +2,7 @@
 # Figures
 
 ```{r fshfigs}
- printfig("PCA_genetics.png",85)
+ #printfig("PCA_genetics.png",85)
  printfig("catch.pdf",1)
  printfig("fsh_psc_cpue.png",67)
  printfig("catch_sex.pdf",2)
@@ -18,7 +18,7 @@
  printfig("fsh_lenfreq.pdf",82)
 
  printfig("catage.png",10)
- printfig("fsh_cohort_locales.pdf",84)
+ #printfig("fsh_cohort_locales.pdf",84)
 
 ``` 
 
@@ -31,7 +31,9 @@
  printfig("bts_temp_cpue.pdf",i);i <- i + 1
  printfig("bts_3d.png",i);i <- i + 1
  printfig("bts_age_comp.png",i);i <- i + 1
- printfig("bts_lenfreq.pdf",83);
+ printfig("bts_lenfreq.png",83);
+ printfig("vastage_vs_db.pdf",27);
+ printfig("wtage_bts.pdf",94);
  printfig("at_age.png",74);
  
  printfig("avo_map_yr.pdf",16);
@@ -58,29 +60,33 @@
  printfig("fsh_lw_anom_str_yr_box.pdf",24)
  printfig("fsh_lw_anom_yr_box.pdf",25)
  printfig("fsh_wtage_comb.pdf",20)
- printfig("fish_wtage_data_pred.pdf",88)
+ printfig("fsh_wtage_data_pred.pdf",88)
  printfig("fsh_wtage_strata.pdf",21)
  printfig("fsh_wtage_strata_yr.pdf",22)
  
  printfig("mod_data.pdf",30)
- printfig("mod_21_agecomp.pdf",91)
+ #printfig("mod_21_agecomp.pdf",91)
  
- #21printfig("mod_cpue_fit.pdf",38)
- #21printfig("mod_avo_fit.pdf",39)
- #21printfig("mod_bts_biom.pdf",33)
- #21printfig("mod_ats_biom.pdf",34)
- #21printfig("mod_mean_age.pdf",35)
- #21printfig("mod_fsh_sel.pdf",36)
- #21printfig("mod_fsh_age.pdf",37)
- #21printfig("mod_bts_sel.pdf",40)
- #21printfig("mod_bts_age.pdf",41)
- #21printfig("mod_ats_age.pdf",43)
- #21printfig("mcmc_pairs.pdf",55)
- #21printfig("mcmc_marg.pdf",56)
- #21printfig("mcmc_marg_fmsy.pdf",87)
- #21printfig("acoustic_ppl.png",93)
+ printfig("mod_cpue_fit.pdf",38)
+ printfig("mod_avo_fit.pdf",39)
+ printfig("mod_bts_biom.pdf",33)
+ printfig("mod_ats_biom.pdf",34)
+ printfig("mod_mean_age.pdf",35)
+ printfig("mod_fsh_sel.pdf",36)
+ printfig("mod_fsh_age.pdf",37)
+ printfig("mod_bts_sel.pdf",40)
+ printfig("mod_bts_age.pdf",41)
+ printfig("mod_ats_age.pdf",43)
+ printfig("MLE_v_post.png",98)
+ printfig("mcmc_pairs.pdf",55)
+ printfig("mcmc_marg.pdf",56)
+ printfig("mcmc_marg_fmsy.pdf",87)
+ printfig("acoustic_ppl.png",93)
+ printfig("ssb_v_2018.pdf",96)
+ printfig("post_profile.pdf",95)
 
  printfig("mod_retro.pdf",52)
+ printfig("mod_retroR.pdf",97)
  printfig("retro_sel.pdf",89)
  printfig("retro_sel_mnage.pdf",90)
  printfig("fmsy_sel",92)
@@ -99,6 +105,7 @@
 
 
  printfig("tier3_proj.pdf",53)
+ printfig("tier3_proj_alt3.pdf",54)
  printfig("age_diversity.pdf",51)
  #printfig("sa_density.pdf",61)
  #printfig("sel_comp_vast.pdf",61)
