@@ -62,6 +62,7 @@ gradient.*
 *.hst
 *.par
 *.rep
+*.prj
 *.r0*
 *.std
 *_in.ctl
