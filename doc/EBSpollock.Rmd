@@ -39,7 +39,7 @@ clean_cache(clean = TRUE)
 
   Alaska Fisheries Science Center, National Marine Fisheries Service \\
   National Oceanic and Atmospheric Administration \\ 
-  7600 Sand Point Way NE., Seattle, WA 98115-6349 \\ `r format(Sys.time(), '%B %d, %Y')` \\ 
+  7600 Sand Point Way NE., Seattle, WA 98115-6349 \\ 
     \end{centering}
 ```
 

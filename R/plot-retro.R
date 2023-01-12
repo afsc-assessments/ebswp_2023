@@ -19,7 +19,7 @@ plot_retro <- function(M,main=""){
          guides(fill=FALSE,alpha=FALSE,col=FALSE);p1
 	p1$data
   p1 + transition_states(-peel, transition_length = .3, state_length = 3) + shadow_mark(alpha = 0.2)
-	anim_save("figs/retro_ssb_an.gif",width=8,height=5,units="in")
+	anim_save("figs/retro_ssb_an_sigmaR.6.gif",width=8,height=5,units="in")
   
 	#ggsave("figs/mod_retro1.pdf",plot=p1,width=7,height=5,units="in")
 	# Recruits

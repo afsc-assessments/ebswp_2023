@@ -23,6 +23,7 @@ mod_names <- c("Last year",
   "Base",
   "Est M", 
   "Wt comp")
+  #"SigmaR.6")
 .MODELDIR <- c( 
   "../runs/c21/",
   "../runs/01/",
@@ -34,6 +35,7 @@ mod_names <- c("Last year",
   "../runs/07/",
   "../runs/08/",
   "../runs/09/")
+  #"../runs/10/")
 
 fn        <- paste0(.MODELDIR, "pm");fn
 #fn

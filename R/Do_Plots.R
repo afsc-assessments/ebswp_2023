@@ -376,6 +376,7 @@ hlr <- M$regime[2]
   
   #----Read in retro results-----------------
   i=0
+  thismod <- 8 # the selected model
   retouts <- list()
   for (i in 0:15) {
       rn=paste0(.MODELDIR[thismod],"retro/r_",i,".rep")
@@ -749,6 +750,17 @@ ggsave("figs/catch.pdf",plot=p1,width=7.5,height=4.5,units="in")
               scale_x_continuous(breaks=seq(1990,2020,2)) + ylab("Catch (thousands)") + xlab("Year")
               p1
         ggsave("figs/catch_sex.pdf",plot=p1,width=7.5,height=4.5,units="in")
+        # Look at catch in Number vs catch in weight
+        edt_df <- edt |> mutate(Year=year) |> group_by(Year) |> summarise(Number=sum(value))
+        cdf_df <- df |> group_by(Year) |> summarise(Biomass=sum(Catch))
+        left_join(edt_df, cdf_df) |> ggplot(aes(x=Number,y=Biomass,label=Year)) + theme_few() + geom_text(size=3) +
+          geom_smooth(method=lm)
+        #left_join(edt_df, cdf_df) |> mutate(Number=Number/mean(Number),Biomass=Biomass/mean(Biomass) ) |> pivot_longer(!Year,names_to="Type",values_to="Catch") |> ggplot(aes(x=Year,y=Catch,color=Type)) +
+        library(scales)
+        left_join(edt_df, cdf_df) |> pivot_longer(!Year,names_to="Type",values_to="Catch") |> ggplot(aes(x=Year,y=Catch,color=Type)) +
+          scale_y_continuous(label=comma) +
+          geom_line(size=2) + theme_few(base_size = 18) + facet_grid(Type~.,scales="free") +  theme(legend.position="none")
+        ?pivot_longer
       #df <- tibble(read.csv("../doc/data/product.csv",header=T))
       #df[,2] <- df[,2]/1e6
       #df

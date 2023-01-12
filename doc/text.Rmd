@@ -1522,7 +1522,8 @@ These values are based on the usual SPR expansion using mean
 3`r if(M$curssb>(M$b100*.4)) {"a and above"}else{"b and below"}`
 $B_{40\%}$ and result in a `r paste(thisyr,"ABC of",M$Tier3_ABC1s,"t")`. 
 The Tier 3 run with the 2018 year-class (as age 4-yr olds) from the unadjusted
-projection configuration increased the ABC to `r Tier3_abc_fulls` t; a difference of 
+projection configuration increased the ABC to `r Tier3_abc_fulls` t 
+(and 2,275,000 for 2024); a difference of 
 `r paste0(round(Tier3_abc_full-M$Tier3_ABC1,0),",000")` t. This alternative
 was provided and represents a `r paste0(round(100*(1-M$Tier3_ABC1/Tier3_abc_full),0),"%")  `
 decline from the unadjusted projection configuration.
@@ -1785,7 +1786,7 @@ To fulfill reporting requirements for [NOAA's Species Information
 System](https://www.fisheries.noaa.gov/resource/data/species-information-system),
 we computed the fishing mortality rate corresponding to the specified
 OFL for the last complete year (`r thisyr-1`). This hypothetical
-`r thisyr-1` $F_{OFL}$ from this year's model was estimated to be 0.491
+`r thisyr-1` $F_{OFL}$ from this year's model was estimated to be 0.5431
 for EBS pollock (assuming this year's estimated 2022 selectivity and
 weight-at-age).
 
