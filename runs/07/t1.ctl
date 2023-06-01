@@ -153,7 +153,7 @@
 1
 1 # exclude 1978 yc in SRR? 0=no, 1=yes
 2
-0
+1 # 0 means use 2018 as estimated, 1 means set to mean of 2012 and 2013 (for projections only)
 0
 2
 1

@@ -41,7 +41,6 @@ plot_retro <- function(M,main=""){
 	glimpse(df)
 	tail(df)
 	theme_set(theme_bw())
-	library(gganimate)
 	glimpse(bdft)
 	dim(dt_dc)
 	bdft <- dt_dc %>% transmute(Year,dt_dc[,2:17]/dt_dc[,2])
@@ -88,12 +87,14 @@ df
 	p2 <-p2 +geom_hline(aes(yintercept=1),size=3,linetype="dotted")
 	p2 <-p2 +geom_hline(aes(yintercept=1),size=1,col="grey")
 	# Mohn's rho
-	rc = retouts[[0]]$SSB[,2]
+	ret1[["r_0"]]$SSB[,2]
+	rc = ret1[["r_0"]]$SSB[,2]
 	ntmp=0
 	rho=0
 	rn
+	i=1
 	for (i in 1:20) {
-		rn <- names(retouts[i])
+		rn <- names(ret1[i])
 	  dtmp = (get(paste0(rn))$SSB )
 	  lr   = length(dtmp[,1])
 	  ntmp = ntmp+(dtmp[lr,2] -rc[lr])/rc[lr]

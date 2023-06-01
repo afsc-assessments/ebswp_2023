@@ -17,7 +17,7 @@ if (doplots) {
   #p1 <- plot_ssb(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
   #p1 <- plot_bts(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
   #p1 <- plot_Nage_3(modlst[c(1,2)],xlim=c(2000.5,2023.5));p1
-  p1 <- plot_recruitment(modlst[c(1,2)],xlim=c(2000.5,2022.5))+ylab("");
+  p1 <- plot_recruitment(modlst[c(1:2)],xlim=c(2000.5,2022.5))+ylab("");p1
   p2 <- plot_recruitment(modlst[c(2,3)],xlim=c(2000.5,2022.5))+ylab("");
   p3 <- plot_recruitment(modlst[c(3,4)],xlim=c(2000.5,2022.5))+ylab("");
   p4 <- plot_recruitment(modlst[c(4,5)],xlim=c(2000.5,2022.5))+ylab("");
@@ -34,7 +34,10 @@ if (doplots) {
   #p2 <- plot_ssb(modlst[c(1,4)],xlim=c(2008.5,2021.5),breaks=seq(2008,2021,by=2),alpha=.2); p2
   #p2 <- plot_ssb(modlst[c(1,5)],xlim=c(2008.5,2021.5),breaks=seq(2008,2021,by=2),alpha=.2); p2
 #---SSB-------------------------
-  p1 <- plot_ssb(modlst[c(1,8)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p2
+  modlst[[3]]$SSB
+  p1 <- plot_recruitment(modlst[c(1,2)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
+  p1 <- plot_ssb(modlst[c(1,2)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
+  p1 <- plot_ssb(modlst[3],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
   p2 <- plot_ssb(modlst[c(8,9)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p2
   # Comparing base with 2 vast configurations
   p3 <- p1/p2; p3
@@ -43,7 +46,7 @@ if (doplots) {
 #---BTS Fit---------------------
   # Comparing base with 2 vast configurations
   #p1 <- plot_recruitment(modlst[c(2,4,5)],xlim=c(2010.8,2019.5));p1
-  p1 <- plot_bts(modlst[c(thismod)],xlim=c(1981.5,2023.5),ylim=c(0,15500)) ;p1
+  p1 <- plot_bts(modlst[c(1,2)],xlim=c(1981.5,2023.5),ylim=c(0,15500)) ;p1
   ggsave("figs/mod_bts_fit.pdf",plot=p1,width=8,height=4.0,units="in")
   #p1 <- plot_ssb(modlst[c(3,4)],xlim=c(2000.5,2020.5),alpha=.2); p1
   #plot_recruitment(modlst,xlim=c(2004.5,2018.5))
@@ -51,7 +54,7 @@ if (doplots) {
   #plot_ssb(modlst[c(2,3)],xlim=c(2004.5,2020.5),alpha=.1)
   #plot_bts(modlst,xlim=c(1981.5,2019.5),ylim=c(0,35000)) 
   #ggsave("figs/mod_eval0a.pdf",plot=p1,width=6,height=4,units="in")
-  p1 <- plot_bts(modlst[c(1,8)],xlim=c(2009.5,2022.5),ylim=c(0,15000)) ;p1
+  p1 <- plot_bts(modlst[c(1,2)],xlim=c(2009.5,2022.5),ylim=c(0,15000)) ;p1
 #  plot_bts(modlst[c(3)],xlim=c(1982,2019.5),ylim=c(0,15000)) 
 ##  plot_bts(modlst[c(2)],xlim=c(1982,2019.5),ylim=c(0,15000)) 
   ggsave("figs/mod_bts_bridge.pdf",plot=p1,width=8,height=4,units="in")
@@ -82,13 +85,13 @@ if (doplots) {
   p1 <- plot_bts(modlst[thismod]) ; p1
   ggsave("figs/mod_bts_biom.pdf",plot=p1,width=5.2,height=3.7,units="in")
 
-  p1 <- plot_ats(modlst[c(1,thismod)]) +
+  p1 <- plot_ats(modlst[c(1,2)]) +
         scale_x_continuous(limits=c(2000-.5,2022), breaks=2000:2022)  ;p1
   ggsave("figs/mod_ats_bridging.pdf",plot=p1,width=5.2,height=3.7,units="in")
 
 #  p1 <- p1+ geom_vline(xintercept=2006.5,color="grey",size=1)
   #p1 <- p1+scale_y_log10()
-  p1 <- plot_ats(modlst[c(thismod)]) +theme_few(base_size=11) ;p1
+  p1 <- plot_ats(modlst[c(1)]) +theme_few(base_size=11) ;p1
   ggsave("figs/mod_ats_biom.pdf",plot=p1,width=9.2,height=3.7,units="in"); 
   p1 <- plot_avo(modlst[c(thismod)],ylim=c(0,2)) + xlim(c(2005,2023));p1
 #  p1 <- plot_avo(modlst[c(2)]) ;p1
@@ -97,6 +100,9 @@ if (doplots) {
   p1 <- plot_cpue(modlst[[thismod]]) 
   ggsave("figs/mod_cpue_fit.pdf",plot=p1,width=5.2,height=3.7,units="in")
   p1 <- plot_recruitment(modlst[thismod],xlim=c(1963.5,2021.5),fill="yellow");p1
+  p1 <- plot_recruitment(modlst[c(1:2)],xlim=c(2000.5,2022.5),fill="yellow") + theme_few(base_size = 14);p1
+  p1 <- plot_ssb(modlst[c(1:2)],xlim=c(2000.5,2022.5),fill="yellow");p1
+  ggsave("figs/mod_rec.pdf",plot=p1,width=9,height=4,units="in")
   ggsave("figs/mod_rec.pdf",plot=p1,width=9,height=4,units="in")
 
 #  p1 <- plot_srr(modlst[c(thismod)],alpha=.2,xlim=c(0,5200),ylim=c(0,77000));p1
@@ -147,7 +153,8 @@ modlst
   plot_agefit(modlst[[thismod]],case_label=af_title,gear="bts",type="survey",styr=1982,ageplus=10)
   dev.off()
   pdf("../doc/figs/mod_ats_age.pdf",width=6,height=8)
-  plot_agefit(modlst[[thismod]],case_label=af_title,gear="ats",type="survey",styr=2001)
+  plot_agefit(modlst[[2]],case_label=af_title,gear="ats",type="survey",styr=2001)
+  plot_agefit(modlst[[1]],case_label=af_title,gear="ats",type="survey",styr=2001)
   dev.off()
 #  plot_agefit(modlst[[2]],case_label=af_title,gear="fsh",type="fishery",styr=1992)
   pdf("../doc/figs/mod_fsh_age.pdf",width=6,height=8)
@@ -376,18 +383,97 @@ hlr <- M$regime[2]
   
   #----Read in retro results-----------------
   i=0
-  thismod <- 8 # the selected model
-  retouts <- list()
-  for (i in 0:15) {
-      rn=paste0(.MODELDIR[thismod],"retro/r_",i,".rep")
+  thismod <- 2 # the selected model
+  getret <- function(nyrs=15, mod=1){
+    retouts<- list()
+    for (i in 0:nyrs) {
+      rn=paste0(.MODELDIR[mod],"retro/r_",i,".rep")
       mn=paste0("r_",i)
       assign(mn,read_rep(rn))
       retouts[[mn]] <- (get(mn))
     }
-  p1 <- plot_ssb(retouts,xlim=c(2000,thisyr),legend=F,breaks=seq(2000,2022,2));p1
-  p2 <- plot_ssb_rel(retouts,xlim=c(2000,thisyr),ylim=c(0.5,1.5),legend=F,alpha=.2)
-  p3 <- p1/p2
-  print(p3)
+    return(retouts)
+  }
+  ret1<-getret(mod=1,nyrs=20)
+  ret2<-getret(mod=2,nyrs=20)
+  ret3<-getret(mod=3,nyrs=20)
+  p1 <- plot_ssb(ret1,xlim=c(2000,thisyr),legend=F,breaks=seq(2000,2022,2),ylim=c(0,6900)) + xlab("") +ggtitle("Base")+ coord_cartesian(ylim=c(0,NA));p1
+  p2 <- plot_ssb(ret2,xlim=c(2000,thisyr),legend=F,breaks=seq(2000,2022,2),ylim=c(0,6900))+ggtitle("w/o ATS") + coord_cartesian(ylim=c(0,NA));p2
+  p3 <- plot_ssb(ret3,xlim=c(2000,thisyr),legend=F,breaks=seq(2000,2022,2),ylim=c(0,6900))+ggtitle("w/o BTS") + coord_cartesian(ylim=c(0,NA));p3
+  p3 <- p1/p2   + plot_annotation(title = 'Spawning biomass with and without acoustic trawl survey data',
+    subtitle = 'EBS walleye pollock assessment', caption = 'Disclaimer: Draft results, please do not cite' ); p3
+  ggsave("figs/retcompSSB.pdf",plot=p3,width=7.2,height=9.0,units="in")
+  # recruitment
+  p1 <- plot_R_rel(ret1,xlim=c(thisyr-15,thisyr-1),legend=F,rel=FALSE,ylim=c(0,120000),ylab="Age-1 recruitment") + xlab("") +ggtitle("Base")+coord_cartesian(ylim=c(0,125000));p1
+  p2 <- plot_R_rel(ret2,xlim=c(thisyr-15,thisyr-1),legend=F,rel=FALSE,ylim=c(0,120000),ylab="Age-1 recruitment") + ggtitle("w/o ATS") + coord_cartesian(ylim=c(0,125000));p2
+  p3 <- p1/p2   + plot_annotation(title = 'Age 1 recruitment with and without acoustic trawl survey data',
+    subtitle = 'EBS walleye pollock assessment', caption = 'Disclaimer: Draft results, please do not cite' ); p3
+  ggsave("figs/retcompR.pdf",plot=p3,width=7.2,height=9.0,units="in")
+  
+  ## Make dataframe to plot by cohort
+  nyrs=15
+  i=2
+  retdf
+  
+  i=12
+  
+  names(ret1)
+  mean(ret1[["r_0"]]$R[,2])
+  get_coh <- function(ret=ret1,run="Base",nyrs=20){
+    M <- as.data.frame(NULL)
+    for (i in 0:nyrs) {
+      mn=paste0("r_",i)
+      A <- as.data.frame(ret[[mn]]$R)
+      is.data.frame(A)
+      A$ret <- i
+      A$run <- run
+      A$cohort <- A[,1]-1
+      A$term_yr <- 2022-A$ret
+      A$Yrs_of_data <- A$term_yr-A$cohort
+      names(A) <- c("Year","est","sd","lb","ub","peel","run","cohort","term_yr","Years_data")
+      M <- rbind(M,A)
+    }
+    return(M)
+  }
+  # Plot by years of data 
+ret_df <- rbind(get_coh(ret1),get_coh(ret3,run="Without BTS")) |> mutate(Years_data=ifelse(run=="Base",Years_data-.14,Years_data+.14))
+ret_df <- rbind(get_coh(ret1),get_coh(ret2,run="Without ATS"),get_coh(ret3,run="Without BTS")) |> mutate(Years_data=ifelse(run=="Base",Years_data-.18,ifelse(run=="Without ATS",Years_data,Years_data+.18))  )
+
+plot_coh <- function(dat=ret_df,coh=cohsub,logscale=FALSE,grid=T){
+  p1 <- dat |>  filter(cohort %in% coh) |> 
+  ggplot( aes(x=Years_data,label=term_yr,y=est,color=run,ymin=lb,ymax=ub)) + geom_point(size=1) + geom_errorbar(size=.5,width=0) +
+    theme_few(base_size = 11) + 
+    ylim(c(0,NA)) + 
+    geom_hline(yintercept=22.5e3,color="blue",size=.1) +
+    ylab("Millions") + 
+    ggtitle("Age-1 recruitment estimates by cohort") #+ geom_text( aes(x=mean(Yeaes()x=mean()Years_data
+   if (logscale) p1 <- p1 +  scale_y_log10()  
+   if (grid) p1 <- p1 +facet_grid(cohort~.) else p1 <- p1 +facet_wrap(cohort~.)  
+ return(p1)
+}
+ 
+cohsub <- c(2003:2005,2008) 
+cohsub <- c(2012:2013,2008) 
+cohsub <- c(2012:2013,2008) 
+plot_coh( grid=FALSE, coh= cohsub)
+plot_coh( grid=FALSE, coh= c(2005,2008,2012:2013,2016,2018) )
+plot_coh( grid=FALSE, coh= c(2005,2008,2012:2013,2016,2018) )
+plot_coh( grid=FALSE, coh= c(2003:2005,2008) )
+plot_coh( grid=T, coh= c(2003:2005) )
+plot_coh( grid=T, coh= c(2012:2013) )
+plot_coh(logscale=TRUE)
+
+  # Plot by endyr 
+  ret_df <- rbind(plot_coh(ret1),plot_coh(ret2,run="Without ATS")) |> mutate(term_yr=ifelse(run=="Base",term_yr-.1,term_yr+.1))
+  ggplot(ret_df |>  
+  #         filter(cohort %in% c(2008:2022)),
+           filter(cohort %in% c(2008,2012:2013,2016,2018)),
+         aes(x=term_yr,y=est,color=run,ymin=lb,ymax=ub)) + geom_point(size=2) + geom_errorbar(size=1,width=0) +
+    theme_few() + facet_grid(cohort~.) + scale_y_log10() + geom_hline(yintercept=22.5e3,color="blue",size=.1) +
+    ggtitle("Age-1 recruitment estimates by cohort")
+  
+  
+  
   ggsave("figs/mod_retro.pdf",plot=p3,width=7.2,height=9.0,units="in")
   p1 <- plot_R_rel(retouts,xlim=c(thisyr-10,thisyr),legend=F,rel=FALSE,ylab="Age 1 recruitment");p1
   p2 <- plot_R_rel(retouts,xlim=c(thisyr-10,thisyr),ylim=c(0.,3.5),legend=FALSE,alpha=.2);p2 <- p2+ylim(0,4); p2
@@ -461,11 +547,14 @@ p1
 #r$> mohn(shake)
 #[1] -0.2310701
 
+retouts<-ret1
+i=2
+getMohn <- function(retouts=ret1,nyrs=20){
   rc = retouts[[1]]$SSB[,2]
   ntmp=0
   rho=0
-  df <- data.frame(peel=1:21,rho=1:21)
-  for (i in 1:21) {
+  df <- data.frame(peel=1:20,rho=1:20)
+  for (i in 1:20) {
     rn <- names(retouts[i])
     dtmp = (get(paste0(rn))$SSB )
     lr   = length(dtmp[,1])
@@ -474,6 +563,7 @@ p1
     df$rho[i] <- rho/i
     print(paste(i,rho/i))
   }    
+}
   write.csv(df,"data/mohnrho.csv")
   df
   library(flextable)

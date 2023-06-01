@@ -9,7 +9,7 @@
 2 #Bmark_relF_Basis: 1 = use year range; 2 = set relF same as forecast below
 #
 1 # Forecast: 0=none; 1=F(SPR); 2=F(MSY) 3=F(Btgt) or F0.1; 4=Ave F (uses first-last relF yrs); 5=input annual F scalar
-3 # N forecast years 
+4 # N forecast years 
 1 # F scalar (only used for Do_Forecast==5)
 #_Fcast_years:  beg_selex, end_selex, beg_relF, end_relF, beg_recruits, end_recruits  (enter actual year, or values of 0 or -integer to be rel. endyr)
  -4 0 -4 0 -999 0
@@ -23,7 +23,7 @@
 0 #_Forecast recruitment:  0= spawn_recr; 1=value*spawn_recr_fxn; 2=value*VirginRecr; 3=recent mean) 
 1 # value is ignored 
 0 #_Forecast loop control #5 (reserved for future bells&whistles) 
-2020  #FirstYear for caps and allocations (should be after years with fixed inputs) 
+2022  #FirstYear for caps and allocations (should be after years with fixed inputs) 
 0 # stddev of log(realized catch/target catch) in forecast (set value>0.0 to cause active impl_error)
 0 # Do West Coast gfish rebuilder output (0/1) 
 1999 # Rebuilder:  first year catch could have been set to zero (Ydecl)(-1 to set to 1999)
@@ -44,6 +44,7 @@
 # list sequentially because read values fill to end of N forecast
 # terminate with -9999 in year field 
 # no allocation groups
+#
 2 # basis for input Fcast catch: -1=read basis with each obs; 2=dead catch; 3=retained catch; 99=input Hrate(F)
 #enter list of Fcast catches; terminate with line having year=-9999
 #_Yr Seas Fleet Catch(or_F)

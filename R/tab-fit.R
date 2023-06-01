@@ -27,7 +27,6 @@ if (is.null(mod_scen)) mod_scen=1:length(M)
   names(df) <- c("Component",names(M[mod_scen]))
   return(df)
 }
-#tab_fit(modlst,mod_scen=c(1:3))
 #ii=1
 tab_fit <- function(M,mod_scen=NULL){
   df <- NULL

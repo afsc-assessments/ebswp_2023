@@ -7,10 +7,11 @@ else
     COPY=cp
 endif
 
-all: pm pm_p
+all: pm pm_p 
 
 pm: pm.tpl 
 	@admb -f pm.tpl 
+
 
 pm_p: pm_p.tpl 
 	@admb  pm_p.tpl 

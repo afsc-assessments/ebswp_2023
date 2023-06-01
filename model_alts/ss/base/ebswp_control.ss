@@ -1,4 +1,11 @@
-#C 2019 Hake control file
+#V3.30.xx.yy;_safe;_compile_date:_Nov 24 2022;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.0
+#_Stock_Synthesis_is_a_work_of_the_U.S._Government_and_is_not_subject_to_copyright_protection_in_the_United_States.
+#_Foreign_copyrights_may_apply._See_copyright.txt_for_more_information.
+#_User_support_available_at:NMFS.Stock.Synthesis@noaa.gov
+#_User_info_available_at:https://vlab.noaa.gov/group/stock-synthesis
+#_Source_code_at:_https://github.com/nmfs-stock-synthesis/stock-synthesis
+
+#C 2022 ebspollock control file
 1  # 0 means do not read wtatage.ss; 1 means read and use wtatage.ss and also read and use growth parameters
 1  #_N_Growth_Patterns
 1 #_N_platoons_Within_GrowthPattern
@@ -31,7 +38,7 @@
   #_no additional input for selected M option; read 1P per morph
 1 # GrowthModel: 1=vonBert with L1&L2; 2=Richards with L1&L2; 3=age_specific_K; 4=not implemented
 1 #_Age(post-settlement)_for_L1;linear growth below this
-20 #_Growth_Age_for_L2 (999 to use as Linf)
+15 #_Growth_Age_for_L2 (999 to use as Linf)
 -999 #_exponential decay for growth above maxage (fixed at 0.2 in 3.24; value should approx initial Z; -999 replicates 3.24)
 0  #_placeholder for future growth feature
 0 #_SD_add_to_LAA (set to 0.1 for SS2 V1.x compatibility)
@@ -45,7 +52,7 @@
 #
 #_growth_parms
 #_LO    HI      INIT    PRIOR   PR_SD   PR_type PHASE   env_var devlink devminyr devmaxyr dev_PH Block  Block_Fxn
-0.05    0.4     0.2     -1.60944 0.1    3       4       0       0       0       0       0       0       0       #       NatM_p_1_Fem_GP_1
+0.05    0.6     0.3     -1.200  0.1     3       4       0       0       0       0       0       0       0       #       NatM_p_1_Fem_GP_1
 2       15      5       32      99      0       -5      0       0       0       0       0       0       0       #       L_at_Amin_Fem_GP_1
 45      60      53.2    50      99      0       -3      0       0       0       0       0       0       0       #       L_at_Amax_Fem_GP_1
 0.2     0.4     0.3     0.3     99      0       -3      0       0       0       0       0       0       0       #       VonBert_K_Fem_GP_1
@@ -75,14 +82,14 @@
 0  # 0/1 to use steepness in initial equ recruitment calculation
 0  #  future feature:  0/1 to make realized sigmaR a function of SR curvature
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn #  parm_name
-            13            17          15.9            15            99             0          1          0          0          0          0          0          0          0 # SR_LN(R0)
+            10            17          12.9            12            99             0          1          0          0          0          0          0          0          0 # SR_LN(R0)
            0.2             1          0.88         0.777         0.113             2          4          0          0          0          0          0          0          0 # SR_BH_steep
              1           1.6           1.4           1.1            99             0         -6          0          0          0          0          0          0          0 # SR_sigmaR
             -5             5             0             0            99             0        -50          0          0          0          0          0          0          0 # SR_regime
              0             2             0             1            99             0        -50          0          0          0          0          0          0          0 # SR_autocorr
 1 #do_recdev:  0=none; 1=devvector; 2=simple deviations
 1970 # first year of main recr_devs; early devs can preceed this era
-2017 # last year of main recr_devs; forecast devs start in following year
+2022 # last year of main recr_devs; forecast devs start in following year
 1 #_recdev phase
 1 # (0/1) to read 13 advanced options
  1946 #_recdev_early_start (0=none; neg value makes relative to recdev_start)
@@ -91,9 +98,9 @@
  1 #_lambda for Fcast_recr_like occurring before endyr+1
  1965 #_last_early_yr_nobias_adj_in_MPD
  1971 #_first_yr_fullbias_adj_in_MPD
- 2017 #_last_yr_fullbias_adj_in_MPD
- 2018 #_first_recent_yr_nobias_adj_in_MPD
- 0.87 #_max_bias_adj_in_MPD (-1 to override ramp and set biasadj=1.0 for all estimated recdevs)
+ 2019 #_last_yr_fullbias_adj_in_MPD
+ 2021 #_first_recent_yr_nobias_adj_in_MPD
+ -1 #_max_bias_adj_in_MPD (-1 to override ramp and set biasadj=1.0 for all estimated recdevs)
  0 #_period of cycles in recruitment (N parms read below)
  -6 #min rec_dev
  6 #max rec_dev
@@ -107,7 +114,6 @@
 # all recruitment deviations
 #  1946E 1947E 1948E 1949E 1950E 1951E 1952E 1953E 1954E 1955E 1956E 1957E 1958E 1959E 1960E 1961E 1962E 1963E 1964E 1965E 1966E 1967E 1968E 1969E 1970R 1971R 1972R 1973R 1974R 1975R 1976R 1977R 1978R 1979R 1980R 1981R 1982R 1983R 1984R 1985R 1986R 1987R 1988R 1989R 1990R 1991R 1992R 1993R 1994R 1995R 1996R 1997R 1998R 1999R 2000R 2001R 2002R 2003R 2004R 2005R 2006R 2007R 2008R 2009R 2010R 2011R 2012R 2013R 2014R 2015F 2016F 2017F 2018F 2019F
 #  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-# implementation error by year in forecast:  0 0 0
 #
 #Fishing Mortality info
 0.1 # F ballpark
@@ -135,14 +141,17 @@
 #_5:  0/1 to float
 #_   fleet      link link_info  extra_se   biasadj     float  #  fleetname
          2         1         0         1         0         1  #  Acoustic_Survey
+         3         1         0         1         0         1  #  Bottom_Survey
 -9999 0 0 0 0 0
 #
 #_Q_parms(if_any);Qunits_are_ln(q)
 #NOTE: the first parameter lines below (for LnQ_base_Acoustic_Survey(2)), is
 #      automatically replaced by an analytical estimate since float=1 in Q_setup above
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn  #  parm_name
-           -15            15       -1.0376             0             1             0         -1          0          0          0          0          0          0          0  #  LnQ_base_Acoustic_Survey(2)
-          0.05           1.2        0.0755        0.0755           0.1             0          4          0          0          0          0          0          0          0  #  Q_extraSD_Acoustic_Survey(2)
+           -15            15       -0.0376             0             1             0         -1          0          0          0          0          0          0          0  #  LnQ_base_Acoustic_Survey(2)
+          0.01           1.2        0.0755        0.0755           0.8             0          4          0          0          0          0          0          0          0  #  Q_extraSD_Acoustic_Survey(2)
+           -15            15       -0.0376             0             1             0         -1          0          0          0          0          0          0          0  #  LnQ_base_Bottomic_Survey(2)
+          0.01           1.2        0.0755        0.0755           0.8             0          4          0          0          0          0          0          0          0  #  Q_extraSD_Bottomic_Survey(2)
 #_no timevary Q parameters
 #
 #_size_selex_patterns
@@ -165,6 +174,7 @@
 #_Pattern Discard Male Special
  0 0 0 0 # 1 Fishery
  0 0 0 0 # 2 Acoustic_Survey
+ 0 0 0 0 # 3 bottom_Survey
 #
 #_age_selex_types
 #Pattern:_0; parm=0; selex=1.0 for ages 0 to maxage
@@ -186,6 +196,7 @@
 #_Pattern Discard Male Special
  17 0 0 20 # 1 Fishery
  17 0 0 20 # 2 Acoustic_Survey
+ 17 0 0 20 # 3 Bottom_trawl_survey
 #
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn  #  parm_name
          -1002             3         -1000            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P1_Fishery(1)
@@ -230,8 +241,30 @@
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P19_Acoustic_Survey(2)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P20_Acoustic_Survey(2)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P21_Acoustic_Survey(2)
+				 -1002             3         -1000            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P1_Acoustic_Survey(3)
+         -1002             3         -1000            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P2_Acoustic_Survey(3)
+            -1             1             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P3_Acoustic_Survey(3)
+            -5             9           0.1            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P4_Acoustic_Survey(3)
+            -5             9           0.1            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P5_Acoustic_Survey(3)
+            -5             9             0            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P6_Acoustic_Survey(3)
+            -5             9             0            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P7_Acoustic_Survey(3)
+            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P8_Acoustic_Survey(3)
+            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P9_Acoustic_Survey(3)
+            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P10_Acoustic_Survey(3)
+            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P11_Acoustic_Survey(3)
+            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P12_Acoustic_Survey(3)
+            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P13_Acoustic_Survey(3)
+            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P14_Acoustic_Survey(3)
+            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P15_Acoustic_Survey(3)
+            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P16_Acoustic_Survey(3)
+            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P17_Acoustic_Survey(3)
+            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P18_Acoustic_Survey(3)
+            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P19_Acoustic_Survey(3)
+            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P20_Acoustic_Survey(3)
+            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P21_Acoustic_Survey(3)
 # Dirichlet-Multinomial parameters controlling age-comp weights
             -5            20            .5             0            99             0          2          0          0          0          0          0          0          0  #  ln(EffN_mult)_1
+            -5            20            .5             0            99             0          2          0          0          0          0          0          0          0  #  ln(EffN_mult)_2
             -5            20            .5             0            99             0          2          0          0          0          0          0          0          0  #  ln(EffN_mult)_2
 # timevary selex parameters
 # value of 1.40 for "dev_se" parameters (a.k.a phi) is converted from 0.20
@@ -273,11 +306,7 @@
  #_5=mult_by_agecomp_N
  #_6=mult_by_size-at-age_N
  #_7=mult_by_generalized_sizecomp
-### values below no longer needed thanks to new Dirichelt-Multinomial likelihood
-### with additional parameters defined above
-## #_Factor  Fleet  Value
-##       5      1      0.15
-##       5      2      0.45
+#_Factor  Fleet  Value
  -9999   1    0  # terminator
 #
 1 #_maxlambdaphase
@@ -299,9 +328,15 @@
 #  1 #_parameter-dev-vectors
 #  1 #_crashPenLambda
 #  0 # F_ballpark_lambda
-1 # (0/1) read specs for more stddev reporting
- 2 2 -1 15 1 1 1 -1 1 # selex type, len/age, year, N selex bins, Growth pattern, N growth ages, NatAge_area(-1 for all), NatAge_yr, N Natages
- 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 # vector with selex std bin picks (-1 in first bin to self-generate)
- -1 # vector with growth std bin picks (-1 in first bin to self-generate)
-# 20 # vector with NatAge std bin picks (-1 in first bin to self-generate)
+2 # (0/1/2) read specs for more stddev reporting: 0 = skip, 1 = read specs for reporting stdev for selectivity, size, and numbers, 2 = add options for M,Dyn. Bzero, SmryBio
+ 2 2 -1 4 # Selectivity: (1) 0 to skip or fleet, (2) 1=len/2=age/3=combined, (3) year, (4) N selex bins; NOTE: combined reports in age bins
+ 0 0 # Growth: (1) 0 to skip or growth pattern, (2) growth ages; NOTE: does each sex
+ 1 -1 1 # Numbers-at-age: (1) 0 or area(-1 for all), (2) year, (3) N ages;  NOTE: sums across morphs
+ 0 0 # Mortality: (1) 0 to skip or growth pattern, (2) N ages for mortality; NOTE: does each sex
+2 # Dyn Bzero: 0 to skip, 1 to include, or 2 to add recr
+0 # SmryBio: 0 to skip, 1 to include
+ 2 3 4 5 # vector with selex std bins (-1 in first bin to self-generate)
+ # -1 # list of ages for growth std (-1 in first bin to self-generate)
+ 20 # vector with NatAge std ages (-1 in first bin to self-generate)
+ # -1 # list of ages for NatM std (-1 in first bin to self-generate)
 999

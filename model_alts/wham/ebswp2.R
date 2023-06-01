@@ -22,23 +22,33 @@ asap3 <- read_asap3_dat("ebswp.dat")
 #   recruitment expectation (recruit_model): random about mean (no S-R function)
 #   recruitment deviations (NAA_re): independent random effects
 #   selectivity: age-specific (fix sel=1 for ages 4-5 in fishery, age 4 in index1, and ages 2-4 in index2)
-input1 <- prepare_wham_input(asap3)
 asap3 <- read_asap3_dat("ebswp.dat")
+input1 <- prepare_wham_input(asap3)
+#undebug(prepare_wham_input)
+#debug(prepare_wham_input)
+?fit_wham
 input1 <- prepare_wham_input(asap3, recruit_model=2, model_name="EBS pollock example",
-	                            selectivity=list(model=rep("age-specific",2), 
-                                	re=rep("none",2), 
-                                	initial_pars=list(
-                                		c(0.01,0.5,0.5,0.5,1,1.0,0.96,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5),
-                                		c(0.5,0.05,0.5,0.5,1,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5) 
-                                		), 
-                                	fix_pars=list(5:7,c(2,6))),
-	                            NAA_re = list(sigma="rec", cor="iid"))
-m1 <- fit_wham(input1, do.retro=FALSE,do.osa = FALSE) # turn off OSA residuals to save time
+	         selectivity=list(model=rep("age-specific",2), 
+                                	re=rep("none",2),  initial_pars=list(
+                                		c(0.01,0.5,0.5,0.5,1.0,1.0,0.96,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5),
+                                		c(0.5,0.05,0.3,0.5,1.0,1.0,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5)  ), 
+                                	fix_pars=list(c(1:15),c(1:15))),
+                                	catchability=list(initial_q=1),
+	                            NAA_re = list(sigma="rec", cor="iid"
+	                                          ))
+# For fixed effects: 
+input1$random <-  NULL
+input1$recruit_model 
+
+input1$map$logit_q 
+input1$map$logit_q <- as.factor(NA)
+m1 <- fit_wham(input1, do.retro=FALSE,do.osa = FALSE,MakeADFun.silent=TRUE) # turn off OSA residuals to save time
 
 # Check that m1 converged (m1$opt$convergence should be 0, and the maximum gradiet should be < 1e-06)
 check_convergence(m1)
+m1$sdrep
 plot_wham_output(mod=m1, out.type='html')
-plot_wham_output(mod=m1, out.type='pdf')
+plot_wham_output(mod=m1, out.type='png')
 ?plot_wham_output(mod=m1, out.type='html')
 
 # ---------------------------------------------------------------

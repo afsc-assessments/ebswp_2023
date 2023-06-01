@@ -131,13 +131,16 @@ class model_data : public ad_comm{
   data_int n_fsh;
   data_int n_bts;
   data_int n_ats;
-  dvector nagecomp;
+  ivector nagecomp;
   data_ivector yrs_fsh_data;
   data_ivector yrs_bts_data;
   data_ivector yrs_ats_data;
   data_ivector sam_fsh;
   data_ivector sam_bts;
   data_ivector sam_ats;
+  data_ivector err_fsh;
+  data_ivector err_bts;
+  data_ivector err_ats;
   data_matrix oac_fsh_data;
   data_vector obs_bts_data;
   data_vector std_ob_bts_data;
@@ -155,7 +158,8 @@ class model_data : public ad_comm{
   dvector var_ob_ats;
   data_matrix wt_ats;
   data_vector bottom_temp;
-  data_matrix age_err;
+  data_int n_age_err;
+  data_3array age_err;
   data_int nlbins;
   data_vector olc_fsh;
   dvector lens;
@@ -230,6 +234,9 @@ class model_data : public ad_comm{
   int phase_cpue_q;
   int phase_avo_q;
   random_number_generator *   pad_rng;
+  dmatrix GenGamData;
+  dvector q_GenGam;
+  dvector sd_GenGam;
   data_number log_sd_coh;
   data_number log_sd_yr;
   data_number cur_yr;
@@ -510,6 +517,7 @@ private:
   param_vector sel_like;
   param_vector sel_like_dev;
   param_vector age_like;
+  param_matrix age_like_yr;
   param_number len_like;
   param_number wt_like;
   param_vector age_like_offset;
@@ -739,6 +747,7 @@ public:
  double sdnr(const dvector& obs, const dvar_vector& pred, const dvector& sig);
  dvector rmultinomial(const dvector ptmp, const int n_sam);
  double calc_Francis_weights(const dmatrix oac, const dvar_matrix eac, const ivector sam );
+ dvariable dgengamma(dvariable x, const double& mean2, const double& sigma, const double& Q);
 
 };
 #endif

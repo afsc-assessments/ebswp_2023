@@ -760,43 +760,20 @@ print_Tier3_tables(thismod)
 
 
 \clearpage
+| Term                                                | Description                                                                                                                                      | Rationale                                                                                                                                                                         |
+|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| $P\left[F_{`r nextyr`}>F_{MSY}\right]$              | Probability that the fishing mortality in `r nextyr` exceeds $F_{MSY}$                                                                           | OFL definition is based on $F_{MSY}$                                                                                                                                              |
+| $P\left[B_{`r nextyr+1` }<B_{MSY}\right]$           | Probability that the spawning biomass in `r nextyr+1` is less than $B_{MSY}$                                                                     | $B_{MSY}$ is a reference point target and biomass in 2021 provides an indication of the impact of `r thisyr+1` fishing                                                            |
+| $P\left[B_{`r nextyr+2` }<B_{MSY}\right]$           | Probability that the spawning biomass in `r nextyr+2` is less than $B_{MSY}$                                                                     | $B_{MSY}$ is a reference point target and biomass in 2023 provides an indication of the impact of fishing in `r thisyr+1` and `r thisyr+2`                                        |
+| $P\left[B_{`r nextyr+2` }<\bar{B}\right]$           | Probability that the spawning biomass in `r nextyr+1` is less than the 1978--`r thisyr` mean                                                     | To provide some perspective of what the stock condition might be relative to historical estimates after fishing in `r thisyr+1`.                                                  |
+| $P\left[B_{`r nextyr+4` }<\bar{B}\right]$           | Probability that the spawning biomass in `r nextyr+4` is less than the long term mean                                                            | To provide some perspective of what the stock condition might be relative to historical estimates after fishing in `r thisyr+1`.                                                  |
+| $P\left[B_{`r nextyr+4` }<B_{`r thisyr+1` }\right]$ | Probability that the spawning biomass in `r nextyr+4` is less than that estimated for `r nextyr`                                                 | To provide a medium term expectation of stock status relative to `r thisyr+1` levels                                                                                              |
+| $P\left[B_{`r nextyr+2` }<B_{20\%}\right]$          | Probability that the spawning biomass in `r nextyr+2` is less than $B_{20\%}$                                                                    | $B_{20\%}$ had been selected as a Steller Sea Lion lower limit for allowing directed fishing                                                                                      |
+| $P\left[p_{a_5,`r nextyr+2` }>\bar{p}_{a_5}\right]$ | Probability that in `r nextyr+2` the proportion of age 1--5 pollock in the population exceeds the long-term mean                                 | To provide some relative indication of the age composition of the population relative to the long term mean.                                                                      |
+| $P\left[D_{`r nextyr+1` }<D_{1994}\right]$          | Probability that the diversity of ages represented in the spawning biomass (by weight) in `r nextyr+1` is less than the value estimated for 1994 | To provide a relative index on the abundance of different age classes in the `r thisyr+2` population relative to 1994 (a year identified as having low age composition diversity) |
+| $P\left[D_{`r nextyr+4` }<D_{1994}\right]$          | Probability that the diversity of ages represented in the spawning biomass (by weight) in `r nextyr+4` is less than the value estimated for 1994 | To provide a medium-term relative index on the abundance of different age classes in the population relative to 1994 (a year identified as having low age composition diversity)  |
+| $P\left[E_{`r nextyr`}>E_{`r thisyr`}\right]$       | Probability that the theoretical fishing effort in `r nextyr` will be greater than that estimated in `r thisyr`.                                 | To provide the relative effort that is expected (and hence some idea of costs).                                                                                                   |
 
-\begin{table}[ht]
-\centering
-\caption{`r tabcap[44]`}
-\label{tab:`r tablab[44]`}
-\scalebox{0.98}{
-\begin{tabular}{L{1.2in}L{2.3in}L{2.8in}}
-\hline
-Term & Description                                                                                                                              & Rationale                                                                                                                                                                                                                \\
-\hline
-$P\left[F_{`r nextyr`}>F_{MSY}\right]$  & Probability that the fishing mortality in `r nextyr` exceeds $F_{MSY}$                 & OFL definition is based on $F_{MSY}$ \\
-\hline
-$P\left[B_{`r nextyr+1` }<B_{MSY}\right]$  & Probability that the spawning biomass in `r nextyr+1` is less than $B_{MSY}$             & $B_{MSY}$ is a reference point target and biomass in 2021 provides an indication of the impact of `r thisyr+1` fishing                                                                                   \\
-\hline
-$P\left[B_{`r nextyr+2` }<B_{MSY}\right]$  & Probability that the spawning biomass in `r nextyr+2` is less than $B_{MSY}$ & $B_{MSY}$ is a reference point target and biomass in 2023 provides an indication of the impact of fishing in `r thisyr+1` and `r thisyr+2`                                                                       \\
-\hline
-$P\left[B_{`r nextyr+2` }<\bar{B}\right]$  & Probability that the spawning biomass in `r nextyr+1` is less than the 1978--`r thisyr` mean    & To provide some perspective of what the stock condition might be relative to historical estimates after fishing in `r thisyr+1`.                                                                    \\
-\hline
-$P\left[B_{`r nextyr+4` }<\bar{B}\right]$  & Probability that the spawning biomass in `r nextyr+4` is less than the long term mean & To provide some perspective of what the stock condition might be relative to historical estimates after fishing in `r thisyr+1`.                                                                    \\
-\hline
-$P\left[B_{`r nextyr+4` }<B_{`r thisyr+1` }\right]$  & Probability that the spawning biomass in `r nextyr+4` is less than that estimated for `r nextyr` & To provide a medium term expectation of stock status relative to `r thisyr+1` levels                                                                                                                \\
-\hline
-$P\left[B_{`r nextyr+2` }<B_{20\%}\right]$  & Probability that the spawning biomass in `r nextyr+2` is less than $B_{20\%}$            & $B_{20\%}$ had been selected as a Steller Sea Lion lower limit for allowing directed fishing                                                                                                    \\
-\hline
-$P\left[p_{a_5,`r nextyr+2` }>\bar{p}_{a_5}\right]$   & Probability that in `r nextyr+2` the proportion of age 1--5 pollock in the population exceeds the long-term mean & To provide some relative indication of the age composition of the population relative to the long term mean.                                                                     \\
-\hline
-$P\left[D_{`r nextyr+1` }<D_{1994}\right]$   & Probability that the diversity of ages represented in the spawning biomass (by weight) in `r nextyr+1` is less than the value estimated for 1994 & To provide a relative index on the abundance of different age classes in the `r thisyr+2` population relative to 1994 (a year identified as having low age composition diversity)                 \\
-\hline
-$P\left[D_{`r nextyr+4` }<D_{1994}\right]$   & Probability that the diversity of ages represented in the spawning biomass (by weight) in `r nextyr+4` is less than the value estimated for 1994 & To provide a medium-term relative index on the abundance of different age classes in the population relative to 1994 (a year identified as having low age composition diversity)          \\
-\hline
-$P\left[E_{`r nextyr`}>E_{`r thisyr`}\right]$   & Probability that the theoretical fishing effort in `r nextyr` will be greater than that estimated in `r thisyr`.     & To provide the relative effort that is expected (and hence some idea of costs).                                                                                                                     \\
-\hline
-\end{tabular}
-}
-\end{table}
-
-\clearpage
 
 ```{r dectable,results="asis",echo=FALSE}
 rn <- c("$P\\left[F_{2023}>F_{MSY}\\right]$",

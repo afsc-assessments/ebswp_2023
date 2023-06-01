@@ -1,6 +1,6 @@
-#C Hake starter file
-ebswp_data.SS
-ebswp_control.SS
+#C pollock
+ebswp_data.ss
+ebswp_control.ss
 0 # 0=use init values in control file; 1=use ss.par
 0 # run display detail (0,1,2)
 1 # detailed age-structured reports in REPORT.SSO (0=low,1=high,2=low for data-limited)
