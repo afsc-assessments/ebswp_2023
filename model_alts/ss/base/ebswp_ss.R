@@ -46,10 +46,9 @@ setwd(file_path)
 system(paste(file.path(file_path, "ss_win.exe"), file.path(file_path, "data.ss"), sep = " "), show.output.on.console = TRUE)
 
 # get FMSY
-r1 <- SS_output(dir = '.')
-
+r1 <- SS_output(dir = '.'); SS_plots(r1)
+r2 <- SS_output(dir = '../selvary'); SS_plots(r2)
 # plots the results
-SS_plots(r1)
 
 time_id <- seq(1, nrow(biomass[[1]]), by = 12)
 biomass_ewe <- apply(biomass[[1]][, age_name], 1, sum) * 1000000
