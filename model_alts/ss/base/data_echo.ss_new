@@ -5,7 +5,7 @@
 #_User_info_available_at:https://vlab.noaa.gov/group/stock-synthesis
 #_Source_code_at:_https://github.com/nmfs-stock-synthesis/stock-synthesis
 
-#_Start_time: Wed May 31 22:36:31 2023
+#_Start_time: Thu Jun  1 08:27:23 2023
 #_echo_input_data
 #C	2019	EBSWP	data	file																											
 #V3.30.xx.yy;_safe;_compile_date:_Apr 20 2022;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_12.3
@@ -111,72 +111,72 @@
 2 1 0 0 # Acoustic_Survey
 3 1 0 0 # bottom_Survey
 #_yr month fleet obs stderr
-1994 7 2 3640.11 739.843 #_ Acoustic_Survey
+1994 7 2 3640.11 0.203248 #_ Acoustic_Survey
 1995 7 -2 1 1 #_ Acoustic_Survey
-1996 7 2 2955.11 498.387 #_ Acoustic_Survey
-1997 7 2 3590.7 574.524 #_ Acoustic_Survey
+1996 7 2 2955.11 0.168652 #_ Acoustic_Survey
+1997 7 2 3590.7 0.160003 #_ Acoustic_Survey
 1998 7 -2 1 1 #_ Acoustic_Survey
-1999 7 2 4202.14 999.45 #_ Acoustic_Survey
-2000 7 2 3613.94 500.102 #_ Acoustic_Survey
+1999 7 2 4202.14 0.237843 #_ Acoustic_Survey
+2000 7 2 3613.94 0.138381 #_ Acoustic_Survey
 2001 7 -2 1 1 #_ Acoustic_Survey
-2002 7 2 4330.01 580.468 #_ Acoustic_Survey
+2002 7 2 4330.01 0.134057 #_ Acoustic_Survey
 2003 7 -2 1 1 #_ Acoustic_Survey
-2004 7 2 4016.18 642.603 #_ Acoustic_Survey
+2004 7 2 4016.18 0.160003 #_ Acoustic_Survey
 2005 7 -2 1 1 #_ Acoustic_Survey
-2006 7 2 1887.42 318.318 #_ Acoustic_Survey
-2007 7 2 2288.07 445.256 #_ Acoustic_Survey
-2008 7 2 1407.48 464.945 #_ Acoustic_Survey
-2009 7 2 1323.06 503.489 #_ Acoustic_Survey
-2010 7 2 2651.18 687.887 #_ Acoustic_Survey
+2006 7 2 1887.42 0.168652 #_ Acoustic_Survey
+2007 7 2 2288.07 0.194599 #_ Acoustic_Survey
+2008 7 2 1407.48 0.330339 #_ Acoustic_Survey
+2009 7 2 1323.06 0.380549 #_ Acoustic_Survey
+2010 7 2 2651.18 0.259465 #_ Acoustic_Survey
 2011 7 -2 1 1 #_ Acoustic_Survey
-2012 7 2 2298.94 417.546 #_ Acoustic_Survey
+2012 7 2 2298.94 0.181626 #_ Acoustic_Survey
 2013 7 -2 1 1 #_ Acoustic_Survey
-2014 7 2 4726.6 949.053 #_ Acoustic_Survey
+2014 7 2 4726.6 0.20079 #_ Acoustic_Survey
 2015 7 -2 1 1 #_ Acoustic_Survey
-2016 7 2 4828.89 438.525 #_ Acoustic_Survey
+2016 7 2 4828.89 0.0908128 #_ Acoustic_Survey
 2017 7 -2 1 1 #_ Acoustic_Survey
-2018 7 2 2499.4 477.337 #_ Acoustic_Survey
-1982 7 3 3820.96 327.584 #_ bottom_Survey
-1983 7 3 8980.69 761.892 #_ bottom_Survey
-1984 7 3 6472.57 704.211 #_ bottom_Survey
-1985 7 3 7558.52 749.092 #_ bottom_Survey
-1986 7 3 7157.57 641.12 #_ bottom_Survey
-1987 7 3 7833.21 716.917 #_ bottom_Survey
-1988 7 3 11680.5 1137.24 #_ bottom_Survey
-1989 7 3 9975.78 832.121 #_ bottom_Survey
-1990 7 3 11408.4 1380.24 #_ bottom_Survey
-1991 7 3 7235.17 608.804 #_ bottom_Survey
-1992 7 3 6643.11 601.054 #_ bottom_Survey
-1993 7 3 7822.56 630.449 #_ bottom_Survey
-1994 7 3 6886.64 682.936 #_ bottom_Survey
-1995 7 3 6554.92 790.679 #_ bottom_Survey
-1996 7 3 3990.58 335.753 #_ bottom_Survey
-1997 7 3 4458.65 383.43 #_ bottom_Survey
-1998 7 3 3454.71 269.633 #_ bottom_Survey
-1999 7 3 5592.79 492.36 #_ bottom_Survey
-2000 7 3 7052.54 760.013 #_ bottom_Survey
-2001 7 3 6014.13 484.338 #_ bottom_Survey
-2002 7 3 6720.69 528.533 #_ bottom_Survey
-2003 7 3 11175.8 1016.65 #_ bottom_Survey
-2004 7 3 5632.53 449.986 #_ bottom_Survey
-2005 7 3 6882.76 623.163 #_ bottom_Survey
-2006 7 3 4113.1 395.273 #_ bottom_Survey
-2007 7 3 6867.44 792.708 #_ bottom_Survey
-2008 7 3 4275.98 479.46 #_ bottom_Survey
-2009 7 3 2851.96 430.591 #_ bottom_Survey
-2010 7 3 5174.02 584.553 #_ bottom_Survey
-2011 7 3 4540.97 358.187 #_ bottom_Survey
-2012 7 3 5173 401.806 #_ bottom_Survey
-2013 7 3 6658.37 539.282 #_ bottom_Survey
-2014 7 3 11692.7 825.816 #_ bottom_Survey
-2015 7 3 10654 702.956 #_ bottom_Survey
-2016 7 3 8427.37 779.274 #_ bottom_Survey
-2017 7 3 8914.54 588.786 #_ bottom_Survey
-2018 7 3 4039.31 447.613 #_ bottom_Survey
-2019 7 3 9443.67 629.43 #_ bottom_Survey
+2018 7 2 2499.4 0.19098 #_ Acoustic_Survey
+1982 7 3 3820.96 0.0857334 #_ bottom_Survey
+1983 7 3 8980.69 0.0848367 #_ bottom_Survey
+1984 7 3 6472.57 0.108799 #_ bottom_Survey
+1985 7 3 7558.52 0.0991057 #_ bottom_Survey
+1986 7 3 7157.57 0.0895723 #_ bottom_Survey
+1987 7 3 7833.21 0.0915228 #_ bottom_Survey
+1988 7 3 11680.5 0.0973625 #_ bottom_Survey
+1989 7 3 9975.78 0.0834142 #_ bottom_Survey
+1990 7 3 11408.4 0.120985 #_ bottom_Survey
+1991 7 3 7235.17 0.0841452 #_ bottom_Survey
+1992 7 3 6643.11 0.0904779 #_ bottom_Survey
+1993 7 3 7822.56 0.0805937 #_ bottom_Survey
+1994 7 3 6886.64 0.0991683 #_ bottom_Survey
+1995 7 3 6554.92 0.120624 #_ bottom_Survey
+1996 7 3 3990.58 0.0841365 #_ bottom_Survey
+1997 7 3 4458.65 0.085997 #_ bottom_Survey
+1998 7 3 3454.71 0.0780478 #_ bottom_Survey
+1999 7 3 5592.79 0.0880348 #_ bottom_Survey
+2000 7 3 7052.54 0.107764 #_ bottom_Survey
+2001 7 3 6014.13 0.0805332 #_ bottom_Survey
+2002 7 3 6720.69 0.0786427 #_ bottom_Survey
+2003 7 3 11175.8 0.0909687 #_ bottom_Survey
+2004 7 3 5632.53 0.0798906 #_ bottom_Survey
+2005 7 3 6882.76 0.0905397 #_ bottom_Survey
+2006 7 3 4113.1 0.0961009 #_ bottom_Survey
+2007 7 3 6867.44 0.11543 #_ bottom_Survey
+2008 7 3 4275.98 0.112129 #_ bottom_Survey
+2009 7 3 2851.96 0.150981 #_ bottom_Survey
+2010 7 3 5174.02 0.112978 #_ bottom_Survey
+2011 7 3 4540.97 0.0788789 #_ bottom_Survey
+2012 7 3 5173 0.0776736 #_ bottom_Survey
+2013 7 3 6658.37 0.0809931 #_ bottom_Survey
+2014 7 3 11692.7 0.0706263 #_ bottom_Survey
+2015 7 3 10654 0.0659804 #_ bottom_Survey
+2016 7 3 8427.37 0.0924694 #_ bottom_Survey
+2017 7 3 8914.54 0.0660478 #_ bottom_Survey
+2018 7 3 4039.31 0.110814 #_ bottom_Survey
+2019 7 3 9443.67 0.066651 #_ bottom_Survey
 2020 7 -3 1 1 #_ bottom_Survey
-2021 7 3 4807.97 342.841 #_ bottom_Survey
-2022 7 3 6508.73 505.299 #_ bottom_Survey
+2021 7 3 4807.97 0.071307 #_ bottom_Survey
+2022 7 3 6508.73 0.077634 #_ bottom_Survey
 -9999 1 1 1 1 # terminator for survey observations 
 #
 0 #_N_fleets_with_discard

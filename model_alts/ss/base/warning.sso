@@ -1,6 +1,4 @@
 1 NOTE: This model has just one settlement event. Changing to recr_dist_method 4 and removing the recruitment distribution parameters at the end of the MG parms section (below growth parameters) will produce identical results and simplify the model.
-2  adjusting recdev_early to: 1949
-3 Minimum pop size bin:_10; is > L at Amin for sex: 1; Gpat: 1; L= 5
-4  Early recdev biasadj is >2 times ratio of rmse to sigmaR
- N parameters are on or within 1% of min-max bound: 2; check results, variance may be suspect
-N warnings: 4
+2 Minimum pop size bin:_10; is > L at Amin for sex: 1; Gpat: 1; L= 5
+3  Early recdev biasadj is >2 times ratio of rmse to sigmaR
+N warnings: 3
