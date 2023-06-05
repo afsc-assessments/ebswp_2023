@@ -1,4 +1,4 @@
-#V3.30.xx.yy;_safe;_compile_date:_Apr 20 2022;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_12.3
+#V3.30.xx.yy;_safe;_compile_date:_Jun  2 2023;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
 #_Stock_Synthesis_is_a_work_of_the_U.S._Government_and_is_not_subject_to_copyright_protection_in_the_United_States.
 #_Foreign_copyrights_may_apply._See_copyright.txt_for_more_information.
 #_User_support_available_at:NMFS.Stock.Synthesis@noaa.gov
@@ -11,6 +11,7 @@
 1  #_N_Growth_Patterns (Growth Patterns, Morphs, Bio Patterns, GP are terms used interchangeably in SS3)
 1 #_N_platoons_Within_GrowthPattern 
 #_Cond 1 #_Platoon_within/between_stdev_ratio (no read if N_platoons=1)
+#_Cond sd_ratio_rd < 0: platoon_sd_ratio parameter required after movement params.
 #_Cond  1 #vector_platoon_dist_(-1_in_first_val_gives_normal_approx)
 #
 2 # recr_dist_method for parameters:  2=main effects for GP, Area, Settle timing; 3=each Settle entity; 4=none (only when N_GP*Nsettle*pop==1)
@@ -46,8 +47,9 @@
 #
 # setup for M, growth, wt-len, maturity, fecundity, (hermaphro), recr_distr, cohort_grow, (movement), (age error), (catch_mult), sex ratio 
 #_NATMORT
-0 #_natM_type:_0=1Parm; 1=N_breakpoints;_2=Lorenzen;_3=agespecific;_4=agespec_withseasinterpolate;_5=BETA:_Maunder_link_to_maturity
-  #_no additional input for selected M option; read 1P per morph
+3 #_natM_type:_0=1Parm; 1=N_breakpoints;_2=Lorenzen;_3=agespecific;_4=agespec_withseasinterpolate;_5=BETA:_Maunder_link_to_maturity;_6=Lorenzen_range
+ #_Age_natmort_by sex x growthpattern (nest GP in sex)
+ 0.9 0.6 0.45 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3
 #
 1 # GrowthModel: 1=vonBert with L1&L2; 2=Richards with L1&L2; 3=age_specific_K_incr; 4=age_specific_K_decr; 5=age_specific_K_each; 6=NA; 7=NA; 8=growth cessation
 1 #_Age(post-settlement)_for_L1;linear growth below this
@@ -61,7 +63,8 @@
 5 #_maturity_option:  1=length logistic; 2=age logistic; 3=read age-maturity matrix by growth_pattern; 4=read age-fecundity; 5=disabled; 6=read length-maturity
 #_Age_Fecundity by growth pattern from wt-at-age.ss now invoked by read bodywt flag
 2 #_First_Mature_Age
-1 #_fecundity option:(1)eggs=Wt*(a+b*Wt);(2)eggs=a*L^b;(3)eggs=a*Wt^b; (4)eggs=a+b*L; (5)eggs=a+b*W
+# NOTE: maturity options 4 and 5 cause fecundity_at_length to be ignored, but parameters still needed 
+1 #_fecundity_at_length option:(1)eggs=Wt*(a+b*Wt);(2)eggs=a*L^b;(3)eggs=a*Wt^b; (4)eggs=a+b*L; (5)eggs=a+b*W
 0 #_hermaphroditism option:  0=none; 1=female-to-male age-specific fxn; -1=male-to-female age-specific fxn
 1 #_parameter_offset_approach for M, G, CV_G:  1- direct, no offset**; 2- male=fem_parm*exp(male_parm); 3: male=female*exp(parm) then old=young*exp(parm)
 #_** in option 1, any male parameter with value = 0.0 and phase <0 is set equal to female parameter
@@ -69,7 +72,6 @@
 #_growth_parms
 #_ LO HI INIT PRIOR PR_SD PR_type PHASE env_var&link dev_link dev_minyr dev_maxyr dev_PH Block Block_Fxn
 # Sex: 1  BioPattern: 1  NatMort
- 0.05 0.6 0.255395 -1.2 0.1 3 4 0 0 0 0 0 0 0 # NatM_uniform_Fem_GP_1
 # Sex: 1  BioPattern: 1  Growth
  2 15 5 32 99 0 -5 0 0 0 0 0 0 0 # L_at_Amin_Fem_GP_1
  45 60 53.2 50 99 0 -3 0 0 0 0 0 0 0 # L_at_Amax_Fem_GP_1
@@ -85,13 +87,14 @@
  -3 3 1 1 99 0 -50 0 0 0 0 0 0 0 # Eggs/kg_inter_Fem_GP_1
  -3 3 0 0 99 0 -50 0 0 0 0 0 0 0 # Eggs/kg_slope_wt_Fem_GP_1
 # Hermaphroditism
-#  Recruitment Distribution  
+#  Recruitment Distribution 
  0 2 1 1 99 0 -50 0 0 0 0 0 0 0 # RecrDist_GP_1
  0 2 1 1 99 0 -50 0 0 0 0 0 0 0 # RecrDist_Area_1
  0 2 1 1 99 0 -50 0 0 0 0 0 0 0 # RecrDist_month_1
 #  Cohort growth dev base
  0.1 10 1 1 1 0 -1 0 0 0 0 0 0 0 # CohortGrowDev
 #  Movement
+#  Platoon StDev Ratio 
 #  Age Error from parameters
 #  catch multiplier
 #  fraction female, by GP
@@ -105,18 +108,18 @@
 #_ LO HI INIT PRIOR PR_SD PR_type PHASE
 #_Cond -2 2 0 0 -1 99 -2 #_placeholder when no seasonal MG parameters
 #
-3 #_Spawner-Recruitment; Options: 1=NA; 2=Ricker; 3=std_B-H; 4=SCAA; 5=Hockey; 6=B-H_flattop; 7=survival_3Parm; 8=Shepherd_3Parm; 9=RickerPower_3parm
+2 #_Spawner-Recruitment; Options: 1=NA; 2=Ricker; 3=std_B-H; 4=SCAA; 5=Hockey; 6=B-H_flattop; 7=survival_3Parm; 8=Shepherd_3Parm; 9=RickerPower_3parm
 0  # 0/1 to use steepness in initial equ recruitment calculation
 0  #  future feature:  0/1 to make realized sigmaR a function of SR curvature
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn #  parm_name
-             8            17       10.1178            12            99             0          1          0          0          0          0          0          0          0 # SR_LN(R0)
-           0.2             1      0.847691         0.777         0.113             2          4          0          0          0          0          0          0          0 # SR_BH_steep
+             8            17        13.096            12            99             0          1          0          0          0          0          0          0          0 # SR_LN(R0)
+           0.2             1      0.971225         0.777         0.113             2          4          0          0          0          0          0          0          0 # SR_Ricker_beta
              1           1.6           1.4           1.1            99             0         -6          0          0          0          0          0          0          0 # SR_sigmaR
             -5             5             0             0            99             0        -50          0          0          0          0          0          0          0 # SR_regime
              0             2             0             1            99             0        -50          0          0          0          0          0          0          0 # SR_autocorr
 #_no timevary SR parameters
 1 #do_recdev:  0=none; 1=devvector (R=F(SSB)+dev); 2=deviations (R=F(SSB)+dev); 3=deviations (R=R0*dev; dev2=R-f(SSB)); 4=like 3 with sum(dev2) adding penalty
-1970 # first year of main recr_devs; early devs can preceed this era
+1964 # first year of main recr_devs; early devs can preceed this era
 2022 # last year of main recr_devs; forecast devs start in following year
 1 #_recdev phase 
 1 # (0/1) to read 13 advanced options
@@ -140,8 +143,8 @@
 #_Yr Input_value
 #
 # all recruitment deviations
-#  1949E 1950E 1951E 1952E 1953E 1954E 1955E 1956E 1957E 1958E 1959E 1960E 1961E 1962E 1963E 1964E 1965E 1966E 1967E 1968E 1969E 1970R 1971R 1972R 1973R 1974R 1975R 1976R 1977R 1978R 1979R 1980R 1981R 1982R 1983R 1984R 1985R 1986R 1987R 1988R 1989R 1990R 1991R 1992R 1993R 1994R 1995R 1996R 1997R 1998R 1999R 2000R 2001R 2002R 2003R 2004R 2005R 2006R 2007R 2008R 2009R 2010R 2011R 2012R 2013R 2014R 2015R 2016R 2017R 2018R 2019R 2020R 2021R 2022R 2023F 2024F 2025F 2026F
-#  -0.360086 -0.114421 -0.108203 -0.108186 -0.143902 -0.230362 -0.309211 -0.248133 0.0159477 0.17313 -0.163809 -0.171052 0.570408 0.313804 -0.375284 0.790549 0.208961 0.892156 0.205136 0.708129 0.355144 0.0025571 -0.534822 0.152782 -0.00831847 -0.289637 -0.0485512 -1.09672 0.210825 1.44089 0.287538 0.478431 0.506395 0.728561 0.591815 0.887158 -0.302402 -0.531043 -1.06116 -0.863871 1.10845 -0.159901 -0.643397 1.04062 -0.384758 -1.07698 0.408396 0.936953 -0.273817 -0.588593 0.607012 0.618052 0.612612 -0.397281 -0.859484 -1.72608 -0.0802506 0.49807 -0.881212 1.49025 0.524653 -0.575184 -1.15761 0.913427 1.33409 -0.683181 -0.99808 -0.875707 -0.0299753 1.59424 0.00683749 -0.90795 0.0276768 0.0276905 0 0 0 0
+#  1949E 1950E 1951E 1952E 1953E 1954E 1955E 1956E 1957E 1958E 1959E 1960E 1961E 1962E 1963E 1964R 1965R 1966R 1967R 1968R 1969R 1970R 1971R 1972R 1973R 1974R 1975R 1976R 1977R 1978R 1979R 1980R 1981R 1982R 1983R 1984R 1985R 1986R 1987R 1988R 1989R 1990R 1991R 1992R 1993R 1994R 1995R 1996R 1997R 1998R 1999R 2000R 2001R 2002R 2003R 2004R 2005R 2006R 2007R 2008R 2009R 2010R 2011R 2012R 2013R 2014R 2015R 2016R 2017R 2018R 2019R 2020R 2021R 2022R 2023F 2024F 2025F 2026F
+#  -0.40075 -0.164558 -0.186934 -0.232257 -0.320139 -0.46023 -0.584437 -0.579146 -0.405646 -0.374995 -0.697943 -0.727813 -0.274238 -0.632829 -1.01926 -0.0274225 -0.954591 0.284999 -1.34092 0.24706 -0.960962 -0.379274 -1.63195 -0.288036 -0.381009 -0.774259 0.00650835 -1.21082 -0.194712 2.1137 -0.992567 1.5788 1.05047 1.16335 0.828782 1.16302 -0.30702 -0.511254 -1.1133 -1.19816 1.05801 -0.179445 -0.76338 1.46751 -0.381374 -0.745002 0.720096 1.1597 -0.0142965 -0.182572 0.850517 0.888762 0.771009 0.055442 -0.584872 -1.59283 0.200362 0.795328 -0.505252 2.21845 1.40166 0.213036 -0.92414 1.19911 1.50165 -0.492748 -0.69946 -0.780575 -0.0963957 1.6948 -0.225724 -0.908297 -1.64476 -1.64476 0 0 0 0
 #
 #Fishing Mortality info 
 0.1 # F ballpark value in units of annual_F
@@ -157,7 +160,7 @@
 # F rates by fleet x season
 # Yr:  1964 1965 1966 1967 1968 1969 1970 1971 1972 1973 1974 1975 1976 1977 1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 2026
 # seas:  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-# Fishery 0.0195301 0 0.0267659 0.0554357 0.0750995 0.0774886 0.118336 0.170243 0.203526 0.189584 0.201429 0.21987 0.220042 0.184436 0.266996 0.287164 0.318979 0.465683 0.232235 0.181574 0.18726 0.204559 0.162575 0.13646 0.131597 0.157104 0.240509 0.215257 0.26776 0.193158 0.258865 0.248931 0.32658 0.335582 0.252243 0.204107 0.233516 0.260898 0.288329 0.37623 0.282744 0.525618 0.300907 0.337888 0.313947 0.247195 0.189353 0.485879 0.29449 0.221796 0.22289 0.224872 0.238167 0.430488 0.198416 0.255397 0.297901 0.294812 0.165248 0.581137 0.536123 0.541611 0.653051
+# Fishery 0.00616667 0.0094521 0.0108261 0.0272955 0.0406367 0.0538227 0.0832844 0.116426 0.148934 0.129446 0.143548 0.152058 0.167964 0.132833 0.201075 0.229311 0.262145 0.367951 0.201847 0.159862 0.142432 0.163817 0.127602 0.106874 0.105951 0.123031 0.175201 0.165113 0.203613 0.145328 0.198003 0.189796 0.248372 0.256397 0.192627 0.164224 0.188471 0.206625 0.225749 0.273718 0.233551 0.389895 0.252772 0.281446 0.250773 0.187189 0.145194 0.377382 0.226873 0.167409 0.170038 0.168247 0.179285 0.309886 0.160247 0.192459 0.223373 0.214345 0.123399 2.88616e-05 2.74185e-05 2.48947e-05 2.58448e-05
 #
 #_Q_setup for fleets with cpue or survey data
 #_1:  fleet number
@@ -173,9 +176,9 @@
 #
 #_Q_parms(if_any);Qunits_are_ln(q)
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn  #  parm_name
-           -15            15     -0.289365             0             1             0         -1          0          0          0          0          0          0          0  #  LnQ_base_Acoustic_Survey(2)
+           -15            15      -0.71212             0             1             0         -1          0          0          0          0          0          0          0  #  LnQ_base_Acoustic_Survey(2)
           0.01           1.2     0.0100279        0.0755           0.8             0         -4          0          0          0          0          0          0          0  #  Q_extraSD_Acoustic_Survey(2)
-           -15            15      0.485611             0             1             0         -1          0          0          0          0          0          0          0  #  LnQ_base_bottom_Survey(3)
+           -15            15      0.199582             0             1             0         -1          0          0          0          0          0          0          0  #  LnQ_base_bottom_Survey(3)
           0.01           1.2     0.0100115        0.0755           0.8             0         -4          0          0          0          0          0          0          0  #  Q_extraSD_bottom_Survey(3)
 #_no timevary Q parameters
 #
@@ -222,9 +225,9 @@
 #Pattern:_42; parm=2+special+3; // cubic spline; with 2 additional param for scaling (average over bin range)
 #Age patterns entered with value >100 create Min_selage from first digit and pattern from remainder
 #_Pattern Discard Male Special
- 17 0 0 20 # 1 Fishery
- 17 0 0 20 # 2 Acoustic_Survey
- 17 0 0 20 # 3 bottom_Survey
+ 17 0 0 15 # 1 Fishery
+ 17 0 0 15 # 2 Acoustic_Survey
+ 17 0 0 15 # 3 bottom_Survey
 #
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn  #  parm_name
 # 1   Fishery LenSelex
@@ -233,11 +236,11 @@
 # 1   Fishery AgeSelex
          -1002             3         -1000            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P1_Fishery(1)
             -1             1             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P2_Fishery(1)
-            -5             9       2.65783            -1          0.01             0          2          0          2       1965       2021          5          0          0  #  AgeSel_P3_Fishery(1)
-            -5             9       1.54617            -1          0.01             0          2          0          2       1965       2021          5          0          0  #  AgeSel_P4_Fishery(1)
-            -5             9      0.870598            -1          0.01             0          2          0          2       1965       2021          5          0          0  #  AgeSel_P5_Fishery(1)
-            -5             9      0.659409            -1          0.01             0          2          0          2       1965       2021          5          0          0  #  AgeSel_P6_Fishery(1)
-            -5             9     0.0373099            -1          0.01             0          2          0          2       1965       2021          5          0          0  #  AgeSel_P7_Fishery(1)
+            -5             9       2.71543            -1          0.01             0          2          0          2       1965       2021          5          0          0  #  AgeSel_P3_Fishery(1)
+            -5             9       1.62547            -1          0.01             0          2          0          2       1965       2021          5          0          0  #  AgeSel_P4_Fishery(1)
+            -5             9      0.885174            -1          0.01             0          2          0          2       1965       2021          5          0          0  #  AgeSel_P5_Fishery(1)
+            -5             9      0.658259            -1          0.01             0          2          0          2       1965       2021          5          0          0  #  AgeSel_P6_Fishery(1)
+            -5             9    -0.0279387            -1          0.01             0          2          0          2       1965       2021          5          0          0  #  AgeSel_P7_Fishery(1)
             -5             9             0            -1          0.01             0         -2          0          0       1965       2021          5          0          0  #  AgeSel_P8_Fishery(1)
             -5             9             0            -1          0.01             0         -2          0          0       1965       2021          5          0          0  #  AgeSel_P9_Fishery(1)
             -5             9             0            -1          0.01             0         -2          0          0       1965       2021          5          0          0  #  AgeSel_P10_Fishery(1)
@@ -247,19 +250,14 @@
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P14_Fishery(1)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P15_Fishery(1)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P16_Fishery(1)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P17_Fishery(1)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P18_Fishery(1)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P19_Fishery(1)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P20_Fishery(1)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P21_Fishery(1)
 # 2   Acoustic_Survey AgeSelex
          -1002             3         -1000            -1          0.01             0         -2          0          0       1994       2022          6          0          0  #  AgeSel_P1_Acoustic_Survey(2)
          -1002             3         -1000            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P2_Acoustic_Survey(2)
             -1             1             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P3_Acoustic_Survey(2)
-            -5             9     -0.870585            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P4_Acoustic_Survey(2)
-            -5             9      0.445653            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P5_Acoustic_Survey(2)
-            -5             9     -0.233621            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P6_Acoustic_Survey(2)
-            -5             9      0.331885            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P7_Acoustic_Survey(2)
+            -5             9     -0.682175            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P4_Acoustic_Survey(2)
+            -5             9      0.388447            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P5_Acoustic_Survey(2)
+            -5             9     -0.151319            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P6_Acoustic_Survey(2)
+            -5             9      0.267863            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P7_Acoustic_Survey(2)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P8_Acoustic_Survey(2)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P9_Acoustic_Survey(2)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P10_Acoustic_Survey(2)
@@ -269,19 +267,14 @@
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P14_Acoustic_Survey(2)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P15_Acoustic_Survey(2)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P16_Acoustic_Survey(2)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P17_Acoustic_Survey(2)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P18_Acoustic_Survey(2)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P19_Acoustic_Survey(2)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P20_Acoustic_Survey(2)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P21_Acoustic_Survey(2)
 # 3   bottom_Survey AgeSelex
          -1002             3         -1000            -1          0.01             0         -2          0          0       1982       2022          6          0          0  #  AgeSel_P1_bottom_Survey(3)
          -1002             3         -1000            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P2_bottom_Survey(3)
             -1             1             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P3_bottom_Survey(3)
-            -5             9      -2.33973            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P4_bottom_Survey(3)
-            -5             9       2.92744            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P5_bottom_Survey(3)
-            -5             9      0.472941            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P6_bottom_Survey(3)
-            -5             9      0.752447            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P7_bottom_Survey(3)
+            -5             9      -1.51029            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P4_bottom_Survey(3)
+            -5             9       2.13033            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P5_bottom_Survey(3)
+            -5             9      0.772971            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P6_bottom_Survey(3)
+            -5             9      0.577199            -1          0.01             0          2          0          0          0          0          0          0          0  #  AgeSel_P7_bottom_Survey(3)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P8_bottom_Survey(3)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P9_bottom_Survey(3)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P10_bottom_Survey(3)
@@ -291,16 +284,11 @@
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P14_bottom_Survey(3)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P15_bottom_Survey(3)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P16_bottom_Survey(3)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P17_bottom_Survey(3)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P18_bottom_Survey(3)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P19_bottom_Survey(3)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P20_bottom_Survey(3)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P21_bottom_Survey(3)
-#_Dirichlet parameters
+#_Dirichlet and/or MV Tweedie parameters for composition error
 #_multiple_fleets_can_refer_to_same_parm;_but_list_cannot_have_gaps
-            -5            20      -1.06524             0            99             0          2          0          0          0          0          0          0          0  #  ln(DM_theta)_1
-            -5            20      0.743774             0            99             0          2          0          0          0          0          0          0          0  #  ln(DM_theta)_2
-            -5            20     -0.548678             0            99             0          2          0          0          0          0          0          0          0  #  ln(DM_theta)_3
+            -5            20      -1.10326             0            99             0          2          0          0          0          0          0          0          0  #  ln(DM_theta)_Age_P1
+            -5            20      0.707795             0            99             0          2          0          0          0          0          0          0          0  #  ln(DM_theta)_Age_P2
+            -5            20     -0.551614             0            99             0          2          0          0          0          0          0          0          0  #  ln(DM_theta)_Age_P3
 # timevary selex parameters 
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type    PHASE  #  parm_name
         0.0001             2           1.4           0.5           0.5            -1      -5  # AgeSel_P3_Fishery(1)_dev_se
@@ -325,11 +313,11 @@
 # deviation vectors for timevary parameters
 #  base   base first block   block  env  env   dev   dev   dev   dev   dev
 #  type  index  parm trend pattern link  var  vectr link _mnyr  mxyr phase  dev_vector
-#      5     3     1     0     0     0     0     1     2  1965  2021     5 -0.265407 -0.0696823 -0.0876154 -0.0667994 -0.131588 -0.147545 -0.199867 -0.0960385 -0.171697 -0.0347142 -0.0261809 0.0208991 -0.0530167 0.00179862 0.208325 0.0614501 0.0285559 -0.0639902 -0.0130418 -0.0287426 -0.0133338 -0.00790498 -0.0315257 -0.0171139 -0.0626252 0.0479302 0.0567136 0.0327217 0.00856753 0.006809 -0.0235277 -0.0959017 0.153728 0.0351448 0.0337127 0.0164329 0.00930139 0.119608 0.0362142 -0.0117282 -0.0153666 0.0296681 0.149947 0.0449562 0.189797 0.0272944 0.015512 -0.0116667 -0.147037 0.306836 0.0295991 -0.00677189 -0.0309553 -0.0852342 0.121834 0.268286 0.066575
-#      5     4     3     0     0     0     0     2     2  1965  2021     5 -0.381053 -0.493145 -0.269494 -0.469111 -0.319274 -0.709659 -0.629824 -0.598405 -0.53117 -0.613516 -0.251499 -0.0577591 -0.560051 -0.215783 -0.0387179 0.524269 0.241795 -0.0994471 -0.193213 -0.0979013 -0.112019 -0.104206 -0.175882 -0.054334 -0.211242 -0.0420129 0.036102 0.316846 0.157507 0.0980103 -0.0727404 -0.338552 -0.195169 0.352475 0.528068 0.0881129 0.198603 0.488488 0.918752 0.139362 -0.093255 0.0633371 0.419315 0.562482 0.483306 0.537318 0.479065 0.00873162 -0.0461679 0.169901 1.81574 0.079296 -0.0558903 -0.187961 -0.225694 -0.180004 1.02394
-#      5     5     5     0     0     0     0     3     2  1965  2021     5 -0.280341 -0.390642 -0.512263 -0.369487 -0.507251 -0.780097 -0.438861 -0.637615 -0.547573 -0.759963 -0.68982 -0.460789 -0.575546 -0.655123 -0.679573 -0.0802614 0.394424 0.291187 -0.20955 0.114816 -0.229339 -0.0265625 -0.142226 -0.352711 -0.23218 -0.224882 0.0196659 -0.30142 0.443824 0.256588 0.531629 -0.590709 -0.378618 -0.0603896 0.460168 0.807562 0.299803 0.510214 0.512776 1.79164 0.279356 -0.0719984 0.0781963 0.360743 1.22402 1.36321 0.461624 1.14362 0.411857 0.0983226 0.241963 2.56568 0.355501 0.156807 -0.3969 -0.145999 -1.207
-#      5     6     7     0     0     0     0     4     2  1965  2021     5 -0.35803 -0.39442 -0.419233 -0.357284 -0.54239 -0.447155 -0.402496 -0.402576 -0.328003 -0.430365 -0.533776 -0.391167 -0.369074 -0.582974 -0.480498 -0.488377 0.053807 0.0796776 0.0664511 0.112544 0.149129 0.0772068 0.106089 -0.143241 -0.195578 -0.168078 0.0236689 -0.0903421 -0.365862 0.523603 0.559777 0.620568 -0.056242 -0.168461 -0.441818 0.0733098 1.03852 -0.021989 0.253367 0.00199799 1.6381 0.549286 0.328125 0.371355 -0.338819 -0.415556 1.22985 0.291748 0.702361 0.267421 -0.661553 -0.721683 1.80922 1.33027 0.180918 0.484881 0.247069
-#      5     7     9     0     0     0     0     5     2  1965  2021     5 -0.280269 -0.254227 -0.28196 -0.312662 -0.158348 -0.138206 -0.248659 -0.285393 -0.0314551 0.0557641 -0.0251575 -0.118005 -0.0397407 -0.276225 -0.242091 -0.182502 -0.422113 -0.0393832 0.120389 0.154615 0.399492 0.0663216 0.501366 -0.0196905 0.265534 -0.210608 0.151822 0.288059 0.104186 -0.437583 0.131158 0.966107 0.978178 0.673068 0.333483 0.136511 0.143906 0.182842 -0.23829 -0.103301 -0.711237 -0.000132024 -0.109443 -0.0565197 0.181338 0.0710398 -0.602941 0.000778264 0.0715655 0.325463 0.204328 0.0798713 -0.684134 -0.0492299 1.52651 0.110819 0.763287
+#      5     3     1     0     0     0     0     1     2  1965  2021     5 -0.202252 -0.0804915 -0.141717 -0.0297158 -0.237321 -0.0698444 -0.470793 -0.0498589 -0.276022 -0.0255577 -0.0303392 0.0172239 -0.0414185 -0.0723453 0.356101 0.0154389 0.0471188 -0.038831 -0.0167605 -0.024935 -0.00860992 -0.00707073 -0.04231 -0.0232282 -0.0637105 0.0638682 0.0675307 0.0283142 0.0377768 0.0097117 -0.0329485 -0.084848 0.174457 0.0414968 0.0432741 0.0285667 0.0158812 0.134782 0.0518358 -0.0136015 -0.0173642 0.0454922 0.186216 0.0485043 0.239072 0.0426557 0.0203746 -0.0108175 -0.141507 0.363982 0.034813 -0.00895401 -0.0388178 -0.0988758 0.173263 0.219793 0.0695002
+#      5     4     3     0     0     0     0     2     2  1965  2021     5 -0.38348 -0.631684 -0.326134 -0.451201 -0.327262 -0.683304 -0.714284 -0.591729 -0.503389 -0.639877 -0.262812 -0.081034 -0.546491 -0.260725 -0.130528 0.680396 0.0918716 0.00964818 -0.156696 -0.0660684 -0.0763967 -0.102664 -0.1786 -0.0823399 -0.213465 -0.0321606 0.0528853 0.312741 0.149015 0.150654 -0.072845 -0.336181 -0.185062 0.328023 0.53215 0.11451 0.206582 0.528596 0.889338 0.168612 -0.0885812 0.0759888 0.413093 0.568355 0.500174 0.593226 0.526056 0.0136019 -0.0608792 0.176108 1.85271 0.0752472 -0.0622302 -0.190393 -0.159299 -0.113776 0.833927
+#      5     5     5     0     0     0     0     3     2  1965  2021     5 -0.318402 -0.458373 -0.684723 -0.445487 -0.527968 -0.759005 -0.4357 -0.660814 -0.517369 -0.750009 -0.667378 -0.475186 -0.591573 -0.603417 -0.723672 -0.196029 0.526422 0.0893902 -0.101141 0.150143 -0.202597 0.0123247 -0.150128 -0.341722 -0.249775 -0.202284 0.0155271 -0.2913 0.450591 0.2446 0.571186 -0.552837 -0.311891 -0.0687048 0.434546 0.817622 0.318512 0.458177 0.568384 1.73307 0.320319 -0.0217131 0.0655369 0.375208 1.20286 1.3477 0.500424 1.21546 0.396324 0.0851847 0.238144 2.54865 0.338018 0.17532 -0.357485 -0.107387 -1.09532
+#      5     6     7     0     0     0     0     4     2  1965  2021     5 -0.413498 -0.427157 -0.501074 -0.526737 -0.59707 -0.482961 -0.428136 -0.399518 -0.403001 -0.351029 -0.571544 -0.336694 -0.390528 -0.571628 -0.431816 -0.542292 -0.0209147 0.268353 -0.0474071 0.143052 0.139113 0.0637761 0.140143 -0.159082 -0.19914 -0.18373 0.0387934 -0.0929238 -0.333944 0.504168 0.549153 0.693807 -0.0216154 -0.0596273 -0.400052 0.0421444 1.0177 0.0312321 0.163824 0.055495 1.55812 0.60236 0.422695 0.393319 -0.283216 -0.433098 1.20779 0.221412 0.774759 0.287291 -0.615572 -0.627078 1.74775 1.31183 0.224838 0.554578 0.295865
+#      5     7     9     0     0     0     0     5     2  1965  2021     5 -0.314561 -0.321954 -0.355627 -0.433447 -0.393515 -0.33672 -0.3846 -0.385678 -0.0916965 -0.0952286 -0.00697569 -0.16573 -0.0228972 -0.307944 -0.255327 -0.126289 -0.362256 -0.00445294 0.34568 0.159213 0.505716 0.183019 0.600058 0.136088 0.366913 -0.114286 0.178752 0.331311 0.105933 -0.408071 0.131799 0.892792 0.968388 0.668088 0.412928 0.242122 0.206051 0.212328 -0.142196 -0.116268 -0.642251 -0.054023 -0.123015 -0.0424719 0.184713 0.119106 -0.55669 0.10687 0.0951427 0.381614 0.182803 0.0107732 -0.63818 -0.104678 1.44721 0.0121885 0.661047
      #
 # Input variance adjustments factors: 
  #_1=add_to_survey_CV

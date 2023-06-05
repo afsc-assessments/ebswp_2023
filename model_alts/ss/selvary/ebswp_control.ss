@@ -46,8 +46,9 @@
 #
 # setup for M, growth, wt-len, maturity, fecundity, (hermaphro), recr_distr, cohort_grow, (movement), (age error), (catch_mult), sex ratio 
 #_NATMORT
-0 #_natM_type:_0=1Parm; 1=N_breakpoints;_2=Lorenzen;_3=agespecific;_4=agespec_withseasinterpolate;_5=BETA:_Maunder_link_to_maturity
+3 #_natM_type:_0=1Parm; 1=N_breakpoints;_2=Lorenzen;_3=agespecific;_4=agespec_withseasinterpolate;_5=BETA:_Maunder_link_to_maturity
   #_no additional input for selected M option; read 1P per morph
+0.9 0.6 0.45 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3
 #
 1 # GrowthModel: 1=vonBert with L1&L2; 2=Richards with L1&L2; 3=age_specific_K_incr; 4=age_specific_K_decr; 5=age_specific_K_each; 6=NA; 7=NA; 8=growth cessation
 1 #_Age(post-settlement)_for_L1;linear growth below this
@@ -69,7 +70,7 @@
 #_growth_parms
 #_ LO HI INIT PRIOR PR_SD PR_type PHASE env_var&link dev_link dev_minyr dev_maxyr dev_PH Block Block_Fxn
 # Sex: 1  BioPattern: 1  NatMort
- 0.05 0.6 0.275552 -1.2 0.1 3 4 0 0 0 0 0 0 0 # NatM_uniform_Fem_GP_1
+ #0.05 0.6 0.275552 -1.2 0.1 3 4 0 0 0 0 0 0 0 # NatM_uniform_Fem_GP_1
 # Sex: 1  BioPattern: 1  Growth
  2 15 5 32 99 0 -5 0 0 0 0 0 0 0 # L_at_Amin_Fem_GP_1
  45 60 53.2 50 99 0 -3 0 0 0 0 0 0 0 # L_at_Amax_Fem_GP_1
@@ -105,7 +106,7 @@
 #_ LO HI INIT PRIOR PR_SD PR_type PHASE
 #_Cond -2 2 0 0 -1 99 -2 #_placeholder when no seasonal MG parameters
 #
-3 #_Spawner-Recruitment; Options: 1=NA; 2=Ricker; 3=std_B-H; 4=SCAA; 5=Hockey; 6=B-H_flattop; 7=survival_3Parm; 8=Shepherd_3Parm; 9=RickerPower_3parm
+2 #_Spawner-Recruitment; Options: 1=NA; 2=Ricker; 3=std_B-H; 4=SCAA; 5=Hockey; 6=B-H_flattop; 7=survival_3Parm; 8=Shepherd_3Parm; 9=RickerPower_3parm
 0  # 0/1 to use steepness in initial equ recruitment calculation
 0  #  future feature:  0/1 to make realized sigmaR a function of SR curvature
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn #  parm_name
@@ -116,7 +117,7 @@
              0             2             0             1            99             0        -50          0          0          0          0          0          0          0 # SR_autocorr
 #_no timevary SR parameters
 1 #do_recdev:  0=none; 1=devvector (R=F(SSB)+dev); 2=deviations (R=F(SSB)+dev); 3=deviations (R=R0*dev; dev2=R-f(SSB)); 4=like 3 with sum(dev2) adding penalty
-1970 # first year of main recr_devs; early devs can preceed this era
+1964 # first year of main recr_devs; early devs can preceed this era
 2022 # last year of main recr_devs; forecast devs start in following year
 1 #_recdev phase 
 1 # (0/1) to read 13 advanced options
@@ -222,9 +223,9 @@
 #Pattern:_42; parm=2+special+3; // cubic spline; with 2 additional param for scaling (average over bin range)
 #Age patterns entered with value >100 create Min_selage from first digit and pattern from remainder
 #_Pattern Discard Male Special
- 17 0 0 20 # 1 Fishery
- 17 0 0 20 # 2 Acoustic_Survey
- 17 0 0 20 # 3 bottom_Survey
+ 17 0 0 15 # 1 Fishery
+ 17 0 0 15 # 2 Acoustic_Survey
+ 17 0 0 15 # 3 bottom_Survey
 #
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn  #  parm_name
 # 1   Fishery LenSelex
@@ -246,11 +247,6 @@
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P13_Fishery(1)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P14_Fishery(1)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P15_Fishery(1)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P16_Fishery(1)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P17_Fishery(1)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P18_Fishery(1)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P19_Fishery(1)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P20_Fishery(1)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P21_Fishery(1)
 # 2   Acoustic_Survey AgeSelex
          -1002             3         -1000            -1          0.01             0         -2          0          0       1994       2022          6          0          0  #  AgeSel_P1_Acoustic_Survey(2)
@@ -268,11 +264,6 @@
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P13_Acoustic_Survey(2)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P14_Acoustic_Survey(2)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P15_Acoustic_Survey(2)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P16_Acoustic_Survey(2)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P17_Acoustic_Survey(2)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P18_Acoustic_Survey(2)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P19_Acoustic_Survey(2)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P20_Acoustic_Survey(2)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P21_Acoustic_Survey(2)
 # 3   bottom_Survey AgeSelex
          -1002             3         -1000            -1          0.01             0         -2          0          0      1982          2022        6          0          0  #  AgeSel_P1_bottom_Survey(3)
@@ -290,11 +281,6 @@
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P13_bottom_Survey(3)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P14_bottom_Survey(3)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P15_bottom_Survey(3)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P16_bottom_Survey(3)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P17_bottom_Survey(3)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P18_bottom_Survey(3)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P19_bottom_Survey(3)
-            -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P20_bottom_Survey(3)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P21_bottom_Survey(3)
 #_Dirichlet parameters
 #_multiple_fleets_can_refer_to_same_parm;_but_list_cannot_have_gaps

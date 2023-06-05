@@ -17,7 +17,45 @@ lapply(required_pkg, library, character.only = TRUE)
 devtools::install_github("r4ss/r4ss",
                          ref = "c53f82fcfb3f54296d79ba3a4163990150981285"
 )
+getwd()
 library(r4ss)
+library(tidyverse)
+# get FMSY
+r1 <- SS_output(dir = '.'); #SS_plots(r1)
+r2 <- SS_output(dir = '../selvary'); 
+SS_plots(r2)
+dev.off()
+names(r2$timeseries)
+names(r2$stdtable)
+(grep("SSB",r2$stdtable$name)
+names(r2)[grep("cat",names(r2))]
+names(r2)[grep("bio",names(r2))]
+names(r2)[grep("Fec",names(r2))]
+tail(r2$catch)
+(r2$biology$Spawn)
+(r2$biology$GP)
+(r2$biology$Mat_len)
+(r2$biology$Fecundity)
+names(r2)
+names(r2$biology)
+names(r2$catage)
+(r2$catage)
+(r2$timeseries$Era)
+df <- data.frame(year=r2$timeseries$Yr,model="Flex",SSB= r2$timeseries$SpawnBio) |>  filter(year>1963,year<2023)
+df |> ggplot(aes(x=year,y=SSB)) + geom_line() + ggthemes::theme_few() + ylim(c(0,NA))
+df
+(r2$Fecundity_option)
+
+df<-r2$SPAWN_RECR_CURVE#[,c(3:4)]
+
+df$year=as.numeric(rownames(df))
+df <- as_tibble(df)
+df |> filter(year>1963,year<2023) |> ggplot(aes(x=year,y=SSB)) + geom_line()
+
+dev.off()
+
+
+# plots the results
 
 # Case 0: default stock assessment run ----------------------------
 # Load simulated input data

@@ -1,14 +1,14 @@
-#V3.30.xx.yy;_safe;_compile_date:_Apr 20 2022;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_12.3
+#V3.30.xx.yy;_safe;_compile_date:_Jun  2 2023;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
 #_Stock_Synthesis_is_a_work_of_the_U.S._Government_and_is_not_subject_to_copyright_protection_in_the_United_States.
 #_Foreign_copyrights_may_apply._See_copyright.txt_for_more_information.
 #_User_support_available_at:NMFS.Stock.Synthesis@noaa.gov
 #_User_info_available_at:https://vlab.noaa.gov/group/stock-synthesis
 #_Source_code_at:_https://github.com/nmfs-stock-synthesis/stock-synthesis
 
-#_Start_time: Thu Jun  1 08:27:23 2023
+#_Start_time: Sun Jun  4 22:04:05 2023
 #_echo_input_data
 #C	2019	EBSWP	data	file																											
-#V3.30.xx.yy;_safe;_compile_date:_Apr 20 2022;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_12.3
+#V3.30.xx.yy;_safe;_compile_date:_Jun  2 2023;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
 1964 #_StartYr
 2022 #_EndYr
 1 #_Nseas
@@ -42,7 +42,7 @@
 #_NOTE:  catch data is ignored for survey fleets
 -999 1 1 0 0.01
 1964 1 1 174.792 0.01
-1965 1 1 0 0.01
+1965 1 1 230.551 0.01
 1966 1 1 261.678 0.01
 1967 1 1 550.362 0.01
 1968 1 1 702.181 0.01
@@ -102,10 +102,11 @@
 2022 1 1 1110 0.01
 -9999 0 0 0 0
 #
- #_CPUE_and_surveyabundance_observations
-#_Units:  0=numbers; 1=biomass; 2=F; 30=spawnbio; 31=recdev; 32=spawnbio*recdev; 33=recruitment; 34=depletion(&see Qsetup); 35=parm_dev(&see Qsetup)
+#_CPUE_and_surveyabundance_and_index_observations
+#_Units: 0=numbers; 1=biomass; 2=F; 30=spawnbio; 31=exp(recdev); 36=recdev; 32=spawnbio*recdev; 33=recruitment; 34=depletion(&see Qsetup); 35=parm_dev(&see Qsetup)
 #_Errtype:  -1=normal; 0=lognormal; >0=T
 #_SD_Report: 0=no sdreport; 1=enable sdreport
+#_note that link functions are specified in Q_setup section of control file
 #_Fleet Units Errtype SD_Report
 1 1 0 0 # Fishery
 2 1 0 0 # Acoustic_Survey
@@ -198,15 +199,16 @@
 2 # binwidth for population size comp 
 10 # minimum size in the population (lower edge of first bin and size at age 0.00) 
 70 # maximum size in the population (lower edge of last bin) 
-1 # use length composition data (0/1)
+1 # use length composition data (0/1/2) where 2 invokes new comp_control format
 #_mintailcomp: upper and lower distribution for females and males separately are accumulated until exceeding this level.
 #_addtocomp:  after accumulation of tails; this value added to all bins
 #_combM+F: males and females treated as combined gender below this bin number 
 #_compressbins: accumulate upper tail by this number of bins; acts simultaneous with mintailcomp; set=0 for no forced accumulation
-#_Comp_Error:  0=multinomial, 1=dirichlet
-#_ParmSelect:  parm number for dirichlet
+#_Comp_Error:  0=multinomial, 1=dirichlet using Theta*n, 2=dirichlet using beta, 3=MV_Tweedie
+#_ParmSelect:  consecutive index for dirichlet or MV_Tweedie
 #_minsamplesize: minimum sample size; set to 1 to match 3.24, minimum value is 0.001
 #
+#_Using old format for composition controls
 #_mintailcomp addtocomp combM+F CompressBins CompError ParmSelect minsamplesize
 -1 0.001 0 0 0 0 0.001 #_fleet:1_Fishery
 -1 0.001 0 0 0 0 0.001 #_fleet:2_Acoustic_Survey
@@ -229,8 +231,8 @@
 #_addtocomp:  after accumulation of tails; this value added to all bins
 #_combM+F: males and females treated as combined gender below this bin number 
 #_compressbins: accumulate upper tail by this number of bins; acts simultaneous with mintailcomp; set=0 for no forced accumulation
-#_Comp_Error:  0=multinomial, 1=dirichlet
-#_ParmSelect:  parm number for dirichlet
+#_Comp_Error:  0=multinomial, 1=dirichlet using Theta*n, 2=dirichlet using beta, 3=MV_Tweedie
+#_ParmSelect:  consecutive index for dirichlet or MV_Tweedie
 #_minsamplesize: minimum sample size; set to 1 to match 3.24, minimum value is 0.001
 #
 #_mintailcomp addtocomp combM+F CompressBins CompError ParmSelect minsamplesize
@@ -364,7 +366,8 @@
 # -2 in yr will subtract mean for that env_var; -1 will subtract mean and divide by stddev (e.g. Z-score)
 #Yr Variable Value
 #
-0 # N sizefreq methods to read 
+# Sizefreq data. Defined by method because a fleet can use multiple methods
+0 # N sizefreq methods to read (or -1 for expanded options)
 # 
 0 # do tags (0/1/2); where 2 allows entry of TG_min_recap
 #

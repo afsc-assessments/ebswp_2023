@@ -12,39 +12,68 @@ hyp="ebswp"
 m0 <- runit(geth("1.00") ,pdf=TRUE,portrait=F,est=TRUE,exec="~/_mymods/sprfmo/jjm/src/jjm")
 m1 <- runit(geth("1.01") ,pdf=TRUE,portrait=F,est=TRUE,exec="~/_mymods/sprfmo/jjm/src/jjm")
 m2 <- runit(geth("1.02") ,pdf=TRUE,portrait=F,est=TRUE,exec="~/_mymods/sprfmo/jjm/src/jjm")
+m3 <- runit(geth("1.03") ,pdf=TRUE,portrait=F,est=TRUE,exec="~/_mymods/sprfmo/jjm/src/jjm")
+m4 <- runit(geth("1.04") ,pdf=TRUE,portrait=F,est=TRUE,exec="~/_mymods/sprfmo/jjm/src/jjm")
 mods <- combineModels(m0,m1,m2,m3,m4,m5)
 names(mods)
 m0 <- readJJM(geth("1.00"), path = "config", input = "input")
 m1 <- readJJM(geth("1.01"), path = "config", input = "input")
 m2 <- readJJM(geth("1.02"), path = "config", input = "input")
-m3 <- readJJM(geth("1.03"), path = "config", input = "input")
-m4 <- readJJM(geth("1.04"), path = "config", input = "input")
-m5 <- readJJM(geth("1.05"), path = "config", input = "input")
+
+plot_selectivities(get_selectivities(m4) |> mutate(age=age-2),fleet="ind")
+
 mods <- combineModels(m0,m1,m2,m3,m4,m5)
-tidy_mods <- tidy_JJM(c(m0,m1,m2))
+tidy_mods <- tidy_JJM(c(m0,m1,m2,m3))
 tidy_mods <- tidy_JJM(c(m2))
-tidy_mods <- tidy_JJM(c(m10,m11))
+tidy_mods <- tidy_JJM(c(m3,m4))
+
+names(m2[[1]][[5]][[1]])
+# Check on natural mortality rate:
+(m2[[1]][[5]][[1]][[7]])
+
 names(tidy_mods$totals)
 # <- <-
 # <- option-"minus"
-tmp <- as_tibble(m$SSB) 
-names(tmp) <- c("year","value","stdev","lowerbound","upperbound")
-rbind(tidy_mods$totals |> filter(metric=="SSB"),   
-        tmp |> mutate(model="base",stock=1,metric="SSB",value=value*2,
-                      lowerbound=lowerbound*2,upperbound=upperbound*2)) |> 
+tmp <- as_tibble(m$R) 
+tmp <- rbind(as_tibble(m$R) |> mutate(model="base"),
+       as_tibble(diag$R) |> mutate(model="diag") )
+names(tmp) <- c("year","value","stdev","lowerbound","upperbound","model")
+rec <- get_recruits(m2)[,c(1,3:7)]
+names(rec) <- c("model", "year","value","stdev","lowerbound","upperbound")
+rec
+rbind(rec, tmp ) |> 
   filter(year>1980) |> 
-ggplot(aes(x=year,ymin=lowerbound,ymax=upperbound,fill=model)) + ylim(0,12000) + 
+ggplot(aes(x=year,ymin=lowerbound,ymax=upperbound,fill=model)) + ylim(0,NA) + 
   ggthemes::theme_few(base_size = 18)+
   geom_ribbon(alpha=.3)
+
+
+tmp <- rbind(as_tibble(m$SSB) |> mutate(model="base"),
+       as_tibble(diag$SSB) |> mutate(model="diag") )
+names(tmp) <- c("year","value","stdev","lowerbound","upperbound","model")
+
+tt<-get_totals(m2) |>  filter(metric=="SSB") |> select(-stock,-metric) ; tt   
+  rbind(tt |> mutate(lowerbound=lowerbound/2,upperbound=upperbound/2), tmp ) |> 
+  filter(year>1980,model!="diag") |> 
+ggplot(aes(x=year,ymin=lowerbound,ymax=upperbound,fill=model)) + ylim(0,6000) + 
+  ggthemes::theme_few(base_size = 18)+
+  geom_ribbon(alpha=.3)
+
 glimpse(tmp)
-tidy_mods$totals |> filter(metric="SSB")
+tidy_mods$totals |> filter(metric=="SSB") |> 
+ggplot(aes(x=year,ymin=lowerbound,ymax=upperbound,fill=model)) + ylim(0,16000) + 
+  ggthemes::theme_few(base_size = 18)+
+  geom_ribbon(alpha=.3)
+
 glimpse(tidy_mods)
 # Load in assessment results from 2022 object "m"
 load("~/_mymods/ebswp/doc/base.rdata")
+load("~/_mymods/ebswp/doc/diag.rdata")
 names(m$SSB)
 (m$SSB)
 
 index_fits <- tidy_mods$index_fits #|> filter(model=="model_1.02")
+unique(index_fits$fleet_name)
 
 index_fits %>% 
   ggplot() + 
@@ -52,7 +81,7 @@ index_fits %>%
   geom_path(aes(year, pred_ind, color = model)) + 
   facet_wrap(~ fleet_name, scales = "free_y") + 
   scale_x_continuous(name = "Year", guide = guide_axis(n.dodge = 2)) + 
-  scale_y_continuous(name = "Index Values")
+  scale_y_continuous(name = "Index Values") + ylim(c(0,NA))
 index_fits %>% 
   mutate(residual = pred_ind - observed_ind ) %>% 
   group_by(fleet_name, model) %>% 
@@ -74,12 +103,12 @@ totals %>%
   geom_ribbon(alpha=.3) + expand_limits(y = 0) +
   facet_grid(metric ~., scales = "free_y")
 
-age_fits <- get_age_fits(c(m1))
+age_fits <- get_age_fits(c(m2))
 glimpse(age_fits)
 
 age_fits %>% mutate(age=ifelse(age>9,10,age)) |> group_by(stock,year,fleet_type,age,fleet_name) |> 
   summarise(predicted=sum(predicted),observed=sum(observed)) |> 
-  filter(stock == "Stock_1", year>2010) %>% 
+  filter(stock == "Stock_1", year>2000) %>% 
   pivot_longer(predicted:observed) %>% 
   ggplot() + scale_y_continuous(breaks = c(.3,.60)) +
   scale_x_continuous(breaks = 1:10) +
@@ -87,10 +116,11 @@ age_fits %>% mutate(age=ifelse(age>9,10,age)) |> group_by(stock,year,fleet_type,
   facet_grid(year~fleet_name)
 
 
-selectivities <- get_selectivities(c(m0))
-plot_selectivities(get_selectivities(m0),fleet="ind")
-plot_selectivities(get_selectivities(m1),fleet="ind")
-plot_selectivities(get_selectivities(c(m0)))
+selectivities <- get_selectivities(c(m2)) |> mutate(age=age-2)
+glimpse(selectivities)
+plot_selectivities(get_selectivities(m3) |> mutate(age=age-2),fleet="ind")
+plot_selectivities(get_selectivities(m2),fleet="ind")
+plot_selectivities(selectivities)
 plot_selectivities(get_selectivities(c(m1)))
 ?plot_selectivities
 

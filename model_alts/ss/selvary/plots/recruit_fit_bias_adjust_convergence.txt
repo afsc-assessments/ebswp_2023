@@ -1,19 +1,19 @@
 $par
-[1] 1939.1362363 1982.0000000 2019.8772436 2020.8420202    0.9500417
+[1] 1934.7566044 1998.5079905 2019.8331024 2020.6386194    0.9310043
 
 $objective
-[1] 0.4971305
+[1] 8.643028
 
 $convergence
-[1] 1
+[1] 0
 
 $iterations
-[1] 34
+[1] 37
 
 $evaluations
 function gradient 
-      52      208 
+      53      247 
 
 $message
-[1] "false convergence (8)"
+[1] "relative convergence (4)"
 
