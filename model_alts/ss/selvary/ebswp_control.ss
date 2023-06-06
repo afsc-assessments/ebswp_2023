@@ -352,15 +352,15 @@
 #  1 #_crashPenLambda
 #  0 # F_ballpark_lambda
 2 # (0/1/2) read specs for more stddev reporting: 0 = skip, 1 = read specs for reporting stdev for selectivity, size, and numbers, 2 = add options for M,Dyn. Bzero, SmryBio
- 2 2 -1 4 # Selectivity: (1) 0 to skip or fleet, (2) 1=len/2=age/3=combined, (3) year, (4) N selex bins; NOTE: combined reports in age bins
- 0 0 # Growth: (1) 0 to skip or growth pattern, (2) growth ages; NOTE: does each sex
- 1 -1 1 # Numbers-at-age: (1) 0 or area(-1 for all), (2) year, (3) N ages;  NOTE: sums across morphs
- 0 0 # Mortality: (1) 0 to skip or growth pattern, (2) N ages for mortality; NOTE: does each sex
+2 2 -1 3 # Selectivity: (1) 0 to skip or fleet, (2) 1=len/2=age/3=combined, (3) year, (4) N selex bins; NOTE: combined reports in age bins
+0 0 # Growth: (1) 0 to skip or growth pattern, (2) growth ages; NOTE: does each sex
+1 -1 1 # Numbers-at-age: (1) 0 or area(-1 for all), (2) year, (3) N ages;  NOTE: sums across morphs
+0 0 # Mortality: (1) 0 to skip or growth pattern, (2) N ages for mortality; NOTE: does each sex
 2 # Dyn Bzero: 0 to skip, 1 to include, or 2 to add recr
 0 # SmryBio: 0 to skip, 1 to include
- 2 3 4 5 # vector with selex std bins (-1 in first bin to self-generate)
+  3 4 5 # vector with selex std bins (-1 in first bin to self-generate)
  # -1 # list of ages for growth std (-1 in first bin to self-generate)
- 15 # vector with NatAge std ages (-1 in first bin to self-generate)
+15 # vector with NatAge std ages (-1 in first bin to self-generate)
  # -1 # list of ages for NatM std (-1 in first bin to self-generate)
 999
 

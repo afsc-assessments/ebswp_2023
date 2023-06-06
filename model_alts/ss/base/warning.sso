@@ -1,6 +1,5 @@
 Note 1 Suggestion: This model has just one settlement event. Changing to recr_dist_method 4 and removing the recruitment distribution parameters at the end of the MG parms section (below growth parameters) will produce identical results and simplify the model.
 Warning 1 : Minimum pop size bin:_10; is > L at Amin for sex: 1; Gpat: 1; L= 5
-Warning 2 : 1st iteration warning: catch logL > 50% total logL; check configuration; suggest start with larger R0
-Warning 3 : Early recdev biasadj is >2 times ratio of rmse to sigmaR
-Warning 4 : Final gradient: 0.000110028 is larger than final_conv: 1e-05
- 4 warnings  and 1 note 
+Warning 2 : Early recdev biasadj is >2 times ratio of rmse to sigmaR
+Warning 3 : Final gradient: 0.000417863 is larger than final_conv: 1e-05
+ 3 warnings  and 1 note 

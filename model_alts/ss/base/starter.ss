@@ -6,9 +6,9 @@
 #_Source_code_at:_https://github.com/nmfs-stock-synthesis/stock-synthesis
 
 #C pollock
-#ebswp_data.ss
-data_echo.ss_new
-control.ss_new
+ebswp_data.ss
+#data_echo.ss_new
+ebswp_control.ss
 0 # 0=use init values in control file; 1=use ss.par
 0 # run display detail (0,1,2)
 1 # detailed output (0=minimal for data-limited, 1=high (w/ wtatage.ss_new), 2=brief, 3=custom) 
@@ -33,8 +33,8 @@ control.ss_new
 1e-05 # final convergence criteria (e.g. 1.0e-04) 
 0 # retrospective year relative to end year (e.g. -4)
 2 # min age for calc of summary biomass
-1 # Depletion basis:  denom is: 0=skip; 1=X*SPBvirgin; 2=X*SPBmsy; 3=X*SPB_styr; 4=X*SPB_endyr; 5=X*dyn_Bzero;  values>=11 invoke N multiyr (up to 9!) with 10's digit; >100 invokes log(ratio)
-1 # Fraction (X) for Depletion denominator (e.g. 0.4)
+0 # Depletion basis:  denom is: 0=skip; 1=X*SPBvirgin; 2=X*SPBmsy; 3=X*SPB_styr; 4=X*SPB_endyr; 5=X*dyn_Bzero;  values>=11 invoke N multiyr (up to 9!) with 10's digit; >100 invokes log(ratio)
+0.35 # Fraction (X) for Depletion denominator (e.g. 0.4)
 1 # SPR_report_basis:  0=skip; 1=(1-SPR)/(1-SPR_tgt); 2=(1-SPR)/(1-SPR_MSY); 3=(1-SPR)/(1-SPR_Btarget); 4=rawSPR
 1 # F_reporting_units: 0=skip; 1=exploitation(Bio); 2=exploitation(Num); 3=sum(Apical_F's); 4=true F for range of ages; 5=unweighted avg. F for range of ages
 #COND 10 15 #_min and max age over which average F will be calculated with F_reporting=4 or 5

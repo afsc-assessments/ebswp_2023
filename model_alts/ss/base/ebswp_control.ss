@@ -110,7 +110,7 @@
 0  # 0/1 to use steepness in initial equ recruitment calculation
 0  #  future feature:  0/1 to make realized sigmaR a function of SR curvature
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn #  parm_name
-            8            17       12.0963            12            99             0          1          0          0          0          0          0          0          0 # SR_LN(R0)
+            8            17       14.0963            12            99             0          1          0          0          0          0          0          0          0 # SR_LN(R0)
            0.2             1      0.820323         0.777         0.113             2          4          0          0          0          0          0          0          0 # SR_BH_steep
              1           1.6           1.4           1.1            99             0         -6          0          0          0          0          0          0          0 # SR_sigmaR
             -5             5             0             0            99             0        -50          0          0          0          0          0          0          0 # SR_regime
@@ -352,15 +352,14 @@
 #  1 #_crashPenLambda
 #  0 # F_ballpark_lambda
 2 # (0/1/2) read specs for more stddev reporting: 0 = skip, 1 = read specs for reporting stdev for selectivity, size, and numbers, 2 = add options for M,Dyn. Bzero, SmryBio
- 2 2 -1 4 # Selectivity: (1) 0 to skip or fleet, (2) 1=len/2=age/3=combined, (3) year, (4) N selex bins; NOTE: combined reports in age bins
- 0 0 # Growth: (1) 0 to skip or growth pattern, (2) growth ages; NOTE: does each sex
- 1 -1 1 # Numbers-at-age: (1) 0 or area(-1 for all), (2) year, (3) N ages;  NOTE: sums across morphs
- 0 0 # Mortality: (1) 0 to skip or growth pattern, (2) N ages for mortality; NOTE: does each sex
+2 2 -1 3 # Selectivity: (1) 0 to skip or fleet, (2) 1=len/2=age/3=combined, (3) year, (4) N selex bins; NOTE: combined reports in age bins
+0 0 # Growth: (1) 0 to skip or growth pattern, (2) growth ages; NOTE: does each sex
+1 -1 1 # Numbers-at-age: (1) 0 or area(-1 for all), (2) year, (3) N ages;  NOTE: sums across morphs
+0 0 # Mortality: (1) 0 to skip or growth pattern, (2) N ages for mortality; NOTE: does each sex
 2 # Dyn Bzero: 0 to skip, 1 to include, or 2 to add recr
 0 # SmryBio: 0 to skip, 1 to include
- 2 3 4 5 # vector with selex std bins (-1 in first bin to self-generate)
+  3 4 5 # vector with selex std bins (-1 in first bin to self-generate)
  # -1 # list of ages for growth std (-1 in first bin to self-generate)
- 15 # vector with NatAge std ages (-1 in first bin to self-generate)
+15 # vector with NatAge std ages (-1 in first bin to self-generate)
  # -1 # list of ages for NatM std (-1 in first bin to self-generate)
 999
-

@@ -5,9 +5,9 @@
 #_User_info_available_at:https://vlab.noaa.gov/group/stock-synthesis
 #_Source_code_at:_https://github.com/nmfs-stock-synthesis/stock-synthesis
 
-StartTime: Sun Jun  4 09:52:03 2023
-EndTime: Sun Jun  4 09:52:43 2023
-This run took: 0 hours, 0 minutes, 40 seconds.
+StartTime: Mon Jun  5 15:59:13 2023
+EndTime: Mon Jun  5 17:26:33 2023
+This run took: 1 hours, 27 minutes, 20 seconds.
 Data_File: ebswp_data.ss
 Control_File: ebswp_control.ss
 
@@ -1010,7 +1010,6 @@ OFLCatch_2023 2650.9 505.471
 OFLCatch_2024 2910.34 568.217
 OFLCatch_2025 2628.7 521.47
 OFLCatch_2026 2406.9 472.625
-AgeSelex_std_2_Fem_A_2 1 0
 AgeSelex_std_2_Fem_A_3 0.505516 0.171195
 AgeSelex_std_2_Fem_A_4 0.745479 0.153265
 AgeSelex_std_2_Fem_A_5 0.640794 0.158247

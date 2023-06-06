@@ -1,7 +1,7 @@
 #V3.30.xx.yy;_safe;_compile_date:_Jun  2 2023;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
 ebswp_data.ss #_DataFile 
 ebswp_control.ss #_Control 
-Run_Date: Sun Jun  4 09:52:03 2023
+Run_Date: Mon Jun  5 15:59:13 2023
 Final_phase: 5  N_iterations: 2908
 #_LIKELIHOOD 
 Label logL*Lambda
@@ -825,7 +825,6 @@ OFLCatch_2024 2910.34 568.217
 OFLCatch_2025 2628.7 521.47
 OFLCatch_2026 2406.9 472.625
 #_Extra_stdev
-AgeSelex_std_2_Fem_A_2 1 0
 AgeSelex_std_2_Fem_A_3 0.505516 0.171195
 AgeSelex_std_2_Fem_A_4 0.745479 0.153265
 AgeSelex_std_2_Fem_A_5 0.640794 0.158247
