@@ -24,6 +24,34 @@ library(tidyverse)
 r1 <- SS_output(dir = '.'); #SS_plots(r1)
 r2 <- SS_output(dir = '../selvary'); 
 r3 <- SS_output(dir = '../Hake_2023_Model_Files'); 
+
+retro(
+  dir = ".", # wherever the model files are
+  oldsubdir = "", # subfolder within dir
+  newsubdir = "retrospectives", # new place to store retro runs within dir
+  years = 0:-10 # years relative to ending year of model
+)
+retroModels <- SSgetoutput(dirvec = file.path(
+  '.', "retrospectives",
+  paste("retro", 0:-10, sep = "")
+))
+# summarize the model results
+retroSummary <- SSsummarize(retroModels)
+# create a vector of the ending year of the retrospectives
+endyrvec <- retroSummary[["endyrs"]] + 0:-10
+# make plots comparing the 6 models
+SSplotComparisons(retroSummary,
+                  endyrvec = endyrvec,
+                  legendlabels = paste("Data", 0:-10, "years")
+)
+# calculate Mohn's rho, a diagnostic value
+rho_output <- SSmohnsrho(
+  summaryoutput = retroSummary,
+  endyrvec = endyrvec,
+  startyr = retroSummary[["endyrs"]] - 5,
+  verbose = FALSE
+)
+
 SS_plots(r2)
 dev.off()
 names(r2$timeseries)

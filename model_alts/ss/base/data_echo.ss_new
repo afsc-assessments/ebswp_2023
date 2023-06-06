@@ -5,7 +5,7 @@
 #_User_info_available_at:https://vlab.noaa.gov/group/stock-synthesis
 #_Source_code_at:_https://github.com/nmfs-stock-synthesis/stock-synthesis
 
-#_Start_time: Mon Jun  5 15:54:16 2023
+#_Start_time: Tue Jun  6 12:09:04 2023
 #_echo_input_data
 #C	2019	EBSWP	data	file																											
 #V3.30.xx.yy;_safe;_compile_date:_Jun  2 2023;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
@@ -112,31 +112,35 @@
 2 1 0 0 # Acoustic_Survey
 3 1 0 0 # bottom_Survey
 #_yr month fleet obs stderr
-1994 7 2 3640.11 0.203248 #_ Acoustic_Survey
+1994 7 2 3629 0.210873 #_ Acoustic_Survey
 1995 7 -2 1 1 #_ Acoustic_Survey
-1996 7 2 2955.11 0.168652 #_ Acoustic_Survey
-1997 7 2 3590.7 0.160003 #_ Acoustic_Survey
+1996 7 2 2945 0.168699 #_ Acoustic_Survey
+1997 7 2 3591 0.152883 #_ Acoustic_Survey
 1998 7 -2 1 1 #_ Acoustic_Survey
-1999 7 2 4202.14 0.237843 #_ Acoustic_Survey
-2000 7 2 3613.94 0.138381 #_ Acoustic_Survey
+1999 7 2 4141 0.23196 #_ Acoustic_Survey
+2000 7 2 3626 0.147611 #_ Acoustic_Survey
 2001 7 -2 1 1 #_ Acoustic_Survey
-2002 7 2 4330.01 0.134057 #_ Acoustic_Survey
+2002 7 2 4306 0.142339 #_ Acoustic_Survey
 2003 7 -2 1 1 #_ Acoustic_Survey
-2004 7 2 4016.18 0.160003 #_ Acoustic_Survey
+2004 7 2 4010 0.163427 #_ Acoustic_Survey
 2005 7 -2 1 1 #_ Acoustic_Survey
-2006 7 2 1887.42 0.168652 #_ Acoustic_Survey
-2007 7 2 2288.07 0.194599 #_ Acoustic_Survey
-2008 7 2 1407.48 0.330339 #_ Acoustic_Survey
-2009 7 2 1323.06 0.380549 #_ Acoustic_Survey
-2010 7 2 2651.18 0.259465 #_ Acoustic_Survey
+2006 7 2 1873 0.17397 #_ Acoustic_Survey
+2007 7 2 2278 0.200329 #_ Acoustic_Survey
+2008 7 2 1406 0.295222 #_ Acoustic_Survey
+2009 7 2 1325 0.363756 #_ Acoustic_Survey
+2010 7 2 2642 0.284679 #_ Acoustic_Survey
 2011 7 -2 1 1 #_ Acoustic_Survey
-2012 7 2 2298.94 0.181626 #_ Acoustic_Survey
+2012 7 2 2296 0.179242 #_ Acoustic_Survey
 2013 7 -2 1 1 #_ Acoustic_Survey
-2014 7 2 4726.6 0.20079 #_ Acoustic_Survey
+2014 7 2 4730 0.179242 #_ Acoustic_Survey
 2015 7 -2 1 1 #_ Acoustic_Survey
-2016 7 2 4828.89 0.0908128 #_ Acoustic_Survey
+2016 7 2 4829 0.100165 #_ Acoustic_Survey
 2017 7 -2 1 1 #_ Acoustic_Survey
-2018 7 2 2499.4 0.19098 #_ Acoustic_Survey
+2018 7 2 2499 0.205601 #_ Acoustic_Survey
+2019 7 -2 1 1 #_ Acoustic_Survey
+2020 7 2 3605.1 0.511399 #_ Acoustic_Survey
+2021 7 -2 1 1 #_ Acoustic_Survey
+2022 7 2 3834 0.3 #_ Acoustic_Survey
 1982 7 3 3820.96 0.0857334 #_ bottom_Survey
 1983 7 3 8980.69 0.0848367 #_ bottom_Survey
 1984 7 3 6472.57 0.108799 #_ bottom_Survey
