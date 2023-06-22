@@ -17,7 +17,7 @@ if (doplots) {
   #p1 <- plot_ssb(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
   #p1 <- plot_bts(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
   #p1 <- plot_Nage_3(modlst[c(1,2)],xlim=c(2000.5,2023.5));p1
-  p1 <- plot_recruitment(modlst[c(1:2)],xlim=c(2000.5,2022.5))+ylab("");p1
+  p1 <- plot_recruitment(modlst[c(1:3)],xlim=c(2000.5,2022.5))+ylab("");p1
   p2 <- plot_recruitment(modlst[c(2,3)],xlim=c(2000.5,2022.5))+ylab("");
   p3 <- plot_recruitment(modlst[c(3,4)],xlim=c(2000.5,2022.5))+ylab("");
   p4 <- plot_recruitment(modlst[c(4,5)],xlim=c(2000.5,2022.5))+ylab("");
@@ -36,7 +36,7 @@ if (doplots) {
 #---SSB-------------------------
   modlst[[3]]$SSB
   p1 <- plot_recruitment(modlst[c(1,2)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
-  p1 <- plot_ssb(modlst[c(1,2)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
+  p1 <- plot_ssb(modlst[c(2:3)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
   p1 <- plot_ssb(modlst[3],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
   p2 <- plot_ssb(modlst[c(8,9)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p2
   # Comparing base with 2 vast configurations
@@ -46,7 +46,7 @@ if (doplots) {
 #---BTS Fit---------------------
   # Comparing base with 2 vast configurations
   #p1 <- plot_recruitment(modlst[c(2,4,5)],xlim=c(2010.8,2019.5));p1
-  p1 <- plot_bts(modlst[c(1,2)],xlim=c(1981.5,2023.5),ylim=c(0,15500)) ;p1
+  p1 <- plot_bts(modlst[c(3,2)],xlim=c(1981.5,2023.5),ylim=c(0,15500)) ;p1
   ggsave("figs/mod_bts_fit.pdf",plot=p1,width=8,height=4.0,units="in")
   #p1 <- plot_ssb(modlst[c(3,4)],xlim=c(2000.5,2020.5),alpha=.2); p1
   #plot_recruitment(modlst,xlim=c(2004.5,2018.5))

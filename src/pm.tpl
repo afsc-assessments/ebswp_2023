@@ -754,7 +754,7 @@ DATA_SECTION
 	 sd_GenGam = extract_column(GenGamData,2);
    write_log(q_GenGam); 
    write_log(sd_GenGam); 
-   write_log(GenGamData); exit(1);
+   write_log(GenGamData); //exit(1);
  END_CALCS
    // init_matrix GenGamData(1,n_bts,1,2);
 	 
@@ -3644,14 +3644,14 @@ FUNCTION Surv_Likelihood
         // }
         if (do_bts_bio)
 				{
-          srv_tmp = log(ob_bts) - log(eb_bts );
           for (i=1;i<=n_bts_r;i++)
-            surv_like(1) += square(srv_tmp(i))/(2.*var_ob_bts(i));
-            surv_like(1) += dgengamma(eb_bts(i), ggdmean(i), ggdsigma(i), ggdQ(i));
-            srv_tmp = log(ob_bts) - log(eb_bts );
-				  }
-				}
-
+						if (sd_GenGam(i)>0)
+              surv_like(1) -= dgengamma(eb_bts(i), ob_bts(i), sd_GenGam(i), q_GenGam(i));
+						else{
+              srv_tmp = log(ob_bts) - log(eb_bts );
+              surv_like(1) += square(srv_tmp(i))/(2.*var_ob_bts(i));
+						}
+				 }
 				break;
       case 3: // lognormal
         if (do_bts_bio)
@@ -3661,10 +3661,8 @@ FUNCTION Surv_Likelihood
 				}
 				break;
 				}
-    {
-      // cout <<"Survey likelihood: " << surv_like(1) << endl;
-    }
-    else
+		}
+    /* else
     {
       if (do_bts_bio)
       {
@@ -3680,6 +3678,7 @@ FUNCTION Surv_Likelihood
 		// GenGamma stuff here
     // FUNCTION dvariable dgengamma(dvariable x, const double& mean2, const double& sigma, const double& Q)
     surv_like(1) *= ctrl_flag(5);
+  */
 
   // AT Biomass section
   /*
@@ -3697,7 +3696,6 @@ FUNCTION Surv_Likelihood
     }
     surv_like(2) *= ctrl_flag(2);
 
-  }
   if (use_age1_ats) 
   {
     // Compute q for this age1 index...
@@ -6501,6 +6499,22 @@ REPORT_SECTION
 FINAL_SECTION
 
   write_R();
+  adstring ad_tmp=initial_params::get_reportfile_name();
+  ofstream report((char*)(adprogram_name + ad_tmp),ios::app);
+	dvar_vector srv_tmp(1,n_bts);
+	if (DoCovBTS==2){
+		report<<"GenGamma_Like"<<endl;
+    for (i=1;i<=n_bts_r;i++)
+		{
+			report<<(yrs_bts_data(i))<<" ";
+		  if (sd_GenGam(i)>0)
+			  report<< -dgengamma(eb_bts(i), ob_bts(i), sd_GenGam(i), q_GenGam(i))<<endl;
+			else{
+        srv_tmp = log(ob_bts) - log(eb_bts );
+			  report<< square(srv_tmp(i))/(2.*var_ob_bts(i))<<endl;
+			}
+		}
+	}
 
 TOP_OF_MAIN_SECTION
   gradient_structure::set_MAX_NVAR_OFFSET(2600);

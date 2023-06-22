@@ -24,6 +24,9 @@ library(tidyverse)
 r1 <- SS_output(dir = '.'); #SS_plots(r1)
 r2 <- SS_output(dir = '../selvary'); 
 r3 <- SS_output(dir = '../Hake_2023_Model_Files'); 
+mods <- SSgetoutput(dirvec = c(".", "../selvary") )
+modsum<-SSsummarize(mods)
+SSplotComparisons(modsum)
 
 retro(
   dir = ".", # wherever the model files are
@@ -44,6 +47,8 @@ SSplotComparisons(retroSummary,
                   endyrvec = endyrvec,
                   legendlabels = paste("Data", 0:-10, "years")
 )
+dev.off()
+
 # calculate Mohn's rho, a diagnostic value
 rho_output <- SSmohnsrho(
   summaryoutput = retroSummary,
@@ -52,8 +57,8 @@ rho_output <- SSmohnsrho(
   verbose = FALSE
 )
 
-SS_plots(r2)
-dev.off()
+rho_output
+
 names(r2$timeseries)
 names(r2$stdtable)
 (grep("SSB",r2$stdtable$name)
