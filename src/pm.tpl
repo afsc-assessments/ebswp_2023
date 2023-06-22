@@ -28,7 +28,6 @@ DATA_SECTION
  !!  *(ad_comm::global_datafile) >> RawSurveyCPUE_file;
  // !!  *(ad_comm::global_datafile) >> control_temp_pred_filename;
  !!  *(ad_comm::global_datafile) >> Temp_Cons_Dist_file;
- !!  *(ad_comm::global_datafile) >> GenGamm_Filename;
  // !!  *(ad_comm::global_datafile) >> endyrn_file;
  !! write_log(model_name);
  !! write_log(datafile_name);
@@ -40,7 +39,6 @@ DATA_SECTION
  !! write_log(RawSurveyCPUE_file);
  // !! write_log(control_temp_pred_filename);
  !! write_log(Temp_Cons_Dist_file);
- !! write_log(GenGamm_Filename);
  // !! write_log(endyrn_file);
   int count_Ffail;
   int count_mcmc;
@@ -67,7 +65,7 @@ DATA_SECTION
   !!CLASS ofstream eval("pm_eval.rep")     
   // Control file read from here--------------------------------------
  !! ad_comm::change_datafile_name(control_filename); cout<<"Opening "<<control_filename<<endl;
-  init_int DoCovBTS           // Flag to use covariance for bottom trawl survey, 0=use vector, 1=use cov matrix, 2=use GenGamma
+  init_int DoCovBTS           // Flag to use covariance for bottom trawl survey
   init_int SrType             // SRR 1=ricker, 2 bholt, 3 avg
   init_int Do_Combined        // Flag to try experimental combined-surveys method (not used yet)
   init_int use_age_err        // Flag to use ageing error matrix
@@ -310,22 +308,16 @@ DATA_SECTION
 
   init_vector p_mature(1,nages)
   !!p_mature *= 0.5;
-  !! write_log(p_mature);
   init_ivector ewindex(styr,endyr)
   init_ivector nsindex(styr,endyr)
-  !! write_log(ewindex);
-  !! write_log(nsindex);
   init_matrix wt_fsh(styr,endyr,1,nages)
   init_matrix wt_ssb(styr,endyr,1,nages)     // Added in 2007, for constant or alternate time-varying SSB calculation
-  !! write_log(wt_fsh);
-  !! write_log(wt_ssb);
   !! if(use_popwts_ssb==0)  wt_ssb = wt_fsh; // this is the historical default (and continued use) Eq. 9
        matrix wt_tmp(1,nages,1991,endyr-1)
        vector wt_mn(1,nages)
        vector wt_sigma(1,nages)
   init_vector obs_catch(styr,endyr)
-	!! write_log(obs_catch);
-	!!  write_log(wt_fsh);
+  !! write_log(p_mature);write_log(obs_catch);write_log(wt_fsh);
   // Effort vector input (but never used...placeholder)
   init_vector obs_effort(styr,endyr)
   // Historical CPUE (foreign) for early trend information 
@@ -353,7 +345,7 @@ DATA_SECTION
   init_int n_fsh
   init_int n_bts
   init_int n_ats
-  ivector nagecomp(1,ngears)
+  vector nagecomp(1,ngears)
   init_ivector yrs_fsh_data(1,n_fsh)
   init_ivector yrs_bts_data(1,n_bts)
   init_ivector yrs_ats_data(1,n_ats)
@@ -361,9 +353,6 @@ DATA_SECTION
   init_ivector      sam_fsh(1,n_fsh)
   init_ivector      sam_bts(1,n_bts)
   init_ivector      sam_ats(1,n_ats)
-  init_ivector      err_fsh(1,n_fsh)
-  init_ivector      err_bts(1,n_bts)
-  init_ivector      err_ats(1,n_ats)
   init_matrix     oac_fsh_data(1,n_fsh,1,nages)
   !! cout<< " Index min and max for age comp data: "<<endl <<oac_fsh_data.indexmin()<<" Max "<<oac_fsh_data.indexmax()<<endl;
   init_vector     obs_bts_data(1,n_bts)
@@ -372,7 +361,6 @@ DATA_SECTION
   init_matrix  wt_bts(1,n_bts,1,nages)
   init_vector std_ot_bts(1,n_bts)
   !! write_log(sam_fsh);write_log(sam_bts);write_log(sam_ats);
-  !! write_log(err_fsh);write_log(err_bts);write_log(err_ats);
   !! write_log(oac_fsh_data);write_log(yrs_bts_data);write_log(yrs_ats_data);
   !! write_log(obs_bts_data);
   !! write_log(std_ob_bts_data);
@@ -408,9 +396,7 @@ DATA_SECTION
   init_vector bottom_temp(1,n_bts)
   !! cout<<"BottomTemp:"<<endl<<bottom_temp<<endl;
   !! write_log(wt_ats); write_log(bottom_temp);
-  init_int n_age_err
-  !! write_log(n_age_err); 
-  init_3darray age_err(1,n_age_err,1,nages,1,nages)
+  init_matrix age_err(1,nages,1,nages)
   !! write_log(age_err); 
   init_int nlbins;
   init_vector olc_fsh(1,nlbins)
@@ -737,27 +723,6 @@ DATA_SECTION
   !!long int lseed=iseed;
   !!CLASS random_number_generator rng(iseed);
 
- // ------------------------------------------------------
- // Conditionally read in generalized Gamma Q values for BTS
-   matrix GenGamData(1,n_bts,1,2);
-   vector q_GenGam(1,n_bts);
-   vector sd_GenGam(1,n_bts);
-   
- LOCAL_CALCS
-  // Flag to use covariance for bottom trawl survey, 0=use vector, 1=use cov matrix, 2=use GenGamma
-   if (DoCovBTS==2)
-	 {
-     ad_comm::change_datafile_name(GenGamm_Filename);cout<<"Opening "<<GenGamm_Filename<<endl;
-     *(ad_comm::global_datafile) >>  GenGamData ; 
-	 }
-	 q_GenGam = extract_column(GenGamData,1);
-	 sd_GenGam = extract_column(GenGamData,2);
-   write_log(q_GenGam); 
-   write_log(sd_GenGam); 
-   write_log(GenGamData); //exit(1);
- END_CALCS
-   // init_matrix GenGamData(1,n_bts,1,2);
-	 
  // ------------------------------------------------------
  // read in wt-age data by 
  !! ad_comm::change_datafile_name(Wtage_file);
@@ -1309,7 +1274,6 @@ PARAMETER_SECTION
   vector sel_like(1,3);
   vector sel_like_dev(1,3);
   vector age_like(1,ngears);
-	matrix age_like_yr(1,ngears,1,nagecomp)
   number len_like;
   number wt_like;
   vector age_like_offset(1,ngears);
@@ -2664,7 +2628,7 @@ FUNCTION Get_Catch_at_Age
     iyr       = yrs_fsh_data(i);
     et_fsh(i) = sum(catage(iyr));
     if (use_age_err)
-      eac_fsh(i) = age_err(err_fsh(i)) * catage(iyr)/et_fsh(i); 
+      eac_fsh(i) = age_err * catage(iyr)/et_fsh(i); 
     else 
       eac_fsh(i) =           catage(iyr)/et_fsh(i); 
   }
@@ -2701,7 +2665,7 @@ FUNCTION Get_Catch_at_Age
     iyr           = yrs_bts_data(i);
     ntmp          = elem_prod(natage(iyr),pow(S(iyr),.5));
     if (use_age_err)
-      eac_bts(i)  = age_err(err_bts(i)) * elem_prod(ntmp,mfexp(log_sel_bts(iyr))) * mfexp(log_q_bts); // Eq. 15
+      eac_bts(i)  = age_err * elem_prod(ntmp,mfexp(log_sel_bts(iyr))) * mfexp(log_q_bts); // Eq. 15
     else 
       eac_bts(i)  =           elem_prod(ntmp,mfexp(log_sel_bts(iyr))) * mfexp(log_q_bts); 
 
@@ -2717,7 +2681,7 @@ FUNCTION Get_Catch_at_Age
     iyr          = yrs_ats_data(i);
     ntmp         = elem_prod(natage(iyr),pow(S(iyr),.5));
     if (use_age_err)
-      eac_ats(i)  = age_err(err_ats(i)) * elem_prod(ntmp,mfexp(log_sel_ats(iyr))) * q_ats; // Eq. 15
+      eac_ats(i)  = age_err * elem_prod(ntmp,mfexp(log_sel_ats(iyr))) * q_ats; // Eq. 15
     else
       eac_ats(i)  =           elem_prod(ntmp,mfexp(log_sel_ats(iyr))) * q_ats; 
 
@@ -3621,48 +3585,12 @@ FUNCTION Surv_Likelihood
       srv_tmp = (ot_bts )-(et_bts );
 
     // Covariance on observed population (numbers) switch
-		
-    switch (DoCovBTS)
+    if (DoCovBTS && current_phase()>4)
     {
-      case 0: // normal design-based estimates (no Covariance)
-        if (do_bts_bio)
-				{
-          srv_tmp = log(ob_bts) - log(eb_bts );
-          for (i=1;i<=n_bts_r;i++)
-            surv_like(1) += square(srv_tmp(i))/(2.*var_ob_bts(i));
-				}
-
-      case 1:
-        surv_like(1)  = .5 * srv_tmp * inv_bts_cov * srv_tmp;
-        break;
-
-      case 2: // Test gen gamma
-			//  loglik(7) =0;
-        // for (i=1;i<=nyrs_srv2;i++){
-          // if(srvyrs2(i)>endyr) break;
-          // loglik(7)+=dgengamma(Eindxsurv2(srvyrs2(i)), ggdmean(i), ggdsigma(i), ggdQ(i));
-        // }
-        if (do_bts_bio)
-				{
-          for (i=1;i<=n_bts_r;i++)
-						if (sd_GenGam(i)>0)
-              surv_like(1) -= dgengamma(eb_bts(i), ob_bts(i), sd_GenGam(i), q_GenGam(i));
-						else{
-              srv_tmp = log(ob_bts) - log(eb_bts );
-              surv_like(1) += square(srv_tmp(i))/(2.*var_ob_bts(i));
-						}
-				 }
-				break;
-      case 3: // lognormal
-        if (do_bts_bio)
-				{
-					// Need to fix up variance for this option...
-          srv_tmp = log(ob_bts) - log(eb_bts );
-				}
-				break;
-				}
-		}
-    /* else
+      surv_like(1)  = .5 * srv_tmp * inv_bts_cov * srv_tmp;
+      // cout <<"Survey likelihood: " << surv_like(1) << endl;
+    }
+    else
     {
       if (do_bts_bio)
       {
@@ -3675,10 +3603,7 @@ FUNCTION Surv_Likelihood
           surv_like(1) += square(srv_tmp(i))/(2.*var_ot_bts(i));
       }
     }
-		// GenGamma stuff here
-    // FUNCTION dvariable dgengamma(dvariable x, const double& mean2, const double& sigma, const double& Q)
     surv_like(1) *= ctrl_flag(5);
-  */
 
   // AT Biomass section
   /*
@@ -3696,6 +3621,7 @@ FUNCTION Surv_Likelihood
     }
     surv_like(2) *= ctrl_flag(2);
 
+  }
   if (use_age1_ats) 
   {
     // Compute q for this age1 index...
@@ -3772,27 +3698,25 @@ FUNCTION Robust_Likelihood
 
 FUNCTION Multinomial_Likelihood
   age_like.initialize();
-  age_like_yr.initialize();
   len_like.initialize();
   //-Likelihood due to Age compositions--------------------------------
   for (int igear =1;igear<=ngears;igear++)
   {
-    switch (igear)
+    for (i=1; i <= nagecomp(igear); i++)
     {
-      case 1:
-        for (i=1; i <= nagecomp(igear); i++)
-          age_like_yr(igear,i) = -sam_fsh(i)*oac_fsh(i)*log(eac_fsh(i) + MN_const);
+      switch (igear)
+      {
+        case 1:
+          age_like(igear) -= sam_fsh(i)*oac_fsh(i)*log(eac_fsh(i) + MN_const);
           break;
-      case 2:
-        for (i=1; i <= nagecomp(igear); i++)
-          age_like_yr(igear,i) = -sam_bts(i)*oac_bts(i)*log(eac_bts(i) + MN_const);
+        case 2:
+          age_like(igear) -= sam_bts(i)*oac_bts(i)*log(eac_bts(i) + MN_const);
           break;
-      case 3:
-        for (i=1; i <= nagecomp(igear); i++)
-          age_like_yr(igear,i) = -sam_ats(i)*oac_ats(i)(mina_ats,nages)*log(eac_ats(i)(mina_ats,nages) +MN_const);
+        default:
+          age_like(igear) -= sam_ats(i)*oac_ats(i)(mina_ats,nages)*log(eac_ats(i)(mina_ats,nages) +MN_const);
           break;
-    }
-    age_like(igear) = sum(age_like_yr(igear));
+      }
+    }     
     age_like(igear)-=age_like_offset(igear);
   }
   //len_like = sam_fsh(n_fsh_r)*olc_fsh*log(elc_fsh+MN_const);
@@ -5064,8 +4988,6 @@ FUNCTION write_R
   R_report(sel_like);
   R_report(sel_like_dev);
   R_report(age_like);
-  R_report(age_like_yr);
-  R_report(age_like_offset);
   R_report(len_like);
   R_report(rec_like);
   R_report(resid_M_like);
@@ -5950,33 +5872,6 @@ FUNCTION double calc_Francis_weights(const dmatrix oac, const dvar_matrix eac, c
     return lfwt;
   }
 
-  /*
-  loglik(7) =0;
-  for (i=1;i<=nyrs_srv2;i++){
-    if(srvyrs2(i)>endyr) break;
-    loglik(7)+=dgengamma(Eindxsurv2(srvyrs2(i)), ggdmean(i), ggdsigma(i), ggdQ(i));
-  }
-  */
-
-// There can be some differences in mean/CV too but just try it with
-// We haven't worked on this paper since the talk but I hope to in the coming months. 
-// I'm trying to stay focused on the Bayes one
-
-FUNCTION dvariable dgengamma(dvariable x, const double& mean2, const double& sigma, const double& Q)
-  RETURN_ARRAYS_INCREMENT();
-  double k = pow( Q, -2 );
-  double Beta = pow( sigma, -1 ) * Q;
-  double log_theta = log(mean2) - lgamma( (k*Beta+1)/Beta ) + lgamma( k );
-  double mu = log_theta + log(k) / Beta;
-  dvariable w = (log(x) - mu) / sigma;
-  double abs_q = sqrt(Q*Q);  // = abs(Q); not differentiable!
-  double qi = 1/square(Q);
-  dvariable qw = Q*w;
-  dvariable logres = -log(sigma*x) + log(abs_q) * (1 - 2 * qi) + qi * (qw - exp(qw)) - lgamma(qi);
-  RETURN_ARRAYS_DECREMENT();
-  return(logres);
-	
-
 REPORT_SECTION
   // if (last_phase()) Get_Replacement_Yield();
   save_gradients(gradients);
@@ -6499,22 +6394,6 @@ REPORT_SECTION
 FINAL_SECTION
 
   write_R();
-  adstring ad_tmp=initial_params::get_reportfile_name();
-  ofstream report((char*)(adprogram_name + ad_tmp),ios::app);
-	dvar_vector srv_tmp(1,n_bts);
-	if (DoCovBTS==2){
-		report<<"GenGamma_Like"<<endl;
-    for (i=1;i<=n_bts_r;i++)
-		{
-			report<<(yrs_bts_data(i))<<" ";
-		  if (sd_GenGam(i)>0)
-			  report<< -dgengamma(eb_bts(i), ob_bts(i), sd_GenGam(i), q_GenGam(i))<<endl;
-			else{
-        srv_tmp = log(ob_bts) - log(eb_bts );
-			  report<< square(srv_tmp(i))/(2.*var_ob_bts(i))<<endl;
-			}
-		}
-	}
 
 TOP_OF_MAIN_SECTION
   gradient_structure::set_MAX_NVAR_OFFSET(2600);
@@ -6629,7 +6508,6 @@ GLOBALS_SECTION
   adstring selchng_filename; 
   adstring Alt_MSY_File;
   adstring Cov_Filename;
-  adstring GenGamm_Filename;
   adstring Wtage_file;
   adstring RawSurveyCPUE_file;
   // adstring control_temp_pred_filename;

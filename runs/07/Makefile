@@ -15,11 +15,11 @@ else
     RM=rm -rf
 endif
 
-all: mpd $(DIST)$(EXEC).tpl
-$(EXEC): $(DIST)$(EXEC).tpl
-	ln -sf $(DIST)$(EXEC) $@
-	ln -sf $(DIST)$(EXEC).tpl $@.tpl
-	ln -sf $(PROJDIST)$(PROJ) $(PROJ)
+all: mpd #$(DIST)$(EXEC).tpl
+#$(EXEC): $(DIST)$(EXEC).tpl
+	#ln -sf $(DIST)$(EXEC) $@
+	#ln -sf $(DIST)$(EXEC).tpl $@.tpl
+	#ln -sf $(PROJDIST)$(PROJ) $(PROJ)
 
 $(DIST)$(EXEC).tpl:
 	$(MAKE) --directory=../../src
