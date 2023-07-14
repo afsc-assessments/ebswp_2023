@@ -2,9 +2,9 @@ EXEC = pm
 PROJ = main
 	PROJDIST = ~/_mymods/afsc-assessments/AMAK/src/
 ifeq ($(SAFE),TRUE)
-	DIST = ../../src/
+	DIST = ../../src/2022/
 else
-	DIST = ../../src/
+	DIST = ../../src/2022/
 endif
 ARGS = -nox -iprint 150 
 
@@ -21,7 +21,7 @@ $(EXEC): $(DIST)$(EXEC).tpl
 	ln -sf $(PROJDIST)$(PROJ) $(PROJ)
 
 $(DIST)$(EXEC).tpl:
-	$(MAKE) --directory=../../src
+	$(MAKE) --directory=../../src/2022/
 
 
 mpd: $(EXEC)
