@@ -40,8 +40,19 @@ mod_names <- c("Last year",
 fn        <- paste0(.MODELDIR, "pm");fn
 #fn
 nmods <- length(mod_names)
+#system.time( modlst <- mclapply(fn, read_admb,mc.cores=nmods) )
 registerDoParallel(nmods)
-system.time( modlst <- mclapply(fn, read_admb,mc.cores=nmods) )
+system.time( modlst <- parLapply(fn, read_admb,mc.cores=nmods) )
+
+num_cores<-detectCores()-1
+
+cl<-makeCluster(num_cores)
+clusterExport(cl, c("read_fit", "read_admb","read_rep","read_psv"), 
+                               envir=environment())
+system.time(modlst <- parLapply(clust <-cl,fn,read_admb))
+
+?read_admb
+
 #modlst[[2]] <- read_admb(fn[1])
 names(modlst) <- mod_names
 # The model picked
