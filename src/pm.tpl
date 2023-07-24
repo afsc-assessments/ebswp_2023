@@ -544,7 +544,7 @@ DATA_SECTION
   n_bts_r=0;
   n_ats_r=0;
   n_avo_r=0;
-  endyr_r = endyr - int(ctrl_flag(28));
+  endyr_r = endyr - int(ctrl_flag(28)); // where retrospective peels are set
   endyr_est = endyr_r - int(ctrl_flag(29)); // lop off last couple of years 
   cout <<"Last yr of estimation..."<<endyr_est<<endl;
   dec_tab_catch(1) = obs_catch(endyr_r);
