@@ -28,6 +28,7 @@ DATA_SECTION
  !!  *(ad_comm::global_datafile) >> RawSurveyCPUE_file;
  // !!  *(ad_comm::global_datafile) >> control_temp_pred_filename;
  !!  *(ad_comm::global_datafile) >> Temp_Cons_Dist_file;
+ !!  *(ad_comm::global_datafile) >> GenGamm_Filename;
  // !!  *(ad_comm::global_datafile) >> endyrn_file;
  !! write_log(model_name);
  !! write_log(datafile_name);
@@ -39,6 +40,7 @@ DATA_SECTION
  !! write_log(RawSurveyCPUE_file);
  // !! write_log(control_temp_pred_filename);
  !! write_log(Temp_Cons_Dist_file);
+ !! write_log(GenGamm_Filename); 
  // !! write_log(endyrn_file);
   int count_Ffail;
   int count_mcmc;
@@ -758,7 +760,7 @@ DATA_SECTION
 	 
  // ------------------------------------------------------
  // read in wt-age data by 
- !! ad_comm::change_datafile_name(Wtage_file);
+ !! ad_comm::change_datafile_name(Wtage_file);cout<<"Opening "<<Wtage_file<<endl; 
  // These were estimated in an RE model...
   init_number log_sd_coh 
   init_number log_sd_yr  
@@ -2699,6 +2701,7 @@ FUNCTION Get_Catch_at_Age
     iyr           = yrs_bts_data(i);
     ntmp          = elem_prod(natage(iyr),pow(S(iyr),.5));
     if (use_age_err)
+      //eac_bts(i)  = age_err * elem_prod(ntmp,mfexp(log_sel_bts(iyr))) * mfexp(log_q_bts); // Eq. 15
       eac_bts(i)  = age_err(err_bts(i)) * elem_prod(ntmp,mfexp(log_sel_bts(iyr))) * mfexp(log_q_bts); // Eq. 15
     else 
       eac_bts(i)  =           elem_prod(ntmp,mfexp(log_sel_bts(iyr))) * mfexp(log_q_bts); 
@@ -2716,6 +2719,7 @@ FUNCTION Get_Catch_at_Age
     ntmp         = elem_prod(natage(iyr),pow(S(iyr),.5));
     if (use_age_err)
       eac_ats(i)  = age_err(err_ats(i)) * elem_prod(ntmp,mfexp(log_sel_ats(iyr))) * q_ats; // Eq. 15
+      // eac_ats(i)  = age_err * elem_prod(ntmp,mfexp(log_sel_ats(iyr))) * q_ats; // Eq. 15
     else
       eac_ats(i)  =           elem_prod(ntmp,mfexp(log_sel_ats(iyr))) * q_ats; 
 
@@ -3618,14 +3622,7 @@ FUNCTION Surv_Likelihood
     else
       srv_tmp = (ot_bts )-(et_bts );
 
-    // Covariance on observed population (numbers) switch
-    if (DoCovBTS && current_phase()>4)
-    {
-      surv_like(1)  = .5 * srv_tmp * inv_bts_cov * srv_tmp;
-      // cout <<"Survey likelihood: " << surv_like(1) << endl;
-    }
-    else
-    switch (DoCovBTS)
+  	switch (DoCovBTS)
     {
       case 0: // normal design-based estimates (no Covariance)
         if (do_bts_bio)
@@ -3640,19 +3637,13 @@ FUNCTION Surv_Likelihood
         break;
 
       case 2: // Test gen gamma
-			//  loglik(7) =0;
-        // for (i=1;i<=nyrs_srv2;i++){
-          // if(srvyrs2(i)>endyr) break;
-          // loglik(7)+=dgengamma(Eindxsurv2(srvyrs2(i)), ggdmean(i), ggdsigma(i), ggdQ(i));
-        // }
         if (do_bts_bio)
 				{
           for (i=1;i<=n_bts_r;i++)
 						if (sd_GenGam(i)>0)
-              surv_like(1) -= dgengamma(eb_bts(i), ob_bts(i), sd_GenGam(i), q_GenGam(i));
+              surv_like(1) += dgengamma(ob_bts(i), eb_bts(i), sd_GenGam(i), q_GenGam(i));
 						else{
-              srv_tmp = log(ob_bts) - log(eb_bts );
-              surv_like(1) += square(srv_tmp(i))/(2.*var_ob_bts(i));
+              surv_like(1) += square(log(ob_bts(i))- log(eb_bts(i)))/ (2*var_ob_bts(i));
 						}
 				 }
 				break;
@@ -3773,7 +3764,6 @@ FUNCTION Robust_Likelihood
 
 FUNCTION Multinomial_Likelihood
   age_like.initialize();
-  age_like_yr.initialize();
   len_like.initialize();
   //-Likelihood due to Age compositions--------------------------------
   for (int igear =1;igear<=ngears;igear++)
@@ -3783,21 +3773,39 @@ FUNCTION Multinomial_Likelihood
       switch (igear)
       {
         case 1:
-          age_like_yr(igear,i) -= sam_fsh(i)*oac_fsh(i)*log(eac_fsh(i) + MN_const);
-          age_like(igear) -= age_like_yr(igear,iyr);
+          age_like(igear) -= sam_fsh(i)*oac_fsh(i)*log(eac_fsh(i) + MN_const);
           break;
         case 2:
-          age_like_yr(igear,i) -= sam_bts(i)*oac_bts(i)*log(eac_bts(i) + MN_const);
-          age_like(igear) -= age_like_yr(igear,iyr);
+          age_like(igear) -= sam_bts(i)*oac_bts(i)*log(eac_bts(i) + MN_const);
           break;
         default:
-          age_like_yr(igear,i) -= sam_ats(i)*oac_ats(i)(mina_ats,nages)*log(eac_ats(i)(mina_ats,nages) +MN_const);
-          age_like(igear) -= age_like_yr(igear,iyr);
+          age_like(igear) -= sam_ats(i)*oac_ats(i)(mina_ats,nages)*log(eac_ats(i)(mina_ats,nages) +MN_const);
           break;
       }
     }     
     age_like(igear)-=age_like_offset(igear);
   }
+	if (sd_phase() || mceval_phase()) // This to write out annual likelihood components
+	{
+		for (int igear =1;igear<=ngears;igear++)
+    {
+      for (i=1; i <= nagecomp(igear); i++)
+      {
+        switch (igear)
+        {
+          case 1:
+          age_like_yr(igear,i) -= sam_fsh(i)*oac_fsh(i)*log(eac_fsh(i) + MN_const);
+          break;
+        case 2:
+          age_like_yr(igear,i) -= sam_bts(i)*oac_bts(i)*log(eac_bts(i) + MN_const);
+          break;
+        default:
+          age_like_yr(igear,i) -= sam_ats(i)*oac_ats(i)(mina_ats,nages)*log(eac_ats(i)(mina_ats,nages) +MN_const);
+          break;
+        }
+      }     
+	  }
+	}
   //len_like = sam_fsh(n_fsh_r)*olc_fsh*log(elc_fsh+MN_const);
   len_like = -50*olc_fsh*log(elc_fsh+MN_const) - len_like_offset ;
 
@@ -5825,6 +5833,22 @@ FUNCTION Est_Fixed_Effects_wts
     // wt_fut = wt_fsh(endyr_r); // initializes estimates to correct values...Eq. 21
     wt_fut(3,nages) = wt_next; // initializes estimates to correct values...Eq. 21
   }
+FUNCTION dvariable dgengamma(const double& x, dvariable mean2, const double& sigma, const double& Q)
+  // returns negative log-likelihood of generalized gamma distribution
+  RETURN_ARRAYS_INCREMENT();
+  double k = pow( Q, -2 );
+  double Beta = pow( sigma, -1 ) * Q;
+  dvariable log_theta = log(mean2) - lgamma( (k*Beta+1)/Beta ) + lgamma( k );
+  dvariable mu = log_theta + log(k) / Beta;
+  dvariable w = (log(x) - mu) / sigma;
+  double abs_q = sqrt(Q*Q);  // = abs(Q); not differentiable!
+  double qi = 1/square(Q);
+  dvariable qw = Q*w;
+  dvariable logres = -log(sigma*x) + log(abs_q) * (1. - 2. * qi) + qi * 
+	                   (qw - exp(qw)) - lgamma(qi);
+  RETURN_ARRAYS_DECREMENT();
+  return(-logres);
+
 FUNCTION double sdnr(const dvector& obs, const dvar_vector& pred, const dvector& sig)
   RETURN_ARRAYS_INCREMENT();
   double sdnr;
@@ -6482,7 +6506,7 @@ FINAL_SECTION
 		{
 			report<<(yrs_bts_data(i))<<" ";
 		  if (sd_GenGam(i)>0)
-			  report<< -dgengamma(eb_bts(i), ob_bts(i), sd_GenGam(i), q_GenGam(i))<<endl;
+			  report<< -dgengamma(ob_bts(i), eb_bts(i), sd_GenGam(i), q_GenGam(i))<<endl;
 			else{
         srv_tmp = log(ob_bts) - log(eb_bts );
 			  report<< square(srv_tmp(i))/(2.*var_ob_bts(i))<<endl;
@@ -6598,6 +6622,7 @@ GLOBALS_SECTION
 
   adstring simname;
   adstring model_name;
+  adstring GenGamm_Filename;
   adstring datafile_name;
   adstring control_filename;
   adstring selchng_filename; 

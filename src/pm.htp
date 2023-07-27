@@ -517,6 +517,7 @@ private:
   param_vector sel_like;
   param_vector sel_like_dev;
   param_vector age_like;
+  param_matrix age_like_yr;
   param_number len_like;
   param_number wt_like;
   param_vector age_like_offset;
@@ -743,6 +744,7 @@ public:
   void Get_Age2length(void);
  dvar_matrix Age_Len_Conversion(dvar_vector& mu, dvar_vector& sig, dvector& x);
   void Est_Fixed_Effects_wts(void);
+ dvariable dgengamma(const double& x, dvariable mean2, const double& sigma, const double& Q);
  double sdnr(const dvector& obs, const dvar_vector& pred, const dvector& sig);
  dvector rmultinomial(const dvector ptmp, const int n_sam);
  double calc_Francis_weights(const dmatrix oac, const dvar_matrix eac, const ivector sam );
