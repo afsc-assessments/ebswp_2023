@@ -35,8 +35,9 @@ if (doplots) {
   #p2 <- plot_ssb(modlst[c(1,5)],xlim=c(2008.5,2021.5),breaks=seq(2008,2021,by=2),alpha=.2); p2
 #---SSB-------------------------
   modlst[[3]]$SSB
+  p1 <- plot_ssb(modlst[c(6,5,4)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
   p1 <- plot_recruitment(modlst[c(1,2)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
-  p1 <- plot_ssb(modlst[c(2:3)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
+  p1 <- plot_ssb(modlst[c(6,5,4)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
   p1 <- plot_ssb(modlst[3],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
   p2 <- plot_ssb(modlst[c(8,9)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p2
   # Comparing base with 2 vast configurations
@@ -124,12 +125,12 @@ if (doplots) {
   #p1 <- plot_srr(srrlst[c(2)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000),yrsin=c(1977,1979:2018),sizeout=1,sizein=3);p1
   #p1 <- plot_srr(srrlst[c(1,3)],alpha=.2,xlim=c(0,5200),ylim=c(0,95000),yrsin=c(1977,1979:2018),sizeout=1,sizein=3);p1
   #p1 <- plot_srr(srrlst[c(1,4)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000),yrsin=c(1977,1979:2018),sizeout=1,sizein=3);p1
-  #p1 <- plot_srr(srrlst[c(1,2)],alpha=.2,xlim=c(0,5200),ylim=c(0,100000));p1
+  #p1 <- plot_srr(srrlst[c(1,2)],alpha/ssb=.2,xlim=c(0,5200),ylim=c(0,100000));p1
 #
 #  p1 <- plot_srr(modlst[c(1,8)],alpha=.2,xlim=c(0,5200),ylim=c(0,80000),sizeout=2,sizein=4,yrsin=c(1977,1979:2020));p1
 
 modlst
-  p1 <- plot_srr(modlst[c(9,8)],alpha=.2,xlim=c(0,5200),ylim=c(0,80000),sizeout=2,sizein=4,yrsin=c(1977,1979:2020));p1
+  p1 <- plot_srr(modlst[c(4:6)],alpha=.2,xlim=c(0,5200),ylim=c(0,80000),sizeout=2,sizein=4,yrsin=c(1977,1979:2020));p1
 #  p1 <- plot_srr(modlst[c(1,2)],alpha=.2,xlim=c(0,5200),ylim=c(0,100000));p1
   ggsave("figs/mod_srr_M",plot=p1,width=9,height=4,units="in")
   #p1 <- plot_srr(modlst[c(3,5)],alpha=.2,xlim=c(0,5200),ylim=c(0,80000));p1
