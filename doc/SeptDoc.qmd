@@ -1,0 +1,78 @@
+---
+title: "Eastern Bering Sea stock assessment model evaluations"
+author: "James Ianelli"
+format: docx
+bibliography: references.bib
+---
+
+## Background
+
+Presently the Eastern Bering Sea pollock assessment has remained essentially the same for a relatively long period with main changes arising from alternative methods for processing the data prior to application within the assessment model. In 2023, there are again some modest changes in how data are processed (specifically the acoustic data from the bottom-trawl survey data, so-called "AVO" has been reanalyzed). In addition, we updated and re-evaluate some of the other input data specifications and also begin to examine some alternative model platforms.
+
++--------------------------------+--------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Description                    | Name   | Comparison | Notes                                                                                                                                                                                                                                       |
++================================+========+============+=============================================================================================================================================================================================================================================+
+| Base from 2022                 | base22 |            | Original from folder 07, now in folder base22 with new code that accommodates FTNIR and GenGamma                                                                                                                                            |
++--------------------------------+--------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Diagonal covariance            | diag   | base22     | To have a comparable run where covariance terms ignored in other models                                                                                                                                                                     |
++--------------------------------+--------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Alternative wt-age for SSB     | ssb0   | base22     | Impact on SSB, consider variability by new wt-age estimates, but start w/ constant mean wt-age                                                                                                                                              |
++--------------------------------+--------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                | ssb1   | base22,\   | Use raw means from A-season fishery as a proxy                                                                                                                                                                                              |
+|                                |        | ssb        |                                                                                                                                                                                                                                             |
++--------------------------------+--------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                | ssb2   | base22,\   | Use predictions from random-effects model                                                                                                                                                                                                   |
+|                                |        | ssb        |                                                                                                                                                                                                                                             |
++--------------------------------+--------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Generalized Gamma distribution | gengam | diag       | This is based on the MCMC posterior samples generated from the process of accounting for density-dependence within tows; the goal is to evaluate annually varying distribution assumptions compared to the standard lognormal distribution. |
++--------------------------------+--------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+: Model configuration comparisons for the EBS pollock stock assessment.
+
+These models are contrasted and categorized by the type of analysis involved.
+
+<https://quarto.org>.
+
+## Weight-at-age used for spawning biomass
+
+Traditionally, the spawning biomass body weight-at-age used for the pollock assessment was set to be equal to the fishery values which vary over time. This was selected mainly because there are more samples than those available from any survey data and included periods when pollock peak spawning occurs (in early spring / late winter). Additionally, the methods used to estimate near-term weight-at-age considers the recent mean values, the estimation uncertainty of those means (i.e., inverse-variance weighted), and accounts for cohort-effects (e.g., see @ianelli2018). To re-evaluate the impact of these assumptions we @ianelli1997
+
+### Methods
+
+## Uncertainty in mean body mass
+
+In Ianelli et al. (2007) a method to include predictions and uncertainty estimates in weight-at-age was developed. Briefly, this involved estimating a vector of parameters ($w_{ta}^{future}$) on current and future mean weights for each age $i$, $i$= (1, 2,...,15), given actual observed mean and variances in weight-at-age over the period 1991-2021. The values of these are based on available data and (if this option is selected) estimates the parameters subject to the natural constraint: $$w_{ta}^{future} \sim \mathcal{N}(\bar{w_{a}},\,\sigma_{w_a}^{2})$$ Note that this converges to the mean values over the time series of data (no other likelihood component within the model is affected by future mean weights-at-age) while retaining the natural uncertainty that can propagate through estimates of $F_{MSY}$ uncertainty. This latter point is essentially a requirement of the Tier 1 categorization.
+
+Subsequently, this method was refined to account for current-year survey data and both cohort and year effects. The model for this is: \begin{align}
+\hat{w}_{ta} &= \bar w_a e^{\upsilon_t} & a=1, \, t \ge 1964 \\
+\hat{w}_{ta} &= \hat{w}_{t-1,a-1} + \Delta_a e^{\psi_t} & a > 1, \, t > 1964 \\
+\Delta_a     &= \bar w_{a+1} - \bar w_a & a<A  \\
+\bar w_a     &= \alpha \left\{L_1+ \left(L_2-L_1\right)\left(\frac{1-K^{a-1}}{1-K^{A-1}}\right)\right\}^3  \\
+\end{align} where the fixed effects parameters are $L_1, L_2, K,$ and $\alpha$ while the random effects parameters are $\upsilon_t$ and $\psi_t$.
+
+### Results
+
+### Conclusion
+
+![Weight-at-age data (left and middle panel) and predictions (right-most panel) for EBS pollock as an alternative series for spawning biomass weight-at-age. Note that the color shadings indicate the anomaly within age (columns).](figs/ssb_wtage_data_pred.pdf){fig-alt="Random effects model for spawning biomass weight-at-age"}
+
+@oleary2022
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+## References
