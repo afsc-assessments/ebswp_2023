@@ -9,7 +9,7 @@
 #use_age1_eit
 1
 #age1_sigma_eit
-1
+10
 #use_endyr_len
 0
 #use_popwts_ssb
@@ -61,7 +61,7 @@
 #use_last_eit_ac
 1
 #nyrs_sel_avg
--15
+2
 #do_bts_bio
 1
 #do_eit_bio
@@ -73,13 +73,13 @@
 #nyrs_future;
 5
 #next_yrs_catch;
-1200
+1350
 #nscen
 8 #22
 #fixed_catch_fut2;
-1100
+1400
 #fixed_catch_fut3;
-1000
+1200
 #phase_F40;
 6
 #robust_phase
@@ -107,7 +107,7 @@
 #phase_q_bts
 3
 #phase_q_std_area
-4
+-4
 #phase_q_eit
 4
 #phase_bt
@@ -153,7 +153,7 @@
 1
 1 # exclude 1978 yc in SRR? 0=no, 1=yes
 2
--3
+1 # 0 means use 2018 as estimated, 1 means set to mean of 2012 and 2013 (for projections only)
 0
 2
 1

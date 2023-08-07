@@ -1,12 +1,13 @@
 EXEC = pm
-PROJ = main
-	PROJDIST = ~/_mymods/afsc-assessments/AMAK/src/
+PROJ = spm
+	PROJDIST = ~/_mymods/afsc-assessments/spmR/src/
 ifeq ($(SAFE),TRUE)
 	DIST = ../../src/
 else
 	DIST = ../../src/
 endif
 ARGS = -nox -iprint 150 
+ARGS2 = -nox -iprint 150 -binp pm.bar -phase 22 -sdonly
 
 ifdef ComSpec
     RM=del /F /Q
@@ -32,8 +33,9 @@ mcmc: $(EXEC)
 	./$(EXEC) $(ARGS) -mcmc 3000000 -mcsave 600
 	./$(EXEC) -mceval 
 	
-proj: $(PROJ)
-	./$(PROJ) 
+proj: $(EXEC)
+	./$(EXEC) $(ARGS2)
+	$(MAKE) --directory=proj
 
 debug: $(EXEC)
 	./$(EXEC) $(ARGS)

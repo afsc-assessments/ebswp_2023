@@ -9,6 +9,8 @@ do
   ./pm -nox -iprint 500 
 	/bin/cp -f pm.std retro/r_$i.std
 	/bin/cp -f pm.rep retro/r_$i.rep
+	/bin/cp -f mcFmort.rep retro/r_Fmort_$i.rep
+	/bin/cp -f mcSRR.rep retro/r_SRR_$i.rep
 done    
 /bin/cp -f t1.ctl control.dat
 

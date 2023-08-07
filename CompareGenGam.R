@@ -11,16 +11,22 @@ nextyr    <<- thisyr+1
 .OVERLAY  = TRUE
 
 # Read report file and create gmacs report object (a list):
-mod_names <- c("Last year", "Diagonal cov BTS","GenGam","SSB=mean Fish_wt_age","SSB Empirical wt-age","SSB RE wt-age")
+mod_names <- c("Last year", "Updated ATS","Diagonal cov BTS","GenGam","SSB=mean Fish_wt_age",
+               "SSB Empirical wt-age","SSB RE wt-age","AVO new","AVO full","AVO low CV")
+length(mod_names)
   
   #"SigmaR.6")
 .MODELDIR <- c( 
   "../runs/base22/",
+  "../runs/wats2/",
   "../runs/diag/",
   "../runs/gengam/",
   "../runs/ssb0/",
   "../runs/ssb1/",
-  "../runs/ssb2/"
+  "../runs/ssb2/",
+  "../runs/avon1/",
+  "../runs/avon2/",
+  "../runs/avon3/"
   )
 
 fn        <- paste0(.MODELDIR, "pm");fn
@@ -28,20 +34,16 @@ nmods <- length(mod_names)
 nmods
 registerDoParallel(nmods)
 system.time( modlst <- mclapply(fn, read_admb,mc.cores=nmods) )
+length(modlst)
 names(modlst) <- mod_names
+mod_names
 #modlst
 # The model picked
 thismod <- 1 # the selected model
 #add_stuff<-function(idx){ proj_file<- paste0(.MODELDIR[idx],"proj/bigfile.out") #modlst[[idx]] <- c(modlst[[idx]],get_vars(modlst[[idx]])) return( c(modlst[[i]],get_vars(modlst[[i]])) ) }
 #system.time( modlst<-mclapply(1:nmods,add_stuff,mc.cores=nmods) )
 #system.time( 
-i=3
-nmods
-names(modlst)
-diag<-modlst[[2]]
-save(diag,file="~/_mymods/ebswp/doc/diag.rdata")
 
-i=2
 for (i in 1:nmods) {
   proj_file<- paste0(.MODELDIR[i],"proj/spm_detail.csv")
   print(i)
@@ -50,6 +52,10 @@ for (i in 1:nmods) {
   modlst[[i]] <- c(modlst[[i]],get_vars(modlst[[i]])) 
 } 
 for (i in 1:nmods) print(paste(modlst[[i]]$maxabc1s ,mod_names[i] ))
+names(modlst)
+diag<-modlst[[2]]
+save(diag,file="~/_mymods/ebswp/doc/diag.rdata")
+save(modlst,file="~/_mymods/ebswp/doc/septmod.rdata")
 
 names(modlst[[1]])
 

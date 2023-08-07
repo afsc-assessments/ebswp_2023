@@ -54,8 +54,8 @@ DATA_SECTION
   !! q_amin = 3; q_amax= 15; // age range overwhich q applies (for prior specifications)
   vector selages(1,15)
   !! selages=1.0;selages(1)=0;selages(2)=0;
-  vector avo_sel(1,15)
-  !! avo_sel(1)=0.0;  avo_sel(2)=1;  avo_sel(3)=1;  avo_sel(4)=0.85;  avo_sel(5)=0.7;  avo_sel(6)=0.55;  avo_sel(7)=0.3;  avo_sel(8)=0.15;  avo_sel(9)=0.05;  avo_sel(10)=0.01;  avo_sel(11)=0.01;  avo_sel(12)=0.01;  avo_sel(13)=0.01;  avo_sel(14)=0.01;  avo_sel(15)=0.01;
+  vector sel_avo_in(1,15)
+  !! sel_avo_in(1)=0.0;  sel_avo_in(2)=1;  sel_avo_in(3)=1;  sel_avo_in(4)=0.85;  sel_avo_in(5)=0.7;  sel_avo_in(6)=0.55;  sel_avo_in(7)=0.3;  sel_avo_in(8)=0.15;  sel_avo_in(9)=0.05;  sel_avo_in(10)=0.01;  sel_avo_in(11)=0.01;  sel_avo_in(12)=0.01;  sel_avo_in(13)=0.01;  sel_avo_in(14)=0.01;  sel_avo_in(15)=0.01;
   vector Cat_Fut(1,10);
   !! do_EIT1=1; // flag to carry EIT out in future year (for simulations only)
   !! pflag=0;
@@ -2681,8 +2681,9 @@ FUNCTION Get_Catch_at_Age
     for (i=1;i<=n_avo_r;i++)
     {
       iyr          = yrs_avo(i);
+			// Note uses ats selectivity for predicted AVO
       pred_avo(i)  = elem_prod(wt_avo(i), natage(iyr) ) * mfexp(log_sel_ats(iyr)) * q_avo; 
-      // pred_avo(i)  = wt_fsh(iyr) * elem_prod(natage(iyr)  , avo_sel) * q_avo; 
+      // pred_avo(i)  = wt_fsh(iyr) * elem_prod(natage(iyr)  , sel_avo_in) * q_avo; 
       // pred_avo(i)  = wt_fsh(iyr) * natage(iyr)  * q_avo; 
     }
     for (i=1;i<=n_cope;i++)

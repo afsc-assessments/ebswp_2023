@@ -1,4 +1,15 @@
 # Summary
+ 
+## September 2023 model runs
+
+ - Update error terms from the 2022 model, results in directory "base22", 2022 model w/ incorrect error terms for ats is in "base"
+ - Diagonal matrix instead of covariance terms for BTS data
+ - Alternative SSB runs (3 of them, constant, A-season empirical, A-season predictions from random-effects wt-age model
+ - 
+## Tasks and todo list 2023
+    [x] Update Paul's temperature series
+
+
 ## Tasks and todo list 2021
 
 Added in fishery length and age compositions for 2021...new. results for legnth alone in "l21" length and catch age

@@ -1,9 +1,10 @@
-With_USV_Ignore_78_YC
-../dat/pm_2021.dat
-../dat/scmed21.dat
+Base_2022_model_bad_ATS_error_terms
+../dat/pm_base.dat
+../dat/scmed22.dat
 control.dat
 ../dat/pm_fmsy_alt.dat
-../dat/rescaled_cov_2021.dat
-../dat/wtage2021.dat
+../dat/cov_2022.dat
+../dat/wtage2022b.dat
 ../dat/surveycpue.dat
-../dat/temp_paul21.dat
+../dat/temp_paul22.dat
+../dat/q_bts.dat

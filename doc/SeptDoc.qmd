@@ -1,47 +1,83 @@
 ---
 title: "Eastern Bering Sea stock assessment model evaluations"
-author: "James Ianelli"
-format: docx
+author:
+  - name: James Ianelli
+    id: ji
+    orcid: 0000-0002-7170-8677
+    email: jim.ianelli@noaa.gov
+    affiliation: 
+      - name: Alaska Fisheries Science Center
+        city: Seattle
+        state: WA
+        url: https://www.fisheries.noaa.gov/alaska/population-assessments/north-pacific-groundfish-stock-assessments-and-fishery-evaluation
+format: 
+  pdf:
+    latex_engine: xelatex
+    includes:
+      in_header: "preamble.tex"
+editor_options: 
+  chunk_output_type: console
 bibliography: references.bib
 ---
 
-## Background
+```{r setup}
+#| echo: false
+#| warning: false
+
+library(gt)
+source("../R/prelims.R")
+load(file="~/_mymods/ebswp/doc/septmod.rdata")
+thisyr=2022
+nextyr=thisyr+1
+#names(modlst) <-  c("Last year", "Diagonal cov BTS","GenGam","SSB0","SSB1","SSB2","AVO new","AVO full")
+mod_names<-names(modlst)
+```
+
+# Background
 
 Presently the Eastern Bering Sea pollock assessment has remained essentially the same for a relatively long period with main changes arising from alternative methods for processing the data prior to application within the assessment model. In 2023, there are again some modest changes in how data are processed (specifically the acoustic data from the bottom-trawl survey data, so-called "AVO" has been reanalyzed). In addition, we updated and re-evaluate some of the other input data specifications and also begin to examine some alternative model platforms.
 
-+--------------------------------+--------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Description                    | Name   | Comparison | Notes                                                                                                                                                                                                                                       |
-+================================+========+============+=============================================================================================================================================================================================================================================+
-| Base from 2022                 | base22 |            | Original from folder 07, now in folder base22 with new code that accommodates FTNIR and GenGamma                                                                                                                                            |
-+--------------------------------+--------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Diagonal covariance            | diag   | base22     | To have a comparable run where covariance terms ignored in other models                                                                                                                                                                     |
-+--------------------------------+--------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Alternative wt-age for SSB     | ssb0   | base22     | Impact on SSB, consider variability by new wt-age estimates, but start w/ constant mean wt-age                                                                                                                                              |
-+--------------------------------+--------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                                | ssb1   | base22,\   | Use raw means from A-season fishery as a proxy                                                                                                                                                                                              |
-|                                |        | ssb        |                                                                                                                                                                                                                                             |
-+--------------------------------+--------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                                | ssb2   | base22,\   | Use predictions from random-effects model                                                                                                                                                                                                   |
-|                                |        | ssb        |                                                                                                                                                                                                                                             |
-+--------------------------------+--------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Generalized Gamma distribution | gengam | diag       | This is based on the MCMC posterior samples generated from the process of accounting for density-dependence within tows; the goal is to evaluate annually varying distribution assumptions compared to the standard lognormal distribution. |
-+--------------------------------+--------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+Table \ref{tab:modcomp} @tbl-modcomp shows these.
 
-: Model configuration comparisons for the EBS pollock stock assessment.
+and this @afscpro2011
 
+```{=tex}
+\captionsetup[table]{skip=1pt}
+\begin{table}[ht]
+\centering
+\caption{ Model configuration comparisons for the EBS pollock stock assessment.}
+\label{tbl: modcomp} 
+\scalebox{0.80}{
+\begin{tabular}{p{1.5in}p{.5in}p{.75in}p{4.5in}}
+\hline
+Description                    & Name   & Comparison      & Notes                                                                                                                                                                                                                                       \\
+\hline
+Base                           & base   &                 & Original from folder 07, now in folder base22 with new code that accommodates FTNIR and GenGamma                                                                                                                                            \\
+Base from 2022                 & base22 &                 & As in base but with updated error terms for acoustic-trawl survey biomass estimates                                                                                                                                                         \\
+Diagonal covariance            & diag   & base22          & To have a comparable run where covariance terms ignored in other models                                                                                                                                                                     \\
+Alternative wt-age for SSB     & ssb0   & base22          & Impact on SSB, consider variability by new wt-age estimates, but start w/ constant mean wt-age                                                                                                                                              \\
+                               & ssb1   & base22, ssb     & Use raw means from A-season fishery as a proxy                                                                                                                                                                                              \\
+                               & ssb2   & base22, ssb     & Use predictions from random-effects model                                                                                                                                                                                                   \\
+Generalized Gamma distribution & gengam & diag            & This is based on the MCMC posterior samples generated from the process of accounting for density-dependence within tows; the goal is to evaluate annually varying distribution assumptions compared to the standard lognormal distribution. \\
+AVO new series                 & avon1  & base22          & Newly integrated acoustic backscatter from "Acoustic vessels of opportunity"--namely the bottom-trawl survey vessels. Includes data from 2009 (data from early and in 2011 and 2013 omitted). \\
+AVO full                       & avon2  & base22, avon1   & As in avon1 but with data from 2006-2008, 2011, and 2013 used from previous series (rescaled to have the same mean)\\
+AVO full, mean CV=0.20         & avon3  & base22, avon2   & As in avon2 but with mean CV across years set to 0.20 \\
+Base Proposed                  & prop   & base22          & As in avon2 but with ssb2 (smoothed mean-wt-age)      \\
+Ageing error                   & avon3  & base22, avon2   & As in avon2 but with mean CV across years set to 0.20 \\
+\hline 
+\end{tabular}
+}
+\end{table}
+```
 These models are contrasted and categorized by the type of analysis involved.
 
-<https://quarto.org>.
+# Methods
 
 ## Weight-at-age used for spawning biomass
 
-Traditionally, the spawning biomass body weight-at-age used for the pollock assessment was set to be equal to the fishery values which vary over time. This was selected mainly because there are more samples than those available from any survey data and included periods when pollock peak spawning occurs (in early spring / late winter). Additionally, the methods used to estimate near-term weight-at-age considers the recent mean values, the estimation uncertainty of those means (i.e., inverse-variance weighted), and accounts for cohort-effects (e.g., see @ianelli2018). To re-evaluate the impact of these assumptions we @ianelli1997
+Traditionally, the spawning biomass body weight-at-age used for the pollock assessment was set to be equal to the fishery values which vary over time. This was selected mainly because there are more samples than those available from any survey data and included periods when pollock peak spawning occurs (in early spring / late winter). Additionally, the methods used to estimate near-term weight-at-age considers the recent mean values, the estimation uncertainty of those means (i.e., inverse-variance weighted), and accounts for cohort-effects (e.g., see @ianelli2022).
 
-### Methods
-
-## Uncertainty in mean body mass
-
-In Ianelli et al. (2007) a method to include predictions and uncertainty estimates in weight-at-age was developed. Briefly, this involved estimating a vector of parameters ($w_{ta}^{future}$) on current and future mean weights for each age $i$, $i$= (1, 2,...,15), given actual observed mean and variances in weight-at-age over the period 1991-2021. The values of these are based on available data and (if this option is selected) estimates the parameters subject to the natural constraint: $$w_{ta}^{future} \sim \mathcal{N}(\bar{w_{a}},\,\sigma_{w_a}^{2})$$ Note that this converges to the mean values over the time series of data (no other likelihood component within the model is affected by future mean weights-at-age) while retaining the natural uncertainty that can propagate through estimates of $F_{MSY}$ uncertainty. This latter point is essentially a requirement of the Tier 1 categorization.
+In Ianelli et al. (2007) a method to include predictions and uncertainty estimates in weight-at-age was developed. Briefly, this involved estimating a vector of parameters ($w_{ta}^{future}$) on current (`r thisyr`) and future mean weights for each age $i$, $i$= (1, 2,...,15), given actual observed mean and variances in weight-at-age over the period 1991-`r thisyr-1`. The values of based on available data and (if this option is selected) estimates the parameters subject to the natural constraint: $$w_{ta}^{future} \sim \mathcal{N}(\bar{w_{a}},\,\sigma_{w_a}^{2})$$
 
 Subsequently, this method was refined to account for current-year survey data and both cohort and year effects. The model for this is: \begin{align}
 \hat{w}_{ta} &= \bar w_a e^{\upsilon_t} & a=1, \, t \ge 1964 \\
@@ -50,29 +86,203 @@ Subsequently, this method was refined to account for current-year survey data an
 \bar w_a     &= \alpha \left\{L_1+ \left(L_2-L_1\right)\left(\frac{1-K^{a-1}}{1-K^{A-1}}\right)\right\}^3  \\
 \end{align} where the fixed effects parameters are $L_1, L_2, K,$ and $\alpha$ while the random effects parameters are $\upsilon_t$ and $\psi_t$.
 
-### Results
+# Results
 
-### Conclusion
+## Alternative error-term specifications
 
-![Weight-at-age data (left and middle panel) and predictions (right-most panel) for EBS pollock as an alternative series for spawning biomass weight-at-age. Note that the color shadings indicate the anomaly within age (columns).](figs/ssb_wtage_data_pred.pdf){fig-alt="Random effects model for spawning biomass weight-at-age"}
+In this section we present the updated error terms associated with the acoustic trawl data (the observations used previously were revised). We also show the impact of using the diagonal covariance matrix and an alternative for the bottom trawl survey data based on the generalized gamma distribution in place of the log-normal.
 
-@oleary2022
+@bailey2000
 
-## Running Code
+@fig-atsalt shows xxx
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+@fig-atsaltssb shows that the revision to the ATS error estimates had a minor impact.
 
-```{r}
-1 + 1
-```
+@fig-diagssb shows the influence of changing the bottom-trawl survey error to be based on independent annual survey index values (the base model used a covariance matrix estimated for the series).
 
-You can add options to executable code like this
+@tbl-modfits1 shows results on goodness of fits while
 
-```{r}
+## Spawning biomass weight-at-age
+
+
+The random effects model used to estimate weight-at-age for the spawning biomass
+was based on the A-season fishery, the summer survey data (scaled to have the same 
+mean as the A-season means) shows distinct year and cohort effects (@fig-ssbwt). 
+Compared to the values used in the base model, the trends are very similar but the scales
+change substantially in some years (@fig-ssbwt ; including the "SSB0" scenario).
+
+@tbl-modfits2 shows results on goodness of fits while
+
+@tbl-modref1 shows the impact of different spawning biomass weights-at-age assumptions.
+
+Changing the specification of mean body weight-at-age for spawning pollock from status quo had a fairly big impact on the pattern of spawning biomass but among the new alternatives, the difference was minor (@fig-ssbssb).
+
+## Alternative AVO data treatment
+
+The new time series of data for the AVO data shows a peak estimate in 2015 and less of an increase in 2019-2022 (@fig-avodata).
+
+@tbl-modfits2 shows the impact of different AVO data assumptions.
+
+@tbl-modref2 shows the impact of different spawning biomass weights-at-age assumptions.
+
+Selectivity at age
+
+# Summary
+
+Based on the results presented, we recommend:
+
+- adopting the revised error structure estimates from the acoustic trawl survey. 
+  *these are the best available and reflect a reasonable trade-off*    
+  
+- adopting the use of the A-season fishery mean body weight-at-age for the base assessment.
+  *these observations reflect the pattern most available to the spawning season of pollock*     
+  
+- adopting the use of the full revised AVO time series. 
+  *the data have been recalibrated to the acoustic trawl survey and cover a larger area than previously.
+  This may improve the ability to track expansion and contraction of the pollock stock in mid-water.*
+
+
+{{< pagebreak >}}
+
+# References
+
+::: {#refs}
+:::
+
+# Tables
+
+```{r modfits1}
+#| label: tbl-modfits1
+#| tbl-cap: "Goodness-of-fit measures to primary data for different assessment model configurations. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data)"
 #| echo: false
-2 * 2
+#names(modlst[5:6]) = 
+df <- tab_fit(modlst[c(1,2,3,4)])
+df |> gt::gt()
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+```{r tbl-modref1}
+#| label: tbl-modref1
+#| tbl-cap:  "Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t."
+#| echo: false
+df <- NULL
+mod_scen <- c(1:4)
+for (ii in mod_scen) {
+    x       <- modlst[[ii]]
+    ssb    <- x$nextyrssbs;         names(ssb)            <- paste0("${B}_{", nextyr ,"}$")
+    ssbcv  <- round(x$nextyrssb.cv,2);  names(ssbcv)      <- paste0("$CV_{B_{", nextyr ,"}}$")
+    Bmsy   <- x$bmsys;         names(Bmsy)                <- "$B_{MSY}$"
+    Bmsycv <- round(x$bmsy.cv,2); names(Bmsycv)           <- "$CV_{B_{MSY}}$"
+    spr    <- paste0(round(x$sprmsy*100,0),"\\%");names(spr) <- "SPR rate at $F_{MSY}$"
+    b35    <- x$b35s ;                 names(b35)         <- paste0("$B_{35\\%}$")
+    pbmsy  <- paste0(round(100*x$ssb1/x$bmsy,0),"\\%");    names(pbmsy)<- paste0("${B}_{", nextyr ,"}/B_{MSY}$")
+    bzero  <- x$b0s ;                 names(bzero)        <- paste0("$B_0$")
+    dynb0  <- x$dynb0s;      names(dynb0)                 <- paste0("Est. $B_{",thisyr,"} / B_{",thisyr,",no fishing}$")
+    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- paste0("$B_{",thisyr,"} / B_{MSY}$")
+    steep  <- round(x$steep,2);               names(steep) <- "Steepness"
+    v      <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero,b35, spr ,steep, dynb0,b_bmsy)
+    df     <- cbind(df, v)
+ }
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Component",mod_names[mod_scen])
+df |> gt() |> fmt_markdown()
+```
 
-## References
+```{r tbl-modref2}
+#| label: tbl-modref2
+#| tbl-cap:  "Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t."
+#| echo: false
+df <- NULL
+mod_scen <- c(2,5:7)
+for (ii in mod_scen) {
+    x       <- modlst[[ii]]
+    ssb    <- x$nextyrssbs;         names(ssb)            <- paste0("${B}_{", nextyr ,"}$")
+    ssbcv  <- round(x$nextyrssb.cv,2);  names(ssbcv)      <- paste0("$CV_{B_{", nextyr ,"}}$")
+    Bmsy   <- x$bmsys;         names(Bmsy)                <- "$B_{MSY}$"
+    Bmsycv <- round(x$bmsy.cv,2); names(Bmsycv)           <- "$CV_{B_{MSY}}$"
+    spr    <- paste0(round(x$sprmsy*100,0),"\\%");names(spr) <- "SPR rate at $F_{MSY}$"
+    b35    <- x$b35s ;                 names(b35)         <- paste0("$B_{35\\%}$")
+    pbmsy  <- paste0(round(100*x$ssb1/x$bmsy,0),"\\%");    names(pbmsy)<- paste0("${B}_{", nextyr ,"}/B_{MSY}$")
+    bzero  <- x$b0s ;                 names(bzero)        <- paste0("$B_0$")
+    dynb0  <- x$dynb0s;      names(dynb0)                 <- paste0("Est. $B_{",thisyr,"} / B_{",thisyr,",no fishing}$")
+    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- paste0("$B_{",thisyr,"} / B_{MSY}$")
+    steep  <- round(x$steep,2);               names(steep) <- "Steepness"
+    v      <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero,b35, spr ,steep, dynb0,b_bmsy)
+    df     <- cbind(df, v)
+ }
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Component",mod_names[mod_scen])
+df |> gt() |> fmt_markdown()
+```
+
+{{< pagebreak >}}
+
+```{r modfits2}
+#| label: tbl-modfits2
+#| tbl-cap: "Goodness-of-fit measures to primary data for different assessment model configurations. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data)"
+#| echo: false
+#names(modlst[5:6]) = 
+df <- tab_fit(modlst[c(2,8:10)])
+df |> gt::gt()
+```
+
+{{< pagebreak >}}
+
+```{r tbl-modref3}
+#| label: tbl-modref3
+#| tbl-cap:  "Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t."
+#| echo: false
+df <- NULL
+mod_scen <- c(2,8:10)
+for (ii in mod_scen) {
+    x       <- modlst[[ii]]
+    ssb    <- x$nextyrssbs;         names(ssb)            <- paste0("${B}_{", nextyr ,"}$")
+    ssbcv  <- round(x$nextyrssb.cv,2);  names(ssbcv)      <- paste0("$CV_{B_{", nextyr ,"}}$")
+    Bmsy   <- x$bmsys;         names(Bmsy)                <- "$B_{MSY}$"
+    Bmsycv <- round(x$bmsy.cv,2); names(Bmsycv)           <- "$CV_{B_{MSY}}$"
+    spr    <- paste0(round(x$sprmsy*100,0),"\\%");names(spr) <- "SPR rate at $F_{MSY}$"
+    b35    <- x$b35s ;                 names(b35)         <- paste0("$B_{35\\%}$")
+    pbmsy  <- paste0(round(100*x$ssb1/x$bmsy,0),"\\%");    names(pbmsy)<- paste0("${B}_{", nextyr ,"}/B_{MSY}$")
+    bzero  <- x$b0s ;                 names(bzero)        <- paste0("$B_0$")
+    dynb0  <- x$dynb0s;      names(dynb0)                 <- paste0("Est. $B_{",thisyr,"} / B_{",thisyr,",no fishing}$")
+    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- paste0("$B_{",thisyr,"} / B_{MSY}$")
+    steep  <- round(x$steep,2);               names(steep) <- "Steepness"
+    v      <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero,b35, spr ,steep, dynb0,b_bmsy)
+    df     <- cbind(df, v)
+ }
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Component",mod_names[mod_scen])
+df |> gt() |> fmt_markdown()
+```
+
+{{< pagebreak >}}
+
+# Figures
+
+
+![Fit of EBS pollock model to acoustic trawl survey data from the 2022 error-term specification (top) and that of the revised errors (bottom).](figs/mod_ats_updated.pdf){#fig-atsalt}
+
+`r cap1='Results of the EBS pollock model for recent spawning biomass estimates showing the impact of the revised acoustic trawl survey data error estimates (updated ATS is considered the base model from 2022).'`
+
+![\`Results of the EBS pollock model for recent spawning biomass estimates showing the impact of the revised acoustic trawl survey data error estimates (updated ATS is considered the base model from 2022).](figs/mod_ats_updated_ssb.pdf){#fig-atsaltssb}
+
+![Results of the EBS pollock model for recent spawning biomass estimates comparing the base model using the covariance matrix with the one where only the diagonal is applied.](figs/mod_diag_ssb.pdf){#fig-diagssb}
+
+![Weight-at-age data (left and middle panel) and predictions (right-most panel) for EBS pollock as an alternative series for spawning biomass weight-at-age. Note that the color shadings indicate the anomaly within age (columns).](figs/ssb_wtage_data_pred.pdf){#fig-ssbwt}
+
+![Alternative scenarios for body weight-at-age used for computing spawning biomass for EBS pollock biomass weight-at-age.  ](figs/wt_ssb.pdf){#fig-wt_ssb}
+
+![Results of the EBS pollock model for recent spawning biomass estimates comparing the base model under different assumptions about mean body weight-at-age during spawning.](figs/mod_ssb_ssb.pdf){#fig-ssbssb}
+
+![Time series of EBS pollock data from the acoustic vessels of opportunity (AVO) showing the years of new data compared to previous series and the full series.](figs/AVO_Series_change.png){#fig-avodata}
+
+::: callout-warning
+Here is a warning.
+:::
+
+::: callout-note
+shit Note that there are five types of callouts, including: `note`, `tip`, `warning`, `caution`, and `important`.
+:::
+
+::: callout-important
+Note that there are five types of callouts, including: `note`, `tip`, `warning`, `caution`, and `important`.
+:::
