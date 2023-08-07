@@ -52,7 +52,7 @@
 #' @return Plot of model estimates of spawning stock biomass 
 #' @export
 #' 
-plot_ats <- function(M, xlab = "Year", ylab = "Acoustic trawl survey biomass", ylim = NULL, alpha = 0.1,biomass=TRUE,color="red")
+plot_ats <- function(M, xlab = "Year", ylab = "Acoustic trawl survey biomass", xlim=NULL, ylim = NULL, alpha = 0.1,biomass=TRUE,color="red")
 {
     xlab <- paste0("\n", xlab)
     ylab <- paste0(ylab, "\n")
@@ -61,8 +61,8 @@ plot_ats <- function(M, xlab = "Year", ylab = "Acoustic trawl survey biomass", y
 
     p <- ggplot(mdf) + labs(x = xlab, y = ylab)
     
-    #if (!is.null(xlim))
-    #    p <- p + xlim(xlim[1], xlim[2])        
+    if (!is.null(xlim))
+        p <- p + xlim(xlim[1], xlim[2])        
     if (is.null(ylim))
     {
         p <- p + expand_limits(y = 0)

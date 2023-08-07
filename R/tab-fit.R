@@ -33,10 +33,10 @@ tab_fit <- function(M,mod_scen=NULL){
   if (is.null(mod_scen)) mod_scen=1:length(M)
     for (ii in mod_scen) {
       x         <- M[[ii]]
-      rmse_bts  <- round(x$rmse_bts,2); names(rmse_bts)   <- paste0("RMSE BTS")
-      rmse_ats  <- round(x$rmse_ats,2); names(rmse_ats)   <- paste0("RMSE ATS")
-      rmse_avo  <- round(x$rmse_avo,2); names(rmse_avo)   <- paste0("RMSE AVO")
-      rmse_cpue <- round(x$rmse_cpue,2); names(rmse_cpue) <- paste0("RMSE CPUE")
+      rmse_bts  <- round(x$rmse_bts,3); names(rmse_bts)   <- paste0("RMSE BTS")
+      rmse_ats  <- round(x$rmse_ats,3); names(rmse_ats)   <- paste0("RMSE ATS")
+      rmse_avo  <- round(x$rmse_avo,3); names(rmse_avo)   <- paste0("RMSE AVO")
+      rmse_cpue <- round(x$rmse_cpue,3); names(rmse_cpue) <- paste0("RMSE CPUE")
       sdnr_bts  <- round(x$sdnr_bts,2); names(sdnr_bts)   <- paste0("SDNR BTS")
       sdnr_ats  <- round(x$sdnr_ats,2); names(sdnr_ats)   <- paste0("SDNR ATS")
       sdnr_avo  <- round(x$sdnr_avo,2); names(sdnr_avo)   <- paste0("SDNR AVO")

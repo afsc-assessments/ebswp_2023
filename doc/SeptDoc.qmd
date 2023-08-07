@@ -12,7 +12,6 @@ author:
         url: https://www.fisheries.noaa.gov/alaska/population-assessments/north-pacific-groundfish-stock-assessments-and-fishery-evaluation
 format: 
   pdf:
-    latex_engine: xelatex
     includes:
       in_header: "preamble.tex"
 editor_options: 
@@ -31,22 +30,25 @@ thisyr=2022
 nextyr=thisyr+1
 #names(modlst) <-  c("Last year", "Diagonal cov BTS","GenGam","SSB0","SSB1","SSB2","AVO new","AVO full")
 mod_names<-names(modlst)
+#\label{tab:modcomp} 
 ```
 
 # Background
 
 Presently the Eastern Bering Sea pollock assessment has remained essentially the same for a relatively long period with main changes arising from alternative methods for processing the data prior to application within the assessment model. In 2023, there are again some modest changes in how data are processed (specifically the acoustic data from the bottom-trawl survey data, so-called "AVO" has been reanalyzed). In addition, we updated and re-evaluate some of the other input data specifications and also begin to examine some alternative model platforms.
 
-Table \ref{tab:modcomp} @tbl-modcomp shows these.
+Table 1 below shows the model evaluations examined, the naming convention used, and the relevant comparisons
+and notes.
+
 
 and this @afscpro2011
 
 ```{=tex}
-\captionsetup[table]{skip=1pt}
+\hypertarget{tbl-plan}{}
 \begin{table}[ht]
 \centering
-\caption{ Model configuration comparisons for the EBS pollock stock assessment.}
-\label{tbl: modcomp} 
+\caption{\label{tbl-plan}Model configuration comparisons for the EBS pollock stock assessment.}
+\tabularnewline
 \scalebox{0.80}{
 \begin{tabular}{p{1.5in}p{.5in}p{.75in}p{4.5in}}
 \hline
@@ -54,6 +56,7 @@ Description                    & Name   & Comparison      & Notes               
 \hline
 Base                           & base   &                 & Original from folder 07, now in folder base22 with new code that accommodates FTNIR and GenGamma                                                                                                                                            \\
 Base from 2022                 & base22 &                 & As in base but with updated error terms for acoustic-trawl survey biomass estimates                                                                                                                                                         \\
+Ageing error                   & agerr  & base22          & Include age-determination error matrix \\
 Diagonal covariance            & diag   & base22          & To have a comparable run where covariance terms ignored in other models                                                                                                                                                                     \\
 Alternative wt-age for SSB     & ssb0   & base22          & Impact on SSB, consider variability by new wt-age estimates, but start w/ constant mean wt-age                                                                                                                                              \\
                                & ssb1   & base22, ssb     & Use raw means from A-season fishery as a proxy                                                                                                                                                                                              \\
@@ -62,8 +65,10 @@ Generalized Gamma distribution & gengam & diag            & This is based on the
 AVO new series                 & avon1  & base22          & Newly integrated acoustic backscatter from "Acoustic vessels of opportunity"--namely the bottom-trawl survey vessels. Includes data from 2009 (data from early and in 2011 and 2013 omitted). \\
 AVO full                       & avon2  & base22, avon1   & As in avon1 but with data from 2006-2008, 2011, and 2013 used from previous series (rescaled to have the same mean)\\
 AVO full, mean CV=0.20         & avon3  & base22, avon2   & As in avon2 but with mean CV across years set to 0.20 \\
-Base Proposed                  & prop   & base22          & As in avon2 but with ssb2 (smoothed mean-wt-age)      \\
-Ageing error                   & avon3  & base22, avon2   & As in avon2 but with mean CV across years set to 0.20 \\
+\hline 
+Base Proposed                  & prop   & base22         & Full AVO series and with the smoothed mean-wt-age (ssb2))      \\
+Base Alternative               & diag2   & prop          & As with "prop" but diagonal matrix to compare with other platforms \\
+AMAK platform                  & amak    & diag2         & As with "diag2" data but uses "AMAK2" software configured to be similar to base22 \\
 \hline 
 \end{tabular}
 }
@@ -100,10 +105,11 @@ In this section we present the updated error terms associated with the acoustic 
 
 @fig-diagssb shows the influence of changing the bottom-trawl survey error to be based on independent annual survey index values (the base model used a covariance matrix estimated for the series).
 
-@tbl-modfits1 shows results on goodness of fits while
+@tbl-modfitserr shows results on goodness of fits while
+
+@tbl-modreferr shows the impact of different spawning biomass weights-at-age assumptions.
 
 ## Spawning biomass weight-at-age
-
 
 The random effects model used to estimate weight-at-age for the spawning biomass
 was based on the A-season fishery, the summer survey data (scaled to have the same 
@@ -111,19 +117,20 @@ mean as the A-season means) shows distinct year and cohort effects (@fig-ssbwt).
 Compared to the values used in the base model, the trends are very similar but the scales
 change substantially in some years (@fig-ssbwt ; including the "SSB0" scenario).
 
-@tbl-modfits2 shows results on goodness of fits while
+@tbl-modfitsssb shows results on goodness of fits while
 
-@tbl-modref1 shows the impact of different spawning biomass weights-at-age assumptions.
 
+@tbl-modrefssb shows the impact of different spawning biomass weights-at-age assumptions.
 Changing the specification of mean body weight-at-age for spawning pollock from status quo had a fairly big impact on the pattern of spawning biomass but among the new alternatives, the difference was minor (@fig-ssbssb).
 
 ## Alternative AVO data treatment
 
 The new time series of data for the AVO data shows a peak estimate in 2015 and less of an increase in 2019-2022 (@fig-avodata).
 
-@tbl-modfits2 shows the impact of different AVO data assumptions.
+@tbl-modfitsavo shows the impact of different AVO data assumptions.
 
-@tbl-modref2 shows the impact of different spawning biomass weights-at-age assumptions.
+@tbl-modrefavo shows the impact of different AVO data assumptions.
+
 
 Selectivity at age
 
@@ -142,57 +149,34 @@ Based on the results presented, we recommend:
   This may improve the ability to track expansion and contraction of the pollock stock in mid-water.*
 
 
-{{< pagebreak >}}
-
 # References
 
 ::: {#refs}
 :::
 
+
+{{< pagebreak >}}
+
 # Tables
 
-```{r modfits1}
-#| label: tbl-modfits1
+```{r modfitserr}
+#| label: tbl-modfitserr
 #| tbl-cap: "Goodness-of-fit measures to primary data for different assessment model configurations. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data)"
 #| echo: false
 #names(modlst[5:6]) = 
-df <- tab_fit(modlst[c(1,2,3,4)])
-df |> gt::gt()
+df <- tab_fit(modlst[c(1:5)])
+df |> gt() |>  fmt_number( rows = c(8:21),decimals=0) |> 
+tab_style( style = cell_borders( sides = c("bottom"), color = "black", weight = px(1.5), style = "solid" ),
+    locations = cells_body( columns = everything(),
+      rows = c(4,7,10) ) ) 
 ```
 
-```{r tbl-modref1}
-#| label: tbl-modref1
+```{r tbl-modreferr}
+#| label: tbl-modreferr
 #| tbl-cap:  "Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t."
 #| echo: false
 df <- NULL
-mod_scen <- c(1:4)
-for (ii in mod_scen) {
-    x       <- modlst[[ii]]
-    ssb    <- x$nextyrssbs;         names(ssb)            <- paste0("${B}_{", nextyr ,"}$")
-    ssbcv  <- round(x$nextyrssb.cv,2);  names(ssbcv)      <- paste0("$CV_{B_{", nextyr ,"}}$")
-    Bmsy   <- x$bmsys;         names(Bmsy)                <- "$B_{MSY}$"
-    Bmsycv <- round(x$bmsy.cv,2); names(Bmsycv)           <- "$CV_{B_{MSY}}$"
-    spr    <- paste0(round(x$sprmsy*100,0),"\\%");names(spr) <- "SPR rate at $F_{MSY}$"
-    b35    <- x$b35s ;                 names(b35)         <- paste0("$B_{35\\%}$")
-    pbmsy  <- paste0(round(100*x$ssb1/x$bmsy,0),"\\%");    names(pbmsy)<- paste0("${B}_{", nextyr ,"}/B_{MSY}$")
-    bzero  <- x$b0s ;                 names(bzero)        <- paste0("$B_0$")
-    dynb0  <- x$dynb0s;      names(dynb0)                 <- paste0("Est. $B_{",thisyr,"} / B_{",thisyr,",no fishing}$")
-    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- paste0("$B_{",thisyr,"} / B_{MSY}$")
-    steep  <- round(x$steep,2);               names(steep) <- "Steepness"
-    v      <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero,b35, spr ,steep, dynb0,b_bmsy)
-    df     <- cbind(df, v)
- }
-df <- data.frame(rownames(df), df, row.names = NULL)
-names(df) <- c("Component",mod_names[mod_scen])
-df |> gt() |> fmt_markdown()
-```
-
-```{r tbl-modref2}
-#| label: tbl-modref2
-#| tbl-cap:  "Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t."
-#| echo: false
-df <- NULL
-mod_scen <- c(2,5:7)
+mod_scen <- c(1:5)
 for (ii in mod_scen) {
     x       <- modlst[[ii]]
     ssb    <- x$nextyrssbs;         names(ssb)            <- paste0("${B}_{", nextyr ,"}$")
@@ -216,23 +200,63 @@ df |> gt() |> fmt_markdown()
 
 {{< pagebreak >}}
 
-```{r modfits2}
-#| label: tbl-modfits2
+```{r modfitsssb}
+#| label: tbl-modfitsssb
 #| tbl-cap: "Goodness-of-fit measures to primary data for different assessment model configurations. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data)"
 #| echo: false
 #names(modlst[5:6]) = 
-df <- tab_fit(modlst[c(2,8:10)])
-df |> gt::gt()
+df <- tab_fit(modlst[c(2,6:8)])
+df |> gt::gt() |>  gt::fmt_number( rows = c(8:21),decimals=0)
 ```
 
 {{< pagebreak >}}
 
-```{r tbl-modref3}
-#| label: tbl-modref3
+```{r tbl-modrefssb}
+#| label: tbl-modrefssb
 #| tbl-cap:  "Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t."
 #| echo: false
 df <- NULL
-mod_scen <- c(2,8:10)
+mod_scen <- c(2,6:8)
+for (ii in mod_scen) {
+    x       <- modlst[[ii]]
+    ssb    <- x$nextyrssbs;         names(ssb)            <- paste0("${B}_{", nextyr ,"}$")
+    ssbcv  <- round(x$nextyrssb.cv,2);  names(ssbcv)      <- paste0("$CV_{B_{", nextyr ,"}}$")
+    Bmsy   <- x$bmsys;         names(Bmsy)                <- "$B_{MSY}$"
+    Bmsycv <- round(x$bmsy.cv,2); names(Bmsycv)           <- "$CV_{B_{MSY}}$"
+    spr    <- paste0(round(x$sprmsy*100,0),"\\%");names(spr) <- "SPR rate at $F_{MSY}$"
+    b35    <- x$b35s ;                 names(b35)         <- paste0("$B_{35\\%}$")
+    pbmsy  <- paste0(round(100*x$ssb1/x$bmsy,0),"\\%");    names(pbmsy)<- paste0("${B}_{", nextyr ,"}/B_{MSY}$")
+    bzero  <- x$b0s ;                 names(bzero)        <- paste0("$B_0$")
+    dynb0  <- x$dynb0s;      names(dynb0)                 <- paste0("Est. $B_{",thisyr,"} / B_{",thisyr,",no fishing}$")
+    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- paste0("$B_{",thisyr,"} / B_{MSY}$")
+    steep  <- round(x$steep,2);               names(steep) <- "Steepness"
+    v      <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero,b35, spr ,steep, dynb0,b_bmsy)
+    df     <- cbind(df, v)
+ }
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Component",mod_names[mod_scen])
+df |> gt() |> fmt_markdown()
+```
+
+{{< pagebreak >}}
+
+```{r modfitsavo}
+#| label: tbl-modfitsavo
+#| tbl-cap: "Goodness-of-fit measures to primary data for different assessment model configurations. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data)"
+#| echo: false
+#names(modlst[5:6]) = 
+df <- tab_fit(modlst[c(2,9:11)])
+df |> gt::gt() |>  gt::fmt_number( rows = c(8:21),decimals=0)
+```
+
+{{< pagebreak >}}
+
+```{r tbl-modrefavo}
+#| label: tbl-modrefavo
+#| tbl-cap:  "Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t."
+#| echo: false
+df <- NULL
+mod_scen <- c(2,9:11)
 for (ii in mod_scen) {
     x       <- modlst[[ii]]
     ssb    <- x$nextyrssbs;         names(ssb)            <- paste0("${B}_{", nextyr ,"}$")
