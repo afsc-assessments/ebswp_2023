@@ -9,7 +9,7 @@ for %%d in (%directories%) do (
     echo Currently processing: %%d
     REM Add your desired commands or operations here for each directory
 		cd %%d
-		..\..\src\pm.exe
+	rem	..\..\src\pm.exe -nox -iprint 750
 		cd proj
 		..\..\..\src\spm.exe
 		cd ..\..\

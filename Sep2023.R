@@ -1,4 +1,4 @@
-setwd("~/_mymods/ebswp/doc")
+#setwd("~/_mymods/ebswp/doc")
 rm(list=ls())
 #install.packages("ggridges")
 source("../R/prelims.R")
@@ -36,9 +36,17 @@ length(mod_names)
 fn        <- paste0(.MODELDIR, "pm");fn
 nmods <- length(mod_names)
 nmods
-registerDoParallel(nmods)
-system.time( modlst <- mclapply(fn, read_admb,mc.cores=nmods) )
-length(modlst)
+#This line is for Windows
+num_cores<-detectCores()-1
+registerDoParallel(cores=num_cores)
+cl<-makeCluster(num_cores)
+clusterExport(cl, c("read_fit", "read_admb","read_rep"),
+              envir=environment())
+system.time(modlst <- parLapply(clust <-cl,fn,read_admb))
+
+#registerDoParallel(nmods)
+#system.time( modlst <- mclapply(fn, read_admb,mc.cores=nmods) )
+#length(modlst)
 names(modlst) <- mod_names
 mod_names
 #modlst
@@ -58,6 +66,8 @@ for (i in 1:nmods) {
 for (i in 1:nmods) print(paste(modlst[[i]]$maxabc1s ,mod_names[i] ))
 names(modlst)
 save(modlst,file="~/_mymods/ebswp/doc/septmod.rdata")
+getwd()
+save(modlst,file="septmod.rdata")
 
 M<-(modlst[[1]])
 M
