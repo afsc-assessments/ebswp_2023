@@ -9,9 +9,9 @@ for %%d in (%directories%) do (
     echo Currently processing: %%d
     REM Add your desired commands or operations here for each directory
 		cd %%d
-		..\src\pm.exe
+		..\..\src\pm.exe
 		cd proj
-		..\..\src\spm.exe
+		..\..\..\src\spm.exe
 		cd ..\..\
 )
 endlocal
