@@ -38,9 +38,7 @@ mod_names<-names(modlst)
 
 Presently the Eastern Bering Sea pollock assessment has remained essentially the same for a relatively long period with main changes arising from alternative methods for processing the data prior to application within the assessment model. In 2023, there are again some modest changes in how data are processed (specifically the acoustic data from the bottom-trawl survey data, so-called "AVO" has been reanalyzed). In addition, we updated and re-evaluate some of the other input data specifications and also begin to examine some alternative model platforms.
 
-Table 1 below shows the model evaluations examined, the naming convention used, and the relevant comparisons
-and notes.
-
+Table 1 below shows the model evaluations examined, the naming convention used, and the relevant comparisons and notes.
 
 and this @afscpro2011
 
@@ -79,13 +77,13 @@ These models are contrasted and categorized by the type of analysis involved.
 
 # Methods
 
-## Weight-at-age used for spawning biomass
+# Weight-at-age used for spawning biomass
 
 Traditionally, the spawning biomass body weight-at-age used for the pollock assessment was set to be equal to the fishery values which vary over time. This was selected mainly because there are more samples than those available from any survey data and included periods when pollock peak spawning occurs (in early spring / late winter). Additionally, the methods used to estimate near-term weight-at-age considers the recent mean values, the estimation uncertainty of those means (i.e., inverse-variance weighted), and accounts for cohort-effects (e.g., see @ianelli2022).
 
 In Ianelli et al. (2007) a method to include predictions and uncertainty estimates in weight-at-age was developed. Briefly, this involved estimating a vector of parameters ($w_{ta}^{future}$) on current (`r thisyr`) and future mean weights for each age $i$, $i$= (1, 2,...,15), given actual observed mean and variances in weight-at-age over the period 1991-`r thisyr-1`. The values of based on available data and (if this option is selected) estimates the parameters subject to the natural constraint: $$w_{ta}^{future} \sim \mathcal{N}(\bar{w_{a}},\,\sigma_{w_a}^{2})$$
 
-Subsequently, this method was refined to account for current-year survey data and both cohort and year effects. The model for this is: \begin{align}
+Subsequently, this method was refined to account for current-year survey (\@indivero2023) data and both cohort and year effects. The model for this is: \begin{align}
 \hat{w}_{ta} &= \bar w_a e^{\upsilon_t} & a=1, \, t \ge 1964 \\
 \hat{w}_{ta} &= \hat{w}_{t-1,a-1} + \Delta_a e^{\psi_t} & a > 1, \, t > 1964 \\
 \Delta_a     &= \bar w_{a+1} - \bar w_a & a<A  \\
@@ -100,29 +98,19 @@ In this section we present the updated error terms associated with the acoustic 
 
 @bailey2000
 
-@fig-atsalt shows xxx
+Updating the ATS data resulted in a different fit to the data trend of those data due to the lower overall uncertainty of the observations specified in revision (@fig-atsalt). This change had a minor impact on the recent estimates of spawning biomass (@fig-atsaltssb).
 
-@fig-atsaltssb shows that the revision to the ATS error estimates had a minor impact.
+Changing the bottom-trawl survey error to be based on independent annual survey index values (the base model used a covariance matrix estimated for the series) changed the trend of spawning biomass and uncertainty slightly (@fig-diagssb).
 
-@fig-diagssb shows the influence of changing the bottom-trawl survey error to be based on independent annual survey index values (the base model used a covariance matrix estimated for the series).
-
-@tbl-modfitserr shows results on goodness of fits while
-
-@tbl-modreferr shows the impact of different spawning biomass weights-at-age assumptions.
+These model estimates for alternative error assumptions indicated that the shows results on goodness of fits while (@tbl-modfitserr) @tbl-modreferr shows the impact of different spawning biomass weights-at-age assumptions.
 
 ## Spawning biomass weight-at-age
 
-The random effects model used to estimate weight-at-age for the spawning biomass
-was based on the A-season fishery, the summer survey data (scaled to have the same 
-mean as the A-season means) shows distinct year and cohort effects (@fig-ssbwt). 
-Compared to the values used in the base model, the trends are very similar but the scales
-change substantially in some years (@fig-ssbwt ; including the "SSB0" scenario).
+The random effects model used to estimate weight-at-age for the spawning biomass was based on the A-season fishery, the summer survey data (scaled to have the same mean as the A-season means) shows distinct year and cohort effects (@fig-ssbwt). Compared to the values used in the base model, the trends are very similar but the scales change substantially in some years (@fig-ssbwt ; including the "SSB0" scenario).
 
 @tbl-modfitsssb shows results on goodness of fits while
 
-
-@tbl-modrefssb shows the impact of different spawning biomass weights-at-age assumptions.
-Changing the specification of mean body weight-at-age for spawning pollock from status quo had a fairly big impact on the pattern of spawning biomass but among the new alternatives, the difference was minor (@fig-ssbssb).
+@tbl-modrefssb shows the impact of different spawning biomass weights-at-age assumptions. Changing the specification of mean body weight-at-age for spawning pollock from status quo had a fairly big impact on the pattern of spawning biomass but among the new alternatives, the difference was minor (@fig-ssbssb).
 
 ## Alternative AVO data treatment
 
@@ -132,29 +120,22 @@ The new time series of data for the AVO data shows a peak estimate in 2015 and l
 
 @tbl-modrefavo shows the impact of different AVO data assumptions.
 
-
 Selectivity at age
 
 # Summary
 
 Based on the results presented, we recommend:
 
-- adopting the revised error structure estimates from the acoustic trawl survey. 
-  *these are the best available and reflect a reasonable trade-off*    
-  
-- adopting the use of the A-season fishery mean body weight-at-age for the base assessment.
-  *these observations reflect the pattern most available to the spawning season of pollock*     
-  
-- adopting the use of the full revised AVO time series. 
-  *the data have been recalibrated to the acoustic trawl survey and cover a larger area than previously.
-  This may improve the ability to track expansion and contraction of the pollock stock in mid-water.*
+-   adopting the revised error structure estimates from the acoustic trawl survey. *these are the best available and reflect a reasonable trade-off*
 
+-   adopting the use of the A-season fishery mean body weight-at-age for the base assessment. *these observations reflect the pattern most available to the spawning season of pollock*
+
+-   adopting the use of the full revised AVO time series. *the data have been recalibrated to the acoustic trawl survey and cover a larger area than previously. This may improve the ability to track expansion and contraction of the pollock stock in mid-water.*
 
 # References
 
 ::: {#refs}
 :::
-
 
 {{< pagebreak >}}
 
@@ -283,7 +264,6 @@ df |> gt() |> fmt_markdown()
 
 # Figures
 
-
 ![Fit of EBS pollock model to acoustic trawl survey data from the 2022 error-term specification (top) and that of the revised errors (bottom).](figs/mod_ats_updated.pdf){#fig-atsalt}
 
 `r cap1='Results of the EBS pollock model for recent spawning biomass estimates showing the impact of the revised acoustic trawl survey data error estimates (updated ATS is considered the base model from 2022).'`
@@ -294,7 +274,7 @@ df |> gt() |> fmt_markdown()
 
 ![Weight-at-age data (left and middle panel) and predictions (right-most panel) for EBS pollock as an alternative series for spawning biomass weight-at-age. Note that the color shadings indicate the anomaly within age (columns).](figs/ssb_wtage_data_pred.pdf){#fig-ssbwt}
 
-![Alternative scenarios for body weight-at-age used for computing spawning biomass for EBS pollock biomass weight-at-age.  ](figs/wt_ssb.pdf){#fig-wt_ssb}
+![Alternative scenarios for body weight-at-age used for computing spawning biomass for EBS pollock biomass weight-at-age.](figs/wt_ssb.pdf){#fig-wt_ssb}
 
 ![Results of the EBS pollock model for recent spawning biomass estimates comparing the base model under different assumptions about mean body weight-at-age during spawning.](figs/mod_ssb_ssb.pdf){#fig-ssbssb}
 
