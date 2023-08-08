@@ -1,5 +1,5 @@
-#if !defined(_pm_)
-#  define _pm_
+#if !defined(_PM_)
+#  define _PM_
 
 class model_data : public ad_comm{
   int count_Ffail;
@@ -10,7 +10,7 @@ class model_data : public ad_comm{
   int q_amin;
   int q_amax;
   dvector selages;
-  dvector avo_sel;
+  dvector sel_avo_in;
   dvector Cat_Fut;
   ofstream *   pad_srecout;
   ofstream *   pad_projout;
