@@ -50,6 +50,7 @@
 #'
 #' @return A ggplot object displaying the negative log likelihood values.
 #'
+#' @export
 #' @examples
 #' # Assuming 'model_list' is a list of models with the appropriate structure
 #' # plot_likes(model_list)

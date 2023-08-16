@@ -13,10 +13,10 @@ author:
 format: 
   pdf:
     includes:
-      in_header: "preamble.tex"
+      in_header: "doc/preamble.tex"
 editor_options: 
   chunk_output_type: console
-bibliography: references.bib
+bibliography: doc/references.bib
 ---
 
 ```{r setup}
@@ -24,8 +24,9 @@ bibliography: references.bib
 #| warning: false
 
 #source(here::here("R","prelims.R"))
-load(file="septmod.rdata")
-load(file="modtune.rdata")
+library(ebswp)
+load(file="doc/septmod.rdata")
+load(file="doc/modtune.rdata")
 thisyr=2022
 nextyr=thisyr+1
 #names(modlst) <-  c("Last year", "Diagonal cov BTS","GenGam","SSB0","SSB1","SSB2","AVO new","AVO full")
@@ -169,7 +170,7 @@ Based on the results presented, we recommend:
 #| echo: false
 #names(modlst[5:6]) = 
 df <- tab_fit(modlst[c(1:5)])
-df |> gt() |>  fmt_number( rows = c(8:21),decimals=0) 
+df |> gt::gt() |>  gt::fmt_number( rows = c(8:21),decimals=0) 
 # |>  tab_style( style = cell_borders( sides = c("bottom"), color = "black", weight = px(1.5), style = "solid" ),
     # locations = cells_body( columns = everything(),
       # rows = c(4,7,10) ) ) 
@@ -199,7 +200,7 @@ for (ii in mod_scen) {
  }
 df <- data.frame(rownames(df), df, row.names = NULL)
 names(df) <- c("Component",mod_names[mod_scen])
-df |> gt() |> fmt_markdown()
+df |> gt::gt() |> gt::fmt_markdown()
 ```
 
 {{< pagebreak >}}
@@ -239,7 +240,7 @@ for (ii in mod_scen) {
  }
 df <- data.frame(rownames(df), df, row.names = NULL)
 names(df) <- c("Component",mod_names[mod_scen])
-df |> gt() |> fmt_markdown()
+df |> gt::gt() |> gt::fmt_markdown()
 ```
 
 {{< pagebreak >}}
@@ -279,28 +280,28 @@ for (ii in mod_scen) {
  }
 df <- data.frame(rownames(df), df, row.names = NULL)
 names(df) <- c("Component",mod_names[mod_scen])
-df |> gt() |> fmt_markdown()
+df |> gt::gt() |> gt::fmt_markdown()
 ```
 
 {{< pagebreak >}}
 
 # Figures
 
-![Fit of EBS pollock model to acoustic trawl survey data from the 2022 error-term specification (top) and that of the revised errors (bottom).](figs/mod_ats_updated.pdf){#fig-atsalt}
+![Fit of EBS pollock model to acoustic trawl survey data from the 2022 error-term specification (top) and that of the revised errors (bottom).](doc/figs/mod_ats_updated.pdf){#fig-atsalt}
 
 `r cap1='Results of the EBS pollock model for recent spawning biomass estimates showing the impact of the revised acoustic trawl survey data error estimates (updated ATS is considered the base model from 2022).'`
 
-![\`Results of the EBS pollock model for recent spawning biomass estimates showing the impact of the revised acoustic trawl survey data error estimates (updated ATS is considered the base model from 2022).](figs/mod_ats_updated_ssb.pdf){#fig-atsaltssb}
+![\`Results of the EBS pollock model for recent spawning biomass estimates showing the impact of the revised acoustic trawl survey data error estimates (updated ATS is considered the base model from 2022).](doc/figs/mod_ats_updated_ssb.pdf){#fig-atsaltssb}
 
-![Results of the EBS pollock model for recent spawning biomass estimates comparing the base model using the covariance matrix with the one where only the diagonal is applied.](figs/mod_diag_ssb.pdf){#fig-diagssb}
+![Results of the EBS pollock model for recent spawning biomass estimates comparing the base model using the covariance matrix with the one where only the diagonal is applied.](doc/figs/mod_diag_ssb.pdf){#fig-diagssb}
 
-![Weight-at-age data (left and middle panel) and predictions (right-most panel) for EBS pollock as an alternative series for spawning biomass weight-at-age. Note that the color shadings indicate the anomaly within age (columns).](figs/ssb_wtage_data_pred.pdf){#fig-ssbwt}
+![Weight-at-age data (left and middle panel) and predictions (right-most panel) for EBS pollock as an alternative series for spawning biomass weight-at-age. Note that the color shadings indicate the anomaly within age (columns).](doc/figs/ssb_wtage_data_pred.pdf){#fig-ssbwt}
 
-![Alternative scenarios for body weight-at-age used for computing spawning biomass for EBS pollock biomass weight-at-age.](figs/wt_ssb.pdf){#fig-wt_ssb}
+![Alternative scenarios for body weight-at-age used for computing spawning biomass for EBS pollock biomass weight-at-age.](doc/figs/wt_ssb.pdf){#fig-wt_ssb}
 
-![Results of the EBS pollock model for recent spawning biomass estimates comparing the base model under different assumptions about mean body weight-at-age during spawning.](figs/mod_ssb_ssb.pdf){#fig-ssbssb}
+![Results of the EBS pollock model for recent spawning biomass estimates comparing the base model under different assumptions about mean body weight-at-age during spawning.](doc/figs/mod_ssb_ssb.pdf){#fig-ssbssb}
 
-![Time series of EBS pollock data from the acoustic vessels of opportunity (AVO) showing the years of new data compared to previous series and the full series.](figs/AVO_Series_change.png){#fig-avodata}
+![Time series of EBS pollock data from the acoustic vessels of opportunity (AVO) showing the years of new data compared to previous series and the full series.](doc/figs/AVO_Series_change.png){#fig-avodata}
 
 ::: callout-warning
 Here is a warning.

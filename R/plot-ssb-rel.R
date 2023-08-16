@@ -1,11 +1,10 @@
-#' Extract spawning stock biomass (ssb) from gmacs run
+#' Extract spawning stock biomass (ssb) 
 #'
 #' Spawning biomass may be defined as all males or some combination of males and
 #' females
 #'
 #' @param M list object created by read_admb function
 #' @return dataframe of spawning biomass
-#' @export
 #' 
 .get_ssb_rel_df <- function(M)
 {

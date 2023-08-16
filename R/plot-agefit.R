@@ -1,3 +1,29 @@
+#' Age Composition Data Plotter
+#'
+#' This function generates a series of plots visualizing the age composition data
+#' from fisheries assessment. It compares observed and predicted data across different years.
+#'
+#' @param dat A data frame, default is `mod1`. The structure must contain age composition data, and the names used to create the temporary variables `tmp1`, `tmp2`, and `tmp3`.
+#' @param main Title of the main plot. Default is an empty string.
+#' @param case_label Label for the specific case or dataset being visualized. Default is "2011 assessment".
+#' @param f An integer representing the fishery index. Default is 1.
+#' @param rec_age An integer denoting the recruitment age. Default is 2.
+#'
+#' @details The function plots observed fishery age composition data using a bar plot,
+#' overlaying predicted data with points. It organizes the plots in a multi-panel figure,
+#' with each panel representing a year. Age classes are represented on the x-axis.
+#'
+#' @note The function uses the `rainbow` color palette, and the colors loop around for 
+#' each cohort. The function expects certain naming conventions in the input dataset `dat`.
+#'
+#' @return A multi-panel plot where each panel visualizes age composition data for a 
+#' specific year.
+#'
+#' @examples
+#' # Example usage (ensure you have an appropriate dataset 'mod1'):
+#' # AgeFits(dat=mod1, main="Fishery Age Composition", case_label="Sample Assessment")
+#'
+#' @export
 plot_agefit <- function( x, case_label="2021 assessment",gear="bts",type="survey",styr=NULL,ageplus=NULL) {
   subtle.color <- "gray40"
   if (gear=="bts"){

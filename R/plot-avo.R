@@ -2,7 +2,6 @@
 #'
 #' @param M list object created by read_admb function
 #' @return dataframe of  avo
-#' @export
 #' 
 .get_avo_df <- function(M)
 {
