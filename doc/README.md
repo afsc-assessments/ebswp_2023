@@ -1,5 +1,8 @@
 # EBS pollock document notes
 
+# Notes
+
+"doc.Rproj" switched to Rstudio "ebswp.Rproj" so that directory structure can be kept in tact.
 
 # Summary
 ## Tasks and todo list 2022

@@ -157,12 +157,14 @@ Based on the results presented, we recommend:
 #| tbl-cap: "Goodness-of-fit measures to primary data for different assessment model configurations. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data)"
 #| echo: false
 #names(modlst[5:6]) = 
-# df <- tab_fit(modtune[c(1:2)])
-# df |> gt() |>  fmt_number( rows = c(8:21),decimals=0) |> 
+ df <- tab_fit(modtune[c(1:2)])
+ df |> gt::gt() |>  gt::fmt_number( rows = c(8:21),decimals=0) 
 # tab_style( style = cell_borders( sides = c("bottom"), color = "black", weight = px(1.5), style = "solid" ),
 #     locations = cells_body( columns = everything(),
 #       rows = c(4,7,10) ) ) 
 ```
+
+{{< pagebreak >}}
 
 ```{r modfitserr}
 #| label: tbl-modfitserr
@@ -175,6 +177,8 @@ df |> gt::gt() |>  gt::fmt_number( rows = c(8:21),decimals=0)
     # locations = cells_body( columns = everything(),
       # rows = c(4,7,10) ) ) 
 ```
+
+{{< pagebreak >}}
 
 ```{r tbl-modreferr}
 #| label: tbl-modreferr

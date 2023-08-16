@@ -43,8 +43,7 @@ write_dat(tmp=in_data)
 
 # Set an initial working directory
   mod_names <- c("base22","p1")
-  .MODELDIR <- c( "../runs/base22/", '../runs/ProcTune/')
-  fn        <- paste0(.MODELDIR, "pm");fn
+  mod_dir <- c( "base22", 'ProcTune')
   run_model(m="ProcTune")
   M <-get_results()
 
