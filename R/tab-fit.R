@@ -19,7 +19,7 @@ if (is.null(mod_scen)) mod_scen=1:length(M)
       fac_like  <- round(x$age_like[1],2); names(fac_like) <- paste0("Fish Age NLL")
       bac_like  <- round(x$age_like[2],2); names(bac_like) <- paste0("BTS Age NLL")
       aac_like  <- round(x$age_like[3],2); names(aac_like) <- paste0("ATS Age NLL")
-      v      <- c( rmse_bts, rmse_ats, rmse_avo, rmse_cpue, sdnr_bts, sdnr_ats, sdnr_avo, 
+      v      <- c( rmse_bts, rmse_ats, rmse_avo, rmse_cpue, sdnr_bts, sdnr_ats, sdnr_avo,
       	           effn_fsh, effn_bts, effn_ats, bts_like, ats_like, avo_like, fac_like, bac_like, aac_like)
       df     <- cbind(df, v)
   }
@@ -56,12 +56,16 @@ tab_fit <- function(M,mod_scen=NULL){
        #wt_like  <- round(x$wt_like   ,2); names(wt_like) <- paste0("Weight NLL")
       dat_like  <- round(x$dat_like-x$wt_like   ,2); names(dat_like) <- paste0("Data NLL")
       tot_like  <- round(x$tot_like-x$wt_like   ,2); names(tot_like) <- paste0("Total NLL")
-      v      <- c( rmse_bts, rmse_ats, rmse_avo, rmse_cpue, sdnr_bts, sdnr_ats, sdnr_avo, 
-                   effn_fsh, effn_bts, effn_ats, cat_like,bts_like, ats_like, avo_like, 
+      v      <- c( rmse_bts, rmse_ats, rmse_avo, rmse_cpue, sdnr_bts, sdnr_ats, sdnr_avo,
+                   effn_fsh, effn_bts, effn_ats, cat_like,bts_like, ats_like, avo_like,
                    fac_like, bac_like, aac_like,sel_like,pri_like,dat_like,tot_like)
       df     <- cbind(df, v)
   }
   df <- data.frame(rownames(df), df, row.names = NULL)
   names(df) <- c("Component",names(M[mod_scen]))
+  # df <- df |> gt() |>  fmt_number( rows = c(8:21),decimals=0) |>
+    # tab_style( style = cell_borders( sides = c("bottom"), color = "black", weight = px(1.5), style = "solid" ),
+               # locations = cells_body( columns = everything(), rows = c(4,7,10) ) )
+
   return(df)
 }

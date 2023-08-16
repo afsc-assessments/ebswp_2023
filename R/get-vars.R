@@ -1,4 +1,26 @@
-get_vars <- function(M){
+#' Extract and Compute Several Metrics from Model Output
+#'
+#' This function processes the output of a certain model (possibly related to fisheries)
+#' to extract, compute, and format various metrics.
+#'
+#' @param M A list or data structure that holds the model output/results. Expected to have several
+#'        named elements, including `fit`, `R`, `SSB`, etc.
+#' @param proj_file (Optional) A file path to a projection file for Tier 3 results.
+#'        Default is NULL.
+#'
+#' @return A list `B` that contains various extracted and computed metrics.
+#'
+#' @importFrom utils read.table
+#' @importFrom base format
+#' @importFrom stats mean median sd
+#'
+#' @examples
+#' \dontrun{
+#' model_result <- list(...) # Example model result here
+#' metrics <- get_vars(model_result)
+#' }
+get_vars <- function(M, proj_file = NULL) {
+  # ... [rest of your function code here]
   B <- list()
   A <- read.table("data/intro_table.dat",header = TRUE)
   A$a1 <- format(A[1,4] ,big.mark               = ",",scientific=F,digits=1)
@@ -18,17 +40,17 @@ get_vars <- function(M){
 	B$it <- A #format(A[1,2],  big.mark=",",scientific=F,digits=0)
 	B$npar <- M$fit$nopar
 	# String versions of these values
-	B$age3plus<-M$fit$est[M$fit$names=="age_3_plus_biom"][1:length(M$R[,1])]  
-	B$age3plus.sd<-M$fit$std[M$fit$names=="age_3_plus_biom"][1:length(M$R[,1])]  
-	B$age3plus.cv<- M$age3plus.sd/M$age3plus 
+	B$age3plus<-M$fit$est[M$fit$names=="age_3_plus_biom"][1:length(M$R[,1])]
+	B$age3plus.sd<-M$fit$std[M$fit$names=="age_3_plus_biom"][1:length(M$R[,1])]
+	B$age3plus.cv<- M$age3plus.sd/M$age3plus
 	B$bmsy    <- M$fit$est[M$fit$names=="Bmsy"];       B$bmsys      <- format(B$bmsy,big.mark=",",scientific=F,digits=1)
 	B$bmsyr   <- M$fit$est[M$fit$names=="Bmsy2"];      B$bmsyrs      <- format(B$bmsyr,big.mark=",",scientific=F,digits=1)
-	B$bmsy.sd <- M$fit$std[M$fit$names=="Bmsy"]; 
-	B$bmsy.cv <- B$bmsy.sd/B$bmsy 
-	B$sprmsy  <- M$fit$est[M$fit$names=="SPR_OFL"]; 
-	B$sprmsy.sd <- M$fit$std[M$fit$names=="SPR_OFL"]; 
-	B$sprmsy.cv <- B$sprmsy.sd/B$sprmsy 
-	B$steep   <- M$fit$est[M$fit$names=="steepness"];  
+	B$bmsy.sd <- M$fit$std[M$fit$names=="Bmsy"];
+	B$bmsy.cv <- B$bmsy.sd/B$bmsy
+	B$sprmsy  <- M$fit$est[M$fit$names=="SPR_OFL"];
+	B$sprmsy.sd <- M$fit$std[M$fit$names=="SPR_OFL"];
+	B$sprmsy.cv <- B$sprmsy.sd/B$sprmsy
+	B$steep   <- M$fit$est[M$fit$names=="steepness"];
 	B$b0      <- M$fit$est[M$fit$names=="Bzero"];      B$b0s        <- format(B$b0,  big.mark=",",scientific=F,digits=1)
 	B$b100    <- M$fit$est[M$fit$names=="SB100"];      B$b100s      <- format(B$b100,big.mark=",",scientific=F,digits=1)
 	B$dynb0   <- M$fit$est[M$fit$names=="B_Bnofsh"];   B$dynb0s     <- format(B$dynb0,big.mark=",",scientific=F,digits=2)
@@ -46,6 +68,10 @@ get_vars <- function(M){
 	B$yc2012 <- (M$R[M$R[,1]==2013,2]); B$yc2012s <- format(round(B$yc2012,-2),big.mark=",",scientific=F)
 	B$yc2013 <- (M$R[M$R[,1]==2014,2]); B$yc2013s <- format(round(B$yc2013,-2),big.mark=",",scientific=F)
 	B$yc2018 <- (M$R[M$R[,1]==2019,2]); B$yc2018s <- format(round(B$yc2018,-2),big.mark=",",scientific=F)
+	B$MAR_bts  <- median(abs(log(M$ob_bts)-log(M$eb_bts)))
+	B$MAR_ats  <- median(abs(log(M$ob_ats)-log(M$eb_ats)))
+	B$MAR_avo  <- median(abs(log(M$obs_avo)-log(M$pred_avo)))
+	B$MAR_cpue <- median(abs(log(M$obs_cpue)-(M$pred_cpue)))
 	B$rmse_bts <- mean((log(M$ob_bts)-log(M$eb_bts))^2)^.5
 	B$rmse_ats <- mean((log(M$ob_ats)-log(M$eb_ats))^2)^.5
 	B$rmse_avo <- mean((log(M$obs_avo)-log(M$pred_avo))^2)^.5
@@ -99,21 +125,7 @@ get_vars <- function(M){
 	B$ofl1s      <-  format(round(1e3*pdf$OFL[1],-3),big.mark=",",scientific=F,digits=1)
 	B$ofl2s      <-  format(round(1e3*pdf$OFL[2],-3),big.mark=",",scientific=F,digits=1)
 	#B$bfs        <- read.csv("../doc/data/proj.csv",header=T)
-	B$bfs        <- read_csv(proj_file) |> mutate(Alt=Alternative)
-	B$Tier3_ABC1 <- B$bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(ABC),0))
-	B$Tier3_ABC1s<- format(round(1e3*B$Tier3_ABC1,-3),big.mark=",",scientific=F,digits=1)
-	B$Tier3_OFL1 <- B$bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(OFL),0))
-	B$Tier3_OFL1s<- format(round(1e3*B$Tier3_OFL1,-3),big.mark=",",scientific=F,digits=1)
-	B$Tier3_SSB1 <- B$bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(SSB),0))
-	B$Tier3_fabc1<- B$Tier3_ABC1 / B$ABC_biom1
-	B$Tier3_fofl1<- B$Tier3_OFL1 / B$ABC_biom1
-	B$Tier3_ABC2 <- B$bfs %>% filter(Alt==2,Yr==1+nextyr) %>% summarize(round(mean(ABC),0))
-	B$Tier3_ABC2s<- format(round(1e3*B$Tier3_ABC2,-3),big.mark=",",scientific=F,digits=1)
-	B$Tier3_OFL2 <- B$bfs %>% filter(Alt==2,Yr==1+nextyr) %>% summarize(round(mean(OFL),0))
-	B$Tier3_OFL2s<- format(round(1e3*B$Tier3_OFL2,-3),big.mark=",",scientific=F,digits=1)
-	B$Tier3_SSB2 <- B$bfs %>% filter(Alt==2,Yr==1+nextyr) %>% summarize(round(mean(SSB),0))
-	B$Tier3_fabc2<- B$Tier3_ABC2 /B$ABC_biom2
-	B$Tier3_fofl2<- B$Tier3_OFL2 /B$ABC_biom2
+  B <- c(B,get_tier3_res(proj_file))
 	#B$abc1       <- 0.85*B$maxabc1 #B$Tier3_ABC1
 	#B$abc2       <- 0.85*B$maxabc2 #B$Tier3_ABC2
 	# Mean F
@@ -139,7 +151,7 @@ get_vars <- function(M){
 	B$fabc1      <- round(B$Tier2_ABC1 /B$ABC_biom1,3)
 	B$fabc2      <- round(B$Tier2_ABC2 /B$ABC_biom2,3)
 	B$fabc1s     <- B$Tier2_ABC1 /B$ABC_biom1
-	
+
 	# Decision table stuff
 	ord <- c(8,2:3,1,4:7)
   B$catch_dec_tab <- M$dec_tab_catch[ord]

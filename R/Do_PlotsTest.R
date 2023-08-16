@@ -1,7 +1,29 @@
 
 if (doplots) {
   do_data_plots <- FALSE
-  #--September 2023 figures---
+#---September 2023 figures---
+
+#--tuned figures
+  p1 <- plot_ats(modtune[c(1,2)]) +
+        scale_x_continuous(limits=c(1994-.5,2022.5)) + theme_few(base_size = 12);p1
+
+  p1 <- plot_bts(modtune[c(1,2)]) +
+    coord_cartesian( ylim = c(0,20000) )+
+        scale_x_continuous(limits=c(1994-.5,2022.5)) + theme_few(base_size = 12);p1
+  #---Compare selectivity for base w/ vast
+   df <- data.frame(sel=modtune[[1]]$sel_fut,Age=1:15,Model="base")
+   df <- rbind(df,data.frame(sel=modtune[[2]]$sel_fut,Age=1:15,Model="tuned"))
+   p1 <- df %>% ggplot(aes(x=Age,y=sel,color=Model)) + geom_line(size=1.5) + theme_few() +
+     ylab("Selectivity") + scale_x_continuous(breaks=1:15);p1
+  p1 <- plot_sel(sel=modtune[[2]]$sel_bts,styr=1982,fill="darkblue") ;p1
+#ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
+#---Age diversity
+  df <- data.frame(Year=M$Yr,Age=M$H,Measure="Population Age\n diversity")
+
+  p1 <- plot_avo(modtune[c(1,2)], ylim=NULL) + xlim(c(2005,2023)) + theme_few(base_size = 18);p1
+  p1 <- plot_avo(modtune[c(1,2)], ylim=NULL) + xlim(c(2005,2023)) + facet_grid(Model~.,scales='free')+theme_few(base_size = 18);p1
+
+#--tuned figures
   p1 <- plot_ats(modlst[c(1,3)]) +
         scale_x_continuous(limits=c(1994-.5,2022.5)) + facet_grid(Model~.) + theme_few(base_size = 12);p1
   ggsave("figs/mod_ats_updated.pdf",plot=p1,width=5.2,height=3.7,units="in")
@@ -9,6 +31,12 @@ if (doplots) {
   p1 <- plot_ssb(modlst[c(1,2)],xlim=c(2008.5,2023.5));p1
   p2 <- plot_recruitment(modlst[c(1,2)],xlim=c(1990.5,2023.5));p2
   p3 <- plot_srr(modlst[c(1,2)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000));p3
+
+  p1 <- plot_bts(modlst[c(4,5)],xlim=c(1981.5,2023.5),ylim=c(0,15500)) ;p1
+  ggsave("figs/mod_bts_gengam.pdf",plot=p1,width=8,height=5.0,units="in")
+
+  p1 <- plot_bts(modlst[c(4,2)],xlim=c(1981.5,2023.5),ylim=c(0,15500)) ;p1
+  ggsave("figs/mod_bts_diag.pdf",plot=p1,width=8,height=5.0,units="in")
 
   p1 <- plot_ssb(modlst[c(1,3)],xlim=c(2008.5,2023.5));p1
   ggsave("figs/mod_ats_updated_ssb.pdf",plot=p1,width=5.2,height=3.7,units="in")

@@ -23,7 +23,7 @@ length(mod_names)
   "../runs/base/",
   "../runs/base22/",
   "../runs/AgeErr/",
-    "../runs/diag/",
+  "../runs/diag/",
   "../runs/gengam/",
   "../runs/ssb0/",
   "../runs/ssb1/",
@@ -33,29 +33,67 @@ length(mod_names)
   "../runs/avon3/"
   )
 
-fn        <- paste0(.MODELDIR, "pm");fn
-nmods <- length(mod_names)
-nmods
-registerDoParallel(nmods)
-system.time( modlst <- mclapply(fn, read_admb,mc.cores=nmods) )
-length(modlst)
-names(modlst) <- mod_names
-mod_names
-#modlst
-# The model picked
-thismod <- 1 # the selected model
-#add_stuff<-function(idx){ proj_file<- paste0(.MODELDIR[idx],"proj/bigfile.out") #modlst[[idx]] <- c(modlst[[idx]],get_vars(modlst[[idx]])) return( c(modlst[[i]],get_vars(modlst[[i]])) ) }
-#system.time( modlst<-mclapply(1:nmods,add_stuff,mc.cores=nmods) )
-#system.time(
+# a one-off to get the variance term from covariance diagonal into the ob_bts_std
+in_data <- read_dat("../runs/dat/pm_base22.dat")
+cov<- as.matrix(read_table("../runs/dat/diag_2022.dat",col_names = F))
+std <- sqrt(diag(cov))
+in_data$ob_bts_std <- std
+write_dat(tmp=in_data)
 
-for (i in 1:nmods) {
-  proj_file<- paste0(.MODELDIR[i],"proj/spm_detail.csv")
-  print(i)
-  # fixed to a single
-  #proj_file<- "../runs/base/proj/bigfile.out"
-  modlst[[i]] <- c(modlst[[i]],get_vars(modlst[[i]]))
+# Set an initial working directory
+  mod_names <- c("base22","p1")
+  .MODELDIR <- c( "../runs/base22/", '../runs/ProcTune/')
+  fn        <- paste0(.MODELDIR, "pm");fn
+  run_model(m="ProcTune")
+  M <-get_results()
+
+  df.out <- tibble(iter=0,
+                   sdnr_bts=M[[1]]$sdnr_bts,
+                   sdnr_ats=M$sdnr_ats,
+                   sdnr_avo=M$sdnr_avo)
+  df.out
+  mod_names <- c("tune")
+  .MODELDIR <- c( "../runs/tune/")
+  fn        <- paste0(.MODELDIR, "pm");fn
+
+#--Now iterate to get sdnrs near zero-----------
+for (i in 1:4){
+# step 1
+  in_data$ob_ats_std = in_data$ob_ats_std * M$sdnr_ats
+  in_data$ob_avo_std = in_data$ob_avo_std * M$sdnr_avo
+  in_data$ob_bts_std = in_data$ob_bts_std * M$sdnr_bts
+# step 4 now write new data (in_data)
+  write_dat(tmp=in_data)
+# step 2 run and get results
+  system("cd ../runs/tune/; make")
+  modlst<-get_results()
+  M <- modlst[[1]]
+  df.out <- rbind(df.out,tibble(iter=0,
+                   sdnr_bts=M$sdnr_bts,
+                   sdnr_ats=M$sdnr_ats,
+                   sdnr_avo=M$sdnr_avo)
+                  )
+
+# step 3 replace stds with adjusted stds by sdnrs from results
+  in_data <- read_dat("output.txt")
 }
+  df.out
+  mod_names <- c("diag","tuned")
+  .MODELDIR <- c( "../runs/diag/",  "../runs/tune/")
+  fn        <- paste0(.MODELDIR, "pm");fn
+  modtune<-get_results()
+  save(modtune,file="~/_mymods/ebswp/doc/modtune.rdata")
+
+#---Try process error tuning--------------
+  mod_names <- c("base22","Process tune 1")
+  .MODELDIR <- c( "../runs/base22/",  "../runs/ProcTune/")
+  fn        <- paste0(.MODELDIR, "pm");fn
+  modtune<-get_results()
+  tab_fit(modtune[c(1:2)])
+  tab_fit(modlst[c(1:3)])
+
 for (i in 1:nmods) print(paste(modlst[[i]]$maxabc1s ,mod_names[i] ))
+for (i in 1:nmods) print(paste(modlst[[i]]$Tier3_ABC1 ,mod_names[i] ))
 names(modlst)
 save(modlst,file="~/_mymods/ebswp/doc/septmod.rdata")
 
