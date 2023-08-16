@@ -10,7 +10,7 @@ class model_data : public ad_comm{
   int q_amin;
   int q_amax;
   dvector selages;
-  dvector avo_sel;
+  dvector sel_avo_in;
   dvector Cat_Fut;
   ofstream *   pad_srecout;
   ofstream *   pad_projout;
@@ -725,8 +725,8 @@ public:
  dvar_matrix compute_selectivity3(const int stsel,const dvar_vector& dif,const dvar_vector& a50,const dvar_matrix& devs);
  dvar_matrix compute_selectivity(const int stsel,const dvar_vector& slp,const dvar_vector& a50,const dvar_matrix& devs);
  dvar_matrix compute_fsh_selectivity(const int nsel,const int stsel,dvariable& avgsel,const dvar_vector& coffs,const dvar_matrix& sel_devs,int  gn);
- dvar_matrix compute_selectivity_ats(const int nsel,const int stsel,dvariable& avgsel,const dvar_vector& coffs);
- dvar_matrix compute_selectivity_ats(const int nsel,const int stsel,dvariable& avgsel,const dvar_vector& coffs,const dvar_matrix& sel_devs);
+ dvar_matrix compute_selectivity_ats(const int nsel,const int stsel, dvariable& avgsel, const dvar_vector& coffs);
+ dvar_matrix compute_selectivity_ats(const int nsel,const int stsel, dvariable& avgsel,const dvar_vector& coffs,const dvar_matrix& sel_devs);
  dvar_matrix compute_selectivity(const int nsel,const int stsel,dvariable& avgsel,const dvar_vector& coffs,const dvar_matrix& sel_devs,int  gn);
  dvar_matrix compute_selectivity(const int nsel,const int stsel, dvariable& avgsel,const dvar_vector& coffs);
  dvariable SolveF2(const dvar_vector& N_tmp, double  TACin);
