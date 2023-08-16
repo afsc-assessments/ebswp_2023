@@ -23,10 +23,9 @@ bibliography: references.bib
 #| echo: false
 #| warning: false
 
-library(gt)
-source("../R/prelims.R")
-load(file="~/_mymods/ebswp/doc/septmod.rdata")
-load(file="~/_mymods/ebswp/doc/modtune.rdata")
+#source(here::here("R","prelims.R"))
+load(file="septmod.rdata")
+load(file="modtune.rdata")
 thisyr=2022
 nextyr=thisyr+1
 #names(modlst) <-  c("Last year", "Diagonal cov BTS","GenGam","SSB0","SSB1","SSB2","AVO new","AVO full")
