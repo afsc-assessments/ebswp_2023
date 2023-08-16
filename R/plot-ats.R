@@ -95,9 +95,3 @@ plot_ats <- function(M, xlab = "Year", ylab = "Acoustic trawl survey biomass",
       p <- p + guides(colour=FALSE)
     return(p + .THEME)
 }
-
-}
-
-
-
-

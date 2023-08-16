@@ -11,8 +11,6 @@
 #' @return A list `B` that contains various extracted and computed metrics.
 #'
 #' @importFrom utils read.table
-#' @importFrom base format
-#' @importFrom stats mean median sd
 #'
 #' @examples
 #' \dontrun{

@@ -1,7 +1,26 @@
-AgeFitsSrv <- function( labrep.file="16.1/For_R.rep" , case_label="2016 assessment") {
-  library(PBSmodelling) 
+#' Age Fits Survey Plotting
+#'
+#' This function visualizes the age composition data from the EBS pollock survey based
+#' on a provided input file. The function creates a bar plot showing observed and predicted
+#' age proportions for multiple years.
+#'
+#' @param labrep.file A character string specifying the path to the input file.
+#'        The default path is "16.1/For_R.rep".
+#' @param case_label A character string providing a label for the case being plotted.
+#'        The default label is "2016 assessment".
+#'
+#' @importFrom PBSmodelling readList
+#'
+#' @return This function does not return anything but will generate a plot when executed.
+#'
+#' @examples
+#' \dontrun{
+#' AgeFitsSrv(labrep.file="path_to_your_file/your_file.rep", case_label="Your Case Label")
+#' }
+#'
+AgeFitsSrv <- function(labrep.file="16.1/For_R.rep", case_label="2016 assessment") {
   subtle.color <- "gray40"
-  x <- readList(labrep.file)
+  x <- PBSmodelling::readList(labrep.file)
   names(x)
   ages <- c(1,length(x$pobs_fsh[1,-1]) ) #age range
   obs.data  <- x$pobs_bts[,-1]
@@ -13,17 +32,17 @@ AgeFitsSrv <- function( labrep.file="16.1/For_R.rep" , case_label="2016 assessme
   ages.list <- ages[1]:ages[2]
   print(ages.list)
   nages <- length(ages.list)
-  
+
   mtmp <- c(ceiling(nyears/3),3)
   par(mfcol=mtmp,oma=c(3.5,4.5,3.5,1),mar=c(0,0,0,0))
   cohort.color <- rainbow(mtmp[1]+2)[-c(1:2)]   #use hideous rainbow colors because they loop more gracefully than rich.colors
   ncolors <- length(cohort.color)
-  
-  #axis(2,las=1,at=c(0,0.5),col=subtle.color,col.axis=subtle.color,lwd=0.5) 
+
+  #axis(2,las=1,at=c(0,0.5),col=subtle.color,col.axis=subtle.color,lwd=0.5)
   #With
   #axis(2,las=1,at=c(0,0.25,0.5),col=subtle.color,col.axis=subtle.color,lwd=0.5)
   ylim <- c(0,1.05*max(obs.data,pred.data))
-  for (yr in 1:nyears) { 
+  for (yr in 1:nyears) {
     names.arg <- rep("",nages)
     x <- barplot(obs.data[yr,],space=0.2,ylim=ylim,las=1,names.arg=names.arg, cex.names=0.5, xaxs="i",yaxs="i",border=subtle.color,
                  col=cohort.color[1:nages],axes=F,ylab="",xlab="")

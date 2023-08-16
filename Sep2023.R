@@ -1,15 +1,14 @@
-setwd("~/_mymods/ebswp/doc")
+#setwd("~/_mymods/ebswp/doc")
 rm(list=ls())
 #install.packages("ggridges")
-source("../R/prelims.R")
+source("R/prelims.R")
 thisyr    <<- 2022
 lastyr    <<- thisyr-1
 nextyr    <<- thisyr+1
 
 # The model specs
-.THEME    = ggthemes::theme_few(base_size = 11, base_family = "")
-.OVERLAY  = TRUE
 
+#--Main models to presesnt in Sept   -----------
 # Read report file and create gmacs report object (a list):
 mod_names <- c("Last year",
                "Base 22",
@@ -17,21 +16,23 @@ mod_names <- c("Last year",
                "Diagonal cov BTS","GenGam","SSB=mean ",
                "SSB Empirical wt-age","SSB RE wt-age","AVO new","AVO full","AVO low CV")
 length(mod_names)
-
-  #"SigmaR.6")
-.MODELDIR <- c(
-  "../runs/base/",
-  "../runs/base22/",
-  "../runs/AgeErr/",
-  "../runs/diag/",
-  "../runs/gengam/",
-  "../runs/ssb0/",
-  "../runs/ssb1/",
-  "../runs/ssb2/",
-  "../runs/avon1/",
-  "../runs/avon2/",
-  "../runs/avon3/"
+mod_dir <- c(
+  "base",
+  "base22",
+  "AgeErr",
+  "diag",
+  "gengam",
+  "ssb0",
+  "ssb1",
+  "ssb2",
+  "avon1",
+  "avon2",
+  "avon3"
   )
+
+  modlst<-get_results()
+  names(modlst)
+  save(modlst,file="~/_mymods/ebswp/doc/septmod.rdata")
 
 # a one-off to get the variance term from covariance diagonal into the ob_bts_std
 in_data <- read_dat("../runs/dat/pm_base22.dat")
@@ -79,8 +80,8 @@ for (i in 1:4){
 }
   df.out
   mod_names <- c("diag","tuned")
-  .MODELDIR <- c( "../runs/diag/",  "../runs/tune/")
-  fn        <- paste0(.MODELDIR, "pm");fn
+  mod_dir <- c( "../runs/diag/",  "../runs/tune/")
+  fn        <- paste0("../runs/",mod_dir,"/pm");fn
   modtune<-get_results()
   save(modtune,file="~/_mymods/ebswp/doc/modtune.rdata")
 
@@ -100,35 +101,20 @@ save(modlst,file="~/_mymods/ebswp/doc/septmod.rdata")
 M<-(modlst[[1]])
 M
 
-#===Need this lines because last year's Tier was different
-modlst[[1]]$abc1       <- (modlst[[1]]$Tier2_ABC1)
-modlst[[1]]$abc2       <- (modlst[[1]]$Tier2_ABC2)
-modlst[[1]]$abc1s      <- format(round(1e3*modlst[[1]]$abc1,-3),big.mark=",",scientific=F,digits=1)
-modlst[[1]]$abc2s      <- format(round(1e3*modlst[[1]]$abc2,-3),big.mark=",",scientific=F,digits=1)
 
-proj_file<- paste0(.MODELDIR[2],"proj/spm_detail_full.csv")
-bfs        <- read_csv(proj_file) |> mutate(Alt=Alternative)
-Tier3_abc_full <<-  bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(ABC),0))
-Tier3_abc_fulls <<- format(round(1e3*Tier3_abc_full,-3),big.mark=",",scientific=F,digits=1)
-
-M        <- modlst[[thismod]]
-names(M)
-P        <- modlst[[1]] # Last year's model (P=previous)
-Alt      <- modlst[[2]] # Last year's model (P=previous)
-#M$future_catch[12,1]
-#M$future_catch[5,1]
-
-#
+#---Mohno rho read-----
 rhodf      <- read.csv("../doc/data/mohnrho.csv",header=T)
 rhoMohn10  <-  rhodf[11,3]
 rhoMohn20  <-  rhodf[21,3]
 rhoMohn10
 
+# Figure captions
 fc  <- (read_csv("../doc/data/fig_captions.csv"))
 figcap <<- fc$cap; figlab <<- fc$label; fnum <<- fc$no
 reffig <<- function(i){ cat(paste0("\\ref{fig:",figlab[fnum==i],"}")) }
 printfig <<- function(tmp,i){ cat(paste0("\n![",figcap[fnum==i],"\\label{fig:",figlab[fnum==i],"}](figs/",tmp,")   \n ")) }
 
+# Table captions
 tc  <- (read_csv("../doc/data/table_captions.csv"))
 tabcap <- tc$cap; tablab <- tc$label
 # tap <- data_frame(t=c(1,2),c=c(1,2))
@@ -139,4 +125,3 @@ reftab <<- function(i){ cat(paste0("tab:",tablab[i])) }
 #source("../R/Do_Plots.R")
 #source("../R/Do_MCMC.R")
 #source("../R/Do_Proj.R")
-
