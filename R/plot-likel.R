@@ -1,13 +1,17 @@
+#' Extract Likelihood Data Frame
 #'
-#' Spawning biomass may be defined as all males or some combination of males and
-#' females
+#' This function extracts likelihood values from a list of models and 
+#' formats them into a structured data frame.
 #'
-#' @param M list object created by read_admb function
-#' @return dataframe of spawning biomass
-#' @export
-#' 
-.get_like_df <- function(M)
-{
+#' @param M A list of models where each model contains likelihood components.
+#'
+#' @return A data frame containing the likelihood components, model name, 
+#' natural mortality value (M), and negative log likelihood (NLL) for each model in the list.
+#'
+#' @examples
+#' # Assuming 'model_list' is a list of models with the appropriate structure
+#' # likelihood_df <- .get_like_df(model_list)
+.get_like_df <- function(M) {
     n <- length(M)
     mdf <- NULL
     for (i in 1:n)
@@ -30,22 +34,29 @@
     return(mdf)
 }
 
-
-#' Plot predicted spawning stock biomass (ssb)
+#' Plot Likelihood Values
 #'
-#' Spawning biomass may be defined as all males or some combination of males and
-#' females
+#' This function plots the negative log likelihood values for different 
+#' components against a specified predictor (e.g., natural mortality). 
+#' The function uses `ggplot2` for visualization.
 #'
-#' @param M List object(s) created by read_admb function
-#' @param xlab the x-label of the figure
-#' @param ylab the y-label of the figure
-#' @param ylim is the upper limit of the figure
-#' @param alpha the opacity of the ribbon
-#' @return Plot of model estimates of spawning stock biomass 
+#' @param M A list of models from which likelihood values will be extracted.
+#' @param xlab Label for the x-axis. Default is "Natural Mortality".
+#' @param ylab Label for the y-axis. Default is "relative -ln Likelihood".
+#' @param ylim Limits for the y-axis. Default is NULL.
+#' @param xlim Limits for the x-axis. Default is NULL.
+#' @param alpha Alpha transparency level for the plotted lines. Default is 0.1.
+#' @param legend Logical indicating whether to display a legend. Default is TRUE.
+#'
+#' @return A ggplot object displaying the negative log likelihood values.
+#'
 #' @export
-#' 
-plot_likes <- function(M, xlab = "Natural Mortality", ylab = "relative -ln Likelihood", ylim = NULL, xlim=NULL, alpha = 0.1,legend=TRUE)
-{
+#' @examples
+#' # Assuming 'model_list' is a list of models with the appropriate structure
+#' # plot_likes(model_list)
+#'
+#' @import ggplot2
+plot_likes <- function(M, xlab = "Natural Mortality", ylab = "relative -ln Likelihood", ylim = NULL, xlim=NULL, alpha = 0.1,legend=TRUE) {
     xlab <- paste0("\n", xlab)
     ylab <- paste0(ylab, "\n")
     

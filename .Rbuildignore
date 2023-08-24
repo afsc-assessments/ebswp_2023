@@ -1,0 +1,5 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.Rproj\src$
+src/*
+src\pm.cpp

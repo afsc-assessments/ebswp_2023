@@ -1,11 +1,8 @@
-#' Extract spawning stock biomass (ssb) from gmacs run
+#' Extract mean age from pollock model run
 #'
-#' Spawning biomass may be defined as all males or some combination of males and
-#' females
 #'
 #' @param M list object created by read_admb function
 #' @return dataframe of spawning biomass
-#' @export
 #' 
 .get_mnage_df <- function(M)
 {

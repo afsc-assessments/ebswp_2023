@@ -1,11 +1,7 @@
-#' Extract spawning stock biomass (ssb) from gmacs run
-#'
-#' Spawning biomass may be defined as all males or some combination of males and
-#' females
+#' Extract stock recruitment results
 #'
 #' @param M list object created by read_admb function
-#' @return dataframe of spawning biomass
-#' @export
+#' @return dataframe of expected and observed SRR
 #' 
 .get_srr_df <- function(M)
 {
@@ -47,22 +43,34 @@
 }
 
 
-
-#' Plot predicted spawning stock biomass (ssb)
+#' Plot Stock-Recruitment Relationship (SRR)
 #'
-#' Spawning biomass may be defined as all males or some combination of males and
-#' females
+#' This function plots the stock-recruitment relationship (SRR) using ggplot2. 
+#' It can handle multiple models and provides flexibility in display options.
 #'
-#' @param M List object(s) created by read_admb function
-#' @param xlab the x-label of the figure
-#' @param ylab the y-label of the figure
-#' @param ylim is the upper limit of the figure
-#' @param alpha the opacity of the ribbon
-#' @return Plot of model estimates of spawning stock biomass 
-#' @export
-#' 
+#' @param M A list or data structure containing model results.
+#' @param ylab Label for the y-axis. Default is "Recruits (age 1, millions)".
+#' @param xlab Label for the x-axis. Default is "Female spawning biomass (kt)".
+#' @param ylim Limits for the y-axis. Default is `NULL`.
+#' @param xlim Limits for the x-axis. Default is `NULL`.
+#' @param alpha Alpha for the ribbons indicating uncertainty. Default is 0.05.
+#' @param ebar Logical, if `TRUE` error bars will be plotted. Default is `FALSE`.
+#' @param leglabs Custom labels for the legend. Default is `NULL`.
+#' @param coverlap Logical, if `TRUE` overlapping text labels will be checked and prevented. Default is `FALSE`.
+#' @param sizein Font size for the in-sample text labels. Default is 3.
+#' @param sizeout Font size for the out-of-sample text labels. Default is 2.
+#' @param yrsin Years to be considered for in-sample. Default is 1977:2019.
+#'
+#' @return A ggplot object containing the SRR plot.
+#'
+#' @examples
+#' # Assuming 'model_list' contains the relevant model results:
+#' # plot_srr(M = model_list, ylim = c(0, 1e6), xlim = c(0, 2000))
+#'
+#' @importFrom ggplot2 ggplot labs geom_line geom_ribbon geom_text geom_errorbar facet_wrap guides
+#' @importFrom dplyr filter
 plot_srr <- function(M, ylab = "Recruits (age 1, millions)", xlab = "Female spawning biomass (kt)", 
-                     ylim = NULL, xlim=NULL, alpha = 0.05,ebar="FALSE",leglabs=NULL,coverlap=FALSE, sizein=3,sizeout=2,yrsin=1977:2019)
+                     ylim = NULL, xlim=NULL, alpha = 0.05, ebar="FALSE", leglabs=NULL, coverlap=FALSE, sizein=3, sizeout=2, yrsin=1977:2019)
 {
     xlab <- paste0("\n", xlab)
     ylab <- paste0(ylab, "\n")

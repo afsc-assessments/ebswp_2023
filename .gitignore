@@ -74,3 +74,5 @@ unbounded.csv
 init.pin
 variance
 sims
+
+/.luarc.json

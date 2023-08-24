@@ -1,0 +1,14 @@
+Package: ebswp
+Title: Facilitates Model Running for EBS Pollock
+Version: 0.0.0.9000
+Authors@R: 
+    person("Jim", "Ianelli", , "Jim.Ianelli@noaa.gov", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-7170-8677"))
+Description: Facilitates Model Running for EBS Pollock
+License: `use_mit_license()`
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

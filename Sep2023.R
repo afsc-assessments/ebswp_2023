@@ -1,15 +1,18 @@
 #setwd("~/_mymods/ebswp/doc")
 rm(list=ls())
+ls()
 #install.packages("ggridges")
-source("../R/prelims.R")
+#source("R/prelims.R")
+source("prelims.R")
+library(ebswp)
 thisyr    <<- 2022
 lastyr    <<- thisyr-1
 nextyr    <<- thisyr+1
+ls()
 
 # The model specs
-.THEME    = ggthemes::theme_few(base_size = 11, base_family = "")
-.OVERLAY  = TRUE
 
+#--Main models to presesnt in Sept   -----------
 # Read report file and create gmacs report object (a list):
 mod_names <- c("Last year",
                "Base 22",
@@ -17,53 +20,108 @@ mod_names <- c("Last year",
                "Diagonal cov BTS","GenGam","SSB=mean ",
                "SSB Empirical wt-age","SSB RE wt-age","AVO new","AVO full","AVO low CV")
 length(mod_names)
-
-  #"SigmaR.6")
-.MODELDIR <- c(
-  "../runs/base/",
-  "../runs/base22/",
-  "../runs/AgeErr/",
-    "../runs/diag/",
-  "../runs/gengam/",
-  "../runs/ssb0/",
-  "../runs/ssb1/",
-  "../runs/ssb2/",
-  "../runs/avon1/",
-  "../runs/avon2/",
-  "../runs/avon3/"
+mod_dir <- c(
+  "base",
+  "base22",
+  "AgeErr",
+  "diag",
+  "gengam",
+  "ssb0",
+  "ssb1",
+  "ssb2",
+  "avon1",
+  "avon2",
+  "avon3"
   )
+# WARNING, commented out line will re-run all the models in the mod_dir directories within "runs"
+# Won't do tier 3 spm (proj) model in the subdirectory at the moment
+# modlst <- run_model(Output=TRUE)
+#---Read in the results for modelsl already run--------------
+  modlst<-get_results()
+  names(modlst)
+  # Save result so it can be used by the document
+  save(modlst,file="~/_mymods/ebswp/doc/septmod.rdata")
 
-fn        <- paste0(.MODELDIR, "pm");fn
-nmods <- length(mod_names)
-nmods
-#This line is for Windows
-num_cores<-detectCores()-1
-registerDoParallel(cores=num_cores)
-cl<-makeCluster(num_cores)
-clusterExport(cl, c("read_fit", "read_admb","read_rep"),
-              envir=environment())
-system.time(modlst <- parLapply(clust <-cl,fn,read_admb))
+#---Covariance diagonal extraction--------
+#   a one-off to get the variance term from covariance diagonal into the ob_bts_std
+in_data <- read_dat("runs/dat/pm_base22.dat")
+cov<- as.matrix(read_table("runs/dat/diag_2022.dat",col_names = F))
+std <- sqrt(diag(cov))
+in_data$ob_bts_std <- std
+?write_dat
+write_dat(tmp=in_data)
 
-#registerDoParallel(nmods)
-#system.time( modlst <- mclapply(fn, read_admb,mc.cores=nmods) )
-#length(modlst)
-names(modlst) <- mod_names
-mod_names
-#modlst
-# The model picked
-thismod <- 1 # the selected model
-#add_stuff<-function(idx){ proj_file<- paste0(.MODELDIR[idx],"proj/bigfile.out") #modlst[[idx]] <- c(modlst[[idx]],get_vars(modlst[[idx]])) return( c(modlst[[i]],get_vars(modlst[[i]])) ) }
-#system.time( modlst<-mclapply(1:nmods,add_stuff,mc.cores=nmods) )
-#system.time(
+  # Read pm.dat, then write (e.g.,)
+  pm.dat<-read_table("runs/base22/pm.dat",col_names=FALSE)
+  row.names(pm.dat) <- c("Desc","main","sel","ctl","altFmsy","cov","wtage","cpue","temp","q")
+  pm.dat[2,] <- "../dat/proctune1.dat"
+  writeLines(as.character(pm.dat$X1),"runs/ProcTune/pm.dat")
+  in_data <- read_dat("runs/dat/pm_base22.dat")
+  write_dat(output_file = "runs/dat/proctune1.dat", tmp=in_data)
+  # See if different from base
+  ctl <-read_dat("runs/ProcTune/control.dat")
+  ctlb <-read_dat("runs/base22/control.dat")
+  diff <- purrr::map_lgl(names(ctl), ~ !identical(ctl[[.]], ctlb[[.]]))
+  sum(diff)
+  names(ctl[diff])
+  cbind(ctl[diff][2],ctlb[diff][2])
+  names(ctl)
+  ctl[56]
+  write_dat("runs/base22/control.dat",ctl)
 
-for (i in 1:nmods) {
-  proj_file<- paste0(.MODELDIR[i],"proj/spm_detail.csv")
-  print(i)
-  # fixed to a single
-  #proj_file<- "../runs/base/proj/bigfile.out"
-  modlst[[i]] <- c(modlst[[i]],get_vars(modlst[[i]]))
+# Set an initial working directory
+  mod_names <- c("base22","p1")
+  mod_dir <- c( "base22", 'ProcTune')
+  names(ctl)
+  modtune <- run_model(Output=TRUE)
+  modtune <- get_results()
+  save(modtune,file="~/_mymods/ebswp/doc/modtune.rdata")
+
+
+#---Start setup for tuning by sdnrs
+  df.out <- tibble(iter=0,
+                   sdnr_bts=M[[1]]$sdnr_bts,
+                   sdnr_ats=M$sdnr_ats,
+                   sdnr_avo=M$sdnr_avo)
+  df.out
+  mod_names <- c("tune")
+  .MODELDIR <- c( "../runs/tune/")
+  fn        <- paste0(.MODELDIR, "pm");fn
+
+#--Now iterate to get sdnrs near zero-----------
+for (i in 1:4){
+# step 1
+  in_data$ob_ats_std = in_data$ob_ats_std * M$sdnr_ats
+  in_data$ob_avo_std = in_data$ob_avo_std * M$sdnr_avo
+  in_data$ob_bts_std = in_data$ob_bts_std * M$sdnr_bts
+# step 4 now write new data (in_data)
+  write_dat(tmp=in_data)
+# step 2 run and get results
+  system("cd ../runs/tune/; make")
+  modlst<-get_results()
+  M <- modlst[[1]]
+  df.out <- rbind(df.out,tibble(iter=0,
+                   sdnr_bts=M$sdnr_bts,
+                   sdnr_ats=M$sdnr_ats,
+                   sdnr_avo=M$sdnr_avo)
+                  )
+
+# step 3 replace stds with adjusted stds by sdnrs from results
+  in_data <- read_dat("output.txt")
 }
+  df.out
+
+#---Try process error tuning--------------
+  mod_names <- c("base22","Tune ATS availability")
+  mod_dir <- c( "../runs/base22/",  "../runs/ProcTune/")
+  modtune<-get_results()
+  mod_scen=c(1,2)
+  tab_fit(modtune, mod_scen = c(1,2)) |> gt::gt()
+
+  tab_fit(modlst[c(1:3)])
+
 for (i in 1:nmods) print(paste(modlst[[i]]$maxabc1s ,mod_names[i] ))
+for (i in 1:nmods) print(paste(modlst[[i]]$Tier3_ABC1 ,mod_names[i] ))
 names(modlst)
 save(modlst,file="~/_mymods/ebswp/doc/septmod.rdata")
 getwd()
@@ -72,35 +130,20 @@ save(modlst,file="septmod.rdata")
 M<-(modlst[[1]])
 M
 
-#===Need this lines because last year's Tier was different
-modlst[[1]]$abc1       <- (modlst[[1]]$Tier2_ABC1)
-modlst[[1]]$abc2       <- (modlst[[1]]$Tier2_ABC2)
-modlst[[1]]$abc1s      <- format(round(1e3*modlst[[1]]$abc1,-3),big.mark=",",scientific=F,digits=1)
-modlst[[1]]$abc2s      <- format(round(1e3*modlst[[1]]$abc2,-3),big.mark=",",scientific=F,digits=1)
 
-proj_file<- paste0(.MODELDIR[2],"proj/spm_detail_full.csv")
-bfs        <- read_csv(proj_file) |> mutate(Alt=Alternative)
-Tier3_abc_full <<-  bfs %>% filter(Alt==2,Yr==nextyr)   %>% summarize(round(mean(ABC),0))
-Tier3_abc_fulls <<- format(round(1e3*Tier3_abc_full,-3),big.mark=",",scientific=F,digits=1)
-
-M        <- modlst[[thismod]]
-names(M)
-P        <- modlst[[1]] # Last year's model (P=previous)
-Alt      <- modlst[[2]] # Last year's model (P=previous)
-#M$future_catch[12,1]
-#M$future_catch[5,1]
-
-#
+#---Mohno rho read-----
 rhodf      <- read.csv("../doc/data/mohnrho.csv",header=T)
 rhoMohn10  <-  rhodf[11,3]
 rhoMohn20  <-  rhodf[21,3]
 rhoMohn10
 
+# Figure captions
 fc  <- (read_csv("../doc/data/fig_captions.csv"))
 figcap <<- fc$cap; figlab <<- fc$label; fnum <<- fc$no
 reffig <<- function(i){ cat(paste0("\\ref{fig:",figlab[fnum==i],"}")) }
 printfig <<- function(tmp,i){ cat(paste0("\n![",figcap[fnum==i],"\\label{fig:",figlab[fnum==i],"}](figs/",tmp,")   \n ")) }
 
+# Table captions
 tc  <- (read_csv("../doc/data/table_captions.csv"))
 tabcap <- tc$cap; tablab <- tc$label
 # tap <- data_frame(t=c(1,2),c=c(1,2))
@@ -111,4 +154,3 @@ reftab <<- function(i){ cat(paste0("tab:",tablab[i])) }
 #source("../R/Do_Plots.R")
 #source("../R/Do_MCMC.R")
 #source("../R/Do_Proj.R")
-

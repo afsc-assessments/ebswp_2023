@@ -1,12 +1,8 @@
 
 #' Extract Numbers at age 3 
 #'
-#' Spawning biomass may be defined as all males or some combination of males and
-#' females
-#'
 #' @param M list object created by read_admb function
-#' @return dataframe of spawning biomass
-#' @export
+#' @return dataframe of age3+ biomass
 #' 
 .get_Nage_3_df <- function(M)
 {
@@ -28,21 +24,14 @@
 
 #' Plot predicted Numbers at age 3 
 #'
-#' Spawning biomass may be defined as all males or some combination of males and
-#' females
 #'
 #' @param M List object(s) created by read_admb function
 #' @param xlab the x-label of the figure
 #' @param ylab the y-label of the figure
 #' @param ylim is the upper limit of the figure
 #' @param alpha the opacity of the ribbon
-#' @return Plot of model estimates of spawning stock biomass 
+#' @return Plot of model estimates of age3+ stock biomass 
 #' @export
-# breaks=seq(1990,2024,2) 
-# xlim=c(1990,2021)
-#xlab = "Year"; ylab = "Numbers at age 3"; 
-#ylim = NULL; xlim=NULL;breaks=seq(1990,2024,2); alpha = 0.1;legend=TRUE;
-#order=NULL;
 plot_Nage_3 <- function(M, xlab = "Year", ylab = "Numbers at age 3", 
     ylim = NULL, xlim=c(1990,2020),breaks=seq(1990,2022,2), alpha = 0.8,legend=TRUE,
     order=NULL) {

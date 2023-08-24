@@ -5,7 +5,6 @@
 #' @param M list object(s) created by read_admb function
 #' @return dataframe of recruitment
 #' @author SJD Martell, DN Webber
-#' @export
 #' 
 .get_recruitment_df <- function(M)
 {

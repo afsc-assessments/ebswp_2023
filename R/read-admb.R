@@ -2,7 +2,6 @@
 #'
 #' Read ADMB output files .rep, .par, and .cor and return an R object of type 'list'
 #'
-#' @author Steve Martell, Anders Nielsen, Athol Whitten, D'Arcy N. Webber
 #' @param repfile ADMB output files to be read (no extension needed)
 #' @return object of type 'list' with ADMB outputs as list elements
 #' @export
@@ -185,8 +184,14 @@ colr <- function(col.pal=1,a=1)
     rgb(t(col.rgb),alpha=a)
 }
 
-read_dat <- 
-  function(fn)
+#' Read ADMB Data File
+#'
+#' Reads an ADMB data file and returns a list of outputs in R.
+#'
+#' @param fn Character. The name of the ADMB data file.
+#' @return A list containing various ADMB outputs from the data file.
+#' @export
+read_dat <- function(fn)
   {
     # The following reads a report file
     # Then the 'A' object contains a list structure

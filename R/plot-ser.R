@@ -1,11 +1,7 @@
-#' Extract spawning stock biomass (ssb) from gmacs run
-#'
-#' Spawning biomass may be defined as all males or some combination of males and
-#' females
+#' Extract spawning exploitation rate
 #'
 #' @param M list object created by read_admb function
 #' @return dataframe of spawning biomass
-#' @export
 #' 
 .get_ser_df <- function(M)
 {
@@ -27,9 +23,6 @@
 
 
 #' Plot predicted spawning stock biomass (SER)
-#'
-#' Spawning biomass may be defined as all males or some combination of males and
-#' females
 #'
 #' @param M List object(s) created by read_admb function
 #' @param xlab the x-label of the figure

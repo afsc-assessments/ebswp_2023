@@ -1,11 +1,7 @@
 #' Extract CPUE data
 #'
-#' Spawning biomass may be defined as all males or some combination of males and
-#' females
-#'
 #' @param M list object created by read_admb function
-#' @return dataframe of spawning biomass
-#' @export
+#' @return dataframe of observed and predicted CPUE
 #' 
 .get_cpue_df <- function(M)
 {
@@ -19,16 +15,13 @@
 }
 
 
-#' Plot predicted spawning stock biomass (ssb)
-#'
-#' Spawning biomass may be defined as all males or some combination of males and
-#' females
+#' Plot predicted CPUE
 #'
 #' @param M List object(s) created by read_admb function
 #' @param xlab the x-label of the figure
 #' @param ylab the y-label of the figure
 #' @param ylim is the upper limit of the figure
-#' @return Plot of model estimates of spawning stock biomass 
+#' @return Plot of model estimates of observed and predicted CPUE
 #' @export
 #' 
 plot_cpue <- function(M, xlab = "Year", ylab = "Early trawl fishery CPUE", ylim = NULL, color="red")

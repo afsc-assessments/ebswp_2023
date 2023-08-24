@@ -1,11 +1,7 @@
 #' Extract Recruits (R) from pollock run
 #'
-#' Spawning biomass may be defined as all males or some combination of males and
-#' females
-#'
 #' @param M list object created by read_admb function
 #' @return dataframe of spawning biomass
-#' @export
 #' 
 .get_R_rel_df <- function(M,rel=TRUE)
 {
@@ -33,10 +29,8 @@
 }
 
 
-#' Plot predicted spawning stock biomass (R)
+#' Plot predicted recruitment
 #'
-#' Spawning biomass may be defined as all males or some combination of males and
-#' females
 #'
 #' @param M List object(s) created by read_admb function
 #' @param xlab the x-label of the figure

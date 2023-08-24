@@ -6,9 +6,9 @@
 0
 #use_age_err
 0
-#use_age1_eit
+#use_age1_ats
 1
-#age1_sigma_eit
+#age1_sigma_ats
 1
 #use_endyr_len
 0
@@ -58,13 +58,13 @@
 0
 #sigma_spr_msy
 0.20
-#use_last_eit_ac
+#use_last_ats_ac
 1
 #nyrs_sel_avg
 2
 #do_bts_bio
 1
-#do_eit_bio
+#do_ats_bio
 1
 #srprior_a
 14.93209877
@@ -75,7 +75,7 @@
 #next_yrs_catch;
 1350
 #nscen
-8 #22
+8
 #fixed_catch_fut2;
 1400
 #fixed_catch_fut3;
@@ -84,9 +84,9 @@
 6
 #robust_phase
 1350
-#eit_robust_phase
+#ats_robust_phase
 1350
-#eit_like_type
+#ats_like_type
 0
 #phase_logist_fsh
 -1
@@ -98,9 +98,9 @@
 5
 #phase_age1devs_bts
 3
-#phase_selcoffs_eit
+#phase_selcoffs_ats
 3
-#phase_selcoffs_eit_dev
+#phase_sel_ats_dev
 -5
 #phase_natmort
 -6
@@ -108,7 +108,7 @@
 3
 #phase_q_std_area
 -4
-#phase_q_eit
+#phase_q_ats
 4
 #phase_bt
 -6
@@ -120,11 +120,11 @@
 5
 #wt_fut_phase
 6
-#last_age_sel_group_fsh
+#last_age_sel_fsh
 4
-#last_age_sel_group_bts
+#last_age_sel_bts
 8
-#last_age_sel_group_eit
+#last_age_sel_ats
 8
 #ctrl_flag
 200
@@ -151,9 +151,9 @@
 0.1
 5
 1
-1 # exclude 1978 yc in SRR? 0=no, 1=yes
+1
 2
-1 # 0 means use 2018 as estimated, 1 means set to mean of 2012 and 2013 (for projections only)
+1
 0
 2
 1
@@ -163,14 +163,13 @@
 1
 #phase_yreff
 1
-#switch_temp_recruitment
+#switch_temp_rec
 0 
-#phase_temp_recruitment
+#phase_temp_rec
 6
 #switch_pred_mort
 0 
 #phase_pred_mort
 1 
-#switch_multispecies_fucntional_response
-1
-
+#switch_mspp_func_re
+1 

@@ -1,11 +1,8 @@
 #' Extract copE data
 #'
-#' Spawning biomass may be defined as all males or some combination of males and
-#' females
 #'
 #' @param M list object created by read_admb function
 #' @return dataframe of spawning biomass
-#' @export
 #' 
 .get_cope_df <- function(M)
 {
@@ -19,10 +16,7 @@
 }
 
 
-#' Plot predicted spawning stock biomass (ssb)
-#'
-#' Spawning biomass may be defined as all males or some combination of males and
-#' females
+#' Plot copepod something
 #'
 #' @param M List object(s) created by read_admb function
 #' @param xlab the x-label of the figure

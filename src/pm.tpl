@@ -224,7 +224,7 @@ DATA_SECTION
   !! cout <<"Phase fsh coef: "<<phase_selcoffs_fsh<<" "<<phase_selcoffs_fsh_dev<<endl;
   !! cout <<"Phase bts coef: "<<phase_selcoffs_bts<<" "<<phase_selcoffs_bts_dev<<endl;
   !! cout <<"Phase ats coef: "<<phase_selcoffs_ats<<" "<<phase_selcoffs_ats_dev<<endl;
-  !! write_log(phase_selcoffs_ats);
+  !! write_log(phase_selcoffs_bts);
   !! write_log(phase_selcoffs_bts_dev);
   !! write_log(phase_selcoffs_ats);
   !! write_log(phase_selcoffs_ats_dev);
@@ -1085,6 +1085,7 @@ DATA_SECTION
   {
     ad_comm::change_datafile_name("../dat/M_matrix.dat"); cout<<"Opening ../dat/M_matrix.dat"<<endl;
   }  
+  write_log(phase_q_bts);
  END_CALCS
    init_matrix M_matrix(styr,endyr,1,nages);
 
@@ -1657,9 +1658,13 @@ FUNCTION Get_Selectivity
 
 
   if (active(sel_devs_ats))
-    log_sel_ats = compute_selectivity_ats(n_selages_ats,styr_ats,avgsel_ats,sel_coffs_ats,sel_devs_ats);
+	{
+    log_sel_ats = compute_selectivity_ats_devs(n_selages_ats,styr_ats,avgsel_ats,sel_coffs_ats,sel_devs_ats);
+	}
   else 
     log_sel_ats = compute_selectivity_ats(n_selages_ats,styr_ats,avgsel_ats,sel_coffs_ats);
+	
+	//COUT(sum(sel_devs_ats));
 
   sel_fsh = mfexp(log_sel_fsh);
   compute_Fut_selectivity();
@@ -2720,7 +2725,6 @@ FUNCTION Get_Catch_at_Age
     ntmp         = elem_prod(natage(iyr),pow(S(iyr),.5));
     if (use_age_err)
       eac_ats(i)  = age_err(err_ats(i)) * elem_prod(ntmp,mfexp(log_sel_ats(iyr))) * q_ats; // Eq. 15
-      // eac_ats(i)  = age_err * elem_prod(ntmp,mfexp(log_sel_ats(iyr))) * q_ats; // Eq. 15
     else
       eac_ats(i)  =           elem_prod(ntmp,mfexp(log_sel_ats(iyr))) * q_ats; 
 
@@ -3323,7 +3327,7 @@ FUNCTION Evaluate_Objective_Function
   NLL(14)+= sum(sel_like);
   NLL(15)+= sum(sel_like_dev);
 
-  // COUT(sel_like);
+  //COUT(sel_like_dev);
   // COUT(age_like);
   // COUT(avo_like);
   // COUT(surv_like);
@@ -3585,6 +3589,7 @@ FUNCTION Selectivity_Likelihood
                          (2*sel_ch_sig_ats(i) * sel_ch_sig_ats(i));
     }
   }
+	//COUT(like_tmp);
   sel_like_dev(3)  = sum(like_tmp);
 FUNCTION Surv_Likelihood
  //-Likelihood due to Survey Numbers-------------------
@@ -3759,7 +3764,7 @@ FUNCTION Robust_Likelihood
     age_like(3) = robust_p(oac_ats,eac_ats,rf,sam_ats,mina_ats,nages);
   else // Multinomial for EIT
     for (i=1; i <= nagecomp(3); i++) 
-      age_like(3) -= sam_ats(i)*oac_ats(i)(mina_ats,nages)*log(eac_ats(i)(mina_ats,nages) + MN_const);
+      age_like(3) -= sam_ats(i)*oac_ats(i)(mina_ats,nages) * log(eac_ats(i)(mina_ats,nages) + MN_const);
 
   len_like    = robust_p(olc_fsh,elc_fsh,rf,50);
 
@@ -3779,8 +3784,8 @@ FUNCTION Multinomial_Likelihood
         case 2:
           age_like(igear) -= sam_bts(i)*oac_bts(i)*log(eac_bts(i) + MN_const);
           break;
-        default:
-          age_like(igear) -= sam_ats(i)*oac_ats(i)(mina_ats,nages)*log(eac_ats(i)(mina_ats,nages) +MN_const);
+        case 3:
+          age_like(igear) -= sam_ats(i)*oac_ats(i)(mina_ats,nages) * log(eac_ats(i)(mina_ats,nages) + MN_const);
           break;
       }
     }     
@@ -4793,7 +4798,7 @@ FUNCTION dvar_matrix compute_fsh_selectivity(const int nsel,const int stsel,dvar
   RETURN_ARRAYS_DECREMENT();
   return(log_sel);
 
-FUNCTION dvar_matrix compute_selectivity_ats(const int nsel,const int stsel,dvariable& avgsel,const dvar_vector& coffs)
+FUNCTION dvar_matrix compute_selectivity_ats(const int nsel,const int stsel, dvariable& avgsel, const dvar_vector& coffs)
   // Coefficient selectivity, withOUT deviations...
   RETURN_ARRAYS_INCREMENT();
   dvar_matrix log_sel(styr,endyr_r,1,nages);
@@ -4808,7 +4813,7 @@ FUNCTION dvar_matrix compute_selectivity_ats(const int nsel,const int stsel,dvar
   RETURN_ARRAYS_DECREMENT();
   return(log_sel);
 
-FUNCTION dvar_matrix compute_selectivity_ats(const int nsel,const int stsel,dvariable& avgsel,const dvar_vector& coffs,const dvar_matrix& sel_devs)
+FUNCTION dvar_matrix compute_selectivity_ats_devs(const int nsel,const int stsel, dvariable& avgsel,const dvar_vector& coffs,const dvar_matrix& sel_devs)
     // log_sel_ats = compute_selectivity(n_selages_ats,styr_ats,avgsel_ats,sel_coffs_ats,sel_devs_ats);
   // Coefficient selectivity, with deviations...
   RETURN_ARRAYS_INCREMENT();
@@ -4820,7 +4825,8 @@ FUNCTION dvar_matrix compute_selectivity_ats(const int nsel,const int stsel,dvar
   int ii;
   log_sel(stsel)-=log(mean(exp(log_sel(stsel))));
   ii=1;
-  for (i=stsel+1;i<=endyr_r;i++) // Starts in 1979
+	// COUT(exp(log_sel(stsel)));// COUT(stsel);
+  for (int i=stsel+1;i<=endyr_r;i++) // Starts in 1979
   {
     // if (i==yrs_ats_data(ii)&&ii<=dim_sel_ats)
     if (i==yrs_ch_ats(ii))
@@ -4829,6 +4835,7 @@ FUNCTION dvar_matrix compute_selectivity_ats(const int nsel,const int stsel,dvar
       // log_sel(i+1)(nsel+1,nages)  = log_sel(i+1,nsel);
       log_sel(i)(mina_ats,nsel) = log_sel(i-1)(mina_ats,nsel) + sel_devs(ii);
       log_sel(i)(nsel+1,nages)  = log_sel(i,nsel);
+	    // COUT(exp(log_sel(stsel)));// COUT(stsel);
       if(ii<dim_sel_ats)
         ii++;
     }
@@ -5020,12 +5027,20 @@ FUNCTION write_R
   report << "R0_prior" << endl << Priors(4) << endl;
   if (ctrl_flag(28)==0)// Only do these if not retrospective..
   {
-    dvector sigtmp(1,n_bts);
-    if (DoCovBTS) for (i=1;i<=n_bts;i++) sigtmp(i) = sqrt(cov(i,i)); 
     double sdnr_bts;
     double sdnr_ats;
     double sdnr_avo;
-    sdnr_bts = sdnr(ob_bts,eb_bts,std_ob_bts_data);
+    dvector sigtmp(1,n_bts);
+    if (DoCovBTS) 
+	  {
+			for (i=1;i<=n_bts;i++) 
+				sigtmp(i) = sqrt(cov(i,i)); 
+
+      sdnr_bts = sdnr(ob_bts,eb_bts,sigtmp);
+		}
+	  else
+      sdnr_bts = sdnr(ob_bts,eb_bts,std_ob_bts_data);
+
     sdnr_ats = sdnr(ob_ats,eb_ats,std_ob_ats_data);
   // dvar_vector avo_dev = obs_avo-pred_avo;
     sdnr_avo = sdnr(obs_avo,pred_avo,obs_avo_std);
@@ -5504,7 +5519,7 @@ FUNCTION write_R
    dvariable SSBtmp; 
    Ntmp.initialize();
    Ntmp(endyr_r) = natage(endyr_r);
-   cout << endyr_r <<" "<< Ntmp(endyr_r) <<" "<<SSB(endyr_r)<<endl;
+   //cout << endyr_r <<" "<< Ntmp(endyr_r) <<" "<<SSB(endyr_r)<<endl;
    sel_fut = sel_fsh(endyr_r);
    for (i=styr;i<=endyr_r+2;i++)
    {
@@ -5544,7 +5559,7 @@ FUNCTION write_R
      Ntmp(i,nages)  += Ntmp(i-1,nages)*S(endyr_r,nages);
      Ntmp(i,1)       = meanrec;
      SSBtmp = elem_prod(elem_prod(Ntmp(i),pow(S(endyr_r),yrfrac)),p_mature)*wt_ssb(endyr_r); // Eq. 1
-      cout << i <<" "<< Ntmp(i) <<" "<<SSBtmp<<endl;
+      //cout << i <<" "<< Ntmp(i) <<" "<<SSBtmp<<endl;
      // age_3_plus_biom(i)  = natage(i)(3,nages) * wt_ssb(i)(3,nages); 
      fshable = value(elem_prod(Ntmp(i),sel_fut) * wt_ssb(endyr_r)); // fishable biomass
      AM_fmsyr =  value(exp(lnFmsy2 + lnFmsy2.sd*lnFmsy2.sd /2.));
@@ -5978,7 +5993,6 @@ FUNCTION double calc_Francis_weights(const dmatrix oac, const dvar_matrix eac, c
 
 REPORT_SECTION
   // if (last_phase()) Get_Replacement_Yield();
-  save_gradients(gradients);
     int k;
     i=1;k=i+2;
     all_like(i,k) = surv_like            ;i+=3;
@@ -6329,9 +6343,9 @@ REPORT_SECTION
   {
     if(iseed>0)
       SimulateData1();
-    cout<< "Estimated and SR-predicted recruits"<<endl;
-    cout<< pred_rec(styr,endyr_r)<<endl;
-    cout<< SRecruit(SSB(styr,endyr_r))<<endl;
+    //cout<< "Estimated and SR-predicted recruits"<<endl;
+    //cout<< pred_rec(styr,endyr_r)<<endl;
+    //cout<< SRecruit(SSB(styr,endyr_r))<<endl;
 
     write_projout2();
     write_projout();
@@ -6491,10 +6505,8 @@ REPORT_SECTION
     ofstream fakeFfile("FakeF.txt");
     fakeFfile << F_yldcrv << endl;
   }
-
-
-
   }
+  save_gradients(gradients);
 FINAL_SECTION
 
   write_R();
