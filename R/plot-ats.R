@@ -58,6 +58,8 @@
 #'        if `FALSE`, plots data related to another metric. Default is `TRUE`.
 #' @param color Color for the data points. Default is "red".
 #'
+#' @export
+#'
 #' @return A ggplot2 plot object visualizing the acoustic trawl survey data.
 #'
 #' @importFrom ggplot2 ggplot labs geom_line geom_point expand_limits geom_errorbar
@@ -93,5 +95,5 @@ plot_ats <- function(M, xlab = "Year", ylab = "Acoustic trawl survey biomass",
 
     if(!.OVERLAY)
       p <- p + guides(colour=FALSE)
-    return(p + .THEME)
+    return(p )
 }

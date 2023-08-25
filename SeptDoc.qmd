@@ -52,9 +52,12 @@ Description                    & Name   & Comparison      & Notes               
 \hline
 Base                           & base   &                 & Original from folder 07, now in folder base22 with new code that accommodates FTNIR and GenGamma                                                                                                                                            \\
 Base from 2022                 & base22 & base            & As in base but with updated error terms for acoustic-trawl survey biomass estimates                                                                                                                                                         \\
-Tuned diagonal                 & base22 & base            & As in base but with updated error terms for acoustic-trawl survey biomass estimates                                                                                                                                                         \\
-Ageing error                   & agerr  & base22          & Include age-determination error matrix \\
-Diagonal covariance            & diag   & base22          & To have a comparable run where covariance terms ignored in other models                                                                                                                                                                     \\
+Tuned TV selectivity for ATS   & ProcTune & base22        & As in base22 but with time-varying (TV) ATS selectivity variability "tuned"  to achieve model consistency with input variance terms\\
+Tuned observation errors for 
+indices                        & ObsErr & base22    & As in base22 but with input index variability estimated for consistencey with model fit\\
+\hline 
+Ageing error                   & agerr  & ProcTune        & Include age-determination error matrix \\
+Diagonal                       & diag   & ProcTune        & As in base but with updated error terms for acoustic-trawl survey biomass estimates                                                                                                                                                         \\
 Generalized Gamma distribution & gengam & diag            & This is based on the MCMC posterior samples generated from the process of accounting for density-dependence within tows; the goal is to evaluate annually varying distribution assumptions compared to the standard lognormal distribution. \\
 \hline 
 Alternative wt-age for SSB     & ssb0   & base22          & Impact on SSB, consider variability by new wt-age estimates, but start w/ constant mean wt-age                                                                                                                                              \\
@@ -77,15 +80,19 @@ These models are contrasted and categorized by the type of analysis involved.
 
 # Methods
 
-## "Tuning" data and process-error specifications
+## Model tuning: observation versus process-error specifications
 
-Our approach was to attempt to bookend model consistency by either inflating (or reducing) as needed the input specified variances (model right, data conflicts) at one end (e.g., @Francis2011). At the other end, we assume process errors are mis-specified and that the input data variance terms are "correct." The goal is to contrast different statistical properties common in modern stock assessments (i.e., estimating addional variance (Punt??) versus adjusting model flexibility (@stewart2017fra , @Martell2013a). To estimated the adjusted variance we iterated four times until the standard deviation of the normalized residuals were equal to 1.0 (@Francis2011). For the process error term we re-evaluated the process error terms for the acoustic-trawl survey selectivity (in the base model, the selectivity was assumed to be constant). Initial trials resulted in this process error to have the ability to achieve estimation consistency (where the variances specified are consistent with the model's fit to the data).
+Our approach was to attempt to bookend model consistency by either inflating (or reducing) as needed the input specified variances (model right, data conflicts) at one end (e.g., @Francis2011). At the other end, we assume process errors are mis-specified and that the input data variance terms are "correct." The goal is to contrast different statistical properties common in modern stock assessments (i.e., estimating addional variance (Punt??) versus adjusting model flexibility (@stewart2017fra , @Martell2013a). Here we define a model as being "consistent" when the specified (or estimated) observation-error variances are about equal to the residual variances from the model fit.
+
+To achieve consistency using the observation-error estimation approach, we iterated on the magnitude of the mean index coefficient of variation. This approach assumes the process/model specification is appropriate and that the observation errors require tuning. We note that in other settings such "added variance" terms can optionally be freely estimated (e.g., @methot2013) but here it took only four iterations to achieve standard deviations of the normalized residuals equal to 1.0 (@Francis2011).
+
+For the process error term we focussed on the index that appeared to be mis-specified (i.e., the residual variance was greater than the specified input variances). This mean re-evaluating the degree of process error terms for the acoustic-trawl survey selectivity. In the base model, the selectivity was assumed to be constant. Initial trials resulted in this process error to have the ability to achieve estimation consistency (where the variances specified are consistent with the model's fit to the data).
 
 @francis2017fr provides
 
 ## Revised opportunistic acoustic data series
 
-The new time series of data for the AVO data shows a peak estimate in 2015 and less of an increase in 2019-2022 (@fig-avodata).
+The new time series of data for the AVO data shows a peak estimate in 2015 and less of an increase in 2019-2022 (@fig-avodata). These new data represent a broader area and are considered an improvement over the previously calibrated grid cells.
 
 ## Weight-at-age used for spawning biomass
 

@@ -83,7 +83,18 @@ write_dat(tmp=in_data)
   names(modtune)
   tab_fit(modtune, mod_scen = c(1,2)) |> gt::gt()
   save(modtune,file="~/_mymods/ebswp/doc/modtune.rdata")
-  M <- modtune
+  M <- modtune[[2]]
+  #---Compare selectivity for base w/ vast
+  df <- data.frame(sel=modtune[[1]]$sel_fut,Age=1:15,Model="base")
+  df <- rbind(df,data.frame(sel=modtune[[2]]$sel_fut,Age=1:15,Model="tuned"))
+  df
+  p1 <- df %>% ggplot(aes(x=Age,y=sel,color=Model)) + geom_line(linewidth=1.5) + ggthemes::theme_few() +
+    ylab("Selectivity") + scale_x_continuous(breaks=1:15);p1
+  modtune[[2]]$sel_ats
+  p1 <- plot_sel(sel=modtune[[2]]$sel_bts,styr=1982,fill="darkblue") ;p1
+
+  ebswp::plot_sel(M)
+  ?plot_sel
 
 
 #---Start setup for tuning by sdnrs
@@ -92,9 +103,11 @@ write_dat(tmp=in_data)
                    sdnr_ats=M$sdnr_ats,
                    sdnr_avo=M$sdnr_avo)
   df.out
+  write_dat(output_file = "runs/dat/proctune1.dat", tmp=in_data)
+  library(ebswp)
   mod_names <- c("tune")
-  .MODELDIR <- c( "../runs/tune/")
-  fn        <- paste0(.MODELDIR, "pm");fn
+  mod_dir   <- c( "tune")
+  p1 <- plot_sel(sel=M$sel_bts,styr=1982) ;p1
 
 #--Now iterate to get sdnrs near zero-----------
 for (i in 1:4){

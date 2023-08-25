@@ -35,8 +35,3 @@ run_model <- function(moddir=mod_dir, modnames=mod_names,Output=FALSE){
     modlst <- get_results(mod_names.=modnames,moddir=moddir)
   return(modlst)
 }
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 17aa63a (updaet)

@@ -9,12 +9,12 @@
 .get_bts_df <- function(M, biomass = TRUE) {
   n <- length(M)
   mdf <- NULL
-  
+
   for (i in 1:n) {
     A <- M[[i]]
     df <- data.frame(year = A$yr_bts)
     df$Model <- names(M)[i]
-    
+
     if (biomass) {
       df$obs <- A$ob_bts
       df$pre <- A$eb_bts
@@ -26,10 +26,10 @@
       df$lb <- A$ot_bts / exp(2 * sqrt(log(1 + (A$sd_ot_bts)^2 / (A$ot_bts)^2)))
       df$ub <- A$ot_bts * exp(2 * sqrt(log(1 + (A$sd_ot_bts)^2 / (A$ot_bts)^2)))
     }
-    
+
     mdf <- rbind(mdf, df)
   }
-  
+
   return(mdf)
 }
 
@@ -45,37 +45,39 @@
 #' @param color Color for the points.
 #' @param biomass Logical indicating if biomass data should be used. If FALSE, other measurements are used.
 #'
+#' @export
+#'
 #' @return A ggplot object with the plotted data.
-plot_bts <- function(M, 
-                     xlab = "Year", 
-                     ylab = "Bottom trawl survey biomass", 
-                     xlim = NULL, 
-                     ylim = NULL, 
-                     color = "purple", 
+plot_bts <- function(M,
+                     xlab = "Year",
+                     ylab = "Bottom trawl survey biomass",
+                     xlim = NULL,
+                     ylim = NULL,
+                     color = "purple",
                      biomass = TRUE) {
-  
+
   mdf <- .get_bts_df(M, biomass = biomass)
-  
+
   p <- ggplot(mdf) + labs(x = paste0("\n", xlab), y = paste0(ylab, "\n"))
-  
-  if (!is.null(xlim)) p <- p + xlim(xlim[1], xlim[2])        
+
+  if (!is.null(xlim)) p <- p + xlim(xlim[1], xlim[2])
   if (is.null(ylim)) {
     p <- p + expand_limits(y = 0)
   } else {
-    p <- p + ylim(ylim[1], ylim[2])        
+    p <- p + ylim(ylim[1], ylim[2])
   }
-  
+
   if (length(M) == 1) {
     p <- p + geom_line(aes(x = year, y = pre)) +
-      geom_point(aes(x = year, y = obs), size = 2, color = color) + 
+      geom_point(aes(x = year, y = obs), size = 2, color = color) +
       geom_errorbar(aes(x = year, ymax = ub, ymin = lb), width = 0.5)
   } else {
-    dw <- 0.5 
+    dw <- 0.5
     p <- p + geom_line(aes(x = year, y = pre, col = Model), size = 0.8, position = position_dodge(width = dw)) +
       geom_point(aes(x = year, y = obs, col = Model, fill = Model), position = position_dodge(width = dw)) +
       geom_pointrange(aes(year, obs, ymax = ub, ymin = lb, color = Model, fill = Model), shape = 1, linetype = "solid", position = position_dodge(width = dw))
   }
-  
+
   if (!.OVERLAY) p <- p + guides(colour = FALSE)
   return(p + .THEME)
 }
