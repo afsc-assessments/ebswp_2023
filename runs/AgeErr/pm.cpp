@@ -78,6 +78,7 @@
   #define R_report(object) report << #object "\n" << object << endl;
   adstring simname;
   adstring model_name;
+  adstring GenGamm_Filename;
   adstring datafile_name;
   adstring control_filename;
   adstring selchng_filename; 
@@ -95,6 +96,7 @@
 #ifdef USE_ADMB_CONTRIBS
 #include <contrib.h>
 
+#include <gdbprintlib.cpp>
 #endif
   extern "C"  {
     void ad_boundf(int i);
@@ -141,6 +143,7 @@ model_data::model_data(int argc,char * argv[]) : ad_comm(argc,argv)
   *(ad_comm::global_datafile) >> Wtage_file;
   *(ad_comm::global_datafile) >> RawSurveyCPUE_file;
   *(ad_comm::global_datafile) >> Temp_Cons_Dist_file;
+  *(ad_comm::global_datafile) >> GenGamm_Filename;
  write_log(model_name);
  write_log(datafile_name);
  write_log(selchng_filename);
@@ -150,13 +153,14 @@ model_data::model_data(int argc,char * argv[]) : ad_comm(argc,argv)
  write_log(Wtage_file);
  write_log(RawSurveyCPUE_file);
  write_log(Temp_Cons_Dist_file);
+ write_log(GenGamm_Filename); 
  count_mcmc=0;
  count_mcsave=0;
  q_amin = 3; q_amax= 15; // age range overwhich q applies (for prior specifications)
   selages.allocate(1,15);
  selages=1.0;selages(1)=0;selages(2)=0;
-  avo_sel.allocate(1,15);
- avo_sel(1)=0.0;  avo_sel(2)=1;  avo_sel(3)=1;  avo_sel(4)=0.85;  avo_sel(5)=0.7;  avo_sel(6)=0.55;  avo_sel(7)=0.3;  avo_sel(8)=0.15;  avo_sel(9)=0.05;  avo_sel(10)=0.01;  avo_sel(11)=0.01;  avo_sel(12)=0.01;  avo_sel(13)=0.01;  avo_sel(14)=0.01;  avo_sel(15)=0.01;
+  sel_avo_in.allocate(1,15);
+ sel_avo_in(1)=0.0;  sel_avo_in(2)=1;  sel_avo_in(3)=1;  sel_avo_in(4)=0.85;  sel_avo_in(5)=0.7;  sel_avo_in(6)=0.55;  sel_avo_in(7)=0.3;  sel_avo_in(8)=0.15;  sel_avo_in(9)=0.05;  sel_avo_in(10)=0.01;  sel_avo_in(11)=0.01;  sel_avo_in(12)=0.01;  sel_avo_in(13)=0.01;  sel_avo_in(14)=0.01;  sel_avo_in(15)=0.01;
   Cat_Fut.allocate(1,10);
  do_EIT1=1; // flag to carry EIT out in future year (for simulations only)
  pflag=0;
@@ -291,7 +295,7 @@ model_data::model_data(int argc,char * argv[]) : ad_comm(argc,argv)
  cout <<"Phase fsh coef: "<<phase_selcoffs_fsh<<" "<<phase_selcoffs_fsh_dev<<endl;
  cout <<"Phase bts coef: "<<phase_selcoffs_bts<<" "<<phase_selcoffs_bts_dev<<endl;
  cout <<"Phase ats coef: "<<phase_selcoffs_ats<<" "<<phase_selcoffs_ats_dev<<endl;
- write_log(phase_selcoffs_ats);
+ write_log(phase_selcoffs_bts);
  write_log(phase_selcoffs_bts_dev);
  write_log(phase_selcoffs_ats);
  write_log(phase_selcoffs_ats_dev);
@@ -352,16 +356,22 @@ model_data::model_data(int argc,char * argv[]) : ad_comm(argc,argv)
  write_log(nages);write_log(recage);write_log(endyr);write_log(styr_bts);write_log(styr_ats);
   p_mature.allocate(1,nages,"p_mature");
 p_mature *= 0.5;
+ write_log(p_mature);
   ewindex.allocate(styr,endyr,"ewindex");
   nsindex.allocate(styr,endyr,"nsindex");
+ write_log(ewindex);
+ write_log(nsindex);
   wt_fsh.allocate(styr,endyr,1,nages,"wt_fsh");
   wt_ssb.allocate(styr,endyr,1,nages,"wt_ssb");
+ write_log(wt_fsh);
+ write_log(wt_ssb);
  if(use_popwts_ssb==0)  wt_ssb = wt_fsh; // this is the historical default (and continued use) Eq. 9
   wt_tmp.allocate(1,nages,1991,endyr-1);
   wt_mn.allocate(1,nages);
   wt_sigma.allocate(1,nages);
   obs_catch.allocate(styr,endyr,"obs_catch");
- write_log(p_mature);write_log(obs_catch);write_log(wt_fsh);
+ write_log(obs_catch);
+  write_log(wt_fsh);
   obs_effort.allocate(styr,endyr,"obs_effort");
   n_cpue.allocate("n_cpue");
   yrs_cpue.allocate(1,n_cpue,"yrs_cpue");
@@ -392,6 +402,9 @@ p_mature *= 0.5;
   sam_fsh.allocate(1,n_fsh,"sam_fsh");
   sam_bts.allocate(1,n_bts,"sam_bts");
   sam_ats.allocate(1,n_ats,"sam_ats");
+  err_fsh.allocate(1,n_fsh,"err_fsh");
+  err_bts.allocate(1,n_bts,"err_bts");
+  err_ats.allocate(1,n_ats,"err_ats");
   oac_fsh_data.allocate(1,n_fsh,1,nages,"oac_fsh_data");
  cout<< " Index min and max for age comp data: "<<endl <<oac_fsh_data.indexmin()<<" Max "<<oac_fsh_data.indexmax()<<endl;
   obs_bts_data.allocate(1,n_bts,"obs_bts_data");
@@ -399,6 +412,7 @@ p_mature *= 0.5;
   wt_bts.allocate(1,n_bts,1,nages,"wt_bts");
   std_ot_bts.allocate(1,n_bts,"std_ot_bts");
  write_log(sam_fsh);write_log(sam_bts);write_log(sam_ats);
+ write_log(err_fsh);write_log(err_bts);write_log(err_ats);
  write_log(oac_fsh_data);write_log(yrs_bts_data);write_log(yrs_ats_data);
  write_log(obs_bts_data);
  write_log(std_ob_bts_data);
@@ -425,7 +439,9 @@ p_mature *= 0.5;
   bottom_temp.allocate(1,n_bts,"bottom_temp");
  cout<<"BottomTemp:"<<endl<<bottom_temp<<endl;
  write_log(wt_ats); write_log(bottom_temp);
-  age_err.allocate(1,nages,1,nages,"age_err");
+  n_age_err.allocate("n_age_err");
+ write_log(n_age_err); 
+  age_err.allocate(1,n_age_err,1,nages,1,nages,"age_err");
  write_log(age_err); 
   nlbins.allocate("nlbins");
   olc_fsh.allocate(1,nlbins,"olc_fsh");
@@ -495,7 +511,7 @@ p_mature *= 0.5;
   n_bts_r=0;
   n_ats_r=0;
   n_avo_r=0;
-  endyr_r = endyr - int(ctrl_flag(28));
+  endyr_r = endyr - int(ctrl_flag(28)); // where retrospective peels are set
   endyr_est = endyr_r - int(ctrl_flag(29)); // lop off last couple of years 
   cout <<"Last yr of estimation..."<<endyr_est<<endl;
   dec_tab_catch(1) = obs_catch(endyr_r);
@@ -662,7 +678,21 @@ p_mature *= 0.5;
    SSB_2=1.0; 
 long int lseed=iseed;
   pad_rng = new random_number_generator(iseed);;
- ad_comm::change_datafile_name(Wtage_file);
+  GenGamData.allocate(1,n_bts,1,2);
+  q_GenGam.allocate(1,n_bts);
+  sd_GenGam.allocate(1,n_bts);
+  // Flag to use covariance for bottom trawl survey, 0=use vector, 1=use cov matrix, 2=use GenGamma
+   if (DoCovBTS==2)
+	 {
+     ad_comm::change_datafile_name(GenGamm_Filename);cout<<"Opening "<<GenGamm_Filename<<endl;
+     *(ad_comm::global_datafile) >>  GenGamData ; 
+	 }
+	 q_GenGam = extract_column(GenGamData,1);
+	 sd_GenGam = extract_column(GenGamData,2);
+   write_log(q_GenGam); 
+   write_log(sd_GenGam); 
+   write_log(GenGamData); //exit(1);
+ ad_comm::change_datafile_name(Wtage_file);cout<<"Opening "<<Wtage_file<<endl; 
   log_sd_coh.allocate("log_sd_coh");
   log_sd_yr.allocate("log_sd_yr");
   cur_yr.allocate("cur_yr");
@@ -927,6 +957,7 @@ long int lseed=iseed;
   {
     ad_comm::change_datafile_name("../dat/M_matrix.dat"); cout<<"Opening ../dat/M_matrix.dat"<<endl;
   }  
+  write_log(phase_q_bts);
   M_matrix.allocate(styr,endyr,1,nages,"M_matrix");
 }
 
@@ -1382,6 +1413,10 @@ model_parameters::model_parameters(int sz,int argc,char * argv[]) :
   age_like.allocate(1,ngears,"age_like");
   #ifndef NO_AD_INITIALIZE
     age_like.initialize();
+  #endif
+  age_like_yr.allocate(1,ngears,1,nagecomp,"age_like_yr");
+  #ifndef NO_AD_INITIALIZE
+    age_like_yr.initialize();
   #endif
   len_like.allocate("len_like");
   #ifndef NO_AD_INITIALIZE
@@ -1952,9 +1987,12 @@ void model_parameters::Get_Selectivity(void)
     else 
       log_sel_bts = compute_selectivity(n_selages_bts,styr_bts,avgsel_bts,sel_coffs_bts);
   if (active(sel_devs_ats))
+	{
     log_sel_ats = compute_selectivity_ats(n_selages_ats,styr_ats,avgsel_ats,sel_coffs_ats,sel_devs_ats);
+	}
   else 
     log_sel_ats = compute_selectivity_ats(n_selages_ats,styr_ats,avgsel_ats,sel_coffs_ats);
+	//COUT(sum(sel_devs_ats));
   sel_fsh = mfexp(log_sel_fsh);
   compute_Fut_selectivity();
 }
@@ -3048,7 +3086,7 @@ void model_parameters::Get_Catch_at_Age(void)
     iyr       = yrs_fsh_data(i);
     et_fsh(i) = sum(catage(iyr));
     if (use_age_err)
-      eac_fsh(i) = age_err * catage(iyr)/et_fsh(i); 
+      eac_fsh(i) = age_err(err_fsh(i)) * catage(iyr)/et_fsh(i); 
     else 
       eac_fsh(i) =           catage(iyr)/et_fsh(i); 
   }
@@ -3064,8 +3102,9 @@ void model_parameters::Get_Catch_at_Age(void)
     for (i=1;i<=n_avo_r;i++)
     {
       iyr          = yrs_avo(i);
+			// Note uses ats selectivity for predicted AVO
       pred_avo(i)  = elem_prod(wt_avo(i), natage(iyr) ) * mfexp(log_sel_ats(iyr)) * q_avo; 
-      // pred_avo(i)  = wt_fsh(iyr) * elem_prod(natage(iyr)  , avo_sel) * q_avo; 
+      // pred_avo(i)  = wt_fsh(iyr) * elem_prod(natage(iyr)  , sel_avo_in) * q_avo; 
       // pred_avo(i)  = wt_fsh(iyr) * natage(iyr)  * q_avo; 
     }
     for (i=1;i<=n_cope;i++)
@@ -3081,7 +3120,8 @@ void model_parameters::Get_Catch_at_Age(void)
     iyr           = yrs_bts_data(i);
     ntmp          = elem_prod(natage(iyr),pow(S(iyr),.5));
     if (use_age_err)
-      eac_bts(i)  = age_err * elem_prod(ntmp,mfexp(log_sel_bts(iyr))) * mfexp(log_q_bts); // Eq. 15
+      //eac_bts(i)  = age_err * elem_prod(ntmp,mfexp(log_sel_bts(iyr))) * mfexp(log_q_bts); // Eq. 15
+      eac_bts(i)  = age_err(err_bts(i)) * elem_prod(ntmp,mfexp(log_sel_bts(iyr))) * mfexp(log_q_bts); // Eq. 15
     else 
       eac_bts(i)  =           elem_prod(ntmp,mfexp(log_sel_bts(iyr))) * mfexp(log_q_bts); 
     eb_bts(i)   = wt_bts(i) * eac_bts(i); 
@@ -3095,7 +3135,7 @@ void model_parameters::Get_Catch_at_Age(void)
     iyr          = yrs_ats_data(i);
     ntmp         = elem_prod(natage(iyr),pow(S(iyr),.5));
     if (use_age_err)
-      eac_ats(i)  = age_err * elem_prod(ntmp,mfexp(log_sel_ats(iyr))) * q_ats; // Eq. 15
+      eac_ats(i)  = age_err(err_ats(i)) * elem_prod(ntmp,mfexp(log_sel_ats(iyr))) * q_ats; // Eq. 15
     else
       eac_ats(i)  =           elem_prod(ntmp,mfexp(log_sel_ats(iyr))) * q_ats; 
     ea1_ats(i)  = ntmp(1); // NOTE that this is independent of selectivity function...
@@ -3797,7 +3837,7 @@ void model_parameters::Evaluate_Objective_Function(void)
     NLL(13)+= ctrl_flag(7)*len_like;
   NLL(14)+= sum(sel_like);
   NLL(15)+= sum(sel_like_dev);
-  // COUT(sel_like);
+  //COUT(sel_like_dev);
   // COUT(age_like);
   // COUT(avo_like);
   // COUT(surv_like);
@@ -4037,6 +4077,7 @@ void model_parameters::Selectivity_Likelihood(void)
                          (2*sel_ch_sig_ats(i) * sel_ch_sig_ats(i));
     }
   }
+	//COUT(like_tmp);
   sel_like_dev(3)  = sum(like_tmp);
 }
 
@@ -4081,13 +4122,39 @@ void model_parameters::Surv_Likelihood(void)
       srv_tmp = (ob_bts) - (eb_bts );
     else
       srv_tmp = (ot_bts )-(et_bts );
-    // Covariance on observed population (numbers) switch
-    if (DoCovBTS && current_phase()>4)
+  	switch (DoCovBTS)
     {
-      surv_like(1)  = .5 * srv_tmp * inv_bts_cov * srv_tmp;
-      // cout <<"Survey likelihood: " << surv_like(1) << endl;
-    }
-    else
+      case 0: // normal design-based estimates (no Covariance)
+        if (do_bts_bio)
+				{
+          srv_tmp = log(ob_bts) - log(eb_bts );
+          for (i=1;i<=n_bts_r;i++)
+            surv_like(1) += square(srv_tmp(i))/(2.*var_ob_bts(i));
+				}
+      case 1:
+        surv_like(1)  = .5 * srv_tmp * inv_bts_cov * srv_tmp;
+        break;
+      case 2: // Test gen gamma
+        if (do_bts_bio)
+				{
+          for (i=1;i<=n_bts_r;i++)
+						if (sd_GenGam(i)>0)
+              surv_like(1) += dgengamma(ob_bts(i), eb_bts(i), sd_GenGam(i), q_GenGam(i));
+						else{
+              surv_like(1) += square(log(ob_bts(i))- log(eb_bts(i)))/ (2*var_ob_bts(i));
+						}
+				 }
+				break;
+      case 3: // lognormal
+        if (do_bts_bio)
+				{
+					// Need to fix up variance for this option...
+          srv_tmp = log(ob_bts) - log(eb_bts );
+				}
+				break;
+				}
+		}
+    /* else
     {
       if (do_bts_bio)
       {
@@ -4101,6 +4168,7 @@ void model_parameters::Surv_Likelihood(void)
       }
     }
     surv_like(1) *= ctrl_flag(5);
+  */
   // AT Biomass section
   /*
   */
@@ -4116,7 +4184,6 @@ void model_parameters::Surv_Likelihood(void)
         surv_like(2) += square(log(ot_ats(i)+.01)-log(et_ats(i)+.01))/ (2.*lvar_ats(i)) ;
     }
     surv_like(2) *= ctrl_flag(2);
-  }
   if (use_age1_ats) 
   {
     // Compute q for this age1 index...
@@ -4189,7 +4256,7 @@ void model_parameters::Robust_Likelihood(void)
     age_like(3) = robust_p(oac_ats,eac_ats,rf,sam_ats,mina_ats,nages);
   else // Multinomial for EIT
     for (i=1; i <= nagecomp(3); i++) 
-      age_like(3) -= sam_ats(i)*oac_ats(i)(mina_ats,nages)*log(eac_ats(i)(mina_ats,nages) + MN_const);
+      age_like(3) -= sam_ats(i)*oac_ats(i)(mina_ats,nages) * log(eac_ats(i)(mina_ats,nages) + MN_const);
   len_like    = robust_p(olc_fsh,elc_fsh,rf,50);
 }
 
@@ -4216,13 +4283,34 @@ void model_parameters::Multinomial_Likelihood(void)
         case 2:
           age_like(igear) -= sam_bts(i)*oac_bts(i)*log(eac_bts(i) + MN_const);
           break;
-        default:
-          age_like(igear) -= sam_ats(i)*oac_ats(i)(mina_ats,nages)*log(eac_ats(i)(mina_ats,nages) +MN_const);
+        case 3:
+          age_like(igear) -= sam_ats(i)*oac_ats(i)(mina_ats,nages) * log(eac_ats(i)(mina_ats,nages) + MN_const);
           break;
       }
     }     
     age_like(igear)-=age_like_offset(igear);
   }
+	if (sd_phase() || mceval_phase()) // This to write out annual likelihood components
+	{
+		for (int igear =1;igear<=ngears;igear++)
+    {
+      for (i=1; i <= nagecomp(igear); i++)
+      {
+        switch (igear)
+        {
+          case 1:
+          age_like_yr(igear,i) -= sam_fsh(i)*oac_fsh(i)*log(eac_fsh(i) + MN_const);
+          break;
+        case 2:
+          age_like_yr(igear,i) -= sam_bts(i)*oac_bts(i)*log(eac_bts(i) + MN_const);
+          break;
+        default:
+          age_like_yr(igear,i) -= sam_ats(i)*oac_ats(i)(mina_ats,nages)*log(eac_ats(i)(mina_ats,nages) +MN_const);
+          break;
+        }
+      }     
+	  }
+	}
   //len_like = sam_fsh(n_fsh_r)*olc_fsh*log(elc_fsh+MN_const);
   len_like = -50*olc_fsh*log(elc_fsh+MN_const) - len_like_offset ;
   // this one allows a concentrated range of ages (last two args are min and max age range)
@@ -5328,7 +5416,7 @@ dvar_matrix model_parameters::compute_fsh_selectivity(const int nsel,const int s
   return(log_sel);
 }
 
-dvar_matrix model_parameters::compute_selectivity_ats(const int nsel,const int stsel,dvariable& avgsel,const dvar_vector& coffs)
+dvar_matrix model_parameters::compute_selectivity_ats(const int nsel,const int stsel, dvariable& avgsel, const dvar_vector& coffs)
 {
   ofstream& srecout= *pad_srecout;
   ofstream& projout= *pad_projout;
@@ -5351,7 +5439,7 @@ dvar_matrix model_parameters::compute_selectivity_ats(const int nsel,const int s
   return(log_sel);
 }
 
-dvar_matrix model_parameters::compute_selectivity_ats(const int nsel,const int stsel,dvariable& avgsel,const dvar_vector& coffs,const dvar_matrix& sel_devs)
+dvar_matrix model_parameters::compute_selectivity_ats(const int nsel,const int stsel, dvariable& avgsel,const dvar_vector& coffs,const dvar_matrix& sel_devs)
 {
   ofstream& srecout= *pad_srecout;
   ofstream& projout= *pad_projout;
@@ -5370,7 +5458,8 @@ dvar_matrix model_parameters::compute_selectivity_ats(const int nsel,const int s
   int ii;
   log_sel(stsel)-=log(mean(exp(log_sel(stsel))));
   ii=1;
-  for (i=stsel+1;i<=endyr_r;i++) // Starts in 1979
+	// COUT(exp(log_sel(stsel)));// COUT(stsel);
+  for (int i=stsel+1;i<=endyr_r;i++) // Starts in 1979
   {
     // if (i==yrs_ats_data(ii)&&ii<=dim_sel_ats)
     if (i==yrs_ch_ats(ii))
@@ -5379,6 +5468,7 @@ dvar_matrix model_parameters::compute_selectivity_ats(const int nsel,const int s
       // log_sel(i+1)(nsel+1,nages)  = log_sel(i+1,nsel);
       log_sel(i)(mina_ats,nsel) = log_sel(i-1)(mina_ats,nsel) + sel_devs(ii);
       log_sel(i)(nsel+1,nages)  = log_sel(i,nsel);
+	    COUT(exp(log_sel(stsel)));// COUT(stsel);
       if(ii<dim_sel_ats)
         ii++;
     }
@@ -5647,12 +5737,18 @@ void model_parameters::write_R(void)
   report << "R0_prior" << endl << Priors(4) << endl;
   if (ctrl_flag(28)==0)// Only do these if not retrospective..
   {
-    dvector sigtmp(1,n_bts);
-    if (DoCovBTS) for (i=1;i<=n_bts;i++) sigtmp(i) = sqrt(cov(i,i)); 
     double sdnr_bts;
     double sdnr_ats;
     double sdnr_avo;
-    sdnr_bts = sdnr(ob_bts,eb_bts,std_ob_bts_data);
+    dvector sigtmp(1,n_bts);
+    if (DoCovBTS) 
+	  {
+			for (i=1;i<=n_bts;i++) 
+				sigtmp(i) = sqrt(cov(i,i)); 
+      sdnr_bts = sdnr(ob_bts,eb_bts,sigtmp);
+		}
+	  else
+      sdnr_bts = sdnr(ob_bts,eb_bts,std_ob_bts_data);
     sdnr_ats = sdnr(ob_ats,eb_ats,std_ob_ats_data);
   // dvar_vector avo_dev = obs_avo-pred_avo;
     sdnr_avo = sdnr(obs_avo,pred_avo,obs_avo_std);
@@ -6100,7 +6196,7 @@ void model_parameters::write_R(void)
    dvariable SSBtmp; 
    Ntmp.initialize();
    Ntmp(endyr_r) = natage(endyr_r);
-   cout << endyr_r <<" "<< Ntmp(endyr_r) <<" "<<SSB(endyr_r)<<endl;
+   //cout << endyr_r <<" "<< Ntmp(endyr_r) <<" "<<SSB(endyr_r)<<endl;
    sel_fut = sel_fsh(endyr_r);
    for (i=styr;i<=endyr_r+2;i++)
    {
@@ -6139,7 +6235,7 @@ void model_parameters::write_R(void)
      Ntmp(i,nages)  += Ntmp(i-1,nages)*S(endyr_r,nages);
      Ntmp(i,1)       = meanrec;
      SSBtmp = elem_prod(elem_prod(Ntmp(i),pow(S(endyr_r),yrfrac)),p_mature)*wt_ssb(endyr_r); // Eq. 1
-      cout << i <<" "<< Ntmp(i) <<" "<<SSBtmp<<endl;
+      //cout << i <<" "<< Ntmp(i) <<" "<<SSBtmp<<endl;
      // age_3_plus_biom(i)  = natage(i)(3,nages) * wt_ssb(i)(3,nages); 
      fshable = value(elem_prod(Ntmp(i),sel_fut) * wt_ssb(endyr_r)); // fishable biomass
      AM_fmsyr =  value(exp(lnFmsy2 + lnFmsy2.sd*lnFmsy2.sd /2.));
@@ -6474,6 +6570,30 @@ void model_parameters::Est_Fixed_Effects_wts(void)
   }
 }
 
+dvariable model_parameters::dgengamma(const double& x, dvariable mean2, const double& sigma, const double& Q)
+{
+  ofstream& srecout= *pad_srecout;
+  ofstream& projout= *pad_projout;
+  ofstream& nofish= *pad_nofish;
+  ofstream& projout2= *pad_projout2;
+  ofstream& eval= *pad_eval;
+  random_number_generator& rng= *pad_rng;
+  // returns negative log-likelihood of generalized gamma distribution
+  RETURN_ARRAYS_INCREMENT();
+  double k = pow( Q, -2 );
+  double Beta = pow( sigma, -1 ) * Q;
+  dvariable log_theta = log(mean2) - lgamma( (k*Beta+1)/Beta ) + lgamma( k );
+  dvariable mu = log_theta + log(k) / Beta;
+  dvariable w = (log(x) - mu) / sigma;
+  double abs_q = sqrt(Q*Q);  // = abs(Q); not differentiable!
+  double qi = 1/square(Q);
+  dvariable qw = Q*w;
+  dvariable logres = -log(sigma*x) + log(abs_q) * (1. - 2. * qi) + qi * 
+	                   (qw - exp(qw)) - lgamma(qi);
+  RETURN_ARRAYS_DECREMENT();
+  return(-logres);
+}
+
 double model_parameters::sdnr(const dvector& obs, const dvar_vector& pred, const dvector& sig)
 {
   ofstream& srecout= *pad_srecout;
@@ -6629,7 +6749,6 @@ void model_parameters::report(const dvector& gradients)
     return;
   }
   // if (last_phase()) Get_Replacement_Yield();
-  save_gradients(gradients);
     int k;
     i=1;k=i+2;
     all_like(i,k) = surv_like            ;i+=3;
@@ -6952,9 +7071,9 @@ void model_parameters::report(const dvector& gradients)
   {
     if(iseed>0)
       SimulateData1();
-    cout<< "Estimated and SR-predicted recruits"<<endl;
-    cout<< pred_rec(styr,endyr_r)<<endl;
-    cout<< SRecruit(SSB(styr,endyr_r))<<endl;
+    //cout<< "Estimated and SR-predicted recruits"<<endl;
+    //cout<< pred_rec(styr,endyr_r)<<endl;
+    //cout<< SRecruit(SSB(styr,endyr_r))<<endl;
     write_projout2();
     write_projout();
     // write_newproj();
@@ -7095,11 +7214,28 @@ void model_parameters::report(const dvector& gradients)
     fakeFfile << F_yldcrv << endl;
   }
   }
+  save_gradients(gradients);
 }
 
 void model_parameters::final_calcs()
 {
   write_R();
+  adstring ad_tmp=initial_params::get_reportfile_name();
+  ofstream report((char*)(adprogram_name + ad_tmp),ios::app);
+	dvar_vector srv_tmp(1,n_bts);
+	if (DoCovBTS==2){
+		report<<"GenGamma_Like"<<endl;
+    for (i=1;i<=n_bts_r;i++)
+		{
+			report<<(yrs_bts_data(i))<<" ";
+		  if (sd_GenGam(i)>0)
+			  report<< -dgengamma(ob_bts(i), eb_bts(i), sd_GenGam(i), q_GenGam(i))<<endl;
+			else{
+        srv_tmp = log(ob_bts) - log(eb_bts );
+			  report<< square(srv_tmp(i))/(2.*var_ob_bts(i))<<endl;
+			}
+		}
+	}
 }
 
 model_data::~model_data()

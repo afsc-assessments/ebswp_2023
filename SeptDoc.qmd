@@ -112,7 +112,7 @@ In this section we present the updated error terms associated with the acoustic 
 
 @cheng2023
 
-\@siskey2022
+@siskey2022
 
 @indivero2023
 
@@ -143,6 +143,8 @@ Selectivity at age
 # Summary
 
 Based on the results presented, we recommend:
+
+-   Adjustments to the process error term be implemented to provide better consistency between model fitting and input data uncertainty assumptions
 
 -   adopting the revised error structure estimates from the acoustic trawl survey. *these are the best available and reflect a reasonable trade-off*
 

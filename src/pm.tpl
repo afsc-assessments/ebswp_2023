@@ -4825,7 +4825,6 @@ FUNCTION dvar_matrix compute_selectivity_ats_devs(const int nsel,const int stsel
   int ii;
   log_sel(stsel)-=log(mean(exp(log_sel(stsel))));
   ii=1;
-	// COUT(exp(log_sel(stsel)));// COUT(stsel);
   for (int i=stsel+1;i<=endyr_r;i++) // Starts in 1979
   {
     // if (i==yrs_ats_data(ii)&&ii<=dim_sel_ats)
@@ -4835,7 +4834,6 @@ FUNCTION dvar_matrix compute_selectivity_ats_devs(const int nsel,const int stsel
       // log_sel(i+1)(nsel+1,nages)  = log_sel(i+1,nsel);
       log_sel(i)(mina_ats,nsel) = log_sel(i-1)(mina_ats,nsel) + sel_devs(ii);
       log_sel(i)(nsel+1,nages)  = log_sel(i,nsel);
-	    // COUT(exp(log_sel(stsel)));// COUT(stsel);
       if(ii<dim_sel_ats)
         ii++;
     }

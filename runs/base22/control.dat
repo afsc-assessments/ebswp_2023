@@ -75,7 +75,7 @@
 #next_yrs_catch;
 1350
 #nscen
-8
+8 #22
 #fixed_catch_fut2;
 1400
 #fixed_catch_fut3;
@@ -100,7 +100,7 @@
 3
 #phase_selcoffs_ats
 3
-#phase_sel_ats_dev
+#phase_selcoffs_ats_dev
 -5
 #phase_natmort
 -6
@@ -120,11 +120,11 @@
 5
 #wt_fut_phase
 6
-#last_age_sel_fsh
+#last_age_sel_group_fsh
 4
-#last_age_sel_bts
+#last_age_sel_group_bts
 8
-#last_age_sel_ats
+#last_age_sel_group_ats
 8
 #ctrl_flag
 200
@@ -151,9 +151,9 @@
 0.1
 5
 1
-1
+1 # exclude 1978 yc in SRR? 0=no, 1=yes
 2
-1
+1 # 0 means use 2018 as estimated, 1 means set to mean of 2012 and 2013 (for projections only)
 0
 2
 1
@@ -163,13 +163,14 @@
 1
 #phase_yreff
 1
-#switch_temp_rec
+#switch_temp_recruitment
 0 
-#phase_temp_rec
+#phase_temp_recruitment
 6
 #switch_pred_mort
 0 
 #phase_pred_mort
 1 
-#switch_mspp_func_re
-1 
+#switch_multispecies_fucntional_response
+1
+

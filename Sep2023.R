@@ -1,14 +1,12 @@
 #setwd("~/_mymods/ebswp/doc")
 rm(list=ls())
-ls()
 #install.packages("ggridges")
 #source("R/prelims.R")
-source("prelims.R")
+#source("prelims.R")
 library(ebswp)
 thisyr    <<- 2022
 lastyr    <<- thisyr-1
 nextyr    <<- thisyr+1
-ls()
 
 # The model specs
 
@@ -37,6 +35,7 @@ mod_dir <- c(
 # Won't do tier 3 spm (proj) model in the subdirectory at the moment
 # modlst <- run_model(Output=TRUE)
 #---Read in the results for modelsl already run--------------
+  library(tidyverse)
   modlst<-get_results()
   names(modlst)
   # Save result so it can be used by the document
@@ -59,6 +58,7 @@ write_dat(tmp=in_data)
   in_data <- read_dat("runs/dat/pm_base22.dat")
   write_dat(output_file = "runs/dat/proctune1.dat", tmp=in_data)
   # See if different from base
+  tail(sc2)
   ctl <-read_dat("runs/ProcTune/control.dat")
   ctlb <-read_dat("runs/base22/control.dat")
   diff <- purrr::map_lgl(names(ctl), ~ !identical(ctl[[.]], ctlb[[.]]))
@@ -73,9 +73,17 @@ write_dat(tmp=in_data)
   mod_names <- c("base22","p1")
   mod_dir <- c( "base22", 'ProcTune')
   names(ctl)
+  # Note, 0.2 CV for selectivity variability nails it (from base22)
+  # Read, adjust, write...
+  sc <-read_table("runs/dat/scmed22P.dat",col_names = FALSE); names(sc) <- c("Year","fsh","bts","ats")
+  sc2 <-  sc |> mutate(ats = ifelse(ats>0,.2,0))
+  write.table(sc2,file="runs/dat/scmed22P.dat",col.names = FALSE,row.names = FALSE)
   modtune <- run_model(Output=TRUE)
   modtune <- get_results()
+  names(modtune)
+  tab_fit(modtune, mod_scen = c(1,2)) |> gt::gt()
   save(modtune,file="~/_mymods/ebswp/doc/modtune.rdata")
+  M <- modtune
 
 
 #---Start setup for tuning by sdnrs
@@ -116,7 +124,6 @@ for (i in 1:4){
   mod_dir <- c( "../runs/base22/",  "../runs/ProcTune/")
   modtune<-get_results()
   mod_scen=c(1,2)
-  tab_fit(modtune, mod_scen = c(1,2)) |> gt::gt()
 
   tab_fit(modlst[c(1:3)])
 
