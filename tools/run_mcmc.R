@@ -42,6 +42,7 @@ fit.mle <- sample_nuts(model=m, path=d, iter=iter, warmup=iter/4,
 summary(fit.mle)
 plot_uncertainties(fit.mle)
 pairs_admb(fit.mle, pars=1:6, order='slow')
+pairs_admb(fit.mle, pars=1:6, order='fast')
 print(fit.mle)
 plot_sampler_params(fit.mle)
 launch_shinyadmb(fit.mle)
@@ -56,14 +57,21 @@ launch_shinyadmb(fit.mle)
 ## If good, run again for inference using updated mass matrix. Increase
 ## adapt_delta toward 1 if you have divergences (runs will take longer).
 mass <- fit.mle$covar.est # note this is in unbounded parameter space
-inits <- get.inits(nuts.mle, reps) ## use inits from pilot run
-nuts.updated <-
-  sample_admb(model=m, iter=2000, init=inits, algorithm='NUTS',  seeds=seeds,
-               parallel=TRUE, chains=reps, warmup=200, path=d, cores=reps,
-              mceval=TRUE, control=list(metric=mass, adapt_delta=0.95))
+inits <- get.inits(fit.mle, reps) ## use inits from pilot run
+reps
+fit.mle2 <- sample_nuts(model=m, path=d, iter=2000, warmup=iter/4, 
+                   chains=chains, cores=chains, control=list(control=list(max_treedepth=14,
+                    metric=mass,adapt_delta=0.95)))
+plot_sampler_params(fit.mle2)
+launch_shinyadmb(fit.mle2)
+pairs_admb(fit.mle2, pars=1:6, order='slow')
+summary(fit.mle2)
+saveRDS(fit.mle, file='fit.mle.RDS')
+saveRDS(fit.mle2, file='fit.mle2.RDS')
+
 ## Again check for issues of nonconvergence and other standard checks. Then
 ## use for inference.
-ess <- monitor(nuts.updated$samples, warmup=nuts.updated$warmup, print=FALSE)[,'n_eff']
+ess <- monitor(fit.mle2$samples, warmup=nuts.updated$warmup, print=FALSE)[,'n_eff']
 nuts.updated$ess <- ess
 saveRDS(nuts.updated, file='nuts.updated.RDS')
 launch_shinyadmb(nuts.updated)

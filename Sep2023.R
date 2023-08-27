@@ -12,24 +12,30 @@ nextyr    <<- thisyr+1
 
 #--Main models to presesnt in Sept   -----------
 # Read report file and create gmacs report object (a list):
-mod_names <- c("Last year",
-               "Base 22",
-               "Ageing Error",
-               "Diagonal cov BTS","GenGam","SSB=mean ",
-               "SSB Empirical wt-age","SSB RE wt-age","AVO new","AVO full","AVO low CV")
+mod_names <- c("Last year",   #1
+               "Base 22",     #2
+               "AVO new",     #3
+               "AVO full",    #4
+               "Tuned22",     #5
+               "Ageing Error",#6
+               "Diag cov BTS",#7
+               "GenGam",      #8
+               "SSB=mean ",   #9
+               "SSB Emp. wt-age", #10
+               "SSB RE wt-age") #10
 length(mod_names)
 mod_dir <- c(
   "base",
   "base22",
+  "avon1",
+  "avon2",
+  "ProcTune",
   "AgeErr",
   "diag",
   "gengam",
   "ssb0",
   "ssb1",
-  "ssb2",
-  "avon1",
-  "avon2",
-  "avon3"
+  "ssb2"
   )
 # WARNING, commented out line will re-run all the models in the mod_dir directories within "runs"
 # Won't do tier 3 spm (proj) model in the subdirectory at the moment
@@ -70,45 +76,53 @@ write_dat(tmp=in_data)
   write_dat("runs/base22/control.dat",ctl)
 
 # Set an initial working directory
-  mod_names <- c("base22","p1")
-  mod_dir <- c( "base22", 'ProcTune')
-  names(ctl)
+  mod_names <- c("avon2","Proc_tune")
+  mod_dir <- c( "avon2", 'ProcTune')
   # Note, 0.2 CV for selectivity variability nails it (from base22)
   # Read, adjust, write...
   sc <-read_table("runs/dat/scmed22P.dat",col_names = FALSE); names(sc) <- c("Year","fsh","bts","ats")
-  sc2 <-  sc |> mutate(ats = ifelse(ats>0,.2,0))
+  # Iterated on selectivity
+  sc2 <-  sc |> mutate(ats = ifelse(ats>0,.135,0))
   write.table(sc2,file="runs/dat/scmed22P.dat",col.names = FALSE,row.names = FALSE)
   modtune <- run_model(Output=TRUE)
-  modtune <- get_results()
-  names(modtune)
   tab_fit(modtune, mod_scen = c(1,2)) |> gt::gt()
+  modtune <- get_results()
+  #Now see if can converge on AVON CV--------
+  # Read datafile
+  in_data <- read_dat("runs/dat/proctune1.dat")
+  orig_avo_std <- in_data$ob_avo_std
+  in_data$ob_avo_std <- in_data$ob_avo_std * modtune[[2]]$sdnr_avo
+  write_dat(output_file = "runs/dat/proctune1.dat", tmp=in_data)
+  modtune <- run_model(Output=TRUE)
+  tab_fit(modtune, mod_scen = c(1,2)) |> gt::gt()
+
   save(modtune,file="~/_mymods/ebswp/doc/modtune.rdata")
-  M <- modtune[[2]]
   #---Compare selectivity for base w/ vast
-  df <- data.frame(sel=modtune[[1]]$sel_fut,Age=1:15,Model="base")
-  df <- rbind(df,data.frame(sel=modtune[[2]]$sel_fut,Age=1:15,Model="tuned"))
-  df
-  p1 <- df %>% ggplot(aes(x=Age,y=sel,color=Model)) + geom_line(linewidth=1.5) + ggthemes::theme_few() +
-    ylab("Selectivity") + scale_x_continuous(breaks=1:15);p1
   modtune[[2]]$sel_ats
-  p1 <- plot_sel(sel=modtune[[2]]$sel_bts,styr=1982,fill="darkblue") ;p1
+  p1 <- plot_sel(sel=modtune[[2]]$sel_ats,styr=1993,fill="darkblue") ;p1
+  p1 <- plot_sel(sel=modtune[[2]]$sel_ats,fage=2,lage=10,styr=1994,fill="darkblue") ;p1
+  ggsave("doc/figs/sel_ats_tuned.pdf",plot=p1,width=5,height=8.0,units="in")
+  in_data <- read_dat("runs/dat/proctune1.dat")
 
-  ebswp::plot_sel(M)
-  ?plot_sel
+  write_dat(output_file = "runs/dat/proctune1.dat", tmp=in_data)
 
+  p1 <- plot_sel(sel=M$sel_bts,styr=1982) ;p1
+  plot(M$sel_bts[19:59,1])
 
-#---Start setup for tuning by sdnrs
+#---Start setup for tuning by sdnrs-------
+  in_data <- read_dat("runs/dat/pm_base22.dat")
+  #Get base_22 run to start out (initial SDNRs)
+  M <- modtune[[1]]
+  # write to new file (the one that gets tuned)
+  write_dat(output_file="runs/dat/std_tune.dat",tmp=in_data)
+  mod_names <- c("tune"); mod_dir   <- c( "tune")
+
+  # Datafrmame to store convergence
   df.out <- tibble(iter=0,
-                   sdnr_bts=M[[1]]$sdnr_bts,
+                   sdnr_bts=M$sdnr_bts,
                    sdnr_ats=M$sdnr_ats,
                    sdnr_avo=M$sdnr_avo)
   df.out
-  write_dat(output_file = "runs/dat/proctune1.dat", tmp=in_data)
-  library(ebswp)
-  mod_names <- c("tune")
-  mod_dir   <- c( "tune")
-  p1 <- plot_sel(sel=M$sel_bts,styr=1982) ;p1
-
 #--Now iterate to get sdnrs near zero-----------
 for (i in 1:4){
 # step 1
@@ -116,9 +130,9 @@ for (i in 1:4){
   in_data$ob_avo_std = in_data$ob_avo_std * M$sdnr_avo
   in_data$ob_bts_std = in_data$ob_bts_std * M$sdnr_bts
 # step 4 now write new data (in_data)
-  write_dat(tmp=in_data)
+  write_dat(output_file="runs/dat/std_tune.dat",tmp=in_data)
 # step 2 run and get results
-  system("cd ../runs/tune/; make")
+  system("cd runs/tune/; make")
   modlst<-get_results()
   M <- modlst[[1]]
   df.out <- rbind(df.out,tibble(iter=0,
@@ -128,17 +142,29 @@ for (i in 1:4){
                   )
 
 # step 3 replace stds with adjusted stds by sdnrs from results
-  in_data <- read_dat("output.txt")
+  in_data <- read_dat("runs/dat/std_tune.dat")
 }
   df.out
 
-#---Try process error tuning--------------
-  mod_names <- c("base22","Tune ATS availability")
-  mod_dir <- c( "../runs/base22/",  "../runs/ProcTune/")
+  mod_names <- c("base22","Obs_tune","Proc_tune")
+  mod_dir <- c( "base22",  "tune", "ProcTune")
   modtune<-get_results()
-  mod_scen=c(1,2)
-
-  tab_fit(modlst[c(1:3)])
+  names(modtune)
+  tab_fit(modlst[c(3)])
+  library(patchwork)
+  p1 <- plot_bts(modtune[c(1,2,3)]) + coord_cartesian( ylim = c(0,15000) )+
+        scale_x_continuous(limits=c(1982-.5,2022.5)) + theme_few(base_size = 10);p1
+  p2 <- plot_ats(modtune[c(1,2,3)]) + coord_cartesian( ylim = c(0,7500) )+
+        scale_x_continuous(limits=c(1990-.5,2022.5)) + theme_few(base_size = 10);p2
+  p3 <- plot_avo(modtune[c(1,2,3)]) + coord_cartesian( ylim = c(0,1.6) ) +
+        scale_x_continuous(limits=c(1990-.5,2022.5)) + theme_few(base_size = 10);p3
+p4<-p2/p3 + plot_layout(guides='collect') ;p4
+  ggsave("doc/figs/mod_index_fits_tuned.pdf",plot=p4,width=9,height=7.0,units="in")
+  #scale_x_continuous(limits=c(1992-.5,2022.5)) ;p4
+    #theme(legend.position='bottom') +
+  ggsave("doc/figs/mod_bts_fit_tuned.pdf",plot=p1,width=8,height=4.0,units="in")
+  #p4<- p1 / ((p2 | p3) + plot_layout(guides='collect')) +
+  #plot_annotation(tag_levels = list('a',c(')',')',')')))
 
 for (i in 1:nmods) print(paste(modlst[[i]]$maxabc1s ,mod_names[i] ))
 for (i in 1:nmods) print(paste(modlst[[i]]$Tier3_ABC1 ,mod_names[i] ))

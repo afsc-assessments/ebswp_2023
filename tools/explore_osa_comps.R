@@ -13,7 +13,7 @@ library(dplyr)
 library(tidyr)
 theme_set(theme_bw())
 library(here)
-source(here::here("R", "plot_osa_comps.R"))
+source(here::here("tools", "plot_osa_comps.R"))
 
 ## example of how it works on simulated data (help file)
 o <- rmultinom(100, 25, c(.2,.2,.1,.1,.1,.3))
@@ -23,55 +23,19 @@ plot(res)
 colSums(o)
 colSums(p)
 
-## GOA pollock info
-repfile <- readRDS(here::here('data', 'repfile.RDS'))
-datfile <- readRDS(here::here('data', 'datfile.RDS'))
+## EBS pollock info
+load(file="doc/modtune.rdata")
+ages <- 2:15
+datfile<-read_dat("runs/dat/pm_base22.dat")
 
-ages <- 3:10
-o <- repfile$Survey_1_observed_and_expected_age_comp[,ages]
-p <- repfile$Survey_1_observed_and_expected_age_comp[,10+ages]
-pearson <- repfile$Survey_1_Pearson_residuals_age_comp[,ages]
-years <- datfile$srv_acyrs1
-Neff <- datfile$multN_srv1 # this gets rounded
+M<-(modtune[[2]])
+o    <- M$pobs_ats[,3:16]
+p    <- M$phat_ats[,3:16]
+Neff <- M$EffN_ats[,2]
+pearson <- Neff*(o-p)/sqrt(p*Neff)
+years <- M$pobs_ats[,1]
 plot_osa_comps(o,p, pearson, index=ages, years=years, index_label='age', Neff=Neff,
-               stock='GOApollock', survey='shelikof', outpath='figs')
-
-## obs and expected (p), rows=years, columns=ages
-ages <- 1:10
-o <- repfile$Survey_2_observed_and_expected_age_comp[,ages]
-p <- repfile$Survey_2_observed_and_expected_age_comp[,10+ages]
-pearson <- repfile$Survey_2_Pearson_residuals_age_comp[,ages]
-years <- datfile$srv_acyrs2
-Neff <- datfile$multN_srv2 # this gets rounded
-plot_osa_comps(o,p, pearson, index=ages, years=years, index_label='age', Neff=Neff,
-               stock='GOApollock', survey='nmfs_bt', outpath='figs')
-
-ages <- 1:10
-o <- repfile$Survey_3_observed_and_expected_age_comp[,ages]
-p <- repfile$Survey_3_observed_and_expected_age_comp[,10+ages]
-pearson <- repfile$Survey_3_Pearson_residuals_age_comp[,ages]
-years <- datfile$srv_acyrs3
-Neff <- datfile$multN_srv3 # this gets rounded
-plot_osa_comps(o,p, pearson, index=ages, years=years, index_label='age', Neff=Neff,
-               stock='GOApollock', survey='adfg', outpath='figs')
-
-ages <- 1:10
-o <- repfile$Survey_6_observed_and_expected_age_comp[,ages]
-p <- repfile$Survey_6_observed_and_expected_age_comp[,10+ages]
-pearson <- repfile$Survey_6_Pearson_residuals_age_comp[,ages]
-years <- datfile$srv_acyrs6
-Neff <- datfile$multN_srv6 # this gets rounded
-plot_osa_comps(o,p, pearson, index=ages, years=years, index_label='age', Neff=Neff,
-               stock='GOApollock', survey='summer_at', outpath='figs')
-
-ages <- 1:10
-o <- repfile$Fishery_observed_and_expected_age_comp[,ages]
-p <- repfile$Fishery_observed_and_expected_age_comp[,10+ages]
-pearson <- repfile$Fishery_Pearson_residuals_age_comp[,ages]
-years <- datfile$fshyrs
-Neff <- datfile$multN_fsh
-plot_osa_comps(o,p, pearson, index=ages, years=years, index_label='age', Neff=Neff,
-               stock='GOApollock', survey='fishery', outpath='figs')
+               stock='EBSpollock', survey='tuned_ats', outpath='doc/figs')
 
 # GOA RE/BS ----
 

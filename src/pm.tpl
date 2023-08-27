@@ -4019,7 +4019,7 @@ FUNCTION write_eval
         }
         for (i=1;i<=n_bts_r;i++)
         {
-          mceval_ac_ppl << "0 oac" <<" bts " << yrs_bts_data(i)<<" 0 " <<  oac_bts(i)(mina_bts,nages) <<endl;
+          mceval_ac_ppl << "0 oac" <<" bts " << yrs_bts_data(i)<<" 0 " <<  oac_bts(i) <<endl;
         }
         for (i=1;i<=n_ats_r;i++)
         {
@@ -4035,8 +4035,8 @@ FUNCTION write_eval
         }
         for (i=1;i<=n_bts_r;i++)
         {
-          mceval_ac_ppl << count_mcmc<<" eac bts " << yrs_bts_data(i)<<" 0 " <<  eac_bts(i)(mina_bts,nages)  <<endl;
-          mceval_ac_ppl << count_mcmc<<" sim bts " << yrs_bts_data(i)<<" 0 " <<  rmultinomial(value(eac_bts(i)(mina_bts,nages) ),sam_bts(i)) <<endl;
+          mceval_ac_ppl << count_mcmc<<" eac bts " << yrs_bts_data(i)<<" 0 " <<  eac_bts(i)  <<endl;
+          mceval_ac_ppl << count_mcmc<<" sim bts " << yrs_bts_data(i)<<" 0 " <<  rmultinomial(value(eac_bts(i) ),sam_bts(i)) <<endl;
         }
         for (i=1;i<=n_ats_r;i++)
         {

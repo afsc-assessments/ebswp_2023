@@ -88,7 +88,7 @@ plot_ats <- function(M, xlab = "Year", ylab = "Acoustic trawl survey biomass",
             geom_errorbar(aes(x = year, ymax = ub, ymin = lb),width=.5)
     } else {
         dw <- 0.5
-        p <- p + geom_line(aes(x = year, y = pre, col = Model),size=0.8,position=position_dodge(width=dw)) + geom_point(aes(x=year, y=obs,col=Model,fill=Model),position = position_dodge(width=dw)) +
+        p <- p + geom_line(aes(x = year, y = pre, col = Model), width=1, position=position_dodge(width=dw)) + geom_point(aes(x=year, y=obs,col=Model,fill=Model),position = position_dodge(width=dw)) +
            geom_pointrange(aes(year, obs, ymax = ub, ymin = lb, color = Model,fill=Model), shape = 1, linetype = "solid", position = position_dodge(width = dw))
             #geom_errorbar(aes(x = year, ymax = ub, ymin = lb),width=0.5,position=position_dodge(width=0.9))
     }

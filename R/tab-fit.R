@@ -26,7 +26,7 @@ tab_fit <- function(M, mod_scen=NULL){
     cat_like  <- round(x$cat_like[1],2); names(cat_like) <- paste0("Catch NLL")
     bts_like  <- round(x$surv_like[1],2); names(bts_like) <- paste0("BTS NLL")
     ats_like  <- round(x$surv_like[2],2); names(ats_like) <- paste0("ATS NLL")
-    avo_like  <- round(x$surv_like[3],2); names(avo_like) <- paste0("AVO NLL")
+    avo_like  <- round(x$avo_like,2)    ; names(avo_like) <- paste0("AVO NLL")
     # cop_like  <- round(x$cope_like  ,2); names(cop_like) <- paste0("Copepod NLL")
     fac_like  <- round(x$age_like[1],2); names(fac_like) <- paste0("Fish Age NLL")
     bac_like  <- round(x$age_like[2],2); names(bac_like) <- paste0("BTS Age NLL")

@@ -1,3 +1,17 @@
+@article{trijoulet2023,
+title = {Model validation for compositional data in stock assessment models: Calculating residuals with correct properties},
+journal = {Fisheries Research},
+volume = {257},
+pages = {106487},
+year = {2023},
+issn = {0165-7836},
+doi = {https://doi.org/10.1016/j.fishres.2022.106487},
+url = {https://www.sciencedirect.com/science/article/pii/S0165783622002648},
+author = {Vanessa Trijoulet and Christoffer Moesgaard Albertsen and Kasper Kristensen and Christopher M. Legault and Timothy J. Miller and Anders Nielsen},
+keywords = {compResidual R-package, Multivariate distributions, One-step-ahead quantile residuals, Pearson, Template Model Builder},
+abstract = {Stock assessment models are often used to inform fisheries management and need therefore to be thoroughly validated. Different diagnostics exist to validate models including the analysis of standardized residuals. Standardized residuals are commonly calculated by subtracting prediction from the observation and dividing the result with the estimated standard deviation (i.e., Pearson residuals). Many currently applied stock assessment models fit to compositional observations (e.g., age, length or stock compositions) using multivariate distributions. These distributions create correlation between observations, which are propagated in the residuals if estimated as Pearson. This study shows that using Pearson residuals to analyze goodness of the fit, when data are fitted using a multivariate distribution, is incorrect and one-step-ahead (OSA) or forecast quantile residuals should be used instead. For such distributions, OSA residuals are independent and standard normally distributed for correctly specified models. This study describes the calculation of OSA residuals specifically to de-correlate compositional observations for the multivariate distributions most commonly used in assessment models. This allows composition observations to be evaluated with the same statistical rigor as residuals from uncorrelated observations. This also prevents the possible wrong interpretation of Pearson residuals and the rejection of a correct model. We have developed an R-package that estimates OSA residuals externally to the model for models that do not include random processes. For models that use random processes, the distributions are now developed in Template Model Builder and explained in detail here for internal use.}
+}
+
 @article{Francis2011,
 author = {Francis, R.I.C. Chris},
 title = {Data weighting in statistical fisheries stock assessment models},

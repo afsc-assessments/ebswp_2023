@@ -70,17 +70,17 @@
 14.93209877
 #srprior_b
 14.93209877
-#nyrs_future;
+#nyrs_future
 5
-#next_yrs_catch;
+#next_yrs_catch
 1350
 #nscen
-8 #22
-#fixed_catch_fut2;
+8
+#fixed_catch_fut2
 1400
-#fixed_catch_fut3;
+#fixed_catch_fut3
 1200
-#phase_F40;
+#phase_F40
 6
 #robust_phase
 1350
@@ -100,7 +100,7 @@
 3
 #phase_selcoffs_ats
 3
-#phase_selcoffs_ats_dev
+#phase_sel_ats_dev
 -5
 #phase_natmort
 -6
@@ -151,9 +151,9 @@
 0.1
 5
 1
-1 # exclude 1978 yc in SRR? 0=no, 1=yes
+1
 2
-1 # 0 means use 2018 as estimated, 1 means set to mean of 2012 and 2013 (for projections only)
+1
 0
 2
 1
@@ -173,4 +173,3 @@
 1 
 #switch_multispecies_fucntional_response
 1
-

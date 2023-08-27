@@ -75,7 +75,7 @@
 #next_yrs_catch
 1350
 #nscen
-8 
+8
 #fixed_catch_fut2
 1400
 #fixed_catch_fut3
@@ -100,7 +100,7 @@
 3
 #phase_selcoffs_ats
 3
-#phase_selcoffs_ats_dev
+#phase_sel_ats_dev
 5
 #phase_natmort
 -6
