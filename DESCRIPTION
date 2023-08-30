@@ -12,4 +12,4 @@ RoxygenNote: 7.2.3
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: http://afsc-assessments.github.io/EBSpollock/
+URL: http://afsc-assessments.github.io/EBSpollock/, http://afsc-assessments.github.io/EBSwp/
