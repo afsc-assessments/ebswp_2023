@@ -1,56 +1,90 @@
-# EBSpollock
-An attempt to make assessments more transparent!
 
-## The SSC continues to support:
-  * Ongoing genetic studies to determine the relationship between pollock in the NBS and EBS, and nearby GOA and AI regions.
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
-  * The 2019 BSAI GPT recommendation to revisit and evaluate the treatment of variance parameters 
-	   within the assessment, with particular attention to those that are fixed.
+# East Bering Sea pollock <img src="man/figures/logo.png" align="right" height=140/>
 
-  * Efforts to quantify pollock movement and abundance along the US-Russia EEZ boundary.
+The R package `ebswp` was developed for doing stock assessments of
+eastern Bering Sea walleye pollock for the AFSC. The stock assessment
+model was coded using the Autodif Model Builder (`ADMB`) software.
 
-  * Geostatistical analyses of combined trawl and acoustic data to provide a single time-series,
-    statistically accounting for the overlap between these data, for informing stock trends.
+## Cloning the repository (optional)
 
-## The SSC provides the following additional recommendations:
-  * Exploration of young-of-year pollock density and quality estimates from NMFS BASIS surveys to inform pollock recruitment.
+The R package `ebswp` lives on a private GitHub repository. The
+repository can be cloned to your computer from the command line or using
+a user interface. From the command line using Linux the repository can
+be cloned using:
 
-  * Consideration of whether the observed sensitivity in the SRR to prior specification should
-constitute an increased risk level specification within the assessment or population dynamicsrelated considerations. This could provide a clearer justification for the use of the Tier 3 calculation
-as the basis for harvest specification.
+``` r
+git clone https://github.com/afsc-assessments/ebswp
+```
 
-  * Given the time-varying specification of fishery selectivity within the assessment model and the
-large change in the estimated 2021 FOFL between the 2019 and 2020 assessments, the authors should
-provide a retrospective comparison of the selectivity assumed in projections to that estimated with
-the addition of new data.
+## Installation
 
-  * Consideration of whether risk table specifications should account for the importance of pollock as
-a key forage species in the EBS ecosystem to better justify the use of a Tier 3 ABC determination
-as a precautionary measure for this Tier 1 stock.
+There are several options for installing the `ebswp` R package.
 
-  * Given the apparent disappearance of the second and large mode in fishery length compositions as
-the 2020 B-season progressed, exploration of within-season spatial variation in fishery length
-composition would be useful in evaluating whether these larger pollock simply moved out of the
-area of fishing effort, or died as a result of natural or fishing mortality.
+### Option 1
 
-# EBS pollock 2016
-## Tasks and todo list
-    [x] Add in survey biomass     
-    [x] Update catches     
-    [x] Add in 2015 fishery age compositions      
-    [x] Add in 2016 survey age compositions     
-    [x] Modify code to accommodate time-varying M
-    [ ] Modify code to accommodate biomass in density-dependent covariance
-    [ ] Modify code to use new wt-age estimation
-    [ ] Figure out which models to use going forward     
+The `ebswp` package can be installed from within R using:
 
-| Models | 3m | 0.5m | Standard survey | Dens. Dep. Correction | Numbers | Biomass | Numbers | Biomass | 15.1 Input sample sizes | Revised input sample sizes | wt 15.1 | wt 16.0 | Description                             |
-|--------|----|------|-----------------|-----------------------|---------|---------|---------|---------|-------------------------|----------------------------|---------|---------|-----------------------------------------|
-| 14.1   | x  |      | x               |                       | x       |         | x       |         | x                       |                            | x       |         | 2014 model                              |
-| 15.1   | x  |      |                 | x                     | x       |         | x       |         | x                       |                            | x       |         | 2015 model                              |
-| 16.01  | x  |      | x               |                       |         | x       |         | x       | x                       |                            | x       |         | Transition to biomass                   |
-| 16.02  |    | x    | x               |                       |         | x       |         | x       | x                       |                            | x       |         | Transition to ATS 0.5m                  |
-| 16.03  |    | x    |                 | x                     |         | x       |         | x       |                         |                            | x       |         | Transition to BTS dens. dep. Correction |
-| 16.04  |    | x    |                 | x                     |         | x       |         | x       |                         | x                          | x       |         | Input sample size adjustment            |
-| 16.1   |    | x    |                 | x                     |         | x       |         | x       |                         | x                          |         | x       | Proposed model                          |
+``` r
+devtools::install_github(repo = "afsc-assessments/ebswp", dependencies = TRUE, 
+                         build_vignettes = TRUE, auth_token = "your_PAT")
+```
 
+### Option 2
+
+The GitHub repository can be cloned to your computer and the package
+installed from the command line. From Linux this would involve:
+
+``` r
+git clone https://github.com/afsc-assessments/ebswp
+R CMD INSTALL ebswp
+```
+
+### Option 3
+
+This time from within R using:
+
+``` r
+devtools::install("ebswp")
+```
+
+## Help
+
+Help for all `ebswp` functions and data sets can be found on the R help
+pages associated with each function and data set. Help for a specific
+function can be viewed using `?function_name`, for example:
+
+``` r
+?run_model
+?tab_fit
+?plot_sel
+```
+
+Alternatively, to see a list of all available functions and data sets
+use:
+
+``` r
+help(package = "ebswp")
+```
+
+## Examples
+
+The package vignettes are a great place to see what `ebswp` can do. You
+can view the package vignettes from within R using:
+
+``` r
+browseVignettes(package = "ebswp")
+vignette(topic = "ebswp", package = "ebswp")
+```
+
+## Website
+
+All of the vignettes and the help pages for each function are bundled
+together and published on the website
+<https://afsc-assessments.github.io/ebswp/>.
+
+## Developers
+
+Developers will want to do things slightly differently. See the
+`Model development` vignette.

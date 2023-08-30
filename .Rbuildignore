@@ -3,3 +3,7 @@
 ^\.Rproj\src$
 src/*
 src\pm.cpp
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$

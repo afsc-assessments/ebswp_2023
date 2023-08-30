@@ -45,7 +45,7 @@ pairs_admb(fit.mle, pars=1:6, order='slow')
 pairs_admb(fit.mle, pars=1:6, order='fast')
 print(fit.mle)
 plot_sampler_params(fit.mle)
-launch_shinyadmb(fit.mle)
+launch_shinyadmb(fit.mle2)
 
 ## It doesn't really need any fixes so rerun with NUTS. Reoptimize to get
 ## the correct mass matrix for NUTS. Note the -hbf 1 argument. This is a

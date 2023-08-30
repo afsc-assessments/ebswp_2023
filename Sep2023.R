@@ -43,9 +43,11 @@ mod_dir <- c(
 #---Read in the results for modelsl already run--------------
   library(tidyverse)
   modlst<-get_results()
-  names(modlst)
+  #names(modlst)
   # Save result so it can be used by the document
   save(modlst,file="~/_mymods/ebswp/doc/septmod.rdata")
+
+
 
 #---Covariance diagonal extraction--------
 #   a one-off to get the variance term from covariance diagonal into the ob_bts_std
@@ -81,16 +83,18 @@ write_dat(tmp=in_data)
   # Note, 0.2 CV for selectivity variability nails it (from base22)
   # Read, adjust, write...
   sc <-read_table("runs/dat/scmed22P.dat",col_names = FALSE); names(sc) <- c("Year","fsh","bts","ats")
+  tail(sc )
   # Iterated on selectivity
-  sc2 <-  sc |> mutate(ats = ifelse(ats>0,.135,0))
+  sc2 <-  sc |> mutate(ats = ifelse(ats>0,.138,0))
   write.table(sc2,file="runs/dat/scmed22P.dat",col.names = FALSE,row.names = FALSE)
   modtune <- run_model(Output=TRUE)
   tab_fit(modtune, mod_scen = c(1,2)) |> gt::gt()
-  modtune <- get_results()
+
   #Now see if can converge on AVON CV--------
   # Read datafile
+  in_data <- read_dat("runs/dat/proctune0.dat")
+  #in_data <- read_dat("runs/dat/pm_avon2.dat")
   in_data <- read_dat("runs/dat/proctune1.dat")
-  orig_avo_std <- in_data$ob_avo_std
   in_data$ob_avo_std <- in_data$ob_avo_std * modtune[[2]]$sdnr_avo
   write_dat(output_file = "runs/dat/proctune1.dat", tmp=in_data)
   modtune <- run_model(Output=TRUE)
