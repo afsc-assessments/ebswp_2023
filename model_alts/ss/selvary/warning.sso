@@ -1,9 +1,0 @@
-Warning 1 : Turn Benchmark on because Forecast needs it
-Warning 2 : Change SPR_reporting to 4 because benchmarks are off
-Note 1 Suggestion: This model has just one settlement event. Changing to recr_dist_method 4 and removing the recruitment distribution parameters at the end of the MG parms section (below growth parameters) will produce identical results and simplify the model.
-Warning 3 : Minimum pop size bin:_10; is > L at Amin for sex: 1; Gpat: 1; L= 5
-Warning 4 : 1st iteration warning: ssb(endyr)/ssb(styr)= 1.48926e-06; suggest start with larger R0 to get near 0.4; or use depletion fleet option
-Warning 5 : 1st iteration warning: catch logL > 50% total logL; check configuration; suggest start with larger R0
-Warning 6 : Early recdev biasadj is >2 times ratio of rmse to sigmaR
-Warning 7 : Final gradient: 0.000271039 is larger than final_conv: 1e-05
- 7 warnings  and 1 note 
