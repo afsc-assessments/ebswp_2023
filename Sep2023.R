@@ -79,8 +79,8 @@ write_dat(tmp=in_data)
   write_dat("runs/base22/control.dat",ctl)
 
 # Set an initial working directory
-  mod_names <- c("avon2","Proc_tune","avon1")
-  mod_dir <- c("avon2", "ProcTune","avon1")
+  mod_names <- c("AVON Full","Proc_tune")
+  mod_dir <- c("avon2", "ProcTune")
   # Note, 0.2 CV for selectivity variability nails it (from base22)
   # Read, adjust, write...
   sc <-read_table("runs/dat/scmed22P.dat",col_names = FALSE); names(sc) <- c("Year","fsh","bts","ats")
@@ -112,8 +112,10 @@ write_dat(tmp=in_data)
   #---Compare selectivity for base w/ vast
   modtune[[2]]$sel_ats
   p1 <- plot_sel(sel=modtune[[2]]$sel_ats,styr=1993,fill="darkblue") ;p1
-  p1 <- plot_sel(sel=modtune[[2]]$sel_ats,fage=2,lage=10,styr=1994,fill="darkblue") ;p1
+  library(ggridges)
+  p1 <- plot_sel(Year=modtune[[2]]$Yr,sel=modtune[[2]]$sel_ats,fage=2,lage=10,styr=1994,fill="darkblue") ;p1
   ggsave("doc/figs/sel_ats_tuned.pdf",plot=p1,width=5,height=8.0,units="in")
+
   in_data <- read_dat("runs/dat/proctune1.dat")
 
   write_dat(output_file = "runs/dat/proctune1.dat", tmp=in_data)

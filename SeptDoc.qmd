@@ -181,7 +181,27 @@ df |> gt::gt() |>  gt::fmt_markdown()
 
 ## Model tuning
 
+Given that we elect to use the latest AVO revised data, the next task was to evaluate
+alternative "tuning" approaches. As noted above, this entailed examining tradeoffs between
+observation and process error assumptions. 
 Selectivity at age
+
+In @fig-sel_ats_tuned we show how the alternative tuning approaches affected the relative fits and uncertainty assumptions. 
+For the observation-error approach
+
+In @fig-mod_index_fits_tuned we show how the alternative tuning approaches affected the relative fits and uncertainty assumptions. 
+For the observation-error tuning, the AVO error bars increased slightly while the opposite occurred for the ATS index.
+
+Updating the ATS data resulted in a different fit to the data trend of those data due to the lower overall uncertainty of the observations 
+specified in revision (@fig-atsalt). This change had a minor impact on the recent estimates of spawning biomass (@fig-atsaltssb).
+
+Changing the bottom-trawl survey error to be based on independent annual survey index values (the base model used a covariance matrix 
+estimated for the series) changed the trend of spawning biomass and uncertainty slightly (@fig-diagssb).
+
+These model estimates for alternative error assumptions indicated that the shows results on goodness of fits while (@tbl-modfitserr) 
+@tbl-modreferr shows the impact of different spawning biomass weights-at-age assumptions.
+
+![Time varying acoustic trawl selectivity estimates for the process-error tuned model.](doc/figs/sel_ats_tuned.pdf){#fig-sel_ats_tuned}
 
 
 {{< pagebreak >}}
@@ -206,30 +226,6 @@ tab_ref(modtune[c(1:2)]) |> gt::gt() |> gt::fmt_markdown()
 ```
 
 
-## Alternative error-term specifications
-
-In this section we present the updated error terms associated with the acoustic trawl data (the observations used previously were revised). 
-We also show the impact of using the diagonal covariance matrix and an alternative for the bottom trawl survey data based on the generalized 
-gamma distribution in place of the log-normal. 
-
-
-
-In @fig-sel_ats_tuned we show how the alternative tuning approaches affected the relative fits and uncertainty assumptions. For the observation-error
-
-In @fig-mod_index_fits_tuned we show how the alternative tuning approaches affected the relative fits and uncertainty assumptions. 
-For the observation-error tuning, the AVO error bars increased slightly while the opposite occurred for the ATS index.
-
-Updating the ATS data resulted in a different fit to the data trend of those data due to the lower overall uncertainty of the observations 
-specified in revision (@fig-atsalt). This change had a minor impact on the recent estimates of spawning biomass (@fig-atsaltssb).
-
-Changing the bottom-trawl survey error to be based on independent annual survey index values (the base model used a covariance matrix 
-estimated for the series) changed the trend of spawning biomass and uncertainty slightly (@fig-diagssb).
-
-These model estimates for alternative error assumptions indicated that the shows results on goodness of fits while (@tbl-modfitserr) 
-@tbl-modreferr shows the impact of different spawning biomass weights-at-age assumptions.
-
-![Time varying acoustic trawl selectivity estimates for the process-error tuned model.](doc/figs/sel_ats_tuned.pdf){#fig-sel_ats_tuned}
-
 ## Spawning biomass weight-at-age
 
 The random effects model used to estimate weight-at-age for the spawning biomass was based on the A-season fishery, the summer survey data (scaled to have the same mean as the A-season means) shows distinct year and cohort effects (@fig-ssbwt). @fig-wt_ssb shows how the patterns differ Compared to the values used in the base model, the trends are very similar but the scales change substantially in some years (@fig-ssbwt ; including the "SSB0" scenario).
@@ -241,6 +237,36 @@ The random effects model used to estimate weight-at-age for the spawning biomass
 @tbl-modfitsssb shows results on goodness of fits while
 
 @tbl-modrefssb shows the impact of different spawning biomass weights-at-age assumptions. Changing the specification of mean body weight-at-age for spawning pollock from status quo had a fairly big impact on the pattern of spawning biomass but among the new alternatives, the difference was minor (@fig-ssbssb).
+
+{{< pagebreak >}}
+
+```{r modfitsssb}
+#| label: tbl-modfitsssb
+#| tbl-cap: "Goodness-of-fit measures to primary data for different assessment model configurations. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data)"
+#| echo: false
+#names(modlst[5:6]) = 
+tab_fit(modlst[c(5,9:11)]) |> gt::gt() |>  gt::fmt_number( rows = c(8:21),decimals=0)
+```
+
+{{< pagebreak >}}
+
+```{r tbl-modrefssb}
+#| label: tbl-modrefssb
+#| tbl-cap:  "Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t."
+#| echo: false
+tab_ref(modlst[c(5,9:11)]) |> gt::gt() |>  gt::fmt_markdown()
+```
+{{< pagebreak >}}
+
+
+## Alternative error-term specifications
+
+In this section we present the updated error terms associated with the acoustic trawl data (the observations used previously were revised). 
+We also show the impact of using the diagonal covariance matrix and an alternative for the bottom trawl survey data based on the generalized 
+gamma distribution in place of the log-normal. 
+
+
+
 
 # Summary
 
@@ -292,25 +318,6 @@ tab_fit(modlst[c(5:8)]) |> gt::gt() |>  gt::fmt_number( rows = c(8:21),decimals=
 tab_ref(modlst[c(5:8)]) |> gt::gt() |>  gt::fmt_markdown()
 ```
 
-{{< pagebreak >}}
-
-```{r modfitsssb}
-#| label: tbl-modfitsssb
-#| tbl-cap: "Goodness-of-fit measures to primary data for different assessment model configurations. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data)"
-#| echo: false
-#names(modlst[5:6]) = 
-tab_fit(modlst[c(4,9:11)]) |> gt::gt() |>  gt::fmt_number( rows = c(8:21),decimals=0)
-```
-
-{{< pagebreak >}}
-
-```{r tbl-modrefssb}
-#| label: tbl-modrefssb
-#| tbl-cap:  "Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t."
-#| echo: false
-tab_ref(modlst[c(4,9:11)]) |> gt::gt() |>  gt::fmt_markdown()
-```
-{{< pagebreak >}}
 
 # Figures
 
