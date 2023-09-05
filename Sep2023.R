@@ -1,5 +1,7 @@
 #setwd("~/_mymods/ebswp/doc")
 rm(list=ls())
+.THEME=ggthemes::theme_few()
+.OVERLAY=TRUE
 #install.packages("ggridges")
 #source("R/prelims.R")
 #source("prelims.R")
@@ -23,7 +25,6 @@ mod_names <- c("Last year",   #1
                "SSB=mean ",   #9
                "SSB Emp. wt-age", #10
                "SSB RE wt-age") #10
-length(mod_names)
 mod_dir <- c(
   "base",
   "base22",
@@ -45,7 +46,7 @@ mod_dir <- c(
   modlst<-get_results()
   #names(modlst)
   # Save result so it can be used by the document
-  save(modlst,file="~/_mymods/ebswp/doc/septmod.rdata")
+  save(modlst,file="doc/septmod.rdata")
 
 
 
@@ -78,8 +79,8 @@ write_dat(tmp=in_data)
   write_dat("runs/base22/control.dat",ctl)
 
 # Set an initial working directory
-  mod_names <- c("avon2","Proc_tune")
-  mod_dir <- c( "avon2", 'ProcTune')
+  mod_names <- c("avon2","Proc_tune","avon1")
+  mod_dir <- c("avon2", "ProcTune","avon1")
   # Note, 0.2 CV for selectivity variability nails it (from base22)
   # Read, adjust, write...
   sc <-read_table("runs/dat/scmed22P.dat",col_names = FALSE); names(sc) <- c("Year","fsh","bts","ats")
@@ -87,8 +88,15 @@ write_dat(tmp=in_data)
   # Iterated on selectivity
   sc2 <-  sc |> mutate(ats = ifelse(ats>0,.138,0))
   write.table(sc2,file="runs/dat/scmed22P.dat",col.names = FALSE,row.names = FALSE)
-  modtune <- run_model(Output=TRUE)
+  #modtune <- run_model(Output=TRUE)
+  modtune<-get_results()
   tab_fit(modtune, mod_scen = c(1,2)) |> gt::gt()
+  tab_ref(modtune, mod_scen = c(1,2)) |> gt::gt()
+  tab_ref(modlst, mod_scen = c(4,5)) |> gt::gt()
+  (modlst[[4]]$nextyrssbs)
+  (modlst[[4]]$nextyrssb.sd)
+  (modtune[[1]]$nextyrssbs)
+  names(modtune)
 
   #Now see if can converge on AVON CV--------
   # Read datafile
@@ -156,6 +164,9 @@ for (i in 1:4){
   names(modtune)
   tab_fit(modlst[c(3)])
   library(patchwork)
+  library(ggthemes)
+
+  .OVERLAY=TRUE
   p1 <- plot_bts(modtune[c(1,2,3)]) + coord_cartesian( ylim = c(0,15000) )+
         scale_x_continuous(limits=c(1982-.5,2022.5)) + theme_few(base_size = 10);p1
   p2 <- plot_ats(modtune[c(1,2,3)]) + coord_cartesian( ylim = c(0,7500) )+
