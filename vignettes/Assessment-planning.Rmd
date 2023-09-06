@@ -1,0 +1,198 @@
+---
+title: "Planning for the pollock assessment in the EBS"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Planning for the pollock assessment in the EBS}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ebswp)
+```
+
+# EBS 2023 assessment analyses planning
+
+## From the 2022 SSC minutes:
+
+**The SSC suggests that walleye pollock is a good candidate for
+considering the impacts of highly variable recruitment on reference
+points in the context of the Council's harvest control rules** (see
+discussion on working groups in the JGPT report section). For example,
+the SAFE authors suggested exploring an explicit harvest control rule
+that maintains productivity at the level observed over recent decades
+(p. 33). The SSC supports considerations of modified harvest control
+rules, particularly for stocks with highly variable and uncertain
+recruitment. If the Council chooses, this could include considerations
+for stabilizing catches over time or including other economic
+considerations in the harvest control rules.
+
+-   *For the 2023 assessment we examine the variability of the biological reference points historically and note that there is general stability in the 
+$B_{MSY}$ 
+estimates. The Tier 1 ABC/OFL cthealculations can result in highly variable 
+estimates as the stock approaches
+$B_{MSY}$ and drops below that value (as happend in the 2009-2010 period).*
+
+
+The SSC had the following additional recommendations for the authors:
+
+-   Maturity and growth information from the NBS has not been examined
+    yet. Given the possible importance of the NBS to walleye pollock and
+    other species in the future, the SSC suggests this should be a high
+    priority.
+
+    -   *These data being processed and this work  is underway*
+
+-   The SSC supports efforts to implement recent advances in improving
+    the statistical treatment of compositional data using the Dirichlet
+    distribution or other approaches.
+
+    -   *Tradeoffs in data weighting were pursued in September 2023 and
+        saught to find a balance between observation error and process
+        errors*
+
+-   The SAFE document lists a number of research recommendations (p.
+    36/37). The SSC notes that some of these are at least in progress.
+    The SSC generally supports these recommendations but requests that
+    the authors update the list of priorities to clarify to what extent
+    some of these priorities have been partially or fully addressed.
+
+    -   *We updated the priorities and listed those that have been
+        completed or are continued to be underway*"
+
+-   In particular, the SSC notes that genetic sample collection and
+    analyses are listed as a research priority across all pollock stocks
+    and that some work has been completed. The SSC highlights the
+    importance of additional genetics work and would appreciate an
+    update on the status of this work either as part of the assessment
+    or separately.
+
+    -   *We revisited the stock structure work attached as an appendix to the 2015 
+    SAFE report chapter and are examining the extent that this work
+    needs updating.
+        *"
+
+-   The SSC appreciated the adjustments to weight-at-age in the survey
+    that was included in this year's assessment and suggests that these
+    changes may be substantial enough to warrant an examination of their
+    impact on assessment results.
+
+    -   *This publication has been completed and in the present assessment
+    we evaluated the implication of alternative spawning biomass-at-age 
+    assumptions.*"
+
+-   With respect to the multi-species CEATTLE model, the SSC concurs
+    with Plan Team recommendations to use the model to inform risk table
+    discussions and to consider ways in which model outputs, in
+    particular estimates of predation mortality, can inform
+    single-species assessments.
+
+    -   *We wil include a more thorough evaluation and discussion in the 
+    2023 assessment.*
+
+-   The SSC encourages the authors to consider model-based solutions to
+    uncertain recruitment estimates rather than ad-hoc adjustments. In
+    particular, reductions in the assumed recruitment variance parameter
+    may result in less extreme recruitment estimates. Other systematic
+    approaches to addressing the uncertainty may also be considered.
+
+    -   *We revisited applying the age-determination error matrix as 
+    a sensitivity as this can impact the recruitment variability and 
+    estimation uncertainty.*
+
+-   The SSC suggests that authors include a plot to compare estimates of
+    recent recruitments as they change over time similar to Fig 3.33
+    (pg. 88) in the sablefish assessment.
+
+    -   *We provide a figure of estimated recruitment by year class
+        (1977 -- 2019) in number of age-1 fish (billions of fish) for
+        the 2022 and 2023 models.* "
+
+-   The SSC supports the move across assessment from design-based
+    estimates of survey biomass to VAST estimates. The SSC recommends
+    that the design-based estimates be produced as a check on VAST
+    estimates and as a fallback option if needed, although they may not
+    need to be included in the assessment.
+
+    -   *We provide a table showing the design-based estimates and conduct
+    a model run with those estimates. This may be an approach to adopt so
+    that bridging across assessment modeling platforms can be facilitated
+    (most other assessment model platforms are unable to deal with index
+    time series that have a covariance matrix)*
+
+### Tasks and todo list
+
+  [ ] Add in survey biomass\
+  [ ] Update catches\
+  [ ] Add in 2022 fishery age compositions\
+  [ ] Add in 2023 survey age compositions\
+  [x] Modify code to accommodate FT-NIRS and other age-determination error
+  matrices by gear and year 
+  [ ] Figure out which models to use going
+    forward
+
+## From the 2021 SSC minutes
+
+-   Ongoing genetic studies to determine the relationship between
+    pollock in the NBS and EBS, and nearby GOA and AI regions.
+
+-   The 2019 BSAI GPT recommendation to revisit and evaluate the
+    treatment of variance parameters within the assessment, with
+    particular attention to those that are fixed.
+
+-   Efforts to quantify pollock movement and abundance along the
+    US-Russia EEZ boundary.
+
+-   Geostatistical analyses of combined trawl and acoustic data to
+    provide a single time-series, statistically accounting for the
+    overlap between these data, for informing stock trends.
+
+## The SSC provides the following additional recommendations:
+
+-   Exploration of young-of-year pollock density and quality estimates
+    from NMFS BASIS surveys to inform pollock recruitment.
+
+-   Consideration of whether the observed sensitivity in the SRR to
+    prior specification should constitute an increased risk level
+    specification within the assessment or population dynamicsrelated
+    considerations. This could provide a clearer justification for the
+    use of the Tier 3 calculation as the basis for harvest
+    specification.
+
+-   Given the time-varying specification of fishery selectivity within
+    the assessment model and the large change in the estimated 2021 FOFL
+    between the 2019 and 2020 assessments, the authors should provide a
+    retrospective comparison of the selectivity assumed in projections
+    to that estimated with the addition of new data.
+
+-   Consideration of whether risk table specifications should account
+    for the importance of pollock as a key forage species in the EBS
+    ecosystem to better justify the use of a Tier 3 ABC determination as
+    a precautionary measure for this Tier 1 stock.
+
+-   Given the apparent disappearance of the second and large mode in
+    fishery length compositions as the 2020 B-season progressed,
+    exploration of within-season spatial variation in fishery length
+    composition would be useful in evaluating whether these larger
+    pollock simply moved out of the area of fishing effort, or died as a
+    result of natural or fishing mortality.
+
+| Models | 3m  | 0.5m | Standard survey | Dens. Dep. Correction | Numbers | Biomass | Numbers | Biomass | 15.1 Input sample sizes | Revised input sample sizes | wt 15.1 | wt 16.0 | Description                             |
+|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
+| 14.1   | x   |      | x               |                       | x       |         | x       |         | x                       |                            | x       |         | 2014 model                              |
+| 15.1   | x   |      |                 | x                     | x       |         | x       |         | x                       |                            | x       |         | 2015 model                              |
+| 16.01  | x   |      | x               |                       |         | x       |         | x       | x                       |                            | x       |         | Transition to biomass                   |
+| 16.02  |     | x    | x               |                       |         | x       |         | x       | x                       |                            | x       |         | Transition to ATS 0.5m                  |
+| 16.03  |     | x    |                 | x                     |         | x       |         | x       |                         |                            | x       |         | Transition to BTS dens. dep. Correction |
+| 16.04  |     | x    |                 | x                     |         | x       |         | x       |                         | x                          | x       |         | Input sample size adjustment            |
+| 16.1   |     | x    |                 | x                     |         | x       |         | x       |                         | x                          |         | x       | Proposed model                          |
