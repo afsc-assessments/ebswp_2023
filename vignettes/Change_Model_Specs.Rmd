@@ -1,0 +1,164 @@
+---
+title: "Example on how to change and run a model"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Example on how to change and run a model}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  markdown: 
+    wrap: 72
+  chunk_output_type: console
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ebswp)
+```
+
+# Example use of `ebswp` library for setting up a new model
+
+### Read in an existing model
+
+```{r readwrite,eval=FALSE}
+d1 <- read_dat("runs/dat/pm_avon2.dat")
+d2 <- read_dat("runs/dat/pm_ssb0.dat")
+```
+
+Now use avon2 file to fix the vales in the "ssb" files
+
+```{r rw2,eval=FALSE}
+d3            <- d2
+d3$n_avo      <- d1$n_avo
+d3$ob_avo     <- d1$ob_avo
+d3$ob_avo_std <- d1$ob_avo_std
+d3$wt_avo     <- d1$wt_avo
+d3$yrs_avo    <- d1$yrs_avo
+
+write_dat(output_file="runs/dat/pm_ssb0new.dat", tmp=d3)
+
+# Create directory and copy key files
+dir.create("runs/ssb0")
+file.copy("runs/ProcTune/control.dat","runs/ssb0/",overwrite = TRUE)
+file.copy("runs/avon2/compweights.ctl","runs/ssb0/",overwrite = TRUE)
+file.remove("runs/ssb0/pm")
+file.symlink("../../src/pm","runs/ssb0/pm")
+# Read pm.dat, then write (e.g.,)
+  pm.dat<-read_table("runs/ProcTune/pm.dat",col_names=FALSE)
+# Add some description of the rows...
+  row.names(pm.dat) <- c("Desc","main","sel","ctl","altFmsy","cov","wtage","cpue","temp","q")
+  pm.dat
+  pm.dat[1,] <- "Updated_SSB0_to_avon2"
+  pm.dat[2,] <- "../dat/pm_ssb0new.dat"
+  writeLines(as.character(pm.dat$X1),"runs/ssb0/pm.dat")
+  
+```
+
+
+### For SSB1
+```{r rw3,eval=FALSE}
+d1 <- read_dat("runs/dat/pm_avon2.dat")
+d2 <- read_dat("runs/dat/pm_ssb1.dat")
+d3            <- d2
+d3$n_avo      <- d1$n_avo
+d3$ob_avo     <- d1$ob_avo
+d3$ob_avo_std <- d1$ob_avo_std
+d3$wt_avo     <- d1$wt_avo
+d3$yrs_avo    <- d1$yrs_avo
+
+write_dat(output_file="runs/dat/pm_ssb1new.dat", tmp=d3)
+
+# Create directory and copy key files
+dir.create("runs/ssb1")
+file.copy("runs/ProcTune/control.dat","runs/ssb1/",overwrite = TRUE)
+file.copy("runs/avon2/compweights.ctl","runs/ssb1/",overwrite = TRUE)
+file.remove("runs/ssb1/pm")
+file.symlink("../../src/pm","runs/ssb1/pm")
+# Read pm.dat, then write (e.g.,)
+  pm.dat<-read_table("runs/ProcTune/pm.dat",col_names=FALSE)
+# Add some description of the rows...
+  pm.dat[1,] <- "Updated_SSB1_to_avon2"
+  pm.dat[2,] <- "../dat/pm_ssb1new.dat"
+  writeLines(as.character(pm.dat$X1),"runs/ssb1/pm.dat")
+  
+```
+
+
+
+
+### And SSB2
+```{r rw4,eval=FALSE}
+d1 <- read_dat("runs/dat/pm_avon2.dat")
+d2 <- read_dat("runs/dat/pm_ssb2.dat")
+d3            <- d2
+d3$n_avo      <- d1$n_avo
+d3$ob_avo     <- d1$ob_avo
+d3$ob_avo_std <- d1$ob_avo_std
+d3$wt_avo     <- d1$wt_avo
+d3$yrs_avo    <- d1$yrs_avo
+
+write_dat(output_file="runs/dat/pm_ssb2new.dat", tmp=d3)
+
+# Create directory and copy key files
+dir.create("runs/ssb2")
+file.copy("runs/ProcTune/control.dat","runs/ssb2/",overwrite = TRUE)
+file.copy("runs/avon2/compweights.ctl","runs/ssb2/",overwrite = TRUE)
+file.remove("runs/ssb2/pm")
+file.symlink("../../src/pm","runs/ssb2/pm")
+# Read pm.dat, then write (e.g.,)
+  pm.dat<-read_table("runs/ProcTune/pm.dat",col_names=FALSE)
+# Add some description of the rows...
+  pm.dat[1,] <- "Updated_SSB2_to_avon2"
+  pm.dat[2,] <- "../dat/pm_ssb2new.dat"
+  writeLines(as.character(pm.dat$X1),"runs/ssb2/pm.dat")
+  
+```
+
+### Now run them all in parallel
+
+```{r run,eval=FALSE}
+  mod_dir   <- c("avon2","ssb0","ssb1","ssb2")
+  mod_names <- c("avon2","ssb0","ssb1","ssb2")
+  # Need to make output=TRUE default, also check on spm
+  ssbres <- run_model(Output=TRUE)
+  tab_fit(ssbres, mod_scen = c(1:4)) |> gt::gt()
+  tab_ref(ssbres, mod_scen = c(1:4)) |> gt::gt()
+  
+  # See if different from base
+  tail(sc2)
+  ctl <-read_dat("runs/ProcTune/control.dat")
+  ctlb <-read_dat("runs/base22/control.dat")
+  diff <- purrr::map_lgl(names(ctl), ~ !identical(ctl[[.]], ctlb[[.]]))
+  sum(diff)
+  names(ctl[diff])
+  cbind(ctl[diff][2],ctlb[diff][2])
+  names(ctl)
+  ctl[56]
+  write_dat("runs/base22/control.dat",ctl)
+
+# Set an initial working directory
+  mod_names <- c("AVON Full","Proc_tune")
+  mod_dir <- c("avon2", "ProcTune")
+  # Note, 0.2 CV for selectivity variability nails it (from base22)
+  # Read, adjust, write...
+  sc <-read_table("runs/dat/scmed22P.dat",col_names = FALSE); names(sc) <- c("Year","fsh","bts","ats")
+  tail(sc )
+  # Iterated on selectivity
+  sc2 <-  sc |> mutate(ats = ifelse(ats>0,.138,0))
+  write.table(sc2,file="runs/dat/scmed22P.dat",col.names = FALSE,row.names = FALSE)
+  #modtune <- run_model(Output=TRUE)
+  modtune<-get_results()
+  tab_fit(modtune, mod_scen = c(1,2)) |> gt::gt()
+  tab_ref(modtune, mod_scen = c(1,2)) |> gt::gt()
+  tab_ref(modlst, mod_scen = c(4,5)) |> gt::gt()
+  (modlst[[4]]$nextyrssbs)
+  (modlst[[4]]$nextyrssb.sd)
+  (modtune[[1]]$nextyrssbs)
+  names(modtune)
+```

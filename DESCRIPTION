@@ -14,6 +14,5 @@ Suggests:
     rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: http://afsc-assessments.github.io/EBSpollock/, http://afsc-assessments.github.io/EBSwp/
+URL: http://afsc-assessments.github.io/EBSpollock/, http://afsc-assessments.github.io/EBSwp/, http://afsc-assessments.github.io/ebswp/
 VignetteBuilder: knitr
-
