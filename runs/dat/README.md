@@ -1,5 +1,7 @@
 # Notes
 
+Changed "std_tune.dat" to "obs_err_init.dat" to accommodate adding in datafiles that have tuned stdevs (in directory "tune")
+
 Covariance matrix is derived from Stan's DD algorthm before VAST
 
 # Defaults

@@ -120,15 +120,43 @@ file.symlink("../../src/pm","runs/ssb2/pm")
   
 ```
 
+
+### And obs-error run
+```{r ageerror,eval=FALSE}
+d1 <- read_dat("runs/dat/pm_avon2.dat")
+d2 <- read_dat("runs/dat/std_tune.dat")
+d3            <- d2
+d3$n_avo      <- d1$n_avo
+d3$ob_avo     <- d1$ob_avo
+d3$ob_avo_std <- d1$ob_avo_std
+d3$wt_avo     <- d1$wt_avo
+d3$yrs_avo    <- d1$yrs_avo
+
+write_dat(output_file="runs/dat/obs_err_tune.dat", indata=d3)
+
+# Files already in "tune" dir
+file.remove("runs/tune/pm")
+file.symlink("../../src/pm","runs/tune/pm")
+# Read pm.dat, then write (e.g.,)
+  pm.dat<-read_table("runs/tune/pm.dat",col_names=FALSE)
+# Add some description of the rows...
+  pm.dat[1,] <- "Obs_error_tuning"
+  pm.dat[2,] <- "../dat/obs_err_tune.dat"
+  writeLines(as.character(pm.dat$X1),"runs/tune/pm.dat")
+  
+```
+
 ### Now run them all in parallel
 
 ```{r run,eval=FALSE}
-  mod_dir   <- c("avon2","ssb0","ssb1","ssb2")
-  mod_names <- c("avon2","ssb0","ssb1","ssb2")
-  # Need to make output=TRUE default, also check on spm
-  ssbres <- run_model(Output=TRUE)
-  tab_fit(ssbres, mod_scen = c(1:4)) |> gt::gt()
-  tab_ref(ssbres, mod_scen = c(1:4)) |> gt::gt()
+  mod_dir   <- c("tune",ProcTune","ssb0","ssb1","ssb2")
+  mod_names <- c("Obs_error_Tune","Proc_error_Tune","ssb0","ssb1","ssb2")
+  # output=TRUE default, also check on spm
+  res <- run_model()
+  #res <- get_results()
+  tab_fit(res, mod_scen = c(1:2)) |> gt::gt()
+  tab_fit(res, mod_scen = c(1:4)) |> gt::gt()
+  tab_ref(res, mod_scen = c(1:4)) |> gt::gt() |> gt::fmt_markdown()
   
   # See if different from base
   tail(sc2)

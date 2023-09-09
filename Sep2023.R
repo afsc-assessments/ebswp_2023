@@ -47,7 +47,8 @@ mod_dir <- c(
   #names(modlst)
   # Save result so it can be used by the document
   save(modlst,file="doc/septmod.rdata")
-
+names(modlst)
+plot_avo(modlst[3:5])
 
 
 #---Covariance diagonal extraction--------
@@ -124,39 +125,39 @@ write_dat(tmp=in_data)
   plot(M$sel_bts[19:59,1])
 
 #---Start setup for tuning by sdnrs-------
-  in_data <- read_dat("runs/dat/pm_base22.dat")
+  d1 <- read_dat("runs/dat/obs_err_init.dat")
   #Get base_22 run to start out (initial SDNRs)
-  M <- modtune[[1]]
+  # output=TRUE default, also check on spm
   # write to new file (the one that gets tuned)
-  write_dat(output_file="runs/dat/std_tune.dat",tmp=in_data)
+  write_dat(output_file="runs/dat/obs_err_tune.dat",indata=d1)
   mod_names <- c("tune"); mod_dir   <- c( "tune")
+  M<-get_results()[[1]]
 
   # Datafrmame to store convergence
+  df.out <- NULL
   df.out <- tibble(iter=0,
                    sdnr_bts=M$sdnr_bts,
                    sdnr_ats=M$sdnr_ats,
                    sdnr_avo=M$sdnr_avo)
   df.out
+# step 1
+  d1$ob_ats_std = d1$ob_ats_std * M$sdnr_ats
+  d1$ob_avo_std = d1$ob_avo_std * M$sdnr_avo
+  d1$ob_bts_std = d1$ob_bts_std * M$sdnr_bts
 #--Now iterate to get sdnrs near zero-----------
 for (i in 1:4){
-# step 1
-  in_data$ob_ats_std = in_data$ob_ats_std * M$sdnr_ats
-  in_data$ob_avo_std = in_data$ob_avo_std * M$sdnr_avo
-  in_data$ob_bts_std = in_data$ob_bts_std * M$sdnr_bts
 # step 4 now write new data (in_data)
-  write_dat(output_file="runs/dat/std_tune.dat",tmp=in_data)
+  write_dat(output_file="runs/dat/obs_err_tune.dat",indata=d1)
 # step 2 run and get results
-  system("cd runs/tune/; make")
-  modlst<-get_results()
-  M <- modlst[[1]]
-  df.out <- rbind(df.out,tibble(iter=0,
+  M <- run_model()[[1]]
+  df.out <- rbind(df.out,tibble(iter=i,
                    sdnr_bts=M$sdnr_bts,
                    sdnr_ats=M$sdnr_ats,
                    sdnr_avo=M$sdnr_avo)
                   )
 
 # step 3 replace stds with adjusted stds by sdnrs from results
-  in_data <- read_dat("runs/dat/std_tune.dat")
+  d1 <- read_dat("runs/dat/obs_err_tune.dat")
 }
   df.out
 

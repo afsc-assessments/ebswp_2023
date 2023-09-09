@@ -19,7 +19,7 @@
 #'   progress, etc.), default is `FALSE`.
 #' @return A list containing the outputs of the ADMB models and the fetched variables.
 #' @export
-run_model <- function(moddir=mod_dir, modnames=mod_names,Output=FALSE){
+run_model <- function(moddir=mod_dir, modnames=mod_names,Output=TRUE){
   modlst <- NULL
   nmods <- length(mod_dir)
   num_cores <- min(nmods,parallel::detectCores() - 1)
