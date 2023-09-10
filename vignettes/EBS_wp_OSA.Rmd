@@ -2,7 +2,7 @@
 title: "Application of one-step ahead residuals to alternative EBS pollock model specifications"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Example on how to change and run a model}
+  %\VignetteIndexEntry{Application of one-step ahead residuals}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
@@ -29,10 +29,6 @@ library(tidyr)
 theme_set(theme_bw())
 library(here)
 source(here::here("tools", "plot_osa_comps.R"))
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
 ```
 
 
