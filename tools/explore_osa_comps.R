@@ -4,7 +4,6 @@
 
 # TMB:::install.contrib("https://github.com/vtrijoulet/OSA_multivariate_dists/archive/main.zip")
 ## devtools::install_github("fishfollower/compResidual/compResidual")
-
 library(compResidual)
 library(ggplot2)
 library(cowplot)
@@ -28,6 +27,7 @@ load(file="doc/modtune.rdata")
 ages <- 2:15
 datfile<-read_dat("runs/dat/pm_base22.dat")
 
+names(modtune)
 M<-(modtune[[2]])
 o    <- M$pobs_ats[,3:16]
 p    <- M$phat_ats[,3:16]
