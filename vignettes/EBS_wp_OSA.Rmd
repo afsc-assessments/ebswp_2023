@@ -11,13 +11,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
-
 ```{r setup,echo=FALSE,warning=FALSE,message=FALSE}
 library(ebswp)
 library(compResidual)
@@ -36,7 +29,7 @@ source(here::here("tools", "plot_osa_comps.R"))
 # One-step ahead (OSA) residuals
 
 ## EBS pollock models
-We adopted the routine presented in @trijoulet2023 to evaluate residual
+We adopted the routine presented in Trijoulet et al. (2023) to evaluate residual
 patterns in models. Below are the figures produced for the base model
 from 2022 followed by the updated data and model configuration presented
 in 2023.
