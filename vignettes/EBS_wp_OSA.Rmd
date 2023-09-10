@@ -1,0 +1,80 @@
+---
+title: "Application of one-step ahead residuals to alternative EBS pollock model specifications"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Example on how to change and run a model}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  markdown: 
+    wrap: 72
+  chunk_output_type: console
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup,echo=FALSE,warning=FALSE,message=FALSE}
+library(ebswp)
+library(compResidual)
+library(ggplot2)
+library(cowplot)
+library(reshape2)
+library(dplyr)
+library(tidyr)
+theme_set(theme_bw())
+library(here)
+source(here::here("tools", "plot_osa_comps.R"))
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+
+# One-step ahead (OSA) residuals
+
+## EBS pollock models
+We adopted the routine presented in @trijoulet2023 to evaluate residual
+patterns in models. Below are the figures produced for the base model
+from 2022 followed by the updated data and model configuration presented
+in 2023.
+
+#### Base model from 2022
+
+
+```{r osa1,echo=FALSE,warning=FALSE,message=FALSE}
+load(file="../doc/modtune.rdata")
+ages <- 2:15
+M<-(modtune[[1]])
+o    <- M$pobs_ats[,3:16]
+p    <- M$phat_ats[,3:16]
+Neff <- M$EffN_ats[,2]
+pearson <- Neff*(o-p)/sqrt(p*Neff)
+years <- M$pobs_ats[,1]
+plot_osa_comps(o,p, pearson, index=ages, years=years, index_label='age', Neff=Neff,
+               stock='EBSpollock', survey='tuned_ats', outpath='doc/figs')
+```
+
+
+#### Updated model from September 2023
+
+```{r osa2,echo=FALSE,warning=FALSE,message=FALSE}
+M<-(modtune[[2]])
+o    <- M$pobs_ats[,3:16]
+p    <- M$phat_ats[,3:16]
+Neff <- M$EffN_ats[,2]
+pearson <- Neff*(o-p)/sqrt(p*Neff)
+years <- M$pobs_ats[,1]
+plot_osa_comps(o,p, pearson, index=ages, years=years, index_label='age', Neff=Neff,
+               stock='EBSpollock', survey='tuned_ats', outpath='doc/figs')
+```
+
+# References
+
+Trijoulet, Vanessa, Christoffer Moesgaard Albertsen, Kasper Kristensen, Christopher M. Legault, Timothy J. Miller, and Anders Nielsen. 2023. “Model Validation for Compositional Data in Stock Assessment Models: Calculating Residuals with Correct Properties.” Fisheries Research 257: 106487. https://doi.org/https://doi.org/10.1016/j.fishres.2022.106487.

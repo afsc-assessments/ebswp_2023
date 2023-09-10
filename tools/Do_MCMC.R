@@ -36,11 +36,12 @@ mdf %>% mutate(
   tot=tot-min(tot)
 ) %>%
 pivot_longer(cols=2:7,names_to="type",values_to="NLL") %>%
-ggplot(aes(x=YC_2018,y=NLL,color=type,linetype=type)) + geom_line(size=1.2) + 
+ggplot(aes(x=YC_2018,y=NLL,color=type,linetype=type)) + geom_line(size=1.2) +
 theme_few() + ylim(c(0,3)) + xlab("Estimate of 2018 year-class (at age 1, millions)") +
 ylab("Negative log-likelihood (lack of fit score)")
 ggsave("~/_mymods/ebswp/doc/figs/like_profile.pdf",width=7,height=4,units="in")
 }
+
 if(domcmc){
   #source("../R/plotMCMCpairs.R")
   #.plotMCMCpairs(tt)
@@ -80,7 +81,7 @@ if(domcmc){
     Catch=Catch-mean(Catch),
     library(scales)
 p1<- ggplot(mc,aes(x=R2019)) + geom_density(fill="lemonchiffon") +xlab("2018 Year class at age 1 (millions)")+
-         theme_few(base_size=15) + 
+         theme_few(base_size=15) +
         scale_x_continuous(limits=c(0,124000),label=comma, breaks=c(0,50000,100000,120000)) ;p1
 p2<-  mc %>% transmute(
     R2019=R2019,
@@ -94,7 +95,7 @@ p2<-  mc %>% transmute(
        cols = c(2:7),
        names_to = "type",
        values_to = "NLL"
-     ) %>% select(type,NLL,R2019)%>%ggplot(aes(x=R2019,y=NLL,color=type)) + ggthemes::theme_few() + 
+     ) %>% select(type,NLL,R2019)%>%ggplot(aes(x=R2019,y=NLL,color=type)) + ggthemes::theme_few() +
         scale_x_continuous(limits=c(0,124000),label=comma, breaks=c(50000,100000))  +
    geom_point(alpha=.1,size=.1) + facet_wrap(.~type,scales="free") + geom_smooth() +
    ylim(c(-20,20)) + xlab(""); p2
@@ -120,7 +121,7 @@ p2
   mct <- mc #%>% filter(lnR0<12,Bmsy>500,Bmsy<6000,Fmsyr<2,Steepness<.78)
   max(mct$Steepness)
 
-  p1 <- mct %>% select(Steepness,lnR0,DynB0,B2022,Bmsy,Fmsyr) %>% 
+  p1 <- mct %>% select(Steepness,lnR0,DynB0,B2022,Bmsy,Fmsyr) %>%
        ggpairs(aes(fill="lemonchiffon",alpha=.5),upper=NULL,lower = list(continuous = wrap("points", alpha = 0.1,size=0.1)) ) +  theme_classic() ;p1
   ggsave("figs/mcmc_pairs.pdf",plot=p1,width=7,height=7,units="in")
   #head(mc)
@@ -132,15 +133,15 @@ p2
   #for (i in 2:17) print(c(names(mc)[i],round(median(mc[,i]),3), round(mean(mc[,i]),3), paste0(round(100*sqrt(var(mc[,i]))/mean(mc[,i]),0),"%") ))
   #ggplot(mc.t,aes(x=Iteration,y=value)) + geom_line() + .THEME + facet_wrap(~Parameter,scales="free")
 
-  p1 <- mc %>% select(B2022) %>% 
-       ggplot(aes(B2022))+ geom_density(fill="lemonchiffon",alpha=.5 ) + theme_few() + 
-            xlab(paste(thisyr,"Female spawning biomass")) + 
+  p1 <- mc %>% select(B2022) %>%
+       ggplot(aes(B2022))+ geom_density(fill="lemonchiffon",alpha=.5 ) + theme_few() +
+            xlab(paste(thisyr,"Female spawning biomass")) +
             geom_vline(xintercept=M$SSB[dim(M$SSB)[1],2],col="grey") +
             geom_vline(xintercept=mean(mc$B2021),size=1,col="red",linetype="dashed") ;p1
   ggsave("figs/mcmc_marg.pdf",plot=p1,width=7,height=4,units="in")
-# Fmsyr 
+# Fmsyr
 Fmsy2= M$fit$est[M$fit$names=="Fmsy2"]
-  p1 <- mc %>% select(Fmsyr) %>% ggplot(aes(Fmsyr))+ geom_density(fill="lemonchiffon",alpha=.5 ) + theme_few() + 
+  p1 <- mc %>% select(Fmsyr) %>% ggplot(aes(Fmsyr))+ geom_density(fill="lemonchiffon",alpha=.5 ) + theme_few() +
             xlab("Fmsy rate") + xlim(c(0,1.5)) +
              geom_vline(aes(xintercept=median( mc$Fmsyr ), color="median"), linetype="dotted", size=1) +
              geom_vline(aes(xintercept=mean( mc$Fmsyr ),   color="mean"), linetype="dashed", size=1) +
@@ -159,8 +160,8 @@ Fmsy2= M$fit$est[M$fit$names=="Fmsy2"]
   mc %>% filter(B2022<msst) %>% summarise(n()/mclen*100)
   prob_less_50_Bmsy <- mc %>% filter((B2022/Bmsy)<.5) %>% summarise(n()/mclen*100)
   #head(mc.t)
-  #q  
-  mcppl <- read_csv(paste0(.MODELDIR[thismod],"mcmc/mceval_ppl.csv"),col_names=FALSE)
+  #q
+  mcppl <- read_csv(paste0("runs/[thismod],"mcmc/mceval_ppl.csv"),col_names=FALSE)
   head(mcppl)
   names(mcppl) <- c("Index","Pd","draw","Year","Obs","Exp","Sim","VarObs")
   idx="BTS"; ylim=c(0,15000)
@@ -168,8 +169,8 @@ Fmsy2= M$fit$est[M$fit$names=="Fmsy2"]
   idx="AVO"; ylim=c(0,2)
   #idx=c("ATS","AVO")
   obs <- mcppl %>% filter(Index==idx,draw==1) %>% transmute(Year,Obs,type="Obs")
-  tmpdf <- mcppl %>% filter(Index==idx) %>% select(Year,Exp,Sim) %>% sample_frac(.5) #%>% pivot_longer(cols=2:3,names_to="type",values_to="Biomass") 
-  ggplot(data=tmpdf) + geom_point(aes(x=jitter(Year),y=Sim),color="grey",alpha=.2) + 
+  tmpdf <- mcppl %>% filter(Index==idx) %>% select(Year,Exp,Sim) %>% sample_frac(.5) #%>% pivot_longer(cols=2:3,names_to="type",values_to="Biomass")
+  ggplot(data=tmpdf) + geom_point(aes(x=jitter(Year),y=Sim),color="grey",alpha=.2) +
   geom_point(aes(x=jitter(Year,.3),y=Exp),color="yellow",alpha=.2,size=.8) + ylim(ylim) + theme_few() + ylab("Index") +xlab("Year") +
   geom_point(data=obs,aes(x=Year,y=Obs),size=3) #+ facet_grid()
 

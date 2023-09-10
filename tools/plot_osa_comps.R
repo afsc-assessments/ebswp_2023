@@ -12,18 +12,20 @@
 #' directory
 #'
 plot_osa_comps <- function(obs, exp, pearson, index, years, index_label, Neff,
-                           stock, survey, outpath = ''){
+                           stock, survey, outpath = '',do_pdf=FALSE){
   stopifnot(all.equal(nrow(obs), nrow(exp), nrow(pearson),
                       length(years)))
   stopifnot(all.equal(ncol(obs), ncol(exp), ncol(pearson), length(index)))
   filename <- paste0(stock,"_",survey,"_", gsub('\\s', '_', index_label), ".pdf")
-  
-  if(is.null(outpath)) {
-    pdf(here::here(filename), onefile=TRUE, width=7, height=7)
-  } else {
-    pdf(here::here(outpath, filename), onefile=TRUE, width=7, height=7)
+
+  if(do_pdf){
+    if(is.null(outpath)) {
+      pdf(here::here(filename), onefile=TRUE, width=7, height=7)
+    } else {
+      pdf(here::here(outpath, filename), onefile=TRUE, width=7, height=7)
+    }
   }
-  
+
   on.exit(dev.off())
   ## Neff <- ceiling(Neff)
   o <- round(Neff*obs/rowSums(obs),0); p=exp/rowSums(exp)

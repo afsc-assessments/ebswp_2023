@@ -125,12 +125,14 @@ write_dat(tmp=in_data)
   plot(M$sel_bts[19:59,1])
 
 #---Start setup for tuning by sdnrs-------
+# step 1, initialize
   d1 <- read_dat("runs/dat/obs_err_init.dat")
   #Get base_22 run to start out (initial SDNRs)
   # output=TRUE default, also check on spm
   # write to new file (the one that gets tuned)
   write_dat(output_file="runs/dat/obs_err_tune.dat",indata=d1)
   mod_names <- c("tune"); mod_dir   <- c( "tune")
+  M<-run_model()[[1]]
   M<-get_results()[[1]]
 
   # Datafrmame to store convergence
@@ -140,31 +142,29 @@ write_dat(tmp=in_data)
                    sdnr_ats=M$sdnr_ats,
                    sdnr_avo=M$sdnr_avo)
   df.out
-# step 1
+#--Now iterate to get sdnrs near one-----------
+for (i in 1:4){
+# step 2 update error terms
   d1$ob_ats_std = d1$ob_ats_std * M$sdnr_ats
   d1$ob_avo_std = d1$ob_avo_std * M$sdnr_avo
   d1$ob_bts_std = d1$ob_bts_std * M$sdnr_bts
-#--Now iterate to get sdnrs near zero-----------
-for (i in 1:4){
-# step 4 now write new data (in_data)
+# step 3 now write new data (in_data)
   write_dat(output_file="runs/dat/obs_err_tune.dat",indata=d1)
-# step 2 run and get results
+# step 4 run and get results
   M <- run_model()[[1]]
+# step 5 replace stds with adjusted stds by sdnrs from results
   df.out <- rbind(df.out,tibble(iter=i,
                    sdnr_bts=M$sdnr_bts,
                    sdnr_ats=M$sdnr_ats,
-                   sdnr_avo=M$sdnr_avo)
-                  )
-
-# step 3 replace stds with adjusted stds by sdnrs from results
+                   sdnr_avo=M$sdnr_avo) )
+# step 6 replace stds with adjusted stds by sdnrs from results before iterations
   d1 <- read_dat("runs/dat/obs_err_tune.dat")
 }
   df.out
 
-  mod_names <- c("base22","Obs_tune","Proc_tune")
-  mod_dir <- c( "base22",  "tune", "ProcTune")
+  mod_names <- c("avon2","Obs_tune","Proc_tune")
+  mod_dir <- c( "avon2",  "tune", "ProcTune")
   modtune<-get_results()
-  names(modtune)
   tab_fit(modlst[c(3)])
   library(patchwork)
   library(ggthemes)
@@ -173,9 +173,9 @@ for (i in 1:4){
   p1 <- plot_bts(modtune[c(1,2,3)]) + coord_cartesian( ylim = c(0,15000) )+
         scale_x_continuous(limits=c(1982-.5,2022.5)) + theme_few(base_size = 10);p1
   p2 <- plot_ats(modtune[c(1,2,3)]) + coord_cartesian( ylim = c(0,7500) )+
-        scale_x_continuous(limits=c(1990-.5,2022.5)) + theme_few(base_size = 10);p2
-  p3 <- plot_avo(modtune[c(1,2,3)]) + coord_cartesian( ylim = c(0,1.6) ) +
-        scale_x_continuous(limits=c(1990-.5,2022.5)) + theme_few(base_size = 10);p3
+        scale_x_continuous(limits=c(1994-.5,2022.5)) + theme_few(base_size = 10);p2
+  p3 <- plot_avo(modtune[c(1,2,3)]) + coord_cartesian( ylim = c(0,5.6) ) +
+        scale_x_continuous(limits=c(1994-.5,2022.5)) + theme_few(base_size = 10);p3
 p4<-p2/p3 + plot_layout(guides='collect') ;p4
   ggsave("doc/figs/mod_index_fits_tuned.pdf",plot=p4,width=9,height=7.0,units="in")
   #scale_x_continuous(limits=c(1992-.5,2022.5)) ;p4
@@ -184,16 +184,7 @@ p4<-p2/p3 + plot_layout(guides='collect') ;p4
   #p4<- p1 / ((p2 | p3) + plot_layout(guides='collect')) +
   #plot_annotation(tag_levels = list('a',c(')',')',')')))
 
-for (i in 1:nmods) print(paste(modlst[[i]]$maxabc1s ,mod_names[i] ))
-for (i in 1:nmods) print(paste(modlst[[i]]$Tier3_ABC1 ,mod_names[i] ))
-names(modlst)
-save(modlst,file="~/_mymods/ebswp/doc/septmod.rdata")
-getwd()
-save(modlst,file="septmod.rdata")
-
-M<-(modlst[[1]])
-M
-
+save(modlst,file="doc/septmod.rdata")
 
 #---Mohno rho read-----
 rhodf      <- read.csv("../doc/data/mohnrho.csv",header=T)

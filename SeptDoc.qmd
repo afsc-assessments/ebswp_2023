@@ -50,8 +50,7 @@ Presently the Eastern Bering Sea pollock assessment has remained essentially the
 \hline
 Description                    & Name   & Comparison      & Notes                                                                                                                                                                                                                                       \\
 \hline
-Base                           & base   &                 & Original from folder 07, now in folder base22 with new code that accommodates FTNIR and GenGamma                                                                                                                                            \\
-Base from 2022                 & base22 & base            & As in base but with updated error terms for acoustic-trawl survey biomass estimates                                                                                                                                                         \\
+Base                           & base22 &                 & Original from folder 07, now in folder base22 with new code that accommodates FTNIR and GenGamma                                                                                                                                            \\
 \hline 
 AVO new series                 & avon1  & base22          & Newly integrated acoustic backscatter from "Acoustic vessels of opportunity"--namely the bottom-trawl survey vessels. Includes data from 2009 (data from early and in 2011 and 2013 omitted). \\
 AVO full                       & avon2  & base22, avon1   & As in avon1 but with data from 2006-2008, 2011, and 2013 used from previous series (rescaled to have the same mean)\\
@@ -64,18 +63,17 @@ Ageing error                   & agerr  & ProcTune        & Include age-determin
 Diagonal                       & diag   & ProcTune        & As in base but with updated error terms for acoustic-trawl survey biomass estimates                                                                                                                                                         \\
 Generalized Gamma distribution & gengam & diag            & This is based on the MCMC posterior samples generated from the process of accounting for density-dependence within tows; the goal is to evaluate annually varying distribution assumptions compared to the standard lognormal distribution. \\
 \hline 
-Alternative wt-age for SSB     & ssb0   & base22          & Impact on SSB, consider variability by new wt-age estimates, but start w/ constant mean wt-age                                                                                                                                              \\
-                               & ssb1   & base22, ssb     & Use raw means from A-season fishery as a proxy                                                                                                                                                                                              \\
+Alternative wt-age             & ssb0   & base22          & Impact on SSB, consider variability by new wt-age estimates, but start w/ constant mean wt-age                                                                                                                                              \\
+for SSB                        & ssb1   & base22, ssb     & Use raw means from A-season fishery as a proxy                                                                                                                                                                                              \\
                                & ssb2   & base22, ssb     & Use predictions from random-effects model                                                                                                                                                                                                   \\
 \hline 
-Base Proposed                  & prop   & avon2         & Full AVO series and with the smoothed mean-wt-age (ssb2))      \\
-Base Alternative               & diag2   & prop          & As with "prop" but diagonal matrix to compare with other platforms \\
-AMAK platform                  & amak    & diag2         & As with "diag2" data but uses "AMAK2" software configured to be similar to base22 \\
+Base Proposed                  & prop   & avon2          & Full AVO series and with the smoothed mean-wt-age (ssb2))      \\
 \hline 
 \end{tabular}
 }
 \end{table}
 ```
+<!-- AMAK platform                  & amak    & diag2         & As with "diag2" data but uses "AMAK2" software configured to be similar to base22 \\ -->
 These models are contrasted and categorized by the type of analysis involved. Specifically, we start with the 2022 assessment model and data configuration, then apply the revised new AVO series (AVON; @fig-schema). Here we assumed that the application of the better time series would be taken as a given. The next step in the model process was to re-evaluate the relative weights specified as input variances and sample sizes. We attempted to apply different tuning approaches which acheived a balance between the observation errors and model process errors. We then have a section where we did sensitivities of different assumptions to arrive at a condidate proposed model for the 2023 assessment.
 
 ![Schematic of approach for evaluating some planned changes in the EBS pollock assessment.](doc/figs/Schema.png){#fig-schema}
@@ -119,15 +117,19 @@ and this @afscpro2011
 
 ## Evaluations of other aspects
 
-Several model alternatives were revisited. The current pollock base model has age-determination error as an option but it is turned off due to early considerations from the work of @kimura1992. We turned the age-determination error on to re-evaluate the effect on model fit and results. Another feature of the current model is the use of the estimated covariance matrix over years from a combination of density-dependent corrections (see @kotwicki2014) and VAST spatial distribution modeling (@thorson2018b). One objective of the current model is to be able to contrast it with other software platforms. Consequently, we tested a model where the variances of the individual years in the bottom-trawl survey (BTS) are treated independently (i.e., using just the diagonal of the covariance matrix). Finally, Monnahan (pers. comm.) has developed an approach for using a generalized gamma distribution which allows for different scale and shape parameters for each year of the bottom trawl survey. We provide that for exploration purposes.
+Some model alternatives were examined to either explore new approaches or features that exist but are turned off. For example, the current pollock base model has age-determination error as an option but it is turned off due to earlier considerations from the work of @kimura1992. With the advent of the potential application of Fourier Transform near-infrared spectroscopy (FT-NIRS) for age determination (@helser2019; @healy2021), the model was modified such that age compositions could be fit by any number of error matrices over time and among gear types. For now, we used the previously estimated age-determination error on to re-evaluate the effect on model fit and results (the FT-NIRS data are still in development).
 
-@defilippo2023
+Another feature of the current model is the use of the estimated covariance matrix over years from a combination of density-dependent corrections (see @kotwicki2014) and VAST spatial distribution modeling (@thorson2018b). While this has been a feature of the model since 2015 and part of the current base-case model, it is rare to find other assessment software platforms that have this capability. Consequently, in an effort to compare the current model with other software platforms we tested a model where the variances of the individual years in the bottom-trawl survey (BTS) are treated independently (i.e., using just the diagonal of the covariance matrix).
+
+Finally, Monnahan (pers. comm.) has developed an approach for using a generalized gamma distribution which allows for different scale and shape parameters for each year of the bottom trawl survey. We provide that for exploration purposes since there is evidence that the statistical distribution of the CPUE from survey trawls can vary from simply a log-normal distribution.
 
 # Results
 
 ## Alternative AVO data treatment
 
-The relative fits to the AVO data degraded with the new short and full series (@tbl-modfitsavo). However, there was relatively minor impact on biological reference points and stock status (@tbl-modrefavo). {{< pagebreak >}}
+The relative fits to the AVO data degraded with the new short and full series (@tbl-modfitsavo). However, there was relatively minor impact on biological reference points and stock status (@tbl-modrefavo).
+
+{{< pagebreak >}}
 
 ```{r modfitsavo}
 #| label: tbl-modfitsavo
@@ -156,9 +158,8 @@ In @fig-mod_index_fits_tuned we show how the alternative tuning approaches affec
 
 In @fig-sel_ats_tuned we show how the alternative tuning approaches affected the relative fits and uncertainty assumptions. For the observation-error approach
 
-
-
-Updating the ATS data resulted in a different fit to the data trend of those data due to the lower overall uncertainty of the observations specified in revision (@fig-atsalt). This change had a minor impact on the recent estimates of spawning biomass (@fig-atsaltssb).
+<!-- Updating the ATS data resulted in a different fit to the data trend of those data due to the lower overall uncertainty of the observations specified in revision (@fig-atsalt).  -->
+<!-- This change had a minor impact on the recent estimates of spawning biomass (@fig-atsaltssb). -->
 
 Changing the bottom-trawl survey error to be based on independent annual survey index values (the base model used a covariance matrix estimated for the series) changed the trend of spawning biomass and uncertainty slightly (@fig-diagssb).
 
@@ -167,6 +168,13 @@ These model estimates for alternative error assumptions indicated that the shows
 ![Comparison of the model fit to acoustic trawl survey (top) and acoustic vessels of opportunity (AVO; bottom) for the 2022 assessment and tuning process error terms or observation errors.](doc/figs/mod_index_fits_tuned.pdf){#fig-mod_index_fits_tuned}
 
 ![Time varying acoustic trawl selectivity estimates for the process-error tuned model.](doc/figs/sel_ats_tuned.pdf){#fig-sel_ats_tuned}
+
+![Fit of EBS pollock model to acoustic trawl survey data from the 2022 error-term specification (top) and that of the revised errors (bottom).](doc/figs/mod_ats_updated.pdf){#fig-atsalt}
+
+<!-- Proof of concept that can use R variables in captions -->
+<!-- `r cap1=c("Results of the EBS pollock model for recent spawning biomass estimates showing the impact of the revised acoustic trawl survey data error estimates (updated ATS is considered the base model from 2022).")`  -->
+<!-- ![`r cap1`](doc/figs/mod_ats_updated_ssb.pdf){#fig-atsaltssb} -->
+
 
 {{< pagebreak >}}
 
@@ -192,11 +200,18 @@ tab_ref(modtune[c(1:2)]) |> gt::gt() |> gt::fmt_markdown()
 
 ## Spawning biomass weight-at-age
 
-The random effects model used to estimate weight-at-age for the spawning biomass was based on the A-season fishery, the summer survey data (scaled to have the same mean as the A-season means) shows distinct year and cohort effects (@fig-ssbwt). @fig-wt_ssb shows how the patterns differ Compared to the values used in the base model, the trends are very similar but the scales change substantially in some years (@fig-ssbwt ; including the "SSB0" scenario).
+The random effects model used to estimate weight-at-age for the spawning biomass 
+was based on the A-season fishery, the summer survey data (scaled to have the 
+same mean as the A-season means) shows distinct year and cohort effects (@fig-ssbwt). 
+@fig-wt_ssb shows how the patterns differ Compared to the values used in the base model, 
+the trends are very similar but the scales change substantially in some years 
+(@fig-ssbssb ; including the "SSB0" scenario).
+
+![Weight-at-age data (left and middle panel) and predictions (right-most panel) for EBS pollock as an alternative series for spawning biomass weight-at-age. Note that the color shadings indicate the anomaly within age (columns).](doc/figs/ssb_wtage_data_pred.pdf){#fig-ssbwt}
 
 ![Alternative scenarios for body weight-at-age used for computing spawning biomass for EBS pollock biomass weight-at-age.](doc/figs/wt_ssb.pdf){#fig-wt_ssb}
 
-![Weight-at-age data (left and middle panel) and predictions (right-most panel) for EBS pollock as an alternative series for spawning biomass weight-at-age. Note that the color shadings indicate the anomaly within age (columns).](doc/figs/ssb_wtage_data_pred.pdf){#fig-ssbwt}
+![Results of the EBS pollock model for recent spawning biomass estimates comparing the base model under different assumptions about mean body weight-at-age during spawning.](doc/figs/mod_ssb_ssb.pdf){#fig-ssbssb}
 
 @tbl-modfitsssb shows results on goodness of fits while
 
@@ -225,30 +240,16 @@ tab_ref(modlst[c(5,9:11)]) |> gt::gt() |>  gt::fmt_markdown()
 
 ## Alternative error-term specifications
 
-In this section we present the updated error terms associated with the acoustic trawl data (the observations used previously were revised). We also show the impact of using the diagonal covariance matrix and an alternative for the bottom trawl survey data based on the generalized gamma distribution in place of the log-normal.
+In this section we present the updated error terms associated with the acoustic 
+trawl data (the observations used previously were revised). We also show the 
+impact of using the diagonal covariance matrix and an alternative for the bottom 
+trawl survey data based on the generalized gamma distribution in place of the log-normal.
 
-# Summary
+The spawning biomass estimates @fig-diagssb ...xxx
 
-Based on the results presented, we recommend:
-
--   Adjustments to the process error term be implemented to provide better consistency between model fitting and input data uncertainty assumptions
-
--   adopting the revised error structure estimates from the acoustic trawl survey. *these are the best available and reflect a reasonable trade-off*
-
--   adopting the use of the A-season fishery mean body weight-at-age for the base assessment. *these observations reflect the pattern most available to the spawning season of pollock*
-
--   adopting the use of the full revised AVO time series. *the data have been recalibrated to the acoustic trawl survey and cover a larger area than previously. This may improve the ability to track expansion and contraction of the pollock stock in mid-water.*
-
-New work improving the approach for estmating cohort and year random effects (@cheng2023) will provide better stuff... \## References to add @oleary2022 @cheng2023 @maunder2020 @siskey2022 @indivero2023 @bailey2000
-
-# References
-
-::: {#refs}
-:::
+![Results of the EBS pollock model for recent spawning biomass estimates comparing the base model using the covariance matrix with the one where only the diagonal is applied.](doc/figs/mod_diag_ssb.pdf){#fig-diagssb}
 
 {{< pagebreak >}}
-
-# Tables
 
 ```{r modfitserr}
 #| label: tbl-modfitserr
@@ -269,17 +270,36 @@ tab_fit(modlst[c(5:8)]) |> gt::gt() |>  gt::fmt_number( rows = c(8:21),decimals=
 tab_ref(modlst[c(5:8)]) |> gt::gt() |>  gt::fmt_markdown()
 ```
 
+
+
+# Summary
+
+Based on the results presented, we recommend:
+
+-   adopting the use of the full revised AVO time series. *the data have been re-calibrated to the acoustic trawl survey and cover a larger area than previously. This may improve the ability to track expansion and contraction of the pollock stock in mid-water.*
+
+-   allowing modest process error terms consistent with the observation-error specifications *we prefer to follow allow slight deviations in process errors (here selectivity/availability in the ATS) to achieve consistency with specified survey-based observation-errors*
+
+-   adopting the use of the A-season fishery mean body weight-at-age for the base assessment. *these observations reflect the pattern most available to the spawning season of pollock.*
+
+-   pursuing model configuration that can best be used to bridge between other software platforms (e.g., WHAM, stock synthesis, and AMAK2)
+
+For future work we plan to adopt a new method for estimating cohort and year random effects for processes such as selectivity (e.g. @cheng2023).
+
+References to add @oleary2022 @cheng2023 @maunder2020 @siskey2022 @indivero2023 @bailey2000
+
+@defilippo2023
+
+# 
+
+# References
+
+::: {#refs}
+:::
+
+{{< pagebreak >}}
+
 # Figures
-
-![Fit of EBS pollock model to acoustic trawl survey data from the 2022 error-term specification (top) and that of the revised errors (bottom).](doc/figs/mod_ats_updated.pdf){#fig-atsalt}
-
-<!-- Proof of concept that can use R variables in captions -->
-
-`r cap1=c("Results of the EBS pollock model for recent spawning biomass estimates showing the impact of the revised acoustic trawl survey data error estimates (updated ATS is considered the base model from 2022).")` ![r cap1](doc/figs/mod_ats_updated_ssb.pdf){#fig-atsaltssb}
-
-![Results of the EBS pollock model for recent spawning biomass estimates comparing the base model using the covariance matrix with the one where only the diagonal is applied.](doc/figs/mod_diag_ssb.pdf){#fig-diagssb}
-
-![Results of the EBS pollock model for recent spawning biomass estimates comparing the base model under different assumptions about mean body weight-at-age during spawning.](doc/figs/mod_ssb_ssb.pdf){#fig-ssbssb}
 
 ![One-step ahead residual plots, see @trijoulet2023 for details.](doc/figs/EBSpollock_tuned_ats_age.pdf){#fig-OSAats}
 
