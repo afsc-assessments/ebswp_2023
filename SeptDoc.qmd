@@ -178,6 +178,8 @@ These model estimates for alternative error assumptions indicated that the shows
 
 
 {{< pagebreak >}}
+{{< pagebreak >}}
+{{< pagebreak >}}
 
 ```{r modfittune}
 #| label: tbl-modfitstune
