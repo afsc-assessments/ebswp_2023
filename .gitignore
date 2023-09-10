@@ -8,7 +8,6 @@ EBSpollock.pdf
 
 # API files
 html/
-docs/api/html/
 icon*
 Icon*
 
@@ -76,5 +75,4 @@ variance
 sims
 
 /.luarc.json
-docs
 inst/doc
