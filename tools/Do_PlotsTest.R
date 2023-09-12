@@ -33,29 +33,41 @@ if (doplots) {
   p1 <- plot_ats(modtune[c(1,2)]) +
         scale_x_continuous(limits=c(1994-.5,2022.5)) + facet_grid(Model~.) + theme_few(base_size = 12);p1
   ggsave("figs/mod_ats_updated.pdf",plot=p1,width=5.2,height=3.7,units="in")
+  # "Last year",   #1
+  # "Base 22",     #2
+  # "AVO new",     #3
+  # "AVO full",    #4
+  # "Tuned22",     #5
+  # "Ageing Error",#6
+  # "Diag cov BTS",#7
+  # "GenGam",      #8
+  # "SSB=mean ",   #9
+  # "SSB Emp. wt-age", #10
+  # "SSB RE wt-age") #11
 
   p1 <- plot_ssb(modlst[c(1,2)],xlim=c(2008.5,2023.5));p1
   p2 <- plot_recruitment(modlst[c(1,2)],xlim=c(1990.5,2023.5));p2
   p3 <- plot_srr(modlst[c(1,2)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000));p3
 
-  p1 <- plot_bts(modlst[c(4,5)],xlim=c(1981.5,2023.5),ylim=c(0,15500)) ;p1
-  ggsave("figs/mod_bts_gengam.pdf",plot=p1,width=8,height=5.0,units="in")
+  p1 <- plot_bts(modlst[c(8,5)],xlim=c(1981.5,2023.5),ylim=c(0,15500)) ;p1
+  ggsave("doc/figs/mod_bts_gengam.pdf",plot=p1,width=8,height=5.0,units="in")
 
-  p1 <- plot_bts(modlst[c(4,2)],xlim=c(1981.5,2023.5),ylim=c(0,15500)) ;p1
-  ggsave("figs/mod_bts_diag.pdf",plot=p1,width=8,height=5.0,units="in")
+  p1 <- plot_bts(modlst[c(5,7)],xlim=c(1981.5,2023.5),ylim=c(0,15500)) ;p1
+  ggsave("doc/figs/mod_bts_diag.pdf",plot=p1,width=8,height=5.0,units="in")
 
-  p1 <- plot_ssb(modlst[c(1,3)],xlim=c(2008.5,2023.5));p1
-  ggsave("figs/mod_ats_updated_ssb.pdf",plot=p1,width=5.2,height=3.7,units="in")
+  p1 <- plot_ssb(modlst[c(1,2)],xlim=c(2008.5,2023.5));p1
+  ggsave("doc/figs/mod_ats_updated_ssb.pdf",plot=p1,width=5.2,height=3.7,units="in")
 
-  p1 <- plot_ssb(modlst[c(3,4)],xlim=c(2008.5,2023.5));p1
-  ggsave("figs/mod_diag_ssb.pdf",plot=p1,width=5.2,height=3.7,units="in")
+  p1 <- plot_ssb(modlst[c(5,7)],xlim=c(2008.5,2023.5));p1
+  ggsave("doc/figs/mod_diag_ssb.pdf",plot=p1,width=5.2,height=3.7,units="in")
 
-  p1 <- plot_ssb(modlst[c(3,6:8)],xlim=c(2008.5,2023.5));p1
-  ggsave("figs/mod_ssb_ssb.pdf",plot=p1,width=5.2,height=3.7,units="in")
+  p1 <- plot_ssb(modlst[c(5,9:11)],xlim=c(2008.5,2023.5));p1
+  ggsave("doc/figs/mod_ssb_ssb.pdf",plot=p1,width=5.2,height=3.7,units="in")
 
 #---Get SSB wt-age------------
- df<- rbind(data.frame(M$wt_fsh,year=1964:2022,source='Base'), data.frame(modlst[[6]]$wt_ssb,year=1964:2022,source='SSB0'),
-            data.frame(modlst[[7]]$wt_ssb,year=1964:2022,source='SSB1'), data.frame(modlst[[8]]$wt_ssb,year=1964:2022,source='SSB2'))
+  M <- modlst[[5]]
+ df<- rbind(data.frame(M$wt_fsh,year=1964:2022,source='Base'), data.frame(modlst[[9]]$wt_ssb,year=1964:2022,source='SSB0'),
+            data.frame(modlst[[10]]$wt_ssb,year=1964:2022,source='SSB1'), data.frame(modlst[[11]]$wt_ssb,year=1964:2022,source='SSB2'))
   names(df)=c(as.character(1:15),"year","source")
   glimpse(df)
   p1<- df |>  pivot_longer(cols=1:15,values_to="wt",names_to="age")  |>
@@ -67,7 +79,7 @@ if (doplots) {
 
 #---Compare survey fits------------
   #--BTS------------------
-  p1 <- plot_bts(modlst[c(4,5)],xlim=c(1981.5,2023.5),ylim=c(0,15500)) ;p1
+  p1 <- plot_bts(modlst[c(5,8)],xlim=c(1981.5,2023.5),ylim=c(0,15500)) ;p1
   ggsave("figs/mod_bts_gengam.pdf",plot=p1,width=8,height=5.0,units="in")
 
 for (i in 1:nmods) print(paste(modlst[[i]]$rmse_bts ,mod_names[i] ))

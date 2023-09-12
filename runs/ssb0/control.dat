@@ -13,7 +13,7 @@
 #use_endyr_len
 0
 #use_popwts_ssb
-0
+1
 #natmortprior
 0.3
 #cvnatmortprior

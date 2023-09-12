@@ -89,9 +89,10 @@ model<a class="anchor" aria-label="anchor" href="#example-use-of-ebswp-library-f
 <h4 id="read-in-an-existing-model">Read in an existing model<a class="anchor" aria-label="anchor" href="#read-in-an-existing-model"></a>
 </h4>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">d1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_dat.html">read_dat</a></span><span class="op">(</span><span class="st">"runs/dat/pm_avon2.dat"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">d1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_dat.html">read_dat</a></span><span class="op">(</span><span class="st">"runs/dat/proctune1.dat"</span><span class="op">)</span></span>
 <span><span class="va">d2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_dat.html">read_dat</a></span><span class="op">(</span><span class="st">"runs/dat/pm_ssb0.dat"</span><span class="op">)</span></span></code></pre></div>
-<p>Now use avon2 file to fix the vales in the “ssb” files</p>
+<p>Now use process error tuned file to fix the vales in the “ssb”
+files</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">d3</span>            <span class="op">&lt;-</span> <span class="va">d2</span></span>
 <span><span class="va">d3</span><span class="op">$</span><span class="va">n_avo</span>      <span class="op">&lt;-</span> <span class="va">d1</span><span class="op">$</span><span class="va">n_avo</span></span>
@@ -100,11 +101,11 @@ model<a class="anchor" aria-label="anchor" href="#example-use-of-ebswp-library-f
 <span><span class="va">d3</span><span class="op">$</span><span class="va">wt_avo</span>     <span class="op">&lt;-</span> <span class="va">d1</span><span class="op">$</span><span class="va">wt_avo</span></span>
 <span><span class="va">d3</span><span class="op">$</span><span class="va">yrs_avo</span>    <span class="op">&lt;-</span> <span class="va">d1</span><span class="op">$</span><span class="va">yrs_avo</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/write_dat.html">write_dat</a></span><span class="op">(</span>output_file<span class="op">=</span><span class="st">"runs/dat/pm_ssb0new.dat"</span>, tmp<span class="op">=</span><span class="va">d3</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/write_dat.html">write_dat</a></span><span class="op">(</span>output_file<span class="op">=</span><span class="st">"runs/dat/pm_ssb0new.dat"</span>, indata<span class="op">=</span><span class="va">d3</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Create directory and copy key files</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="st">"runs/ssb0"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="st">"runs/ProcTune/control.dat"</span>,<span class="st">"runs/ssb0/"</span>,overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="st">"runs/ssb0_orig/control.dat"</span>,<span class="st">"runs/ssb0/"</span>,overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="st">"runs/avon2/compweights.ctl"</span>,<span class="st">"runs/ssb0/"</span>,overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.remove</a></span><span class="op">(</span><span class="st">"runs/ssb0/pm"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.symlink</a></span><span class="op">(</span><span class="st">"../../src/pm"</span>,<span class="st">"runs/ssb0/pm"</span><span class="op">)</span></span>
@@ -113,7 +114,7 @@ model<a class="anchor" aria-label="anchor" href="#example-use-of-ebswp-library-f
 <span><span class="co"># Add some description of the rows...</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/row.names.html" class="external-link">row.names</a></span><span class="op">(</span><span class="va">pm.dat</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Desc"</span>,<span class="st">"main"</span>,<span class="st">"sel"</span>,<span class="st">"ctl"</span>,<span class="st">"altFmsy"</span>,<span class="st">"cov"</span>,<span class="st">"wtage"</span>,<span class="st">"cpue"</span>,<span class="st">"temp"</span>,<span class="st">"q"</span><span class="op">)</span></span>
 <span>  <span class="va">pm.dat</span></span>
-<span>  <span class="va">pm.dat</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Updated_SSB0_to_avon2"</span></span>
+<span>  <span class="va">pm.dat</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Updated_SSB0_to_proctune1"</span></span>
 <span>  <span class="va">pm.dat</span><span class="op">[</span><span class="fl">2</span>,<span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"../dat/pm_ssb0new.dat"</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">pm.dat</span><span class="op">$</span><span class="va">X1</span><span class="op">)</span>,<span class="st">"runs/ssb0/pm.dat"</span><span class="op">)</span></span>
 <span>  </span></code></pre></div>
@@ -122,7 +123,7 @@ model<a class="anchor" aria-label="anchor" href="#example-use-of-ebswp-library-f
 <h4 id="for-ssb1">For SSB1<a class="anchor" aria-label="anchor" href="#for-ssb1"></a>
 </h4>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">d1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_dat.html">read_dat</a></span><span class="op">(</span><span class="st">"runs/dat/pm_avon2.dat"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co">#d1 &lt;- read_dat("runs/dat/pm_avon2.dat")</span></span>
 <span><span class="va">d2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_dat.html">read_dat</a></span><span class="op">(</span><span class="st">"runs/dat/pm_ssb1.dat"</span><span class="op">)</span></span>
 <span><span class="va">d3</span>            <span class="op">&lt;-</span> <span class="va">d2</span></span>
 <span><span class="va">d3</span><span class="op">$</span><span class="va">n_avo</span>      <span class="op">&lt;-</span> <span class="va">d1</span><span class="op">$</span><span class="va">n_avo</span></span>
@@ -131,7 +132,7 @@ model<a class="anchor" aria-label="anchor" href="#example-use-of-ebswp-library-f
 <span><span class="va">d3</span><span class="op">$</span><span class="va">wt_avo</span>     <span class="op">&lt;-</span> <span class="va">d1</span><span class="op">$</span><span class="va">wt_avo</span></span>
 <span><span class="va">d3</span><span class="op">$</span><span class="va">yrs_avo</span>    <span class="op">&lt;-</span> <span class="va">d1</span><span class="op">$</span><span class="va">yrs_avo</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/write_dat.html">write_dat</a></span><span class="op">(</span>output_file<span class="op">=</span><span class="st">"runs/dat/pm_ssb1new.dat"</span>, tmp<span class="op">=</span><span class="va">d3</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/write_dat.html">write_dat</a></span><span class="op">(</span>output_file<span class="op">=</span><span class="st">"runs/dat/pm_ssb1new.dat"</span>, indata<span class="op">=</span><span class="va">d3</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Create directory and copy key files</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="st">"runs/ssb1"</span><span class="op">)</span></span>
@@ -142,7 +143,7 @@ model<a class="anchor" aria-label="anchor" href="#example-use-of-ebswp-library-f
 <span><span class="co"># Read pm.dat, then write (e.g.,)</span></span>
 <span>  <span class="va">pm.dat</span><span class="op">&lt;-</span><span class="fu">read_table</span><span class="op">(</span><span class="st">"runs/ProcTune/pm.dat"</span>,col_names<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="co"># Add some description of the rows...</span></span>
-<span>  <span class="va">pm.dat</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Updated_SSB1_to_avon2"</span></span>
+<span>  <span class="va">pm.dat</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Updated_SSB1_to_proctune"</span></span>
 <span>  <span class="va">pm.dat</span><span class="op">[</span><span class="fl">2</span>,<span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"../dat/pm_ssb1new.dat"</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">pm.dat</span><span class="op">$</span><span class="va">X1</span><span class="op">)</span>,<span class="st">"runs/ssb1/pm.dat"</span><span class="op">)</span></span>
 <span>  </span></code></pre></div>
@@ -151,7 +152,7 @@ model<a class="anchor" aria-label="anchor" href="#example-use-of-ebswp-library-f
 <h4 id="and-ssb2">And SSB2<a class="anchor" aria-label="anchor" href="#and-ssb2"></a>
 </h4>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">d1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_dat.html">read_dat</a></span><span class="op">(</span><span class="st">"runs/dat/pm_avon2.dat"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co">#d1 &lt;- read_dat("runs/dat/pm_proctune1.dat")</span></span>
 <span><span class="va">d2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_dat.html">read_dat</a></span><span class="op">(</span><span class="st">"runs/dat/pm_ssb2.dat"</span><span class="op">)</span></span>
 <span><span class="va">d3</span>            <span class="op">&lt;-</span> <span class="va">d2</span></span>
 <span><span class="va">d3</span><span class="op">$</span><span class="va">n_avo</span>      <span class="op">&lt;-</span> <span class="va">d1</span><span class="op">$</span><span class="va">n_avo</span></span>
@@ -160,7 +161,7 @@ model<a class="anchor" aria-label="anchor" href="#example-use-of-ebswp-library-f
 <span><span class="va">d3</span><span class="op">$</span><span class="va">wt_avo</span>     <span class="op">&lt;-</span> <span class="va">d1</span><span class="op">$</span><span class="va">wt_avo</span></span>
 <span><span class="va">d3</span><span class="op">$</span><span class="va">yrs_avo</span>    <span class="op">&lt;-</span> <span class="va">d1</span><span class="op">$</span><span class="va">yrs_avo</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/write_dat.html">write_dat</a></span><span class="op">(</span>output_file<span class="op">=</span><span class="st">"runs/dat/pm_ssb2new.dat"</span>, tmp<span class="op">=</span><span class="va">d3</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/write_dat.html">write_dat</a></span><span class="op">(</span>output_file<span class="op">=</span><span class="st">"runs/dat/pm_ssb2new.dat"</span>, indata<span class="op">=</span><span class="va">d3</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Create directory and copy key files</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="st">"runs/ssb2"</span><span class="op">)</span></span>
@@ -171,7 +172,7 @@ model<a class="anchor" aria-label="anchor" href="#example-use-of-ebswp-library-f
 <span><span class="co"># Read pm.dat, then write (e.g.,)</span></span>
 <span>  <span class="va">pm.dat</span><span class="op">&lt;-</span><span class="fu">read_table</span><span class="op">(</span><span class="st">"runs/ProcTune/pm.dat"</span>,col_names<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="co"># Add some description of the rows...</span></span>
-<span>  <span class="va">pm.dat</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Updated_SSB2_to_avon2"</span></span>
+<span>  <span class="va">pm.dat</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Updated_SSB2_to_proctune"</span></span>
 <span>  <span class="va">pm.dat</span><span class="op">[</span><span class="fl">2</span>,<span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"../dat/pm_ssb2new.dat"</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">pm.dat</span><span class="op">$</span><span class="va">X1</span><span class="op">)</span>,<span class="st">"runs/ssb2/pm.dat"</span><span class="op">)</span></span>
 <span>  </span></code></pre></div>
@@ -205,46 +206,47 @@ model<a class="anchor" aria-label="anchor" href="#example-use-of-ebswp-library-f
 <div class="section level4">
 <h4 id="now-run-them-all-in-parallel">Now run them all in parallel<a class="anchor" aria-label="anchor" href="#now-run-them-all-in-parallel"></a>
 </h4>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>  mod_dir   <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tune"</span>,ProcTune<span class="st">","</span>ssb0<span class="st">","</span>ssb1<span class="st">","</span>ssb2<span class="st">")</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="st">  mod_names &lt;- c("</span>Obs_error_Tune<span class="st">","</span>Proc_error_Tune<span class="st">","</span>ssb0<span class="st">","</span>ssb1<span class="st">","</span>ssb2<span class="st">")</span></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="st">  # output=TRUE default, also check on spm</span></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="st">  res &lt;- run_model()</span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="st">  #res &lt;- get_results()</span></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="st">  tab_fit(res, mod_scen = c(1:2)) |&gt; gt::gt()</span></span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="st">  tab_fit(res, mod_scen = c(1:4)) |&gt; gt::gt()</span></span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="st">  tab_ref(res, mod_scen = c(1:4)) |&gt; gt::gt() |&gt; gt::fmt_markdown()</span></span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="st">  </span></span>
-<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="st">  # See if different from base</span></span>
-<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="st">  tail(sc2)</span></span>
-<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="st">  ctl &lt;-read_dat("</span>runs<span class="sc">/</span>ProcTune<span class="sc">/</span>control.dat<span class="st">")</span></span>
-<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="st">  ctlb &lt;-read_dat("</span>runs<span class="sc">/</span>base22<span class="sc">/</span>control.dat<span class="st">")</span></span>
-<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="st">  diff &lt;- purrr::map_lgl(names(ctl), ~ !identical(ctl[[.]], ctlb[[.]]))</span></span>
-<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="st">  sum(diff)</span></span>
-<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="st">  names(ctl[diff])</span></span>
-<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a><span class="st">  cbind(ctl[diff][2],ctlb[diff][2])</span></span>
-<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a><span class="st">  names(ctl)</span></span>
-<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a><span class="st">  ctl[56]</span></span>
-<span id="cb7-20"><a href="#cb7-20" tabindex="-1"></a><span class="st">  write_dat("</span>runs<span class="sc">/</span>base22<span class="sc">/</span>control.dat<span class="st">",ctl)</span></span>
-<span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a></span>
-<span id="cb7-22"><a href="#cb7-22" tabindex="-1"></a><span class="st"># Set an initial working directory</span></span>
-<span id="cb7-23"><a href="#cb7-23" tabindex="-1"></a><span class="st">  mod_names &lt;- c("</span>AVON Full<span class="st">","</span>Proc_tune<span class="st">")</span></span>
-<span id="cb7-24"><a href="#cb7-24" tabindex="-1"></a><span class="st">  mod_dir &lt;- c("</span>avon2<span class="st">", "</span>ProcTune<span class="st">")</span></span>
-<span id="cb7-25"><a href="#cb7-25" tabindex="-1"></a><span class="st">  # Note, 0.2 CV for selectivity variability nails it (from base22)</span></span>
-<span id="cb7-26"><a href="#cb7-26" tabindex="-1"></a><span class="st">  # Read, adjust, write...</span></span>
-<span id="cb7-27"><a href="#cb7-27" tabindex="-1"></a><span class="st">  sc &lt;-read_table("</span>runs<span class="sc">/</span>dat<span class="sc">/</span>scmed22P.dat<span class="st">",col_names = FALSE); names(sc) &lt;- c("</span>Year<span class="st">","</span>fsh<span class="st">","</span>bts<span class="st">","</span>ats<span class="st">")</span></span>
-<span id="cb7-28"><a href="#cb7-28" tabindex="-1"></a><span class="st">  tail(sc )</span></span>
-<span id="cb7-29"><a href="#cb7-29" tabindex="-1"></a><span class="st">  # Iterated on selectivity</span></span>
-<span id="cb7-30"><a href="#cb7-30" tabindex="-1"></a><span class="st">  sc2 &lt;-  sc |&gt; mutate(ats = ifelse(ats&gt;0,.138,0))</span></span>
-<span id="cb7-31"><a href="#cb7-31" tabindex="-1"></a><span class="st">  write.table(sc2,file="</span>runs<span class="sc">/</span>dat<span class="sc">/</span>scmed22P.dat<span class="st">",col.names = FALSE,row.names = FALSE)</span></span>
-<span id="cb7-32"><a href="#cb7-32" tabindex="-1"></a><span class="st">  #modtune &lt;- run_model(Output=TRUE)</span></span>
-<span id="cb7-33"><a href="#cb7-33" tabindex="-1"></a><span class="st">  modtune&lt;-get_results()</span></span>
-<span id="cb7-34"><a href="#cb7-34" tabindex="-1"></a><span class="st">  tab_fit(modtune, mod_scen = c(1,2)) |&gt; gt::gt()</span></span>
-<span id="cb7-35"><a href="#cb7-35" tabindex="-1"></a><span class="st">  tab_ref(modtune, mod_scen = c(1,2)) |&gt; gt::gt()</span></span>
-<span id="cb7-36"><a href="#cb7-36" tabindex="-1"></a><span class="st">  tab_ref(modlst, mod_scen = c(4,5)) |&gt; gt::gt()</span></span>
-<span id="cb7-37"><a href="#cb7-37" tabindex="-1"></a><span class="st">  (modlst[[4]]$nextyrssbs)</span></span>
-<span id="cb7-38"><a href="#cb7-38" tabindex="-1"></a><span class="st">  (modlst[[4]]$nextyrssb.sd)</span></span>
-<span id="cb7-39"><a href="#cb7-39" tabindex="-1"></a><span class="st">  (modtune[[1]]$nextyrssbs)</span></span>
-<span id="cb7-40"><a href="#cb7-40" tabindex="-1"></a><span class="st">  names(modtune)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span>  <span class="va">mod_dir</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ProcTune"</span>,<span class="st">"ssb0"</span>,<span class="st">"ssb1"</span>,<span class="st">"ssb2"</span><span class="op">)</span></span>
+<span>  <span class="va">mod_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Proc_error_Tune"</span>,<span class="st">"ssb0"</span>,<span class="st">"ssb1"</span>,<span class="st">"ssb2"</span><span class="op">)</span></span>
+<span>  <span class="co"># output=TRUE default, also check on spm</span></span>
+<span>  <span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/run_model.html">run_model</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="co">#res &lt;- get_results()</span></span>
+<span>  <span class="fu"><a href="../reference/tab_fit.html">tab_fit</a></span><span class="op">(</span><span class="va">res</span>, mod_scen <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html" class="external-link">gt</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/tab_fit.html">tab_fit</a></span><span class="op">(</span><span class="va">res</span>, mod_scen <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html" class="external-link">gt</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/tab_ref.html">tab_ref</a></span><span class="op">(</span><span class="va">res</span>, mod_scen <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html" class="external-link">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/fmt_markdown.html" class="external-link">fmt_markdown</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># See if different from base</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">sc2</span><span class="op">)</span></span>
+<span>  <span class="va">ctl</span> <span class="op">&lt;-</span><span class="fu"><a href="../reference/read_dat.html">read_dat</a></span><span class="op">(</span><span class="st">"runs/ProcTune/control.dat"</span><span class="op">)</span></span>
+<span>  <span class="va">ctlb</span> <span class="op">&lt;-</span><span class="fu"><a href="../reference/read_dat.html">read_dat</a></span><span class="op">(</span><span class="st">"runs/base22/control.dat"</span><span class="op">)</span></span>
+<span>  <span class="va">diff</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">ctl</span><span class="op">)</span>, <span class="op">~</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></span><span class="op">(</span><span class="va">ctl</span><span class="op">[[</span><span class="va">.</span><span class="op">]</span><span class="op">]</span>, <span class="va">ctlb</span><span class="op">[[</span><span class="va">.</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">diff</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">ctl</span><span class="op">[</span><span class="va">diff</span><span class="op">]</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">ctl</span><span class="op">[</span><span class="va">diff</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,<span class="va">ctlb</span><span class="op">[</span><span class="va">diff</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">ctl</span><span class="op">)</span></span>
+<span>  <span class="va">ctl</span><span class="op">[</span><span class="fl">56</span><span class="op">]</span></span>
+<span>  <span class="fu"><a href="../reference/write_dat.html">write_dat</a></span><span class="op">(</span><span class="st">"runs/base22/control.dat"</span>,<span class="va">ctl</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Set an initial working directory</span></span>
+<span>  <span class="va">mod_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"AVON Full"</span>,<span class="st">"Proc_tune"</span><span class="op">)</span></span>
+<span>  <span class="va">mod_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"avon2"</span>, <span class="st">"ProcTune"</span><span class="op">)</span></span>
+<span>  <span class="co"># Note, 0.2 CV for selectivity variability nails it (from base22)</span></span>
+<span>  <span class="co"># Read, adjust, write...</span></span>
+<span>  <span class="va">sc</span> <span class="op">&lt;-</span><span class="fu">read_table</span><span class="op">(</span><span class="st">"runs/dat/scmed22P.dat"</span>,col_names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">sc</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Year"</span>,<span class="st">"fsh"</span>,<span class="st">"bts"</span>,<span class="st">"ats"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">sc</span> <span class="op">)</span></span>
+<span>  <span class="co"># Iterated on selectivity</span></span>
+<span>  <span class="va">sc2</span> <span class="op">&lt;-</span>  <span class="va">sc</span> <span class="op">|&gt;</span> <span class="fu">mutate</span><span class="op">(</span>ats <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">ats</span><span class="op">&gt;</span><span class="fl">0</span>,<span class="fl">.138</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.table</a></span><span class="op">(</span><span class="va">sc2</span>,file<span class="op">=</span><span class="st">"runs/dat/scmed22P.dat"</span>,col.names <span class="op">=</span> <span class="cn">FALSE</span>,row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span>  <span class="co">#modtune &lt;- run_model(Output=TRUE)</span></span>
+<span>  <span class="va">modtune</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/get_results.html">get_results</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/tab_fit.html">tab_fit</a></span><span class="op">(</span><span class="va">modtune</span>, mod_scen <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html" class="external-link">gt</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/tab_ref.html">tab_ref</a></span><span class="op">(</span><span class="va">modtune</span>, mod_scen <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html" class="external-link">gt</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/tab_ref.html">tab_ref</a></span><span class="op">(</span><span class="va">modlst</span>, mod_scen <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html" class="external-link">gt</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">(</span><span class="va">modlst</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">nextyrssbs</span><span class="op">)</span></span>
+<span>  <span class="op">(</span><span class="va">modlst</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">nextyrssb.sd</span><span class="op">)</span></span>
+<span>  <span class="op">(</span><span class="va">modtune</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">nextyrssbs</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">modtune</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

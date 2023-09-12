@@ -50,7 +50,6 @@ mod_dir <- c(
 names(modlst)
 plot_avo(modlst[3:5])
 
-
 #---Covariance diagonal extraction--------
 #   a one-off to get the variance term from covariance diagonal into the ob_bts_std
 in_data <- read_dat("runs/dat/pm_base22.dat")

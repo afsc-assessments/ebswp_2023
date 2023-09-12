@@ -27,11 +27,11 @@ library(ebswp)
 ### Read in an existing model
 
 ```{r readwrite,eval=FALSE}
-d1 <- read_dat("runs/dat/pm_avon2.dat")
+d1 <- read_dat("runs/dat/proctune1.dat")
 d2 <- read_dat("runs/dat/pm_ssb0.dat")
 ```
 
-Now use avon2 file to fix the vales in the "ssb" files
+Now use process error tuned file to fix the vales in the "ssb" files
 
 ```{r rw2,eval=FALSE}
 d3            <- d2
@@ -41,11 +41,11 @@ d3$ob_avo_std <- d1$ob_avo_std
 d3$wt_avo     <- d1$wt_avo
 d3$yrs_avo    <- d1$yrs_avo
 
-write_dat(output_file="runs/dat/pm_ssb0new.dat", tmp=d3)
+write_dat(output_file="runs/dat/pm_ssb0new.dat", indata=d3)
 
 # Create directory and copy key files
 dir.create("runs/ssb0")
-file.copy("runs/ProcTune/control.dat","runs/ssb0/",overwrite = TRUE)
+file.copy("runs/ssb0_origProcTune/control.dat","runs/ssb0/",overwrite = TRUE)
 file.copy("runs/avon2/compweights.ctl","runs/ssb0/",overwrite = TRUE)
 file.remove("runs/ssb0/pm")
 file.symlink("../../src/pm","runs/ssb0/pm")
@@ -54,7 +54,7 @@ file.symlink("../../src/pm","runs/ssb0/pm")
 # Add some description of the rows...
   row.names(pm.dat) <- c("Desc","main","sel","ctl","altFmsy","cov","wtage","cpue","temp","q")
   pm.dat
-  pm.dat[1,] <- "Updated_SSB0_to_avon2"
+  pm.dat[1,] <- "Updated_SSB0_to_proctune1"
   pm.dat[2,] <- "../dat/pm_ssb0new.dat"
   writeLines(as.character(pm.dat$X1),"runs/ssb0/pm.dat")
   
@@ -63,7 +63,7 @@ file.symlink("../../src/pm","runs/ssb0/pm")
 
 ### For SSB1
 ```{r rw3,eval=FALSE}
-d1 <- read_dat("runs/dat/pm_avon2.dat")
+#d1 <- read_dat("runs/dat/pm_avon2.dat")
 d2 <- read_dat("runs/dat/pm_ssb1.dat")
 d3            <- d2
 d3$n_avo      <- d1$n_avo
@@ -72,7 +72,7 @@ d3$ob_avo_std <- d1$ob_avo_std
 d3$wt_avo     <- d1$wt_avo
 d3$yrs_avo    <- d1$yrs_avo
 
-write_dat(output_file="runs/dat/pm_ssb1new.dat", tmp=d3)
+write_dat(output_file="runs/dat/pm_ssb1new.dat", indata=d3)
 
 # Create directory and copy key files
 dir.create("runs/ssb1")
@@ -83,7 +83,7 @@ file.symlink("../../src/pm","runs/ssb1/pm")
 # Read pm.dat, then write (e.g.,)
   pm.dat<-read_table("runs/ProcTune/pm.dat",col_names=FALSE)
 # Add some description of the rows...
-  pm.dat[1,] <- "Updated_SSB1_to_avon2"
+  pm.dat[1,] <- "Updated_SSB1_to_proctune"
   pm.dat[2,] <- "../dat/pm_ssb1new.dat"
   writeLines(as.character(pm.dat$X1),"runs/ssb1/pm.dat")
   
@@ -94,7 +94,7 @@ file.symlink("../../src/pm","runs/ssb1/pm")
 
 ### And SSB2
 ```{r rw4,eval=FALSE}
-d1 <- read_dat("runs/dat/pm_avon2.dat")
+#d1 <- read_dat("runs/dat/pm_proctune1.dat")
 d2 <- read_dat("runs/dat/pm_ssb2.dat")
 d3            <- d2
 d3$n_avo      <- d1$n_avo
@@ -103,7 +103,7 @@ d3$ob_avo_std <- d1$ob_avo_std
 d3$wt_avo     <- d1$wt_avo
 d3$yrs_avo    <- d1$yrs_avo
 
-write_dat(output_file="runs/dat/pm_ssb2new.dat", tmp=d3)
+write_dat(output_file="runs/dat/pm_ssb2new.dat", indata=d3)
 
 # Create directory and copy key files
 dir.create("runs/ssb2")
@@ -114,7 +114,7 @@ file.symlink("../../src/pm","runs/ssb2/pm")
 # Read pm.dat, then write (e.g.,)
   pm.dat<-read_table("runs/ProcTune/pm.dat",col_names=FALSE)
 # Add some description of the rows...
-  pm.dat[1,] <- "Updated_SSB2_to_avon2"
+  pm.dat[1,] <- "Updated_SSB2_to_proctune"
   pm.dat[2,] <- "../dat/pm_ssb2new.dat"
   writeLines(as.character(pm.dat$X1),"runs/ssb2/pm.dat")
   
@@ -149,8 +149,8 @@ file.symlink("../../src/pm","runs/tune/pm")
 ### Now run them all in parallel
 
 ```{r run,eval=FALSE}
-  mod_dir   <- c("tune",ProcTune","ssb0","ssb1","ssb2")
-  mod_names <- c("Obs_error_Tune","Proc_error_Tune","ssb0","ssb1","ssb2")
+  mod_dir   <- c("ProcTune","ssb0","ssb1","ssb2")
+  mod_names <- c("Proc_error_Tune","ssb0","ssb1","ssb2")
   # output=TRUE default, also check on spm
   res <- run_model()
   #res <- get_results()
