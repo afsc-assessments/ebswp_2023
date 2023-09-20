@@ -10,14 +10,20 @@ author:
         city: Seattle
         state: WA
         url: https://www.fisheries.noaa.gov/alaska/population-assessments/north-pacific-groundfish-stock-assessments-and-fishery-evaluation
+csl: cjfas.csl
+date: now
+date-format: "DD MMM YYYY"
+
 format: 
   pdf:
+    number-sections: true
     include-in-header: 
       text: |
         \usepackage{scrlayer-scrpage}
         \rohead{EBS Pollock assessment considerations}
-        \lohead{Sept 2023}
-        \cofoot{Draft}
+        \lohead{Draft}
+        \lofoot{September 2023 }
+        \rofoot{BSAI Plan Team}
     includes:
       in_header: "doc/preamble.tex"
   
@@ -211,6 +217,8 @@ Compared to the values used in the base and "tuned" model, the trends are very s
 
 ![Results of the EBS pollock model for recent spawning biomass estimates comparing the base model under different assumptions about mean body weight-at-age during spawning.](doc/figs/mod_ssb_ssb.pdf){#fig-ssbssb}
 
+{{< pagebreak >}}
+
 ```{r modfitsssb}
 #| label: tbl-modfitsssb
 #| tbl-cap: "Goodness-of-fit measures to primary data for different assessment model configurations. RMSE=root-mean square log errors, NLL=negative log-likelihood (may not be comparable across model configurations), SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data)"
@@ -232,17 +240,33 @@ tab_ref(modlst[c(5,9:11)]) |> gt::gt() |>  gt::fmt_markdown()
 
 ## Alternative error-term specifications
 
-In this section we present the updated error terms associated with the acoustic trawl data (the observations used previously were revised). We also show the impact of using the diagonal covariance matrix and an alternative for the bottom trawl survey data based on the generalized gamma distribution in place of the log-normal.
+In this section we present the updated error terms associated with the acoustic trawl data (the observations used previously were revised). 
+We also show the impact of using the diagonal covariance matrix and an alternative for the bottom trawl survey data based on the generalized 
+gamma distribution in place of the log-normal. Changing the bottom-trawl survey error to be based on independent annual survey index 
+values (the base model used a covariance matrix estimated for the series) was nearly identical compared to the base tuned model (@fig-diagssb). 
+However, the fit to the BTS index was worse than for the other alternatives based on the root-mean squared error (RMSE; @tbl-modfitserr; note 
+that the for the "NLL" for the  for the BTS differ because the form of the likelihood equation changed). This degradation of fit to the BTS index
+is also apparent in @fig-mod_bts_diag. 
+The results on goodness of fits for the Generalized Gamma distribution was improved compared to the base tuned model and the others 
+and the pattern of fits of the model predictions varies compared to the base tuned model (@fig-mod_bts_gengam). Presumably this is due to the
+externally estimated shape and scale of the annually varying distribution (while for the base model the "shape" is constant
+by assuming a multivariate log-normal distribution).
 
-Changing the bottom-trawl survey error to be based on independent annual survey index values (the base model used a covariance matrix estimated for the series) was nearly identical compared to the base tuned model (@fig-diagssb).
+For the runs with the age-determination error option 
+turned on, the fits to the data degraded for most of the age composition data (based 
+on the NLL and the "effective-sample size") but improved fits 
+slightly to the indices  (e.g., in @fig-mod_bts_ageerr, @tbl-modfitserr). 
 
-These model estimates for alternative error assumptions indicated that
-
-the shows results on goodness of fits while (@tbl-modfitserr)
-
-@tbl-modreferr shows the impact of different spawning biomass weights-at-age assumptions.
+For the models with modifications to the error-term specifications, the changes for biomass
+reference points varied slightly (@tbl-modreferr).
 
 ![Results of the EBS pollock model for recent spawning biomass estimates comparing the base model using the covariance matrix with the one where only the diagonal is applied.](doc/figs/mod_diag_ssb.pdf){#fig-diagssb}
+
+![Results of the EBS pollock model fit to the BTS data comparing a model using the covariance matrix (tuned22) with the one where only the diagonal is applied ("Diag cov BTS").](doc/figs/mod_bts_diag.pdf){#fig-mod_bts_diag}
+
+![Results of the EBS pollock model fit to the BTS data comparing a model using the standard log-normal distribution is used (tuned22) with the one where the annually-varying generalize gamma distribution is applied ("GenGam").](doc/figs/mod_bts_gengam.pdf){#fig-mod_bts_gengam}
+
+![Results of the EBS pollock model fit to the BTS data comparing a model using the standard log-normal distribution is used (tuned22) with the model where the age-determination error option is turned on    ("Ageing Error").](doc/figs/mod_bts_ageerr.pdf){#fig-mod_bts_ageerr}
 
 {{< pagebreak >}}
 
@@ -269,13 +293,13 @@ tab_ref(modlst[c(5:8)]) |> gt::gt() |>  gt::fmt_markdown()
 
 For the models we explored there was generally improvements to the model specifications that could be made. These were relatively minor impacts on the stock status and trends. For discussions, we therefore recommend:
 
--   adopting the use of the full revised AVO time series. *The data have been re-calibrated to the acoustic trawl survey and cover a larger area than previous AVO series. This may improve the ability to track expansion and contraction of the pollock stock in mid-water.*
+-   Adopting the use of the full revised AVO time series. *The data have been re-calibrated to the acoustic trawl survey and cover a larger area than previous AVO series. This may improve the ability to track expansion and contraction of the pollock stock in mid-water.*
 
--   allowing modest process error terms consistent with the observation-error specifications. *We prefer to follow allow slight deviations in process errors (here selectivity/availability in the ATS) to achieve consistency with specified survey-based observation-errors*
+-   Allowing modest process error terms consistent with the observation-error specifications. *We prefer to follow allow slight deviations in process errors (here selectivity/availability in the ATS) to achieve consistency with specified survey-based observation-errors*
 
--   adopting the use of the RE model for A-season fishery mean body weight-at-age. *These smoothed values are based on uncertainty-weighted observations and reflect the pattern most available to the spawning season of pollock.*
+-   Adopting the use of the RE model for A-season fishery mean body weight-at-age. *These smoothed values are based on uncertainty-weighted observations and reflect the pattern most available to the spawning season of pollock.*
 
--   pursuing model configurations that can best be used to bridge between other software platforms (e.g., WHAM, stock synthesis, and AMAK2)
+-   Pursuing model configurations that can best be used to bridge between other software platforms (e.g., WHAM, stock synthesis, and AMAK2). *This practice should help confirm that the model used for this assessment concurs with other software (e.g., as found in* @li2021) *and also provide flexibility and transparency in transferring this assessment to future analysts.*
 
 For future work we plan to adopt a new method for estimating cohort and year random effects for processes such as selectivity (e.g. @cheng2023).
 

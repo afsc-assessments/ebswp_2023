@@ -75,12 +75,16 @@ if (doplots) {
     group_by(year,source,age) |>  summarise(age=as.numeric(age),weight=mean(wt)) |>
     ggplot(aes(x=year,y=weight,color=source)) + geom_line(size=1) + facet_grid(age~.,scale='free') +
     xlab("Year") + ylab("Mean weight (kg)") +ggthemes::theme_few() + ggtitle("Pollock body weight-at-age"); p1
-  ggsave("figs/wt_ssb.pdf",plot=p1,width=6,height=7.7,units="in")
+  ggsave("doc/figs/wt_ssb.pdf",plot=p1,width=6,height=7.7,units="in")
 
 #---Compare survey fits------------
   #--BTS------------------
+  # Age error
+  p1 <- plot_bts(modlst[c(5,6)],xlim=c(1981.5,2023.5),ylim=c(0,15500)) ;p1
+  ggsave("doc/figs/mod_bts_ageerr.pdf",plot=p1,width=8,height=5.0,units="in")
+
   p1 <- plot_bts(modlst[c(5,8)],xlim=c(1981.5,2023.5),ylim=c(0,15500)) ;p1
-  ggsave("figs/mod_bts_gengam.pdf",plot=p1,width=8,height=5.0,units="in")
+  ggsave("doc/figs/mod_bts_gengam.pdf",plot=p1,width=8,height=5.0,units="in")
 
 for (i in 1:nmods) print(paste(modlst[[i]]$rmse_bts ,mod_names[i] ))
   df<-data.frame(rmse=NULL,model=NULL)
@@ -90,8 +94,8 @@ for (i in c(2,4,5))
 df |> ggplot(aes(x=model,fill=model,y=rmse)) + geom_bar(stat='identity') + ggthemes::theme_few()
 
   #--ATS------------------
-p1 <- plot_ats(modlst[c(2,4,5)],xlim=c(1993.5,2023.5),ylim=c(0,10000)) ;p1
-  ggsave("figs/mod_bts_gengam.pdf",plot=p1,width=8,height=5.0,units="in")
+p1 <- plot_ats(modlst[c(8,5)],xlim=c(1993.5,2023.5),ylim=c(0,10000)) ;p1
+  ggsave("doc/figs/mod_ats_gengam.pdf",plot=p1,width=8,height=5.0,units="in")
   #--AVO------------------
 
 #---Compare selectivity for base w/ vast

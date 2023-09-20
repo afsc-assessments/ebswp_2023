@@ -5,7 +5,8 @@ articles:
   Assessment-planning: Assessment-planning.html
   Change_Model_Specs: Change_Model_Specs.html
   EBS_wp_OSA: EBS_wp_OSA.html
-last_built: 2023-09-11T04:08Z
+  Model-equations: Model-equations.html
+last_built: 2023-09-20T04:32Z
 urls:
   reference: http://afsc-assessments.github.io/ebswp/reference
   article: http://afsc-assessments.github.io/ebswp/articles
