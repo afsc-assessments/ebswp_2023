@@ -163,7 +163,7 @@ this area.
 -   *The data evaluation from the moored sounders is presently underway. Initial
     results hold promise and should be available in early 2023.*
 
-\pagebreak
+\clearpage
 
 # Introduction
 
