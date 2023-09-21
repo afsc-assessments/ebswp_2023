@@ -1,0 +1,108 @@
+---
+title: "SAFE report front matter"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{SAFE report front matter|
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ebswp)
+thisyr=2022
+nextyr=thisyr+1
+lastyr=thisyr-1
+```
+
+# Introduction
+
+## General
+
+Walleye pollock (*Gadus chalcogrammus*; hereafter referred to as
+pollock) are broadly distributed throughout the North Pacific with the
+largest concentrations found in the Eastern Bering Sea. Also known as
+Alaska pollock, this species continues to play important roles
+ecologically and economically.
+\clearpage
+
+## Review of Life History
+
+In the EBS pollock spawn generally in the period March-May and in
+relatively localized regions during specific periods (Bailey 2000).
+Generally spawning begins nearshore north of Unimak Island in March and
+April and later near the Pribilof Islands (Jung et al. 2006, Bacheler et
+al. 2010). Females are batch spawners with up to 10 batches of eggs per
+female per year (during the peak spawning period). 
+Eggs and larvae of EBS pollock are planktonic for a
+period of about 90 days and appear to be sensitive to environmental
+conditions. These conditions likely affect their dispersal into
+favorable areas (for subsequent separation from predators) and also
+affect general food requirements for over-wintering survival (Gann et
+al. 2015, Heintz et al., 2013, Hunt et al. 2011, Ciannelli et al. 2004).
+Duffy-Anderson et al. (2015) provide a review of the early life history
+of EBS pollock.
+
+Throughout their range juvenile pollock feed on a variety of planktonic
+crustaceans, including calanoid copepods and euphausiids. In the EBS
+shelf region, one-year-old pollock are found throughout the water
+column, but also commonly occur in the NMFS bottom trawl survey. Ages 2
+and 3 year old pollock are rarely caught in summer bottom trawl survey
+gear and are more common in the midwater zone as detected by mid-water
+acoustic trawl surveys. Younger pollock are generally found in the more
+northern parts of the survey area and appear to move to the southeast as
+they age (Buckley et al. 2009). Euphausiids, principally *Thysanoessa
+inermis* and *T. raschii*, are among the most important prey items for
+pollock in the Bering Sea (Livingston, 1991; Lang et al., 2000; Brodeur
+et al., 2002; Cianelli et al., 2004; Lang et al., 2005). Pollock diets
+become more piscivorous with age, and cannibalism has been commonly
+observed in this region. However, Buckley et al. (2015) showed spatial
+patterns of pollock foraging by size of predators. For example, the
+northern part of the shelf region between the 100 and 200 m isobaths
+(closest to the shelf break) tends to be more piscivorous than
+counterparts in other areas.
+
+## Stock structure
+
+Stock structure for EBS pollock was evaluated in Ianelli
+et al. (2015). In that review past work on genetics (e.g., Bailey et al.
+1999, Canino et al. 2005) provided insight on genetic differentiation.
+The investigation also compared synchrony in year-classes and growth
+patterns. Pollock samples from areas including Zhemchug Canyon, Japan,
+Prince William Sound, Bogoslof, Shelikof, and the Northern Bering Sea
+were processed and results presented in 2021. 
+This analysis included 617 walleye 
+pollock from Japan, Bering Sea, Chukchi Sea, Aleutian Islands, Alaska 
+Peninsula, and Gulf of Alaska. Results suggests there is temporally 
+stable stock structure with a latitudinal gradient, i.e.,
+ Bering Sea pollock are distinguishable from those in the
+ Gulf of Alaska and Aleutian Islands (I. Spies, personal communication, 2021). 
+ Notably, Bogoslof samples appeared genetically distinct from other spawning regions. 
+ In addition, there appeared to be genetic connectivity between the eastern 
+ Bering Sea and the western Gulf of Alaska spawning samples. Samples 
+ from the eastern Gulf of Alaska are currently undergoing sequencing to 
+ determine whether eastern Gulf of Alaska pollock are 
+genetically distinct from those in the western Gulf of Alaska. 
+The ongoing goals of the project include investigating the genetic stock structure of walleye pollock,
+testing if patterns are temporally stable, and evaluating if
+distributional shifts under climate change can be detected. 
+
+For management purposes, the preliminary conclusions from these genetics
+results are: 1)there is stock structure in pollock that appears to be
+stable through time and 2) Some aspect of stock structure is
+latitudinal---Bering Sea pollock appear distinct from fish collected
+from the Gulf of Alaska and the Aleutian Islands. The results appear
+strong enough that a GTseq panel could be designed in the future to
+determine stock of origin of walleye pollock, the scale of which may be
+relatively large, such as "Bering Sea" or "GOA". The scope and funding
+sources for this project will be planned in 2022 with sampling designs
+developed for implementation as early as 2023.
