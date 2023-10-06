@@ -1,0 +1,27 @@
+#--------------------------------------------
+Std # Run name 5 scenarios
+#--------------------------------------------
+3    # Tier
+#--------------------------------------------
+7    # Number of Alternatives        
+#--------------------------------------------
+1
+2    # List of alternatives        
+3
+4
+5
+6
+7
+#--------------------------------------------
+1    # Flag to set TAC equal to ABC (1 means true, otherwise false)        
+#--------------------------------------------
+1    # Stock-recruitment type (1=Ricker, 2=Bholt)
+1    # projection rec form (default: 1 = use observed mean and std, option 2 = use estimated SRR and estimated sigma R)                                 
+0    # SR-Conditioning (0 means no, 1 means use Fmsy == F35%?, 2 means Fmsy == F35% and Bmsy=B35%  condition (affects SRR fits)  
+0.0  # Condition that there is a prior that mean historical recruitment is similar to expected recruitment at half mean SSB and double mean SSB 0 means don't use, otherwise specify CV
+#--------------------------------------------
+1    # Flag to write big file (of all simulations rather than a summary, 0 means don't do it, otherwise do it) Write_Big       
+#--------------------------------------------
+14   #_Number of projection years                                  
+1000  #_Number of simulations                                 
+2021 #_Begin Year                                        
