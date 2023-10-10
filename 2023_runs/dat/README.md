@@ -9,7 +9,10 @@
 [ ] Update fishery catch
 [ ] Update fishery catch-at-age 
 [ ] Update survey cpue so that design-based estimator can be used from scratch
+[ ] Update BTS VAST estimates
+[ ] Update BTS VAST age-composition estimates
 [ ] Update BTS design based estimates
+[ ] Update BTS design based age-composition estimates
 [x] Update BTS Covariance matrix ("cov_2023.dat")
 [ ] Add in Hulson's BTS sample size
 [ ] Update AVO time series
