@@ -7,6 +7,7 @@ sep23 is the base selected change model from september which has:
   - spawning biomass weight-at-age set to the RE model estimates from fishery data for the A-season
   - the new AVO time series
   - modest process error in ATS selectivity variability
+  - Pete Hulson's publication on effective sample size for bottom-trawl survey data
 
   
  
