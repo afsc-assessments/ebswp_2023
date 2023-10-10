@@ -824,12 +824,14 @@ DATA_SECTION
   init_vector sqkm(1,nstrata);
   init_int ndata;
   init_matrix d(1,ndata,1,5);  // Columns: year, strataindex, RACEstrata, CPUE, Temperature
-  imatrix nobs(1982,2008,1,14); // years and strata 
-   matrix mnCPUE(1982,2008,1,14); // years and strata 
-   matrix mntemp(1982,2008,1,14); // years and strata 
-  3darray temp_in(1982,2008,1,14,1,70); // for reading in 
-  3darray CPUE_in(1982,2008,1,14,1,70); // for reading in  
+  imatrix nobs(1982,2023,1,14); // years and strata 
+   matrix mnCPUE(1982,2023,1,14); // years and strata 
+   matrix mntemp(1982,2023,1,14); // years and strata 
+  3darray temp_in(1982,2023,1,14,1,190); // for reading in 
+  3darray CPUE_in(1982,2023,1,14,1,190); // for reading in  
  LOCAL_CALCS
+  write_log(sqkm);
+  write_log(ndata);
   write_log(d);
   nobs.initialize();
   // int iobs=0;
@@ -845,14 +847,14 @@ DATA_SECTION
     CPUE_in(iyr,ist,nobs(iyr,ist))=d(i,4);
   }
  END_CALCS
-  3darray temp(1982,2008,1,14,1,nobs); // for actually using (ragged, since not same number of observations each year)
-  3darray CPUE(1982,2008,1,14,1,nobs); // for actually using (ragged, since not same number of observations each year)
+  3darray temp(1982,2023,1,14,1,nobs); // for actually using (ragged, since not same number of observations each year)
+  3darray CPUE(1982,2023,1,14,1,nobs); // for actually using (ragged, since not same number of observations each year)
  LOCAL_CALCS
   temp.initialize();
   CPUE.initialize();
   mntemp.initialize();
   mnCPUE.initialize();
-  for (int iyr=1982;iyr<=2008;iyr++)
+  for (int iyr=1982;iyr<=2023;iyr++)
   {
     for (int ist=1;ist<=nstrata;ist++)
     {

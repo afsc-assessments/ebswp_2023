@@ -2,21 +2,21 @@
 
 ## 2023 November assessment
 
-[x] Create fixed-effects fishery wt-age datafile "wtage2023.dat" (also done in script "wt.R" in WtAgeRE, but calls on specimen data from survey and sampler data from fishery) 
-[x] Generated random-effect SSB wt-at-age (done in script "wt.R" in WtAgeRE)
-[x] Expand Paul Spencer's input files to work for 2023 (but placeholders only)
-[ ] Put SSB wt-at-age into appropriate input datafile
-[ ] Update fishery catch
-[ ] Update fishery catch-at-age 
-[ ] Update survey cpue so that design-based estimator can be used from scratch
-[ ] Update BTS VAST estimates
-[ ] Update BTS VAST age-composition estimates
-[ ] Update BTS design based estimates
-[ ] Update BTS design based age-composition estimates
-[x] Update BTS Covariance matrix ("cov_2023.dat")
-[ ] Add in Hulson's BTS sample size
-[ ] Update AVO time series
-[ ] Update ATS age composition for the 2022 data (previously used BTS ALK)
+  [x] Create fixed-effects fishery wt-age datafile "wtage2023.dat" (also done in script "wt.R" in WtAgeRE, but calls on specimen data from survey and sampler data from fishery)      
+  [x] Generated random-effect SSB wt-at-age (done in script "wt.R" in WtAgeRE)     
+  [x] Expand Paul Spencer's input files to work for 2023 (but placeholders only)     
+  [ ] Put SSB wt-at-age into appropriate input datafile     
+  [ ] Update fishery catch     
+  [ ] Update fishery catch-at-age      
+  [ ] Update survey cpue so that design-based estimator can be used from scratch     
+  [ ] Update BTS VAST estimates     
+  [ ] Update BTS VAST age-composition estimates     
+  [ ] Update BTS design based estimates     
+  [ ] Update BTS design based age-composition estimates     
+  [x] Update BTS Covariance matrix ("cov_2023.dat")     
+  [ ] Add in Hulson's BTS sample size     
+  [ ] Update AVO time series     
+  [ ] Update ATS age composition for the 2022 data (previously used BTS ALK)     
 
 
 pm_22.dat: Full final dataset with
