@@ -3,11 +3,12 @@
 #' This function fetches model results based on specified model names and directories.
 #'
 #' @param mod_names. A character vector of model names. Default is 'mod_names'.
+#' @param rundir The main sub directory path for the models. Default is 'runs'
 #' @param moddir The main directory path for the models. Default is 'mod_dir'
 #' @return A list containing model results.
 #' @export
-get_results <- function(mod_names.=mod_names, moddir=mod_dir) {
-  fn        <- paste0("runs/",moddir,"/pm")
+get_results <- function(mod_names.=mod_names, rundir="runs",moddir=mod_dir) {
+  fn        <- paste0(rundir,"/",moddir,"/pm")
   nmods <- length(mod_names.)
   num_cores <- parallel::detectCores() - 1
   cl <- parallel::makeCluster(num_cores)
