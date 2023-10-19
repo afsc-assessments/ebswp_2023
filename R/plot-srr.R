@@ -2,7 +2,7 @@
 #'
 #' @param M list object created by read_admb function
 #' @return dataframe of expected and observed SRR
-#' 
+#'
 .get_srr_df <- function(M)
 {
     n <- length(M)
@@ -23,7 +23,7 @@
 }
 .get_sr_est_df <- function(M)
 {
-    # Return SSB and Recruits 
+    # Return SSB and Recruits
     n <- length(M)
     mdf2 <- NULL
     for (i in 1:n)
@@ -45,7 +45,7 @@
 
 #' Plot Stock-Recruitment Relationship (SRR)
 #'
-#' This function plots the stock-recruitment relationship (SRR) using ggplot2. 
+#' This function plots the stock-recruitment relationship (SRR) using ggplot2.
 #' It can handle multiple models and provides flexibility in display options.
 #'
 #' @param M A list or data structure containing model results.
@@ -67,28 +67,29 @@
 #' # Assuming 'model_list' contains the relevant model results:
 #' # plot_srr(M = model_list, ylim = c(0, 1e6), xlim = c(0, 2000))
 #'
+#' @export
 #' @importFrom ggplot2 ggplot labs geom_line geom_ribbon geom_text geom_errorbar facet_wrap guides
 #' @importFrom dplyr filter
-plot_srr <- function(M, ylab = "Recruits (age 1, millions)", xlab = "Female spawning biomass (kt)", 
+plot_srr <- function(M, ylab = "Recruits (age 1, millions)", xlab = "Female spawning biomass (kt)",
                      ylim = NULL, xlim=NULL, alpha = 0.05, ebar="FALSE", leglabs=NULL, coverlap=FALSE, sizein=3, sizeout=2, yrsin=1977:2019)
 {
     xlab <- paste0("\n", xlab)
     ylab <- paste0(ylab, "\n")
-    
+
     mdf <- .get_srr_df(M)
-    
+
     p <- ggplot(mdf) + labs(x = xlab, y = ylab)
-    
+
     if (!is.null(xlim))
-        p <- p + xlim(xlim)        
+        p <- p + xlim(xlim)
 
     if (is.null(ylim))
     {
         p <- p + expand_limits(y = 0)
     } else {
-        p <- p + ylim(ylim[1], ylim[2])        
+        p <- p + ylim(ylim[1], ylim[2])
     }
-    
+
     if (length(M) == 1)
     {
         p <- p + geom_line(aes(x = ssb, y = rhat)) +
@@ -98,24 +99,24 @@ plot_srr <- function(M, ylab = "Recruits (age 1, millions)", xlab = "Female spaw
         p <- p + geom_line(aes(x = ssb, y = rhat, col = Model),size=1.2) +
             geom_ribbon(aes(x = ssb, ymax = ub, ymin = lb, fill = Model), alpha = alpha)
     }
-    #if (!is.null(xlim)) #p <- scale_x_continuous(expand=c(0,0)) + p <- coord_cartesian(xlim=xlim) 
-    #if (!is.null(ylim)) p <-  coord_cartesian(ylim=ylim) #p <- scale_y_continuous(expand=c(0,0), limits=c(-50,ylim[2]*1.1)) + coord_cartesian(ylim=ylim) 
+    #if (!is.null(xlim)) #p <- scale_x_continuous(expand=c(0,0)) + p <- coord_cartesian(xlim=xlim)
+    #if (!is.null(ylim)) p <-  coord_cartesian(ylim=ylim) #p <- scale_y_continuous(expand=c(0,0), limits=c(-50,ylim[2]*1.1)) + coord_cartesian(ylim=ylim)
 
-    mdf2<- .get_sr_est_df(M) 
+    mdf2<- .get_sr_est_df(M)
 		mdf3<- mdf2 %>% filter(!(Year %in% yrsin))
 		mdf2<- mdf2 %>% filter(Year %in% yrsin)
-		
+
     if (length(M) == 1)
     {
-        p <- p + geom_text(data=mdf2, aes(x = ssb, y = rhat, label=Year),size=sizein,check_overlap=coverlap) 
-        p <- p + geom_text(data=mdf3, aes(x = ssb, y = rhat, label=Year),size=sizeout,check_overlap=coverlap) 
+        p <- p + geom_text(data=mdf2, aes(x = ssb, y = rhat, label=Year),size=sizein,check_overlap=coverlap)
+        p <- p + geom_text(data=mdf3, aes(x = ssb, y = rhat, label=Year),size=sizeout,check_overlap=coverlap)
         if (ebar) p <- p + geom_errorbar(data=mdf2, aes(x = ssb, ymax = ub, ymin = lb))
     } else {
-        p <- p + geom_text(data=mdf2, aes(x = ssb, y = rhat, label=Year, col = Model), size=sizein, check_overlap=coverlap) 
-        p <- p + geom_text(data=mdf3, aes(x = ssb, y = rhat, label=Year, col = Model), size=sizeout,check_overlap=coverlap) 
+        p <- p + geom_text(data=mdf2, aes(x = ssb, y = rhat, label=Year, col = Model), size=sizein, check_overlap=coverlap)
+        p <- p + geom_text(data=mdf3, aes(x = ssb, y = rhat, label=Year, col = Model), size=sizeout,check_overlap=coverlap)
         if (ebar) p <- p +  geom_errorbar(data=mdf2, aes(x = ssb, ymax = ub, ymin = lb ,colour=Model))
     }
-    
+
     if (!is.null(leglabs)) p = p + scale_color_discrete(labels=leglabs)
 
     if(!.OVERLAY) p <- p + facet_wrap(~Model)

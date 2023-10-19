@@ -1,30 +1,42 @@
-
+library(tidyverse)
+library(ggthemes)
+.THEME <- ggthemes::theme_few()
 if (doplots) {
   do_data_plots <- FALSE
 #---September 2023 figures---
 
 #--tuned figures
-  p1 <- plot_ats(modtune[c(1,2)]) +
-        scale_x_continuous(limits=c(1994-.5,2022.5)) + theme_few(base_size = 12);p1
+  p1 <- plot_ats(modlst[c(2:7)]) +
+        scale_x_continuous(limits=c(1994-.5,2023.5)) + theme_few(base_size = 12);p1
+  p1 <- plot_avo(modlst[c(7)]) +
+        scale_x_continuous(limits=c(2005-.5,2023.5)) + theme_few(base_size = 12);p1
+  p1 <- plot_bts(modlst[c(5,7)]) +
+        scale_x_continuous(limits=c(1994-.5,2023.5)) + theme_few(base_size = 12);p1
 
-  p1 <- plot_bts(modtune[c(1,2)]) +
+  p1 <- plot_bts(modlst[c(3,6)]) +
     coord_cartesian( ylim = c(0,20000) )+
-        scale_x_continuous(limits=c(1994-.5,2022.5)) + theme_few(base_size = 12);p1
+        scale_x_continuous(limits=c(1994-.5,2024.5)) + theme_few(base_size = 12);p1
   #---Compare selectivity for base w/ vast
-   df <- data.frame(sel=modtune[[1]]$sel_fut,Age=1:15,Model="base")
-   df <- rbind(df,data.frame(sel=modtune[[2]]$sel_fut,Age=1:15,Model="tuned"))
+   df <- data.frame(sel=modlst[[1]]$sel_fut,Age=1:15,Model="base")
+   df <- rbind(df,data.frame(sel=modlst[[2]]$sel_fut,Age=1:15,Model="tuned"))
    p1 <- df %>% ggplot(aes(x=Age,y=sel,color=Model)) + geom_line(linewidth=1.5) + ggthemes::theme_few() +
      ylab("Selectivity") + scale_x_continuous(breaks=1:15);p1
-  p1 <- plot_sel(sel=modtune[[2]]$sel_bts,styr=1982,fill="darkblue") ;p1
+   library(viridis)
+   library(scales)
+   library(ggridges)
 
-  plot_agefit(modlst[[1]],case_label=af_title,gear="bts",type="survey",styr=1982,ageplus=10)
+ p1 <- plot_sel(sel=modlst[[7]]$sel_bts,styr=1982,fill="darkblue") ;p1
+ p1 <- plot_sel(sel=modlst[[7]]$sel_ats,styr=1994,fill="darkblue") ;p1
 
-  plot_agefit(modlst[[2]],case_label=af_title,gear="bts",type="survey",styr=1982,ageplus=10)
+af_title<-"2023 Assessment"
+plot_agefit(modlst[[7]],case_label=af_title,gear="bts",type="survey",styr=1984,ageplus=10)
+plot_agefit(modlst[[7]],case_label=af_title,gear="fsh",type="fishery",styr=1984,ageplus=10)
+plot_agefit(modlst[[6]],case_label=af_title,gear="bts",type="survey",styr=1984,ageplus=10)
 #ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
 #---Age diversity
   df <- data.frame(Year=M$Yr,Age=M$H,Measure="Population Age\n diversity")
 
-  p1 <- plot_avo(modtune[c(1,2)], ylim=NULL) + xlim(c(2005,2023)) + theme_few(base_size = 18);p1
+  p1 <- plot_avo(modlst[c(2)], ylim=NULL) + xlim(c(2005,2024)) + theme_few(base_size = 18);p1
   p1 <- plot_avo(modtune[c(1,2)], ylim=NULL) + xlim(c(2005,2023)) + facet_grid(Model~.,scales='free')+theme_few(base_size = 18);p1
 
 #--tuned figures
@@ -45,9 +57,12 @@ if (doplots) {
   # "SSB Emp. wt-age", #10
   # "SSB RE wt-age") #11
 
-  p1 <- plot_ssb(modlst[c(1,2)],xlim=c(2008.5,2023.5));p1
-  p2 <- plot_recruitment(modlst[c(1,2)],xlim=c(1990.5,2023.5));p2
-  p3 <- plot_srr(modlst[c(1,2)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000));p3
+  .OVERLAY=TRUE
+  p1 <- plot_ssb(modlst[c(2,7)],xlim=c(2008.5,2023.5));p1
+  p2 <- plot_recruitment(modlst[c(2,7)],xlim=c(2000.5,2023.5)) +
+    theme_few(base_size = 15);p2
+  p3 <- ebswp::plot_srr(modlst[c(1,7)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000)) +
+    theme_few(base_size = 15);p3
 
   p1 <- plot_bts(modlst[c(8,5)],xlim=c(1981.5,2023.5),ylim=c(0,15500)) ;p1
   ggsave("doc/figs/mod_bts_gengam.pdf",plot=p1,width=8,height=5.0,units="in")
@@ -107,7 +122,9 @@ p1 <- plot_ats(modlst[c(8,5)],xlim=c(1993.5,2023.5),ylim=c(0,10000)) ;p1
 #---Age diversity
   df <- data.frame(Year=M$Yr,Age=M$H,Measure="Population Age\n diversity")
   df <- rbind(df,data.frame(Year=M$Yr,Age=M$avg_age_mature,Measure="SSB Age\n diversity"))
-  p1 <- df %>% filter(Year>1979) %>% ggplot(aes(x=Year,y=Age,color=Measure)) + geom_line(size=2) + theme_few() + scale_x_continuous(limits=c(1980,2022), breaks=seq(1980,2022,5));p1
+  p1 <- df %>% filter(Year>1979) %>% ggplot(aes(x=Year,y=Age,color=Measure)) + geom_line(size=2) +
+    theme_few() + scale_x_continuous(limits=c(1980,2023), breaks=seq(1980,2023,5));p1
+  p1
   ggsave("figs/age_diversity.pdf",plot=p1,width=8,height=3.0,units="in")
 #---Recruit
   #p1 <- plot_recruitment(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
@@ -166,7 +183,7 @@ p1 <- plot_ats(modlst[c(8,5)],xlim=c(1993.5,2023.5),ylim=c(0,10000)) ;p1
   #sel
   #M<- modlst[[thismod]]
 #---Selectivity-----------------
-  yr=c(M$Yr,2023);sel<-rbind(M$sel_fsh,M$sel_fut)
+  yr=c(M$Yr,2024);sel<-rbind(M$sel_fsh,M$sel_fut)
   p1 <- plot_sel(Year=yr,sel=sel,scale=3); p1
   #p1 <- plot_sel();p1
   #dtmp <- p1$data %>% filter(Year==2022)
@@ -367,6 +384,12 @@ modlst
 #ggsave("figs/mod_ats_eval2.pdf",plot=p5,height=7,width=6.0,units="in");
 
  #---SSB figure----------------------------
+  M <- modlst[[7]]
+  P <- modlst[[1]]
+  M$future_catch[4,2:6]
+  M$future_catch
+  M$future_SSB[5,2:6 ]
+  M$future_SSB
 df <- rbind(
   rbind(data.frame(Model="This year",Year= M$SSB[,1], SSB=M$SSB[,2], lb=M$SSB[,4], ub=M$SSB[,5]),
 data.frame(Model="This year",Year= nextyr:(nextyr+4), SSB=M$future_SSB[4,2:6], lb = M$future_SSB[4,2:6] -2*M$future_SSB.sd[4,2:6], ub = M$future_SSB[4,2:6] +2*M$future_SSB.sd[4,2:6])),
@@ -376,10 +399,11 @@ data.frame(Model="Last year",Year= (nextyr-1):(nextyr+3), SSB=P$future_SSB[4,2:6
 p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb,fill=Model)) + geom_ribbon(alpha=.6) + geom_line() +  theme_few() +
   scale_x_continuous(limits=c(2002,2028),breaks=seq(2002,2028,2)) +
   ylab("Female spawning biomass (kt)") +
-  geom_vline(xintercept=2022,col="grey",size=1.2); p1
+  geom_vline(xintercept=2023,col="grey",size=1.2); p1
   ggsave("figs/proj_ssb.pdf",plot=p1,width=7.4,height=4.5,units="in")
 
   #---R/S------------------
+  M <- modlst[[7]]
   nyrs=length(M$SSB[,1])
   dt <- data.table(yr=M$SSB[1:nyrs,1],ssb= M$SSB[1:nyrs,2], r=M$R[2:(nyrs-1),2] )
   dt <- dt %>% mutate(Year=substr(as.character(yr),3,4),rs= log(dt$r/dt$ssb))
@@ -391,14 +415,18 @@ p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb,fill=Model)) + geom_ribbon(alph
   p3 <- p1 / p2;p3
   ggsave("figs/mod_rs.pdf",plot=p3,width=5.2,height=7.5,units="in")
 
+  thismod=7
   p1 <- plot_ser(modlst[thismod],xlim=c(1964,thisyr+1),alpha=.7) + scale_x_continuous(breaks=seq(1965,thisyr+1,5))
+  p1
   ggsave("figs/mod_ser.pdf",plot=p1,width=9.2,height=7.0,units="in"); p1
 
   #---fishing mortality mod_F.pdf-----------------------------------------------------------------
   df <-data.frame(Year=M$Yr,M$F); names(df) <- c("Year",1:15); df.g <- gather(df,age,F,2:16,-Year)
+  df
   p1 <- df.g %>% mutate(age=as.numeric(age)) %>% filter(age<11)%>% ggplot(aes(y=age,x=Year,fill=F)) + geom_tile() + .THEME + ylab("Age")+ geom_contour(aes(z=F),color="darkgrey",size=.5,alpha=.4) +
             scale_fill_gradient(low = "white", high = "red") + scale_x_continuous(breaks=seq(1965,thisyr,5)) + geom_line(data=df.g[df.g$age=="6",],aes(x=Year,y=F*10)) +
             annotate("text", label = "Age 6 F (x10)" , x = 2015, y = 1.2, size = 5, colour = "black") + scale_y_continuous(breaks=seq(0,10,1))
+  p1
   ggsave("figs/mod_F.pdf",plot=p1,width=9.2,height=6.0,units="in")
 
   #---Historical assessment retrospectives--------------------------------------------------------
@@ -1381,15 +1409,16 @@ print(cd_tab)
   df.g %>% filter(Measure=="catch") %>% select(year,scen,val) %>% ggplot(aes(x=year,y=scen)) + .THEME + geom_density_2d()
 
   ## VAST figure
-  idxOut <- read.csv("data/vast.csv",header=TRUE)
+  idxOut <- read.csv("doc/data/vast.csv",header=TRUE)
   idxOut
-  df  <- mutate(idxOut, CV = sd/Biomass, sd=sd/1e6, Biomass=Biomass / 1e6, ll=Biomass-2*sd,ul=2*sd+Biomass) %>%
+  df  <- filter(Year!=2020) |> mutate(idxOut, CV = sd/Biomass, sd=sd/1e6, Biomass=Biomass / 1e6, ll=Biomass-2*sd,ul=2*sd+Biomass) %>%
       select(Model, Area, Year,Biomass, CV,ul,ll)
-  p1 <- ggplot(df,aes(x=Year,y=Biomass)) + geom_point(position=position_dodge(width=0.5)) + geom_smooth(span=.1,se=F) +
+  p1 <- ggplot(df |> filter(Year!=2020) ,aes(x=Year,y=Biomass)) + geom_point(position=position_dodge(width=0.5)) + geom_smooth(span=.1,se=F) +
       geom_errorbar(aes(ymin=ll,ymax=ul),width=.5,position=position_dodge(width=0.5)) + theme_few(base_size=19) +
       scale_x_continuous(breaks=seq(1982,2022,by=4))  +
       geom_hline(yintercept=0) + facet_grid(Area~.,scales="free") + ylab("Biomass (millions of t)"); p1
-  ggsave("figs/vast_idx.pdf",plot=p1,width=9.4,height=5,units="in")
+  p1
+  ggsave("doc/figs/vast_idx.pdf",plot=p1,width=9.4,height=5,units="in")
 
   p1 <- ggplot(df%>%filter(Area=="Both"),aes(x=Year,y=Biomass)) + geom_point(size=3,color="red",position=position_dodge(width=0.5)) +
       geom_errorbar(aes(ymin=ll,ymax=ul),width=.5,position=position_dodge(width=0.5)) + theme_few(base_size=19) +
@@ -1572,16 +1601,17 @@ ggsave("figs/catch.pdf",plot=p1,width=7.5,height=4.5,units="in")
 # flextable(tsum)
     #---Roe data------------------
       # Table comes from AKFIN: https://akfinbi.psmfc.org/analytics/saw.dll?Dashboard&PortalPath=%2Fshared%2FStock%20Assessment%2F_portal%2FStock%20Assessment&Page=Ianelli%20-%20Monthly%20EBS%20pollock%20production&Action=Navigate
-      rd <- read_csv("../doc/data/roe.csv")
+      rd <- read_csv("doc/data/roe.csv")
       glimpse(rd)
-     names(rd) <- c("Year","Month","TYPE","SECTOR","SPECIES_GROUP_CODE","FMP_SUBAREA","Prod","PERMITS","t","CONFIDENTIAL_FLAG")
+      summary(rd)
+      names(rd) <- c("Year","Month","TYPE","SECTOR","SPECIES_GROUP_CODE","FMP_SUBAREA","Prod","PERMITS","t","CONFIDENTIAL_FLAG")
      rd <- rd %>% mutate(Season=ifelse(Month<6,"A","B"))
 
       rd <- select(rd,Year, Season, Prod,t) %>% group_by(Year,Season,Prod) %>% summarize(t=sum(t))
       p1 <- rd %>% filter(Prod=="ROE") %>% ggplot(aes(x=Year,y=t,shape=Season,col=Season)) +
            geom_point(size=3) + geom_line(size=1.0) +
-           theme_few(base_size=14) + ylab("Tons of roe produced") + expand_limits(y=0) +
-           scale_x_continuous(breaks=seq(2000,2022,2)); #p1
+           ggthemes::theme_few(base_size=14) + ylab("Tons of roe produced") + expand_limits(y=0) +
+           scale_x_continuous(breaks=seq(2000,2023,2)); #p1
             #  + geom_hline(yintercept=mst,linetype="dashed") + geom_hline(yintercept=mbt,linetype="dashed")
            p1
       ggsave("figs/roe.pdf",plot=p1,width=7.5,height=4.5,units="in")
@@ -1590,25 +1620,25 @@ ggsave("figs/catch.pdf",plot=p1,width=7.5,height=4.5,units="in")
       #--- Catch-age estimates for sex catch age --------------------------
       # Updated
       edt <- NULL
-      for (i in 2021:1991){
-        edt <- rbind(edt,read_table(paste0("../data/fishery/sampler/results/Est_",i,".dat")))
+      for (i in 2022:1991){
+          edt <- rbind(edt,read_table(paste0("~/_mymods/ebs_main/data/fishery/sampler/results/Est_",i,".dat")))
       }
       tot <- edt %>% filter(type=="N",sex<3,stratum<5) %>% mutate(season=ifelse(stratum==1,"A","B"),sex=ifelse(sex==1,"Male",ifelse(sex==2,"Female","Total"))) %>%
               group_by(year,sex) %>% summarize(Catch=sum(value))
       tot$season <-"all"
       p1 <- edt %>% filter(type=="N",sex<3,stratum<5) %>% mutate(season=ifelse(stratum==1,"A","B"),sex=ifelse(sex==1,"Male",ifelse(sex==2,"Female","Total"))) %>%
               group_by(year,sex,season) %>% summarize(Catch=sum(value)) %>% rbind(tot) %>%
-              ggplot(aes(x=year,y=Catch,color=season,shape=sex,linetype=season)) + theme_few(base_size=12) + geom_point(size=3.5) + geom_line(size=1.2) + expand_limits(y=0) +
-              scale_x_continuous(breaks=seq(1990,2020,2)) + ylab("Catch (thousands)") + xlab("Year")
-              p1
-        ggsave("figs/catch_sex.pdf",plot=p1,width=7.5,height=4.5,units="in")
+              ggplot(aes(x=year,y=Catch,color=season,shape=sex,linetype=season)) + theme_few(base_size=11) +
+              geom_point(size=3.5) + geom_line(size=1.2) + expand_limits(y=0) +
+              scale_y_continuous(label=comma)  + scale_x_continuous(breaks=seq(1990,2022,2)) +
+              ylab("Catch (thousands)") + xlab("Year"); p1
+        ggsave("doc/figs/catch_sex.pdf",plot=p1,width=7.5,height=4.5,units="in")
         # Look at catch in Number vs catch in weight
         edt_df <- edt |> mutate(Year=year) |> group_by(Year) |> summarise(Number=sum(value))
         cdf_df <- df |> group_by(Year) |> summarise(Biomass=sum(Catch))
         left_join(edt_df, cdf_df) |> ggplot(aes(x=Number,y=Biomass,label=Year)) + theme_few() + geom_text(size=3) +
           geom_smooth(method=lm)
         #left_join(edt_df, cdf_df) |> mutate(Number=Number/mean(Number),Biomass=Biomass/mean(Biomass) ) |> pivot_longer(!Year,names_to="Type",values_to="Catch") |> ggplot(aes(x=Year,y=Catch,color=Type)) +
-        library(scales)
         left_join(edt_df, cdf_df) |> pivot_longer(!Year,names_to="Type",values_to="Catch") |> ggplot(aes(x=Year,y=Catch,color=Type)) +
           scale_y_continuous(label=comma) +
           geom_line(size=2) + theme_few(base_size = 18) + facet_grid(Type~.,scales="free") +  theme(legend.position="none")

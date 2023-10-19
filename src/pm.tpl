@@ -2,12 +2,14 @@
 //  Conventions:                                         // 
 //     fsh   - refers to fshery                         //
 //     bts   - refers to trawl survey                  //
-//     ats    - refers to hydroacoustic survey         //
+//     ats    - refers to hydroacoustic survey        //
 //     eac    - refers to expected age composition   //
 //     oac    - refers to observed age composition  //
 //     et     - refers to expected total numbers   //
 //     ot     - refers to observed total numbers  //
 /////////////////////////////////////////////////// 
+//                                                \\
+//                                                 \\
 //   ngears   - number of gear types (including srv \\
 //   n_       - refers to the number of observations \\
 //   styr     - first calendar year of model          \\
@@ -15,7 +17,7 @@
 //   styr_    - first year of data (suffix)             \\
 //   endyr_r  - last year for retrospective run          \\
 //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-// Aug 25 2009 add projection to next year to get survey biomass estimates
+// 
 //
 DATA_SECTION
  !!  *(ad_comm::global_datafile) >>  model_name; 
