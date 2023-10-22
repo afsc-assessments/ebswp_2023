@@ -3,19 +3,15 @@
 # Notes
 
 "doc.Rproj" switched to Rstudio "ebswp.Rproj" so that directory structure can be kept in tact.
-
 # Summary
-## Tasks and todo list 2022
+## Tasks and todo list 2023
     [ ] Econ section
     [x] Genetics from ingrid?
     [ ] SSC comments
     [x] wt-age figure for fishery projections (see wt.R in wtAgeRE folder)
     [x] Update Paul's temperature series
-    [x] Run 2020 model with and without "ce" climate effects (in directories withce and withoutce)
-    [x] Run 2020 model with M-matrix no CE
-    [x] Run 2020 model with M-matrix with CE
-    [x] Add in copepod index for age 3   
-    [x] Add in decision table 
+    [ ] 
+    [ ] Add in decision table 
     [ ] Update literature cited
 		
 

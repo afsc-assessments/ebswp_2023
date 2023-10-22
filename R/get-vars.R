@@ -20,7 +20,7 @@
 get_vars <- function(M, proj_file = NULL) {
   # ... [rest of your function code here]
   B <- list()
-  A <- read.table("data/intro_table.dat",header = TRUE)
+  A <- read.table("doc/data/intro_table.dat",header = TRUE)
   A$a1 <- format(A[1,4] ,big.mark               = ",",scientific=F,digits=1)
   A$a2 <- format(A[2,4] ,big.mark               = ",",scientific=F,digits=1)
   A$b1 <- format(A[1,5] ,big.mark               = ",",scientific=F,digits=1)

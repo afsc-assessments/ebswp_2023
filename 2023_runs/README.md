@@ -18,8 +18,9 @@ Directory structure sequence is:
     m3	As m2 but with 2022 age composition data updated (very minor change)    
     m4	As m3 but addition of fishery catch-age to 2022    
     m5	As m4 but addition of BTS index through 2023    
-    m6	As m5 but with BTS age compositions included through 2023    
-    m7	As m6 but with Hulsons BTS input sample sizes    
+    m6	As m5 but with design-based BTS age compositions included through 2023    
+    m7	As m6 but with VAST age compositions
+    m8	As m7 but with inflated Hulsons BTS input sample sizes    
 
 
 
