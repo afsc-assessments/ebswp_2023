@@ -1,5 +1,5 @@
 #' Age Composition Data Plotter
-#'
+#'t(t()
 #' This function generates a series of plots visualizing the age composition data
 #' from fisheries assessment. It compares observed and predicted data across different years.
 #'
@@ -13,10 +13,10 @@
 #' overlaying predicted data with points. It organizes the plots in a multi-panel figure,
 #' with each panel representing a year. Age classes are represented on the x-axis.
 #'
-#' @note The function uses the `rainbow` color palette, and the colors loop around for 
+#' @note The function uses the `rainbow` color palette, and the colors loop around for
 #' each cohort. The function expects certain naming conventions in the input dataset `dat`.
 #'
-#' @return A multi-panel plot where each panel visualizes age composition data for a 
+#' @return A multi-panel plot where each panel visualizes age composition data for a
 #' specific year.
 #'
 #' @examples
@@ -25,13 +25,20 @@
 #'
 #' @export
 plot_agefit <- function( x, case_label="2021 assessment",gear="bts",type="survey",styr=NULL,ageplus=NULL) {
+   #x=modlst[[thismod]];case_label=af_title;gear="ats";type="survey";styr=1982;ageplus=10
+
   subtle.color <- "gray40"
   if (gear=="bts"){
     fage <- 1
     ages <- c(fage,length(x$pobs_bts[1,-1]) ) #age range
-    obs.data  <- x$pobs_bts[,-1]
-    pred.data <- x$phat_bts[,-1]
-    years     <- x$pobs_bts[,1]
+    ncols<- length(x$pobs_bts[1,])
+    obs.data  <- data.frame(rbind(x$pobs_bts,(matrix(c(2020,rep(0,ncols-1) ), ncol=ncols)) )) |> dplyr::arrange(V1)
+    pred.data <- data.frame(rbind(x$phat_bts,(matrix(c(2020,rep(0,ncols-1) ), ncol=ncols)) )) |> dplyr::arrange(V1)
+    years     <- obs.data[,1]
+    obs.data  <- as.matrix(obs.data[,-1])
+    pred.data <- as.matrix(pred.data[,-1])
+    #obs.data  <- x$pobs_bts[,-1]
+    #pred.data <- x$phat_bts[,-1]
   }
   if (gear=="fsh"){
     fage <- 1
@@ -43,9 +50,12 @@ plot_agefit <- function( x, case_label="2021 assessment",gear="bts",type="survey
   if (gear=="ats"){
     fage <- 2
     ages <- c(fage,length(x$pobs_ats[1,-1]) ) #age range
-    obs.data  <- x$pobs_ats[,c(-1,-2)]
-    pred.data <- x$phat_ats[,c(-1,-2)]
     years     <- x$pobs_ats[,1]
+    # No age data from drone
+    yr_inc <- years!= 2020
+    obs.data  <- x$pobs_ats[yr_inc,c(-1,-2)]
+    pred.data <- x$phat_ats[yr_inc,c(-1,-2)]
+    years     <- x$pobs_ats[yr_inc,1]
     #obs.data
   }
   if (!is.null(styr)){
@@ -58,36 +68,38 @@ plot_agefit <- function( x, case_label="2021 assessment",gear="bts",type="survey
   if (!is.null(ageplus)){
     obs.data[,ageplus]  <- rowSums(obs.data[,ageplus:ages[2]])
     pred.data[,ageplus]  <- rowSums(pred.data[,ageplus:ages[2]])
-    pred.data <- pred.data[,1:ageplus]
+  pred.data <- pred.data[,1:ageplus]
     obs.data  <- obs.data[,1:ageplus]
     ages[2]   <- ageplus
   }
   ages.list <- ages[1]:ages[2]
   nages <- length(ages.list)
-  
+
   mfcol <- c(ceiling(nyears/3),3)
   par(mfcol=mfcol,oma=c(3.5,4.5,3.5,1),mar=c(0,0,0,0))
   cohort.color <- rainbow(mfcol[1]+2)[-c(1:2)]   #use hideous rainbow colors because they loop more gracefully than rich.colors
   ncolors <- length(cohort.color)
-  
-  #axis(2,las=1,at=c(0,0.5),col=subtle.color,col.axis=subtle.color,lwd=0.5) 
+
+  #axis(2,las=1,at=c(0,0.5),col=subtle.color,col.axis=subtle.color,lwd=0.5)
   #With
   #axis(2,las=1,at=c(0,0.25,0.5),col=subtle.color,col.axis=subtle.color,lwd=0.5)
   ylim <- c(0,1.05*max(obs.data,pred.data))
-  for (yr in 1:nyears) { 
+  for (yr in 1:nyears) {
     names.arg <- rep("",nages)
-    x <- barplot(obs.data[yr,],space=0.2,ylim=ylim,las=1,names.arg=names.arg, cex.names=0.5, xaxs="i",yaxs="i",border=subtle.color,
+    x <- barplot(obs.data[yr,],space=0.2,ylim=ylim,las=1,names.arg=names.arg,
+                 cex.names=0.5, xaxs="i",yaxs="i",border=subtle.color,
                  col=cohort.color[1:nages],axes=F,ylab="",xlab="")
     cohort.color <- c(cohort.color[ncolors],cohort.color[-1*ncolors])  #loop around colors
     if (yr %% mfcol[1] == 0) {
-      axis(side=1,at=x,lab=ages.list, line=-0.1,col.axis=subtle.color, col=subtle.color,lwd=0,lwd.ticks=0)  #just use for the labels, to allow more control than names.arg
+      axis(side=1,at=x,lab=ages.list, line=-0.1,col.axis=subtle.color,
+           col=subtle.color,lwd=0,lwd.ticks=0)  #just use for the labels, to allow more control than names.arg
     }
     if (yr <= mfcol[1]) {
       axis(2,las=1,at=c(0,0.2,0.4),col=subtle.color,col.axis=subtle.color,lwd=0.5)
     }
     par(new=T)
     par(xpd=NA)
-    plot(x=x,y=pred.data[yr,],ylim=ylim, xlim=par("usr")[1:2], 
+    plot(x=x,y=pred.data[yr,],ylim=ylim, xlim=par("usr")[1:2],
       las=1,xaxs="i",yaxs="i",bg="white",col="brown",typ="b",lty=1,
       pch=19,cex=0.8,axes=F,ylab="",xlab="")
     box(col=subtle.color,lwd=0.5)

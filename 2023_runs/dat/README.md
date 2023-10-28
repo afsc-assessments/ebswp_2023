@@ -11,16 +11,16 @@
   [x] Update fishery sample size
   [x] Update survey cpue so that design-based estimator can be used from scratch     
   [x] Update BTS VAST estimates     
-  [ ] Update BTS VAST age-composition estimates     
-  [ ] Update BTS design based estimates     
-  [ ] Update BTS design based age-composition estimates     
+  [x] Update BTS VAST age-composition estimates     
+  [x] Update BTS design based estimates     
+  [x] Update BTS design based age-composition estimates     
   [x] Update BTS Covariance matrix ("cov_2023.dat")     
-  [ ] Add in Hulson's BTS sample size     
+  [x] Add in Hulson's BTS sample size     
   [x] Update AVO time series     
   [x] Update ATS age composition for the 2022 data (previously used BTS ALK)     
 
 ### Directory layout
-
+Nine models, datafile format follows naming convention: pm_23.4.dat for model m4 (aliased to more descriptive actual directory name)
 Directory structure sequence is:
     m0	last year’s model    
     m1	Sept version through 2022    
@@ -29,7 +29,8 @@ Directory structure sequence is:
     m4	As m3 but addition of fishery catch-age to 2022    
     m5	As m4 but addition of BTS index through 2023    
     m6	As m5 but with BTS age compositions included through 2023    
-    m7	As m6 but with Hulsons BTS input sample sizes    
+    m7	As m5 but with VAST age compositions included through 2023    
+    m8	As m6 but with Hulsons BTS input sample sizes    
 
 
 pm_22.dat: Full final dataset with

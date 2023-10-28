@@ -34,6 +34,6 @@ run_model <- function(moddir=mod_dir, rundir="runs",modnames=mod_names,Output=TR
   # Fetch model results in parallel
   system.time(modlst <- parallel::parLapply(cl=cl, X=moddir, fun=.run_mod))
   if (Output)
-    modlst <- get_results(mod_names.=modnames,moddir=moddir)
+    modlst <- get_results(rundir=rundir,mod_names.=modnames,moddir=moddir)
   return(modlst)
 }
