@@ -1,13 +1,18 @@
+---
+bibliography: references.bib
+---
+
 # EBS Pollock Model Description
 
 ## Dynamics
 
-This assessment is based on a statistical age-structured model with the catch equation and population
-dynamics model as described in Fournier and Archibald (1982) and elsewhere
-(e.g., Hilborn and Walters 1992, Schnute and Richards 1995, McAllister and Ianelli
-1997). The catch in numbers at age in year $t (C_{t,a})$ and total catch biomass $(Y_t)$
-can be described as:
+This assessment is based on a statistical age-structured model with the
+catch equation and population dynamics model as described in
+@Fournier1982 and elsewhere (e.g., @hilborn1992, @schnute1995,
+@mcallister1997). The catch in numbers at age in year $t (C_{t,a})$ and
+total catch biomass $(Y_t)$ can be described as:s
 
+```{=tex}
 \begin{align}
     C_{t,a}     &= \frac{F_{t,a}}{Z_{t,a}} \left(1 - e^{-Z_{t,a}}\right) N_{t,a}, &1 \le t \le T, 1 \le a \le A \\
     N_{t+1,a+1} &= N_{t,a-1} e^{-Z_{t,a-1}}                                       &1 \le t \le T, 1 \le a < A   \\
@@ -17,8 +22,10 @@ can be described as:
     p_{t,a}     &= \frac{C_{t,a} } {C_{t,.} }                                                                   \\
     Y_{t}       &= \sum_{a=1}^A{w_{t,a}C_{t,a}}                                                                 \\
 \end{align}
-
+```
 where
+
+```{=tex}
 \begin{tabular}{ll}
 $T$       & is the number of years, \\
 $A$       & is the number of age classes in the population, \\
@@ -32,179 +39,189 @@ $F_{t,a}$ & is the instantaneous fishing mortality for age class $a$, in year $t
 $M_{t,a}$ & is the instantaneous natural mortality in year $t$ for age class $a$, and \\
 $Z_{t,a}$ & is the instantaneous total mortality for age class $a$, in year $t$. 
 \end{tabular}
+```
+Fishing mortality ($F_{t,a}$) is specified as being semi-separable and
+non-parametric in form with restrictions on the variability following
+@butterworth2003ajms :
 
-Fishing mortality ($F_{t,a}$) is specified as being semi-separable and non-parametric in form
-with restrictions on the variability following Butterworth et al. (2003):
-
+```{=tex}
 \begin{align}
     F_{t,a}     &= s_{t,a} \, \mu^f e^{\epsilon_t}, &\epsilon_t   \sim \mathcal{N}(0,\,\sigma_E^{2}) \\
     s_{t+1,a}   &= s_{t,a} \,       e^{\gamma_t},   &\gamma_t     \sim \mathcal{N}(0,\,\sigma_s^{2}) 
 \end{align}
+```
+where $s_{t,a}$ is the selectivity for age class $a$ in year $t$, and
+$\mu^f$ is the median fishing mortality rate over time.
 
-where $s_{t,a}$ is the selectivity for age class $a$ in year $t$, and $\mu^f$
-is the median fishing mortality rate over time.
-
-If the selectivities ($s_{t,a}$) are constant over time then fishing mortality
-rate decomposes into an age component and a year component.  A curvature
-penalty on the selectivity coefficients using the squared second-differences
-to provide smoothness between ages.
+If the selectivities ($s_{t,a}$) are constant over time then fishing
+mortality rate decomposes into an age component and a year component. A
+curvature penalty on the selectivity coefficients using the squared
+second-differences to provide smoothness between ages.
 
 Bottom-trawl survey selectivity was set to be asymptotic yet retain the
-properties desired for the characteristics of this gear. Namely, that the
-function should allow flexibility in selecting age 1 pollock over time. The
-functional form of this selectivity was:
+properties desired for the characteristics of this gear. Namely, that
+the function should allow flexibility in selecting age 1 pollock over
+time. The functional form of this selectivity was:
 
+```{=tex}
 \begin{align}
     s_{t,a}     &= \left[ 1+e^{-\alpha_ta-\beta_t} \right]^{-1} , & a>1 \\
     s_{t,a}     &= \mu_se^{-\delta^\mu_t},                        & a=1 \\
     \alpha_{t}  &= \bar \alpha e^{\delta^\alpha_t},                     \\
     \beta_{t}  &= \bar \beta e^{\delta^\beta_t},                        
 \end{align}
+```
+where the parameters of the selectivity function follow a random walk
+process as in Dorn et al. (2000):
 
-where the parameters of the selectivity function follow a random
-walk process as in Dorn et al. (2000):
-
+```{=tex}
 \begin{align}
     \delta_t^\mu  -  \delta_{t+1}^\mu     &\sim \mathcal{N}(0,\,\sigma_{\delta^\mu}^{2}) \\
     \\
     \alpha_t^\mu  -  \alpha_{t+1}^\mu     &\sim \mathcal{N}(0,\,\sigma_{\alpha^\mu}^{2}) \\
     \beta_t^\mu  -  \beta_{t+1}^\mu     &\sim \mathcal{N}(0,\,\sigma_{\beta^\mu}^{2}) 
 \end{align}
+```
+The parameters to be estimated in this part of the model are thus for
+t=1982 through to `r thisyr`. The variance terms for these process error
+parameters were specified to be 0.04.
 
-The parameters to be estimated in this part of the model are thus for t=1982 through to `r thisyr`. 
-The variance terms for these process error parameters were specified to be 0.04.
-
-In this assessment, the random-walk deviation penalty was optionally shifted
-to the changes in log-selectivity. that is, for the BTS estimates, the process
-error was applied to the logistic parameters as above, but the  lognormal
-penalty was applied to the resulting selectivities-at-age directly. The extent
-of this variability was evaluated in the context of the impact on age-specific
-survey catchability/availability and contrasted with an independent estimate of 
-pollock availability to the bottom trawl survey. 
-\begin{align}
+In this assessment, the random-walk deviation penalty was optionally
+shifted to the changes in log-selectivity. that is, for the BTS
+estimates, the process error was applied to the logistic parameters as
+above, but the lognormal penalty was applied to the resulting
+selectivities-at-age directly. The extent of this variability was
+evaluated in the context of the impact on age-specific survey
+catchability/availability and contrasted with an independent estimate of
+pollock availability to the bottom trawl survey. \begin{align}
     {ln(s_{t,a})}  -  {ln(s_{t+1,a})}  &\sim \mathcal{N}(0,\,\sigma_{sel}^{2}) \\
-\end{align}
-In 2008 the AT survey selectivity approach was modified. As an option, the age
-one pollock observed in this trawl can be treated as an index and are not
-considered part of the age composition (which then ranges from age 2-15). This
-was done to improve some interaction with the flexible selectivity smoother
-that is used for this gear and was compared. Additionally, the annual
-specification of input observation variance terms was allowed for the AT data.
+\end{align} In 2008 the AT survey selectivity approach was modified. As
+an option, the age one pollock observed in this trawl can be treated as
+an index and are not considered part of the age composition (which then
+ranges from age 2-15). This was done to improve some interaction with
+the flexible selectivity smoother that is used for this gear and was
+compared. Additionally, the annual specification of input observation
+variance terms was allowed for the AT data.
 
-
-A diagnostic approach to evaluate input variance specifications (via sample
-size under multinomial assumptions) was added in the 2018 assessment. This method
-uses residuals from mean ages together with the concept that the sample
-variance of mean age (from a given annual data set) varies inversely with
-input sample size. It can be shown that for a given set of input proportions
-at age (up to the maximum age $A$)  and sample size $N_t$ for year $t$, an adjustment
-factor $\nu$ for input sample size can be computed when compared with the
-assessment model predicted proportions at age ($\hat p_{ta}$) and model predicted mean age
-($\hat{\bar{a_t}}$):
-\begin{align}
+A diagnostic approach to evaluate input variance specifications (via
+sample size under multinomial assumptions) was added in the 2018
+assessment. This method uses residuals from mean ages together with the
+concept that the sample variance of mean age (from a given annual data
+set) varies inversely with input sample size. It can be shown that for a
+given set of input proportions at age (up to the maximum age $A$) and
+sample size $N_t$ for year $t$, an adjustment factor $\nu$ for input
+sample size can be computed when compared with the assessment model
+predicted proportions at age ($\hat p_{ta}$) and model predicted mean
+age ($\hat{\bar{a_t}}$): \begin{align}
 \nu   &= \text{var}\left( r^a_t \sqrt{\frac{N_t}{\kappa_t} }\right)^{-1} \\
 r^a_t &= \bar a_t - \hat{\bar{a_t}}                                      \\
 \kappa_t &= \left[ \sum_a^A {\bar a_t - \hat{\bar{a_t}}} \right]^{0.5}
 \end{align}
 
-where $r^a_t$ is the residual of mean age and
-\begin{align}
+where $r^a_t$ is the residual of mean age and \begin{align}
 \hat{\bar{a_t}} &= \sum_a^A{a \hat p_{ta}}\, \\
 {\bar a_t}      &= \sum_a^A{a p_{ta}}\, 
 \end{align}
 
-Based on previous analyses, we used the above relationship as a diagnostic for
-evaluating input sample sizes by comparing model predicted mean ages with
-observed mean ages and the implied 95% confidence bands. This method provided
-support for modifying the frequency of allowing selectivity changes.
- 
+Based on previous analyses, we used the above relationship as a
+diagnostic for evaluating input sample sizes by comparing model
+predicted mean ages with observed mean ages and the implied 95%
+confidence bands. This method provided support for modifying the
+frequency of allowing selectivity changes.
+
 ## Recruitment
 
-In these analyses, recruitment ($R_t$) represents numbers of age-1 individuals
-modeled as a stochastic  function of spawning stock biomass. 
+In these analyses, recruitment ($R_t$) represents numbers of age-1
+individuals modeled as a stochastic function of spawning stock biomass.
 \begin{align}
         R_t = f\left(B_{t-1} \right)
-\end{align}
-with mature spawning biomass during year $t$ was defined as:
+\end{align} with mature spawning biomass during year $t$ was defined as:
 \begin{align}
   B_t = \sum_{a=1}^A{ w_{t,a}\phi_aN_{t,a}} 
 \end{align}
 
-and, $\phi_a$ is the proportion of mature females at age is as shown in the sub-section
-titled Natural mortality and maturity at age under "Parameters estimated
-independently" above.
+and, $\phi_a$ is the proportion of mature females at age is as shown in
+the sub-section titled Natural mortality and maturity at age under
+"Parameters estimated independently" above.
 
 A reparameterized form for the stock-recruitment relationship following
-Francis (1992) was used. For the optional Beverton-Holt form (the Ricker form
-presented in Eq. 12 was adopted for this assessment) we have:
+@francis1992use was used. For the optional Beverton-Holt form (the
+Ricker form presented in Eq. 12 was adopted for this assessment) we
+have:
+
 \begin{align}
 R_t &= \frac{B_{t-1}e^{\varepsilon_t} }{\alpha+\beta B_{t-1} }
 \end{align}
 
-where 
+where
+
+```{=tex}
 \begin{tabular}{ll}
 $R_t$       & is recruitment at age 1 in year $t$, \\
 $B_t$       & is the biomass of mature spawning females in year $t$, \\
 $\varepsilon_t$ & is  the recruitment anomaly for year $t$, ($\varepsilon_t   \sim \mathcal{N}(0,\,\sigma_R^{2}$ ) \\
 $\alpha,\,\beta$    & are stock recruitment parameters. 
 \end{tabular}
+```
+Values for the stock-recruitment function parameters and are calculated
+from the values of (the number of 0-year-olds in the absence of
+exploitation and recruitment variability) and the steepness of the
+stock-recruit relationship ($h$). The steepness is the fraction of R0 to
+be expected (in the absence of recruitment variability) when the mature
+biomass is reduced to 20% of its pristine level @francis1992use , so
+that:
 
-Values for the stock-recruitment function parameters  and  are calculated from
-the values of  (the number of 0-year-olds in the absence of exploitation and
-recruitment variability) and the steepness of the stock-recruit relationship
-($h$). The steepness is the fraction of R0 to be expected (in the absence of
-recruitment variability) when the mature biomass is reduced to 20% of its
-pristine level (Francis 1992), so that:
-
+```{=tex}
 \begin{align}
  \alpha &= \tilde B_0 \frac{1-h}{4h} \\
  \beta &= \frac{5h-1}{4hR_0 } 
 \end{align}
-
+```
 where $\tilde B_0$ is the total egg production (or proxy, e.g., female
 spawning biomass) in the absence of exploitation (and recruitment
 variability) expressed as a fraction of $R_0$.
 
-Some interpretation and further explanation follows. For steepness equal 0.2,
-then recruits are a linear function of spawning biomass (implying no surplus
-production). For steepness equal to 1.0, then recruitment is constant for all
-levels of spawning stock size. A value of $h = 0.9$ implies that at 20% of the
-unfished spawning stock size will result in an expected value of 90% unfished
-recruitment level. Steepness of 0.7 is a commonly assumed default value for
-the Beverton-Holt form (e.g., Kimura 1988). The prior distribution for
-steepness used a beta distribution as in Ianelli et al. (2016). 
-The prior on steepness was specified to be a symmetric form of the
-Beta distribution with $\alpha = \beta = 14.93$ implying a prior mean of 0.5 and CV of
-12% (implying that there is about a 14% chance that the steepness is greater
-than 0.6). This conservative prior is consistent with previous years’
-application and serves to constrain the stock-recruitment curve from favoring
-steep slopes (uninformative priors result in $F_{MSY}$ values near an $F_{SPR}$ of about
-$F_{18\%}$ a value considerably higher than the default proxy of $F_{35\%}$). The
-residual pattern for the post-1977 recruits used in fitting the curve with a
-more diffuse prior resulted in all estimated recruits being below the curve
-for stock sizes less than $B_{MSY}$ (except for the 1978 year class). We believe
-this to be driven primarily by the apparent negative-slope for recruits
-relative to stock sizes above $B_{MSY}$ and as such, provides a potentially
-unrealistic estimate of productivity at low stock sizes. This prior was
-elicited from the rationale that residuals should be reasonably balanced
+Some interpretation and further explanation follows. For steepness equal
+0.2, then recruits are a linear function of spawning biomass (implying
+no surplus production). For steepness equal to 1.0, then recruitment is
+constant for all levels of spawning stock size. A value of $h = 0.9$
+implies that at 20% of the unfished spawning stock size will result in
+an expected value of 90% unfished recruitment level. Steepness of 0.7 is
+a commonly assumed default value for the Beverton-Holt form (e.g.,
+@kimura1989). The prior distribution for steepness used a beta
+distribution as in Ianelli et al. (2016). The prior on steepness was
+specified to be a symmetric form of the Beta distribution with
+$\alpha = \beta = 14.93$ implying a prior mean of 0.5 and CV of 12%
+(implying that there is about a 14% chance that the steepness is greater
+than 0.6). This conservative prior is consistent with previous years'
+application and serves to constrain the stock-recruitment curve from
+favoring steep slopes (uninformative priors result in $F_{MSY}$ values
+near an $F_{SPR}$ of about $F_{18\%}$ a value considerably higher than
+the default proxy of $F_{35\%}$). The residual pattern for the post-1977
+recruits used in fitting the curve with a more diffuse prior resulted in
+all estimated recruits being below the curve for stock sizes less than
+$B_{MSY}$ (except for the 1978 year class). We believe this to be driven
+primarily by the apparent negative-slope for recruits relative to stock
+sizes above $B_{MSY}$ and as such, provides a potentially unrealistic
+estimate of productivity at low stock sizes. This prior was elicited
+from the rationale that residuals should be reasonably balanced
 throughout the range of spawning stock sizes. Whereas this is somewhat
-circular (i.e., using data for prior elicitation), the point here is that
-residual patterns (typically ignored in these types of models) were 
-qualitatively considered. 
+circular (i.e., using data for prior elicitation), the point here is
+that residual patterns (typically ignored in these types of models) were
+qualitatively considered.
 
-In model 16.1 (from the 2019 assessment), a Beverton Holt stock recruitment form was implemented
-using the prior value of 0.67 for steepness and a CV of 0.17. This resulted in 
-beta distribution parameters (for the prior) at $\alpha = 6.339$ and  
+In model 16.1 (from the 2019 assessment), a Beverton Holt stock
+recruitment form was implemented using the prior value of 0.67 for
+steepness and a CV of 0.17. This resulted in beta distribution
+parameters (for the prior) at $\alpha = 6.339$ and\
 $\beta = 4.293$.
 
-The value of $\sigma_R$ was set at 1.0 to
-accommodate additional uncertainty in factors affecting recruitment
-variability.
+The value of $\sigma_R$ was set at 1.0 to accommodate additional
+uncertainty in factors affecting recruitment variability.
 
-To have the critical value for the stock-recruitment function (steepness, _h_)
-on the same scale for the Ricker model, we begin with the parameterization of
-Kimura (1990):
-\begin{align}
+To have the critical value for the stock-recruitment function
+(steepness, *h*) on the same scale for the Ricker model, we begin with
+the parameterization of @kimura1989 : \begin{align}
 R_t &= \frac{B_{t-1}e^{\alpha \left(1-B_{t-1} \frac{R_0}{\psi_0} \right)}}{\psi_0}
 \end{align}
 
@@ -213,41 +230,44 @@ It can be shown that the Ricker parameter a maps to steepness as:
 h &= \frac{e^\alpha}{e^\alpha+4}
 \end{align}
 
-so that the prior used on _h_ can be implemented in both the Ricker and
-Beverton-Holt stock-recruitment forms. Here the term $\psi_0$ represents the equilibrium
-unfished spawning biomass per-recruit.
+so that the prior used on *h* can be implemented in both the Ricker and
+Beverton-Holt stock-recruitment forms. Here the term $\psi_0$ represents
+the equilibrium unfished spawning biomass per-recruit.
 
 ## Diagnostics
 
 In 2006 a replay feature was added where the time series of recruitment
-estimates from a particular model is used to compute the subsequent abundance
-expectation had no fishing occurred. These recruitments are adjusted from the
-original estimates by the ratio of the expected recruitment given spawning
-biomass (with and without fishing) and the estimated stock-recruitment curve.
-I.e., the recruitment under no fishing is modified as:
-$$R_t' = \hat{R}_t\frac{f(B_{t-1}')}{f(B_{t-1})}$$
-where $R_t$ is the original recruitment estimate in year $t$ with $B_{t-1}'$ and $B_{t-1}$ representing
-the stock-recruitment function given spawning biomass under no fishing and
-under the estimated fishing intensity, respectively.
+estimates from a particular model is used to compute the subsequent
+abundance expectation had no fishing occurred. These recruitments are
+adjusted from the original estimates by the ratio of the expected
+recruitment given spawning biomass (with and without fishing) and the
+estimated stock-recruitment curve. I.e., the recruitment under no
+fishing is modified as:
+$$R_t' = \hat{R}_t\frac{f(B_{t-1}')}{f(B_{t-1})}$$ where $R_t$ is the
+original recruitment estimate in year $t$ with $B_{t-1}'$ and $B_{t-1}$
+representing the stock-recruitment function given spawning biomass under
+no fishing and under the estimated fishing intensity, respectively.
 
-The assessment model code allows retrospective analyses (e.g., Parma 1993, and
-Ianelli and Fournier 1998). This was designed to assist in specifying how
-spawning biomass patterns (and uncertainty) have changed due to new data. The
-retrospective approach simply uses the current model to evaluate how it may
-change over time with the addition of new data based on the evolution of data
-collected over the past several years.
+The assessment model code allows retrospective analyses (e.g.,
+@parma1993, and @ianelli1998). This was designed to assist in specifying
+how spawning biomass patterns (and uncertainty) have changed due to new
+data. The retrospective approach simply uses the current model to
+evaluate how it may change over time with the addition of new data based
+on the evolution of data collected over the past several years.
 
 ## Parameter estimation
 
 The objective function was simply the sum of the negative log-likelihood
 function and logs of the prior distributions. To fit large numbers of
-parameters in nonlinear models it is useful to be able to estimate certain
-parameters in different stages. The ability to estimate stages is also
-important in using robust likelihood functions since it is often undesirable
-to use robust objective functions when models are far from a solution.
-Consequently, in the early stages of estimation we use the following log-
-likelihood function for the survey and fishery catch at age data (in numbers):
+parameters in nonlinear models it is useful to be able to estimate
+certain parameters in different stages. The ability to estimate stages
+is also important in using robust likelihood functions since it is often
+undesirable to use robust objective functions when models are far from a
+solution. Consequently, in the early stages of estimation we use the
+following log- likelihood function for the survey and fishery catch at
+age data (in numbers):
 
+```{=tex}
 \begin{align}
 nll(i) &= n \sum_{t,a}{ p_{ta} \ln \hat p_{ta} } \\
 p_{ta} &= \frac{O_{ta}}{\sum_a{O_{ta}}} \hspace{20pt} 
@@ -260,28 +280,32 @@ b_{2,1} & b_{2,2} &       & b_{2,15} \\
 b_{15,1} & b_{15,2} & \dots      & b_{15,15} 
 \end{array}  
 \end{align}
+```
+where $A$, and $T$, represent the number of age classes and years,
+respectively, n is the sample size, and represent the observed and
+predicted numbers at age in the catch. The elements bi,j represent
+ageing mis-classification proportions are based on independent agreement
+rates between otolith age readers. For the models presented this year,
+the option for including aging errors was re-evaluated.
 
-where $A$, and $T$, represent the number of age classes and years, respectively, n
-is the sample size, and  represent the observed and predicted numbers at age
-in the catch. The elements bi,j represent ageing mis-classification
-proportions are based on independent agreement rates between otolith age
-readers. For the models presented this year, the option for including aging
-errors was re-evaluated.
+Sample size values were revised and are shown in the main document.
+Strictly speaking, the amount of data collected for this fishery
+indicates higher values might be warranted. However, the standard
+multinomial sampling process is not robust to violations of assumptions
+(@fournier1990multifan). Consequently, as the model fit approached a
+solution, we invoke a robust likelihood function which fit proportions
+at age as:
 
-Sample size values were revised and are shown in the main document. Strictly
-speaking, the amount of data collected for this fishery indicates higher
-values might be warranted. However, the standard multinomial sampling process
-is not robust to violations of assumptions (Fournier et al. 1990).
-Consequently, as the model fit approached a solution, we invoke a robust
-likelihood function which fit proportions at age as:
-
+```{=tex}
 \begin{align}
 \prod_{a=1}^A\prod_{t=1}^T \left[\left( \exp{\left(-\frac{\left(p_{ta}-\hat p_{ta}\right)^2}{2\left(\eta_{ta}+0.1/A\right)\tau_t^2} \right)
 }+0.01 \right) \times  \frac{1}{ {\sqrt{2\pi \left ( \eta_{ta}+0.1/A \right) \tau_t}} } \right]
 \end{align}
+```
+Taking the logarithm we obtain the log-likelihood function for the age
+composition data:
 
-Taking the logarithm we obtain the log-likelihood function for the age composition data:
-
+```{=tex}
 \begin{align}
 nll(i) = -0.5\sum_{a=1}^A\sum_{t=1}^T{
 {\ln{2\pi \left( \eta_{ta}+0.1/A \right) 
@@ -291,133 +315,139 @@ nll(i) = -0.5\sum_{a=1}^A\sum_{t=1}^T{
 + 0.01 } 
 \right\}}
 \end{align}
-
-where 
-\begin{align}
+```
+where \begin{align}
 \eta_{ta} &=  p_{ta}(1-p_{ta})\\ 
 \text{and} \\
 \tau_t^2 &=  1/n_t 
-\end{align}
-which gives the variance for  $p_{ta}$
-\begin{align}
+\end{align} which gives the variance for $p_{ta}$ \begin{align}
 (\eta_{ta}+0.1/A)\tau_t^2
 \end{align}
 
-Completing the estimation in this fashion reduces the model sensitivity to
-data that would otherwise be considered outliers.
+Completing the estimation in this fashion reduces the model sensitivity
+to data that would otherwise be considered outliers.
 
 Within the model, predicted survey abundance accounted for within-year
-mortality since surveys occur during the middle of the year. As in previous
-years, we assumed that removals by the survey were insignificant (i.e., the
-mortality of pollock caused by the survey was considered insignificant).
-Consequently, a set of analogous catchability and selectivity terms were
-estimated for fitting the survey observations as:
+mortality since surveys occur during the middle of the year. As in
+previous years, we assumed that removals by the survey were
+insignificant (i.e., the mortality of pollock caused by the survey was
+considered insignificant). Consequently, a set of analogous catchability
+and selectivity terms were estimated for fitting the survey observations
+as:
 
+```{=tex}
 \begin{align}
 \hat N_{ta}^s &= e^{-0.5Z_{ta}}N_{ta}q_t^ss_{ta}^S
 \end{align}
+```
+where the superscript s indexes the type of survey (AT or BTS). For the
+option to use the survey predictions in biomass terms instead of just
+abundance, the above was modified to include observed survey biomass
+weights-at-age:
 
-where the superscript s indexes the type of survey (AT or BTS). For the option
-to use the survey predictions in biomass terms instead of just abundance, the
-above was modified to include observed survey biomass weights-at-age:
-
+```{=tex}
 \begin{align}
 \hat N_{ta}^s &= e^{-0.5Z_{ta}}w_{ta}N_{ta}q_t^ss_{ta}^S
 \end{align}
+```
+For the AVO index, the values for selectivity were assumed to be the
+same as for the AT survey and the mean weights at age over time was also
+assumed to be equal to the values estimated for the AT survey.
 
-For the AVO index, the values for selectivity were assumed to be the same as
-for the AT survey and the mean weights at age over time was also assumed to be
-equal to the values estimated for the AT survey.
-
-For these analyses we chose to keep survey catchabilities constant over time
-(though they are estimated separately for the AVO index and for the AT and
-bottom trawl surveys). The contribution to the negative log-likelihood
-function (ignoring constants) from the surveys is given by either the
-lognormal distribution:
+For these analyses we chose to keep survey catchabilities constant over
+time (though they are estimated separately for the AVO index and for the
+AT and bottom trawl surveys). The contribution to the negative
+log-likelihood function (ignoring constants) from the surveys is given
+by either the lognormal distribution:
 
 \begin{align}
 nll(i) &= \sum_t{\frac{\ln(u_t^s/\hat N_t^s)^2}{2\sigma_{s,t}^2}}
-\end{align}
-where $u_t^s$ is the total (numerical abundance or optionally biomass) estimate with variance $\sigma_{s,t}$ from survey $s$ in year $t$ or optionally, the normal distribution can be selected:
+\end{align} where $u_t^s$ is the total (numerical abundance or
+optionally biomass) estimate with variance $\sigma_{s,t}$ from survey
+$s$ in year $t$ or optionally, the normal distribution can be selected:
 \begin{align}
 nll(i) &= \sum_t{\frac{(u_t^s - \hat N_t^s)^2}{2\sigma_{s,t}^2}}. \\
 \end{align}
 
+The AT survey and AVO index is modeled using a lognormal distribution
+whereas for the BTS survey, a normal distribution was applied.
 
-The AT survey and AVO index is modeled using a lognormal distribution whereas
-for the BTS survey, a normal distribution was applied.     
-
-For model configurations in which the BTS data are corrected for estimated
-efficiency, a multivariate lognormal distribution was used. For the negative-
-log likelihood component this was modeled as
+For model configurations in which the BTS data are corrected for
+estimated efficiency, a multivariate lognormal distribution was used.
+For the negative- log likelihood component this was modeled as
 \begin{equation}
 nll_i = 0.5\mathbf{X}\Sigma^{-1}\mathbf{X}^{'}
 \end{equation}
 
-where is a vector of observed minus model predicted values for this index and
-$\Sigma$ is the estimated covariance matrix provided from the method provided in
-Kotwicki et al. 2014. For the VAST estimates, the supplied covariance matrix was 
-used in the same way.
+where is a vector of observed minus model predicted values for this
+index and $\Sigma$ is the estimated covariance matrix provided from the
+method provided in @kotwicki2014. For the VAST estimates, the supplied
+covariance matrix was used in the same way.
 
-The contribution to the negative log-likelihood function for the observed total catch biomass 
-($C_b^{obs}, \hat{C_b}$) by the fishery is given by
-\begin{equation}
+The contribution to the negative log-likelihood function for the
+observed total catch biomass ($C_b^{obs}, \hat{C_b}$) by the fishery is
+given by \begin{equation}
 nll_i = 0.5\sum_t\frac{\ln(C_b^{obs}/\hat C_b)^2}{2\sigma_{C_b,t}^2}
 \end{equation}
 
-where $\sigma_{C_b,t}$ is pre-specified (set to 0.05) reflecting the accuracy of the
-overall observed catch in biomass. Similarly, the contribution of prior
-distributions (in negative log-density) to the log-likelihood function include
-$\lambda_\varepsilon \sum_t\varepsilon_t^2 +\lambda_\gamma \sum_{ta}\gamma^2 +  \lambda_\delta \sum_t\delta_t^2$
-where the size of the ’s represent prior assumptions about the variances of
-these random variables. Most of these parameters are associated with year-to-
-year and age specific deviations in selectivity coefficients. For a
-presentation of this type of Bayesian approach to modeling errors-in-
-variables, the reader is referred to Schnute (1994). To facilitate estimating
-such a large number of parameters, automatic differentiation software extended
-from Greiwank and Corliss (1991) and developed into C++ class libraries was
-used. This software provided the derivative calculations needed for finding
-the posterior mode via a quasi-Newton function minimization routine (e.g.,
-Press et al. 1992). The model implementation language (ADModel Builder) gave
-simple and rapid access to these routines and provided the ability estimate
-the variance-covariance matrix for all dependent and independent parameters of
-interest.
+where $\sigma_{C_b,t}$ is pre-specified (set to 0.05) reflecting the
+accuracy of the overall observed catch in biomass. Similarly, the
+contribution of prior distributions (in negative log-density) to the
+log-likelihood function include
+$\lambda_\varepsilon \sum_t\varepsilon_t^2 +\lambda_\gamma \sum_{ta}\gamma^2 + \lambda_\delta \sum_t\delta_t^2$
+where the size of the 's represent prior assumptions about the variances
+of these random variables. Most of these parameters are associated with
+year-to- year and age specific deviations in selectivity coefficients.
+For a presentation of this type of Bayesian approach to modeling
+errors-in- variables, the reader is referred to @schnute1994. To
+facilitate estimating such a large number of parameters, automatic
+differentiation software extended from @greiwank1991 and developed into
+C++ class libraries was used. This software provided the derivative
+calculations needed for finding the posterior mode via a quasi-Newton
+function minimization routine (e.g., @press1992). The model
+implementation language (ADModel Builder) gave simple and rapid access
+to these routines and provided the ability estimate the
+variance-covariance matrix for all dependent and independent parameters
+of interest.
 
 ## Uncertainty in mean body mass
-The approach we use to solve for $F_{MSY}$ and related quantities (e.g., $B_{MSY}$ $MSY$)
-within a general integrated model context was shown in Ianelli et al. (2001).
-In 2007 this was modified to include uncertainty in weight-at-age as an
-explicit part of the uncertainty for $F_{MSY}$ calculations. This involved
-estimating a vector of parameters ($w_{ta}^{future}$) on current (`r thisyr`) and future mean weights
-for each age $i$,  $i$= (1, 2,…,15), given actual observed mean and variances in
-weight-at-age over the period 1991-`r thisyr-1`. The values of based on available data
-and (if this option is selected) estimates the parameters subject to the
-natural constraint:
-    $$w_{ta}^{future} \sim \mathcal{N}(\bar{w_{a}},\,\sigma_{w_a}^{2})$$ 
-Note that this converges to the mean values over the time series of data (no
-other likelihood component within the model is affected by future mean
-weights-at-age) while retaining the natural uncertainty that can propagate
-through estimates of $F_{MSY}$ uncertainty. This latter point is essentially a
-requirement of the Tier 1 categorization.
 
-Subsequently, this method was refined to account for current-year survey data and both 
-cohort and year effects.  The model for this is:
+The approach we use to solve for $F_{MSY}$ and related quantities (e.g.,
+$B_{MSY}$ $MSY$) within a general integrated model context was shown in
+@ianelli2001. In 2007 this was modified to include uncertainty in
+weight-at-age as an explicit part of the uncertainty for $F_{MSY}$
+calculations. This involved estimating a vector of parameters
+($w_{ta}^{future}$) on current (`r thisyr`) and future mean weights for
+each age $i$, $i$= (1, 2,...,15), given actual observed mean and
+variances in weight-at-age over the period 1991-`r thisyr-1`. The values
+of based on available data and (if this option is selected) estimates
+the parameters subject to the natural constraint:
+$$w_{ta}^{future} \sim \mathcal{N}(\bar{w_{a}},\,\sigma_{w_a}^{2})$$
+
+Note that this converges to the mean values over the time series of data
+(no other likelihood component within the model is affected by future
+mean weights-at-age) while retaining the natural uncertainty that can
+propagate through estimates of $F_{MSY}$ uncertainty. This latter point
+is essentially a requirement of the Tier 1 categorization.
+
+Subsequently, this method was refined to account for current-year survey
+data and both cohort and year effects. The model for this is:
+
 \begin{align}
 \hat{w}_{ta} &= \bar w_a e^{\upsilon_t} & a=1, \, t \ge 1964 \\
 \hat{w}_{ta} &= \hat{w}_{t-1,a-1} + \Delta_a e^{\psi_t} & a > 1, \, t > 1964 \\
 \Delta_a     &= \bar w_{a+1} - \bar w_a & a<A  \\
 \bar w_a     &= \alpha \left\{L_1+ \left(L_2-L_1\right)\left(\frac{1-K^{a-1}}{1-K^{A-1}}\right)\right\}^3  \\
-\end{align}
-where the fixed effects parameters are $L_1, L_2, K,$ and $\alpha$ while the random effects parameters 
-are $\upsilon_t$ and $\psi_t$. 
+\end{align} where the fixed effects parameters are $L_1, L_2, K,$ and
+$\alpha$ while the random effects parameters are $\upsilon_t$ and
+$\psi_t$.
 
 ## Tier 1 projections
 
-Tier 1 projections were calculated two ways. First, for `r nextyr` and `r nextyr+1` ABC and
-$OFL$ levels, the harmonic mean $F_{MSY}$ value was computed and the analogous
-harvest rate ($\bar{u_{HM}}$) applied to the estimated geometric mean fishable biomass at
-$B_{MSY}$ :
-\begin{align}
+Tier 1 projections were calculated two ways. First, for `r nextyr` and
+`r nextyr+1` ABC and $OFL$ levels, the harmonic mean $F_{MSY}$ value was
+computed and the analogous harvest rate ($\bar{u_{HM}}$) applied to the
+estimated geometric mean fishable biomass at $B_{MSY}$ : \begin{align}
 ABC_t &= B_{GM,t}^f \hat{u}_{HM}\zeta_t \\
 B_{GM,t}^f &= e^{\ln{\hat{B}_t^f}-0.5\sigma_{B^f}^2} \\
 u_{HM,t}^f &= e^{\ln{\hat{u}_{MSY,t}}-0.5\sigma_{u_{MSY}}^2} \\
@@ -425,16 +455,14 @@ u_{HM,t}^f &= e^{\ln{\hat{u}_{MSY,t}}-0.5\sigma_{u_{MSY}}^2} \\
 \zeta_{t} &= 1.0 & B_t \ge  B_{MSY} 
 \end{align}
 
-where $\hat{B}_t^f$ is the point estimate of the fishable biomass defined (for
-a given year): $\sum_a{N_as_{ta}w_{ta}}$ with $N_{ta}$, $s_{ta}$, and $w_{ta}$ the estimated population numbers
-(begin year), selectivity and weights-at-age, respectively. $B_{MSY}$ and $B_{t}$ are
-the point estimates spawning biomass levels at equilibrium $F_{MSY}$ and in year $t$
-(at time of spawning). For these projections, catch must be specified (or
-solved for if in the current year when $B_t < B_{MSY}$). For longer term projections
-a form of operating model (as has been presented for the evaluation of $B_{20\%}$)
-with feedback (via future catch specifications) using the control rule and
-assessment model would be required.
-
-
-
-
+where $\hat{B}_t^f$ is the point estimate of the fishable biomass
+defined (for a given year): $\sum_a{N_as_{ta}w_{ta}}$ with $N_{ta}$,
+$s_{ta}$, and $w_{ta}$ the estimated population numbers (begin year),
+selectivity and weights-at-age, respectively. $B_{MSY}$ and $B_{t}$ are
+the point estimates spawning biomass levels at equilibrium $F_{MSY}$ and
+in year $t$ (at time of spawning). For these projections, catch must be
+specified (or solved for if in the current year when $B_t < B_{MSY}$).
+For longer term projections a form of operating model (as has been
+presented for the evaluation of $B_{20\%}$) with feedback (via future
+catch specifications) using the control rule and assessment model would
+be required.

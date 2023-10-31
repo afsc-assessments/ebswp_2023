@@ -76,10 +76,10 @@ if(domcmc){
     "SER_msy","B0","Bmsy","B100",
     "B2022",
     "R2019",
-    "B2023",
-    "B/mean(B)","B23/B20%","DynB0","q") #,"x","y")
-    Catch=Catch-mean(Catch),
-    library(scales)
+    "B2024",
+    "B/mean(B)","B24/B20%","DynB0","q") #,"x","y")
+
+library(scales)
 p1<- ggplot(mc,aes(x=R2019)) + geom_density(fill="lemonchiffon") +xlab("2018 Year class at age 1 (millions)")+
          theme_few(base_size=15) +
         scale_x_continuous(limits=c(0,124000),label=comma, breaks=c(0,50000,100000,120000)) ;p1
@@ -100,6 +100,7 @@ p2<-  mc %>% transmute(
    geom_point(alpha=.1,size=.1) + facet_wrap(.~type,scales="free") + geom_smooth() +
    ylim(c(-20,20)) + xlab(""); p2
    p3<-p2/p1
+   p3
   ggsave("figs/post_profile.pdf",plot=p3,width=8,height=10,units="in")
 
   #==Do a figure of 2023 SSB and 2018 YC
@@ -109,7 +110,7 @@ p2<-  mc %>% transmute(
   library(ggExtra)
  mc %>% select(B2023,R2019) %>% ggplot(aes(x=R2019,y=B2023)) + geom_point(color="forestgreen",alpha=.04) +
   theme_few() + geom_density_2d() + ylab("Spawning biomass next year (kt)") + xlab("2018 year class at age 1 (millions of fish)")
- p1<- mc %>% select(B2023,R2019) %>% ggplot(aes(x=R2019,y=B2023)) + geom_point(color="forestgreen",alpha=.2) +
+ p1<- mc %>% select(B2024,R2019) %>% ggplot(aes(x=R2019,y=B2024)) + geom_point(color="forestgreen",alpha=.2) +
   theme_few(base_size=16) + ylab("Spawning biomass next year (kt)") + xlab("2018 year class at age 1 (millions of fish)")
 p2<-  ggMarginal(p1,type="density",fill="salmon")
   ggsave("figs/ssb_v_2018.pdf",plot=p2,width=8,height=6,units="in")
@@ -121,7 +122,7 @@ p2
   mct <- mc #%>% filter(lnR0<12,Bmsy>500,Bmsy<6000,Fmsyr<2,Steepness<.78)
   max(mct$Steepness)
 
-  p1 <- mct %>% select(Steepness,lnR0,DynB0,B2022,Bmsy,Fmsyr) %>%
+  p1 <- mct %>% select(Steepness,lnR0,DynB0,B2024,Bmsy,Fmsyr) %>%
        ggpairs(aes(fill="lemonchiffon",alpha=.5),upper=NULL,lower = list(continuous = wrap("points", alpha = 0.1,size=0.1)) ) +  theme_classic() ;p1
   ggsave("figs/mcmc_pairs.pdf",plot=p1,width=7,height=7,units="in")
   #head(mc)
@@ -132,12 +133,18 @@ p2
   # table of Means and CVs
   #for (i in 2:17) print(c(names(mc)[i],round(median(mc[,i]),3), round(mean(mc[,i]),3), paste0(round(100*sqrt(var(mc[,i]))/mean(mc[,i]),0),"%") ))
   #ggplot(mc.t,aes(x=Iteration,y=value)) + geom_line() + .THEME + facet_wrap(~Parameter,scales="free")
+  names(mc)
 
-  p1 <- mc %>% select(B2022) %>%
-       ggplot(aes(B2022))+ geom_density(fill="lemonchiffon",alpha=.5 ) + theme_few() +
-            xlab(paste(thisyr,"Female spawning biomass")) +
-            geom_vline(xintercept=M$SSB[dim(M$SSB)[1],2],col="grey") +
-            geom_vline(xintercept=mean(mc$B2021),size=1,col="red",linetype="dashed") ;p1
+  M$SSB
+  M$future_SSB[1,1 ]
+
+  names(M)
+  p1 <- mc %>% select(B2024) %>%
+       ggplot(aes(B2024))+ geom_density(fill="lemonchiffon",alpha=.5 ) + theme_few() +
+            xlab(paste(nextyr,"Female spawning biomass")) +
+            geom_vline(xintercept=M$future_SSB[1,1],col="grey") +
+            geom_vline(xintercept=mean(mc$B2024),size=1,col="red",linetype="dashed") ;p1
+
   ggsave("figs/mcmc_marg.pdf",plot=p1,width=7,height=4,units="in")
 # Fmsyr
 Fmsy2= M$fit$est[M$fit$names=="Fmsy2"]
@@ -151,22 +158,22 @@ Fmsy2= M$fit$est[M$fit$names=="Fmsy2"]
              p1
   ggsave("figs/mcmc_marg_fmsy.pdf",plot=p1,width=7,height=4,units="in")
             #geom_vline(xintercept=median(mc$Fmsyr),size=1,col="darkgreen",linetype=4)  +
-            geom_vline(xintercept=Fmsy2,col="grey", ) +
+  #          geom_vline(xintercept=Fmsy2,col="grey", ) +
             #geom_vline(xintercept=mean(mc$Fmsyr),size=1,col="blue",linetype="dotted")  +
             #geom_vline(xintercept=mclen/sum(1/mc$Fmsyr) ,size=1,col="red",linetype="dashed") ;p1
   # Get P B2021 < 20% Bzero
-           msst=.2* M$b0
+  msst=.2* M$b0
 
   mc %>% filter(B2022<msst) %>% summarise(n()/mclen*100)
   prob_less_50_Bmsy <- mc %>% filter((B2022/Bmsy)<.5) %>% summarise(n()/mclen*100)
   #head(mc.t)
   #q
-  mcppl <- read_csv(paste0("runs/[thismod],"mcmc/mceval_ppl.csv"),col_names=FALSE)
+  mcppl <- read_csv(paste0(.MODELDIR[thismod],"mcmc/mceval_ppl.csv"),col_names=FALSE)
   head(mcppl)
   names(mcppl) <- c("Index","Pd","draw","Year","Obs","Exp","Sim","VarObs")
   idx="BTS"; ylim=c(0,15000)
   idx="ATS"; ylim=c(0,10000)
-  idx="AVO"; ylim=c(0,2)
+  idx="AVO"; ylim=c(0,6)
   #idx=c("ATS","AVO")
   obs <- mcppl %>% filter(Index==idx,draw==1) %>% transmute(Year,Obs,type="Obs")
   tmpdf <- mcppl %>% filter(Index==idx) %>% select(Year,Exp,Sim) %>% sample_frac(.5) #%>% pivot_longer(cols=2:3,names_to="type",values_to="Biomass")
@@ -177,6 +184,6 @@ Fmsy2= M$fit$est[M$fit$names=="Fmsy2"]
   ggsave("figs/ppd_ATS.pdf",width=7,height=4,units="in")
   ggsave("figs/ppd_AVO.pdf",width=7,height=4,units="in")
 
-  dd.g <- pivot_longer(dd,cols=2:20,names_to="Assessment",values_to="Biomass")
+  ##dd.g <- pivot_longer(dd,cols=2:20,names_to="Assessment",values_to="Biomass")
 
 }

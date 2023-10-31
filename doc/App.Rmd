@@ -1,9 +1,6 @@
 ---
-output: html_document
-editor_options: 
-  chunk_output_type: console
 ---
-# Appendix on spatio-temporal analysis of NMFS survey data
+# Appendix on model-based methods on bottom-trawl survey biomass trends 
 
 ## Overview
 
@@ -19,12 +16,12 @@ individual features (see references section below). What follows is intended
 as a step by step documentation of applying the model to these data.
 
 The software versions of dependent programs used to generate VAST estimates were:   
-  - Microsoft R Open (4.0.2)
-  - INLA (21.11.22)
-  - TMB (1.9.0)
-  - TMBhelper (1.4.0) 
-  - VAST (3.9.0)
-  - FishStatsUtils (2.11.0) 
+-     Microsoft R Open (4.0.2)
+-     INLA (21.11.22)
+-     TMB (1.9.0)
+-     TMBhelper (1.4.0) 
+-     VAST (3.9.0)
+-     FishStatsUtils (2.11.0) 
 
 For the model-based index time series, we used the same VAST model run (and associated results)
 as the 2019 SAFE. We include additional details regarding model settings here, as requested
@@ -32,26 +29,14 @@ during the December 2019 SSC meeting.
 
 ## Spatio-temporal treatment of survey data on pollock density
 
-For model-based indices in the Bering Sea, we fitted observations of numerical abundance or biomass
-per unit area (where the use of abundance or biomass varied by stock at the request of assessors)
-from all grid cells and corner stations in the 83-112 bottom trawl survey of the EBS, 1982-2022,
-including exploratory northern extension samples in 2001, 2005, and 2006, as well as 83-112 samples
-available in the NBS in 1982, 1985, 1988, 1991, 2010, and 2017-2021. NBS samples collected prior to
-2010 and in 2018 did not follow the 20 nautical mile sampling grid that was used in 2010, 2017,
-2019, 2021 and 2022 surveys. Assimilating these data therefore required extrapolating into
-unsampled areas. This extrapolation was facilitated by including a spatially varying response to
-cold-pool extent (Thorson 2019). This spatially varying response was estimated for both linear
-predictors of the delta-model, and detailed comparison of results for EBS pollock has shown that it
-has a small but notable effect on these indices and resulting stock assessment outputs (O’Leary et
-al. 2020). For example, the NBS was not sampled between 2010 and 2017, and the cold-pool extent
-started to decrease substantially around 2014; therefore including this covariate results in
-estimates that depart somewhat from a “Brownian bridge” between 2010 and 2017, and instead
-indicates that population densities of walleye pollock in the NBS increased progressively after
-2014 when cold-pool-extent declined prior to 2017. Rather than using the cold-pool covariate for
-yellowfin sole, we instead used the mean bottom temperature within the outer and middle domain
-strata from an interpolated temperature product. All environmental data used as covariates were
+For EBS pollock we used data on biomass
+per unit area  from all grid cells and corner stations in the 83-112 bottom trawl survey of the EBS, 
+1982-2023, including exploratory northern extension samples in 2001, 2005, and 2006, as well as 83-112 samples
+available in the NBS in 1982, 1985, 1988, 1991, 2010, and 2017-2023 (except 2020). 
+2019, 2021--2023 surveys.  As before, we included a a spatially varying covariate on the 
+cold-pool extent (Thorson 2019,  (O’Leary et al. 2020).  All environmental data used as covariates were
 computed within the R package coldpool (https://github.com/afsc-gap-products/coldpool; Rohan et
-al., in review). 
+al., 2022). 
 
 We used a Poisson-link delta-model (Thorson 2018) involving two linear predictors, and a gamma
 distribution to model positive catch rates. We extrapolated population density to the entire EBS
@@ -117,8 +102,8 @@ for the positive catch rate component (Figures \ref{fig:pearson1} and \ref{fig:p
 
 Relative densities over time suggests that the biomass of pollock can reflect
 abundances in the NBS even in years where samples are unavailable (all years
-except 2010, 2017--2019 and 2021; (Fig. \ref{fig:density}). Index values and error terms
-(based on diagonal of covariance matrix over time) are shown in Figure \ref{fig:vast_idx}
+except 2010, 2017--2019 and 2021; (Fig. \cref{fig:density}). Index values and error terms
+(based on diagonal of covariance matrix over time) are shown in Figure \cref{fig:vast_idx}
 
 <!-- 
 ## Extending VAST to create estimates from acoustic backscatter data
@@ -130,21 +115,21 @@ We anticipate updating this for application as an alternative to the standard ac
 in 2022.
  -->
 
- ```{r plots, eval=FALSE  , tidy=TRUE}
-#SpatialDeltaGLMM::Plot_data_and_knots(Extrapolation_List=Extrapolation_List, Spatial_List=Spatial_List, 
-#           Data_Geostat=Data_Geostat, PlotDir=DateFile )
-#       Region="Other"
-#MapDetails_List <- SpatialDeltaGLMM::MapDetails_Fn( "Region"=Region, "NN_Extrap"=Spatial_List$PolygonList$NN_Extrap, 
-                   "Extrapolation_List"=Extrapolation_List )
-# Decide which years to plot
-#Year_Set        <- seq(min(Data_Geostat[,'Year']),max(Data_Geostat[,'Year']))
-#Years2Include   <- which( Year_Set %in% sort(unique(Data_Geostat[,'Year'])))
-```
+<!--  ```{r plots, eval=FALSE  , tidy=TRUE} -->
+<!-- #SpatialDeltaGLMM::Plot_data_and_knots(Extrapolation_List=Extrapolation_List, Spatial_List=Spatial_List,  -->
+<!-- #           Data_Geostat=Data_Geostat, PlotDir=DateFile ) -->
+<!-- #       Region="Other" -->
+<!-- #MapDetails_List <- SpatialDeltaGLMM::MapDetails_Fn( "Region"=Region, "NN_Extrap"=Spatial_List$PolygonList$NN_Extrap,  -->
+<!--                    "Extrapolation_List"=Extrapolation_List ) -->
+<!-- # Decide which years to plot -->
+<!-- #Year_Set        <- seq(min(Data_Geostat[,'Year']),max(Data_Geostat[,'Year'])) -->
+<!-- #Years2Include   <- which( Year_Set %in% sort(unique(Data_Geostat[,'Year']))) -->
+<!-- ``` -->
 
-```{r encplots, eval=FALSE  , tidy=TRUE}
-#Enc_prob  <- SpatialDeltaGLMM::Check_encounter_prob( Report=Report, Data_Geostat=Data_Geostat, DirName=DateFile)
-#Q         <- SpatialDeltaGLMM::QQ_Fn( TmbData=TmbData, Report=Report, FileName_PP=paste0(DateFile,"Posterior_Predictive.jpg"), FileName_Phist=paste0(DateFile,"Posterior_Predictive-Histogram.jpg"), FileName_QQ=paste0(DateFile,"Q-Q_plot.jpg"), FileName_Qhist=paste0(DateFile,"Q-Q_hist.jpg")) 
-```
+<!-- ```{r encplots, eval=FALSE  , tidy=TRUE} -->
+<!-- #Enc_prob  <- SpatialDeltaGLMM::Check_encounter_prob( Report=Report, Data_Geostat=Data_Geostat, DirName=DateFile) -->
+<!-- #Q         <- SpatialDeltaGLMM::QQ_Fn( TmbData=TmbData, Report=Report, FileName_PP=paste0(DateFile,"Posterior_Predictive.jpg"), FileName_Phist=paste0(DateFile,"Posterior_Predictive-Histogram.jpg"), FileName_QQ=paste0(DateFile,"Q-Q_plot.jpg"), FileName_Qhist=paste0(DateFile,"Q-Q_hist.jpg"))  -->
+<!-- ``` -->
 
 <!-- ![ Observed encounter rates and predicted probabilities for pollock in the combined survey area. \label{fig:encounter}](figs/Diag--Encounter_prob.png) -->
 
@@ -178,8 +163,7 @@ in 2022.
   #Legend=MapDetails_List[["Legend"]], zone=MapDetails_List[["Zone"]], mar=c(0,0,2,0), oma=c(3.5,3.5,0,0), 
   #cex=1.8, plot_legend_fig=FALSE)
 ```
-![ Pollock log density maps of the BTS data using the VAST model approach, 1982-2019,2021-2022. \label{fig:density}](figs/Dens.png)
-
+![ Pollock log density maps of the BTS data using the VAST model approach, 1982-2019,2021-2022. \label{fig:density}](doc/figs/Dens.png)
 
 ```{r indexplots, echo=FALSE, results="asis"}
 #idxOut <- read.csv("data/Table_for_SS3.csv")
@@ -196,9 +180,6 @@ in 2022.
 
 ## Additional references
 
-
-References
-
 Dunn, K.P., and Smyth, G.K. 1996. Randomized quantile residuals. Journal of Computational and Graphical Statistics 5, 1-10.
 
 Hartig, F. 2021. DHARMa: Residual Diagnostics for Hierarchical (Multi-Level / Mixed) Regression Models. R package version 0.4.0. http://florianhartig.github.io/DHARMa/
@@ -210,3 +191,7 @@ Rohan, SK, Barnett, LAK & N Charriere. Evaluating approaches to estimating mean 
 Thorson, J.T., 2019. Measuring the impact of oceanographic indices on species distribution shifts: The spatially varying effect of cold‐pool extent in the eastern Bering Sea. Limnology and Oceanography, 64(6), pp.2632-2645.
 
 Thorson, J.T., and Kristensen, K., 2016. Implementing a generic method for bias correction in statistical models using random effects, with spatial and population dynamics examples. Fisheries Research, 175, pp.66-74.
+
+Rohan, S.K., Barnett L.A.K., and Charriere, N. 2022. Evaluating approaches to estimating mean temperatures and cold pool area from AFSC bottom trawl surveys of the eastern Bering Sea. U.S. Dep. Commer., NOAA Tech. Mem. NMFS-AFSC-456, 42 p. https://doi.org/10.25923/1wwh-q418
+
+

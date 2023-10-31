@@ -13,6 +13,7 @@ reps
 ## Reproducible seeds are passed to ADMB
 set.seed(352)
 seeds <- sample(1:1e4, size=reps)
+seeds
 ## Function to return starting values from a fit given the number of
 ## chains. It randomly samples from the posterior.
 get.inits <- function(fit, chains){
@@ -30,7 +31,7 @@ setwd(d);
 system('pm -nox -mcmc 15 -hbf 1 -binp pm.bar -phase 50'); setwd('..')
 
 
-## Run parallel RWM chains as a first test
+## Run---
 iter <- 4000 # maybe too many...depends are number cores...I used 8...
 chains=8
 #iter <- 4000*thin; warmup <- iter/#8

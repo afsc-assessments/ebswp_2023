@@ -11,7 +11,7 @@ if (doplots) {
 #p1 <- df %>% ggplot(aes(x=Age,y=sel,color=Model)) + geom_line(size=1.5) + theme_few() + ylab("Selectivity") + scale_x_continuous(breaks=1:15)
 #ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
 #---Age diversity
-source("Age_diversity.R")
+source("tools/Age_diversity.R")
 #---Recruit
   #p1 <- plot_recruitment(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
   #p1 <- plot_ssb(modlst[c(1,2,3)],xlim=c(2008.5,2019.5));p1
@@ -266,6 +266,7 @@ modlst
 #ggsave("doc/figs/mod_ats_eval2.pdf",plot=p5,height=7,width=6.0,units="in");
 
  #---SSB figure----------------------------
+  P <- modlst[[1]]
 df <- rbind(
   rbind(data.frame(Model="This year",Year= M$SSB[,1], SSB=M$SSB[,2], lb=M$SSB[,4], ub=M$SSB[,5]),
 data.frame(Model="This year",Year= nextyr:(nextyr+4), SSB=M$future_SSB[4,2:6], lb = M$future_SSB[4,2:6] -2*M$future_SSB.sd[4,2:6], ub = M$future_SSB[4,2:6] +2*M$future_SSB.sd[4,2:6])),
@@ -279,6 +280,7 @@ p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb,fill=Model)) + geom_ribbon(alph
   ggsave("doc/figs/proj_ssb.pdf",plot=p1,width=7.4,height=4.5,units="in")
 
   #---R/S------------------
+  library(data.table)
   nyrs=length(M$SSB[,1])
   dt <- data.table(yr=M$SSB[1:nyrs,1],ssb= M$SSB[1:nyrs,2], r=M$R[2:(nyrs-1),2] )
   dt <- dt %>% mutate(Year=substr(as.character(yr),3,4),rs= log(dt$r/dt$ssb))
@@ -290,14 +292,14 @@ p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb,fill=Model)) + geom_ribbon(alph
   p3 <- p1 / p2;p3
   ggsave("doc/figs/mod_rs.pdf",plot=p3,width=5.2,height=7.5,units="in")
 
-  p1 <- plot_ser(modlst[thismod],xlim=c(1964,thisyr+1),alpha=.7) + scale_x_continuous(breaks=seq(1965,thisyr+1,5))
+  p1 <- plot_ser(modlst[thismod],xlim=c(1964,thisyr+1),alpha=.7) + scale_x_continuous(breaks=seq(1965,thisyr+1,5));p1
   ggsave("doc/figs/mod_ser.pdf",plot=p1,width=9.2,height=7.0,units="in"); p1
 
   #---fishing mortality mod_F.pdf-----------------------------------------------------------------
   df <-data.frame(Year=M$Yr,M$F); names(df) <- c("Year",1:15); df.g <- gather(df,age,F,2:16,-Year)
   p1 <- df.g %>% mutate(age=as.numeric(age)) %>% filter(age<11)%>% ggplot(aes(y=age,x=Year,fill=F)) + geom_tile() + .THEME + ylab("Age")+ geom_contour(aes(z=F),color="darkgrey",size=.5,alpha=.4) +
             scale_fill_gradient(low = "white", high = "red") + scale_x_continuous(breaks=seq(1965,thisyr,5)) + geom_line(data=df.g[df.g$age=="6",],aes(x=Year,y=F*10)) +
-            annotate("text", label = "Age 6 F (x10)" , x = 2015, y = 1.2, size = 5, colour = "black") + scale_y_continuous(breaks=seq(0,10,1))
+            annotate("text", label = "Age 6 F (x10)" , x = 2015, y = 1.2, size = 5, colour = "black") + scale_y_continuous(breaks=seq(0,10,1)); p1
   ggsave("doc/figs/mod_F.pdf",plot=p1,width=9.2,height=6.0,units="in")
 
   #---Historical assessment retrospectives--------------------------------------------------------
@@ -797,7 +799,7 @@ if(do_data_plots){
 #--Fishery--------------------
 
 #---Fishery stuff----------------------
-wed <- read.csv("~/_mymods/ebswp/data/fishery/sampler/imported/akfin_cat.csv",as.is=TRUE)
+wed <- read.csv("~/_mymods/sampler/cases/ebswpSAM/imported/akfin_cat.csv",as.is=TRUE)
 tac <- read.csv("~/_mymods/ebswp/doc/data/tac_abc.csv",as.is=TRUE)
 wed  %>% filter(FMP.Area=="BSAI") %>% group_by(Year) %>% summarize(sum(Weight.Posted..Sum.)) %>% tail()
 df   <- wed %>% filter(FMP.Area=="BSAI",Species.Group.Name=="Pollock") %>% transmute(Year,ret=Retained.Discarded,wed=WED..mmdd.,
@@ -806,14 +808,14 @@ df   <- wed %>% filter(FMP.Area=="BSAI",Species.Group.Name=="Pollock") %>% trans
                 strata =ifelse(season == "A","1",ifelse(area>519,2,ifelse(area<520,3,NA))), Catch=Weight.Posted..Sum.)
 tsum <- (df) %>% group_by(ret,mgt,Year) %>% summarize(Catch=sum(Catch)) %>% pivot_wider(names_from=c(mgt,ret),values_from=Catch)
 p1 <- df %>% filter(!is.na(strata)) %>% mutate(strata=ifelse(strata==1,"A-season",ifelse(strata==2,"NW B-season","SE B-season"))) %>% group_by(Year,strata) %>% summarize(Catch=sum(Catch)) %>%
-      ggplot(aes(x=Year,y=Catch,fill=strata)) + geom_area(color="white") + theme_few(base_size=18)
-      p1
+      ggplot(aes(x=Year,y=Catch,fill=strata)) + geom_area(color="white") + theme_few(base_size=18); p1
 ggsave("doc/figs/catch.pdf",plot=p1,width=7.5,height=4.5,units="in")
 # flextable(tsum)
     #---Roe data------------------
       # Table comes from AKFIN: https://akfinbi.psmfc.org/analytics/saw.dll?Dashboard&PortalPath=%2Fshared%2FStock%20Assessment%2F_portal%2FStock%20Assessment&Page=Ianelli%20-%20Monthly%20EBS%20pollock%20production&Action=Navigate
-      rd <- read_csv("../doc/data/roe.csv")
+      rd <- read_csv("doc/data/roe.csv")
       glimpse(rd)
+      tail(rd)
      names(rd) <- c("Year","Month","TYPE","SECTOR","SPECIES_GROUP_CODE","FMP_SUBAREA","Prod","PERMITS","t","CONFIDENTIAL_FLAG")
      rd <- rd %>% mutate(Season=ifelse(Month<6,"A","B"))
 
@@ -830,8 +832,8 @@ ggsave("doc/figs/catch.pdf",plot=p1,width=7.5,height=4.5,units="in")
       #--- Catch-age estimates for sex catch age --------------------------
       # Updated
       edt <- NULL
-      for (i in 2021:1991){
-        edt <- rbind(edt,read_table(paste0("../data/fishery/sampler/results/Est_",i,".dat")))
+      for (i in 2022:1991){
+        edt <- rbind(edt,read_table(paste0("../ebs_main/data/fishery/sampler/results/Est_",i,".dat")))
       }
       tot <- edt %>% filter(type=="N",sex<3,stratum<5) %>% mutate(season=ifelse(stratum==1,"A","B"),sex=ifelse(sex==1,"Male",ifelse(sex==2,"Female","Total"))) %>%
               group_by(year,sex) %>% summarize(Catch=sum(value))
@@ -839,8 +841,7 @@ ggsave("doc/figs/catch.pdf",plot=p1,width=7.5,height=4.5,units="in")
       p1 <- edt %>% filter(type=="N",sex<3,stratum<5) %>% mutate(season=ifelse(stratum==1,"A","B"),sex=ifelse(sex==1,"Male",ifelse(sex==2,"Female","Total"))) %>%
               group_by(year,sex,season) %>% summarize(Catch=sum(value)) %>% rbind(tot) %>%
               ggplot(aes(x=year,y=Catch,color=season,shape=sex,linetype=season)) + theme_few(base_size=12) + geom_point(size=3.5) + geom_line(size=1.2) + expand_limits(y=0) +
-              scale_x_continuous(breaks=seq(1990,2020,2)) + ylab("Catch (thousands)") + xlab("Year")
-              p1
+              scale_x_continuous(breaks=seq(1990,2023,2)) + ylab("Catch (thousands)") + xlab("Year"); p1
         ggsave("doc/figs/catch_sex.pdf",plot=p1,width=7.5,height=4.5,units="in")
         # Look at catch in Number vs catch in weight
         edt_df <- edt |> mutate(Year=year) |> group_by(Year) |> summarise(Number=sum(value))
@@ -867,24 +868,24 @@ ggsave("doc/figs/catch.pdf",plot=p1,width=7.5,height=4.5,units="in")
   # Compare ages
   adf <- as.data.frame(M$pobs_bts) %>% mutate(Model="VAST ages")
   adf <- rbind(adf,
-  as.data.frame(modlst[[2]]$pobs_bts) %>% mutate(Model="Design-based") )
+  as.data.frame(modlst[[7]]$pobs_bts) %>% mutate(Model="Design-based") )
   names(adf) <- c("Year",1:15,"Model")#%>% mutate
   glimpse(adf)
   lage=10
   sdf       <- gather(adf,age,n,2:(lage+1),-Year) %>% mutate(age=as.numeric(age)) #+ arrange(age,yr)
   glimpse(sdf)
-  p1 <- ggplot(sdf,aes(x=age,y=as.factor(Year),height = n,fill=Model,color=Model)) +
+  p1 <- ggplot(sdf, aes(x=age,y=as.factor(Year),height = n,fill=Model,type=Model,color=Model)) +
   geom_density_ridges(stat = "identity",scale = 4, alpha = .1) + theme_few() +
-            xlim(c(1,lage))+ ylab("Year") + xlab("age")
+            xlim(c(1,lage)) + ylab("Year") + xlab("age"); p1
   ggsave("doc/figs/vastage_vs_db.pdf",plot=p1,width=7,height=9,units="in")
 #---Catch data table-------------------------------
-  byc <- read.csv("data/byc_in_pollock.csv",header=T,as.is=TRUE)
+  byc <- read.csv("doc/data/byc_in_pollock.csv",header=T,as.is=TRUE)
  glimpse( byc)
 length(byc[1,])
 for (i in 2:length(byc[1,]) )
   byc[,i] <- formatC(byc[,i], format="d", big.mark=",")
 
-  catch <- read_csv("../data/fishery/pollock_catch.csv")[,c(1,6,9,4,10,11)]
+  catch <- read_csv("../ebs_main/data/fishery/pollock_catch.csv")[,c(1,6,9,4,10,11)]
   names(catch)<-c("Year","target","gear","NMFS_area","Catch","wed")
   glimpse(catch)
 catch <- catch %>%mutate(Area=
@@ -896,37 +897,14 @@ catch <- catch %>%mutate(Area=
   group_by(Year,Area,seas) %>% summarise(Catch=round(sum(Catch),0) )
 
 catchw <-catch %>% filter(Area!="Other") %>%pivot_wider(names_from=c(Area,seas),values_from=Catch)
-write_csv(catchw,"data/catch_tab.csv")
+tail(catchw)
+write_csv(catchw,"doc/data/catch_tab.csv")
 
-catch <- read_csv("data/catch_tab.csv")
-catch <- catch %>% mutate(
-  NW=Northwest_A+Northwest_B,
-  SE=Southeast_A+Southeast_B,
-  A=Northwest_A+Southeast_A,
-  B=Northwest_B+Southeast_B,
-  Total=A+B
-)
-  catch <- catch %>%mutate(Year=as.integer(Year))
-glimpse(catch)
-catch[,]
-print(catch,n=Inf) %>%
-length(as.vector(catch[1,]))
-for (i in 2:length(catch[1,]) )
-  catch[,i] <- formatC(catch[,i], format="d",digits=0, big.mark=",")
-ncol=length(catch[1,])
-ncol
-cap <- tabcap[1]
-lab <- tablab[1]
-tab <- xtable(catch, caption = cap, label=paste0("tab:",tablab[1]),
-  digits=0, auto=TRUE, big.mark=",",align=rep("r",(ncol+1)) )
-print(tab, big.mark=",",caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x},
-       scalebox=.85)
-#library(xtable)
 #xtable(catchw)
 
 
   #---temperature------------------
-  td <- as.data.frame(read.csv("../doc/data/BTS_Temps.csv",header=T))
+  td <- as.data.frame(read.csv("doc/data/BTS_Temps.csv",header=T))
   mbt <- mean(td$Bottom)
   mst <- mean(td$Surface)
   td.g <- gather(td,Source,temp,-YEAR)
@@ -934,32 +912,8 @@ print(tab, big.mark=",",caption.placement = "top",include.rownames = FALSE, sani
   .THEME <- .THEME + theme(text=element_text(size=12)) + theme(axis.title.x=element_text(size=14) ,axis.title.y=element_text(size=14))
   .THEME <- .THEME + theme( panel.background = element_rect(fill="white"), panel.border = element_rect(colour="black", fill=NA, size=1))
   p1 <- ggplot(td.g,aes(x=YEAR,y=temp,col=Source,shape=Source)) + geom_point(size=2) + geom_line(size=1.0) + .THEME + ylab("Degrees C") + expand_limits(y=0) +
-       scale_x_continuous(breaks=seq(1982,2022,3)) + geom_hline(yintercept=mst,linetype="dashed") + geom_hline(yintercept=mbt,linetype="dashed") ;p1
+       scale_x_continuous(breaks=seq(1980,2023,5)) + geom_hline(yintercept=mst,linetype="dashed") + geom_hline(yintercept=mbt,linetype="dashed") ;p1
   ggsave("doc/figs/bts_temp.pdf",plot=p1,width=7.5,height=4.5,units="in")
 
 }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

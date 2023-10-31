@@ -4317,9 +4317,8 @@ FUNCTION write_projout
  projout <<"# Wt spawn"<<endl<< wt_ssb(endyr_r)     << endl;
  projout <<"# Wt fsh"<<endl<< wt_fut     << endl;
  projout <<"# selectivity"<<endl<< sel_fut << endl;
- dvector ntmp = value(natage(endyr_r));
- if (ctrl_flag(27) )
-   ntmp(4) = value(natage(endyr_r-6,4)+natage(endyr_r-5,4))/2;
+ dvector ntmp = value(natage_future(1,styr_fut));
+ // if (ctrl_flag(27) ) ntmp(4) = value(natage(endyr_r-6,4)+natage(endyr_r-5,4))/2;
  projout <<"# natage"<<endl<< ntmp << endl;
  // projout <<"# natage"<<endl<< natage(endyr_r) << endl;
  projout <<"# Nrec"<<endl<< endyr_r-1978<< endl;
