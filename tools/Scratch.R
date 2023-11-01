@@ -13,7 +13,7 @@
 names(x)
 p1 <- plot_cope(modlst[[1]])+ggtitle("Base") ;p1
 p5 <- plot_cope(modlst[[5]])+ggtitle("Copepod index fit")  ;p5
-p1/p5    
+p1/p5
 p_Nage3 <- plot_Nage_3(modlst[c(1,5)])+theme_few(base_size=14) ;p_Nage3
 p_srr <- plot_srr(modlst[c(1,2)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000))+theme_few(base_size=18);p_srr
 p_srr <- plot_srr(modlst[c(1,5)],alpha=.2,xlim=c(0,5200),ylim=c(0,70000))+theme_few(base_size=18);p_srr
@@ -47,8 +47,8 @@ tab_fit <- function(M,mod_scen=NULL){
        #wt_like  <- round(x$wt_like   ,2); names(wt_like) <- paste0("Weight NLL")
       dat_like  <- round(x$dat_like-x$wt_like   ,2); names(dat_like) <- paste0("Data NLL")
       tot_like  <- round(x$tot_like-x$wt_like   ,2); names(tot_like) <- paste0("Total NLL")
-      v      <- c( rmse_bts, rmse_ats, rmse_avo, rmse_cpue, sdnr_bts, sdnr_ats, sdnr_avo, 
-                   effn_fsh, effn_bts, effn_ats, bts_like, ats_like, avo_like, 
+      v      <- c( rmse_bts, rmse_ats, rmse_avo, rmse_cpue, sdnr_bts, sdnr_ats, sdnr_avo,
+                   effn_fsh, effn_bts, effn_ats, bts_like, ats_like, avo_like,
                    cop_like,fac_like, bac_like, aac_like,dat_like,tot_like)
       df     <- cbind(df, v)
   }
@@ -64,21 +64,21 @@ df <- NULL
 mod_scen <- c(1,2,5,6)
 for (ii in mod_scen) {
     x       <- modlst[[ii]]
-    abcbiom <- paste0(x$ABC_biom1s,",000");         
+    abcbiom <- paste0(x$ABC_biom1s,",000");
     names(abcbiom)    <- paste0(nextyr," fishable biomass (GM)")
-    msybiom           <- paste0(x$bmsyrs,",000");         
+    msybiom           <- paste0(x$bmsyrs,",000");
     names(msybiom)    <- paste0("Equilibrium fishable biomass at MSY")
-    msyr        <- round(x$harmeanF,3);  
+    msyr        <- round(x$harmeanF,3);
     names(msyr) <- ("MSY R (HM)")
-    tier1abc        <- x$maxabc1s;  
+    tier1abc        <- x$maxabc1s;
     names(tier1abc) <- paste(nextyr,"Tier 1 ABC")
-    fofl            <- x$arithmeanF;         
+    fofl            <- x$arithmeanF;
     names(fofl)     <- paste(nextyr,"Tier 1 $F_{OFL}$")
-    ofl        <- x$ofl1s;         
+    ofl        <- x$ofl1s;
     names(ofl) <- paste(nextyr,"Tier 1 OFL")
-    fabc        <- round(0.85*x$harmeanF,3);  
+    fabc        <- round(0.85*x$harmeanF,3);
     names(fabc) <- ("MSY R (HM)")
-    recabc         <- x$abc1s;  
+    recabc         <- x$abc1s;
     names(recabc)  <- "Recommended ABC"
     v      <- c(abcbiom,msybiom,msyr,tier1abc,fofl,ofl,fabc,recabc)
     df     <- cbind(df, v)
@@ -91,7 +91,7 @@ tab <- xtable(df, caption = tabcap[28], label = paste0("tab:",tablab[28]), digit
 print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
 
 df <- NULL
-mod_scen <-c(2,3) 
+mod_scen <-c(2,3)
 for (ii in mod_scen) {
     x       <- modlst[[ii]]
     ssb    <- x$nextyrssbs;         names(ssb)            <- paste0("${B}_{", nextyr ,"}$")
@@ -124,7 +124,7 @@ M
 if (doplots) {
 
   do_data_plots <- FALSE
-  
+
 if(do_data_plots){
 #--Fishery--------------------
 
@@ -134,16 +134,16 @@ tac <- read.csv("~/_mymods/ebswp/doc/data/tac_abc.csv",as.is=TRUE)
 tac
 wed  %>% filter(FMP.Area=="BSAI") %>% group_by(Year) %>% summarize(sum(Weight.Posted..Sum.)) %>% tail()
 df   <- wed %>% filter(FMP.Area=="BSAI",Species.Group.Name=="Pollock") %>% transmute(Year,ret=Retained.Discarded,wed=WED..mmdd.,
-                target = Trip.Target.Name, season=ifelse(wed>610,"B","A"), area=Reporting.Area.Code, 
-                mgt    =ifelse(area == 518,"Bogoslof",ifelse(area>539,"Aleutians",ifelse(area>519,"NW","SE"))), 
+                target = Trip.Target.Name, season=ifelse(wed>610,"B","A"), area=Reporting.Area.Code,
+                mgt    =ifelse(area == 518,"Bogoslof",ifelse(area>539,"Aleutians",ifelse(area>519,"NW","SE"))),
                 strata =ifelse(season == "A","1",ifelse(area>519,2,ifelse(area<520,3,NA))), Catch=Weight.Posted..Sum.)
-tsum <- (df) %>% group_by(ret,mgt,Year) %>% summarize(Catch=sum(Catch)) %>% pivot_wider(names_from=c(mgt,ret),values_from=Catch) 
+tsum <- (df) %>% group_by(ret,mgt,Year) %>% summarize(Catch=sum(Catch)) %>% pivot_wider(names_from=c(mgt,ret),values_from=Catch)
 p1 <- df %>% filter(!is.na(strata)) %>% mutate(strata=ifelse(strata==1,"A-season",ifelse(strata==2,"NW B-season","SE B-season"))) %>% group_by(Year,strata) %>% summarize(Catch=sum(Catch)) %>%
       ggplot(aes(x=Year,y=Catch,fill=strata)) + geom_area(color="white") + theme_few()
       p1
 # flextable(tsum)
     #---Roe data------------------
-      
+
     #df <- tibble(read.csv("../doc/data/product.csv",header=T))
     #df[,2] <- df[,2]/1e6
     #df
@@ -151,27 +151,27 @@ p1 <- df %>% filter(!is.na(strata)) %>% mutate(strata=ifelse(strata==1,"A-season
     #ggpairs(df,columns=c(2:4,6:8)) + theme_few()
     #ggpairs(df[,c(2:3,5:8)] ,label=TRUE,
     #     upper = list(continuous = wrap(ggally_cor, displayGrid = FALSE)),
-    #     diag = list(continuous = "blank"), 
+    #     diag = list(continuous = "blank"),
     #     lower = list(continuous = "smooth") ) + theme_few()
       #upper = list(continuous = "density", combo = "box_no_facet"),
-       #lower = list(continuous = "points", geom_smooth(),combo = "dot_no_facet") 
+       #lower = list(continuous = "points", geom_smooth(),combo = "dot_no_facet")
 
       rd <- data.table(read.csv("../doc/data/roe.csv",header=T))
-      #rd.s <- rd %>% select(Year, Prod, t)%>% group_by(Year,Prod) %>% summarise(t=sum(t)) %>% spread(Prod,t) 
+      #rd.s <- rd %>% select(Year, Prod, t)%>% group_by(Year,Prod) %>% summarise(t=sum(t)) %>% spread(Prod,t)
       #rd.s<-rd.s[,2:10]
       #rd.s
       #ggpairs(rd.s[,c(7,8,2,5,1)],aes(fill="lemonchiffon",alpha=.5)) + .THEME
       #names(rd)
       rd %>% gather(Season,Year) %>% head
-      rd <- select(rd,Year, Season, Prod,t) %>% group_by(Year,Season,Prod) %>% summarize(t=sum(t)) 
+      rd <- select(rd,Year, Season, Prod,t) %>% group_by(Year,Season,Prod) %>% summarize(t=sum(t))
       #df <-data.frame(Year=M$Yr,M$F); names(df) <- c("Year",1:15); df.g <- gather(df,age,F,2:16,-Year)
       .THEME <- theme(panel.grid.major.x = element_blank(), panel.grid.minor.y = element_blank(), panel.grid.major.y = element_blank() )
       .THEME <- .THEME + theme(text=element_text(size=12)) + theme(axis.title.x=element_text(size=14) ,axis.title.y=element_text(size=14))
       .THEME <- .THEME + theme( panel.background = element_rect(fill="white"), panel.border = element_rect(colour="black", fill=NA, size=1))
       #p1 <- rd %>% ggplot(aes(x=Year,y=t,shape=Season,col=Prod)) + geom_point(size=2) + geom_line(size=1.0) + .THEME + ylab("Tons of roe produced") + expand_limits(y=0) + scale_x_continuous(breaks=seq(1982,2018,1))
-      p1 <- rd %>% filter(Prod=="ROE") %>% ggplot(aes(x=Year,y=t,shape=Season,col=Season)) + geom_point(size=2) + geom_line(size=1.0) + .THEME + ylab("Tons of roe produced") + expand_limits(y=0) + 
+      p1 <- rd %>% filter(Prod=="ROE") %>% ggplot(aes(x=Year,y=t,shape=Season,col=Season)) + geom_point(size=2) + geom_line(size=1.0) + .THEME + ylab("Tons of roe produced") + expand_limits(y=0) +
            scale_x_continuous(breaks=seq(2000,2020,2))
-            #  + geom_hline(yintercept=mst,linetype="dashed") + geom_hline(yintercept=mbt,linetype="dashed") 
+            #  + geom_hline(yintercept=mst,linetype="dashed") + geom_hline(yintercept=mbt,linetype="dashed")
       ggsave("figs/roe.pdf",plot=p1,width=7.5,height=4.5,units="in")
 
 
@@ -183,12 +183,12 @@ p1 <- df %>% filter(!is.na(strata)) %>% mutate(strata=ifelse(strata==1,"A-season
         tdt <- (read.table(paste0("~/OneDrive/sampler/cases/ebswpSAM/results/Est_",i,".dat"),header=T))
         edt <- rbind(edt,tdt)
       }
-      tot <- edt %>% filter(type=="N",sex<3,stratum<5) %>% mutate(season=ifelse(stratum==1,"A","B"),sex=ifelse(sex==1,"Male",ifelse(sex==2,"Female","Total"))) %>% 
-              group_by(year,sex) %>% summarize(Catch=sum(value)) 
+      tot <- edt %>% filter(type=="N",sex<3,stratum<5) %>% mutate(season=ifelse(stratum==1,"A","B"),sex=ifelse(sex==1,"Male",ifelse(sex==2,"Female","Total"))) %>%
+              group_by(year,sex) %>% summarize(Catch=sum(value))
       tot$season <-"all"
-      p1 <- edt %>% filter(type=="N",sex<3,stratum<5) %>% mutate(season=ifelse(stratum==1,"A","B"),sex=ifelse(sex==1,"Male",ifelse(sex==2,"Female","Total"))) %>% 
+      p1 <- edt %>% filter(type=="N",sex<3,stratum<5) %>% mutate(season=ifelse(stratum==1,"A","B"),sex=ifelse(sex==1,"Male",ifelse(sex==2,"Female","Total"))) %>%
               group_by(year,sex,season) %>% summarize(Catch=sum(value)) %>% rbind(tot) %>%
-              ggplot(aes(x=year,y=Catch,color=season,shape=sex,linetype=season)) + .THEME + geom_point(size=3.5) + geom_line(size=1.2) + expand_limits(y=0) + 
+              ggplot(aes(x=year,y=Catch,color=season,shape=sex,linetype=season)) + .THEME + geom_point(size=3.5) + geom_line(size=1.2) + expand_limits(y=0) +
               scale_x_continuous(breaks=seq(1990,2020,2)) + ylab("Catch (thousands)") + xlab("Year")
               p1
         ggsave("figs/catch_sex.pdf",plot=p1,width=7.5,height=4.5,units="in")
@@ -199,27 +199,27 @@ p1 <- df %>% filter(!is.na(strata)) %>% mutate(strata=ifelse(strata==1,"A-season
       #ggpairs(df,columns=c(2:4,6:8)) + theme_few()
       #ggpairs(df[,c(2:3,5:8)] ,label=TRUE,
       #     upper = list(continuous = wrap(ggally_cor, displayGrid = FALSE)),
-      #     diag = list(continuous = "blank"), 
+      #     diag = list(continuous = "blank"),
       #     lower = list(continuous = "smooth") ) + theme_few()
       #upper = list(continuous = "density", combo = "box_no_facet"),
-      #lower = list(continuous = "points", geom_smooth(),combo = "dot_no_facet") 
+      #lower = list(continuous = "points", geom_smooth(),combo = "dot_no_facet")
 
       rd <- data.table(read.csv("../doc/data/roe.csv",header=T))
-      #rd.s <- rd %>% select(Year, Prod, t)%>% group_by(Year,Prod) %>% summarise(t=sum(t)) %>% spread(Prod,t) 
+      #rd.s <- rd %>% select(Year, Prod, t)%>% group_by(Year,Prod) %>% summarise(t=sum(t)) %>% spread(Prod,t)
       #rd.s<-rd.s[,2:10]
       #rd.s
       #ggpairs(rd.s[,c(7,8,2,5,1)],aes(fill="lemonchiffon",alpha=.5)) + .THEME
       #names(rd)
       rd %>% gather(Season,Year) %>% head
-      rd <- select(rd,Year, Season, Prod,t) %>% group_by(Year,Season,Prod) %>% summarize(t=sum(t)) 
+      rd <- select(rd,Year, Season, Prod,t) %>% group_by(Year,Season,Prod) %>% summarize(t=sum(t))
       #df <-data.frame(Year=M$Yr,M$F); names(df) <- c("Year",1:15); df.g <- gather(df,age,F,2:16,-Year)
       .THEME <- theme(panel.grid.major.x = element_blank(), panel.grid.minor.y = element_blank(), panel.grid.major.y = element_blank() )
       .THEME <- .THEME + theme(text=element_text(size=12)) + theme(axis.title.x=element_text(size=14) ,axis.title.y=element_text(size=14))
       .THEME <- .THEME + theme( panel.background = element_rect(fill="white"), panel.border = element_rect(colour="black", fill=NA, size=1))
       #p1 <- rd %>% ggplot(aes(x=Year,y=t,shape=Season,col=Prod)) + geom_point(size=2) + geom_line(size=1.0) + .THEME + ylab("Tons of roe produced") + expand_limits(y=0) + scale_x_continuous(breaks=seq(1982,2018,1))
-      p1 <- rd %>% filter(Prod=="ROE") %>% ggplot(aes(x=Year,y=t,shape=Season,col=Season)) + geom_point(size=2) + geom_line(size=1.0) + .THEME + ylab("Tons of roe produced") + expand_limits(y=0) + 
+      p1 <- rd %>% filter(Prod=="ROE") %>% ggplot(aes(x=Year,y=t,shape=Season,col=Season)) + geom_point(size=2) + geom_line(size=1.0) + .THEME + ylab("Tons of roe produced") + expand_limits(y=0) +
          scale_x_continuous(breaks=seq(2000,2020,2))
-          #  + geom_hline(yintercept=mst,linetype="dashed") + geom_hline(yintercept=mbt,linetype="dashed") 
+          #  + geom_hline(yintercept=mst,linetype="dashed") + geom_hline(yintercept=mbt,linetype="dashed")
       ggsave("figs/roe.pdf",plot=p1,width=7.5,height=4.5,units="in")
 
 
@@ -231,12 +231,12 @@ p1 <- df %>% filter(!is.na(strata)) %>% mutate(strata=ifelse(strata==1,"A-season
     tdt <- (read.table(paste0("~/OneDrive/sampler/cases/ebswpSAM/results/Est_",i,".dat"),header=T))
     edt <- rbind(edt,tdt)
   }
-  tot <- edt %>% filter(type=="N",sex<3,stratum<5) %>% mutate(season=ifelse(stratum==1,"A","B"),sex=ifelse(sex==1,"Male",ifelse(sex==2,"Female","Total"))) %>% 
-          group_by(year,sex) %>% summarize(Catch=sum(value)) 
+  tot <- edt %>% filter(type=="N",sex<3,stratum<5) %>% mutate(season=ifelse(stratum==1,"A","B"),sex=ifelse(sex==1,"Male",ifelse(sex==2,"Female","Total"))) %>%
+          group_by(year,sex) %>% summarize(Catch=sum(value))
   tot$season <-"all"
-  p1 <- edt %>% filter(type=="N",sex<3,stratum<5) %>% mutate(season=ifelse(stratum==1,"A","B"),sex=ifelse(sex==1,"Male",ifelse(sex==2,"Female","Total"))) %>% 
+  p1 <- edt %>% filter(type=="N",sex<3,stratum<5) %>% mutate(season=ifelse(stratum==1,"A","B"),sex=ifelse(sex==1,"Male",ifelse(sex==2,"Female","Total"))) %>%
           group_by(year,sex,season) %>% summarize(Catch=sum(value)) %>% rbind(tot) %>%
-          ggplot(aes(x=year,y=Catch,color=season,shape=sex,linetype=season)) + .THEME + geom_point(size=3.5) + geom_line(size=1.2) + expand_limits(y=0) + 
+          ggplot(aes(x=year,y=Catch,color=season,shape=sex,linetype=season)) + .THEME + geom_point(size=3.5) + geom_line(size=1.2) + expand_limits(y=0) +
           scale_x_continuous(breaks=seq(1990,2020,2)) + ylab("Catch (thousands)") + xlab("Year")
           p1
   ggsave("figs/catch_sex.pdf",plot=p1,width=7.5,height=4.5,units="in")
@@ -271,14 +271,14 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
   #plot_recruitment(modlst,xlim=c(2004.5,2018.5))
   #plot_ssb(modlst,xlim=c(2004.5,2020.5),alpha=.1)
   #plot_ssb(modlst[c(2,3)],xlim=c(2004.5,2020.5),alpha=.1)
-  #plot_bts(modlst,xlim=c(1981.5,2019.5),ylim=c(0,35000)) 
+  #plot_bts(modlst,xlim=c(1981.5,2019.5),ylim=c(0,35000))
   #ggsave("figs/mod_eval0a.pdf",plot=p1,width=6,height=4,units="in")
   p1 <- plot_bts(modlst[c(3,5)],xlim=c(2010,2019.5),ylim=c(0,15000)) ;p1
-  plot_bts(modlst[c(3)],xlim=c(1982,2019.5),ylim=c(0,15000)) 
-  plot_bts(modlst[c(2)],xlim=c(1982,2019.5),ylim=c(0,15000)) 
+  plot_bts(modlst[c(3)],xlim=c(1982,2019.5),ylim=c(0,15000))
+  plot_bts(modlst[c(2)],xlim=c(1982,2019.5),ylim=c(0,15000))
   ggsave("figs/mod_eval0c.pdf",plot=p1,width=8,height=4,units="in")
-  #p1 <- plot_sel();p1 
-  #i=5; M <- modlst[[i]] <- read_admb(fn[i]);modlst[[i]] <- c(modlst[[i]],get_vars(modlst[[i]]));M <- modlst[[i]] 
+  #p1 <- plot_sel();p1
+  #i=5; M <- modlst[[i]] <- read_admb(fn[i]);modlst[[i]] <- c(modlst[[i]],get_vars(modlst[[i]]));M <- modlst[[i]]
   #M$maxabc2s
   yr=c(M$Yr,2021);sel<-rbind(M$sel_fsh,M$sel_fut)
   p1 <- plot_sel(Year=yr,sel=sel)
@@ -288,29 +288,29 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
   #plot_sel(sel=Alt$sel_fsh)
   ggsave("figs/mod_fsh_sel.pdf",plot=p1,width=4,height=8,units="in")
 
-  p1 <- plot_sel(sel=M$sel_bts,styr=1982,fill="darkblue") 
-  #plot_sel(sel=M$sel_eit,styr=1994,fill="darkblue") 
+  p1 <- plot_sel(sel=M$sel_bts,styr=1982,fill="darkblue")
+  #plot_sel(sel=M$sel_eit,styr=1994,fill="darkblue")
   ggsave("figs/mod_bts_sel.pdf",plot=p1,width=4,height=8,units="in")
- # p1 <- plot_mnage(modlst[c(2,3)]) 
+ # p1 <- plot_mnage(modlst[c(2,3)])
   #p1 <- plot_mnage(modlst[thismod]) ;p1
   p1 <- plot_mnage(modlst[1]) ;p1 # Note used model 1 for figure...because of kludge for age compos
   ggsave("figs/mod_mean_age.pdf",plot=p1,width=5.8,height=8,units="in")
-  p1 <- plot_bts(modlst[thismod]) 
+  p1 <- plot_bts(modlst[thismod])
   ggsave("figs/mod_bts_biom.pdf",plot=p1,width=5.2,height=3.7,units="in")
 
   p1 <- plot_ats(modlst[c(1,thismod)]) ;p1
   p1 <- plot_ats(modlst[c(1,3,4,thismod)]) ;p1
   p1 <- plot_ats(modlst[c(1,thismod)]) ;p1
   p1 <- plot_ats(modlst[c(4,thismod)]) ;p1
-  p1 <- plot_bts(modlst) 
+  p1 <- plot_bts(modlst)
 
 #  p1 <- p1+ geom_vline(xintercept=2006.5,color="grey",size=1)
   #p1 <- p1+scale_y_log10()
   p1 <- plot_ats(modlst[c(1,3,4)]) +theme_few(base_size=11) ;p1
-  ggsave("figs/mod_ats_biom.pdf",plot=p1,width=9.2,height=3.7,units="in"); 
-  p1 <- plot_avo(modlst[thismod]) 
+  ggsave("figs/mod_ats_biom.pdf",plot=p1,width=9.2,height=3.7,units="in");
+  p1 <- plot_avo(modlst[thismod])
   ggsave("figs/mod_avo_fit.pdf",plot=p1,width=5.2,height=3.7,units="in")
-  p1 <- plot_cpue(modlst[[thismod]]) 
+  p1 <- plot_cpue(modlst[[thismod]])
   ggsave("figs/mod_cpue_fit.pdf",plot=p1,width=5.2,height=3.7,units="in")
   p1 <- plot_recruitment(modlst[thismod],xlim=c(1963.5,2020.5),fill="yellow");p1
   ggsave("figs/mod_rec.pdf",plot=p1,width=9,height=4,units="in")
@@ -419,7 +419,7 @@ ggsave("figs/sel_comp_vast.pdf",plot=p1,width=8,height=4.0,units="in")
   #for (i in 1:5)
 	  #q <- rbind(q,data.frame(Year=1982:2019,Model=names(proflst[i]),q=rowMeans(proflst[[i]]$q_bts_3_8)))
 #
-	#head(q) 
+	#head(q)
 	#av <- read.table("../runs/dat/avail.dat",header=TRUE)
 	#av <- av %>% transmute(Year=Year,Model="COLE",q=q)
 	#q <- rbind(q,av)
@@ -447,11 +447,11 @@ p1 <- plot_ats(cvlst[c(1:2)]) +theme_few(base_size=11) ;p1
 p2 <- plot_ats(cvlst[c(3:4)]) +theme_few(base_size=11) ;p2
 p5 <- p1/p2
 p5
-ggsave("figs/mod_ats_eval1.pdf",plot=p5,height=7,width=6.0,units="in"); 
+ggsave("figs/mod_ats_eval1.pdf",plot=p5,height=7,width=6.0,units="in");
 p3 <- plot_ssb(cvlst[c(1,3)] , ylim=c(0,6000),breaks=seq(1990,2020,5), xlim=c(1990.5,2020.5),alpha=.1) ;p3
 p4 <- plot_ssb(cvlst[c(2,4)] , ylim=c(0,6000),breaks=seq(1990,2020,5), xlim=c(1990.5,2020.5),alpha=.1) ;p4
 p5 <- p3/p4
-ggsave("figs/mod_ats_eval2.pdf",plot=p5,height=7,width=6.0,units="in"); 
+ggsave("figs/mod_ats_eval2.pdf",plot=p5,height=7,width=6.0,units="in");
 
 
 
@@ -460,9 +460,9 @@ ggsave("figs/mod_ats_eval2.pdf",plot=p5,height=7,width=6.0,units="in");
 t(M$future_SSB[1,2:6])
 df <- rbind(data.frame(Year= M$SSB[,1], SSB=M$SSB[,2], lb=M$SSB[,4], ub=M$SSB[,5]),
 data.frame(Year= nextyr:(nextyr+4), SSB=M$future_SSB[4,2:6], lb = M$future_SSB[4,2:6] -2*M$future_SSB.sd[4,2:6], ub = M$future_SSB[4,2:6] +2*M$future_SSB.sd[4,2:6]))
-p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb)) + geom_ribbon(fill="salmon",alpha=.6) + geom_line() +  theme_few() + 
-  scale_x_continuous(limits=c(2000,2024),breaks=seq(2000,2024,2)) + 
-  ylab("Female spawning biomass (kt)") + 
+p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb)) + geom_ribbon(fill="salmon",alpha=.6) + geom_line() +  theme_few() +
+  scale_x_continuous(limits=c(2000,2024),breaks=seq(2000,2024,2)) +
+  ylab("Female spawning biomass (kt)") +
   geom_vline(xintercept=2020,col="grey"); p1
   ggsave("figs/proj_ssb.pdf",plot=p1,width=7.4,height=4.5,units="in")
 
@@ -474,30 +474,30 @@ p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb)) + geom_ribbon(fill="salmon",a
   .THEME <- theme(panel.grid.major.x = element_blank(), panel.grid.minor.y = element_blank(), panel.grid.major.y = element_blank() )
   .THEME <- .THEME + theme(text=element_text(size=12)) + theme(axis.title.x=element_text(size=14) ,axis.title.y=element_text(size=14))
   .THEME <- .THEME + theme( panel.background = element_rect(fill="white"), panel.border = element_rect(colour="black", fill=NA, size=1))
-  p1 <- ggplot(td.g,aes(x=YEAR,y=temp,col=Source,shape=Source)) + geom_point(size=2) + geom_line(size=1.0) + .THEME + ylab("Degrees C") + expand_limits(y=0) + 
-       scale_x_continuous(breaks=seq(1982,2019,3)) + geom_hline(yintercept=mst,linetype="dashed") + geom_hline(yintercept=mbt,linetype="dashed") 
+  p1 <- ggplot(td.g,aes(x=YEAR,y=temp,col=Source,shape=Source)) + geom_point(size=2) + geom_line(size=1.0) + .THEME + ylab("Degrees C") + expand_limits(y=0) +
+       scale_x_continuous(breaks=seq(1982,2019,3)) + geom_hline(yintercept=mst,linetype="dashed") + geom_hline(yintercept=mbt,linetype="dashed")
   ggsave("figs/bts_temp.pdf",plot=p1,width=7.5,height=4.5,units="in")
 
   #---R/S------------------
   nyrs=length(M$SSB[,1])
-  dt <- data.table(yr=M$SSB[1:nyrs,1],ssb= M$SSB[1:nyrs,2], r=M$R[2:(nyrs-1),2] ) 
+  dt <- data.table(yr=M$SSB[1:nyrs,1],ssb= M$SSB[1:nyrs,2], r=M$R[2:(nyrs-1),2] )
   dt <- dt %>% mutate(Year=substr(as.character(yr),3,4),rs= log(dt$r/dt$ssb))
   head(dt)
   p1 <- ggplot(dt,aes(x=yr,y=rs)) + geom_point(size=4,col="red") + geom_line() +geom_smooth() + .THEME + ylab("ln(Recruits/spawning biomass)") + xlab("Year")
   #ggplot(dt,aes(x=ssb,y=rs)) + geom_point(size=4,col="red") + geom_path() +geom_smooth(method="lm") + .THEME + ylab("ln(Recruits/spawning biomass)") + xlab("Spawning biomass (kt)")
-  p2 <- ggplot(dt,aes(x=ssb,y=rs,label=Year)) + geom_text() + geom_path(size=.5,alpha=.4) +geom_smooth(method="lm") + .THEME + 
-       ylab("ln(Recruits/spawning biomass)") + xlab("Spawning biomass (kt)") +  guides(size=FALSE,shape=FALSE,alpha=FALSE,col=FALSE) 
+  p2 <- ggplot(dt,aes(x=ssb,y=rs,label=Year)) + geom_text() + geom_path(size=.5,alpha=.4) +geom_smooth(method="lm") + .THEME +
+       ylab("ln(Recruits/spawning biomass)") + xlab("Spawning biomass (kt)") +  guides(size=FALSE,shape=FALSE,alpha=FALSE,col=FALSE)
   p3 <- p1 / p2
   ggsave("figs/mod_rs.pdf",plot=p3,width=5.2,height=7.5,units="in")
 
-  p1 <- plot_ser(modlst[thismod],xlim=c(1964,thisyr+1),alpha=.7) + scale_x_continuous(breaks=seq(1965,thisyr+1,5))  
+  p1 <- plot_ser(modlst[thismod],xlim=c(1964,thisyr+1),alpha=.7) + scale_x_continuous(breaks=seq(1965,thisyr+1,5))
   ggsave("figs/mod_ser.pdf",plot=p1,width=9.2,height=7.0,units="in")
 
   #---fishing mortality mod_F.pdf-----------------------------------------------------------------
   df <-data.frame(Year=M$Yr,M$F); names(df) <- c("Year",1:15); df.g <- gather(df,age,F,2:16,-Year)
   p1 <- df.g %>% mutate(age=as.numeric(age)) %>% filter(age<11)%>% ggplot(aes(y=age,x=Year,fill=F)) + geom_tile() + .THEME + ylab("Age")+ geom_contour(aes(z=F),color="darkgrey",size=.5,alpha=.4) +
             scale_fill_gradient(low = "white", high = "red") + scale_x_continuous(breaks=seq(1965,thisyr,5)) + geom_line(data=df.g[df.g$age=="6",],aes(x=Year,y=F*10)) +
-            annotate("text", label = "Age 6 F (x10)" , x = 2015, y = 1.2, size = 5, colour = "black") + scale_y_continuous(breaks=seq(0,10,1)) 
+            annotate("text", label = "Age 6 F (x10)" , x = 2015, y = 1.2, size = 5, colour = "black") + scale_y_continuous(breaks=seq(0,10,1))
   ggsave("figs/mod_F.pdf",plot=p1,width=9.2,height=6.0,units="in")
 
   #---Fits to bts age mod_bts_age.pdf-------------------------------------------------------------
@@ -507,18 +507,18 @@ p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb)) + geom_ribbon(fill="salmon",a
   dev.off()
 
   #---Historical assessment retrospectives--------------------------------------------------------
-  dd <- as.data.frame(read.csv("data/Age3history.csv",header=T))
+  dd <- as.data.frame(read.csv("doc/data/Age3history.csv",header=T))
   names(dd) <- c("Year",2019:2006,2001:1998)
   dd.g <- pivot_longer(dd,cols=2:18,names_to="Assessment",values_to="Biomass")
   head(dd.g)
   # this line to add current year estimate!!
   t <- data.frame(Year=1964:(thisyr+1), Assessment=thisyr,Biomass=c(M$age3plus,M$age3plus1)  )
-  dd.g <- rbind(dd.g,t) 
+  dd.g <- rbind(dd.g,t)
   tmp <- dd.g %>% filter(Year==1+as.numeric(Assessment)) # %>% summarise(max(Year))
-  p1 <- ggplot(dd.g,aes(x=Year,y=Biomass,color=Assessment)) + geom_line(alpha=.8,size=.75) + .THEME + 
+  p1 <- ggplot(dd.g,aes(x=Year,y=Biomass,color=Assessment)) + geom_line(alpha=.8,size=.75) + .THEME +
     scale_x_continuous(breaks=seq(1980,thisyr+1,5),limits=c(1980,thisyr+1))  +  xlab("Year") + ylim(0,14000) + ylab("Age 3+ biomass (kt)") +
-    guides(size=FALSE,shape=FALSE,alpha=FALSE,col=FALSE) 
-  p1 <- p1  + geom_point(data=tmp,size=2) 
+    guides(size=FALSE,shape=FALSE,alpha=FALSE,col=FALSE)
+  p1 <- p1  + geom_point(data=tmp,size=2)
     p1
   ggsave("figs/mod_hist.pdf",plot=p1,width=9.2,height=4.0,units="in")
 
@@ -526,7 +526,7 @@ p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb)) + geom_ribbon(fill="salmon",a
   pdf("../doc/figs/mod_ats_age.pdf",width=6,height=8)
   plot_agefit(M,case_label=paste(thisyr,"Assessment"),gear="ats")
   dev.off()
-  
+
   #----Read in retro results-----------------
   j='16.2'
   i=0
@@ -576,7 +576,7 @@ p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb)) + geom_ribbon(fill="salmon",a
     df$peel[i] <- i-1
     df$rho[i] <- rho/i
     print(paste(i,rho/i))
-  }    
+  }
   write.csv(df,"data/mohnrho.csv")
   #--------new catch/biomass figure-------------
   #M$SSB
@@ -589,42 +589,42 @@ p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb)) + geom_ribbon(fill="salmon",a
 
 
   df <- read.table(paste0(.MODELDIR[thismod],"F40_t.rep"),header=T)
-  pt <- df %>% filter(Year>thisyr) %>% transmute(F.Fmsy=meanF/Fmsy,Bmsy=Bmsy,Year=substr(as.character(Year),3,4))  
-  df <- df %>%filter(Year<=thisyr,Year>1977)  %>%transmute(F.Fmsy=meanF/Fmsy,B.Bmsy=SSB/Bmsy,Bmsy=Bmsy,Year=substr(as.character(Year),3,4))   
+  pt <- df %>% filter(Year>thisyr) %>% transmute(F.Fmsy=meanF/Fmsy,Bmsy=Bmsy,Year=substr(as.character(Year),3,4))
+  df <- df %>%filter(Year<=thisyr,Year>1977)  %>%transmute(F.Fmsy=meanF/Fmsy,B.Bmsy=SSB/Bmsy,Bmsy=Bmsy,Year=substr(as.character(Year),3,4))
   df2 <- data.frame(SSB=M$future_SSB[1,2:3])
-  pt2 <- cbind(df2,pt) 
+  pt2 <- cbind(df2,pt)
   pt2  <- pt2 %>% transmute(F.Fmsy,B.Bmsy=SSB/Bmsy,Bmsy,Year)
   head(df)
-         #mutate(F.Fmsy=meanF/Fmsy,B.Bmsy=SSB/Bmsy,Year=substr(as.character(Year),3,4)) %>% 
-  ggplot(df,aes(x=B.Bmsy,y=F.Fmsy,label=Year)) + 
+         #mutate(F.Fmsy=meanF/Fmsy,B.Bmsy=SSB/Bmsy,Year=substr(as.character(Year),3,4)) %>%
+  ggplot(df,aes(x=B.Bmsy,y=F.Fmsy,label=Year)) +
          geom_text(aes(color=as.factor(Year)),size=4,col="blue")+ .THEME + xlim(c(0,2.0))+ ylim(c(0,1.1)) + xlab("B/Bmsy") + ylab("F/Fmsy") +
          geom_label(data=pt2,size=2,fill="yellow",color="red",alpha=.4) +
          geom_line(data=pt2,color="red",alpha=.4) +
-         geom_hline(size=.5,yintercept=1) + geom_vline(size=0.5,linetype="dashed",xintercept=.2) + geom_vline(size=.5,xintercept=1) + geom_path(size=.4) + 
-          guides(size=FALSE,fill=FALSE,alpha=FALSE,col=FALSE) 
+         geom_hline(size=.5,yintercept=1) + geom_vline(size=0.5,linetype="dashed",xintercept=.2) + geom_vline(size=.5,xintercept=1) + geom_path(size=.4) +
+          guides(size=FALSE,fill=FALSE,alpha=FALSE,col=FALSE)
          p1
   ggsave("figs/mod_phase.pdf",plot=p1,width=7.2,height=5.7,units="in")
 
 #---Catch grid and future effort consequences---------------------------------------------------
-  dc <-data.frame(Catch=M$future_catch,scen=c(seq(.5,1.5,.05),2),"catch"); 
+  dc <-data.frame(Catch=M$future_catch,scen=c(seq(.5,1.5,.05),2),"catch");
   dc[1:5] <- dc[1:5]/1350
   dc <-data.frame(Year=thisyr:(thisyr+5),Catch=c(1350,M$future_catch[22,]), F=M$Future_F[22,], SSB=M$future_SSB[22,])
   dc <-data.frame(Year=thisyr:(thisyr+5),F=M$Future_F[22,], SSB=M$future_SSB[22,])
-  M$Future_F 
+  M$Future_F
   dc$F <- dc$F/dc$F[1]
   dc$SSB <- dc$SSB/dc$SSB[1]
-  df.g <- gather(dc,key=Measure,val,-Year) 
+  df.g <- gather(dc,key=Measure,val,-Year)
   df.g
   p1 <-   df.g %>% ggplot(aes(x=Year,y=val,col=Measure)) + .THEME + geom_line(size=2) + ylim(0.25,2.00) + ggtitle(paste0("Projected trend relative to ",thisyr," given future catch=1,350 kt")) + ylab("Relative value")
   p1
   ggsave("figs/future_F.pdf",plot=p1,width=7.4,height=5,units="in")
 
-  # ,scen=c(seq(.5,1.5,.05),2),"catch"); 
-  names(dc) <- c(2020:2024,"scen","var") 
-  db <-data.frame(SSB=M$future_SSB,scen=seq(.5,1.5,.05),"SSB"); 
+  # ,scen=c(seq(.5,1.5,.05),2),"catch");
+  names(dc) <- c(2020:2024,"scen","var")
+  db <-data.frame(SSB=M$future_SSB,scen=seq(.5,1.5,.05),"SSB");
   db<- cbind(db[,2:6]/db[,1],db[,7:8])
   db$scen <- dc[,1]
-  names(db) <- c(2018:2022,"scen","var") 
+  names(db) <- c(2018:2022,"scen","var")
   df.g <- rbind( gather(dc,year,val,1:5) , gather(db,year,val,1:5) )
   df.g$year <- as.numeric(df.g$year)
   head(df.g)
@@ -635,41 +635,41 @@ p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb)) + geom_ribbon(fill="salmon",a
   idxOut <- read.csv("data/vast.csv",header=TRUE)
   df  <- mutate(idxOut, CV = sd/Biomass, sd=sd/1e6, Biomass=Biomass / 1e6, ll=Biomass-2*sd,ul=2*sd+Biomass) %>%
       select(Model, Area, Year,Biomass, CV,ul,ll)
-  p1 <- ggplot(df,aes(x=Year,y=Biomass,color=Model)) + geom_point(position=position_dodge(width=0.5)) + geom_smooth(span=.1,se=F) + 
-      geom_errorbar(aes(ymin=ll,ymax=ul),width=.5,position=position_dodge(width=0.5)) + theme_few(base_size=19) + 
+  p1 <- ggplot(df,aes(x=Year,y=Biomass,color=Model)) + geom_point(position=position_dodge(width=0.5)) + geom_smooth(span=.1,se=F) +
+      geom_errorbar(aes(ymin=ll,ymax=ul),width=.5,position=position_dodge(width=0.5)) + theme_few(base_size=19) +
       scale_x_continuous(breaks=seq(1982,2020,by=4))  + geom_hline(yintercept=0) + facet_grid(Area~.,scales="free") + ylab("Biomass (millions of t)")
   ggsave("figs/vast_idx.pdf",plot=p1,width=9.4,height=5,units="in")
 
 #dd <- df.g %>% filter(var=="SSB")
 #dc <- df.g %>% filter(var=="catch")
-#df.g%>% filter(var=="catch") %>% ggplot(aes(x=year,y=scen,fill=val,col=var)) + .THEME + geom_contour(aes(z=val),size=2) + 
-#            scale_x_continuous(breaks=seq(2018,2022,1))  + 
+#df.g%>% filter(var=="catch") %>% ggplot(aes(x=year,y=scen,fill=val,col=var)) + .THEME + geom_contour(aes(z=val),size=2) +
+#            scale_x_continuous(breaks=seq(2018,2022,1))  +
 #             geom_text(data=dc,aes(x=year-.15,y=scen,label=format(100*(val-1),digits=0)) )#+
-#df.g%>% filter(var=="catch") %>% ggplot(aes(x=year,y=scen,fill=val,col=var)) + .THEME + 
-#            scale_x_continuous(breaks=seq(2018,2022,1))  + geom_contour(data=dd,aes(x=year,y=scen,z=val),size=2,col="darkgreen") + 
-#             geom_text(data=dd,aes(x=year+.15,y=scen,label=format(100*(val-1),digits=0)),col="darkgreen" ) 
-#f1 <-  df.g%>% filter(var=="catch") %>% ggplot(aes(x=year,y=scen,fill=val,col=var)) + .THEME + geom_contour(aes(z=val),size=2) + 
-#            scale_x_continuous(breaks=seq(2018,2022,1))  + geom_contour(data=dd,aes(x=year,y=scen,z=val)) + 
+#df.g%>% filter(var=="catch") %>% ggplot(aes(x=year,y=scen,fill=val,col=var)) + .THEME +
+#            scale_x_continuous(breaks=seq(2018,2022,1))  + geom_contour(data=dd,aes(x=year,y=scen,z=val),size=2,col="darkgreen") +
+#             geom_text(data=dd,aes(x=year+.15,y=scen,label=format(100*(val-1),digits=0)),col="darkgreen" )
+#f1 <-  df.g%>% filter(var=="catch") %>% ggplot(aes(x=year,y=scen,fill=val,col=var)) + .THEME + geom_contour(aes(z=val),size=2) +
+#            scale_x_continuous(breaks=seq(2018,2022,1))  + geom_contour(data=dd,aes(x=year,y=scen,z=val)) +
 #             geom_text(data=dd,aes(x=year+.05,y=scen,label=format(100*(val-1),digits=0)) ) +
 #             geom_text(data=dc,aes(x=year-.05,y=scen,label=format(100*(val-1),digits=0)) )#+
 #f1
 
              # geom_text(data=dd,aes(x=year+.15,y=scen,label=format(100*(val-1),digits=0)) )
-# p1 <-  df.g %>% ggplot(aes(x=year,y=scen,fill=val,col=var)) + .THEME + geom_contour(aes(z=val),size=2) + 
+# p1 <-  df.g %>% ggplot(aes(x=year,y=scen,fill=val,col=var)) + .THEME + geom_contour(aes(z=val),size=2) +
 #             scale_x_continuous(breaks=seq(2018,2022,1))  +
-#              geom_contour(data=dd,aes(x=year,y=scen,z=val)) + 
+#              geom_contour(data=dd,aes(x=year,y=scen,z=val)) +
 #              geom_text(data=dc,aes(x=year-.15,y=scen,label=format(100*(val-1),digits=0)) )+
 #              geom_text(data=dd,aes(x=year+.15,y=scen,label=format(100*(val-1),digits=0)) )
-#             #scale_fill_gradient(low = "white", high = "red") + geom_tile() + 
+#             #scale_fill_gradient(low = "white", high = "red") + geom_tile() +
 # p1
 
 #   direct.label(p1)
-#             annotate("text", label = "Age 6 F (x10)" , x = 2017, y = 1.2, size = 5, colour = "black") + scale_y_continuous(breaks=seq(0,10,1)) 
+#             annotate("text", label = "Age 6 F (x10)" , x = 2017, y = 1.2, size = 5, colour = "black") + scale_y_continuous(breaks=seq(0,10,1))
 #   geom_tile()
-#   color="black",size=.5,alpha=.4) 
-#    ylab("Age")+ 
-#   geom_tile() + .THEME 
-#             scale_fill_gradient(low = "white", high = "red") + scale_x_continuous(breaks=seq(1965,2017,5)) + 
-#             annotate("text", label = "Age 6 F (x10)" , x = 2017, y = 1.2, size = 5, colour = "black") + scale_y_continuous(breaks=seq(0,10,1)) 
+#   color="black",size=.5,alpha=.4)
+#    ylab("Age")+
+#   geom_tile() + .THEME
+#             scale_fill_gradient(low = "white", high = "red") + scale_x_continuous(breaks=seq(1965,2017,5)) +
+#             annotate("text", label = "Age 6 F (x10)" , x = 2017, y = 1.2, size = 5, colour = "black") + scale_y_continuous(breaks=seq(0,10,1))
 #   ggsave("figs/mod_F",plot=p1,width=9.2,height=7.0,units="in")
 }

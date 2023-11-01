@@ -26,7 +26,9 @@ if (doplots) {
    library(ggridges)
 
  p1 <- plot_sel(sel=modlst[[7]]$sel_bts,styr=1982,fill="darkblue") ;p1
- p1 <- plot_sel(sel=modlst[[7]]$sel_ats,styr=1994,fill="darkblue") ;p1
+
+ p1 <- plot_sel(sel=modlst[[8]]$sel_ats,styr=1994,fill="darkblue") ;p1
+ggsave("doc/figs/mod_ats_sel.pdf",plot=p1,width=4,height=8.0,units="in")
 
 
 

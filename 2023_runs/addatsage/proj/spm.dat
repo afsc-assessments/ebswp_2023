@@ -24,7 +24,7 @@ std # Run name 5 scenarios
 #--------------------------------------------
 14 #_Number of projection years                                  
 1000 #_Number of simulations                                 
-2023 #_Begin Year                                        
+2024 #_Begin Year                                        
 #_Number_of_years with specified catch 
 2
 # Number of species                         
@@ -46,6 +46,5 @@ std # Run name 5 scenarios
 # TAC model indices (for aggregating)
 1
 # Catch in each future year
-2023 1260
 2024 1350
 2025 1350

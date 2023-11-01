@@ -39,7 +39,7 @@ layer2.png      ,38,mod_cpue_fit,EBS pollock model fits to the Japanese fishery 
 mod_data.pdf    ,39,mod_avo_fit,Model results of predicted and observed AVO index. Error bars represent assumed 95\% confidence bounds of the input series.,,
                 ,40,mod_bts_sel,"Model estimates of bottom-trawl survey selectivity, 1982--2023.",,
                 ,41,mod_bts_age,Model fit (dots) to the bottom trawl survey proportion-at-age composition data (columns) for EBS pollock. Colors correspond to cohorts over time.,,
-                ,42,mod_ats_ones,Estimates of AT survey numbers (lower panel) and selectivity-at-age (with mean value equal to 1.0) over time (upper panel) for EBS pollock age 2 and older.,,
+mod_ats_sel.pdf ,42,mod_ats_sel,"Estimates of AT survey numbers selectivity-at-age (with mean value equal to 1.0) over time for EBS pollock age 2 and older.",,
                 ,43,mod_ats_age,Model fit (dots) to the acoustic-trawl survey proportion-at-age composition data (columns) for EBS pollock. Colors correspond to cohorts over time (for years with consecutive surveys).,,
 mod_cpue_fit.pdf,44,mod_ser,Estimated spawning exploitation rate (defined as the percent removal of egg production in a given spawning year).,,
 mod_avo_fit.pdf ,45,mod_F,Estimated instantaneous age-specific fishing mortality rates for EBS pollock.,,
@@ -97,4 +97,7 @@ ssb_v_2018.pdf,96,ssb_v_2018,Plot of a representation of the posterior marginal 
 mod_retroR.pdf ,97,mod_retroR,Retrospective patterns for EBS pollock recruitment showing the point estimates relative to the terminal year (top panel) and approximate confidence bounds on absolute scale (+2 standard deviations).,,
 MLE_v_post.png ,98,MLE_v_post,Comparison of the asymptotic parameter standard errors (from inverting the Hessian; vertical axis) with the marginals from the MCMC draws (horizontal axis)., ,
 AVO_Series_change.png,99,avo, Maps of acoustic vessel-of-opportunity (AVO) index data 2006-2023. Grid cell size and shading is proportional to pollock backscatter.,,
+cog.png,100,cog, The EBS pollock stock center of gravity as estimated over time using VAST, 1982-2023. "Eastings" (top) and "Northings" indicate density-weighted population shifts.
+retro_cohort_termyr.pdf,101,retrocohtyr, Retrospective evolution of EBS pollock selected year-class estimates as a function of the terminal year of data used in the model (based on retrospectives of Model 23.0)., , 
+retro_cohort.pdf,102,retrocoh, Retrospective evolution of EBS pollock selected year-class estimates as a function of the the number of years the year-class has been in the model (based on retrospectives of Model 23.0).,,
 cog.png,100,cog, The EBS pollock stock center of gravity as estimated over time using VAST, 1982-2023. "Eastings" (top) and "Northings" indicate density-weighted population shifts.

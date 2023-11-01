@@ -2,6 +2,7 @@
 if (doplots) {
   library(ggthemes)
   library(patchwork)
+  library(scales)
   library(ggridges)
   do_data_plots <- FALSE
 #---Compare selectivity for base w/ vast
@@ -36,7 +37,25 @@ source("tools/Age_diversity.R")
   #p2 <- plot_ssb(modlst[c(1,5)],xlim=c(2008.5,2021.5),breaks=seq(2008,2021,by=2),alpha=.2); p2
 #---SSB-------------------------
   modlst[[3]]$SSB
-  p1 <- plot_ssb(modlst[c(6,5,4)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
+  names(modlst) <- c("Last year",1:7,"Model 23.0")
+names(modlst) <- c("Last year",   #1
+               "m1",
+               "m2 ",
+               "m3",
+               "m4",
+               "m5",
+               "m6",
+               "m7",
+               "m8")
+               #"23.0")
+  names(modlst)
+  p1 <- plot_ssb(modlst[c(2:9)],xlim=c(2008.5,2023.5),breaks=seq(2008,2024,by=2),alpha=.1); p1
+  p2 <- plot_ssb(modlst[c(1,9)],xlim=c(2008.5,2023.5),breaks=seq(2008,2024,by=2),alpha=.2); p2
+p3 <- p1/p2
+  ggsave("doc/figs/mod_data.pdf",plot=p3,width=6,height=8.0,units="in")
+
+  p1 <- plot_ssb(modlst[c(1,9)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
+
   p1 <- plot_recruitment(modlst[c(1,2)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
   p1 <- plot_ssb(modlst[c(6,5,4)],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
   p1 <- plot_ssb(modlst[3],xlim=c(2008.5,2022.5),breaks=seq(2008,2024,by=2),alpha=.2); p1
@@ -87,13 +106,13 @@ source("tools/Age_diversity.R")
   p1 <- plot_bts(modlst[thismod]) ; p1
   ggsave("doc/figs/mod_bts_biom.pdf",plot=p1,width=5.2,height=3.7,units="in")
 
-  p1 <- plot_ats(modlst[c(9)]) + ggthemes::theme_few()+
+  p1 <- plot_ats(modlst[c(2,9)]) + ggthemes::theme_few()+
         scale_x_continuous(limits=c(1990,2024) )  ;p1
   ggsave("doc/figs/mod_ats_bridging.pdf",plot=p1,width=5.2,height=3.7,units="in")
 
 #  p1 <- p1+ geom_vline(xintercept=2006.5,color="grey",size=1)
   #p1 <- p1+scale_y_log10()
-  p1 <- plot_ats(modlst[c(1)]) +theme_few(base_size=11) ;p1
+  p1 <- plot_ats(modlst[c(9)]) +theme_few(base_size=13) ;p1
   ggsave("doc/figs/mod_ats_biom.pdf",plot=p1,width=9.2,height=3.7,units="in");
   p1 <- plot_avo(modlst[c(thismod)],ylim=c(0,5)) + xlim(c(2005,2024));p1
 #  p1 <- plot_avo(modlst[c(2)]) ;p1
@@ -101,10 +120,10 @@ source("tools/Age_diversity.R")
   #p1 <- plot_cope(modlst[[2]]) ;p1
   p1 <- plot_cpue(modlst[[thismod]])
   ggsave("doc/figs/mod_cpue_fit.pdf",plot=p1,width=5.2,height=3.7,units="in")
-  p1 <- plot_recruitment(modlst[thismod],xlim=c(1963.5,2021.5),fill="yellow");p1
-  p1 <- plot_recruitment(modlst[c(1:2)],xlim=c(2000.5,2022.5),fill="yellow") + theme_few(base_size = 14);p1
-  p1 <- plot_ssb(modlst[c(1:2)],xlim=c(2000.5,2022.5),fill="yellow");p1
-  ggsave("doc/figs/mod_rec.pdf",plot=p1,width=9,height=4,units="in")
+  p1 <- plot_recruitment(modlst[thismod],xlim=c(1963.5,2023.5),fill="yellow") +
+          scale_y_continuous(label=comma) +
+    theme_few(base_size = 14);p1
+  p2 <- plot_ssb(modlst[c(thismod)],xlim=c(2000.5,2023.5));p2
   ggsave("doc/figs/mod_rec.pdf",plot=p1,width=9,height=4,units="in")
 
 #  p1 <- plot_srr(modlst[c(thismod)],alpha=.2,xlim=c(0,5200),ylim=c(0,77000));p1
@@ -131,9 +150,9 @@ source("tools/Age_diversity.R")
 #  p1 <- plot_srr(modlst[c(1,8)],alpha=.2,xlim=c(0,5200),ylim=c(0,80000),sizeout=2,sizein=4,yrsin=c(1977,1979:2020));p1
 
 modlst
-  p1 <- plot_srr(modlst[c(4:6)],alpha=.2,xlim=c(0,5200),ylim=c(0,80000),sizeout=2,sizein=4,yrsin=c(1977,1979:2020));p1
+  p1 <- plot_srr(modlst[c(9)],alpha=.2,xlim=c(0,5200),ylim=c(0,80000),sizeout=2,sizein=4,yrsin=c(1977,1979:2021));p1
 #  p1 <- plot_srr(modlst[c(1,2)],alpha=.2,xlim=c(0,5200),ylim=c(0,100000));p1
-  ggsave("doc/figs/mod_srr_M",plot=p1,width=9,height=4,units="in")
+  ggsave("doc/figs/mod_srr.pdf",plot=p1,width=9,height=5,units="in")
   #p1 <- plot_srr(modlst[c(3,5)],alpha=.2,xlim=c(0,5200),ylim=c(0,80000));p1
   #p1 <- plot_srr(modlst[c(3,6)],alpha=.2,xlim=c(0,5200),ylim=c(0,80000));p1
   #p1 <- plot_srr(modlst[c(1,8)],alpha=.2,xlim=c(0,5200),ylim=c(0,80000));p1
@@ -143,9 +162,6 @@ modlst
   #ggsave("doc/figs/mod_srr_sq_c_d.pdf",plot=p1,width=9,height=4,units="in")
   #names(modlst) modlst[[3]]$abc1s modlst[[4]]$abc1s modlst[[3]]$maxabc1s
   #p1 <- p1 + theme_few(base_size=16) p1
-  p1 <- plot_srr(modlst[c(thismod)],alpha=.2,xlim=c(0,4500),ylim=c(0,80000),
-    yrsin=c(1977,1979:2021),sizeout=2,sizein=4);p1
-  ggsave("doc/figs/mod_srr.pdf",plot=p1,width=7.4,height=4.9,units="in")
   #p1 <- plot_srr(modlst[c(2,4)],alpha=.2,xlim=c(0,5200),ylim=c(0,75000))
   #ggsave("doc/figs/bholt_ricker.pdf",plot=p1,width=7.4,height=3.9,units="in")
   af_title <- paste(thisyr,"Assessment")
@@ -190,8 +206,10 @@ modlst
   nmods <- length(CAB_names)
   #for (i in 1:nmods) CABmodlst[[i]] <- c(CABmodlst[[i]],get_vars(CABmodlst[[i]]))
   #p1 <-  plot_ssb(CABmodlst[c(1,3,5)],xlim=c(2009.5,2019.5),alpha=.1,ylim=c(0,5200)); p1
-  A <- .get_ssb_df(CABmodlst)
+
+  A <- .get_ssb_df(modlst[[2:9]])
   names(A)
+
   A$Model <- factor(A$Model ,levels= c("last year", "Add 2021 catch", "Add BTS", "Add ATS","Add AVO"))
   p1 <- ggplot(A,aes(x=year,y=ssb,ymin=lb,ymax=ub,fill=Model)) + labs(x = "Year", y = "Spawning biomass") +
         theme_few(base_size=14) +
@@ -276,7 +294,7 @@ data.frame(Model="Last year",Year= (nextyr-1):(nextyr+3), SSB=P$future_SSB[4,2:6
 p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb,fill=Model)) + geom_ribbon(alpha=.6) + geom_line() +  theme_few() +
   scale_x_continuous(limits=c(2002,2028),breaks=seq(2002,2028,2)) +
   ylab("Female spawning biomass (kt)") +
-  geom_vline(xintercept=2022,col="grey",size=1.2); p1
+  geom_vline(xintercept=2023,col="grey",size=1.2); p1
   ggsave("doc/figs/proj_ssb.pdf",plot=p1,width=7.4,height=4.5,units="in")
 
   #---R/S------------------
@@ -376,16 +394,17 @@ p1
 regime=c("1964-77", "1978-present", "1978-99", "1978-89", "1990-present", "1990-99", "2000-present", "1964-present")
 hlr <- M$regime[2]
   p3 <- tibble(regime=regime,Mean=M$regime,ub=Mean+2*M$regime.sd,lb=Mean-2*M$regime.sd) %>%
-  ggplot(aes(x=regime,y=Mean,ymax=ub,ymin=lb)) + geom_linerange(size=1.5) + theme_few(base_size=12) +
+  ggplot(aes(x=regime,y=Mean,ymax=ub,ymin=lb)) + geom_linerange(size=1.5) + ggthemes::theme_few(base_size=12) +
          ylab("Mean recruitment (age 1)") + geom_point(size=4,color="red") + geom_hline(yintercept=hlr,linetype=2)
   ggsave("doc/figs/mod_regimes.pdf",plot=p3,width=9.2,height=5.0,units="in")
 
   #---Fits to ats age mod_ats_age.pdf-------------------------------------------------------------
-  pdf("../doc/figs/mod_ats_age.pdf",width=6,height=8)
+  pdf("doc/figs/mod_ats_age.pdf",width=6,height=8)
   plot_agefit(M,case_label=paste(thisyr,"Assessment"),gear="ats")
   dev.off()
 
   #----Read in retro results-----------------
+  library(patchwork)
   i=0
   thismod <- 2 # the selected model
   getret <- function(nyrs=15, mod=1){
@@ -398,21 +417,21 @@ hlr <- M$regime[2]
     }
     return(retouts)
   }
-  ret1<-getret(mod=1,nyrs=20)
+  ret1<-getret(mod=9,nyrs=20)
   ret2<-getret(mod=2,nyrs=20)
   ret3<-getret(mod=3,nyrs=20)
-  p1 <- plot_ssb(ret1,xlim=c(2000,thisyr),legend=F,breaks=seq(2000,2022,2),ylim=c(0,6900)) + xlab("") +ggtitle("Base")+ coord_cartesian(ylim=c(0,NA));p1
-  p2 <- plot_ssb(ret2,xlim=c(2000,thisyr),legend=F,breaks=seq(2000,2022,2),ylim=c(0,6900))+ggtitle("w/o ATS") + coord_cartesian(ylim=c(0,NA));p2
-  p3 <- plot_ssb(ret3,xlim=c(2000,thisyr),legend=F,breaks=seq(2000,2022,2),ylim=c(0,6900))+ggtitle("w/o BTS") + coord_cartesian(ylim=c(0,NA));p3
-  p3 <- p1/p2   + plot_annotation(title = 'Spawning biomass with and without acoustic trawl survey data',
-    subtitle = 'EBS walleye pollock assessment', caption = 'Disclaimer: Draft results, please do not cite' ); p3
-  ggsave("doc/figs/retcompSSB.pdf",plot=p3,width=7.2,height=9.0,units="in")
+  p1 <- plot_ssb(ret1,xlim=c(2000,thisyr),legend=F,breaks=seq(2000,2023,2),ylim=c(0,6900)) + xlab("") +ggtitle("Base, Model 23.0")+ coord_cartesian(ylim=c(0,NA));p1
+  #p2 <- plot_ssb(ret2,xlim=c(2000,thisyr),legend=F,breaks=seq(2000,2023,2),ylim=c(0,6900))+ggtitle("w/o ATS") + coord_cartesian(ylim=c(0,NA));p2
+  #p3 <- plot_ssb(ret3,xlim=c(2000,thisyr),legend=F,breaks=seq(2000,2022,2),ylim=c(0,6900))+ggtitle("w/o BTS") + coord_cartesian(ylim=c(0,NA));p3
+  #p3 <- p1/p2   + plot_annotation(title = 'Spawning biomass with and without acoustic trawl survey data',
+    #subtitle = 'EBS walleye pollock assessment', caption = 'Disclaimer: Draft results, please do not cite' ); p3
+  ggsave("doc/figs/retcompSSB.pdf",plot=p1,width=7.2,height=5.0,units="in")
   # recruitment
-  p1 <- plot_R_rel(ret1,xlim=c(thisyr-15,thisyr-1),legend=F,rel=FALSE,ylim=c(0,120000),ylab="Age-1 recruitment") + xlab("") +ggtitle("Base")+coord_cartesian(ylim=c(0,125000));p1
-  p2 <- plot_R_rel(ret2,xlim=c(thisyr-15,thisyr-1),legend=F,rel=FALSE,ylim=c(0,120000),ylab="Age-1 recruitment") + ggtitle("w/o ATS") + coord_cartesian(ylim=c(0,125000));p2
-  p3 <- p1/p2   + plot_annotation(title = 'Age 1 recruitment with and without acoustic trawl survey data',
-    subtitle = 'EBS walleye pollock assessment', caption = 'Disclaimer: Draft results, please do not cite' ); p3
-  ggsave("doc/figs/retcompR.pdf",plot=p3,width=7.2,height=9.0,units="in")
+  p1 <- plot_R_rel(ret1,xlim=c(2000,thisyr),legend=F,rel=FALSE,ylim=c(0,110000),ylab="Age-1 recruitment") + xlab("") +ggtitle("Base, Model 23.0")+coord_cartesian(ylim=c(0,125000));p1
+  #p2 <- plot_R_rel(ret2,xlim=c(thisyr-15,thisyr-1),legend=F,rel=FALSE,ylim=c(0,120000),ylab="Age-1 recruitment") + ggtitle("w/o ATS") + coord_cartesian(ylim=c(0,125000));p2
+  #p3 <- p1/p2   + plot_annotation(title = 'Age 1 recruitment with and without acoustic trawl survey data',
+  #  subtitle = 'EBS walleye pollock assessment', caption = 'Disclaimer: Draft results, please do not cite' ); p3
+  ggsave("doc/figs/retcompR.pdf",plot=p1,width=7.2,height=5.0,units="in")
 
   ## Make dataframe to plot by cohort
   nyrs=15
@@ -553,22 +572,53 @@ p1
 
 retouts<-ret1
 i=2
-getMohn <- function(retouts=ret1,nyrs=20){
+names(ret1)
+ret1$r_0$SSB
+get("retouts")$r_0$SSB
+(retouts[[rn]])$SSB
+(retouts$r_0$SSB)
+rc
+
+getMohnSSB <- function(retouts=ret1,nyrs=20){
   rc = retouts[[1]]$SSB[,2]
   ntmp=0
   rho=0
   df <- data.frame(peel=1:20,rho=1:20)
   for (i in 1:20) {
     rn <- names(retouts[i])
-    dtmp = (get(paste0(rn))$SSB )
+    #dtmp = (get(paste0("retouts$",rn,"$SSB" )))
+    dtmp = (retouts[[rn]])$SSB
     lr   = length(dtmp[,1])
     rho  = rho +(dtmp[lr,2] -rc[lr])/rc[lr]
     df$peel[i] <- i-1
     df$rho[i] <- rho/i
     print(paste(i,rho/i))
   }
+  return(df)
 }
-  write.csv(df,"data/mohnrho.csv")
+getMohnR <- function(retouts=ret1,nyrs=20){
+  rc = retouts[[1]]$R[,2]
+  ntmp=0
+  rho=0
+  df <- data.frame(peel=1:20,rho=1:20)
+  for (i in 1:20) {
+    rn <- names(retouts[i])
+    #dtmp = (get(paste0("retouts$",rn,"$SSB" )))
+    dtmp = (retouts[[rn]])$R
+    lr   = length(dtmp[,1])
+    rho  = rho +(dtmp[lr,2] -rc[lr])/rc[lr]
+    df$peel[i] <- i-1
+    df$rho[i] <- rho/i
+    print(paste(i,rho/i))
+  }
+  return(df)
+}
+
+df<-getMohnSSB(retouts=ret1,nyrs=20)
+df<-getMohnR(retouts=ret1,nyrs=20)
+
+df
+  write.csv(df,"doc/data/mohnrho.csv")
   df
   library(flextable)
   # A try at a catch table not quite there...
@@ -642,8 +692,11 @@ print(cd_tab)
 
 # Look at some of the retros and mcmc runs
 # mcmc first
+  .MODELDIR
+  thismod=9
+
 srdf <-read.table(paste0(.MODELDIR[thismod],"/mcmc/mcSRR.rep"))
-srdf <-read_table("mcmc/mcSRR.rep")
+#srdf <-read_table("mcmc/mcSRR.rep")
 srdf
 srsm <- sample(1:5000,2000)
 names(srdf) <- c("draw","stock","recruits")
@@ -713,7 +766,7 @@ srsm
 #   ggsave("doc/figs/mod_F",plot=p1,width=9.2,height=7.0,units="in")
 }
 ###Stuff to look at raw survey wt-age data-----------------------------------------------------
-radf <- read_csv("data/raceage.csv",col_names=FALSE)
+radf <- read_csv("doc/data/raceage.csv",col_names=FALSE)
 names(radf) <- c("haul","Region","x","date", "lat","lon","spp", "len","sex","wt","age","xx")
 radf <- radf%>%select(date,lat,lon,len,sex,wt,age) %>% mutate(date=lubridate::dmy(date),year=year(date),len=len/10,sex=ifelse(sex==1,"Male",ifelse(sex==2,"Female","U")))
 radf %>% filter(year>1999,wt>0,age>0,age<15) %>% group_by(year,age) %>% summarise(wt=mean(wt)) %>%
@@ -739,7 +792,7 @@ ggplot(aes(y=wt,x=len,color=as.factor(year))) + geom_line(size=2) + theme_few()
 
 
 # See if same thing happening w fishery data
-fadf <- read_csv("../data/fishery/sampler/imported/akfin_age.csv")
+fadf <- read_csv("../ebs_main/data/fishery/sampler/imported/akfin_age.csv")
 adf <- fadf %>% filter(NMFS_AREA<540) %>%
       transmute(
         #haul   = ifelse((HAUL_JOIN==""),PORT_JOIN,HAUL_JOIN),
