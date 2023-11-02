@@ -1,0 +1,195 @@
+---
+title: "vast"
+format: pdf
+---
+{{< pagebreak >}}
+# Appendix on model-based methods on bottom-trawl survey biomass trends 
+
+## Overview
+
+These applications of `VAST` were configured to model 
+NMFS/AFSC bottom trawl survey (BTS) data and for acoustic backscatter data (next section).
+For the BTS, the station-specific CPUEs
+(kg per hectare) for pollock were compiled from 1982-2023. Further details can
+be found at the [GitHub repo](https://github.com/james- thorson/VAST/#description) 
+mainpage, wiki, and glossary.  The R help files,
+e.g., `?make_data` for explanation of data inputs, or `?make_settings` for
+explanation of settings. 
+
+The software versions of dependent programs used to generate VAST estimates were:   
+
+* Microsoft R Open (4.0.2)
+* INLA (21.11.22)
+* TMB (1.9.0)
+* TMBhelper (1.4.0) 
+* VAST (3.9.0)
+* FishStatsUtils (2.11.0) 
+
+For these model-based index time series, we used the same VAST model run settings.
+
+## Spatio-temporal treatment of survey data on pollock density
+
+For EBS pollock we used data on biomass
+per unit area  from all grid cells and corner stations in the 83-112 bottom trawl survey of the EBS, 
+1982-2023, including exploratory northern extension samples in 2001, 2005, and 2006, as well as 83-112 samples
+available in the NBS in 1982, 1985, 1988, 1991, 2010, and 2017-2023 (except 2020). 
+2019, 2021--2023 surveys.  As before, we included a a spatially varying covariate on the 
+cold-pool extent (Thorson 2019,  (O’Leary et al. 2020).  All environmental data used as covariates were
+computed within the R package coldpool (Rohan et
+al., 2022). 
+
+We used a Poisson-link delta-model (Thorson 2018) involving two linear predictors, and a gamma
+distribution to model positive catch rates. We extrapolated population density to the entire EBS
+and NBS in each year, using extrapolation grids that are available within [FishStatsUtils] (https://github.com/James-Thorson-NOAA/FishStatsUtils). These extrapolation grids were defined using
+3705 m (2 nmi) × 3705 m (2 nmi) cells; this results in 36,690 extrapolation-grid cells for the
+eastern Bering Sea and 15,079 in the northern Bering Sea. We used bilinear interpolation to
+interpolate densities from 750 “knots” to these extrapolation grid cells; knots were approximately
+evenly distributed over space, in proportion to the dimensions of the extrapolation grid. We
+estimated geometric anisotropy (how spatial autocorrelation declines with differing rates over
+distance in some cardinal directions than others), and included a spatial and spatio-temporal term
+for both linear predictors. To facilitate interpolation of density between unsampled years, we
+specified that the spatio-temporal fields were structured over time as an AR(1) process (where the
+magnitude of autocorrelation was estimated as a fixed effect for each linear predictor). However,
+we did not include any temporal correlation for intercepts, which we treated as fixed effects for
+each linear predictor and year. Finally, we used epsilon bias-correction to correct for
+retransformation bias (Thorson and Kristensen 2016). 
+
+We checked model fits for evidence of non-convergence by confirming that (1) the derivative of the
+marginal likelihood with respect to each fixed effect was sufficiently small and (2) that the
+Hessian matrix was positive definite.  We then checked for evidence of model fit by computing
+Dunn-Smyth randomized quantile residuals (Dunn and Smyth 1996) and visualizing these using a
+quantile-quantile plot within the DHARMa R package.  We also evaluated the distribution of these
+residuals over space in each year, and inspected them for evidence of residual spatio-temporal
+patterns.  
+
+## Spatio-temporal treatment of survey age composition data
+
+For model-based estimation of age
+   compositions in the Bering Sea, we fitted observations of numerical abundance-at-age at each
+   sampling location. This was made possible by applying a year-specific, region-specific (EBS and
+   NBS) age-length key to records of numerical abundance and length-composition. We computed these
+   estimates in VAST, assuming a Poisson-link delta-model (Thorson 2018) involving two linear
+   predictors, and a gamma distribution to model positive catch rates. We did not include any
+   density covariates in estimation of age composition for consistency with models used in the
+   previous assessment, and due to computational limitations. We used the same extrapolation grid
+   as implemented for abundance indices, but here we modeled spatial and spatiotemporal fields with
+   a mesh with coarser spatial resolution than the index model, here using 50 “knots”. This
+   reduction in the spatial resolution of the model, relative to that used abundance indices, was
+   necessary due to the increased computational load of fitting multiple age categories and using
+   epsilon bias-correction. We implemented the same diagnostics to check convergence and model fit
+   as those used for abundance indices.  
+
+
+
+<!--  
+## Diagnostic plots from BTS work
+### Encounter-probability component
+One can check to ensure that observed encounter frequencies for either low or high
+probability samples are within the 95% predictive interval for predicted
+encounter probability (Fig. \ref{fig:encounter}. 
+Diagnostics for positive-catch-rate component were evaluated using a standard Q-Q plot. 
+Qualitatively, the fits to pollock data are reasonable (Figures \ref{fig:eq1} and \ref{fig:qq2}).
+
+### Pearson residuals
+Spatially the residual pattern can be evaluated over time. Results for pollock data shows that consistent positive or negative 
+residuals accross or within years is limited for the encounter probability component of the model and 
+for the positive catch rate component (Figures \ref{fig:pearson1} and \ref{fig:pearson2}, respectively).
+
+-->
+### Densities and biomass estimates
+
+Relative densities over time suggests that the biomass of pollock can reflect
+abundances in the NBS even in years where samples are unavailable (all years
+except 2010, 2017--2019 and 2021--2023; (Fig. \cref{fig:density}). Index values and error terms
+(based on diagonal of covariance matrix over time) are shown in Figure \cref{fig:vast_idx}
+
+<!-- 
+## Extending VAST to create estimates from acoustic backscatter data
+
+In 2020 we presented an initial spatio-temporal model to the acoustic backscatter data
+collected to half meter from the seafloor from RV Oscar Dyson
+(1994-2018) and the USV in 2020 following the same extrapolation area as for the BTS analyses.
+We anticipate updating this for application as an alternative to the standard acoustic survey
+in 2022.
+ -->
+
+<!--  ```{r plots, eval=FALSE  , tidy=TRUE} -->
+<!-- #SpatialDeltaGLMM::Plot_data_and_knots(Extrapolation_List=Extrapolation_List, Spatial_List=Spatial_List,  -->
+<!-- #           Data_Geostat=Data_Geostat, PlotDir=DateFile ) -->
+<!-- #       Region="Other" -->
+<!-- #MapDetails_List <- SpatialDeltaGLMM::MapDetails_Fn( "Region"=Region, "NN_Extrap"=Spatial_List$PolygonList$NN_Extrap,  -->
+<!--                    "Extrapolation_List"=Extrapolation_List ) -->
+<!-- # Decide which years to plot -->
+<!-- #Year_Set        <- seq(min(Data_Geostat[,'Year']),max(Data_Geostat[,'Year'])) -->
+<!-- #Years2Include   <- which( Year_Set %in% sort(unique(Data_Geostat[,'Year']))) -->
+<!-- ``` -->
+
+<!-- ```{r encplots, eval=FALSE  , tidy=TRUE} -->
+<!-- #Enc_prob  <- SpatialDeltaGLMM::Check_encounter_prob( Report=Report, Data_Geostat=Data_Geostat, DirName=DateFile) -->
+<!-- #Q         <- SpatialDeltaGLMM::QQ_Fn( TmbData=TmbData, Report=Report, FileName_PP=paste0(DateFile,"Posterior_Predictive.jpg"), FileName_Phist=paste0(DateFile,"Posterior_Predictive-Histogram.jpg"), FileName_QQ=paste0(DateFile,"Q-Q_plot.jpg"), FileName_Qhist=paste0(DateFile,"Q-Q_hist.jpg"))  -->
+<!-- ``` -->
+
+<!-- ![ Observed encounter rates and predicted probabilities for pollock in the combined survey area. \label{fig:encounter}](figs/Diag--Encounter_prob.png) -->
+
+
+<!-- ![ Plot indicating distribution of quantiles for "positive catch rate" component. \label{fig:eq1}](figs/Q-Q_hist.jpg) -->
+
+
+<!-- ![ Quantile-quantile plot of residuals for "positive catch rate" component. \label{fig:qq2}](figs/Q-Q_plot.jpg) -->
+
+
+```{r pearson, eval=FALSE, tidy=TRUE}
+#| output: asis
+#| echo: false
+#SpatialDeltaGLMM:::plot_residuals(Lat_i=Data_Geostat[,'Lat'], Lon_i=Data_Geostat[,'Lon'], TmbData=TmbData, 
+#          Report=Report, Q=Q, savedir=DateFile, MappingDetails=MapDetails_List[["MappingDetails"]], 
+#          PlotDF=MapDetails_List[["PlotDF"]], MapSizeRatio=MapDetails_List[["MapSizeRatio"]], 
+#          Xlim=MapDetails_List[["Xlim"]], Ylim=MapDetails_List[["Ylim"]], FileName=DateFile, Year_Set=Year_Set, 
+#          Years2Include=Years2Include, Rotate=MapDetails_List[["Rotate"]], Cex=MapDetails_List[["Cex"]], 
+#          Legend=MapDetails_List[["Legend"]], zone=MapDetails_List[["Zone"]], mar=c(0,0,2,0), oma=c(3.5,3.5,0,0), cex=1.8)
+```
+<!-- ![Pearson residuals of the encounter probability component for the combined survey area, 1982-2019, 2021. \label{fig:pearson1}](figs/maps--encounter_pearson_resid.png) -->
+
+<!-- ![Pearson residuals of the positive catch rate component for the combined survey area, 1982-2019, 2021. \label{fig:pearson2}](figs/maps--catchrate_pearson_resid.png) -->
+
+```{r densplots, eval=FALSE , tidy=TRUE }
+#SpatialDeltaGLMM::PlotResultsOnMap_Fn(plot_set=c(3), MappingDetails=MapDetails_List[["MappingDetails"]], 
+  #Report=Report, Sdreport=Opt$SD, PlotDF=MapDetails_List[["PlotDF"]], MapSizeRatio=MapDetails_List[["MapSizeRatio"]], 
+  #Xlim=MapDetails_List[["Xlim"]], Ylim=MapDetails_List[["Ylim"]], FileName=DateFile, Year_Set=Year_Set, 
+  #Years2Include=Years2Include, Rotate=MapDetails_List[["Rotate"]], Cex=MapDetails_List[["Cex"]], 
+  #Legend=MapDetails_List[["Legend"]], zone=MapDetails_List[["Zone"]], mar=c(0,0,2,0), oma=c(3.5,3.5,0,0), 
+  #cex=1.8, plot_legend_fig=FALSE)
+```
+![ Pollock log density maps of the BTS data using the VAST model approach, 1982-2019,2021-2022. \label{fig:density}](doc/figs/Dens.png)
+
+```{r indexplots, echo=FALSE, results="asis"}
+#idxOut <- read.csv("data/Table_for_SS3.csv")
+#df  <- mutate(idxOut[-1,], CV = SD_mt/Estimate_metric_tons, Estimate=5763*Estimate_metric_tons/mean(Estimate_metric_tons) ) %>%
+      #select(Year,Estimate, CV)
+#tab <- xtable(df, caption = "SMBKC male >89mm biomass (t) estimates as derived from the VAST modeling framework.", label = "tab:smbkc_biomass", digits = c(0,0,1,3))
+#print(tab, caption.placement = "top", include.rownames = FALSE)
+  printfig("vast_idx.pdf",57)
+
+ #printfig("sa_quantiles.png",61)
+ #printfig("rv_usv_biom.png",71)
+
+```
+
+## Additional references
+
+Dunn, K.P., and Smyth, G.K. 1996. Randomized quantile residuals. Journal of Computational and Graphical Statistics 5, 1-10.
+
+Hartig, F. 2021. DHARMa: Residual Diagnostics for Hierarchical (Multi-Level / Mixed) Regression Models. R package version 0.4.0. http://florianhartig.github.io/DHARMa/
+
+O’Leary, C.A., Thorson, J.T., Ianelli, J.N. and Kotwicki, S., 2020. Adapting to climate‐driven distribution shifts using model‐based indices and age composition from multiple surveys in the walleye pollock (Gadus chalcogrammus) stock assessment. Fisheries Oceanography, 29(6), pp.541-557.
+
+Rohan, SK, Barnett, LAK & N Charriere. Evaluating approaches to estimating mean temperatures and cold pool area from AFSC bottom trawl surveys of the eastern Bering Sea. In review. NOAA Technical Memorandum.
+
+Thorson, J.T., 2019. Measuring the impact of oceanographic indices on species distribution shifts: The spatially varying effect of cold‐pool extent in the eastern Bering Sea. Limnology and Oceanography, 64(6), pp.2632-2645.
+
+Thorson, J.T., and Kristensen, K., 2016. Implementing a generic method for bias correction in statistical models using random effects, with spatial and population dynamics examples. Fisheries Research, 175, pp.66-74.
+
+Rohan, S.K., Barnett L.A.K., and Charriere, N. 2022. Evaluating approaches to estimating mean temperatures and cold pool area from AFSC bottom trawl surveys of the eastern Bering Sea. U.S. Dep. Commer., NOAA Tech. Mem. NMFS-AFSC-456, 42 p. https://doi.org/10.25923/1wwh-q418
+
+
+

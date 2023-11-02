@@ -30,7 +30,9 @@ fig-pos: H
 tbl-pos: H
 format: 
   docx:
+    reference-doc: template.docx
     number-sections: false
+    number-pages: false
     includes:
       in_header: "doc/preamble.tex"
     extra_dependencies: rotating
