@@ -112,7 +112,7 @@ p3 <- p1/p2
 
 #  p1 <- p1+ geom_vline(xintercept=2006.5,color="grey",size=1)
   #p1 <- p1+scale_y_log10()
-  p1 <- plot_ats(modlst[c(9)]) +theme_few(base_size=13) ;p1
+  p1 <- plot_ats(modlst[c(9)]) +ggthemes::theme_few(base_size=13) ;p1
   ggsave("doc/figs/mod_ats_biom.pdf",plot=p1,width=9.2,height=3.7,units="in");
   p1 <- plot_avo(modlst[c(thismod)],ylim=c(0,5)) + xlim(c(2005,2024));p1
 #  p1 <- plot_avo(modlst[c(2)]) ;p1
@@ -121,8 +121,9 @@ p3 <- p1/p2
   p1 <- plot_cpue(modlst[[thismod]])
   ggsave("doc/figs/mod_cpue_fit.pdf",plot=p1,width=5.2,height=3.7,units="in")
   p1 <- plot_recruitment(modlst[thismod],xlim=c(1963.5,2023.5),fill="yellow") +
-          scale_y_continuous(label=comma) +
-    theme_few(base_size = 14);p1
+          scale_y_continuous(label=comma,limits=c(0,1.05e5)) + theme_few(base_size = 14);p1
+  p1 <- plot_recruitment(modlst[1],xlim=c(1963.5,2023.5),fill="yellow") +
+          scale_y_continuous(label=comma,limits=c(0,1.05e5)) + theme_few(base_size = 14);p1
   p2 <- plot_ssb(modlst[c(thismod)],xlim=c(2000.5,2023.5));p2
   ggsave("doc/figs/mod_rec.pdf",plot=p1,width=9,height=4,units="in")
 
@@ -321,12 +322,15 @@ p1 <- ggplot(df,aes(x=Year,y=SSB,ymax=ub,ymin=lb,fill=Model)) + geom_ribbon(alph
   ggsave("doc/figs/mod_F.pdf",plot=p1,width=9.2,height=6.0,units="in")
 
   #---Historical assessment retrospectives--------------------------------------------------------
-  dd <- as.data.frame(read.csv("data/Age3history.csv",header=TRUE))
+  dd <- as.data.frame(read.csv("doc/data/Age3history.csv",header=TRUE))
   head(dd)
-  names(dd) <- c("Year",2021:2006,2001:1998)
-  dd.g <- pivot_longer(dd,cols=2:21,names_to="Assessment",values_to="Biomass")
+  names(dd) <- c("Year",2022:2006,2001:1998)
+  dd.g <- pivot_longer(dd,cols=2:22,names_to="Assessment",values_to="Biomass")
   head(dd.g)
+  dim(dd.g)
   # this line to add current year estimate!!
+  names(M)
+  M$age3plus
   t <- data.frame(Year=1964:(thisyr+1), Assessment=thisyr,Biomass=c(M$age3plus,M$age3plus1)  )
   dd.g <- rbind(dd.g,t) %>% filter(as.numeric(Assessment) >2006)
   tmp <- dd.g %>% filter(Year>2006,Year==1+as.numeric(Assessment)) # %>% summarise(max(Year))
@@ -406,7 +410,7 @@ hlr <- M$regime[2]
   #----Read in retro results-----------------
   library(patchwork)
   i=0
-  thismod <- 2 # the selected model
+  thismod <- 9 # the selected model
   getret <- function(nyrs=15, mod=1){
     retouts<- list()
     for (i in 0:nyrs) {
@@ -645,7 +649,7 @@ print(cd_tab)
   est = M$fit$est[idx]
   std = M$fit$std[idx]
   std/est
-
+M
 #---Catch grid and future effort consequences---------------------------------------------------
   dc <-data.frame(Catch=M$future_catch,scen=c(seq(.5,1.5,.05),2),"catch");
   dc[1:5] <- dc[1:5]/1350

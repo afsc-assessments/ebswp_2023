@@ -2,7 +2,7 @@
 bibliography: references.bib
 ---
 
-# EBS Pollock Model Description
+# Appendix EBS Pollock Model Description {#sec-model}
 
 ## Dynamics
 

@@ -45,8 +45,19 @@ ggsave("~/_mymods/ebswp/doc/figs/like_profile.pdf",width=7,height=4,units="in")
 if(domcmc){
   #source("../R/plotMCMCpairs.R")
   #.plotMCMCpairs(tt)
+  .MODELDIR<-mod_dir <- c(
+  "m0",
+  "m1",
+  "m2",
+  "m3",
+  "m4",
+  "m5",
+  "m6",
+  "m7",
+  "m8")
+  thismod=9
   library(GGally)
-  mc <- read_table(paste0(.MODELDIR[thismod],"mcmc/mceval.rep"),col_names=FALSE)
+  mc <- read_table(paste0(.MODELDIR[thismod],"/mcmc/mceval.rep"),col_names=FALSE)
   mclen <- length(mc[,1])
   dim(mc)
   #mc <- data.frame(read.table("mceval.rep"))
@@ -74,7 +85,7 @@ if(domcmc){
     "x4",
     "M","Steepness","lnR0","Fmsyr","SPR_msy",
     "SER_msy","B0","Bmsy","B100",
-    "B2022",
+    "B2023",
     "R2019",
     "B2024",
     "B/mean(B)","B24/B20%","DynB0","q") #,"x","y")
@@ -108,7 +119,7 @@ p2<-  mc %>% transmute(
   dim()
   install.packages("ggExtra")
   library(ggExtra)
- mc %>% select(B2023,R2019) %>% ggplot(aes(x=R2019,y=B2023)) + geom_point(color="forestgreen",alpha=.04) +
+ mc %>% select(B2024,R2019) %>% ggplot(aes(x=R2019,y=B2024)) + geom_point(color="forestgreen",alpha=.04) +
   theme_few() + geom_density_2d() + ylab("Spawning biomass next year (kt)") + xlab("2018 year class at age 1 (millions of fish)")
  p1<- mc %>% select(B2024,R2019) %>% ggplot(aes(x=R2019,y=B2024)) + geom_point(color="forestgreen",alpha=.2) +
   theme_few(base_size=16) + ylab("Spawning biomass next year (kt)") + xlab("2018 year class at age 1 (millions of fish)")
@@ -135,18 +146,18 @@ p2
   #ggplot(mc.t,aes(x=Iteration,y=value)) + geom_line() + .THEME + facet_wrap(~Parameter,scales="free")
   names(mc)
 
-  M$SSB
-  M$future_SSB[1,1 ]
+  M<- M[[1]]
+  M$future_SSB[, ]
 
   names(M)
   p1 <- mc %>% select(B2024) %>%
        ggplot(aes(B2024))+ geom_density(fill="lemonchiffon",alpha=.5 ) + theme_few() +
             xlab(paste(nextyr,"Female spawning biomass")) +
             geom_vline(xintercept=M$future_SSB[1,1],col="grey") +
-            geom_vline(xintercept=mean(mc$B2024),size=1,col="red",linetype="dashed") ;p1
-
-  ggsave("figs/mcmc_marg.pdf",plot=p1,width=7,height=4,units="in")
+            geom_vline(xintercept=median(mc$B2024),size=1,col="red",linetype="dashed") ;p1
+  ggsave("doc/figs/mcmc_marg.pdf",plot=p1,width=7,height=4,units="in")
 # Fmsyr
+  M<-modlst[9]
 Fmsy2= M$fit$est[M$fit$names=="Fmsy2"]
   p1 <- mc %>% select(Fmsyr) %>% ggplot(aes(Fmsyr))+ geom_density(fill="lemonchiffon",alpha=.5 ) + theme_few() +
             xlab("Fmsy rate") + xlim(c(0,1.5)) +
@@ -156,7 +167,7 @@ Fmsy2= M$fit$est[M$fit$names=="Fmsy2"]
              scale_color_manual(name = "Statistics", values = c(median = "blue", mean = "red", harmonic_mean="darkgreen"))+
              scale_linetype_manual( name="Statistics",values = c(median = "dotted", mean = "dashed", harmonic_mean="solid"))
              p1
-  ggsave("figs/mcmc_marg_fmsy.pdf",plot=p1,width=7,height=4,units="in")
+  ggsave("doc/figs/mcmc_marg_fmsy.pdf",plot=p1,width=7,height=4,units="in")
             #geom_vline(xintercept=median(mc$Fmsyr),size=1,col="darkgreen",linetype=4)  +
   #          geom_vline(xintercept=Fmsy2,col="grey", ) +
             #geom_vline(xintercept=mean(mc$Fmsyr),size=1,col="blue",linetype="dotted")  +
@@ -164,11 +175,11 @@ Fmsy2= M$fit$est[M$fit$names=="Fmsy2"]
   # Get P B2021 < 20% Bzero
   msst=.2* M$b0
 
-  mc %>% filter(B2022<msst) %>% summarise(n()/mclen*100)
-  prob_less_50_Bmsy <- mc %>% filter((B2022/Bmsy)<.5) %>% summarise(n()/mclen*100)
+  mc %>% filter(B2023<msst) %>% summarise(n()/mclen*100)
+  prob_less_50_Bmsy <- mc %>% filter((B2023/Bmsy)<.5) %>% summarise(n()/mclen*100)
   #head(mc.t)
   #q
-  mcppl <- read_csv(paste0(.MODELDIR[thismod],"mcmc/mceval_ppl.csv"),col_names=FALSE)
+  mcppl <- read_csv(paste0(.MODELDIR[thismod],"/mcmc/mceval_ppl.csv"),col_names=FALSE)
   head(mcppl)
   names(mcppl) <- c("Index","Pd","draw","Year","Obs","Exp","Sim","VarObs")
   idx="BTS"; ylim=c(0,15000)

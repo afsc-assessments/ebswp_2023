@@ -32,7 +32,7 @@ system('pm -nox -mcmc 15 -hbf 1 -binp pm.bar -phase 50'); setwd('..')
 
 
 ## Run---
-iter <- 4000 # maybe too many...depends are number cores...I used 8...
+iter <- 2000 # maybe too many...depends are number cores...I used 8...
 chains=8
 #iter <- 4000*thin; warmup <- iter/#8
 
@@ -46,7 +46,7 @@ pairs_admb(fit.mle, pars=1:6, order='slow')
 pairs_admb(fit.mle, pars=1:6, order='fast')
 print(fit.mle)
 plot_sampler_params(fit.mle)
-launch_shinyadmb(fit.mle2)
+launch_shinyadmb(fit.mle)
 
 ## It doesn't really need any fixes so rerun with NUTS. Reoptimize to get
 ## the correct mass matrix for NUTS. Note the -hbf 1 argument. This is a
