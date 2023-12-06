@@ -1,0 +1,15 @@
+{
+	"name": "R (rocker/r-ver base)",
+    "image": "ghcr.io/rocker-org/devcontainer/r-ver:4.2",
+
+	"features": {
+		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+            "packages": "make,gcc,g++,cmake,clang-tidy,clang-format"
+		},
+	    "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
+			"packages": "cli,rlang,ggplot2,dplyr,scales,covr",
+			"installSystemRequirements": true
+		}
+	},
+    "postCreateCommand": "bash .devcontainer/build-admb.sh"
+}
