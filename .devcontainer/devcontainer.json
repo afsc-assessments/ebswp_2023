@@ -11,5 +11,5 @@
 			"installSystemRequirements": true
 		}
 	},
-    "postCreateCommand": "bash .devcontainer/build-admb.sh"
+    "postCreateCommand": "./.devcontainer/build-admb.sh"
 }
