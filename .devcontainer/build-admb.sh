@@ -4,6 +4,7 @@ sudo unzip admb-13.1-linux.zip -d /usr/local/bin
 sudo rm admb-13.1-linux.zip
 sudo chmod 755 /usr/local/bin/admb-13.1/bin/admb
 export PATH=$PATH:/usr/local/bin/admb-13.1/bin
+echo "export PATH=/usr/local/bin/admb-13.1/bin:$PATH" >> ~/.bashrc
 
 echo 'options(repos = c(CRAN = \"https://cloud.r-project.org\"))'
 sudo sh -c 'cat - >>\"${R_HOME}/etc/Rprofile.site\"'
