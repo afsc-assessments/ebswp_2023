@@ -31,8 +31,8 @@ setwd(d);
 system('pm -nox -mcmc 15 -hbf 1 -binp pm.bar -phase 50'); setwd('..')
 
 
-## Run---
-iter <- 2000 # maybe too many...depends are number cores...I used 8...
+## Run--
+iter <- 1000 # maybe too many...depends are number cores...I used 8...
 chains=8
 #iter <- 4000*thin; warmup <- iter/#8
 
@@ -44,6 +44,14 @@ summary(fit.mle)
 plot_uncertainties(fit.mle)
 pairs_admb(fit.mle, pars=1:6, order='slow')
 pairs_admb(fit.mle, pars=1:6, order='fast')
+
+pdf("pairs_rdev.pdf")
+pairs_admb(fit.mle, pars=68:78)
+pairs_admb(fit.mle2, pars=68:78)
+dev.off()
+pdf("marginals.pdf")
+plot_marginals(fit.mle)
+dev.off()
 print(fit.mle)
 plot_sampler_params(fit.mle)
 launch_shinyadmb(fit.mle)
@@ -64,8 +72,10 @@ fit.mle2 <- sample_nuts(model=m, path=d, iter=2000, warmup=iter/4,
                    chains=chains, cores=chains, control=list(control=list(max_treedepth=14,
                     metric=mass,adapt_delta=0.95)))
 plot_sampler_params(fit.mle2)
+launch_shinyadmb(fit.mle)
 launch_shinyadmb(fit.mle2)
 pairs_admb(fit.mle2, pars=1:6, order='slow')
+summary(fit.mle)
 summary(fit.mle2)
 saveRDS(fit.mle, file='fit.mle.RDS')
 saveRDS(fit.mle2, file='fit.mle2.RDS')

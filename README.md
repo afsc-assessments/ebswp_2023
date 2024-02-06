@@ -1,7 +1,121 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# East Bering Sea pollock <img src="man/figures/logo.png" align="right" height=140/>
+# List from SSC/Plan Teams, 2023
+
+- The SSC would prefer not to make a risk table adjustment based on the
+  difference from Tier 1 to Tier 3 again during the 2024 assessment
+  cycle.
+
+  - *This has been selected as an option by the SSC, the authors provide
+    this as an option and anticipate that any reductions from the
+    maximum perissible ABC be conducted based on the contents of the
+    risk table*
+
+- The SSC requests that the next stock assessment bring back a new
+  approach that may include development of a constant buffer based on
+  factors extrinsic to the stock assessment (ecosystem function), or a
+  better representation of the uncertainty in the Tier 1 and control
+  rule calculations such that a reduction from maximum ABC is not needed
+  every year.
+
+  - *We developed an MSE to address options that relate to ecosystem
+    function*
+
+- Use posterior distributions from the MCMC to determine probabilities
+  in the risk table and expand the columns in the risk table to include
+  the recommended ABC (and potentially higher values).
+
+  - *response here*
+
+- Identify where MLE estimates are being used and where MCMC estimates
+  are being used.
+
+  - *response here*
+
+- Also see the SSC’s General Stock Assessment Comments to include
+  convergence diagnostics any time Bayesian results are reported.
+
+  - *response here*
+
+- If MCMC diagnostics continue to appear adequate, reference points
+  could be calculated using the posterior distribution used, rather than
+  an analytical calculation.
+
+  - *response here*
+
+- The SSC recommends that consideration be given to removal of the
+  Japanese fishery CPUE index (1965-76) from the assessment, because
+  this data set no longer seems to contribute to the assessment.
+
+  - *response here*
+
+- A sensitivity test should be done to evaluate the effects of data
+  removal on the assessment.
+
+  - *response here*
+
+- Catch-at-age data provided by foreign fishing agencies in the
+  pre-Magnuson era were not produced using the same aging criteria as
+  the AFSC age-and-growth program.
+
+- Consideration should be given to removal of these data from the
+  assessment. A sensitivity test should be done to evaluate the effects
+  of data removal on the assessment. Document the method used for
+  determining the selectivity to use in the forward projections and
+  continue to evaluate projection variability due to selectivity.
+
+- The SSC appreciates the selectivity retrospective comparison and
+  suggests that it might be helpful to limit the comparison to the
+  projection used in each year against only the most recent (best)
+  estimate of selectivity for that year.
+
+- The SSC supports the use of posterior predictive distributions, an
+  underutilized tool in fisheries science, but common in other fields.
+
+- To fully implement this approach to Bayesian model checking the SSC
+  recommends plotting a histogram for each data source of the percentile
+  of the predictive distribution in which each data point lies, noting
+  that in a highly consistent model this histogram would be uniform.
+
+- There is an apparent shift towards older ages in fisheries and trawl
+  survey selectivity that should be investigated further.
+
+- The SSC agrees with the BSAI GPT’s proposal in their presentation to
+  move the multi-species model out of the pollock stock assessment,
+  where it has been included as an appendix since it was first
+  developed. Instead, they suggested it would be a separate chapter
+  listed in parallel with the ESR, as it applies to multiple stocks and
+  informs the ESRs.
+
+- The SSC suggests revisiting the treatment of the stock-recruit
+  relationship in the assessment model using recent improvements in
+  modeling approaches and a longer time series that encompasses the
+  recent warm period in the EBS. Recruitment deviates should be from the
+  stock-recruit relationship and should model variability among annual
+  recruitment estimates based on information in the data and residual
+  variability.
+
+- The estimation process should ensure that log-normally distributed
+  recruitments are mean unbiased, resulting in unbiased biomass
+  estimates. If an informative prior is used for steepness, it should be
+  based on a meta-analysis of related species and reflect the
+  uncertainty of that meta-analysis.
+
+- Further consideration of time periods (as in previous analyses) and
+  the influence of temperature on the stock-recruit relationship may be
+  helpful.
+
+- The SSC recognizes that there were significant recent analyses in
+  2016, 2018 and 2020 and is not requesting a repeat of those but a
+  review of previous work would be helpful.
+
+- Continue efforts to estimate the proportion of the stock in Russian
+  waters (acoustic mooring work to estimate movement) and to reach out
+  to Russian colleagues to obtain catches in the relevant regions of the
+  Russian EEZ (if possible).
+
+# East Bering Sea pollock <img src="man/figures/logo.png" align="right" height="140/"/>
 
 The R package `ebswp` was developed for doing stock assessments of
 eastern Bering Sea walleye pollock for the AFSC. The stock assessment

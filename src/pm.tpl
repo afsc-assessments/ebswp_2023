@@ -1181,7 +1181,7 @@ PARAMETER_SECTION
 
   init_bounded_dev_vector log_F_devs(styr,endyr_r,-15.,15.,2)
   //init_bounded_vector log_F_devs(styr,endyr_r,-15.,15.,2)
-  init_bounded_number sigr(0.1,2.,phase_sigr)
+  init_bounded_number sigr(0.1,20.,phase_sigr)
 
   number sigmaRsq;
 
@@ -1582,6 +1582,9 @@ RUNTIME_SECTION
 
 
 PROCEDURE_SECTION
+
+   ad_exit=&do_not_exit;
+
   if (active(yr_eff)||active(coh_eff))
     Est_Fixed_Effects_wts();
   Get_Selectivity();
@@ -3222,15 +3225,15 @@ FUNCTION Recruitment_Likelihood
   //if (current_phase()<4)
   if (phase_sr<0) 
   {
-    sigmarsq_out    = norm2(log_rec_devs)/size_count(log_rec_devs);
     // No stock-rec relationship------------------------
+    sigmarsq_out    = norm2(log_rec_devs)/size_count(log_rec_devs);
     rec_like(1) = norm2( log_rec_devs(styr_est,endyr_est )) / (2.*sigmaRsq) + 
                   size_count(pred_rec(styr_est,endyr_est))*log(sigr);
+    for (int iyr=styr_est;iyr<=endyr_est;iyr++ ) rec_like(1) += dnorm( log_rec_devs(iyr),0.0,sigr);
   }
   else
   {
     sigmarsq_out    = norm2(log_rec_devs(styr_est,endyr_est))/size_count(log_rec_devs(styr_est,endyr_est));
-
     // SRR estimated for a specified window of years, with optional SST effect 
     if (active(resid_temp_x1))    
     {
@@ -3954,6 +3957,19 @@ FUNCTION write_eval
         write_mceval(resid_temp_x2);
       }
       write_mceval <<endl;
+      if(count_mcmc==1)   write_mceval_ssb_rec << "draw, year, SSB, R_age1, lnR_S"<<endl;
+			for (int iyr=styr+1;iyr<=endyr;iyr++){
+        write_mceval_ssb_rec << 
+        count_mcmc           <<
+				","                  << 
+        iyr                  <<
+				","                  << 
+				SSB(iyr-1)           <<
+				","                  << 
+				natage(iyr,1)        << 
+				","                  << 
+				log(natage(iyr,1)/SSB(iyr-1)) << endl;
+			}
       // stuff added by Paul for posterior predictive distribution
       
       // write_mceval_ppl(count_mcmc);
@@ -6536,6 +6552,13 @@ TOP_OF_MAIN_SECTION
   arrmblsize=10000000;
 
 GLOBALS_SECTION
+  extern "C"
+  {
+    void do_not_exit(const int exit_code)
+    {
+       // Does Nothing
+    }
+  }
   #include <float.h>
   #include <admodel.h>
 
@@ -6618,6 +6641,10 @@ GLOBALS_SECTION
   ofstream write_mceval_srv_wt("mceval_srv_wt.rep");
   #undef write_mceval_srv_wt
   #define write_mceval_srv_wt(object) write_mceval_srv_wt << " " << object ;
+
+  ofstream write_mceval_ssb_rec("mceval_ssb_rec.rep");
+  #undef write_mceval_ssb_rec
+  #define write_mceval_ssb_rec(object) write_mceval_ssb_rec << " " << object ;
 
   ofstream write_log("Input_Log.rep");
   #undef write_log

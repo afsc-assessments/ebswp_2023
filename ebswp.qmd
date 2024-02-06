@@ -18,9 +18,9 @@ author:
  - name: Elizabeth Siddon
 keep-md: true
 keep-tex: true
-csl: cjfas.csl
-date: 11/3/2023
-date-format: "DD MMM YYYY"
+# csl: cjfas.csl
+date: 11/03/2023
+date-format: "MMMM YYYY"
 bibliography: doc/references.bib
 header-includes:
   - \usepackage{multirow}
@@ -1257,7 +1257,7 @@ as SE and NW respectively) when plotted over time
 (@fig-fsh_lw_anom_str_yr_box, where stratum 1 = A season, stratum 2 = B
 season SE, and stratum 3 = B season NW). Combining across seasons, the
 fishery data shows that recent years were below average weight given
-length (@fig-fsh_lw_anom_yr_box; note that the anomalies are based on
+length (@fig-fsh_lw_anom_yr_box ; note that the anomalies are based on
 the period 1991-2023).
 
 Examining the weight-at-age, there are also patterns of variability that
@@ -1796,8 +1796,7 @@ the respective harvest scenario in all years. This projection scheme is
 run 1,000 times to obtain distributions of possible future stock sizes
 and catches under alternative fishing mortality rate scenarios.
 
-Five of the seven standard scenarios will be used in an Environmental
-Assessment prepared in conjunction with the final SAFE. These five
+Five of the seven standard scenarios support the alternative harvest strategies analyzed in the Alaska Groundfish Harvest Specifications Final Environmental Impact Statement. These five
 scenarios, which are designed to provide a range of harvest alternatives
 that are likely to bracket the final TAC for `r nextyr`, are as follows
 ("$maxFABC$" refers to the maximum permissible value of FABC under
@@ -1911,10 +1910,10 @@ condition.
 
 To fulfill reporting requirements for [NOAA's Species Information
 System](https://www.fisheries.noaa.gov/resource/data/species-information-system),
-we computed the fishing mortality rate corresponding to the specified
+we computed the average fishing mortality rate corresponding to the specified
 OFL for the last complete year (`r thisyr-1`). This hypothetical
-`r thisyr-1` $F_{OFL}$ from this year's model was estimated to be 0.422
-for EBS pollock (assuming this year's estimated 2023 selectivity and
+`r thisyr-1` $F_{OFL}$ from this year's model was estimated to be 0.262
+for EBS pollock (assuming this year's estimated 2022 selectivity and
 weight-at-age).
 
 ## ABC Recommendation
@@ -4020,7 +4019,7 @@ Fishery effects on age-at-maturity and fecundity            & Maturity study (go
  printfig("mod_retroR.pdf",97)
  printfig("retro_cohort_termyr.pdf",101)
  printfig("retro_cohort.pdf",102)
- printfig("retro_sel.pdf",89)
+ #printfig("retro_sel.pdf",89)
  printfig("retro_sel_mnage.pdf",90)
  printfig("fmsy_sel",92)
 
