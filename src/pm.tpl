@@ -3229,7 +3229,7 @@ FUNCTION Recruitment_Likelihood
     sigmarsq_out    = norm2(log_rec_devs)/size_count(log_rec_devs);
     rec_like(1) = norm2( log_rec_devs(styr_est,endyr_est )) / (2.*sigmaRsq) + 
                   size_count(pred_rec(styr_est,endyr_est))*log(sigr);
-    for (int iyr=styr_est;iyr<=endyr_est;iyr++ ) rec_like(1) += dnorm( log_rec_devs(iyr),0.0,sigr);
+    // for (int iyr=styr_est;iyr<=endyr_est;iyr++ ) rec_like(1) += dnorm( log_rec_devs(iyr),0.0,sigr);
   }
   else
   {
