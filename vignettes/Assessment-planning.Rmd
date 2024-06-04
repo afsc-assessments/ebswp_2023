@@ -21,6 +21,31 @@ knitr::opts_chunk$set(
 library(ebswp)
 ```
 
+# EBS pollock 2024 assessment analyses planning
+
+thinking on arguments for a EBS pollock "maintain ecosystem function" catch-advice rule as 
+requested by the SSC. I think I mentioned something about management that provides a 
+forage base (say of 1-3 yr old pollock) and avoids low levels. Carey and I chatted 
+earlier (added her to this group) and realize that the estimates of these groups 
+are relatively unreliable (i.e., 1-3 yr olds for next year are typically poorly estimated). 
+
+Within the FMP we're talking about justification for catch advice below the maximum permissible. 
+So what about the following semi-empirical approach
+  -  What if catch advice is adjusted up and down relative the historical mean biomass? I.e., if the catch 
+  in the current year is say 1.2 million t, and the SSB next year is 30% above the mean, then with a 
+  regulator to dampen change, next year’s recommendation would be 1.2 * (1.3)^0.5 =1.368 million t. 
+  -  Similarly, if the SSB next year was only 75% of the mean value, the recommendation would be 1.2 * (0.75)^0.5 =1.039 million t.
+  -  If the SSB stayed at 75% of the mean, then the following year would be 1.039 * (.75)^0.5 = 0.8998 million t. 
+
+The rationale proposed is that the detrimental effects of fishing on the ecosystem appear to be mainly sustainable.
+
+Are there assignable issues from fishing affected the ecosystem function that we’ve measured with any degree of confidence?
+
+If there hadn’t been any pollock fishing ever, would we be able to note that the ecosystem would be in a better state?
+Tuning the adjustments based on historical catches and ecosystem outcomes would generally be deemed "acceptable"
+
+
+
 # EBS 2023 assessment analyses planning
 
 ## From the 2022 SSC minutes:
