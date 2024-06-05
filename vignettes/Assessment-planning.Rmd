@@ -4,7 +4,7 @@ output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Planning notes for the pollock assessment in the EBS}
   %\VignetteEncoding{UTF-8}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{knitr::quarto}
 editor_options: 
   markdown: 
     wrap: 72
@@ -23,6 +23,62 @@ library(ebswp)
 
 # EBS pollock 2024 assessment analyses planning
 
+## From the 2023 SSC minutes:
+
+-  The SSC would prefer not to make a risk table adjustment based on the difference from Tier 1 to Tier 3 again during the 2024 assessment cycle. The SSC requests that the next stock assessment bring back a new approach that may include development of a constant buffer based on factors extrinsic to the stock assessment (ecosystem function), or a better representation of the uncertainty in the Tier 1 and control rule calculations such that a reduction from maximum ABC is not needed every year.
+  
+    -  *Will approach this with a discussion of alternative HCRs for pollock that consider ecosystem function.  Re-examine what was done in 2011, consider a proper alternative feedback approach, noting that the early work including climate change.*
+    
+  
+
+-  Use posterior distributions from the MCMC to determine probabilities in the risk table and expand the columns in the risk table to include the recommended ABC (and potentially higher values).
+  
+      - *Just requires some code modifications to do the computations off of the posteriors*
+
+
+-  Identify where MLE estimates are being used and where MCMC estimates are being used. Also see the SSC’s General Stock Assessment Comments to include convergence diagnostics any time Bayesian results are reported. If MCMC diagnostics continue to appear adequate, reference points could be calculated using the posterior distribution used, rather than an analytical calculation.
+  
+     -   *MLE is used and asymptotic approximations are used everywhere for advice, MCMC has been used as a comparison only and to show inter-relationships. Just requires some code modifications to do the computations off of the posteriors*
+
+
+-  The SSC recommends that consideration be given to removal of the Japanese fishery CPUE index (1965-76) from the assessment, because this data set no longer seems to contribute to the assessment. A sensitivity test should be done to evaluate the effects of data removal on the assessment.
+
+    - *Will investigate. In 1964 data suggests all young small fish from the north, these data are handed down, issues about catching being not represenative of population, doesn't impact much, makes it hard to get different assessment models running so may make sense to remove*
+
+
+-  Catch-at-age data provided by foreign fishing agencies in the pre-Magnuson era were not produced using the same aging criteria as the AFSC age-and-growth program. Consideration should be given to removal of these data from the assessment. A sensitivity test should be done to evaluate the effects of data removal on the assessment.
+
+    - *Will investigate, age-determination methods from historical records and/or Russian scientists.*
+
+
+- Document the method used for determining the selectivity to use in the forward projections and continue to evaluate projection variability due to selectivity. The SSC appreciates the selectivity retrospective comparison and suggests that it might be helpful to limit the comparison to the projection used in each year against only the most recent (best) estimate of selectivity for that year.
+
+    - *Better document selectivity assumptions for projections. Look at Cole's approach for plotting out performance. Consider historical uncertainty and variability.*
+
+
+- The SSC supports the use of posterior predictive distributions, an underutilized tool in fisheries science, but common in other fields. To fully implement this approach to Bayesian model checking the SSC recommends plotting a histogram for each data source of the percentile of the predictive distribution in which each data point lies, noting that in a highly consistent model this histogram would be uniform.
+
+    - *This conclusion might be incorrect. Likely to write that this will evolve into better approaches to include in the future*
+
+
+-  There is an apparent shift towards older ages in fisheries and trawl survey selectivity that should be investigated further.
+ 
+     - *Will investigate, focused around changes in availabilty.*
+     
+-  The SSC agrees with the BSAI GPT’s proposal in their presentation to move the multi-species model out of the pollock stock assessment, where it has been included as an appendix since it was first developed. Instead, they suggested it would be a separate chapter listed in parallel with the ESR, as it applies to multiple stocks and informs the ESRs.
+
+    - *Technically it's presented as part of the BSAI assessment. Agree that it should be highlighted on its own.*
+
+-  The SSC suggests revisiting the treatment of the stock-recruit relationship in the assessment model using recent improvements in modeling approaches and a longer time series that encompasses the recent warm period in the EBS. Recruitment deviates should be from the stock-recruit relationship and should model variability among annual recruitment estimates based on information in the data and residual variability. The estimation process should ensure that log-normally distributed recruitments are mean unbiased, resulting in unbiased biomass estimates. If an informative prior is used for steepness, it should be based on a meta-analysis of related species and reflect the uncertainty of that meta-analysis. Further consideration of time periods (as in previous analyses) and the influence of temperature on the stock-recruit relationship may be helpful. The SSC recognizes that there were significant recent analyses in 2016, 2018 and 2020 and is not requesting a repeat of those but a review of previous work would be helpful.
+
+    - *Will include a review and a re-parameterization of numbers at age 1 being from the SRR. We will take this in steps, and unclear about "recent warm periods". *
+
+## Russian impact zone
+
+Will include review of the publication and the plan for evaluating scenarios of alternative fishing mortality in the Russian zone
+
+## Ecosystem function idea
+
 thinking on arguments for a EBS pollock "maintain ecosystem function" catch-advice rule as 
 requested by the SSC. I think I mentioned something about management that provides a 
 forage base (say of 1-3 yr old pollock) and avoids low levels. Carey and I chatted 
@@ -30,12 +86,15 @@ earlier (added her to this group) and realize that the estimates of these groups
 are relatively unreliable (i.e., 1-3 yr olds for next year are typically poorly estimated). 
 
 Within the FMP we're talking about justification for catch advice below the maximum permissible. 
-So what about the following semi-empirical approach
+So what about the following semi-empirical approach:
+
   -  What if catch advice is adjusted up and down relative the historical mean biomass? I.e., if the catch 
   in the current year is say 1.2 million t, and the SSB next year is 30% above the mean, then with a 
-  regulator to dampen change, next year’s recommendation would be 1.2 * (1.3)^0.5 =1.368 million t. 
-  -  Similarly, if the SSB next year was only 75% of the mean value, the recommendation would be 1.2 * (0.75)^0.5 =1.039 million t.
-  -  If the SSB stayed at 75% of the mean, then the following year would be 1.039 * (.75)^0.5 = 0.8998 million t. 
+  regulator to dampen change, next year’s recommendation would be 1.2 * (1.3)^0.5 =1.368 million t.      
+  
+  -  Similarly, if the SSB next year was only 75% of the mean value, the recommendation would be 1.2 * (0.75)^0.5 =1.039 million t.     
+  
+  -  If the SSB stayed at 75% of the mean, then the following year would be 1.039 * (.75)^0.5 = 0.8998 million t.          
 
 The rationale proposed is that the detrimental effects of fishing on the ecosystem appear to be mainly sustainable.
 
