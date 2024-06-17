@@ -45,24 +45,24 @@ editor_options:
 #| echo: false
 #| warning: false
 
-#source(here::here("R","prelims.R"))
+# source(here::here("R","prelims.R"))
 library(here)
 library(xtable)
 library(gt)
-#load(file="doc/septmod.rdata")
-#load(file="doc/modtune.rdata")
-#names(modlst) <-  c("Last year", "Diagonal cov BTS","GenGam","SSB0","SSB1","SSB2","AVO new","AVO full")
+# load(file="doc/septmod.rdata")
+# load(file="doc/modtune.rdata")
+# names(modlst) <-  c("Last year", "Diagonal cov BTS","GenGam","SSB0","SSB1","SSB2","AVO new","AVO full")
 
 source(here("pm23.R"))
-#load(file="doc/novmod.rdata")
-#names(modlst) <-  c("Last year", "Diagonal cov BTS","GenGam","SSB0","SSB1","SSB2","AVO new","AVO full")
-mod_names<-names(modlst)
+# load(file="doc/novmod.rdata")
+# names(modlst) <-  c("Last year", "Diagonal cov BTS","GenGam","SSB0","SSB1","SSB2","AVO new","AVO full")
+mod_names <- names(modlst)
 knitr::opts_chunk$set(fig.pos = "H", out.extra = "")
-#\label{tab:modcomp} 
+# \label{tab:modcomp}
 #        #\usepackage{fancyhdr}
-        #\pagestyle{fancy}
-        #\fancyhead[C]{Draft}
-        #\fancyfoot[C]{EBS pollock assessment}
+# \pagestyle{fancy}
+# \fancyhead[C]{Draft}
+# \fancyfoot[C]{EBS pollock assessment}
 ```
 ```{=tex}
 \begin{centering}
@@ -1737,30 +1737,42 @@ permissible ABC values by the different Tier categorizations would be:
 ```{r abctab13}
 #| output: asis
 #| echo: false
-df <- data.table::data.table(Tier=c(M$tier1ab1,
-                        M$tier1ab2,
-                        M$tier2ab1,
-                        M$tier2ab2,
-                        M$tier3ab1,
-                        M$tier3ab2), 
-                  Year=c(nextyr,nextyr+1,
-                         nextyr,nextyr+1,
-                         nextyr,nextyr+1 ),
-	              MaxABC=c(M$maxabc1s,
-                  M$maxabc2s,
-                  formatC(c(
-                    M$Tier2_ABC1*1000,M$Tier2_ABC2*1000,
-                    M$Tier3_ABC1*1000,M$Tier3_ABC2*1000),
-                  digits=0,format="d",big.mark=",")),
-                  OFL=c(
-                    M$ofl1s,
-                    M$ofl2s,
-                    M$ofl1s,
-                    M$ofl2s,
-                    M$Tier3_OFL1s,
-                    M$Tier3_OFL2s))
-tab <- xtable::xtable(df, digits = c(0,0,0,0,0),big.mark=",",align="ccrrr" )
-print(tab,floating=FALSE,include.rownames=F,big.mark=",",hline.after=c(-1,0,2,4,nrow(tab)),comment=FALSE)
+df <- data.table::data.table(
+  Tier = c(
+    M$tier1ab1,
+    M$tier1ab2,
+    M$tier2ab1,
+    M$tier2ab2,
+    M$tier3ab1,
+    M$tier3ab2
+  ),
+  Year = c(
+    nextyr, nextyr + 1,
+    nextyr, nextyr + 1,
+    nextyr, nextyr + 1
+  ),
+  MaxABC = c(
+    M$maxabc1s,
+    M$maxabc2s,
+    formatC(
+      c(
+        M$Tier2_ABC1 * 1000, M$Tier2_ABC2 * 1000,
+        M$Tier3_ABC1 * 1000, M$Tier3_ABC2 * 1000
+      ),
+      digits = 0, format = "d", big.mark = ","
+    )
+  ),
+  OFL = c(
+    M$ofl1s,
+    M$ofl2s,
+    M$ofl1s,
+    M$ofl2s,
+    M$Tier3_OFL1s,
+    M$Tier3_OFL2s
+  )
+)
+tab <- xtable::xtable(df, digits = c(0, 0, 0, 0, 0), big.mark = ",", align = "ccrrr")
+print(tab, floating = FALSE, include.rownames = F, big.mark = ",", hline.after = c(-1, 0, 2, 4, nrow(tab)), comment = FALSE)
 ```
 
 Note that the values presented for 2024 assumed a catch of 1,300,000 t
@@ -3218,13 +3230,17 @@ Avg	&	0.022	&	0.101	&	0.242	&	0.406	&	0.534	&	0.662	&	0.798	&	0.938	&	1.076	&	1.
 ```{r indices,results="asis",echo=FALSE}
 #| output: asis
 #| echo: false
-#biom <- read_csv("doc/data/Indices.csv")
+# biom <- read_csv("doc/data/Indices.csv")
 biom <- read.csv("doc/data/Indices.csv")
 cap <- tabcap[14]
-lab <- paste0("tab:",tablab[14])
-tabindices <- xtable(biom, caption=cap, big.mark=",",label=lab, digits = 0, align=rep("r",(length(biom[1,])+1)) )
-print(tabindices, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, 
-			scalebox=.76,format.args=list(big.mark = ","),comment=FALSE)
+lab <- paste0("tab:", tablab[14])
+tabindices <- xtable(biom, caption = cap, big.mark = ",", label = lab, digits = 0, align = rep("r", (length(biom[1, ]) + 1)))
+print(tabindices,
+  caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x) {
+    x
+  },
+  scalebox = .76, format.args = list(big.mark = ","), comment = FALSE
+)
 ```
 
 \clearpage
@@ -3388,7 +3404,6 @@ Mean    &   2.848       &   2.190   &   5\% &   23\%    \\
 ```{r inputn,results="asis",echo=FALSE}
 #| output: asis
 #| echo: false
-
 ```
 \clearpage
 <!-- sample size -->
@@ -3457,25 +3472,30 @@ Year & Fishery & BTS & ATS \\
 
 ```{r fshwtage,results="asis",echo=FALSE}
 #<!-- fishery wtage -->
-df <- data.frame(Year = 1964: thisyr,wt=round(M$wt_fsh,3))
-names(df) <- c("Year",1:15)
-df <- df[df$Year>=1989,]
-sdw<- apply(df[,-1],2,sd)
-nr <- dim(df)[1]-2
-df[1,1]<-"1964-"; df[1,2:16]<-" "; df[2,1]<-"1990";
-mnw<- (colMeans(as.matrix(M$wt_fsh[1:nr,]))) 
-cvw<- (sdw/mnw ) 
-cvw<- c('CV','-','-',paste0(round(cvw[3:15]*100,0),"\\%"))
-df <- rbind(df,c(nextyr,'-','-',round(M$wt_next,3)), c(nextyr+1,'-','-',round(M$wt_yraf,3)), c("Mean",round(mnw,3 ) ) )
+df <- data.frame(Year = 1964:thisyr, wt = round(M$wt_fsh, 3))
+names(df) <- c("Year", 1:15)
+df <- df[df$Year >= 1989, ]
+sdw <- apply(df[, -1], 2, sd)
+nr <- dim(df)[1] - 2
+df[1, 1] <- "1964-"
+df[1, 2:16] <- " "
+df[2, 1] <- "1990"
+mnw <- (colMeans(as.matrix(M$wt_fsh[1:nr, ])))
+cvw <- (sdw / mnw)
+cvw <- c("CV", "-", "-", paste0(round(cvw[3:15] * 100, 0), "\\%"))
+df <- rbind(df, c(nextyr, "-", "-", round(M$wt_next, 3)), c(nextyr + 1, "-", "-", round(M$wt_yraf, 3)), c("Mean", round(mnw, 3)))
 df <- rbind(df, cvw)
 cap <- tabcap[24]
-lab <- paste0("tab:",tablab[24])
-tab <- xtable(df, caption = cap, label=lab, ,digits=3)
-hlines <- c(-1,0,nrow(tab)-2,nrow(tab))
-print(tab, scalebox=0.8, 
-	hline.after=hlines, comment=FALSE,
-	caption.placement = "top",align=rep("r",(length(df[1,])+1)), digits=3,include.rownames = FALSE, sanitize.text.function = function(x){x})
-
+lab <- paste0("tab:", tablab[24])
+tab <- xtable(df, caption = cap, label = lab, , digits = 3)
+hlines <- c(-1, 0, nrow(tab) - 2, nrow(tab))
+print(tab,
+  scalebox = 0.8,
+  hline.after = hlines, comment = FALSE,
+  caption.placement = "top", align = rep("r", (length(df[1, ]) + 1)), digits = 3, include.rownames = FALSE, sanitize.text.function = function(x) {
+    x
+  }
+)
 ```
 
 \clearpage
@@ -3483,67 +3503,87 @@ print(tab, scalebox=0.8,
 ```{r modfits, results = "asis",echo=FALSE}
 #| output: asis
 #| echo: false
-# Fit to data------------------- 
+# Fit to data-------------------
 # Comparison among variance constraints for RW in survey selectivity/q
-#fnprof  = c("r_1","r_2","r_3","r_4","r_5")
-#prof_names  = c("CV70\\%","CV50\\%","CV20\\%","CV10\\%","CV05\\%")
-#fn       <- paste0("../runs/q_sens/prof/",fnprof)
-#proflst   <- lapply(fn, read_admb)
-#names(proflst) <- prof_names
-#nmods <- length(prof_names)
-#for (i in 1:nmods) {
+# fnprof  = c("r_1","r_2","r_3","r_4","r_5")
+# prof_names  = c("CV70\\%","CV50\\%","CV20\\%","CV10\\%","CV05\\%")
+# fn       <- paste0("../runs/q_sens/prof/",fnprof)
+# proflst   <- lapply(fn, read_admb)
+# names(proflst) <- prof_names
+# nmods <- length(prof_names)
+# for (i in 1:nmods) {
 #  proflst[[i]] <- c(proflst[[i]],get_vars(proflst[[i]]))
-#}
-#df <- tab_fit(M=proflst,1:nmods)
-#tab <- xtable(df, caption = "Goodness of fit to primary data used for assessment model parameter estimation profiling over different constraints on the extent bottom-trawl survey selectivity/availability is allowed to change;  EBS pollock.", label = "tab:mod_prof_fits")#, digits = 3,align="llrrrrr")
-#print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
+# }
+# df <- tab_fit(M=proflst,1:nmods)
+# tab <- xtable(df, caption = "Goodness of fit to primary data used for assessment model parameter estimation profiling over different constraints on the extent bottom-trawl survey selectivity/availability is allowed to change;  EBS pollock.", label = "tab:mod_prof_fits")#, digits = 3,align="llrrrrr")
+# print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x})
 #
 
-# Fit to data------------------- 
+# Fit to data-------------------
 
 df <- tab_fit(modlst[c(2:9)])
-tab <- xtable(df, caption = "\\label{tab:modfits}Goodness-of-fit measures to primary data for different assessment model configurations. 
-RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, 
-Eff. N=effective sample size for composition data). See text for incremental model descriptions.", 
-label = "tab:modfits", digits = 2,align=paste0("ll",paste0(rep("r",length(df)-1),collapse="")))
-hlines <- c(-1, 0, 4,7,10,17, nrow(tab)-2,nrow(tab))
-print(tab, caption.placement = "top",
-hline.after=hlines, comment=FALSE,
-include.rownames = FALSE, sanitize.text.function = function(x){x})
-
+tab <- xtable(df,
+  caption = "\\label{tab:modfits}Goodness-of-fit measures to primary data for different assessment model configurations.
+RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals,
+Eff. N=effective sample size for composition data). See text for incremental model descriptions.",
+  label = "tab:modfits", digits = 2, align = paste0("ll", paste0(rep("r", length(df) - 1), collapse = ""))
+)
+hlines <- c(-1, 0, 4, 7, 10, 17, nrow(tab) - 2, nrow(tab))
+print(tab,
+  caption.placement = "top",
+  hline.after = hlines, comment = FALSE,
+  include.rownames = FALSE, sanitize.text.function = function(x) {
+    x
+  }
+)
 ```
 
 ```{r mgtquants, results = "asis",echo=FALSE}
 #| output: asis
 #| echo: false
 # Mgt quants by model
-mod_names <- c("Last year",   
-               "m1", "m2", "m3", "m4", "m5", "m6", "m7",
-               "Model 23.0")
-#names(modlst[9])
+mod_names <- c(
+  "Last year",
+  "m1", "m2", "m3", "m4", "m5", "m6", "m7",
+  "Model 23.0"
+)
+# names(modlst[9])
 df <- NULL
-mod_scen <- c(1,9)
+mod_scen <- c(1, 9)
 for (ii in mod_scen) {
-    x      <- modlst[[ii]]
-    ssb    <- x$nextyrssbs;         names(ssb)    <- paste0("${B}_{", nextyr ,"}$")
-    ssbcv  <- round(x$nextyrssb.cv,2);  names(ssbcv)      <- paste0("$CV_{B_{", nextyr ,"}}$")
-    Bmsy   <- x$bmsys;         names(Bmsy)   <- "$B_{MSY}$"
-    Bmsycv <- round(x$bmsy.cv,2); names(Bmsycv) <- "$CV_{B_{MSY}}$"
-    spr    <- paste0(round(x$sprmsy*100,0),"\\%");      names(spr)   <- "SPR rate at $F_{MSY}$"
-    b35    <- x$b35s ;                                  names(b35)   <- "$B_{35\\%}$"
-    pbmsy  <- paste0(round(100*x$ssb1/x$bmsy,0),"\\%"); names(pbmsy) <- paste0("${B}_{", nextyr ,"}/B_{MSY}$")
-    bzero  <- x$b0s ;                                   names(bzero) <- "$B_0$"
-    dynb0  <- x$dynb0s;                                 names(dynb0) <- paste0("Est. $B_{",thisyr,"} / B_{",thisyr,",no fishing}$")
-    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");names(b_bmsy) <-paste0("$B_{",thisyr,"} / B_{MSY}$")
-    steep  <- round(x$steep,2);                 names(steep) <- "Steepness"
-    v      <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero,b35, spr ,steep, dynb0,b_bmsy)
-    df     <- cbind(df, v)
+  x <- modlst[[ii]]
+  ssb <- x$nextyrssbs
+  names(ssb) <- paste0("${B}_{", nextyr, "}$")
+  ssbcv <- round(x$nextyrssb.cv, 2)
+  names(ssbcv) <- paste0("$CV_{B_{", nextyr, "}}$")
+  Bmsy <- x$bmsys
+  names(Bmsy) <- "$B_{MSY}$"
+  Bmsycv <- round(x$bmsy.cv, 2)
+  names(Bmsycv) <- "$CV_{B_{MSY}}$"
+  spr <- paste0(round(x$sprmsy * 100, 0), "\\%")
+  names(spr) <- "SPR rate at $F_{MSY}$"
+  b35 <- x$b35s
+  names(b35) <- "$B_{35\\%}$"
+  pbmsy <- paste0(round(100 * x$ssb1 / x$bmsy, 0), "\\%")
+  names(pbmsy) <- paste0("${B}_{", nextyr, "}/B_{MSY}$")
+  bzero <- x$b0s
+  names(bzero) <- "$B_0$"
+  dynb0 <- x$dynb0s
+  names(dynb0) <- paste0("Est. $B_{", thisyr, "} / B_{", thisyr, ",no fishing}$")
+  b_bmsy <- paste0(round(x$curssb / x$bmsy * 100, 0), "\\%")
+  names(b_bmsy) <- paste0("$B_{", thisyr, "} / B_{MSY}$")
+  steep <- round(x$steep, 2)
+  names(steep) <- "Steepness"
+  v <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero, b35, spr, steep, dynb0, b_bmsy)
+  df <- cbind(df, v)
 }
 df <- data.frame(rownames(df), df, row.names = NULL)
-names(df) <- c("Component",mod_names[mod_scen])
+names(df) <- c("Component", mod_names[mod_scen])
 
-tab <- xtable::xtable(df, caption = tabcap[27], label = "tab:mgtquants", digits = 3,align=paste0("ll",strrep("r",length(mod_scen))))
-print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x},comment=FALSE)
+tab <- xtable::xtable(df, caption = tabcap[27], label = "tab:mgtquants", digits = 3, align = paste0("ll", strrep("r", length(mod_scen))))
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x) {
+  x
+}, comment = FALSE)
 ```
 
 \clearpage
@@ -3552,19 +3592,21 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 #| output: asis
 #| echo: false
 cap <- tabcap[32]
-biom <- read.csv("doc/data/Age3plus.csv",header=T,as.is=TRUE)
-#dim(biom);(M$age3plus);biom[,2:13];biom[,1]
-#biom <- read.csv("doc/data/Age3history.csv",header=T,as.is=TRUE)
-t3  <- cbind(biom[,1],M$age3plus ,M$age3plus.sd/M$age3plus ,biom[,2:15])
-names(t3) <- c("Year","Current","CV","2022","CV","2021","CV","2020","CV","2019","CV","2018","CV","2017","CV","2016","CV" ) #,"2014","CV")
+biom <- read.csv("doc/data/Age3plus.csv", header = T, as.is = TRUE)
+# dim(biom);(M$age3plus);biom[,2:13];biom[,1]
+# biom <- read.csv("doc/data/Age3history.csv",header=T,as.is=TRUE)
+t3 <- cbind(biom[, 1], M$age3plus, M$age3plus.sd / M$age3plus, biom[, 2:15])
+names(t3) <- c("Year", "Current", "CV", "2022", "CV", "2021", "CV", "2020", "CV", "2019", "CV", "2018", "CV", "2017", "CV", "2016", "CV") # ,"2014","CV")
 
-for (i in seq(2,length(t3[1,]), 2 ) ){
-      t3[,i]   <- formatC(t3[,i], format="d", big.mark=",",digits=0) 
-      t3[,i+1] <- formatC( t3[,i+1]*100, format="d", digits=0,big.mark=",") 
+for (i in seq(2, length(t3[1, ]), 2)) {
+  t3[, i] <- formatC(t3[, i], format = "d", big.mark = ",", digits = 0)
+  t3[, i + 1] <- formatC(t3[, i + 1] * 100, format = "d", digits = 0, big.mark = ",")
 }
 
-tab <- xtable(t3, caption = cap, label=paste0("tab:",tablab[32]),digits=0, auto=TRUE, align=rep("r",(length(t3[1,])+1)) )
-print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.69,comment=FALSE)
+tab <- xtable(t3, caption = cap, label = paste0("tab:", tablab[32]), digits = 0, auto = TRUE, align = rep("r", (length(t3[1, ]) + 1)))
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x) {
+  x
+}, scalebox = .69, comment = FALSE)
 ```
 
 \clearpage
@@ -3572,11 +3614,15 @@ print(tab, caption.placement = "top",include.rownames = FALSE, sanitize.text.fun
 ```{r Nage, results="asis",echo=FALSE}
 #| output: asis
 #| echo: false
-tmp <- cbind(M$Yr,M$N[,1:9]/1000,rowSums(M$N[,10:15])/1000)
-colnames(tmp) <- c("Year",1:9,"10+")
-tab <- xtable(tmp, digits=2, auto=TRUE,caption = "\\label{tab:estn}Estimated billions of EBS pollock at age (columns 2--11) from the current assessment model." , 
-              label = "tab:estn")
-print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=0.7,comment=FALSE)
+tmp <- cbind(M$Yr, M$N[, 1:9] / 1000, rowSums(M$N[, 10:15]) / 1000)
+colnames(tmp) <- c("Year", 1:9, "10+")
+tab <- xtable(tmp,
+  digits = 2, auto = TRUE, caption = "\\label{tab:estn}Estimated billions of EBS pollock at age (columns 2--11) from the current assessment model.",
+  label = "tab:estn"
+)
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x) {
+  x
+}, scalebox = 0.7, comment = FALSE)
 ```
 
 \clearpage
@@ -3584,11 +3630,15 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 ```{r Cage,results="asis",echo=FALSE}
 #| output: asis
 #| echo: false
-tmp <- cbind(M$Yr,M$C[,1:9],rowSums(M$C[,10:15]))
-colnames(tmp) <- c("Year",1:9,"10+")
-tab <- xtable(tmp, digits=2, auto=TRUE,caption = "\\label{tab:estcatage}Estimated millions of EBS pollock caught at age (columns 2--11) from the current assessment model." ,
-              label = "tab:estcatage")
-print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=0.7,comment=FALSE)
+tmp <- cbind(M$Yr, M$C[, 1:9], rowSums(M$C[, 10:15]))
+colnames(tmp) <- c("Year", 1:9, "10+")
+tab <- xtable(tmp,
+  digits = 2, auto = TRUE, caption = "\\label{tab:estcatage}Estimated millions of EBS pollock caught at age (columns 2--11) from the current assessment model.",
+  label = "tab:estcatage"
+)
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x) {
+  x
+}, scalebox = 0.7, comment = FALSE)
 ```
 
 \clearpage
@@ -3596,14 +3646,19 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 ```{r ssb,results="asis",echo=FALSE}
 #| output: asis
 #| echo: false
-#tmp <- data.frame(Year=M$SSB[,1], SSB=M$SSB[,2], CVSSB=round(100*M$SSB[,3]/M$SSB[,2],0), Recruit=M$R[,2], CVR=round(100*M$R[,3]/M$R[,2],0),
-       #Age3plus =M$age3plus,CV_B=round(100*M$age3plus.sd/M$age3plus,0))
-tmp <- data.frame(Year=M$SSB[,1], SSB=M$SSB[,2], "CV.SSB"=round(100*M$SSB[,3]/M$SSB[,2],0), Recruit=M$R[,2],"CV.Rec"=round(100*M$R[,3]/M$R[,2],0),
-       "Age.3+.B"=M$age3plus,"CV %"=round(100*M$age3plus.sd/M$age3plus,0))
-for (i in c(2,4,6) )
-  tmp[,i]   <- formatC(tmp[,i], format="d", digits=0, big.mark=",") 
-tab <- xtable(tmp, caption = tabcap[31], label = paste0("tab:",tablab[31]),digits=0,auto=TRUE,align=rep("r",(length(tmp[1,])+1)))
-print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x}, scalebox=.66,comment=FALSE)
+# tmp <- data.frame(Year=M$SSB[,1], SSB=M$SSB[,2], CVSSB=round(100*M$SSB[,3]/M$SSB[,2],0), Recruit=M$R[,2], CVR=round(100*M$R[,3]/M$R[,2],0),
+# Age3plus =M$age3plus,CV_B=round(100*M$age3plus.sd/M$age3plus,0))
+tmp <- data.frame(
+  Year = M$SSB[, 1], SSB = M$SSB[, 2], "CV.SSB" = round(100 * M$SSB[, 3] / M$SSB[, 2], 0), Recruit = M$R[, 2], "CV.Rec" = round(100 * M$R[, 3] / M$R[, 2], 0),
+  "Age.3+.B" = M$age3plus, "CV %" = round(100 * M$age3plus.sd / M$age3plus, 0)
+)
+for (i in c(2, 4, 6)) {
+  tmp[, i] <- formatC(tmp[, i], format = "d", digits = 0, big.mark = ",")
+}
+tab <- xtable(tmp, caption = tabcap[31], label = paste0("tab:", tablab[31]), digits = 0, auto = TRUE, align = rep("r", (length(tmp[1, ]) + 1)))
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x) {
+  x
+}, scalebox = .66, comment = FALSE)
 ```
 
 \clearpage
@@ -3615,26 +3670,39 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 df <- NULL
 mod_scen <- c(9)
 for (ii in mod_scen) {
-    x       <- modlst[[ii]]
-    ssb    <- x$nextyrssbs;         names(ssb)            <- paste0("${B}_{", nextyr ,"}$")
-    ssbcv  <- round(x$nextyrssb.cv,2);  names(ssbcv)      <- paste0("$CV_{B_{", nextyr ,"}}$")
-    Bmsy   <- x$bmsys;         names(Bmsy)                <- "$B_{MSY}$"
-    Bmsycv <- round(x$bmsy.cv,2); names(Bmsycv)           <- "$CV_{B_{MSY}}$"
-    spr    <- paste0(round(x$sprmsy*100,0),"\\%");names(spr) <- "SPR rate at $F_{MSY}$"
-    b35    <- x$b35s ;                 names(b35)         <- paste0("$B_{35\\%}$")
-    pbmsy  <- paste0(round(100*x$ssb1/x$bmsy,0),"\\%");    names(pbmsy)<- paste0("${B}_{", nextyr ,"}/B_{MSY}$")
-    bzero  <- x$b0s ;                 names(bzero)        <- paste0("$B_0$")
-    dynb0  <- x$dynb0s;      names(dynb0)                 <- paste0("Est. $B_{",thisyr,"} / B_{",thisyr,",no fishing}$")
-    b_bmsy <- paste0(round(x$curssb/x$bmsy*100,0),"\\%");      names(b_bmsy) <- paste0("$B_{",thisyr,"} / B_{MSY}$")
-    steep  <- round(x$steep,2);               names(steep) <- "Steepness"
-    v      <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero,b35, spr ,steep, dynb0,b_bmsy)
-    df     <- cbind(df, v)
- }
+  x <- modlst[[ii]]
+  ssb <- x$nextyrssbs
+  names(ssb) <- paste0("${B}_{", nextyr, "}$")
+  ssbcv <- round(x$nextyrssb.cv, 2)
+  names(ssbcv) <- paste0("$CV_{B_{", nextyr, "}}$")
+  Bmsy <- x$bmsys
+  names(Bmsy) <- "$B_{MSY}$"
+  Bmsycv <- round(x$bmsy.cv, 2)
+  names(Bmsycv) <- "$CV_{B_{MSY}}$"
+  spr <- paste0(round(x$sprmsy * 100, 0), "\\%")
+  names(spr) <- "SPR rate at $F_{MSY}$"
+  b35 <- x$b35s
+  names(b35) <- paste0("$B_{35\\%}$")
+  pbmsy <- paste0(round(100 * x$ssb1 / x$bmsy, 0), "\\%")
+  names(pbmsy) <- paste0("${B}_{", nextyr, "}/B_{MSY}$")
+  bzero <- x$b0s
+  names(bzero) <- paste0("$B_0$")
+  dynb0 <- x$dynb0s
+  names(dynb0) <- paste0("Est. $B_{", thisyr, "} / B_{", thisyr, ",no fishing}$")
+  b_bmsy <- paste0(round(x$curssb / x$bmsy * 100, 0), "\\%")
+  names(b_bmsy) <- paste0("$B_{", thisyr, "} / B_{MSY}$")
+  steep <- round(x$steep, 2)
+  names(steep) <- "Steepness"
+  v <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero, b35, spr, steep, dynb0, b_bmsy)
+  df <- cbind(df, v)
+}
 df <- data.frame(rownames(df), df, row.names = NULL)
-names(df) <- c("Component",mod_names[mod_scen])
- tab <- xtable(df, caption = "\\label{tab:ressumm}Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t.", label = "tab:ressumm", digits = 3,align=paste0("ll",strrep("r",length(mod_scen))) )
-#tab <- xtable(df, caption = tabcap[28], digits = 3,align=paste0("ll",strrep("r",length(mod_scen))) )
-print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x},comment=FALSE)
+names(df) <- c("Component", mod_names[mod_scen])
+tab <- xtable(df, caption = "\\label{tab:ressumm}Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t.", label = "tab:ressumm", digits = 3, align = paste0("ll", strrep("r", length(mod_scen))))
+# tab <- xtable(df, caption = tabcap[28], digits = 3,align=paste0("ll",strrep("r",length(mod_scen))) )
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x) {
+  x
+}, comment = FALSE)
 ```
 
 ```{r tier1proj, results = "asis",echo=FALSE}
@@ -3642,24 +3710,32 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 #| echo: false
 # Tier 1 projections
 df <- NULL
- mod_scen <- c(9 )
+mod_scen <- c(9)
 for (ii in mod_scen) {
-    x              <- modlst[[ii]]; 
-    abcbiom        <- paste0(x$ABC_biom1s,",000");         
-    names(abcbiom) <- paste0(nextyr," fishable biomass (GM)")
-    msybiom        <- paste0(x$bmsyrs,",000");         names(msybiom)    <- paste0("Equilibrium fishable biomass at MSY")
-    msyr           <- round(x$harmeanF,3);  names(msyr) <- ("MSY R (HM)")
-    tier1abc       <- x$maxabc1s;  names(tier1abc) <- paste(nextyr,"Tier 1 ABC")
-    fofl           <- x$arithmeanF;         names(fofl)     <- paste(nextyr,"Tier 1 $F_{OFL}$ unadjusted")
-    ofl            <- x$ofl1s;         names(ofl) <- paste(nextyr,"Tier 1 OFL")
-    recabc         <- x$abc1s;  names(recabc)  <- "Recommended ABC"
-    v              <- c(abcbiom,msybiom,msyr,tier1abc,fofl,ofl,recabc)
-    df             <- cbind(df, v)
+  x <- modlst[[ii]]
+  abcbiom <- paste0(x$ABC_biom1s, ",000")
+  names(abcbiom) <- paste0(nextyr, " fishable biomass (GM)")
+  msybiom <- paste0(x$bmsyrs, ",000")
+  names(msybiom) <- paste0("Equilibrium fishable biomass at MSY")
+  msyr <- round(x$harmeanF, 3)
+  names(msyr) <- ("MSY R (HM)")
+  tier1abc <- x$maxabc1s
+  names(tier1abc) <- paste(nextyr, "Tier 1 ABC")
+  fofl <- x$arithmeanF
+  names(fofl) <- paste(nextyr, "Tier 1 $F_{OFL}$ unadjusted")
+  ofl <- x$ofl1s
+  names(ofl) <- paste(nextyr, "Tier 1 OFL")
+  recabc <- x$abc1s
+  names(recabc) <- "Recommended ABC"
+  v <- c(abcbiom, msybiom, msyr, tier1abc, fofl, ofl, recabc)
+  df <- cbind(df, v)
 }
 df <- data.frame(rownames(df), df, row.names = NULL)
-names(df) <- c("Component",mod_names[mod_scen])
-tab <- xtable(df, caption = tabcap[28], label = paste0("tab:",tablab[28]), digits = 3,align=paste0("ll",strrep("r",length(mod_scen))) )
-print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x){x},comment=FALSE)
+names(df) <- c("Component", mod_names[mod_scen])
+tab <- xtable(df, caption = tabcap[28], label = paste0("tab:", tablab[28]), digits = 3, align = paste0("ll", strrep("r", length(mod_scen))))
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x) {
+  x
+}, comment = FALSE)
 ```
 
 \clearpage
@@ -3670,13 +3746,12 @@ print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.fu
 # See "print_tier3_tables in R folder
 # 40,tier3_C,"Tier 3 projections of EBS pollock catch for the 7 scenarios.
 # 41,tier3_ABC,"Tier 3 projections of EBS pollock ABC (given catches in Table \ref{tab:tier3_C}) for the 7 scenarios.
-# 42,tier3_F,"Tier 3 projections of EBS pollock fishing mortality for the 7 scenarios. 
+# 42,tier3_F,"Tier 3 projections of EBS pollock fishing mortality for the 7 scenarios.
 # 43,tier3_SSB,"Tier 3 projections of EBS pollock spawning biomass (kt) for the 7 scenarios. Note that the values for B100\%, B40\%, and B35\% are `r b100s`, `r b40s`, `r b35s`, thousand t, respectively."
 
 print_Tier3_tables(thismod)
 
-#print_Tier3_tables(3)
-
+# print_Tier3_tables(3)
 ```
 
 \clearpage
@@ -3714,105 +3789,131 @@ Team requests (as originally proposed in the 2012 assessment).  }
 ```{r dectable,results="asis",echo=FALSE}
 #| output: asis
 #| echo: false
-rn <- c("$P\\left[F_{2024}>F_{MSY}\\right]$",
-"$P\\left[B_{2024}<B_{MSY}\\right]$ ",
-"$P\\left[B_{2025}<B_{MSY}\\right]$ ",
-"$P\\left[B_{2024}<\\bar{B}\\right]$ ",
-"$P\\left[B_{2027}<\\bar{B}\\right]$ ",
-"$P\\left[B_{2027}<B_{2023}\\right]$ ",
-"$P\\left[B_{2025}<B_{20\\%}\\right]$",
-"$P\\left[p_{a_5,2024}>\\bar{p}_{a_5}\\right]$ ",
-"$P\\left[D_{2024}<D_{1994}\\right]$  ",
-"$P\\left[D_{2027}<D_{1994}\\right]$  ",
-"$P\\left[E_{2024}>E_{2023}\\right]$  ")
-  m <- rbind(
-  round(M$pfcur_fmsy*100,1)  ,
-  round(M$pbcur_bmsy*100,1)  ,
-  round(M$pbcur2_bmsy*100,1) ,
-  round(M$pbcur_bmean*100,1) ,
-  round(M$pbcur3_bmean*100,1),
-  round(M$pbcur3_bcur*100,1) ,
-  round(M$pbcur2_b20*100,1)  ,
-  round(M$plta1_5r*100,1)    ,
-  round(M$pmatdiv1*100,1)    ,
-  round(M$pmatdiv2*100,1)    ,
-  round(M$prel_effort*100,1)  )
-  colnames(m) <- round(M$catch_dec_tab,0)
-  rownames(m) <- rn
-  # cap<-"\\label{tab:dec_table} "
-  cap<-paste("\\label{tab:dectable} Outcomes of decision (expressed as chances out of 100) given different",1+thisyr,"catches (first row, in kt). Note that for the ",thisyr-2,"and later year-classes average values were assumed. Constant Fs based on the",1+thisyr, "catches were used for subsequent years. ")
-  ## kable(m,caption=cap,format="pandoc")
-  tab <- xtable(m, caption = cap, label="tab:dectable",digits=0, auto=TRUE, align=rep("r",(length(m[1,])+1)) )
-  print(tab, caption.placement = "top",include.rownames = TRUE, sanitize.text.function = function(x){x}, scalebox=1,comment=FALSE)
+rn <- c(
+  "$P\\left[F_{2024}>F_{MSY}\\right]$",
+  "$P\\left[B_{2024}<B_{MSY}\\right]$ ",
+  "$P\\left[B_{2025}<B_{MSY}\\right]$ ",
+  "$P\\left[B_{2024}<\\bar{B}\\right]$ ",
+  "$P\\left[B_{2027}<\\bar{B}\\right]$ ",
+  "$P\\left[B_{2027}<B_{2023}\\right]$ ",
+  "$P\\left[B_{2025}<B_{20\\%}\\right]$",
+  "$P\\left[p_{a_5,2024}>\\bar{p}_{a_5}\\right]$ ",
+  "$P\\left[D_{2024}<D_{1994}\\right]$  ",
+  "$P\\left[D_{2027}<D_{1994}\\right]$  ",
+  "$P\\left[E_{2024}>E_{2023}\\right]$  "
+)
+m <- rbind(
+  round(M$pfcur_fmsy * 100, 1),
+  round(M$pbcur_bmsy * 100, 1),
+  round(M$pbcur2_bmsy * 100, 1),
+  round(M$pbcur_bmean * 100, 1),
+  round(M$pbcur3_bmean * 100, 1),
+  round(M$pbcur3_bcur * 100, 1),
+  round(M$pbcur2_b20 * 100, 1),
+  round(M$plta1_5r * 100, 1),
+  round(M$pmatdiv1 * 100, 1),
+  round(M$pmatdiv2 * 100, 1),
+  round(M$prel_effort * 100, 1)
+)
+colnames(m) <- round(M$catch_dec_tab, 0)
+rownames(m) <- rn
+# cap<-"\\label{tab:dec_table} "
+cap <- paste("\\label{tab:dectable} Outcomes of decision (expressed as chances out of 100) given different", 1 + thisyr, "catches (first row, in kt). Note that for the ", thisyr - 2, "and later year-classes average values were assumed. Constant Fs based on the", 1 + thisyr, "catches were used for subsequent years. ")
+## kable(m,caption=cap,format="pandoc")
+tab <- xtable(m, caption = cap, label = "tab:dectable", digits = 0, auto = TRUE, align = rep("r", (length(m[1, ]) + 1)))
+print(tab, caption.placement = "top", include.rownames = TRUE, sanitize.text.function = function(x) {
+  x
+}, scalebox = 1, comment = FALSE)
 ```
 
 \clearpage
 ```{r byc3,results="asis",echo=FALSE}
 #| output: asis
 #| echo: false
-byc <- read.csv("doc/data/byc_nontarg.csv",header=T)
-for (i in 2:length(byc[1,]) ) 
-  byc[,i] <- formatC(byc[,i], format="d", big.mark=",") 
+byc <- read.csv("doc/data/byc_nontarg.csv", header = T)
+for (i in 2:length(byc[1, ])) {
+  byc[, i] <- formatC(byc[, i], format = "d", big.mark = ",")
+}
 cap <- tabcap[36]
-tab <- xtable::xtable(byc, caption = cap, label=paste0("tab:",tablab[36]),digits=2, auto=TRUE, align=rep("r",(length(byc[1,])+1)) )
-print(tab, caption.placement = "top",include.rownames = FALSE, rotate.colnames = FALSE,sanitize.text.function = function(x){x}, 
-       scalebox=.90, format.args = list( decimal.mark = "."),comment=FALSE)
+tab <- xtable::xtable(byc, caption = cap, label = paste0("tab:", tablab[36]), digits = 2, auto = TRUE, align = rep("r", (length(byc[1, ]) + 1)))
+print(tab,
+  caption.placement = "top", include.rownames = FALSE, rotate.colnames = FALSE, sanitize.text.function = function(x) {
+    x
+  },
+  scalebox = .90, format.args = list(decimal.mark = "."), comment = FALSE
+)
 ```
 \clearpage
 
 ```{r byc1,results="asis",echo=FALSE}
 #| output: asis
 #| echo: false
-byc <- read.csv("doc/data/byc_in_pollock.csv",header=T,as.is=TRUE)
-for (i in 2:length(byc[1,]) ) 
-  byc[,i] <- formatC(byc[,i], format="d", big.mark=",") 
-#cap <- paste0("\\label{tab:",tablab[37],"}"tabcap[37])
+byc <- read.csv("doc/data/byc_in_pollock.csv", header = T, as.is = TRUE)
+for (i in 2:length(byc[1, ])) {
+  byc[, i] <- formatC(byc[, i], format = "d", big.mark = ",")
+}
+# cap <- paste0("\\label{tab:",tablab[37],"}"tabcap[37])
 cap <- tabcap[37]
 lab <- tablab[37]
-tab <- xtable::xtable(byc, caption = cap, label=paste0("tab:",tablab[37]),digits=2, auto=TRUE, align=rep("r",(length(byc[1,])+1)) )
-#cap <- "Bycatch estimates (t) of FMP species caught in the BSAI directed pollock fishery, 1997--2019 based on then NMFS Alaska Regional Office reports from observers (2019 data are preliminary). "
-#tab <- xtable(byc, caption = cap, label="tab:fmpbycatch",digits=0, auto=TRUE, align=rep("r",(length(byc[1,])+1)) )
-print(tab,caption.placement="top",include.rownames=FALSE, rotate.colnames = FALSE,
-      sanitize.text.function = function(x){x},  scalebox=.85,comment=FALSE)
-
+tab <- xtable::xtable(byc, caption = cap, label = paste0("tab:", tablab[37]), digits = 2, auto = TRUE, align = rep("r", (length(byc[1, ]) + 1)))
+# cap <- "Bycatch estimates (t) of FMP species caught in the BSAI directed pollock fishery, 1997--2019 based on then NMFS Alaska Regional Office reports from observers (2019 data are preliminary). "
+# tab <- xtable(byc, caption = cap, label="tab:fmpbycatch",digits=0, auto=TRUE, align=rep("r",(length(byc[1,])+1)) )
+print(tab,
+  caption.placement = "top", include.rownames = FALSE, rotate.colnames = FALSE,
+  sanitize.text.function = function(x) {
+    x
+  }, scalebox = .85, comment = FALSE
+)
 ``` 
 
 ```{r byc2,results="asis",echo=FALSE}
 #| output: asis
 #| echo: false
-#byc <- read_csv("../data/fishery/pollock_catch.csv")[,c(1,16,19,22,27,28)]
-byc <- read.csv("../ebs_main/data/fishery/pollock_catch.csv")[,c(1,6,9,4,10,11)]
+# byc <- read_csv("../data/fishery/pollock_catch.csv")[,c(1,16,19,22,27,28)]
+byc <- read.csv("../ebs_main/data/fishery/pollock_catch.csv")[, c(1, 6, 9, 4, 10, 11)]
 
-names(byc)<-c("Year","target","gear","NMFS_area","Catch","wed")
-byc <- byc %>%filter(NMFS_area<540)
-ntmp<-unique(byc$target)
-poll <- ntmp[c(1,5)]
+names(byc) <- c("Year", "target", "gear", "NMFS_area", "Catch", "wed")
+byc <- byc %>% filter(NMFS_area < 540)
+ntmp <- unique(byc$target)
+poll <- ntmp[c(1, 5)]
 pcod <- ntmp[c(2)]
 rsole <- ntmp[c(6)]
 yfsole <- ntmp[c(13)]
-oflat  <- ntmp[c(3,7,9,15,16,17,18)]
-ospp   <- ntmp[c(4,8,11,12,14)]
+oflat <- ntmp[c(3, 7, 9, 15, 16, 17, 18)]
+ospp <- ntmp[c(4, 8, 11, 12, 14)]
 
-byc<-byc %>% filter(!target %in% poll)%>%
-  mutate(target=
-    ifelse(target %in% pcod, "P.cod",
-    ifelse(target %in% rsole, "NRock sole",
-    ifelse(target %in% yfsole,"Yellowfin sole",
-    ifelse(target %in% ospp,"Other spp",
-    ifelse(target %in% oflat,"Other flats",target)))))) %>%
-  group_by(Year,target) %>% summarise(Catch=sum(Catch),.groups = 'drop') 
-byc <-byc %>% pivot_wider(names_from=target,values_from=Catch)
-byc <-data.frame(byc)
+byc <- byc %>%
+  filter(!target %in% poll) %>%
+  mutate(
+    target =
+      ifelse(target %in% pcod, "P.cod",
+        ifelse(target %in% rsole, "NRock sole",
+          ifelse(target %in% yfsole, "Yellowfin sole",
+            ifelse(target %in% ospp, "Other spp",
+              ifelse(target %in% oflat, "Other flats", target)
+            )
+          )
+        )
+      )
+  ) %>%
+  group_by(Year, target) %>%
+  summarise(Catch = sum(Catch), .groups = "drop")
+byc <- byc %>% pivot_wider(names_from = target, values_from = Catch)
+byc <- data.frame(byc)
 
-#byc <- read.csv("data/byc_of_pollock.csv",header=T)
-for (i in 2:length(byc[1,]) ) 
-  byc[,i] <- formatC(byc[,i], format="d",digits=0, big.mark=",") 
+# byc <- read.csv("data/byc_of_pollock.csv",header=T)
+for (i in 2:length(byc[1, ])) {
+  byc[, i] <- formatC(byc[, i], format = "d", digits = 0, big.mark = ",")
+}
 cap <- tabcap[38]
 lab <- tablab[38]
-tab <- xtable::xtable(byc, caption = cap, label=paste0("tab:",tablab[38]),digits=0, auto=TRUE, align=rep("r",(length(byc[1,])+1)) )
-print(tab, caption.placement = "top",include.rownames = FALSE, rotate.colnames = FALSE,sanitize.text.function = function(x){x}, 
-       scalebox=.90, format.args = list(decimal.mark = "."),comment=FALSE)
-
+tab <- xtable::xtable(byc, caption = cap, label = paste0("tab:", tablab[38]), digits = 0, auto = TRUE, align = rep("r", (length(byc[1, ]) + 1)))
+print(tab,
+  caption.placement = "top", include.rownames = FALSE, rotate.colnames = FALSE, sanitize.text.function = function(x) {
+    x
+  },
+  scalebox = .90, format.args = list(decimal.mark = "."), comment = FALSE
+)
 ``` 
 
 
@@ -3939,24 +4040,23 @@ Fishery effects on age-at-maturity and fecundity            & Maturity study (go
 ```{r fshfigs}
 #| output: asis
 #| echo: false
- printfig("genetics.pdf",85)
- printfig("catch.pdf",1)
- printfig("fsh_psc_cpue.png",67)
- printfig("catch_sex.pdf",2)
- printfig("catch_distn_a.png",3)
- printfig("fsh_cpue.png",4)
- printfig("catchp.png",5)
- printfig("roe.pdf",8)
- printfig("catch_distn_b.png",6)
- #printfig("cpue_bseason.png",7)
- printfig("fleet_dispersal.png",9)
- printfig("fsh_wt_freq.png",72)
- printfig("fsh_wt_freq_week.png",73)
- printfig("fsh_lenfreq.pdf",82)
+printfig("genetics.pdf", 85)
+printfig("catch.pdf", 1)
+printfig("fsh_psc_cpue.png", 67)
+printfig("catch_sex.pdf", 2)
+printfig("catch_distn_a.png", 3)
+printfig("fsh_cpue.png", 4)
+printfig("catchp.png", 5)
+printfig("roe.pdf", 8)
+printfig("catch_distn_b.png", 6)
+# printfig("cpue_bseason.png",7)
+printfig("fleet_dispersal.png", 9)
+printfig("fsh_wt_freq.png", 72)
+printfig("fsh_wt_freq_week.png", 73)
+printfig("fsh_lenfreq.pdf", 82)
 
- printfig("catage.png",10)
- printfig("fsh_cohort_locales_0818.pdf",84)
-
+printfig("catage.png", 10)
+printfig("fsh_cohort_locales_0818.pdf", 84)
 ```
 
 \clearpage
@@ -3964,103 +4064,107 @@ Fishery effects on age-at-maturity and fecundity            & Maturity study (go
 ```{r mainfigs}
 #| echo: false
 #| output: asis
- i <- 11
- printfig("bts_biom.png",i);i <- i + 1
- printfig("bts_temp.pdf",i);i <- i + 1
+i <- 11
+printfig("bts_biom.png", i)
+i <- i + 1
+printfig("bts_temp.pdf", i)
+i <- i + 1
 # printfig("bts_temp_cpue.pdf",i);
- i <- i + 1
- printfig("bts_3d.png",i);i <- i + 1
- printfig("cog.png",100);
- printfig("bts_age_comp.png",i);i <- i + 1
- printfig("bts_lenfreq.png",83);
- printfig("vastage_vs_db.pdf",27);
- #printfig("wtage_bts.pdf",94);
- printfig("at_age.png",74);
- printfig("AVO_Series_change.png",99);
- printfig("avo_map_yr.pdf",16);
- printfig("fsh_lw_month.png",23)
- printfig("fsh_lw_anom_str_yr_box.pdf",24)
- printfig("fsh_lw_anom_yr_box.pdf",25)
- printfig("fsh_wtage_comb.pdf",20)
- printfig("fsh_wtage_data_pred.pdf",88)
- printfig("fsh_wtage_strata.pdf",21)
- printfig("fsh_wtage_strata_yr.pdf",22)
+i <- i + 1
+printfig("bts_3d.png", i)
+i <- i + 1
+printfig("cog.png", 100)
+printfig("bts_age_comp.png", i)
+i <- i + 1
+printfig("bts_lenfreq.png", 83)
+printfig("vastage_vs_db.pdf", 27)
+# printfig("wtage_bts.pdf",94);
+printfig("at_age.png", 74)
+printfig("AVO_Series_change.png", 99)
+printfig("avo_map_yr.pdf", 16)
+printfig("fsh_lw_month.png", 23)
+printfig("fsh_lw_anom_str_yr_box.pdf", 24)
+printfig("fsh_lw_anom_yr_box.pdf", 25)
+printfig("fsh_wtage_comb.pdf", 20)
+printfig("fsh_wtage_data_pred.pdf", 88)
+printfig("fsh_wtage_strata.pdf", 21)
+printfig("fsh_wtage_strata_yr.pdf", 22)
 ```
 
 ```{r modfigs}
 #| output: asis
 #| echo: false
- printfig("mod_data.pdf",30)
- printfig("mod_cpue_fit.pdf",38)
- printfig("mod_avo_fit.pdf",39)
- printfig("mod_bts_biom.pdf",33)
- printfig("mod_ats_biom.pdf",34)
- printfig("mod_mean_age.pdf",35)
- printfig("mod_fsh_sel.pdf",36)
- printfig("mod_fsh_age.pdf",37)
+printfig("mod_data.pdf", 30)
+printfig("mod_cpue_fit.pdf", 38)
+printfig("mod_avo_fit.pdf", 39)
+printfig("mod_bts_biom.pdf", 33)
+printfig("mod_ats_biom.pdf", 34)
+printfig("mod_mean_age.pdf", 35)
+printfig("mod_fsh_sel.pdf", 36)
+printfig("mod_fsh_age.pdf", 37)
 ```
 
 ```{r diag}
 #| output: asis
 #| echo: false
- printfig("mod_bts_sel.pdf",40)
- printfig("mod_bts_age.pdf",41)
- printfig("mod_ats_sel.pdf",42)
- printfig("mod_ats_age.pdf",43)
- printfig("MLE_v_post.png",98)
- printfig("mcmc_pairs.png",55)
- printfig("mcmc_marg.pdf",56)
- printfig("mcmc_marg_fmsy.pdf",87)
- printfig("acoustic_ppl.png",93)
- printfig("ssb_v_2018.pdf",96)
- printfig("post_profile.pdf",95)
+printfig("mod_bts_sel.pdf", 40)
+printfig("mod_bts_age.pdf", 41)
+printfig("mod_ats_sel.pdf", 42)
+printfig("mod_ats_age.pdf", 43)
+printfig("MLE_v_post.png", 98)
+printfig("mcmc_pairs.png", 55)
+printfig("mcmc_marg.pdf", 56)
+printfig("mcmc_marg_fmsy.pdf", 87)
+printfig("acoustic_ppl.png", 93)
+printfig("ssb_v_2018.pdf", 96)
+printfig("post_profile.pdf", 95)
 
- printfig("mod_retro.pdf",52)
- printfig("mod_retroR.pdf",97)
- printfig("retro_cohort_termyr.pdf",101)
- printfig("retro_cohort.pdf",102)
- #printfig("retro_sel.pdf",89)
- printfig("retro_sel_mnage.pdf",90)
- printfig("fmsy_sel",92)
+printfig("mod_retro.pdf", 52)
+printfig("mod_retroR.pdf", 97)
+printfig("retro_cohort_termyr.pdf", 101)
+printfig("retro_cohort.pdf", 102)
+# printfig("retro_sel.pdf",89)
+printfig("retro_sel_mnage.pdf", 90)
+printfig("fmsy_sel", 92)
 
- printfig("mod_ser.pdf",44)
- printfig("mod_F.pdf",45)
- printfig("mod_hist.pdf",46)
- printfig("mod_phase.pdf",47)
- printfig("proj_ssb.pdf",65)
- printfig("mod_rec.pdf",48)
- printfig("mod_srr.pdf",49)
- printfig("mod_rs.pdf",50)
- printfig("mod_regimes.pdf",86)
- printfig("tier3_proj.pdf",53)
- printfig("tier3_proj_alt3.pdf",54)
- printfig("age_diversity.pdf",51)
- #printfig("sa_density.pdf",61)
- #printfig("sel_comp_vast.pdf",61)
- #printfig("poll_cod_rec.png",62)
+printfig("mod_ser.pdf", 44)
+printfig("mod_F.pdf", 45)
+printfig("mod_hist.pdf", 46)
+printfig("mod_phase.pdf", 47)
+printfig("proj_ssb.pdf", 65)
+printfig("mod_rec.pdf", 48)
+printfig("mod_srr.pdf", 49)
+printfig("mod_rs.pdf", 50)
+printfig("mod_regimes.pdf", 86)
+printfig("tier3_proj.pdf", 53)
+printfig("tier3_proj_alt3.pdf", 54)
+printfig("age_diversity.pdf", 51)
+# printfig("sa_density.pdf",61)
+# printfig("sel_comp_vast.pdf",61)
+# printfig("poll_cod_rec.png",62)
 ```
 
 \clearpage
 
 ```{r, results='asis'}
 #| echo: false
-a <- knitr::knit_child('doc/model.Rmd', quiet=T)
-cat(a, sep="\n")
+a <- knitr::knit_child("doc/model.Rmd", quiet = T)
+cat(a, sep = "\n")
 ```
 
 \clearpage
 
 ```{r, results='asis'}
 #| echo: false
-a <- knitr::knit_child('doc/envecorisk.qmd', quiet=T)
-cat(a, sep="\n")
+a <- knitr::knit_child("doc/envecorisk.qmd", quiet = T)
+cat(a, sep = "\n")
 ```
 \clearpage
 
 ```{r, results='asis'}
 #| echo: false
-a <- knitr::knit_child('doc/vast.qmd', quiet=T)
-cat(a, sep="\n")
+a <- knitr::knit_child("doc/vast.qmd", quiet = T)
+cat(a, sep = "\n")
 ```
 
 

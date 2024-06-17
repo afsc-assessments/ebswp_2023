@@ -27,8 +27,10 @@ get.inits <- function(fit, chains){
 d<- 'mcmc'
 m <- 'pm' # the model name, folder is also assumed to be called this runs/base/mcmc
 ## First optimize the model to make sure the Hessian is good.
-setwd(d); 
-system('pm -nox -mcmc 15 -hbf 1 -binp pm.bar -phase 50'); setwd('..')
+setwd(d);
+setwd(d);
+system('pm -nox -mcmc 15 -hbf 1 -binp pm.bar -phase 50');
+setwd('..')
 
 
 ## Run--
@@ -37,9 +39,10 @@ chains=8
 #iter <- 4000*thin; warmup <- iter/#8
 
 inits <- NULL ## start chains from MLE
-fit.mle <- sample_nuts(model=m, path=d, iter=iter, warmup=iter/4, 
+fit.mle <- sample_nuts(model=m, path=d, iter=iter, warmup=iter/4,
                    chains=chains, cores=chains, control=list(control=list(max_treedepth=14,
                     metric='mle')))
+
 summary(fit.mle)
 plot_uncertainties(fit.mle)
 pairs_admb(fit.mle, pars=1:6, order='slow')
@@ -68,7 +71,7 @@ launch_shinyadmb(fit.mle)
 mass <- fit.mle$covar.est # note this is in unbounded parameter space
 inits <- get.inits(fit.mle, reps) ## use inits from pilot run
 reps
-fit.mle2 <- sample_nuts(model=m, path=d, iter=2000, warmup=iter/4, 
+fit.mle2 <- sample_nuts(model=m, path=d, iter=2000, warmup=iter/4,
                    chains=chains, cores=chains, control=list(control=list(max_treedepth=14,
                     metric=mass,adapt_delta=0.95)))
 plot_sampler_params(fit.mle2)
@@ -110,8 +113,8 @@ mcppl <- read_csv(paste0("mcmc/mceval_ppl.csv"),col_names=FALSE)
   idx="AVO"
   idx=c("ATS","AVO")
   obs <- mcppl %>% filter(Index==idx,draw==1) %>% transmute(Year,Obs,type="Obs")
-  tmpdf <- mcppl %>% filter(Index==idx) %>% select(Year,Exp,Sim) %>% sample_frac(.3) #%>% pivot_longer(cols=2:3,names_to="type",values_to="Biomass") 
-  ggplot(data=tmpdf) + geom_point(aes(x=jitter(Year),y=Sim),color="grey",alpha=.2) + 
+  tmpdf <- mcppl %>% filter(Index==idx) %>% select(Year,Exp,Sim) %>% sample_frac(.3) #%>% pivot_longer(cols=2:3,names_to="type",values_to="Biomass")
+  ggplot(data=tmpdf) + geom_point(aes(x=jitter(Year),y=Sim),color="grey",alpha=.2) +
   geom_point(aes(x=jitter(Year,.3),y=Exp),color="yellow",alpha=.2,size=.8) + ggthemes::theme_few() + ylab("Index") +xlab("Year") +
   geom_line(data=obs,aes(x=Year,y=Obs)) + facet_grid(.~Index)
 

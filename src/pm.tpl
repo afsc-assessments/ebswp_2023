@@ -697,7 +697,9 @@ DATA_SECTION
    
   // Stuff for passing seed via command line and for initializing new sequence
   int iseed;
-  !! iseed=0;
+  int condmsy;
+  !! iseed   = 0;
+  !! condmsy = 0;
   int do_fmort;
   !! do_fmort=0;
    vector    adj_1(1,10)
@@ -710,8 +712,22 @@ DATA_SECTION
   if (ad_comm::argc > 1)
   {
     int on=0;
+    if ( (on=option_match(ad_comm::argc,ad_comm::argv,"-condmsy"))>-1)
+    {
+      if (on>ad_comm::argc-2 | ad_comm::argv[on+1][0] == '-')
+      {
+        cerr << "Invalid number of arguments for command line option -condmsy; option ignored" << endl;
+      }
+      else
+      {
+        condmsy = atoi(ad_comm::argv[on+1]);
+        cout<<  "Currently using "<<adstring(ad_comm::argv[on+1])<<" as conditional msy"<<endl;
+      }
+    }
+
     if ( (on=option_match(argc,argv,"-io"))>-1)
       do_check = 1;
+
     if ( (on=option_match(ad_comm::argc,ad_comm::argv,"-iseed"))>-1)
     {
       if (on>ad_comm::argc-2 | ad_comm::argv[on+1][0] == '-')
@@ -724,6 +740,7 @@ DATA_SECTION
         cout<<  "Currently using "<<adstring(ad_comm::argv[on+1])<<" as random number seed for sims"<<endl;
       }
     }
+
     if ( (on=option_match(ad_comm::argc,ad_comm::argv,"-uFmort"))>-1)
       do_fmort=1;
   }
@@ -1096,10 +1113,10 @@ DATA_SECTION
  
 INITIALIZATION_SECTION
   // repl_F -.02
-  L1 27.928
-  L2 44.3676944103
+  L1 28.3062069824
+  L2 44.8853389604
   log_alpha -11.0000000000
-  log_K -0.136352276302
+  log_K -0.135566578465
   d_scale .85
   sigr  sigrprior ;
   steepness steepnessprior;
@@ -1333,10 +1350,10 @@ PARAMETER_SECTION
   vector fake_dens(1,40)  // added by Paul  
 
  // Average weight stuff
-  init_bounded_number L1(10,50,2);
-  init_bounded_number L2(30,90,3);
+  init_bounded_number L1(10,50,-2);
+  init_bounded_number L2(30,90,-3);
   init_number log_alpha(-1);
-  init_number log_K(4);
+  init_number log_K(-4);
   vector wt_inc(age_st,age_end-1);
   init_matrix d_scale(1,nscale_parm,age_st,age_end,phase_d_scale);
   number K;
@@ -1405,6 +1422,7 @@ PARAMETER_SECTION
   sdreport_vector SER(styr,endyr_r);
   matrix future_SER(1,nscen,styr_fut,endyr_fut);
   matrix future_catch(1,nscen,styr_fut,endyr_fut);
+  sdreport_matrix future_R(1,nscen,styr_fut,endyr_fut)
   sdreport_matrix future_SSB(1,nscen,endyr_r,endyr_fut)
   sdreport_vector Age3_Abund(styr,endyr_r)
   vector age_1_7_biomass(styr,endyr_r);
@@ -2304,6 +2322,7 @@ FUNCTION Future_projections_fixed_F
   // wt_fut = wt_fsh(endyr_r);
   future_catch.initialize();
   future_SSB.initialize();
+  future_R.initialize();
   dvariable sumtmp1;
   dvariable sumtmp2;
   dvariable MeanSSB;
@@ -2334,6 +2353,7 @@ FUNCTION Future_projections_fixed_F
       Xspawn =   future_SSB(k,endyr_r) ;
       natage_future(k,styr_fut,1)   = SRecruit(Xspawn) * mfexp(rec_dev_future(styr_fut) ); // Note no bias correction, should be ok in MCMC mode...
     }
+    future_R(k,styr_fut)       = natage_future(k,styr_fut,1);
     natage_future(k,styr_fut)(2,nages)  = ++elem_prod(natage(endyr_r)(1,nages-1), S(endyr_r)(1,nages-1));  
     natage_future(k,styr_fut,nages)    += natage(endyr_r,nages)*S(endyr_r,nages);
     // Set two-year olds in 1st future year to mean value...
@@ -2355,6 +2375,7 @@ FUNCTION Future_projections_fixed_F
       else
         ftmp = SolveF2(natage_future(k,styr_fut),dec_tab_catch(k));
     }
+		// if (k==8) ftmp=Fmsy;
     for (i=styr_fut;i<=endyr_fut;i++)
     {
       F_future(k,i) = sel_fut*ftmp;
@@ -2374,6 +2395,7 @@ FUNCTION Future_projections_fixed_F
         natage_future(k,i,1)   = SRecruit(Xspawn)  * mfexp(rec_dev_future(i) );
       }
     
+      future_R(k,i)         = natage_future(k,i,1);
       if (i<endyr_fut)
       {
         natage_future(k,i+1)(2,nages) = ++elem_prod(natage_future(k,i)(1,nages-1), S_future(i)(1,nages-1));  
@@ -3410,6 +3432,13 @@ FUNCTION Evaluate_Objective_Function
         // cout<<"SPR: "<<SPR_OFL<<endl; cout<<"Fmsy "<<Fmsy   <<endl; 
         Priors(1) = lambda_spr_msy*square(log(SPR_OFL)-log(.35));
       }
+      if (condmsy>0&&last_phase())
+      {
+        get_msy();
+        // cout<<"SPR: "<<SPR_OFL<<endl; cout<<"Fmsy "<<Fmsy   <<endl; 
+        Priors(1) = lambda_spr_msy*square(log(MSY)-log(condmsy));
+         // MSY      = get_yield(Fmsy,Stmp,Rtmp,Btmp);
+      }
     }
   }
 
@@ -4340,6 +4369,7 @@ FUNCTION write_projout
  projout <<"# Nrec"<<endl<< endyr_r-1978<< endl;
  projout <<"# rec"<<endl<< pred_rec(1978,endyr_r) << endl;
  projout <<"# SpawningBiomass"<<endl<< SSB(1978-1,endyr_r-1) << endl;
+
 FUNCTION SimulateData1
   cout <<"Doing mcsim: "<< count_mcsave<<" for iseed "<<iseed<<endl;// exit(1);
   dvector ran_age_vect(1,nages);
@@ -4432,100 +4462,124 @@ FUNCTION SimulateData1
   // Simulate data for next  year...
   // stochastic in surveys and fishery
   // not in wt-age
-  char simno[33];
+  // char simno[33];
+  onenum = "    ";
+  for (i = 1; i <= 199; i++) /* SS_loop: fill string NumLbl with numbers (start at 1) */
+  {
+    sprintf(onenum, "%d", i);
+    NumLbl += onenum;
+  }
   int nsims;
   if (mceval_phase()) nsims=1; else nsims=100;
   for (int isim=1;isim<=nsims;isim++)
   {
-    // if (mceval_phase()) 
-      // simname = "sim_"+ adstring(itoa(count_mcsave,simno,10)) + ".dat";
-    // else 
-      // simname = "sim_"+ adstring(itoa(isim,simno,10)) + ".dat";
+    if (mceval_phase()) {
+			// std::string simnotmp = (std::to_string(count_mcsave));
+      simname = "sim_"+ NumLbl(isim) + ".dat";
+		}
+    else {
+      // simname = "sim_"+ adstring(std::to_string(isim)) + ".dat";
+			// simno = adstring(isim);
+      simname = "sim_"+ NumLbl(isim) + ".dat";
+			// std::string simnotmp = (std::to_string(isim));
+      // simname = "sim_"+ adstring(simnotmp) + ".dat";
+		}
     cout<<"Simulate 1-year ahead data, iseed:  "<<simname<<" "<<iseed<<endl;
     ofstream simdat(simname);
-    simdat<< styr             <<endl;
-    simdat<< styr_bts         <<endl;
-    simdat<< styr_ats         <<endl;
-    simdat<< endyr+1          <<endl;
-    simdat<< recage           <<endl;
-    simdat<< nages            <<endl;
-    simdat<< 2*p_mature       <<endl;
+
+    simwrite( styr             );
+    simwrite( styr_bts         );
+    simwrite( styr_ats         );
+    simwrite( endyr+1          );
+    simwrite( recage           );
+    simwrite( nages            );
+    simwrite( 2*p_mature       );
+    simdat<< "#ewnsindex"       <<endl;
     simdat<< ewindex<<" 4 "   <<endl;
     simdat<< nsindex<<" 4 "   <<endl;
-    simdat<< "# Wt fishey    "<<endl;
-    simdat<< wt_fsh           <<endl;
+    simwrite( wt_fsh           );
     // Simulate next year's wt-age from stochsastic history? xxx
-    simdat<< wt_fut           <<endl;
-    simdat<< wt_ssb           <<endl;
+    simwrite( wt_fut           );
+    simwrite( wt_ssb           );
     simdat<< wt_ssb(endyr)   <<endl;
   
     dvariable sigmasq;
     dvariable sigma;
-    simdat << obs_catch <<" "
-           << next_yrs_catch      <<endl;
+    simwrite( obs_catch ); 
+		double catchtmp;
+
+    ifstream catchin("catch.dat");
+    catchin >>catchtmp;
+    catchin.close();
+    simdat << catchtmp      <<endl;
   
-    simdat << obs_effort       <<endl;
+    simwrite( obs_effort       );
     simdat << obs_effort(endyr)<<endl;
   
-    simdat << n_cpue          <<endl;
-    simdat << yrs_cpue        <<endl;
-    simdat << obs_cpue        <<endl;
-    simdat << obs_cpue_std    <<endl;
+    simwrite( n_cpue          );
+    simwrite( yrs_cpue        );
+    simwrite( obs_cpue        );
+    simwrite( obs_cpue_std    );
+
+    simwrite( n_avo);
+    simwrite( yrs_avo);
+    simwrite( obs_avo);
+    simwrite( obs_avo_std);
+    simwrite( wt_avo);
+
     
-    simdat << ngears          <<endl;
-    simdat << minind          <<endl;
+    simwrite( ngears          );
+    simwrite( minind          );
     // Add one year of fishery and survey years
-    simdat << n_fsh+1         <<endl;
-    simdat << n_bts+1         <<endl;
+    simwrite( n_fsh+1         );
+    simwrite( n_bts+1         );
+    simwrite( n_ats+1         );
     // if(do_EIT1) 
     // this was to test for value of EIT survey...
     //if (Sim_status==1)
-      simdat << n_ats+1       <<endl;
+      // simdat << n_ats+1       <<endl;
     // else
       // simdat << n_ats         <<endl;
   
-    simdat << yrs_fsh_data    <<endl;
+    simwrite( yrs_fsh_data    );
     simdat << yrs_fsh_data(n_fsh)+1   <<endl;
   
-    simdat << yrs_bts_data             <<endl;
+    simwrite( yrs_bts_data             );
     simdat << yrs_bts_data(n_bts)+1    <<endl;
   
-    simdat << yrs_ats_data             <<endl;
+    simwrite( yrs_ats_data             );
     // if(Sim_status==1) 
       simdat << yrs_ats_data(n_ats)+1    <<endl;// Nota
   
-    simdat << sam_fsh         <<endl;
+    simwrite( sam_fsh         );
     simdat << sam_fsh(n_fsh)  <<endl;
   
-    simdat << sam_bts         <<endl;
+    simwrite( sam_bts         );
     simdat << sam_bts(n_bts)  <<endl;
 
-    simdat << sam_ats         <<endl;
+    simwrite( sam_ats         );
   // if(Sim_status==1) 
     simdat << sam_ats(n_ats)<<endl;
+
+    simwrite(err_fsh); simdat<<err_fsh(n_fsh)<<endl;
+    simwrite(err_bts); simdat<<err_bts(n_bts)<<endl;
+    simwrite(err_ats); simdat<<err_ats(n_ats)<<endl;
 
     // dvector ran_age_vect(1,nages);
     sigma   = 0.100;
     sigmasq = sigma*sigma;
     ran_age_vect.fill_randn(rng);
   
-    simdat << "# Fishery simulate age compositions "    <<endl;
-    simdat << oac_fsh                                 <<endl;
+    simwrite( oac_fsh);
     simdat << exp(-sigmasq/2.) * elem_prod(mfexp(sigma * ran_age_vect) , eac_fsh_fut)<<endl;
   
     sigma   = 0.150;
     sigmasq = sigma*sigma;
-    simdat << "# BTS Biomass estimates "                    <<endl;
-    simdat << obs_bts_data<<" "<<eac_bts_fut * wt_bts(n_bts)<<endl;
-    simdat << "# BTS Biomass std errors "                   <<endl;
-    simdat << std_ob_bts_data 
+    simwrite( obs_bts_data); simdat<<" "<<eac_bts_fut * wt_bts(n_bts)<<endl;
     // 20% CV for new data
-           << " "<< eac_bts_fut*wt_bts(n_bts)*.2            <<endl;
-    simdat << "# BTS wt at age "                            <<endl;
-    simdat <<   wt_bts << endl << wt_bts(n_bts)             <<endl;
-    simdat << "# BTS Numbers std errors "                   <<endl;
-    simdat << std_ot_bts                                              
-           << " "<< sum(eac_bts_fut)*.15                    <<endl;
+    simwrite(std_ob_bts_data) ; simdat<<" "<< eac_bts_fut*wt_bts(n_bts)*.2 <<endl;
+    simwrite(wt_bts ); simdat << wt_bts(n_bts)             <<endl;
+    simwrite(std_ot_bts); simdat << " "<< sum(eac_bts_fut)*.15 <<endl;
   
     //matrix eac_bts(1,n_bts_r,1,nbins)  //--Expected proportion at age in trawl survey
     // Need to correct for lognormal bias ------------------------
@@ -4533,45 +4587,38 @@ FUNCTION SimulateData1
     sigma=sqrt(sigmasq);
   
     ran_age_vect.fill_randn(rng);
-    simdat << "# Bottom Trawl survey simulate age compositions " <<endl;
-    simdat <<  oac_bts_data         <<endl;
+    simwrite(oac_bts_data) ; 
     // Simulate next year's bt survey age compositions and totals....TODO
-    dvector bts_tmp(1,nages);
-    bts_tmp = value(mfexp(-sigmasq/2.) * elem_prod(mfexp(sigma * ran_age_vect) , eac_bts_fut));
-    simdat << bts_tmp <<endl;
-    // simdat <<  eac_bts_fut <<endl;
-  
-    // sigmasq=norm2(log(et_ats+.01)-log(ot_ats+.01))/size_count(et_ats);
-    // sigma=sqrt(sigmasq);
     sigma   = 0.200;
     sigmasq = sigma*sigma;
+    dvector bts_tmp(1,nages);
+    bts_tmp = value(mfexp(-sigmasq/2.) * elem_prod(mfexp(sigma * ran_age_vect) , eac_bts_fut));
+    simwrite( bts_tmp);
+    // simdat <<  eac_bts_fut <<endl;
+    // sigmasq=norm2(log(et_ats+.01)-log(ot_ats+.01))/size_count(et_ats);
+    // sigma=sqrt(sigmasq);
+
     ran_age_vect.fill_randn(rng);
     dvector ats_tmp(1,nages);
+
+
     ats_tmp = value(mfexp(-sigmasq/2.) * elem_prod(mfexp(sigma * ran_age_vect) , eac_ats_fut));
-  
-    simdat << "# EIT Trawl survey stdevs for total N "<<endl;
-    simdat <<   std_ot_ats <<" "<< sum(ats_tmp)*.2<<endl;
-    simdat << "# EIT Trawl survey simulate age compositions "<<endl;
-    simdat <<  oac_ats_data         <<endl;
-    // Simulate next year's EIT survey age compositions and totals....TODO
+    simwrite(oac_ats_data); 
+    // Simulate next year's ATS survey age compositions and totals....TODO
     simdat << ats_tmp <<endl;
+    simwrite(std_ot_ats); simdat <<" "<< sum(ats_tmp)*.2<<endl;
   
-    simdat << "# EIT Biomass estimates "                    <<endl;
-    simdat << obs_ats_data<<" "<<eac_ats_fut * wt_ats(n_ats)<<endl;
-    simdat << "# BTS Biomass std errors "                   <<endl;
-    simdat << std_ob_ats_data<<" "<<std_ob_ats_data(n_ats)<<endl; 
-    simdat << "# EIT wt at age "                            <<endl;
-    simdat <<   wt_ats << endl << wt_ats(n_ats)             <<endl;
-    simdat << "# BTS Bottom  temperatures (Habitat area) "  <<endl;
-    simdat << bottom_temp<<" 0 "                            <<endl;
-    simdat << "# Ageing error                            "  <<endl;
-    simdat << age_err                                       <<endl;
-  
-    simdat << "# Expected length composition             "  <<endl;
-    simdat << nlbins                                        <<endl;
-    simdat << olc_fsh(1,nlbins)                             <<endl;
-    simdat << age_len << endl;
-    simdat << "1234567"                                     <<endl;                                                                                            
+    simwrite( obs_ats_data); simdat<<" "<<eac_ats_fut * wt_ats(n_ats)<<endl;
+    simwrite( std_ob_ats_data); simdat <<" "<<std_ob_ats_data(n_ats)<<endl; 
+    simwrite(   wt_ats ); simdat << wt_ats(n_ats)    <<endl;
+    simwrite( bottom_temp); simdat <<" 4 "           <<endl;
+    simwrite(n_age_err);
+    simwrite(age_err);
+    simwrite( nlbins);
+    simwrite( olc_fsh); 
+    simwrite( age_lenold ); 
+    simdat << "#EOF"                                 <<endl;                                                                                            
+    simdat << "1234567"                              <<endl;                                                                                            
     simdat.close();
   }
 
@@ -5141,6 +5188,8 @@ FUNCTION write_R
   R_report(future_SER);
   R_report(future_SSB);
   R_report(future_SSB.sd);
+  R_report(future_R);
+  R_report(future_R.sd);
   R_report(future_catch);
   R_report(Fcur_Fmsy);
   R_report(Fcur_Fmsy.sd);
@@ -5429,6 +5478,8 @@ FUNCTION write_R
   if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
   age1tmp = 2014; 
   if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
+  age1tmp = 2018; 
+  if (endyr_r > age1tmp) report << age1tmp-1 << " " <<pred_rec(age1tmp) <<" "<< pred_rec.sd(age1tmp)/pred_rec(age1tmp) <<endl;
 
 
   for_sd<<
@@ -5452,6 +5503,18 @@ FUNCTION write_R
       for_sd <<  gm_b1(i)  * hm_f * adj_1(i) * F40/F35 << " ";
       for_sd <<  gm_b2(i)  * hm_f * adj_1(i) * F40/F35 << " " <<endl; 
    }
+	 proj_df << "Scenario, Year, SSB, Catch, R, SER"<<endl;
+	 for (int k=1;k<=nscen;k++) {
+	   for (int i=styr_fut;i<=endyr_fut;i++) {
+	     proj_df << 
+			 k <<","<< 
+			 i <<","<<
+			 future_SSB(k,i) <<","<<
+			 future_catch(k,i) <<","<<
+			 future_R(k,i) <<","<<
+			 future_SER(k,i) << endl;
+	   }
+	 }
    misc_out<<endl<<"Stock in year "<<endyr_r<< " relative to Bzero (and SD):"<<endl;
    misc_out<< endyr_r<<" "<<Percent_Bzero <<" "<<Percent_Bzero.sd<<endl;
    misc_out<< endyr_r+1<<" "<<Percent_Bzero_1 <<" "<<Percent_Bzero_1.sd<<endl;
@@ -6562,8 +6625,15 @@ GLOBALS_SECTION
   #include <float.h>
   #include <admodel.h>
 
+  #undef simwrite
+  #define simwrite(object) simdat << "#"<<#object  << endl << object << endl;
+
   #undef COUT
   #define COUT(object) cout << #object "," << object << endl;
+
+  ofstream proj_df("proj_df.csv");
+  #undef proj_df
+  #define proj_df(object) proj_df << #object "\n" << object << endl;
 
   ofstream misc_out("misc_out.rep");
   #undef misc_out
@@ -6661,6 +6731,9 @@ GLOBALS_SECTION
   #undef R_report
   #define R_report(object) report << #object "\n" << object << endl;
 
+  adstring simno;
+  adstring onenum(4);
+  adstring_array NumLbl;
   adstring simname;
   adstring model_name;
   adstring GenGamm_Filename;
