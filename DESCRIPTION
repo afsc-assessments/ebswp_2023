@@ -16,3 +16,5 @@ Suggests:
 Config/testthat/edition: 3
 URL: http://afsc-assessments.github.io/EBSpollock/, http://afsc-assessments.github.io/EBSwp/, http://afsc-assessments.github.io/ebswp/
 VignetteBuilder: knitr
+Imports: 
+    stringr
