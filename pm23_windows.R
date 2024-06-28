@@ -73,7 +73,7 @@ mod_dir <- c("base22",
 
 
 #-------------------
-modlst<-get_results(rundir="2023_runs")
+modlst<-get_results(rundir="C:\\GitProjects\\EBSpollock\\2023_runs",run_on_mac = FALSE)
 #names(modlst)
 M <<- modlst[[thismod]]
 .MODELDIR<<-paste0("2023_runs/",mod_dir,"/")
@@ -88,7 +88,7 @@ M <<- modlst[[thismod]]
 
 #---Covariance diagonal extraction--------
 #---Mohno rho read-----
-rhodf      <- read.csv("doc/data/mohnrho.csv",header=T)
+rhodf      <- read.csv("doc/data/mohnrho.csv",header=T) #this datafile is produced somewhere else - in .qmd? (CRM)
 rhoMohn10  <-  rhodf[11,3]
 rhoMohn20  <-  rhodf[21,3]
 rhoMohn10

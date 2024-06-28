@@ -7,8 +7,13 @@
 #' @param moddir The main directory path for the models. Default is 'mod_dir'
 #' @return A list containing model results.
 #' @export
-get_results <- function(mod_names.=mod_names, rundir="runs",moddir=mod_dir) {
+get_results <- function(mod_names.=mod_names, rundir="runs",moddir=mod_dir,run_on_mac=TRUE) {
+ if (run_on_mac) {
   fn        <- paste0(rundir,"/",moddir,"/pm")
+ } else {
+   #run on windows
+   fn <- paste0(rundir,"\\",moddir,"\\pm") #rundir is "C:\\GitProjects\\EBSpollock\\2023_runs\\"
+ }
   nmods <- length(mod_names.)
   num_cores <- parallel::detectCores() - 1
   cl <- parallel::makeCluster(num_cores)
