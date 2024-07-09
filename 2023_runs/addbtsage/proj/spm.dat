@@ -1,0 +1,50 @@
+#_SETUP_FILE_FOR_skates
+std # Run name 5 scenarios
+# Tier
+3
+#--------------------------------------------
+7    # Number of Alternatives        
+#--------------------------------------------
+1
+2    # List of alternatives        
+3
+4
+5
+6
+7
+#--------------------------------------------
+1    # Flag to set TAC equal to ABC (1 means true, otherwise false)        
+#--------------------------------------------
+2    # Stock-recruitment type (1=Ricker, 2=Bholt)
+1    # projection rec form (default: 1 = use observed mean and std, option 2 = use estimated SRR and estimated sigma R)                                 
+1    # SR-Conditioning (0 means no, 1 means use Fmsy == F35%?, 2 means Fmsy == F35% and Bmsy=B35%  condition (affects SRR fits)  
+0  # Condition that there is a prior that mean historical recruitment is similar to expected recruitment at half mean SSB and double mean SSB 0 means don't use, otherwise specify CV
+#--------------------------------------------
+1    # Flag to write big file (of all simulations rather than a summary, 0 means don't do it, otherwise do it) Write_Big       
+#--------------------------------------------
+14 #_Number of projection years                                  
+1000 #_Number of simulations                                 
+2024 #_Begin Year                                        
+#_Number_of_years with specified catch 
+2
+# Number of species                         
+1
+# OY Min
+0
+# OY Max
+2.00E+06
+# data files for each species
+../pm.prj
+# ABC Multipliers                         
+1
+# scalars 
+1
+# New Alt 4 Fabc SPRs (Rockfish = 0.75, other 0.6), Steller sea lion prey species between F40 and F60 (to meet OY Min)                      
+0.6
+# Number of TAC model categories
+1
+# TAC model indices (for aggregating)
+1
+# Catch in each future year
+2024 1350
+2025 1350
