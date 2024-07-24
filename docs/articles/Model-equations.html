@@ -5,7 +5,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="ebswp">
 <title>EBS pollock model equations • ebswp</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -14,56 +13,48 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="EBS pollock model equations">
-<meta property="og:description" content="ebswp">
-<meta property="og:image" content="http://afsc-assessments.github.io/ebswp/logo.png">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="EBS pollock model equations">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
-    
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
-    
+
+    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+
     <a class="navbar-brand me-2" href="../index.html">ebswp</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
 
-    
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item">
-  <a class="nav-link" href="../reference/index.html">Reference</a>
-</li>
+<li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="active nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/Assessment-planning.html">Planning notes for the pollock assessment in the EBS</a>
-    <a class="dropdown-item" href="../articles/Change_Model_Specs.html">Example on how to change and run a model</a>
-    <a class="dropdown-item" href="../articles/EBS_wp_OSA.html">Application of one-step ahead residuals to alternative EBS pollock model specifications</a>
-    <a class="dropdown-item" href="../articles/Intro.html">SAFE report front matter</a>
-    <a class="dropdown-item" href="../articles/Model-equations.html">EBS pollock model equations</a>
-  </div>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="../articles/Assessment-planning.html">Planning notes for the pollock assessment in the EBS</a></li>
+    <li><a class="dropdown-item" href="../articles/Change_Model_Specs.html">Example on how to change and run a model</a></li>
+    <li><a class="dropdown-item" href="../articles/EBS_wp_OSA.html">Application of one-step ahead residuals to alternative EBS pollock model specifications</a></li>
+    <li><a class="dropdown-item" href="../articles/Model-equations.html">EBS pollock model equations</a></li>
+    <li><a class="dropdown-item" href="../articles/test.pdf">Mixing Table Types (PDF)</a></li>
+  </ul>
 </li>
       </ul>
-<form class="form-inline my-2 my-lg-0" role="search">
-        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
-</form>
-
-      <ul class="navbar-nav"></ul>
+<ul class="navbar-nav">
+<li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
+</form></li>
+      </ul>
 </div>
 
-    
+
   </div>
 </nav><div class="container template-article">
 
@@ -75,7 +66,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>EBS pollock model equations</h1>
             
       
-      
+
       <div class="d-none name"><code>Model-equations.Rmd</code></div>
     </div>
 
@@ -95,40 +86,40 @@
 the catch equation and population dynamics model as described in
 Fournier and Archibald (1982) and elsewhere (e.g., Hilborn and Walters
 1992, Schnute and Richards 1995, McAllister and Ianelli 1997). The catch
-in numbers at age in year <span class="math inline">\(t
-(C_{t,a})\)</span> and total catch biomass <span class="math inline">\((Y_t)\)</span> can be described as:</p>
-<p><span class="math display">\[\begin{align}
-    C_{t,a}     &amp;= \frac{F_{t,a}}{Z_{t,a}} \left(1 -
-e^{-Z_{t,a}}\right) N_{t,a}, &amp;1 \le t \le T, 1 \le a \le A \\
-    N_{t+1,a+1} &amp;= N_{t,a-1}
-e^{-Z_{t,a-1}}                                       &amp;1 \le t \le T,
-1 \le a &lt; A   \\
-    N_{t+1,A}   &amp;= N_{t,A-1} e^{-Z_{t,A-1}} + N_{t,A} e^{-Z_{t,A}}
-,              &amp;1 \le t \le T                \\
-    Z_{t,a}     &amp;= F_{t,a} +
-M_{t,a}                                                                            \\
-    C_{t,.}     &amp;=
-\sum_{a=1}^A{C_{t,a}}                                                                        \\
-    p_{t,a}     &amp;= \frac{C_{t,a} } {C_{t,.}
-}                                                                   \\
-    Y_{t}       &amp;=
-\sum_{a=1}^A{w_{t,a}C_{t,a}}                                                                 \\
-\end{align}\]</span></p>
+in numbers at age in year
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">t (C_{t,a})</annotation></semantics></math>
+and total catch biomass
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Y</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(Y_t)</annotation></semantics></math>
+can be described as:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>C</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><msub><mi>F</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub><msub><mi>Z</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>Z</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>N</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub><mo>,</mo></mtd><mtd columnalign="right" style="text-align: right"><mn>1</mn><mo>≤</mo><mi>t</mi><mo>≤</mo><mi>T</mi><mo>,</mo><mn>1</mn><mo>≤</mo><mi>a</mi><mo>≤</mo><mi>A</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>N</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn><mo>,</mo><mi>a</mi><mo>+</mo><mn>1</mn></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>N</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi><mo>−</mo><mn>1</mn></mrow></msub><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>Z</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow></msup></mtd><mtd columnalign="right" style="text-align: right"><mn>1</mn><mo>≤</mo><mi>t</mi><mo>≤</mo><mi>T</mi><mo>,</mo><mn>1</mn><mo>≤</mo><mi>a</mi><mo>&lt;</mo><mi>A</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>N</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn><mo>,</mo><mi>A</mi></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>N</mi><mrow><mi>t</mi><mo>,</mo><mi>A</mi><mo>−</mo><mn>1</mn></mrow></msub><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>Z</mi><mrow><mi>t</mi><mo>,</mo><mi>A</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow></msup><mo>+</mo><msub><mi>N</mi><mrow><mi>t</mi><mo>,</mo><mi>A</mi></mrow></msub><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>Z</mi><mrow><mi>t</mi><mo>,</mo><mi>A</mi></mrow></msub></mrow></msup><mo>,</mo></mtd><mtd columnalign="right" style="text-align: right"><mn>1</mn><mo>≤</mo><mi>t</mi><mo>≤</mo><mi>T</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>Z</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>F</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub><mo>+</mo><msub><mi>M</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>C</mi><mrow><mi>t</mi><mo>,</mo><mi>.</mi></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><munderover><mo>∑</mo><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><mi>A</mi></munderover><msub><mi>C</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>p</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><msub><mi>C</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub><msub><mi>C</mi><mrow><mi>t</mi><mo>,</mo><mi>.</mi></mrow></msub></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>Y</mi><mi>t</mi></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><munderover><mo>∑</mo><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><mi>A</mi></munderover><mrow><msub><mi>w</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub><msub><mi>C</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
+    C_{t,a}     &amp;= \frac{F_{t,a}}{Z_{t,a}} \left(1 - e^{-Z_{t,a}}\right) N_{t,a}, &amp;1 \le t \le T, 1 \le a \le A \\
+    N_{t+1,a+1} &amp;= N_{t,a-1} e^{-Z_{t,a-1}}                                       &amp;1 \le t \le T, 1 \le a &lt; A   \\
+    N_{t+1,A}   &amp;= N_{t,A-1} e^{-Z_{t,A-1}} + N_{t,A} e^{-Z_{t,A}} ,              &amp;1 \le t \le T                \\
+    Z_{t,a}     &amp;= F_{t,a} + M_{t,a}                                                                            \\
+    C_{t,.}     &amp;= \sum_{a=1}^A{C_{t,a}}                                                                        \\
+    p_{t,a}     &amp;= \frac{C_{t,a} } {C_{t,.} }                                                                   \\
+    Y_{t}       &amp;= \sum_{a=1}^A{w_{t,a}C_{t,a}}                                                                 \\
+\end{align}</annotation></semantics></math></p>
 where
-<p>Fishing mortality (<span class="math inline">\(F_{t,a}\)</span>) is
-specified as being semi-separable and non-parametric in form with
+<p>Fishing mortality
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub><annotation encoding="application/x-tex">F_{t,a}</annotation></semantics></math>)
+is specified as being semi-separable and non-parametric in form with
 restrictions on the variability following Butterworth et al. (2003):</p>
-<p><span class="math display">\[\begin{align}
-    F_{t,a}     &amp;= s_{t,a} \, \mu^f e^{\epsilon_t},
-&amp;\epsilon_t   \sim \mathcal{N}(0,\,\sigma_E^{2}) \\
-    s_{t+1,a}   &amp;= s_{t,a}
-\,       e^{\gamma_t},   &amp;\gamma_t     \sim
-\mathcal{N}(0,\,\sigma_s^{2})
-\end{align}\]</span></p>
-<p>where <span class="math inline">\(s_{t,a}\)</span> is the selectivity
-for age class <span class="math inline">\(a\)</span> in year <span class="math inline">\(t\)</span>, and <span class="math inline">\(\mu^f\)</span> is the median fishing mortality
-rate over time.</p>
-<p>If the selectivities (<span class="math inline">\(s_{t,a}\)</span>)
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>F</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>s</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub><mspace width="0.167em"></mspace><msup><mi>μ</mi><mi>f</mi></msup><msup><mi>e</mi><msub><mi>ϵ</mi><mi>t</mi></msub></msup><mo>,</mo></mtd><mtd columnalign="right" style="text-align: right"><msub><mi>ϵ</mi><mi>t</mi></msub><mo>∼</mo><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mspace width="0.167em"></mspace><msubsup><mi>σ</mi><mi>E</mi><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>s</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn><mo>,</mo><mi>a</mi></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>s</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub><mspace width="0.167em"></mspace><msup><mi>e</mi><msub><mi>γ</mi><mi>t</mi></msub></msup><mo>,</mo></mtd><mtd columnalign="right" style="text-align: right"><msub><mi>γ</mi><mi>t</mi></msub><mo>∼</mo><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mspace width="0.167em"></mspace><msubsup><mi>σ</mi><mi>s</mi><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
+    F_{t,a}     &amp;= s_{t,a} \, \mu^f e^{\epsilon_t}, &amp;\epsilon_t   \sim \mathcal{N}(0,\,\sigma_E^{2}) \\
+    s_{t+1,a}   &amp;= s_{t,a} \,       e^{\gamma_t},   &amp;\gamma_t     \sim \mathcal{N}(0,\,\sigma_s^{2}) 
+\end{align}</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub><annotation encoding="application/x-tex">s_{t,a}</annotation></semantics></math>
+is the selectivity for age class
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+in year
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>μ</mi><mi>f</mi></msup><annotation encoding="application/x-tex">\mu^f</annotation></semantics></math>
+is the median fishing mortality rate over time.</p>
+<p>If the selectivities
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub><annotation encoding="application/x-tex">s_{t,a}</annotation></semantics></math>)
 are constant over time then fishing mortality rate decomposes into an
 age component and a year component. A curvature penalty on the
 selectivity coefficients using the squared second-differences to provide
@@ -137,27 +128,20 @@ smoothness between ages.</p>
 the properties desired for the characteristics of this gear. Namely,
 that the function should allow flexibility in selecting age 1 pollock
 over time. The functional form of this selectivity was:</p>
-<p><span class="math display">\[\begin{align}
-    s_{t,a}     &amp;= \left[ 1+e^{-\alpha_ta-\beta_t} \right]^{-1} ,
-&amp; a&gt;1 \\
-    s_{t,a}     &amp;=
-\mu_se^{-\delta^\mu_t},                        &amp; a=1 \\
-    \alpha_{t}  &amp;= \bar \alpha
-e^{\delta^\alpha_t},                     \\
-    \beta_{t}  &amp;= \bar \beta
-e^{\delta^\beta_t},                        
-\end{align}\]</span></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>s</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">[</mo><mn>1</mn><mo>+</mo><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>α</mi><mi>t</mi></msub><mi>a</mi><mo>−</mo><msub><mi>β</mi><mi>t</mi></msub></mrow></msup><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo>,</mo></mtd><mtd columnalign="right" style="text-align: right"><mi>a</mi><mo>&gt;</mo><mn>1</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>s</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>μ</mi><mi>s</mi></msub><msup><mi>e</mi><mrow><mi>−</mi><msubsup><mi>δ</mi><mi>t</mi><mi>μ</mi></msubsup></mrow></msup><mo>,</mo></mtd><mtd columnalign="right" style="text-align: right"><mi>a</mi><mo>=</mo><mn>1</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>α</mi><mi>t</mi></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mover><mi>α</mi><mo accent="true">‾</mo></mover><msup><mi>e</mi><msubsup><mi>δ</mi><mi>t</mi><mi>α</mi></msubsup></msup><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>β</mi><mi>t</mi></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mover><mi>β</mi><mo accent="true">‾</mo></mover><msup><mi>e</mi><msubsup><mi>δ</mi><mi>t</mi><mi>β</mi></msubsup></msup><mo>,</mo></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
+    s_{t,a}     &amp;= \left[ 1+e^{-\alpha_ta-\beta_t} \right]^{-1} , &amp; a&gt;1 \\
+    s_{t,a}     &amp;= \mu_se^{-\delta^\mu_t},                        &amp; a=1 \\
+    \alpha_{t}  &amp;= \bar \alpha e^{\delta^\alpha_t},                     \\
+    \beta_{t}  &amp;= \bar \beta e^{\delta^\beta_t},                        
+\end{align}</annotation></semantics></math></p>
 <p>where the parameters of the selectivity function follow a random walk
 process as in Dorn et al. (2000):</p>
-<p><span class="math display">\[\begin{align}
-    \delta_t^\mu  -  \delta_{t+1}^\mu     &amp;\sim
-\mathcal{N}(0,\,\sigma_{\delta^\mu}^{2}) \\
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msubsup><mi>δ</mi><mi>t</mi><mi>μ</mi></msubsup><mo>−</mo><msubsup><mi>δ</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow><mi>μ</mi></msubsup></mtd><mtd columnalign="left" style="text-align: left"><mo>∼</mo><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mspace width="0.167em"></mspace><msubsup><mi>σ</mi><msup><mi>δ</mi><mi>μ</mi></msup><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msubsup><mi>α</mi><mi>t</mi><mi>μ</mi></msubsup><mo>−</mo><msubsup><mi>α</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow><mi>μ</mi></msubsup></mtd><mtd columnalign="left" style="text-align: left"><mo>∼</mo><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mspace width="0.167em"></mspace><msubsup><mi>σ</mi><msup><mi>α</mi><mi>μ</mi></msup><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msubsup><mi>β</mi><mi>t</mi><mi>μ</mi></msubsup><mo>−</mo><msubsup><mi>β</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow><mi>μ</mi></msubsup></mtd><mtd columnalign="left" style="text-align: left"><mo>∼</mo><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mspace width="0.167em"></mspace><msubsup><mi>σ</mi><msup><mi>β</mi><mi>μ</mi></msup><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
+    \delta_t^\mu  -  \delta_{t+1}^\mu     &amp;\sim \mathcal{N}(0,\,\sigma_{\delta^\mu}^{2}) \\
     \\
-    \alpha_t^\mu  -  \alpha_{t+1}^\mu     &amp;\sim
-\mathcal{N}(0,\,\sigma_{\alpha^\mu}^{2}) \\
-    \beta_t^\mu  -  \beta_{t+1}^\mu     &amp;\sim
-\mathcal{N}(0,\,\sigma_{\beta^\mu}^{2})
-\end{align}\]</span></p>
+    \alpha_t^\mu  -  \alpha_{t+1}^\mu     &amp;\sim \mathcal{N}(0,\,\sigma_{\alpha^\mu}^{2}) \\
+    \beta_t^\mu  -  \beta_{t+1}^\mu     &amp;\sim \mathcal{N}(0,\,\sigma_{\beta^\mu}^{2}) 
+\end{align}</annotation></semantics></math></p>
 <p>The parameters to be estimated in this part of the model are thus for
 t=1982 through to 2022. The variance terms for these process error
 parameters were specified to be 0.04.</p>
@@ -168,37 +152,47 @@ above, but the lognormal penalty was applied to the resulting
 selectivities-at-age directly. The extent of this variability was
 evaluated in the context of the impact on age-specific survey
 catchability/availability and contrasted with an independent estimate of
-pollock availability to the bottom trawl survey. <span class="math display">\[\begin{align}
-    {ln(s_{t,a})}  -  {ln(s_{t+1,a})}  &amp;\sim
-\mathcal{N}(0,\,\sigma_{sel}^{2}) \\
-\end{align}\]</span> In 2008 the AT survey selectivity approach was
-modified. As an option, the age one pollock observed in this trawl can
-be treated as an index and are not considered part of the age
-composition (which then ranges from age 2-15). This was done to improve
-some interaction with the flexible selectivity smoother that is used for
-this gear and was compared. Additionally, the annual specification of
-input observation variance terms was allowed for the AT data.</p>
+pollock availability to the bottom trawl survey.
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mrow><mi>l</mi><mi>n</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>s</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mo>−</mo><mrow><mi>l</mi><mi>n</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>s</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn><mo>,</mo><mi>a</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>∼</mo><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mspace width="0.167em"></mspace><msubsup><mi>σ</mi><mrow><mi>s</mi><mi>e</mi><mi>l</mi></mrow><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
+    {ln(s_{t,a})}  -  {ln(s_{t+1,a})}  &amp;\sim \mathcal{N}(0,\,\sigma_{sel}^{2}) \\
+\end{align}</annotation></semantics></math> In 2008 the AT survey
+selectivity approach was modified. As an option, the age one pollock
+observed in this trawl can be treated as an index and are not considered
+part of the age composition (which then ranges from age 2-15). This was
+done to improve some interaction with the flexible selectivity smoother
+that is used for this gear and was compared. Additionally, the annual
+specification of input observation variance terms was allowed for the AT
+data.</p>
 <p>A diagnostic approach to evaluate input variance specifications (via
 sample size under multinomial assumptions) was added in the 2018
 assessment. This method uses residuals from mean ages together with the
 concept that the sample variance of mean age (from a given annual data
 set) varies inversely with input sample size. It can be shown that for a
-given set of input proportions at age (up to the maximum age <span class="math inline">\(A\)</span>) and sample size <span class="math inline">\(N_t\)</span> for year <span class="math inline">\(t\)</span>, an adjustment factor <span class="math inline">\(\nu\)</span> for input sample size can be computed
-when compared with the assessment model predicted proportions at age
-(<span class="math inline">\(\hat p_{ta}\)</span>) and model predicted
-mean age (<span class="math inline">\(\hat{\bar{a_t}}\)</span>): <span class="math display">\[\begin{align}
-\nu   &amp;= \text{var}\left( r^a_t \sqrt{\frac{N_t}{\kappa_t}
-}\right)^{-1} \\
-r^a_t &amp;= \bar a_t -
-\hat{\bar{a_t}}                                      \\
-\kappa_t &amp;= \left[ \sum_a^A {\bar a_t - \hat{\bar{a_t}}}
-\right]^{0.5}
-\end{align}\]</span></p>
-<p>where <span class="math inline">\(r^a_t\)</span> is the residual of
-mean age and <span class="math display">\[\begin{align}
+given set of input proportions at age (up to the maximum age
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>)
+and sample size
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>N</mi><mi>t</mi></msub><annotation encoding="application/x-tex">N_t</annotation></semantics></math>
+for year
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
+an adjustment factor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ν</mi><annotation encoding="application/x-tex">\nu</annotation></semantics></math>
+for input sample size can be computed when compared with the assessment
+model predicted proportions at age
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mi>t</mi><mi>a</mi></mrow></msub><annotation encoding="application/x-tex">\hat p_{ta}</annotation></semantics></math>)
+and model predicted mean age
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mover><msub><mi>a</mi><mi>t</mi></msub><mo accent="true">‾</mo></mover><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{\bar{a_t}}</annotation></semantics></math>):
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>ν</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mtext mathvariant="normal">var</mtext><msup><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>r</mi><mi>t</mi><mi>a</mi></msubsup><msqrt><mfrac><msub><mi>N</mi><mi>t</mi></msub><msub><mi>κ</mi><mi>t</mi></msub></mfrac></msqrt><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>−</mi><mn>1</mn></mrow></msup></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msubsup><mi>r</mi><mi>t</mi><mi>a</mi></msubsup></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mover><mi>a</mi><mo accent="true">‾</mo></mover><mi>t</mi></msub><mo>−</mo><mover><mover><msub><mi>a</mi><mi>t</mi></msub><mo accent="true">‾</mo></mover><mo accent="true">̂</mo></mover></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>κ</mi><mi>t</mi></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">[</mo><munderover><mo>∑</mo><mi>a</mi><mi>A</mi></munderover><mrow><msub><mover><mi>a</mi><mo accent="true">‾</mo></mover><mi>t</mi></msub><mo>−</mo><mover><mover><msub><mi>a</mi><mi>t</mi></msub><mo accent="true">‾</mo></mover><mo accent="true">̂</mo></mover></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mn>0.5</mn></msup></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
+\nu   &amp;= \text{var}\left( r^a_t \sqrt{\frac{N_t}{\kappa_t} }\right)^{-1} \\
+r^a_t &amp;= \bar a_t - \hat{\bar{a_t}}                                      \\
+\kappa_t &amp;= \left[ \sum_a^A {\bar a_t - \hat{\bar{a_t}}} \right]^{0.5}
+\end{align}</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>r</mi><mi>t</mi><mi>a</mi></msubsup><annotation encoding="application/x-tex">r^a_t</annotation></semantics></math>
+is the residual of mean age and
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mover><mover><msub><mi>a</mi><mi>t</mi></msub><mo accent="true">‾</mo></mover><mo accent="true">̂</mo></mover></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><munderover><mo>∑</mo><mi>a</mi><mi>A</mi></munderover><mrow><mi>a</mi><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mi>t</mi><mi>a</mi></mrow></msub></mrow><mspace width="0.167em"></mspace></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mover><mi>a</mi><mo accent="true">‾</mo></mover><mi>t</mi></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><munderover><mo>∑</mo><mi>a</mi><mi>A</mi></munderover><mrow><mi>a</mi><msub><mi>p</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub></mrow><mspace width="0.167em"></mspace></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
 \hat{\bar{a_t}} &amp;= \sum_a^A{a \hat p_{ta}}\, \\
-{\bar a_t}      &amp;= \sum_a^A{a p_{ta}}\,
-\end{align}\]</span></p>
+{\bar a_t}      &amp;= \sum_a^A{a p_{ta}}\, 
+\end{align}</annotation></semantics></math></p>
 <p>Based on previous analyses, we used the above relationship as a
 diagnostic for evaluating input sample sizes by comparing model
 predicted mean ages with observed mean ages and the implied 95%
@@ -208,88 +202,113 @@ frequency of allowing selectivity changes.</p>
 <div class="section level3">
 <h3 id="recruitment">Recruitment<a class="anchor" aria-label="anchor" href="#recruitment"></a>
 </h3>
-<p>In these analyses, recruitment (<span class="math inline">\(R_t\)</span>) represents numbers of age-1
-individuals modeled as a stochastic function of spawning stock biomass.
-<span class="math display">\[\begin{align}
+<p>In these analyses, recruitment
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mi>t</mi></msub><annotation encoding="application/x-tex">R_t</annotation></semantics></math>)
+represents numbers of age-1 individuals modeled as a stochastic function
+of spawning stock biomass.
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>R</mi><mi>t</mi></msub><mo>=</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>B</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
         R_t = f\left(B_{t-1} \right)
-\end{align}\]</span> with mature spawning biomass during year <span class="math inline">\(t\)</span> was defined as: <span class="math display">\[\begin{align}
-  B_t = \sum_{a=1}^A{ w_{t,a}\phi_aN_{t,a}}
-\end{align}\]</span></p>
-<p>and, <span class="math inline">\(\phi_a\)</span> is the proportion of
-mature females at age is as shown in the sub-section titled Natural
-mortality and maturity at age under “Parameters estimated independently”
-above.</p>
+\end{align}</annotation></semantics></math> with mature spawning biomass
+during year
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+was defined as:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>B</mi><mi>t</mi></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><mi>A</mi></munderover><mrow><msub><mi>w</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub><msub><mi>ϕ</mi><mi>a</mi></msub><msub><mi>N</mi><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></msub></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
+  B_t = \sum_{a=1}^A{ w_{t,a}\phi_aN_{t,a}} 
+\end{align}</annotation></semantics></math></p>
+<p>and,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ϕ</mi><mi>a</mi></msub><annotation encoding="application/x-tex">\phi_a</annotation></semantics></math>
+is the proportion of mature females at age is as shown in the
+sub-section titled Natural mortality and maturity at age under
+“Parameters estimated independently” above.</p>
 <p>A reparameterized form for the stock-recruitment relationship
 following Francis (1992) was used. For the optional Beverton-Holt form
 (the Ricker form presented in Eq. 12 was adopted for this assessment) we
-have: <span class="math display">\[\begin{align}
+have:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>R</mi><mi>t</mi></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><msub><mi>B</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><msup><mi>e</mi><msub><mi>ε</mi><mi>t</mi></msub></msup></mrow><mrow><mi>α</mi><mo>+</mo><mi>β</mi><msub><mi>B</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow></mfrac></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
 R_t &amp;= \frac{B_{t-1}e^{\varepsilon_t} }{\alpha+\beta B_{t-1} }
-\end{align}\]</span></p>
+\end{align}</annotation></semantics></math></p>
 where
 <p>Values for the stock-recruitment function parameters and are
 calculated from the values of (the number of 0-year-olds in the absence
 of exploitation and recruitment variability) and the steepness of the
-stock-recruit relationship (<span class="math inline">\(h\)</span>). The
-steepness is the fraction of R0 to be expected (in the absence of
+stock-recruit relationship
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>).
+The steepness is the fraction of R0 to be expected (in the absence of
 recruitment variability) when the mature biomass is reduced to 20% of
 its pristine level (Francis 1992), so that:</p>
-<p><span class="math display">\[\begin{align}
-\alpha &amp;= \tilde B_0 \frac{1-h}{4h} \\
-\beta &amp;= \frac{5h-1}{4hR_0 }
-\end{align}\]</span></p>
-<p>where <span class="math inline">\(\tilde B_0\)</span> is the total
-egg production (or proxy, e.g., female spawning biomass) in the absence
-of exploitation (and recruitment variability) expressed as a fraction of
-<span class="math inline">\(R_0\)</span>.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>α</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mover><mi>B</mi><mo accent="true">̃</mo></mover><mn>0</mn></msub><mfrac><mrow><mn>1</mn><mo>−</mo><mi>h</mi></mrow><mrow><mn>4</mn><mi>h</mi></mrow></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>β</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><mn>5</mn><mi>h</mi><mo>−</mo><mn>1</mn></mrow><mrow><mn>4</mn><mi>h</mi><msub><mi>R</mi><mn>0</mn></msub></mrow></mfrac></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
+ \alpha &amp;= \tilde B_0 \frac{1-h}{4h} \\
+ \beta &amp;= \frac{5h-1}{4hR_0 } 
+\end{align}</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>B</mi><mo accent="true">̃</mo></mover><mn>0</mn></msub><annotation encoding="application/x-tex">\tilde B_0</annotation></semantics></math>
+is the total egg production (or proxy, e.g., female spawning biomass) in
+the absence of exploitation (and recruitment variability) expressed as a
+fraction of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mn>0</mn></msub><annotation encoding="application/x-tex">R_0</annotation></semantics></math>.</p>
 <p>Some interpretation and further explanation follows. For steepness
 equal 0.2, then recruits are a linear function of spawning biomass
 (implying no surplus production). For steepness equal to 1.0, then
 recruitment is constant for all levels of spawning stock size. A value
-of <span class="math inline">\(h = 0.9\)</span> implies that at 20% of
-the unfished spawning stock size will result in an expected value of 90%
-unfished recruitment level. Steepness of 0.7 is a commonly assumed
-default value for the Beverton-Holt form (e.g., Kimura 1988). The prior
-distribution for steepness used a beta distribution as in Ianelli et
-al. (2016). The prior on steepness was specified to be a symmetric form
-of the Beta distribution with <span class="math inline">\(\alpha = \beta
-= 14.93\)</span> implying a prior mean of 0.5 and CV of 12% (implying
-that there is about a 14% chance that the steepness is greater than
-0.6). This conservative prior is consistent with previous years’
-application and serves to constrain the stock-recruitment curve from
-favoring steep slopes (uninformative priors result in <span class="math inline">\(F_{MSY}\)</span> values near an <span class="math inline">\(F_{SPR}\)</span> of about <span class="math inline">\(F_{18\%}\)</span> a value considerably higher than
-the default proxy of <span class="math inline">\(F_{35\%}\)</span>). The
-residual pattern for the post-1977 recruits used in fitting the curve
-with a more diffuse prior resulted in all estimated recruits being below
-the curve for stock sizes less than <span class="math inline">\(B_{MSY}\)</span> (except for the 1978 year class).
-We believe this to be driven primarily by the apparent negative-slope
-for recruits relative to stock sizes above <span class="math inline">\(B_{MSY}\)</span> and as such, provides a
-potentially unrealistic estimate of productivity at low stock sizes.
-This prior was elicited from the rationale that residuals should be
-reasonably balanced throughout the range of spawning stock sizes.
-Whereas this is somewhat circular (i.e., using data for prior
-elicitation), the point here is that residual patterns (typically
+of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mn>0.9</mn></mrow><annotation encoding="application/x-tex">h = 0.9</annotation></semantics></math>
+implies that at 20% of the unfished spawning stock size will result in
+an expected value of 90% unfished recruitment level. Steepness of 0.7 is
+a commonly assumed default value for the Beverton-Holt form (e.g.,
+Kimura 1988). The prior distribution for steepness used a beta
+distribution as in Ianelli et al. (2016). The prior on steepness was
+specified to be a symmetric form of the Beta distribution with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mi>β</mi><mo>=</mo><mn>14.93</mn></mrow><annotation encoding="application/x-tex">\alpha = \beta = 14.93</annotation></semantics></math>
+implying a prior mean of 0.5 and CV of 12% (implying that there is about
+a 14% chance that the steepness is greater than 0.6). This conservative
+prior is consistent with previous years’ application and serves to
+constrain the stock-recruitment curve from favoring steep slopes
+(uninformative priors result in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub><annotation encoding="application/x-tex">F_{MSY}</annotation></semantics></math>
+values near an
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mrow><mi>S</mi><mi>P</mi><mi>R</mi></mrow></msub><annotation encoding="application/x-tex">F_{SPR}</annotation></semantics></math>
+of about
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mrow><mn>18</mn><mi>%</mi></mrow></msub><annotation encoding="application/x-tex">F_{18\%}</annotation></semantics></math>
+a value considerably higher than the default proxy of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mrow><mn>35</mn><mi>%</mi></mrow></msub><annotation encoding="application/x-tex">F_{35\%}</annotation></semantics></math>).
+The residual pattern for the post-1977 recruits used in fitting the
+curve with a more diffuse prior resulted in all estimated recruits being
+below the curve for stock sizes less than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub><annotation encoding="application/x-tex">B_{MSY}</annotation></semantics></math>
+(except for the 1978 year class). We believe this to be driven primarily
+by the apparent negative-slope for recruits relative to stock sizes
+above
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub><annotation encoding="application/x-tex">B_{MSY}</annotation></semantics></math>
+and as such, provides a potentially unrealistic estimate of productivity
+at low stock sizes. This prior was elicited from the rationale that
+residuals should be reasonably balanced throughout the range of spawning
+stock sizes. Whereas this is somewhat circular (i.e., using data for
+prior elicitation), the point here is that residual patterns (typically
 ignored in these types of models) were qualitatively considered.</p>
 <p>In model 16.1 (from the 2019 assessment), a Beverton Holt stock
 recruitment form was implemented using the prior value of 0.67 for
 steepness and a CV of 0.17. This resulted in beta distribution
-parameters (for the prior) at <span class="math inline">\(\alpha =
-6.339\)</span> and<br><span class="math inline">\(\beta = 4.293\)</span>.</p>
-<p>The value of <span class="math inline">\(\sigma_R\)</span> was set at
-1.0 to accommodate additional uncertainty in factors affecting
-recruitment variability.</p>
+parameters (for the prior) at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>6.339</mn></mrow><annotation encoding="application/x-tex">\alpha = 6.339</annotation></semantics></math>
+and<br><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>=</mo><mn>4.293</mn></mrow><annotation encoding="application/x-tex">\beta = 4.293</annotation></semantics></math>.</p>
+<p>The value of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>σ</mi><mi>R</mi></msub><annotation encoding="application/x-tex">\sigma_R</annotation></semantics></math>
+was set at 1.0 to accommodate additional uncertainty in factors
+affecting recruitment variability.</p>
 <p>To have the critical value for the stock-recruitment function
 (steepness, <em>h</em>) on the same scale for the Ricker model, we begin
-with the parameterization of Kimura (1990): <span class="math display">\[\begin{align}
-R_t &amp;= \frac{B_{t-1}e^{\alpha \left(1-B_{t-1} \frac{R_0}{\psi_0}
-\right)}}{\psi_0}
-\end{align}\]</span></p>
+with the parameterization of Kimura (1990):
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>R</mi><mi>t</mi></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><msub><mi>B</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><msup><mi>e</mi><mrow><mi>α</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>B</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mfrac><msub><mi>R</mi><mn>0</mn></msub><msub><mi>ψ</mi><mn>0</mn></msub></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup></mrow><msub><mi>ψ</mi><mn>0</mn></msub></mfrac></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
+R_t &amp;= \frac{B_{t-1}e^{\alpha \left(1-B_{t-1} \frac{R_0}{\psi_0} \right)}}{\psi_0}
+\end{align}</annotation></semantics></math></p>
 <p>It can be shown that the Ricker parameter a maps to steepness as:
-<span class="math display">\[\begin{align}
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>h</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><msup><mi>e</mi><mi>α</mi></msup><mrow><msup><mi>e</mi><mi>α</mi></msup><mo>+</mo><mn>4</mn></mrow></mfrac></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
 h &amp;= \frac{e^\alpha}{e^\alpha+4}
-\end{align}\]</span></p>
+\end{align}</annotation></semantics></math></p>
 <p>so that the prior used on <em>h</em> can be implemented in both the
-Ricker and Beverton-Holt stock-recruitment forms. Here the term <span class="math inline">\(\psi_0\)</span> represents the equilibrium
-unfished spawning biomass per-recruit.</p>
+Ricker and Beverton-Holt stock-recruitment forms. Here the term
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ψ</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\psi_0</annotation></semantics></math>
+represents the equilibrium unfished spawning biomass per-recruit.</p>
 </div>
 <div class="section level3">
 <h3 id="diagnostics">Diagnostics<a class="anchor" aria-label="anchor" href="#diagnostics"></a>
@@ -300,11 +319,18 @@ subsequent abundance expectation had no fishing occurred. These
 recruitments are adjusted from the original estimates by the ratio of
 the expected recruitment given spawning biomass (with and without
 fishing) and the estimated stock-recruitment curve. I.e., the
-recruitment under no fishing is modified as: <span class="math display">\[R_t' =
-\hat{R}_t\frac{f(B_{t-1}')}{f(B_{t-1})}\]</span> where <span class="math inline">\(R_t\)</span> is the original recruitment estimate
-in year <span class="math inline">\(t\)</span> with <span class="math inline">\(B_{t-1}'\)</span> and <span class="math inline">\(B_{t-1}\)</span> representing the
-stock-recruitment function given spawning biomass under no fishing and
-under the estimated fishing intensity, respectively.</p>
+recruitment under no fishing is modified as:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mi>t</mi></msub><mi>′</mi><mo>=</mo><msub><mover><mi>R</mi><mo accent="true">̂</mo></mover><mi>t</mi></msub><mfrac><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>B</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mi>′</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>B</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac></mrow><annotation encoding="application/x-tex">R_t' = \hat{R}_t\frac{f(B_{t-1}')}{f(B_{t-1})}</annotation></semantics></math>
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mi>t</mi></msub><annotation encoding="application/x-tex">R_t</annotation></semantics></math>
+is the original recruitment estimate in year
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mi>′</mi></mrow><annotation encoding="application/x-tex">B_{t-1}'</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">B_{t-1}</annotation></semantics></math>
+representing the stock-recruitment function given spawning biomass under
+no fishing and under the estimated fishing intensity, respectively.</p>
 <p>The assessment model code allows retrospective analyses (e.g., Parma
 1993, and Ianelli and Fournier 1998). This was designed to assist in
 specifying how spawning biomass patterns (and uncertainty) have changed
@@ -325,24 +351,28 @@ since it is often undesirable to use robust objective functions when
 models are far from a solution. Consequently, in the early stages of
 estimation we use the following log- likelihood function for the survey
 and fishery catch at age data (in numbers):</p>
-<p><span class="math display">\[\begin{align}
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>n</mi><mi>l</mi><mi>l</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>i</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>n</mi><munder><mo>∑</mo><mrow><mi>t</mi><mo>,</mo><mi>a</mi></mrow></munder><mrow><msub><mi>p</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><mo>ln</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mi>t</mi><mi>a</mi></mrow></msub></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>p</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><msub><mi>O</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><mrow><munder><mo>∑</mo><mi>a</mi></munder><msub><mi>O</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub></mrow></mfrac><mspace width="1.667em"></mspace><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mi>t</mi><mi>a</mi></mrow></msub><mo>=</mo><mfrac><msub><mover><mi>C</mi><mo accent="true">̂</mo></mover><mrow><mi>t</mi><mi>a</mi></mrow></msub><mrow><munder><mo>∑</mo><mi>a</mi></munder><msub><mover><mi>C</mi><mo accent="true">̂</mo></mover><mrow><mi>t</mi><mi>a</mi></mrow></msub></mrow></mfrac></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>𝐂</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mrow><mi>𝐂</mi><mi>𝐄</mi></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>𝐄</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><msub><mi>b</mi><mrow><mn>1</mn><mo>,</mo><mn>1</mn></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>b</mi><mrow><mn>1</mn><mo>,</mo><mn>2</mn></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><mi>…</mi></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>b</mi><mrow><mn>1</mn><mo>,</mo><mn>15</mn></mrow></msub></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><msub><mi>b</mi><mrow><mn>2</mn><mo>,</mo><mn>1</mn></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>b</mi><mrow><mn>2</mn><mo>,</mo><mn>2</mn></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>b</mi><mrow><mn>2</mn><mo>,</mo><mn>15</mn></mrow></msub></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mi>⋮</mi></mtd><mtd columnalign="left" style="text-align: left"></mtd><mtd columnalign="left" style="text-align: left"><mo>⋱</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>⋮</mi></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><msub><mi>b</mi><mrow><mn>15</mn><mo>,</mo><mn>1</mn></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>b</mi><mrow><mn>15</mn><mo>,</mo><mn>2</mn></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><mi>…</mi></mtd><mtd columnalign="left" style="text-align: left"><msub><mi>b</mi><mrow><mn>15</mn><mo>,</mo><mn>15</mn></mrow></msub></mtd></mtr></mtable></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
 nll(i) &amp;= n \sum_{t,a}{ p_{ta} \ln \hat p_{ta} } \\
-p_{ta} &amp;= \frac{O_{ta}}{\sum_a{O_{ta}}} \hspace{20pt}
+p_{ta} &amp;= \frac{O_{ta}}{\sum_a{O_{ta}}} \hspace{20pt} 
 \hat p_{ta} = \frac{\hat C_{ta}}{\sum_a{\hat C_{ta}}} \\
 \mathbf{C} &amp;= \mathbf{CE}  \\
-\mathbf{E}  &amp;=  \begin{array}{llll}
+\mathbf{E}  &amp;=  \begin{array}{llll} 
 b_{1,1} &amp; b_{1,2} &amp; \dots &amp; b_{1,15} \\
 b_{2,1} &amp; b_{2,2} &amp;       &amp; b_{2,15} \\
 \vdots &amp;         &amp; \ddots &amp;  \vdots \\
-b_{15,1} &amp; b_{15,2} &amp; \dots      &amp; b_{15,15}
+b_{15,1} &amp; b_{15,2} &amp; \dots      &amp; b_{15,15} 
 \end{array}  
-\end{align}\]</span></p>
-<p>where <span class="math inline">\(A\)</span>, and <span class="math inline">\(T\)</span>, represent the number of age classes
-and years, respectively, n is the sample size, and represent the
-observed and predicted numbers at age in the catch. The elements bi,j
-represent ageing mis-classification proportions are based on independent
-agreement rates between otolith age readers. For the models presented
-this year, the option for including aging errors was re-evaluated.</p>
+\end{align}</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>,
+represent the number of age classes and years, respectively, n is the
+sample size, and represent the observed and predicted numbers at age in
+the catch. The elements bi,j represent ageing mis-classification
+proportions are based on independent agreement rates between otolith age
+readers. For the models presented this year, the option for including
+aging errors was re-evaluated.</p>
 <p>Sample size values were revised and are shown in the main document.
 Strictly speaking, the amount of data collected for this fishery
 indicates higher values might be warranted. However, the standard
@@ -350,32 +380,30 @@ multinomial sampling process is not robust to violations of assumptions
 (Fournier et al. 1990). Consequently, as the model fit approached a
 solution, we invoke a robust likelihood function which fit proportions
 at age as:</p>
-<p><span class="math display">\[\begin{align}
-\prod_{a=1}^A\prod_{t=1}^T \left[\left(
-\exp{\left(-\frac{\left(p_{ta}-\hat
-p_{ta}\right)^2}{2\left(\eta_{ta}+0.1/A\right)\tau_t^2} \right)
-}+0.01 \right) \times  \frac{1}{ {\sqrt{2\pi \left ( \eta_{ta}+0.1/A
-\right) \tau_t}} } \right]
-\end{align}\]</span></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><munderover><mo>∏</mo><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><mi>A</mi></munderover><munderover><mo>∏</mo><mrow><mi>t</mi><mo>=</mo><mn>1</mn></mrow><mi>T</mi></munderover><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><mfrac><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>p</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><mo>−</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mi>t</mi><mi>a</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mrow><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>η</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><mo>+</mo><mn>0.1</mn><mi>/</mi><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><msubsup><mi>τ</mi><mi>t</mi><mn>2</mn></msubsup></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mn>0.01</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>×</mo><mfrac><mn>1</mn><msqrt><mrow><mn>2</mn><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>η</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><mo>+</mo><mn>0.1</mn><mi>/</mi><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>τ</mi><mi>t</mi></msub></mrow></msqrt></mfrac><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
+\prod_{a=1}^A\prod_{t=1}^T \left[\left( \exp{\left(-\frac{\left(p_{ta}-\hat p_{ta}\right)^2}{2\left(\eta_{ta}+0.1/A\right)\tau_t^2} \right)
+}+0.01 \right) \times  \frac{1}{ {\sqrt{2\pi \left ( \eta_{ta}+0.1/A \right) \tau_t}} } \right]
+\end{align}</annotation></semantics></math></p>
 <p>Taking the logarithm we obtain the log-likelihood function for the
 age composition data:</p>
-<p><span class="math display">\[\begin{align}
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>n</mi><mi>l</mi><mi>l</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>i</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>−</mi><mn>0.5</mn><munderover><mo>∑</mo><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><mi>A</mi></munderover><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>1</mn></mrow><mi>T</mi></munderover><mrow><mo>ln</mo><mrow><mn>2</mn><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>η</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><mo>+</mo><mn>0.1</mn><mi>/</mi><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><munderover><mo>∑</mo><mi>t</mi><mi>T</mi></munderover><mi>A</mi><mo>ln</mo><msub><mi>τ</mi><mi>t</mi></msub></mrow></mrow><mo>+</mo><munderover><mo>∑</mo><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><mi>A</mi></munderover><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>1</mn></mrow><mi>T</mi></munderover><mrow><mo>ln</mo><mrow><mo stretchy="true" form="prefix">{</mo><mo>exp</mo><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><mfrac><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>p</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><mo>−</mo><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mrow><mi>t</mi><mi>a</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><msub><mi>η</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><mo>+</mo><mn>0.1</mn><mi>/</mi><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><msubsup><mi>τ</mi><mi>t</mi><mn>2</mn></msubsup></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mn>0.01</mn></mrow><mo stretchy="true" form="postfix">}</mo></mrow></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
 nll(i) = -0.5\sum_{a=1}^A\sum_{t=1}^T{
-{\ln{2\pi \left( \eta_{ta}+0.1/A \right)
--\sum_t^T A\ln\tau_t}} }
+{\ln{2\pi \left( \eta_{ta}+0.1/A \right) 
+-\sum_t^T A\ln\tau_t}} } 
 +\sum_{a=1}^A\sum_{t=1}^T{\ln\left\{
-\exp{\left(-\frac{\left(p_{ta}-\hat
-p_{ta}\right)^2}{\left(2\eta_{ta}+0.1/A\right)\tau_t^2} \right)
-+ 0.01 }
+\exp{\left(-\frac{\left(p_{ta}-\hat p_{ta}\right)^2}{\left(2\eta_{ta}+0.1/A\right)\tau_t^2} \right)
++ 0.01 } 
 \right\}}
-\end{align}\]</span></p>
-<p>where <span class="math display">\[\begin{align}
-\eta_{ta} &amp;=  p_{ta}(1-p_{ta})\\
+\end{align}</annotation></semantics></math></p>
+<p>where
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>η</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>p</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>p</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">and</mtext></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msubsup><mi>τ</mi><mi>t</mi><mn>2</mn></msubsup></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>1</mn><mi>/</mi><msub><mi>n</mi><mi>t</mi></msub></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
+\eta_{ta} &amp;=  p_{ta}(1-p_{ta})\\ 
 \text{and} \\
-\tau_t^2 &amp;=  1/n_t
-\end{align}\]</span> which gives the variance for <span class="math inline">\(p_{ta}\)</span> <span class="math display">\[\begin{align}
+\tau_t^2 &amp;=  1/n_t 
+\end{align}</annotation></semantics></math> which gives the variance for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><annotation encoding="application/x-tex">p_{ta}</annotation></semantics></math><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>η</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><mo>+</mo><mn>0.1</mn><mi>/</mi><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><msubsup><mi>τ</mi><mi>t</mi><mn>2</mn></msubsup></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
 (\eta_{ta}+0.1/A)\tau_t^2
-\end{align}\]</span></p>
+\end{align}</annotation></semantics></math></p>
 <p>Completing the estimation in this fashion reduces the model
 sensitivity to data that would otherwise be considered outliers.</p>
 <p>Within the model, predicted survey abundance accounted for
@@ -385,16 +413,16 @@ insignificant (i.e., the mortality of pollock caused by the survey was
 considered insignificant). Consequently, a set of analogous catchability
 and selectivity terms were estimated for fitting the survey observations
 as:</p>
-<p><span class="math display">\[\begin{align}
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msubsup><mover><mi>N</mi><mo accent="true">̂</mo></mover><mrow><mi>t</mi><mi>a</mi></mrow><mi>s</mi></msubsup></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mn>0.5</mn><msub><mi>Z</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub></mrow></msup><msub><mi>N</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><msubsup><mi>q</mi><mi>t</mi><mi>s</mi></msubsup><msubsup><mi>s</mi><mrow><mi>t</mi><mi>a</mi></mrow><mi>S</mi></msubsup></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
 \hat N_{ta}^s &amp;= e^{-0.5Z_{ta}}N_{ta}q_t^ss_{ta}^S
-\end{align}\]</span></p>
+\end{align}</annotation></semantics></math></p>
 <p>where the superscript s indexes the type of survey (AT or BTS). For
 the option to use the survey predictions in biomass terms instead of
 just abundance, the above was modified to include observed survey
 biomass weights-at-age:</p>
-<p><span class="math display">\[\begin{align}
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msubsup><mover><mi>N</mi><mo accent="true">̂</mo></mover><mrow><mi>t</mi><mi>a</mi></mrow><mi>s</mi></msubsup></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mn>0.5</mn><msub><mi>Z</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub></mrow></msup><msub><mi>w</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><msub><mi>N</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><msubsup><mi>q</mi><mi>t</mi><mi>s</mi></msubsup><msubsup><mi>s</mi><mrow><mi>t</mi><mi>a</mi></mrow><mi>S</mi></msubsup></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
 \hat N_{ta}^s &amp;= e^{-0.5Z_{ta}}w_{ta}N_{ta}q_t^ss_{ta}^S
-\end{align}\]</span></p>
+\end{align}</annotation></semantics></math></p>
 <p>For the AVO index, the values for selectivity were assumed to be the
 same as for the AT survey and the mean weights at age over time was also
 assumed to be equal to the values estimated for the AT survey.</p>
@@ -403,134 +431,178 @@ over time (though they are estimated separately for the AVO index and
 for the AT and bottom trawl surveys). The contribution to the negative
 log-likelihood function (ignoring constants) from the surveys is given
 by either the lognormal distribution:</p>
-<p><span class="math display">\[\begin{align}
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>n</mi><mi>l</mi><mi>l</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>i</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><munder><mo>∑</mo><mi>t</mi></munder><mfrac><mrow><mo>ln</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>u</mi><mi>t</mi><mi>s</mi></msubsup><mi>/</mi><msubsup><mover><mi>N</mi><mo accent="true">̂</mo></mover><mi>t</mi><mi>s</mi></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><mrow><mn>2</mn><msubsup><mi>σ</mi><mrow><mi>s</mi><mo>,</mo><mi>t</mi></mrow><mn>2</mn></msubsup></mrow></mfrac></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
 nll(i) &amp;= \sum_t{\frac{\ln(u_t^s/\hat N_t^s)^2}{2\sigma_{s,t}^2}}
-\end{align}\]</span> where <span class="math inline">\(u_t^s\)</span> is
-the total (numerical abundance or optionally biomass) estimate with
-variance <span class="math inline">\(\sigma_{s,t}\)</span> from survey
-<span class="math inline">\(s\)</span> in year <span class="math inline">\(t\)</span> or optionally, the normal distribution
-can be selected: <span class="math display">\[\begin{align}
+\end{align}</annotation></semantics></math> where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>u</mi><mi>t</mi><mi>s</mi></msubsup><annotation encoding="application/x-tex">u_t^s</annotation></semantics></math>
+is the total (numerical abundance or optionally biomass) estimate with
+variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>σ</mi><mrow><mi>s</mi><mo>,</mo><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\sigma_{s,t}</annotation></semantics></math>
+from survey
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>
+in year
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+or optionally, the normal distribution can be selected:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>n</mi><mi>l</mi><mi>l</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>i</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><munder><mo>∑</mo><mi>t</mi></munder><mfrac><msup><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>u</mi><mi>t</mi><mi>s</mi></msubsup><mo>−</mo><msubsup><mover><mi>N</mi><mo accent="true">̂</mo></mover><mi>t</mi><mi>s</mi></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mrow><mn>2</mn><msubsup><mi>σ</mi><mrow><mi>s</mi><mo>,</mo><mi>t</mi></mrow><mn>2</mn></msubsup></mrow></mfrac><mi>.</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
 nll(i) &amp;= \sum_t{\frac{(u_t^s - \hat N_t^s)^2}{2\sigma_{s,t}^2}}. \\
-\end{align}\]</span></p>
+\end{align}</annotation></semantics></math></p>
 <p>The AT survey and AVO index is modeled using a lognormal distribution
 whereas for the BTS survey, a normal distribution was applied.</p>
 <p>For model configurations in which the BTS data are corrected for
 estimated efficiency, a multivariate lognormal distribution was used.
-For the negative- log likelihood component this was modeled as <span class="math display">\[\begin{equation}
+For the negative- log likelihood component this was modeled as
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>l</mi><msub><mi>l</mi><mi>i</mi></msub><mo>=</mo><mn>0.5</mn><mi>𝐗</mi><msup><mi>Σ</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><msup><mi>𝐗</mi><mi>′</mi></msup></mrow><annotation encoding="application/x-tex">\begin{equation}
 nll_i = 0.5\mathbf{X}\Sigma^{-1}\mathbf{X}^{'}
-\end{equation}\]</span></p>
+\end{equation}</annotation></semantics></math></p>
 <p>where is a vector of observed minus model predicted values for this
-index and <span class="math inline">\(\Sigma\)</span> is the estimated
-covariance matrix provided from the method provided in Kotwicki et
-al. 2014. For the VAST estimates, the supplied covariance matrix was
-used in the same way.</p>
+index and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math>
+is the estimated covariance matrix provided from the method provided in
+Kotwicki et al. 2014. For the VAST estimates, the supplied covariance
+matrix was used in the same way.</p>
 <p>The contribution to the negative log-likelihood function for the
-observed total catch biomass (<span class="math inline">\(C_b^{obs},
-\hat{C_b}\)</span>) by the fishery is given by <span class="math display">\[\begin{equation}
+observed total catch biomass
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>C</mi><mi>b</mi><mrow><mi>o</mi><mi>b</mi><mi>s</mi></mrow></msubsup><mo>,</mo><mover><msub><mi>C</mi><mi>b</mi></msub><mo accent="true">̂</mo></mover></mrow><annotation encoding="application/x-tex">C_b^{obs}, \hat{C_b}</annotation></semantics></math>)
+by the fishery is given by
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>l</mi><msub><mi>l</mi><mi>i</mi></msub><mo>=</mo><mn>0.5</mn><munder><mo>∑</mo><mi>t</mi></munder><mfrac><mrow><mo>ln</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>C</mi><mi>b</mi><mrow><mi>o</mi><mi>b</mi><mi>s</mi></mrow></msubsup><mi>/</mi><msub><mover><mi>C</mi><mo accent="true">̂</mo></mover><mi>b</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><mrow><mn>2</mn><msubsup><mi>σ</mi><mrow><msub><mi>C</mi><mi>b</mi></msub><mo>,</mo><mi>t</mi></mrow><mn>2</mn></msubsup></mrow></mfrac></mrow><annotation encoding="application/x-tex">\begin{equation}
 nll_i = 0.5\sum_t\frac{\ln(C_b^{obs}/\hat C_b)^2}{2\sigma_{C_b,t}^2}
-\end{equation}\]</span></p>
-<p>where <span class="math inline">\(\sigma_{C_b,t}\)</span> is
-pre-specified (set to 0.05) reflecting the accuracy of the overall
+\end{equation}</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>σ</mi><mrow><msub><mi>C</mi><mi>b</mi></msub><mo>,</mo><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\sigma_{C_b,t}</annotation></semantics></math>
+is pre-specified (set to 0.05) reflecting the accuracy of the overall
 observed catch in biomass. Similarly, the contribution of prior
 distributions (in negative log-density) to the log-likelihood function
-include <span class="math inline">\(\lambda_\varepsilon
-\sum_t\varepsilon_t^2 +\lambda_\gamma \sum_{ta}\gamma^2 + \lambda_\delta
-\sum_t\delta_t^2\)</span> where the size of the ’s represent prior
-assumptions about the variances of these random variables. Most of these
-parameters are associated with year-to- year and age specific deviations
-in selectivity coefficients. For a presentation of this type of Bayesian
-approach to modeling errors-in- variables, the reader is referred to
-Schnute (1994). To facilitate estimating such a large number of
-parameters, automatic differentiation software extended from Greiwank
-and Corliss (1991) and developed into C++ class libraries was used. This
-software provided the derivative calculations needed for finding the
-posterior mode via a quasi-Newton function minimization routine (e.g.,
-Press et al. 1992). The model implementation language (ADModel Builder)
-gave simple and rapid access to these routines and provided the ability
-estimate the variance-covariance matrix for all dependent and
-independent parameters of interest.</p>
+include
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>ε</mi></msub><msub><mo>∑</mo><mi>t</mi></msub><msubsup><mi>ε</mi><mi>t</mi><mn>2</mn></msubsup><mo>+</mo><msub><mi>λ</mi><mi>γ</mi></msub><msub><mo>∑</mo><mrow><mi>t</mi><mi>a</mi></mrow></msub><msup><mi>γ</mi><mn>2</mn></msup><mo>+</mo><msub><mi>λ</mi><mi>δ</mi></msub><msub><mo>∑</mo><mi>t</mi></msub><msubsup><mi>δ</mi><mi>t</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">\lambda_\varepsilon \sum_t\varepsilon_t^2 +\lambda_\gamma \sum_{ta}\gamma^2 +  \lambda_\delta \sum_t\delta_t^2</annotation></semantics></math>
+where the size of the ’s represent prior assumptions about the variances
+of these random variables. Most of these parameters are associated with
+year-to- year and age specific deviations in selectivity coefficients.
+For a presentation of this type of Bayesian approach to modeling
+errors-in- variables, the reader is referred to Schnute (1994). To
+facilitate estimating such a large number of parameters, automatic
+differentiation software extended from Greiwank and Corliss (1991) and
+developed into C++ class libraries was used. This software provided the
+derivative calculations needed for finding the posterior mode via a
+quasi-Newton function minimization routine (e.g., Press et al. 1992).
+The model implementation language (ADModel Builder) gave simple and
+rapid access to these routines and provided the ability estimate the
+variance-covariance matrix for all dependent and independent parameters
+of interest.</p>
 </div>
 <div class="section level3">
 <h3 id="uncertainty-in-mean-body-mass">Uncertainty in mean body mass<a class="anchor" aria-label="anchor" href="#uncertainty-in-mean-body-mass"></a>
 </h3>
-<p>The approach we use to solve for <span class="math inline">\(F_{MSY}\)</span> and related quantities (e.g.,
-<span class="math inline">\(B_{MSY}\)</span> <span class="math inline">\(MSY\)</span>) within a general integrated model
-context was shown in Ianelli et al. (2001). In 2007 this was modified to
-include uncertainty in weight-at-age as an explicit part of the
-uncertainty for <span class="math inline">\(F_{MSY}\)</span>
-calculations. This involved estimating a vector of parameters (<span class="math inline">\(w_{ta}^{future}\)</span>) on current (2022) and
-future mean weights for each age <span class="math inline">\(i\)</span>,
-<span class="math inline">\(i\)</span>= (1, 2,…,15), given actual
-observed mean and variances in weight-at-age over the period 1991-2021.
-The values of based on available data and (if this option is selected)
-estimates the parameters subject to the natural constraint: <span class="math display">\[w_{ta}^{future} \sim
-\mathcal{N}(\bar{w_{a}},\,\sigma_{w_a}^{2})\]</span> Note that this
-converges to the mean values over the time series of data (no other
-likelihood component within the model is affected by future mean
-weights-at-age) while retaining the natural uncertainty that can
-propagate through estimates of <span class="math inline">\(F_{MSY}\)</span> uncertainty. This latter point is
-essentially a requirement of the Tier 1 categorization.</p>
+<p>The approach we use to solve for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub><annotation encoding="application/x-tex">F_{MSY}</annotation></semantics></math>
+and related quantities (e.g.,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub><annotation encoding="application/x-tex">B_{MSY}</annotation></semantics></math><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow><annotation encoding="application/x-tex">MSY</annotation></semantics></math>)
+within a general integrated model context was shown in Ianelli et
+al. (2001). In 2007 this was modified to include uncertainty in
+weight-at-age as an explicit part of the uncertainty for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub><annotation encoding="application/x-tex">F_{MSY}</annotation></semantics></math>
+calculations. This involved estimating a vector of parameters
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>w</mi><mrow><mi>t</mi><mi>a</mi></mrow><mrow><mi>f</mi><mi>u</mi><mi>t</mi><mi>u</mi><mi>r</mi><mi>e</mi></mrow></msubsup><annotation encoding="application/x-tex">w_{ta}^{future}</annotation></semantics></math>)
+on current (2022) and future mean weights for each age
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>=
+(1, 2,…,15), given actual observed mean and variances in weight-at-age
+over the period 1991-2021. The values of based on available data and (if
+this option is selected) estimates the parameters subject to the natural
+constraint:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>w</mi><mrow><mi>t</mi><mi>a</mi></mrow><mrow><mi>f</mi><mi>u</mi><mi>t</mi><mi>u</mi><mi>r</mi><mi>e</mi></mrow></msubsup><mo>∼</mo><mi>𝒩</mi><mrow><mo stretchy="true" form="prefix">(</mo><mover><msub><mi>w</mi><mi>a</mi></msub><mo accent="true">‾</mo></mover><mo>,</mo><mspace width="0.167em"></mspace><msubsup><mi>σ</mi><msub><mi>w</mi><mi>a</mi></msub><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">w_{ta}^{future} \sim \mathcal{N}(\bar{w_{a}},\,\sigma_{w_a}^{2})</annotation></semantics></math>
+Note that this converges to the mean values over the time series of data
+(no other likelihood component within the model is affected by future
+mean weights-at-age) while retaining the natural uncertainty that can
+propagate through estimates of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub><annotation encoding="application/x-tex">F_{MSY}</annotation></semantics></math>
+uncertainty. This latter point is essentially a requirement of the Tier
+1 categorization.</p>
 <p>Subsequently, this method was refined to account for current-year
 survey data and both cohort and year effects. The model for this is:
-<span class="math display">\[\begin{align}
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mover><mi>w</mi><mo accent="true">̂</mo></mover><mrow><mi>t</mi><mi>a</mi></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mover><mi>w</mi><mo accent="true">‾</mo></mover><mi>a</mi></msub><msup><mi>e</mi><msub><mi>υ</mi><mi>t</mi></msub></msup></mtd><mtd columnalign="right" style="text-align: right"><mi>a</mi><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="0.167em"></mspace><mi>t</mi><mo>≥</mo><mn>1964</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mover><mi>w</mi><mo accent="true">̂</mo></mover><mrow><mi>t</mi><mi>a</mi></mrow></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mover><mi>w</mi><mo accent="true">̂</mo></mover><mrow><mi>t</mi><mo>−</mo><mn>1</mn><mo>,</mo><mi>a</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>Δ</mi><mi>a</mi></msub><msup><mi>e</mi><msub><mi>ψ</mi><mi>t</mi></msub></msup></mtd><mtd columnalign="right" style="text-align: right"><mi>a</mi><mo>&gt;</mo><mn>1</mn><mo>,</mo><mspace width="0.167em"></mspace><mi>t</mi><mo>&gt;</mo><mn>1964</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>Δ</mi><mi>a</mi></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mover><mi>w</mi><mo accent="true">‾</mo></mover><mrow><mi>a</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mover><mi>w</mi><mo accent="true">‾</mo></mover><mi>a</mi></msub></mtd><mtd columnalign="right" style="text-align: right"><mi>a</mi><mo>&lt;</mo><mi>A</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mover><mi>w</mi><mo accent="true">‾</mo></mover><mi>a</mi></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>α</mi><msup><mrow><mo stretchy="true" form="prefix">{</mo><msub><mi>L</mi><mn>1</mn></msub><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>L</mi><mn>2</mn></msub><mo>−</mo><msub><mi>L</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mrow><mn>1</mn><mo>−</mo><msup><mi>K</mi><mrow><mi>a</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><mrow><mn>1</mn><mo>−</mo><msup><mi>K</mi><mrow><mi>A</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">}</mo></mrow><mn>3</mn></msup></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
 \hat{w}_{ta} &amp;= \bar w_a e^{\upsilon_t} &amp; a=1, \, t \ge 1964 \\
-\hat{w}_{ta} &amp;= \hat{w}_{t-1,a-1} + \Delta_a e^{\psi_t} &amp; a &gt;
-1, \, t &gt; 1964 \\
+\hat{w}_{ta} &amp;= \hat{w}_{t-1,a-1} + \Delta_a e^{\psi_t} &amp; a &gt; 1, \, t &gt; 1964 \\
 \Delta_a     &amp;= \bar w_{a+1} - \bar w_a &amp; a&lt;A  \\
-\bar w_a     &amp;= \alpha \left\{L_1+
-\left(L_2-L_1\right)\left(\frac{1-K^{a-1}}{1-K^{A-1}}\right)\right\}^3  \\
-\end{align}\]</span> where the fixed effects parameters are <span class="math inline">\(L_1, L_2, K,\)</span> and <span class="math inline">\(\alpha\)</span> while the random effects
-parameters are <span class="math inline">\(\upsilon_t\)</span> and <span class="math inline">\(\psi_t\)</span>.</p>
+\bar w_a     &amp;= \alpha \left\{L_1+ \left(L_2-L_1\right)\left(\frac{1-K^{a-1}}{1-K^{A-1}}\right)\right\}^3  \\
+\end{align}</annotation></semantics></math> where the fixed effects
+parameters are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mn>1</mn></msub><mo>,</mo><msub><mi>L</mi><mn>2</mn></msub><mo>,</mo><mi>K</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">L_1, L_2, K,</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+while the random effects parameters are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>υ</mi><mi>t</mi></msub><annotation encoding="application/x-tex">\upsilon_t</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ψ</mi><mi>t</mi></msub><annotation encoding="application/x-tex">\psi_t</annotation></semantics></math>.</p>
 </div>
 <div class="section level3">
 <h3 id="tier-1-projections">Tier 1 projections<a class="anchor" aria-label="anchor" href="#tier-1-projections"></a>
 </h3>
 <p>Tier 1 projections were calculated two ways. First, for 2023 and 2024
-ABC and <span class="math inline">\(OFL\)</span> levels, the harmonic
-mean <span class="math inline">\(F_{MSY}\)</span> value was computed and
-the analogous harvest rate (<span class="math inline">\(\bar{u_{HM}}\)</span>) applied to the estimated
-geometric mean fishable biomass at <span class="math inline">\(B_{MSY}\)</span> : <span class="math display">\[\begin{align}
+ABC and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mi>F</mi><mi>L</mi></mrow><annotation encoding="application/x-tex">OFL</annotation></semantics></math>
+levels, the harmonic mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub><annotation encoding="application/x-tex">F_{MSY}</annotation></semantics></math>
+value was computed and the analogous harvest rate
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><msub><mi>u</mi><mrow><mi>H</mi><mi>M</mi></mrow></msub><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar{u_{HM}}</annotation></semantics></math>)
+applied to the estimated geometric mean fishable biomass at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub><annotation encoding="application/x-tex">B_{MSY}</annotation></semantics></math>
+:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>A</mi><mi>B</mi><msub><mi>C</mi><mi>t</mi></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msubsup><mi>B</mi><mrow><mi>G</mi><mi>M</mi><mo>,</mo><mi>t</mi></mrow><mi>f</mi></msubsup><msub><mover><mi>u</mi><mo accent="true">̂</mo></mover><mrow><mi>H</mi><mi>M</mi></mrow></msub><msub><mi>ζ</mi><mi>t</mi></msub></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msubsup><mi>B</mi><mrow><mi>G</mi><mi>M</mi><mo>,</mo><mi>t</mi></mrow><mi>f</mi></msubsup></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msup><mi>e</mi><mrow><mo>ln</mo><msubsup><mover><mi>B</mi><mo accent="true">̂</mo></mover><mi>t</mi><mi>f</mi></msubsup><mo>−</mo><mn>0.5</mn><msubsup><mi>σ</mi><msup><mi>B</mi><mi>f</mi></msup><mn>2</mn></msubsup></mrow></msup></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msubsup><mi>u</mi><mrow><mi>H</mi><mi>M</mi><mo>,</mo><mi>t</mi></mrow><mi>f</mi></msubsup></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msup><mi>e</mi><mrow><mo>ln</mo><msub><mover><mi>u</mi><mo accent="true">̂</mo></mover><mrow><mi>M</mi><mi>S</mi><mi>Y</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>−</mo><mn>0.5</mn><msubsup><mi>σ</mi><msub><mi>u</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub><mn>2</mn></msubsup></mrow></msup></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>ζ</mi><mi>t</mi></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mrow><msub><mi>B</mi><mi>t</mi></msub><mi>/</mi><msub><mi>B</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub><mo>−</mo><mn>0.05</mn></mrow><mrow><mn>1</mn><mo>−</mo><mn>0.05</mn></mrow></mfrac></mtd><mtd columnalign="right" style="text-align: right"><msub><mi>B</mi><mi>t</mi></msub><mo>&lt;</mo><msub><mi>B</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>ζ</mi><mi>t</mi></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>1.0</mn></mtd><mtd columnalign="right" style="text-align: right"><msub><mi>B</mi><mi>t</mi></msub><mo>≥</mo><msub><mi>B</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}
 ABC_t &amp;= B_{GM,t}^f \hat{u}_{HM}\zeta_t \\
 B_{GM,t}^f &amp;= e^{\ln{\hat{B}_t^f}-0.5\sigma_{B^f}^2} \\
 u_{HM,t}^f &amp;= e^{\ln{\hat{u}_{MSY,t}}-0.5\sigma_{u_{MSY}}^2} \\
-\zeta_{t} &amp;= \frac{B_t/B_{MSY}-0.05}{1-0.05} &amp; B_t &lt; B_{MSY}
-\\
-\zeta_{t} &amp;= 1.0 &amp; B_t \ge  B_{MSY}
-\end{align}\]</span></p>
-<p>where <span class="math inline">\(\hat{B}_t^f\)</span> is the point
-estimate of the fishable biomass defined (for a given year): <span class="math inline">\(\sum_a{N_as_{ta}w_{ta}}\)</span> with <span class="math inline">\(N_{ta}\)</span>, <span class="math inline">\(s_{ta}\)</span>, and <span class="math inline">\(w_{ta}\)</span> the estimated population numbers
-(begin year), selectivity and weights-at-age, respectively. <span class="math inline">\(B_{MSY}\)</span> and <span class="math inline">\(B_{t}\)</span> are the point estimates spawning
-biomass levels at equilibrium <span class="math inline">\(F_{MSY}\)</span> and in year <span class="math inline">\(t\)</span> (at time of spawning). For these
-projections, catch must be specified (or solved for if in the current
-year when <span class="math inline">\(B_t &lt; B_{MSY}\)</span>). For
-longer term projections a form of operating model (as has been presented
-for the evaluation of <span class="math inline">\(B_{20\%}\)</span>)
+\zeta_{t} &amp;= \frac{B_t/B_{MSY}-0.05}{1-0.05} &amp; B_t &lt; B_{MSY} \\
+\zeta_{t} &amp;= 1.0 &amp; B_t \ge  B_{MSY} 
+\end{align}</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mover><mi>B</mi><mo accent="true">̂</mo></mover><mi>t</mi><mi>f</mi></msubsup><annotation encoding="application/x-tex">\hat{B}_t^f</annotation></semantics></math>
+is the point estimate of the fishable biomass defined (for a given
+year):
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∑</mo><mi>a</mi></msub><mrow><msub><mi>N</mi><mi>a</mi></msub><msub><mi>s</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><msub><mi>w</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub></mrow></mrow><annotation encoding="application/x-tex">\sum_a{N_as_{ta}w_{ta}}</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>N</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><annotation encoding="application/x-tex">N_{ta}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><annotation encoding="application/x-tex">s_{ta}</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>w</mi><mrow><mi>t</mi><mi>a</mi></mrow></msub><annotation encoding="application/x-tex">w_{ta}</annotation></semantics></math>
+the estimated population numbers (begin year), selectivity and
+weights-at-age, respectively.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub><annotation encoding="application/x-tex">B_{MSY}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mi>t</mi></msub><annotation encoding="application/x-tex">B_{t}</annotation></semantics></math>
+are the point estimates spawning biomass levels at equilibrium
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub><annotation encoding="application/x-tex">F_{MSY}</annotation></semantics></math>
+and in year
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+(at time of spawning). For these projections, catch must be specified
+(or solved for if in the current year when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mi>t</mi></msub><mo>&lt;</mo><msub><mi>B</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub></mrow><annotation encoding="application/x-tex">B_t &lt; B_{MSY}</annotation></semantics></math>).
+For longer term projections a form of operating model (as has been
+presented for the evaluation of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mrow><mn>20</mn><mi>%</mi></mrow></msub><annotation encoding="application/x-tex">B_{20\%}</annotation></semantics></math>)
 with feedback (via future catch specifications) using the control rule
 and assessment model would be required.</p>
 </div>
 </div>
-  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
 
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p>
-<p>Developed by Jim Ianelli.</p>
+  <p>Developed by Jim Ianelli.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
 </div>
 
     </footer>
 </div>
 
-  
 
-  
+
+
 
   </body>
 </html>

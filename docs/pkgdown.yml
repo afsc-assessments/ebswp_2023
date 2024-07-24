@@ -1,14 +1,13 @@
-pandoc: 3.1.2
-pkgdown: 2.0.7.9000
-pkgdown_sha: c9206802f2888992de92aa41f517ba7812f05331
+pandoc: 3.2.1
+pkgdown: 2.1.0
+pkgdown_sha: ~
 articles:
   Assessment-planning: Assessment-planning.html
   Change_Model_Specs: Change_Model_Specs.html
   EBS_wp_OSA: EBS_wp_OSA.html
-  Intro: Intro.html
   Model-equations: Model-equations.html
-last_built: 2023-09-20T04:47Z
+  test: test.pdf
+last_built: 2024-07-24T17:54Z
 urls:
   reference: http://afsc-assessments.github.io/ebswp/reference
   article: http://afsc-assessments.github.io/ebswp/articles
-

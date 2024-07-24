@@ -5,7 +5,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Facilitates Model Running for EBS Pollock">
 <title>Facilitates Model Running for EBS Pollock • ebswp</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -14,64 +13,269 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Facilitates Model Running for EBS Pollock">
+<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Facilitates Model Running for EBS Pollock">
+<meta name="description" content="Facilitates Model Running for EBS Pollock">
 <meta property="og:description" content="Facilitates Model Running for EBS Pollock">
 <meta property="og:image" content="http://afsc-assessments.github.io/ebswp/logo.png">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
-    
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
-    
+
+    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+
     <a class="navbar-brand me-2" href="index.html">ebswp</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
 
-    
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item">
-  <a class="nav-link" href="reference/index.html">Reference</a>
-</li>
+<li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="articles/Assessment-planning.html">Planning notes for the pollock assessment in the EBS</a>
-    <a class="dropdown-item" href="articles/Change_Model_Specs.html">Example on how to change and run a model</a>
-    <a class="dropdown-item" href="articles/EBS_wp_OSA.html">Application of one-step ahead residuals to alternative EBS pollock model specifications</a>
-    <a class="dropdown-item" href="articles/Intro.html">SAFE report front matter</a>
-    <a class="dropdown-item" href="articles/Model-equations.html">EBS pollock model equations</a>
-  </div>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="articles/Assessment-planning.html">Planning notes for the pollock assessment in the EBS</a></li>
+    <li><a class="dropdown-item" href="articles/Change_Model_Specs.html">Example on how to change and run a model</a></li>
+    <li><a class="dropdown-item" href="articles/EBS_wp_OSA.html">Application of one-step ahead residuals to alternative EBS pollock model specifications</a></li>
+    <li><a class="dropdown-item" href="articles/Model-equations.html">EBS pollock model equations</a></li>
+    <li><a class="dropdown-item" href="articles/test.pdf">Mixing Table Types (PDF)</a></li>
+  </ul>
 </li>
       </ul>
-<form class="form-inline my-2 my-lg-0" role="search">
-        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
-</form>
-
-      <ul class="navbar-nav"></ul>
+<ul class="navbar-nav">
+<li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
+</form></li>
+      </ul>
 </div>
 
-    
+
   </div>
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header">
-<img src="logo.png" class="logo" alt=""><h1 id="east-bering-sea-pollock-">East Bering Sea pollock <a class="anchor" aria-label="anchor" href="#east-bering-sea-pollock-"></a>
+<img src="logo.png" class="logo" alt=""><h1 id="list-from-sscplan-teams-2023">List from SSC/Plan Teams, 2023<a class="anchor" aria-label="anchor" href="#list-from-sscplan-teams-2023"></a>
 </h1>
 </div>
+<table class="table">
+<colgroup>
+<col width="55%">
+<col width="44%">
+</colgroup>
+<thead><tr>
+<th>SSC Recommendations</th>
+<th>Authors’ Response</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>The SSC would prefer not to make a risk table adjustment based on the difference from Tier 1 to Tier 3 again during the 2024 assessment cycle.</td>
+<td><em>This has been selected as an option by the SSC, the authors provide this as an option and anticipate that any reductions from the maximum perissible ABC be conducted based on the contents of the risk table</em></td>
+</tr>
+<tr>
+<td>The SSC requests that the next stock assessment bring back a new approach that may include development of a constant buffer based on factors extrinsic to the stock assessment (ecosystem function), or a better representation of the uncertainty in the Tier 1 and control rule calculations such that a reduction from maximum ABC is not needed every year.</td>
+<td><em>We developed an MSE to address options that relate to ecosystem function</em></td>
+</tr>
+<tr>
+<td>Use posterior distributions from the MCMC to determine probabilities in the risk table and expand the columns in the risk table to include the recommended ABC (and potentially higher values).</td>
+<td><em>response here</em></td>
+</tr>
+<tr>
+<td>Identify where MLE estimates are being used and where MCMC estimates are being used.</td>
+<td><em>Throughout the document we note how approximations to the posterior distribution is derived. We also include comparisons of the posterior error estimates from MCMC and from the mode and delta method</em></td>
+</tr>
+<tr>
+<td>Also see the SSC’s General Stock Assessment Comments to include convergence diagnostics any time Bayesian results are reported.</td>
+<td><em>We adopted the convention recommended in Monnahan et al. 2024.</em></td>
+</tr>
+<tr>
+<td>If MCMC diagnostics continue to appear adequate, reference points could be calculated using the posterior distribution used, rather than an analytical calculation.</td>
+<td><em>We have always presented the posterior marginal distributions of reference points as derived from MCMC.</em></td>
+</tr>
+<tr>
+<td>The SSC recommends that consideration be given to removal of the Japanese fishery CPUE index (1965-76) from the assessment, because this data set no longer seems to contribute to the assessment.</td>
+<td><em>We disagree but provide a run without the time series.</em></td>
+</tr>
+<tr>
+<td>A sensitivity test should be done to evaluate the effects of data removal on the assessment.</td>
+<td><em>We are unclear why this should be done and what diagnostics would indicate improvements; consistency among noisy data sets?</em></td>
+</tr>
+<tr>
+<td>Catch-at-age data provided by foreign fishing agencies in the pre-Magnuson era were not produced using the same aging criteria as the AFSC age-and-growth program. Consideration should be given to removal of these data from the assessment.</td>
+<td><em>Presently these data are given far less weight in terms of effective sample size. We note that the available data suggest smaller/younger fish comprised most of the removals and without other information, find it difficult to refute these data. They were used as the primary set since the development of the domestic fishery.</em></td>
+</tr>
+<tr>
+<td>Document the method used for determining the selectivity to use in the forward projections and continue to evaluate projection variability due to selectivity.</td>
+<td><em>We continue to show the impact of selectivity changes relative to Fmsy in a figure and historically have provided justifications for using a specific selectivity pattern. The choice has varied depending on observed trends in recruitment and fishing patterns.</em></td>
+</tr>
+<tr>
+<td>The SSC appreciates the selectivity retrospective comparison and suggests that it might be helpful to limit the comparison to the projection used in each year against only the most recent (best) estimate of selectivity for that year.</td>
+<td><em>This is what is shown in the figure. Will clarify.</em></td>
+</tr>
+<tr>
+<td>The SSC supports the use of posterior predictive distributions, an underutilized tool in fisheries science, but common in other fields. To fully implement this approach to Bayesian model checking the SSC recommends plotting a histogram for each data source of the percentile of the predictive distribution in which each data point lies, noting that in a highly consistent model this histogram would be uniform.</td>
+<td><em>Seems useful potentially, but would fail to show which years might have been outliers.</em></td>
+</tr>
+<tr>
+<td>There is an apparent shift towards older ages in fisheries and trawl survey selectivity that should be investigated further.</td>
+<td><em>Unclear over what period and how one might investigate further beyond reflecting a changing age structure of the population. If it can be shown to be spatially related, what then?</em></td>
+</tr>
+<tr>
+<td>The SSC agrees with the BSAI GPT’s proposal in their presentation to move the multi-species model out of the pollock stock assessment, where it has been included as an appendix since it was first developed.</td>
+<td><em>It has been a stand-alone document provided with the BSAI SAFE report for several years.</em></td>
+</tr>
+<tr>
+<td>Instead, they suggested it would be a separate chapter listed in parallel with the ESR, as it applies to multiple stocks and informs the ESRs.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>The SSC would prefer not to make a risk table adjustment based on the difference from Tier 1 to Tier 3 again during the 2024 assessment cycle.</p>
+<ul>
+<li><em>This has been selected as an option by the SSC, the authors provide this as an option and anticipate that any reductions from the maximum perissible ABC be conducted based on the contents of the risk table</em></li>
+</ul>
+</li>
+<li>
+<p>The SSC requests that the next stock assessment bring back a new approach that may include development of a constant buffer based on factors extrinsic to the stock assessment (ecosystem function), or a better representation of the uncertainty in the Tier 1 and control rule calculations such that a reduction from maximum ABC is not needed every year.</p>
+<ul>
+<li><em>We developed an MSE to address options that relate to ecosystem function</em></li>
+</ul>
+</li>
+<li>
+<p>Use posterior distributions from the MCMC to determine probabilities in the risk table and expand the columns in the risk table to include the recommended ABC (and potentially higher values).</p>
+<ul>
+<li><em>response here</em></li>
+</ul>
+</li>
+<li>
+<p>Identify where MLE estimates are being used and where MCMC estimates are being used.</p>
+<ul>
+<li><em>Throughout the document we note how approximations to the posterior distribution is derived. We also include comparisons of the posterior error estimates from MCMC and from the mode and delta method</em></li>
+</ul>
+</li>
+<li>
+<p>Also see the SSC’s General Stock Assessment Comments to include convergence diagnostics any time Bayesian results are reported.</p>
+<ul>
+<li><em>We adopted the convention recommended in Monnahan et al. 2024.</em></li>
+</ul>
+</li>
+<li>
+<p>If MCMC diagnostics continue to appear adequate, reference points could be calculated using the posterior distribution used, rather than an analytical calculation.</p>
+<ul>
+<li><em>We have always presented the posterior marginal distributions of reference points as derived from MCMC.</em></li>
+</ul>
+</li>
+<li>
+<p>The SSC recommends that consideration be given to removal of the Japanese fishery CPUE index (1965-76) from the assessment, because this data set no longer seems to contribute to the assessment.</p>
+<ul>
+<li><em>We disagree but provide a run without the time series.</em></li>
+</ul>
+</li>
+<li>
+<p>A sensitivity test should be done to evaluate the effects of data removal on the assessment.</p>
+<ul>
+<li><em>We are unclear why this should be done and what diagnostics would indicate improvements; consistency among noisy data sets?</em></li>
+</ul>
+</li>
+<li>
+<p>Catch-at-age data provided by foreign fishing agencies in the pre-Magnuson era were not produced using the same aging criteria as the AFSC age-and-growth program. Consideration should be given to removal of these data from the assessment.</p>
+<ul>
+<li><em>Presently these data are given far less weight in terms of effective sample size. We note that the available data suggest smaller/younger fish comprised most of the removals and without other information, find it difficult to refute these data. They were used as the primary set since the development of the domestic fishery.</em></li>
+</ul>
+</li>
+<li>
+<p>Document the method used for determining the selectivity to use in the forward projections and continue to evaluate projection variability due to selectivity.</p>
+<ul>
+<li><em>We continue to show the impact of selectivity changes relative to Fmsy in a figure and historically have provided justifications for using a specific selectivity pattern. The choice has varied depending on observed trends in recruitment and fishing patterns.</em></li>
+</ul>
+</li>
+<li>
+<p>The SSC appreciates the selectivity retrospective comparison and suggests that it might be helpful to limit the comparison to the projection used in each year against only the most recent (best) estimate of selectivity for that year.</p>
+<ul>
+<li><em>This is what is shown in the figure. Will clarify.</em></li>
+</ul>
+</li>
+<li>
+<p>The SSC supports the use of posterior predictive distributions, an underutilized tool in fisheries science, but common in other fields. To fully implement this approach to Bayesian model checking the SSC recommends plotting a histogram for each data source of the percentile of the predictive distribution in which each data point lies, noting that in a highly consistent model this histogram would be uniform.</p>
+<ul>
+<li><em>Seems useful potentially, but would fail to show which years might have been outliers.</em></li>
+</ul>
+</li>
+<li>
+<p>There is an apparent shift towards older ages in fisheries and trawl survey selectivity that should be investigated further.</p>
+<ul>
+<li><em>Unclear over what period and how one might investigate further beyond reflecting a changing age structure of the population. If it can be shown to be spatially related, what then?</em></li>
+</ul>
+</li>
+<li>
+<p>The SSC agrees with the BSAI GPT’s proposal in their presentation to move the multi-species model out of the pollock stock assessment, where it has been included as an appendix since it was first developed.</p>
+<ul>
+<li><em>It has been a stand-alone document provided with the BSAI SAFE report for several years.</em></li>
+</ul>
+</li>
+<li>
+<p>Instead, they suggested it would be a separate chapter listed in parallel with the ESR, as it applies to multiple stocks and informs the ESRs.</p>
+<ul>
+<li><em>It has been summarised in the EBS ESR since 2021 (?)</em></li>
+</ul>
+</li>
+<li>
+<p>The SSC suggests revisiting the treatment of the stock-recruit relationship in the assessment model using recent improvements in modeling approaches and a longer time series that encompasses the recent warm period in the EBS.</p>
+<ul>
+<li><em>Unclear what improvements are being considered here.</em></li>
+</ul>
+</li>
+<li>
+<p>Recruitment deviates should be from the stock-recruit relationship and should model variability among annual recruitment estimates based on information in the data and residual variability.</p>
+<ul>
+<li><em>We disagree. We treat the SRR as being based on the available age-specific information and prefer to retain flexibility over the years that are used for conditioning. Nonetheless, we show model results where the curve is conditioned for the full model period.</em></li>
+</ul>
+</li>
+<li>
+<p>The estimation process should ensure that log-normally distributed recruitments are mean unbiased, resulting in unbiased biomass estimates.</p>
+<ul>
+<li><em>We note that our biomass estimates represent the geometric mean (and are unbiased).</em></li>
+</ul>
+</li>
+<li>
+<p>If an informative prior is used for steepness, it should be based on a meta-analysis of related species and reflect the uncertainty of that meta-analysis.</p>
+<ul>
+<li><em>Previous assessments have developed the rationale forming the basis of this prior. Here we introduce information from other stocks and show that our prior results in a risk-averse estimate that is consistent with expected responses near the origin (rather than noting declining recruitment at the highest spawning biomass levels).</em></li>
+</ul>
+</li>
+<li>
+<p>Further consideration of time periods (as in previous analyses) and the influence of temperature on the stock-recruit relationship may be helpful.</p>
+<ul>
+<li><em>response here</em></li>
+</ul>
+</li>
+<li>
+<p>The SSC recognizes that there were significant recent analyses in 2016, 2018 and 2020 and is not requesting a repeat of those but a review of previous work would be helpful.</p>
+<ul>
+<li><em>response here</em></li>
+</ul>
+</li>
+<li>
+<p>Continue efforts to estimate the proportion of the stock in Russian waters (acoustic mooring work to estimate movement) and to reach out to Russian colleagues to obtain catches in the relevant regions of the Russian EEZ (if possible).</p>
+<ul>
+<li><em>response here</em></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section level1">
+<h1 id="east-bering-sea-pollock-">East Bering Sea pollock <a class="anchor" aria-label="anchor" href="#east-bering-sea-pollock-"></a>
+</h1>
 <p>The R package <code>ebswp</code> was developed for doing stock assessments of eastern Bering Sea walleye pollock for the AFSC. The stock assessment model was coded using the Autodif Model Builder (<code>ADMB</code>) software.</p>
 <div class="section level2">
 <h2 id="cloning-the-repository-optional">Cloning the repository (optional)<a class="anchor" aria-label="anchor" href="#cloning-the-repository-optional"></a>
@@ -137,6 +341,20 @@
 <p>Developers will want to do things slightly differently. See the <code>Model development</code> vignette.</p>
 </div>
 </div>
+<div class="section level1">
+<h1 id="acronymns">Acronymns<a class="anchor" aria-label="anchor" href="#acronymns"></a>
+</h1>
+<p>NOAA: National Oceanic and Atmospheric Administration<br>
+NMFS: National Marine Fisheries Service<br>
+AFSC: Alaska Fisheries Science Center<br>
+REFM: Resource and Ecology and Fisheries Management</p>
+</div>
+<div class="section level1">
+<h1 id="legal-disclaimer">Legal disclaimer<a class="anchor" aria-label="anchor" href="#legal-disclaimer"></a>
+</h1>
+<p>This repository is a software product and is not official communication of the National Oceanic and Atmospheric Administration (NOAA), or the United States Department of Commerce (DOC). All NOAA GitHub project code is provided on an ‘as is’ basis and the user assumes responsibility for its use. Any claims against the DOC or DOC bureaus stemming from the use of this GitHub project will be governed by all applicable Federal law. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation, or favoring by the DOC. The DOC seal and logo, or the seal and logo of a DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by the DOC or the United States Government.</p>
+</div>
+
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
@@ -166,21 +384,19 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p>
-<p>Developed by Jim Ianelli.</p>
+  <p>Developed by Jim Ianelli.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
 </div>
 
     </footer>
 </div>
 
-  
 
-  
+
+
 
   </body>
 </html>

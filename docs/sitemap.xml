@@ -1,171 +1,68 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/404.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/articles/Assessment-planning.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/articles/Change_Model_Specs.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/articles/EBS_wp_OSA.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/articles/Intro.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/articles/Model-equations.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/authors.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/index.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_Nage_3_df.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_R_rel_df.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_ats_df.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_avo_df.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_bts_df.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_cope_df.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_cpue_df.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_like_df.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_mnage_df.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_recruitment_df.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_ser_df.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_srr_df.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_ssb_df.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_ssb_rel_df.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/dot-run_mod.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/get_results.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/get_tier3_res.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/get_vars.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/plot_Nage_3.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/plot_R_rel.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/plot_agefit.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/plot_ats.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/plot_avo.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/plot_bts.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/plot_cope.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/plot_cpue.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/plot_likes.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/plot_mnage.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/plot_recruitment.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/plot_sel.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/plot_ser.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/plot_srr.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/plot_ssb.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/plot_ssb_rel.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/read_admb.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/read_ctl.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/read_dat.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/read_fit.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/read_psv.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/read_rep.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/rescale_cov.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/run_model.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/tab_fit.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/tab_ref.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/upperCaseFirst.html</loc>
-  </url>
-  <url>
-    <loc>http://afsc-assessments.github.io/ebswp/reference/write_dat.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>http://afsc-assessments.github.io/ebswp/404.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/Age_Survey.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/articles/Assessment-planning.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/articles/Change_Model_Specs.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/articles/EBS_wp_OSA.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/articles/Intro.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/articles/Model-equations.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/articles/index.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/authors.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/ebswp.docx.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/ebswp.pdf.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/ebswp.typst.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/index.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_Nage_3_df.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_R_rel_df.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_ats_df.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_avo_df.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_bts_df.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_cope_df.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_cpue_df.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_like_df.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_mnage_df.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_recruitment_df.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_ser_df.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_srr_df.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_ssb_df.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-get_ssb_rel_df.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-run_mod.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-run_mod_windows.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-run_proj.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/dot-run_proj_windows.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/ebswp-package.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/get_results.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/get_tier3_res.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/get_vars.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/index.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/plot_Nage_3.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/plot_R_rel.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/plot_agefit.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/plot_ats.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/plot_avo.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/plot_bts.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/plot_cope.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/plot_cpue.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/plot_likes.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/plot_mnage.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/plot_recruitment.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/plot_sel.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/plot_ser.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/plot_srr.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/plot_ssb.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/plot_ssb_rel.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/read_admb.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/read_ctl.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/read_dat.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/read_fit.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/read_psv.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/read_rep.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/rescale_cov.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/run_model.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/run_proj.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/tab_fit.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/tab_ref.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/upperCaseFirst.html</loc></url>
+<url><loc>http://afsc-assessments.github.io/ebswp/reference/write_dat.html</loc></url>
 </urlset>
+

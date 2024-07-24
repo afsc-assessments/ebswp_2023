@@ -5,7 +5,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="ebswp">
 <title>Planning notes for the pollock assessment in the EBS • ebswp</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -14,56 +13,48 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Planning notes for the pollock assessment in the EBS">
-<meta property="og:description" content="ebswp">
-<meta property="og:image" content="http://afsc-assessments.github.io/ebswp/logo.png">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Planning notes for the pollock assessment in the EBS">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
-    
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
-    
+
+    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+
     <a class="navbar-brand me-2" href="../index.html">ebswp</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
 
-    
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item">
-  <a class="nav-link" href="../reference/index.html">Reference</a>
-</li>
+<li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="active nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/Assessment-planning.html">Planning notes for the pollock assessment in the EBS</a>
-    <a class="dropdown-item" href="../articles/Change_Model_Specs.html">Example on how to change and run a model</a>
-    <a class="dropdown-item" href="../articles/EBS_wp_OSA.html">Application of one-step ahead residuals to alternative EBS pollock model specifications</a>
-    <a class="dropdown-item" href="../articles/Intro.html">SAFE report front matter</a>
-    <a class="dropdown-item" href="../articles/Model-equations.html">EBS pollock model equations</a>
-  </div>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="../articles/Assessment-planning.html">Planning notes for the pollock assessment in the EBS</a></li>
+    <li><a class="dropdown-item" href="../articles/Change_Model_Specs.html">Example on how to change and run a model</a></li>
+    <li><a class="dropdown-item" href="../articles/EBS_wp_OSA.html">Application of one-step ahead residuals to alternative EBS pollock model specifications</a></li>
+    <li><a class="dropdown-item" href="../articles/Model-equations.html">EBS pollock model equations</a></li>
+    <li><a class="dropdown-item" href="../articles/test.pdf">Mixing Table Types (PDF)</a></li>
+  </ul>
 </li>
       </ul>
-<form class="form-inline my-2 my-lg-0" role="search">
-        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
-</form>
-
-      <ul class="navbar-nav"></ul>
+<ul class="navbar-nav">
+<li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
+</form></li>
+      </ul>
 </div>
 
-    
+
   </div>
 </nav><div class="container template-article">
 
@@ -75,7 +66,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>Planning notes for the pollock assessment in the EBS</h1>
             
       
-      
+
       <div class="d-none name"><code>Assessment-planning.Rmd</code></div>
     </div>
 
@@ -83,6 +74,187 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://afsc-assessments.github.io/EBSpollock/" class="external-link">ebswp</a></span><span class="op">)</span></span></code></pre></div>
+<div class="section level2">
+<h2 id="ebs-pollock-2024-assessment-analyses-planning">EBS pollock 2024 assessment analyses planning<a class="anchor" aria-label="anchor" href="#ebs-pollock-2024-assessment-analyses-planning"></a>
+</h2>
+<div class="section level3">
+<h3 id="from-the-2023-ssc-minutes">From the 2023 SSC minutes:<a class="anchor" aria-label="anchor" href="#from-the-2023-ssc-minutes"></a>
+</h3>
+<ul>
+<li>
+<p>The SSC would prefer not to make a risk table adjustment based on
+the difference from Tier 1 to Tier 3 again during the 2024 assessment
+cycle. The SSC requests that the next stock assessment bring back a new
+approach that may include development of a constant buffer based on
+factors extrinsic to the stock assessment (ecosystem function), or a
+better representation of the uncertainty in the Tier 1 and control rule
+calculations such that a reduction from maximum ABC is not needed every
+year.</p>
+<ul>
+<li><em>Will approach this with a discussion of alternative HCRs for
+pollock that consider ecosystem function. Re-examine what was done in
+2011, consider a proper alternative feedback approach, noting that the
+early work including climate change.</em></li>
+</ul>
+</li>
+<li>
+<p>Use posterior distributions from the MCMC to determine
+probabilities in the risk table and expand the columns in the risk table
+to include the recommended ABC (and potentially higher values).</p>
+<ul>
+<li><em>Just requires some code modifications to do the computations off
+of the posteriors</em></li>
+</ul>
+</li>
+<li>
+<p>Identify where MLE estimates are being used and where MCMC
+estimates are being used. Also see the SSC’s General Stock Assessment
+Comments to include convergence diagnostics any time Bayesian results
+are reported. If MCMC diagnostics continue to appear adequate, reference
+points could be calculated using the posterior distribution used, rather
+than an analytical calculation.</p>
+<ul>
+<li><em>MLE is used and asymptotic approximations are used everywhere
+for advice, MCMC has been used as a comparison only and to show
+inter-relationships. Just requires some code modifications to do the
+computations off of the posteriors</em></li>
+</ul>
+</li>
+<li>
+<p>The SSC recommends that consideration be given to removal of the
+Japanese fishery CPUE index (1965-76) from the assessment, because this
+data set no longer seems to contribute to the assessment. A sensitivity
+test should be done to evaluate the effects of data removal on the
+assessment.</p>
+<ul>
+<li><em>Will investigate. In 1964 data suggests all young small fish
+from the north, these data are handed down, issues about catching being
+not represenative of population, doesn’t impact much, makes it hard to
+get different assessment models running so may make sense to
+remove</em></li>
+</ul>
+</li>
+<li>
+<p>Catch-at-age data provided by foreign fishing agencies in the
+pre-Magnuson era were not produced using the same aging criteria as the
+AFSC age-and-growth program. Consideration should be given to removal of
+these data from the assessment. A sensitivity test should be done to
+evaluate the effects of data removal on the assessment.</p>
+<ul>
+<li><em>Will investigate, age-determination methods from historical
+records and/or Russian scientists.</em></li>
+</ul>
+</li>
+<li>
+<p>Document the method used for determining the selectivity to use
+in the forward projections and continue to evaluate projection
+variability due to selectivity. The SSC appreciates the selectivity
+retrospective comparison and suggests that it might be helpful to limit
+the comparison to the projection used in each year against only the most
+recent (best) estimate of selectivity for that year.</p>
+<ul>
+<li><em>Better document selectivity assumptions for projections. Look at
+Cole’s approach for plotting out performance. Consider historical
+uncertainty and variability.</em></li>
+</ul>
+</li>
+<li>
+<p>The SSC supports the use of posterior predictive distributions,
+an underutilized tool in fisheries science, but common in other fields.
+To fully implement this approach to Bayesian model checking the SSC
+recommends plotting a histogram for each data source of the percentile
+of the predictive distribution in which each data point lies, noting
+that in a highly consistent model this histogram would be uniform.</p>
+<ul>
+<li><em>This conclusion might be incorrect. Likely to write that this
+will evolve into better approaches to include in the future</em></li>
+</ul>
+</li>
+<li>
+<p>There is an apparent shift towards older ages in fisheries and
+trawl survey selectivity that should be investigated further.</p>
+<ul>
+<li><em>Will investigate, focused around changes in
+availabilty.</em></li>
+</ul>
+</li>
+<li>
+<p>The SSC agrees with the BSAI GPT’s proposal in their presentation
+to move the multi-species model out of the pollock stock assessment,
+where it has been included as an appendix since it was first developed.
+Instead, they suggested it would be a separate chapter listed in
+parallel with the ESR, as it applies to multiple stocks and informs the
+ESRs.</p>
+<ul>
+<li><em>Technically it’s presented as part of the BSAI assessment. Agree
+that it should be highlighted on its own.</em></li>
+</ul>
+</li>
+<li>
+<p>The SSC suggests revisiting the treatment of the stock-recruit
+relationship in the assessment model using recent improvements in
+modeling approaches and a longer time series that encompasses the recent
+warm period in the EBS. Recruitment deviates should be from the
+stock-recruit relationship and should model variability among annual
+recruitment estimates based on information in the data and residual
+variability. The estimation process should ensure that log-normally
+distributed recruitments are mean unbiased, resulting in unbiased
+biomass estimates. If an informative prior is used for steepness, it
+should be based on a meta-analysis of related species and reflect the
+uncertainty of that meta-analysis. Further consideration of time periods
+(as in previous analyses) and the influence of temperature on the
+stock-recruit relationship may be helpful. The SSC recognizes that there
+were significant recent analyses in 2016, 2018 and 2020 and is not
+requesting a repeat of those but a review of previous work would be
+helpful.</p>
+<ul>
+<li><em>Will include a review and a re-parameterization of numbers at
+age 1 being from the SRR. We will take this in steps, and unclear about
+“recent warm periods”. </em></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="russian-impact-zone">Russian impact zone<a class="anchor" aria-label="anchor" href="#russian-impact-zone"></a>
+</h3>
+<p>Will include review of the publication and the plan for evaluating
+scenarios of alternative fishing mortality in the Russian zone</p>
+</div>
+<div class="section level3">
+<h3 id="ecosystem-function-idea">Ecosystem function idea<a class="anchor" aria-label="anchor" href="#ecosystem-function-idea"></a>
+</h3>
+<p>thinking on arguments for a EBS pollock “maintain ecosystem function”
+catch-advice rule as requested by the SSC. I think I mentioned something
+about management that provides a forage base (say of 1-3 yr old pollock)
+and avoids low levels. Carey and I chatted earlier (added her to this
+group) and realize that the estimates of these groups are relatively
+unreliable (i.e., 1-3 yr olds for next year are typically poorly
+estimated).</p>
+<p>Within the FMP we’re talking about justification for catch advice
+below the maximum permissible. So what about the following
+semi-empirical approach:</p>
+<ul>
+<li><p>What if catch advice is adjusted up and down relative the
+historical mean biomass? I.e., if the catch in the current year is say
+1.2 million t, and the SSB next year is 30% above the mean, then with a
+regulator to dampen change, next year’s recommendation would be 1.2 *
+(1.3)^0.5 =1.368 million t.</p></li>
+<li><p>Similarly, if the SSB next year was only 75% of the mean value,
+the recommendation would be 1.2 * (0.75)^0.5 =1.039 million t.</p></li>
+<li><p>If the SSB stayed at 75% of the mean, then the following year
+would be 1.039 * (.75)^0.5 = 0.8998 million t.</p></li>
+</ul>
+<p>The rationale proposed is that the detrimental effects of fishing on
+the ecosystem appear to be mainly sustainable.</p>
+<p>Are there assignable issues from fishing affected the ecosystem
+function that we’ve measured with any degree of confidence?</p>
+<p>If there hadn’t been any pollock fishing ever, would we be able to
+note that the ecosystem would be in a better state? Tuning the
+adjustments based on historical catches and ecosystem outcomes would
+generally be deemed “acceptable”</p>
+</div>
+</div>
 <div class="section level2">
 <h2 id="ebs-2023-assessment-analyses-planning">EBS 2023 assessment analyses planning<a class="anchor" aria-label="anchor" href="#ebs-2023-assessment-analyses-planning"></a>
 </h2>
@@ -103,10 +275,13 @@ economic considerations in the harvest control rules.</p>
 <ul>
 <li><em>For the 2023 assessment we examine the variability of the
 biological reference points historically and note that there is general
-stability in the <span class="math inline">\(B_{MSY}\)</span> estimates.
-The Tier 1 ABC/OFL cthealculations can result in highly variable
-estimates as the stock approaches <span class="math inline">\(B_{MSY}\)</span> and drops below that value (as
-happend in the 2009-2010 period).</em></li>
+stability in the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub><annotation encoding="application/x-tex">B_{MSY}</annotation></semantics></math>
+estimates. The Tier 1 ABC/OFL cthealculations can result in highly
+variable estimates as the stock approaches
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mrow><mi>M</mi><mi>S</mi><mi>Y</mi></mrow></msub><annotation encoding="application/x-tex">B_{MSY}</annotation></semantics></math>
+and drops below that value (as happend in the 2009-2010
+period).</em></li>
 </ul>
 <p>The SSC had the following additional recommendations for the
 authors:</p>
@@ -275,28 +450,26 @@ mortality.</p></li>
 </ul>
 </div>
 </div>
-  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
 
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p>
-<p>Developed by Jim Ianelli.</p>
+  <p>Developed by Jim Ianelli.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
 </div>
 
     </footer>
 </div>
 
-  
 
-  
+
+
 
   </body>
 </html>
