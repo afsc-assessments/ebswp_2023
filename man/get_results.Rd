@@ -4,7 +4,12 @@
 \alias{get_results}
 \title{Fetch Model Results in Parallel}
 \usage{
-get_results(mod_names. = mod_names, rundir = "runs", moddir = mod_dir)
+get_results(
+  mod_names. = mod_names,
+  rundir = "runs",
+  moddir = mod_dir,
+  run_on_mac = TRUE
+)
 }
 \arguments{
 \item{mod_names.}{A character vector of model names. Default is 'mod_names'.}
