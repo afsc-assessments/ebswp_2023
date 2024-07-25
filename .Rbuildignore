@@ -7,3 +7,4 @@ src\pm.cpp
 ^docs$
 ^pkgdown$
 ^\.github$
+^src$

@@ -2,9 +2,9 @@ EXEC = pm
 PROJ = spm
 	PROJDIST = ~/_mymods/afsc-assessments/spmR/src/
 ifeq ($(SAFE),TRUE)
-	DIST = ../../source/
+	DIST = ../../src/
 else
-	DIST = ../../source/
+	DIST = ../../src/
 endif
 ARGS = -nox -iprint 150 
 ARGS2 = -nox -iprint 150 -binp pm.bar -phase 22 -sdonly

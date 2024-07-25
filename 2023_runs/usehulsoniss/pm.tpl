@@ -1,1 +1,1 @@
-../../source/pm.tpl
+../../src/pm.tpl
