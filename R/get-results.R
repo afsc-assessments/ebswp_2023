@@ -26,12 +26,7 @@ get_results <- function(mod_names.=mod_names, rundir="runs",moddir=mod_dir,run_o
   system.time(modlst <- parallel::parLapply(cl=cl, X=fn, fun=read_admb))
   names(modlst) <- mod_names.
 
-  # Additional processing for each model result
-  for (i in 1:nmods) {
-    # Note this assumes fn has "pm" at the end...
-    proj_file <- paste0(substr(fn[i], start=1, stop=nchar(fn[i])-2), "proj/spm_detail.csv")
-    modlst[[i]] <- c(modlst[[i]], get_vars(modlst[[i]],proj_file=proj_file))
-  }
+
 
   return(modlst)
 }

@@ -32,7 +32,7 @@
         mdf     <- rbind(mdf, df)
 
         # NOTE excluded the last year as downweighted (non-existent for sail drone data)
-				atsyrs=c(1:16,18)
+				atsyrs=c(1:16,18:length(A$EffN_ats[,1]))
         df <- data.frame(year = A$EffN_ats[atsyrs,1])
         df$Model <- names(M)[i]
         df$type <- "Acoustic trawl survey"

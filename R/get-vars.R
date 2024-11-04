@@ -17,6 +17,7 @@
 #' model_result <- list(...) # Example model result here
 #' metrics <- get_vars(model_result)
 #' }
+#' @export
 get_vars <- function(M, proj_file = NULL) {
   # ... [rest of your function code here]
   B <- list()

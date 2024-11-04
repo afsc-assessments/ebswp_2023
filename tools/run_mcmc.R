@@ -27,6 +27,7 @@ get.inits <- function(fit, chains){
 d<- 'mcmc'
 m <- 'pm' # the model name, folder is also assumed to be called this runs/base/mcmc
 ## First optimize the model to make sure the Hessian is good.
+getwd();
 setwd(d);
 setwd(d);
 system('pm -nox -mcmc 15 -hbf 1 -binp pm.bar -phase 50');
