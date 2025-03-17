@@ -1,5 +1,3 @@
-# R/model_settings.R
-
 #' Model Settings List
 #'
 #' A named list containing parameters and settings that control the behavior of a model.
