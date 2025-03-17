@@ -97,6 +97,7 @@
 #'       \item{29}{Omit recent years from stock-recruitment estimation.}
 #'       \item{30}{SRR Prior only (0 = use prior and data, otherwise weight on prior).}
 #'     }
+#'     }
 #'   \item{sel_dev_shift}{Selectivity block shift.}
 #'   \item{phase_coheff}{Phase for cohort effect.}
 #'   \item{phase_yreff}{Phase for year effect.}
